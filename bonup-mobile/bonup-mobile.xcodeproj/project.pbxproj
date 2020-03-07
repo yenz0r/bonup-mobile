@@ -16,6 +16,11 @@
 		B948A1F1241444B4001287B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B948A1EF241444B4001287B8 /* LaunchScreen.storyboard */; };
 		B948A1FC241444B4001287B8 /* bonup_mobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A1FB241444B4001287B8 /* bonup_mobileTests.swift */; };
 		B948A207241444B4001287B8 /* bonup_mobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A206241444B4001287B8 /* bonup_mobileUITests.swift */; };
+		B948A21D24144896001287B8 /* FREE-DEBUG.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B948A21C24144896001287B8 /* FREE-DEBUG.xcconfig */; };
+		B948A21F241448A6001287B8 /* PAID-DEBUG.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B948A21E241448A6001287B8 /* PAID-DEBUG.xcconfig */; };
+		B948A22124144965001287B8 /* FREE-RELEASE.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B948A22024144965001287B8 /* FREE-RELEASE.xcconfig */; };
+		B948A22324144A1C001287B8 /* PAID-RELEASE.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B948A22224144A1C001287B8 /* PAID-RELEASE.xcconfig */; };
+		B948A22624144BFA001287B8 /* AppDelegate+Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A22524144BFA001287B8 /* AppDelegate+Configurations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,11 @@
 		B948A202241444B4001287B8 /* bonup-mobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bonup-mobileUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B948A206241444B4001287B8 /* bonup_mobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bonup_mobileUITests.swift; sourceTree = "<group>"; };
 		B948A208241444B4001287B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B948A21C24144896001287B8 /* FREE-DEBUG.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "FREE-DEBUG.xcconfig"; sourceTree = "<group>"; };
+		B948A21E241448A6001287B8 /* PAID-DEBUG.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "PAID-DEBUG.xcconfig"; sourceTree = "<group>"; };
+		B948A22024144965001287B8 /* FREE-RELEASE.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "FREE-RELEASE.xcconfig"; sourceTree = "<group>"; };
+		B948A22224144A1C001287B8 /* PAID-RELEASE.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "PAID-RELEASE.xcconfig"; sourceTree = "<group>"; };
+		B948A22524144BFA001287B8 /* AppDelegate+Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Configurations.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +119,7 @@
 				B948A1EF241444B4001287B8 /* LaunchScreen.storyboard */,
 				B948A1F2241444B4001287B8 /* Info.plist */,
 				B948A1EA241444B2001287B8 /* bonup_mobile.xcdatamodeld */,
+				B948A22424144A26001287B8 /* Configurations */,
 			);
 			path = "bonup-mobile";
 			sourceTree = "<group>";
@@ -129,6 +140,18 @@
 				B948A208241444B4001287B8 /* Info.plist */,
 			);
 			path = "bonup-mobileUITests";
+			sourceTree = "<group>";
+		};
+		B948A22424144A26001287B8 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				B948A21C24144896001287B8 /* FREE-DEBUG.xcconfig */,
+				B948A21E241448A6001287B8 /* PAID-DEBUG.xcconfig */,
+				B948A22024144965001287B8 /* FREE-RELEASE.xcconfig */,
+				B948A22224144A1C001287B8 /* PAID-RELEASE.xcconfig */,
+				B948A22524144BFA001287B8 /* AppDelegate+Configurations.swift */,
+			);
+			path = Configurations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,8 +259,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B948A1F1241444B4001287B8 /* LaunchScreen.storyboard in Resources */,
+				B948A22324144A1C001287B8 /* PAID-RELEASE.xcconfig in Resources */,
 				B948A1EE241444B4001287B8 /* Assets.xcassets in Resources */,
+				B948A21D24144896001287B8 /* FREE-DEBUG.xcconfig in Resources */,
 				B948A1E9241444B2001287B8 /* Main.storyboard in Resources */,
+				B948A22124144965001287B8 /* FREE-RELEASE.xcconfig in Resources */,
+				B948A21F241448A6001287B8 /* PAID-DEBUG.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +293,7 @@
 				B948A1E6241444B2001287B8 /* ViewController.swift in Sources */,
 				B948A1E2241444B2001287B8 /* AppDelegate.swift in Sources */,
 				B948A1E4241444B2001287B8 /* SceneDelegate.swift in Sources */,
+				B948A22624144BFA001287B8 /* AppDelegate+Configurations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,8 +348,9 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B948A209241444B4001287B8 /* Debug */ = {
+		B948A209241444B4001287B8 /* Debug PAID */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B948A21E241448A6001287B8 /* PAID-DEBUG.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -370,7 +399,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -378,10 +407,11 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = "Debug PAID";
 		};
-		B948A20A241444B4001287B8 /* Release */ = {
+		B948A20A241444B4001287B8 /* Release PAID */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B948A22224144A1C001287B8 /* PAID-RELEASE.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -424,7 +454,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -432,45 +462,49 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = "Release PAID";
 		};
-		B948A20C241444B4001287B8 /* Debug */ = {
+		B948A20C241444B4001287B8 /* Debug PAID */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
 				INFOPLIST_FILE = "bonup-mobile/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "bonup.bonup-mobile";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				OTHER_SWIFT_FLAGS = "-DDEBUG_PAID";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_NAME = "$(APP_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Debug;
+			name = "Debug PAID";
 		};
-		B948A20D241444B4001287B8 /* Release */ = {
+		B948A20D241444B4001287B8 /* Release PAID */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
 				INFOPLIST_FILE = "bonup-mobile/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "bonup.bonup-mobile";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				OTHER_SWIFT_FLAGS = "-DRELEASE_PAID";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_NAME = "$(APP_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Release;
+			name = "Release PAID";
 		};
-		B948A20F241444B4001287B8 /* Debug */ = {
+		B948A20F241444B4001287B8 /* Debug PAID */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -490,9 +524,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bonup-mobile.app/bonup-mobile";
 			};
-			name = Debug;
+			name = "Debug PAID";
 		};
-		B948A210241444B4001287B8 /* Release */ = {
+		B948A210241444B4001287B8 /* Release PAID */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -512,9 +546,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bonup-mobile.app/bonup-mobile";
 			};
-			name = Release;
+			name = "Release PAID";
 		};
-		B948A212241444B4001287B8 /* Debug */ = {
+		B948A212241444B4001287B8 /* Debug PAID */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -532,9 +566,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "bonup-mobile";
 			};
-			name = Debug;
+			name = "Debug PAID";
 		};
-		B948A213241444B4001287B8 /* Release */ = {
+		B948A213241444B4001287B8 /* Release PAID */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -552,7 +586,247 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "bonup-mobile";
 			};
-			name = Release;
+			name = "Release PAID";
+		};
+		B948A2142414481F001287B8 /* Debug FREE */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B948A21C24144896001287B8 /* FREE-DEBUG.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = "Debug FREE";
+		};
+		B948A2152414481F001287B8 /* Debug FREE */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F69M5SBR3W;
+				INFOPLIST_FILE = "bonup-mobile/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "-DDEBUG_FREE";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_NAME = "$(APP_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = "Debug FREE";
+		};
+		B948A2162414481F001287B8 /* Debug FREE */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F69M5SBR3W;
+				INFOPLIST_FILE = "bonup-mobileTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "bonup.bonup-mobileTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bonup-mobile.app/bonup-mobile";
+			};
+			name = "Debug FREE";
+		};
+		B948A2172414481F001287B8 /* Debug FREE */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F69M5SBR3W;
+				INFOPLIST_FILE = "bonup-mobileUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "bonup.bonup-mobileUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "bonup-mobile";
+			};
+			name = "Debug FREE";
+		};
+		B948A21824144827001287B8 /* Release FREE */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B948A22024144965001287B8 /* FREE-RELEASE.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release FREE";
+		};
+		B948A21924144827001287B8 /* Release FREE */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F69M5SBR3W;
+				INFOPLIST_FILE = "bonup-mobile/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "-DRELEASE_FREE";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_NAME = "$(APP_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = "Release FREE";
+		};
+		B948A21A24144827001287B8 /* Release FREE */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F69M5SBR3W;
+				INFOPLIST_FILE = "bonup-mobileTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "bonup.bonup-mobileTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bonup-mobile.app/bonup-mobile";
+			};
+			name = "Release FREE";
+		};
+		B948A21B24144827001287B8 /* Release FREE */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F69M5SBR3W;
+				INFOPLIST_FILE = "bonup-mobileUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "bonup.bonup-mobileUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "bonup-mobile";
+			};
+			name = "Release FREE";
 		};
 /* End XCBuildConfiguration section */
 
@@ -560,38 +834,46 @@
 		B948A1D9241444B2001287B8 /* Build configuration list for PBXProject "bonup-mobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B948A209241444B4001287B8 /* Debug */,
-				B948A20A241444B4001287B8 /* Release */,
+				B948A209241444B4001287B8 /* Debug PAID */,
+				B948A2142414481F001287B8 /* Debug FREE */,
+				B948A20A241444B4001287B8 /* Release PAID */,
+				B948A21824144827001287B8 /* Release FREE */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Release PAID";
 		};
 		B948A20B241444B4001287B8 /* Build configuration list for PBXNativeTarget "bonup-mobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B948A20C241444B4001287B8 /* Debug */,
-				B948A20D241444B4001287B8 /* Release */,
+				B948A20C241444B4001287B8 /* Debug PAID */,
+				B948A2152414481F001287B8 /* Debug FREE */,
+				B948A20D241444B4001287B8 /* Release PAID */,
+				B948A21924144827001287B8 /* Release FREE */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Release PAID";
 		};
 		B948A20E241444B4001287B8 /* Build configuration list for PBXNativeTarget "bonup-mobileTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B948A20F241444B4001287B8 /* Debug */,
-				B948A210241444B4001287B8 /* Release */,
+				B948A20F241444B4001287B8 /* Debug PAID */,
+				B948A2162414481F001287B8 /* Debug FREE */,
+				B948A210241444B4001287B8 /* Release PAID */,
+				B948A21A24144827001287B8 /* Release FREE */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Release PAID";
 		};
 		B948A211241444B4001287B8 /* Build configuration list for PBXNativeTarget "bonup-mobileUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B948A212241444B4001287B8 /* Debug */,
-				B948A213241444B4001287B8 /* Release */,
+				B948A212241444B4001287B8 /* Debug PAID */,
+				B948A2172414481F001287B8 /* Debug FREE */,
+				B948A213241444B4001287B8 /* Release PAID */,
+				B948A21B24144827001287B8 /* Release FREE */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Release PAID";
 		};
 /* End XCConfigurationList section */
 

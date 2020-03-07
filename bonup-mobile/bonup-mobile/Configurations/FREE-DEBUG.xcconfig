@@ -1,0 +1,13 @@
+//
+//  FREE.xcconfig
+//  bonup-mobile
+//
+//  Created by yenz0redd on 08.03.2020.
+//  Copyright © 2020 Bonup. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+APP_NAME = Bonup-Debug [FREE]
+APP_BUNDLE_ID = com.bonup.debug.free
