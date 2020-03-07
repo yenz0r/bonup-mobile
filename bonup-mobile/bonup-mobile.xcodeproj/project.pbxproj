@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		69426A2D514E2C0E5C6CC4D4 /* libPods-bonup-mobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF8F82BDFBBB79871EABAFCD /* libPods-bonup-mobileTests.a */; };
 		B948A1E2241444B2001287B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A1E1241444B2001287B8 /* AppDelegate.swift */; };
-		B948A1E4241444B2001287B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A1E3241444B2001287B8 /* SceneDelegate.swift */; };
 		B948A1E6241444B2001287B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A1E5241444B2001287B8 /* ViewController.swift */; };
 		B948A1E9241444B2001287B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B948A1E7241444B2001287B8 /* Main.storyboard */; };
 		B948A1EC241444B2001287B8 /* bonup_mobile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B948A1EA241444B2001287B8 /* bonup_mobile.xcdatamodeld */; };
@@ -52,9 +51,8 @@
 		38B583A7A6798BF4C72C0ACE /* Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig"; sourceTree = "<group>"; };
 		47066CD3D88DB7FA02E75DB4 /* Pods-bonup-mobile.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile.debug paid.xcconfig"; sourceTree = "<group>"; };
 		9C90DC1F094518F324F6B139 /* Pods-bonup-mobile.release free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile.release free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile.release free.xcconfig"; sourceTree = "<group>"; };
-		B948A1DE241444B2001287B8 /* bonup-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "bonup-mobile.app"; path = "Bonup-Debug [PAID].app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B948A1DE241444B2001287B8 /* Bonup-Debug [PAID].app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bonup-Debug [PAID].app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B948A1E1241444B2001287B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B948A1E3241444B2001287B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B948A1E5241444B2001287B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B948A1E8241444B2001287B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B948A1EB241444B2001287B8 /* bonup_mobile.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bonup_mobile.xcdatamodel; sourceTree = "<group>"; };
@@ -153,7 +151,7 @@
 		B948A1DF241444B2001287B8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B948A1DE241444B2001287B8 /* bonup-mobile.app */,
+				B948A1DE241444B2001287B8 /* Bonup-Debug [PAID].app */,
 				B948A1F7241444B4001287B8 /* bonup-mobileTests.xctest */,
 				B948A202241444B4001287B8 /* bonup-mobileUITests.xctest */,
 			);
@@ -164,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				B948A1E1241444B2001287B8 /* AppDelegate.swift */,
-				B948A1E3241444B2001287B8 /* SceneDelegate.swift */,
 				B948A1E5241444B2001287B8 /* ViewController.swift */,
 				B948A1E7241444B2001287B8 /* Main.storyboard */,
 				B948A1ED241444B4001287B8 /* Assets.xcassets */,
@@ -224,7 +221,7 @@
 			);
 			name = "bonup-mobile";
 			productName = "bonup-mobile";
-			productReference = B948A1DE241444B2001287B8 /* bonup-mobile.app */;
+			productReference = B948A1DE241444B2001287B8 /* Bonup-Debug [PAID].app */;
 			productType = "com.apple.product-type.application";
 		};
 		B948A1F6241444B4001287B8 /* bonup-mobileTests */ = {
@@ -416,7 +413,6 @@
 				B948A1EC241444B2001287B8 /* bonup_mobile.xcdatamodeld in Sources */,
 				B948A1E6241444B2001287B8 /* ViewController.swift in Sources */,
 				B948A1E2241444B2001287B8 /* AppDelegate.swift in Sources */,
-				B948A1E4241444B2001287B8 /* SceneDelegate.swift in Sources */,
 				B948A22624144BFA001287B8 /* AppDelegate+Configurations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,7 +519,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -578,7 +574,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -596,7 +592,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
 				INFOPLIST_FILE = "bonup-mobile/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -617,7 +613,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
 				INFOPLIST_FILE = "bonup-mobile/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -769,7 +765,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -787,7 +783,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
 				INFOPLIST_FILE = "bonup-mobile/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -889,7 +885,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -907,7 +903,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
 				INFOPLIST_FILE = "bonup-mobile/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
