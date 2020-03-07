@@ -1,0 +1,22 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'bonup-mobile' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  #use_frameworks!
+
+  # Pods for bonup-mobile
+
+  pod 'SnapKit'
+  pod 'Moya', '~> 14.0'
+
+  target 'bonup-mobileTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'bonup-mobileUITests' do
+    # Pods for testing
+  end
+
+end

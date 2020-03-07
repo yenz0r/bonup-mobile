@@ -10,7 +10,6 @@
 		69426A2D514E2C0E5C6CC4D4 /* libPods-bonup-mobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF8F82BDFBBB79871EABAFCD /* libPods-bonup-mobileTests.a */; };
 		B948A1E2241444B2001287B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A1E1241444B2001287B8 /* AppDelegate.swift */; };
 		B948A1E6241444B2001287B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A1E5241444B2001287B8 /* ViewController.swift */; };
-		B948A1E9241444B2001287B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B948A1E7241444B2001287B8 /* Main.storyboard */; };
 		B948A1EC241444B2001287B8 /* bonup_mobile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B948A1EA241444B2001287B8 /* bonup_mobile.xcdatamodeld */; };
 		B948A1EE241444B4001287B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B948A1ED241444B4001287B8 /* Assets.xcassets */; };
 		B948A1F1241444B4001287B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B948A1EF241444B4001287B8 /* LaunchScreen.storyboard */; };
@@ -21,6 +20,8 @@
 		B948A22124144965001287B8 /* FREE-RELEASE.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B948A22024144965001287B8 /* FREE-RELEASE.xcconfig */; };
 		B948A22324144A1C001287B8 /* PAID-RELEASE.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B948A22224144A1C001287B8 /* PAID-RELEASE.xcconfig */; };
 		B948A22624144BFA001287B8 /* AppDelegate+Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A22524144BFA001287B8 /* AppDelegate+Configurations.swift */; };
+		B948A22B2414556B001287B8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B948A22D2414556B001287B8 /* Localizable.strings */; };
+		B948A230241455A3001287B8 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A22F241455A3001287B8 /* Localization.swift */; };
 		D2EB55DA4DDF0C1583C2C693 /* libPods-bonup-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BA6F1BF6EDE172F625DF6B /* libPods-bonup-mobile.a */; };
 		E0960B27F8B9AA152B575E9A /* libPods-bonup-mobile-bonup-mobileUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B58CCD6B65C999103F43A0F /* libPods-bonup-mobile-bonup-mobileUITests.a */; };
 /* End PBXBuildFile section */
@@ -54,7 +55,6 @@
 		B948A1DE241444B2001287B8 /* Bonup-Debug [PAID].app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bonup-Debug [PAID].app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B948A1E1241444B2001287B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B948A1E5241444B2001287B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B948A1E8241444B2001287B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B948A1EB241444B2001287B8 /* bonup_mobile.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bonup_mobile.xcdatamodel; sourceTree = "<group>"; };
 		B948A1ED241444B4001287B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B948A1F0241444B4001287B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -70,6 +70,10 @@
 		B948A22024144965001287B8 /* FREE-RELEASE.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "FREE-RELEASE.xcconfig"; sourceTree = "<group>"; };
 		B948A22224144A1C001287B8 /* PAID-RELEASE.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "PAID-RELEASE.xcconfig"; sourceTree = "<group>"; };
 		B948A22524144BFA001287B8 /* AppDelegate+Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Configurations.swift"; sourceTree = "<group>"; };
+		B948A22A2414554E001287B8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		B948A22C2414556B001287B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B948A22E24145570001287B8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B948A22F241455A3001287B8 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		BD40FA456CD80A6213B58846 /* Pods-bonup-mobile-bonup-mobileUITests.release paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.release paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.release paid.xcconfig"; sourceTree = "<group>"; };
 		C1D6A0AE1129FDBE0425FE81 /* Pods-bonup-mobileTests.release paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobileTests.release paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobileTests/Pods-bonup-mobileTests.release paid.xcconfig"; sourceTree = "<group>"; };
 		C50A72780076541723B7E31D /* Pods-bonup-mobileTests.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobileTests.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobileTests/Pods-bonup-mobileTests.debug paid.xcconfig"; sourceTree = "<group>"; };
@@ -161,14 +165,13 @@
 		B948A1E0241444B2001287B8 /* bonup-mobile */ = {
 			isa = PBXGroup;
 			children = (
-				B948A1E1241444B2001287B8 /* AppDelegate.swift */,
+				B948A227241453A2001287B8 /* Application */,
 				B948A1E5241444B2001287B8 /* ViewController.swift */,
-				B948A1E7241444B2001287B8 /* Main.storyboard */,
+				B948A232241455B7001287B8 /* Extensions */,
 				B948A1ED241444B4001287B8 /* Assets.xcassets */,
 				B948A1EF241444B4001287B8 /* LaunchScreen.storyboard */,
 				B948A1F2241444B4001287B8 /* Info.plist */,
 				B948A1EA241444B2001287B8 /* bonup_mobile.xcdatamodeld */,
-				B948A22424144A26001287B8 /* Configurations */,
 			);
 			path = "bonup-mobile";
 			sourceTree = "<group>";
@@ -201,6 +204,32 @@
 				B948A22524144BFA001287B8 /* AppDelegate+Configurations.swift */,
 			);
 			path = Configurations;
+			sourceTree = "<group>";
+		};
+		B948A227241453A2001287B8 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B948A1E1241444B2001287B8 /* AppDelegate.swift */,
+				B948A22424144A26001287B8 /* Configurations */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		B948A231241455AD001287B8 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				B948A22F241455A3001287B8 /* Localization.swift */,
+				B948A22D2414556B001287B8 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		B948A232241455B7001287B8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B948A231241455AD001287B8 /* Localization */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +321,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = B948A1D5241444B2001287B8;
 			productRefGroup = B948A1DF241444B2001287B8 /* Products */;
@@ -313,8 +343,8 @@
 				B948A1F1241444B4001287B8 /* LaunchScreen.storyboard in Resources */,
 				B948A22324144A1C001287B8 /* PAID-RELEASE.xcconfig in Resources */,
 				B948A1EE241444B4001287B8 /* Assets.xcassets in Resources */,
+				B948A22B2414556B001287B8 /* Localizable.strings in Resources */,
 				B948A21D24144896001287B8 /* FREE-DEBUG.xcconfig in Resources */,
-				B948A1E9241444B2001287B8 /* Main.storyboard in Resources */,
 				B948A22124144965001287B8 /* FREE-RELEASE.xcconfig in Resources */,
 				B948A21F241448A6001287B8 /* PAID-DEBUG.xcconfig in Resources */,
 			);
@@ -411,6 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B948A1EC241444B2001287B8 /* bonup_mobile.xcdatamodeld in Sources */,
+				B948A230241455A3001287B8 /* Localization.swift in Sources */,
 				B948A1E6241444B2001287B8 /* ViewController.swift in Sources */,
 				B948A1E2241444B2001287B8 /* AppDelegate.swift in Sources */,
 				B948A22624144BFA001287B8 /* AppDelegate+Configurations.swift in Sources */,
@@ -449,20 +480,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B948A1E7241444B2001287B8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B948A1E8241444B2001287B8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B948A1EF241444B4001287B8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B948A1F0241444B4001287B8 /* Base */,
+				B948A22A2414554E001287B8 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		B948A22D2414556B001287B8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B948A22C2414556B001287B8 /* en */,
+				B948A22E24145570001287B8 /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -473,6 +506,7 @@
 			baseConfigurationReference = B948A21E241448A6001287B8 /* PAID-DEBUG.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -534,6 +568,7 @@
 			baseConfigurationReference = B948A22224144A1C001287B8 /* PAID-RELEASE.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -719,6 +754,7 @@
 			baseConfigurationReference = B948A21C24144896001287B8 /* FREE-DEBUG.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -845,6 +881,7 @@
 			baseConfigurationReference = B948A22024144965001287B8 /* FREE-RELEASE.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
