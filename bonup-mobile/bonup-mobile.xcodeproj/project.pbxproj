@@ -7,23 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		69426A2D514E2C0E5C6CC4D4 /* libPods-bonup-mobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF8F82BDFBBB79871EABAFCD /* libPods-bonup-mobileTests.a */; };
+		4DCA0086033970A25AF3BCF9 /* libPods-bonup-mobile-bonup-mobileUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBFCCED11CA0629242894D1 /* libPods-bonup-mobile-bonup-mobileUITests.a */; };
+		65CD294FCEF2D37A9D7A6C0B /* libPods-bonup-mobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06EF65132F5DE61D8CB6A5D5 /* libPods-bonup-mobileTests.a */; };
+		B9259BA0241CE267009585B7 /* UIColor+Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9259B9F241CE267009585B7 /* UIColor+Facade.swift */; };
+		B932365B241D743300A37634 /* NewPasswordDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B932365A241D743300A37634 /* NewPasswordDependency.swift */; };
+		B935A590241D5B090074E89E /* ResetPasswordDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B935A58F241D5B090074E89E /* ResetPasswordDependency.swift */; };
+		B935A592241D6A6A0074E89E /* NewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B935A591241D6A6A0074E89E /* NewPasswordView.swift */; };
+		B935A594241D6A720074E89E /* NewPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B935A593241D6A720074E89E /* NewPasswordPresenter.swift */; };
+		B935A596241D6A7A0074E89E /* NewPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B935A595241D6A7A0074E89E /* NewPasswordInteractor.swift */; };
+		B935A598241D6A820074E89E /* NewPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B935A597241D6A820074E89E /* NewPasswordRouter.swift */; };
+		B935A59A241D6A8A0074E89E /* NewPasswordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B935A599241D6A8A0074E89E /* NewPasswordBuilder.swift */; };
+		B935A59D241D6F2E0074E89E /* UIButton+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B935A59C241D6F2D0074E89E /* UIButton+Factory.swift */; };
 		B948A1E2241444B2001287B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A1E1241444B2001287B8 /* AppDelegate.swift */; };
-		B948A1E6241444B2001287B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A1E5241444B2001287B8 /* ViewController.swift */; };
 		B948A1EC241444B2001287B8 /* bonup_mobile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B948A1EA241444B2001287B8 /* bonup_mobile.xcdatamodeld */; };
 		B948A1EE241444B4001287B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B948A1ED241444B4001287B8 /* Assets.xcassets */; };
 		B948A1F1241444B4001287B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B948A1EF241444B4001287B8 /* LaunchScreen.storyboard */; };
 		B948A1FC241444B4001287B8 /* bonup_mobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A1FB241444B4001287B8 /* bonup_mobileTests.swift */; };
 		B948A207241444B4001287B8 /* bonup_mobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A206241444B4001287B8 /* bonup_mobileUITests.swift */; };
-		B948A21D24144896001287B8 /* FREE-DEBUG.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B948A21C24144896001287B8 /* FREE-DEBUG.xcconfig */; };
-		B948A21F241448A6001287B8 /* PAID-DEBUG.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B948A21E241448A6001287B8 /* PAID-DEBUG.xcconfig */; };
-		B948A22124144965001287B8 /* FREE-RELEASE.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B948A22024144965001287B8 /* FREE-RELEASE.xcconfig */; };
-		B948A22324144A1C001287B8 /* PAID-RELEASE.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B948A22224144A1C001287B8 /* PAID-RELEASE.xcconfig */; };
 		B948A22624144BFA001287B8 /* AppDelegate+Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A22524144BFA001287B8 /* AppDelegate+Configurations.swift */; };
 		B948A22B2414556B001287B8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B948A22D2414556B001287B8 /* Localizable.strings */; };
 		B948A230241455A3001287B8 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A22F241455A3001287B8 /* Localization.swift */; };
+		B948A234241CBE61001287B8 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A233241CBE61001287B8 /* AppRouter.swift */; };
+		B948A236241CBFA6001287B8 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A235241CBFA6001287B8 /* LoginView.swift */; };
+		B948A238241CBFB2001287B8 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A237241CBFB2001287B8 /* LoginInteractor.swift */; };
+		B948A23A241CBFBA001287B8 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A239241CBFBA001287B8 /* LoginPresenter.swift */; };
+		B948A23C241CBFC1001287B8 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A23B241CBFC1001287B8 /* LoginRouter.swift */; };
+		B948A23E241CBFD8001287B8 /* LoginBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A23D241CBFD8001287B8 /* LoginBuilder.swift */; };
+		B948A247241CDE64001287B8 /* UIFont+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A246241CDE64001287B8 /* UIFont+Fonts.swift */; };
+		B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */; };
+		B9CEE69C241CE98000308098 /* LoginDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CEE69B241CE98000308098 /* LoginDependency.swift */; };
+		B9CEE69E241D558E00308098 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CEE69D241D558E00308098 /* ResetPasswordView.swift */; };
+		B9CEE6A0241D559E00308098 /* ResetPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CEE69F241D559E00308098 /* ResetPasswordInteractor.swift */; };
+		B9CEE6A2241D55A500308098 /* ResetPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CEE6A1241D55A500308098 /* ResetPasswordPresenter.swift */; };
+		B9CEE6A4241D55B500308098 /* ResetPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CEE6A3241D55B500308098 /* ResetPasswordRouter.swift */; };
+		B9CEE6A6241D55BE00308098 /* ResetPasswordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CEE6A5241D55BE00308098 /* ResetPasswordBuilder.swift */; };
 		D2EB55DA4DDF0C1583C2C693 /* libPods-bonup-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BA6F1BF6EDE172F625DF6B /* libPods-bonup-mobile.a */; };
-		E0960B27F8B9AA152B575E9A /* libPods-bonup-mobile-bonup-mobileUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B58CCD6B65C999103F43A0F /* libPods-bonup-mobile-bonup-mobileUITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,17 +62,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		19A1C8D33AFC3E45BC1F9F29 /* Pods-bonup-mobileTests.release free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobileTests.release free.xcconfig"; path = "Target Support Files/Pods-bonup-mobileTests/Pods-bonup-mobileTests.release free.xcconfig"; sourceTree = "<group>"; };
+		024FF5E8ED826A51DE308103 /* Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig"; sourceTree = "<group>"; };
+		06EF65132F5DE61D8CB6A5D5 /* libPods-bonup-mobileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bonup-mobileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		09AD254634146E221F3602AB /* Pods-bonup-mobileTests.release paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobileTests.release paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobileTests/Pods-bonup-mobileTests.release paid.xcconfig"; sourceTree = "<group>"; };
 		22BA6F1BF6EDE172F625DF6B /* libPods-bonup-mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bonup-mobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		283D2C0B542D1C33374CAFA0 /* Pods-bonup-mobile.debug free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile.debug free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile.debug free.xcconfig"; sourceTree = "<group>"; };
-		2B58CCD6B65C999103F43A0F /* libPods-bonup-mobile-bonup-mobileUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bonup-mobile-bonup-mobileUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D94B93A0F8CA33820D93918 /* Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig"; sourceTree = "<group>"; };
-		38B583A7A6798BF4C72C0ACE /* Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig"; sourceTree = "<group>"; };
 		47066CD3D88DB7FA02E75DB4 /* Pods-bonup-mobile.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile.debug paid.xcconfig"; sourceTree = "<group>"; };
+		54571D55711E521C5AEDAFB8 /* Pods-bonup-mobileTests.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobileTests.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobileTests/Pods-bonup-mobileTests.debug paid.xcconfig"; sourceTree = "<group>"; };
+		64BF79D1986F5CB6EFFFC49F /* Pods-bonup-mobileTests.debug free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobileTests.debug free.xcconfig"; path = "Target Support Files/Pods-bonup-mobileTests/Pods-bonup-mobileTests.debug free.xcconfig"; sourceTree = "<group>"; };
+		8A06BB7BAB8C63D42AC7C855 /* Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig"; sourceTree = "<group>"; };
+		8F870C452B9C3C617C315EFD /* Pods-bonup-mobileTests.release free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobileTests.release free.xcconfig"; path = "Target Support Files/Pods-bonup-mobileTests/Pods-bonup-mobileTests.release free.xcconfig"; sourceTree = "<group>"; };
 		9C90DC1F094518F324F6B139 /* Pods-bonup-mobile.release free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile.release free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile.release free.xcconfig"; sourceTree = "<group>"; };
+		9CBFCCED11CA0629242894D1 /* libPods-bonup-mobile-bonup-mobileUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bonup-mobile-bonup-mobileUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7A0A2656977EC43EBA735F6 /* Pods-bonup-mobile-bonup-mobileUITests.debug free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.debug free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.debug free.xcconfig"; sourceTree = "<group>"; };
+		B9259B9F241CE267009585B7 /* UIColor+Facade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Facade.swift"; sourceTree = "<group>"; };
+		B932365A241D743300A37634 /* NewPasswordDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordDependency.swift; sourceTree = "<group>"; };
+		B935A58F241D5B090074E89E /* ResetPasswordDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordDependency.swift; sourceTree = "<group>"; };
+		B935A591241D6A6A0074E89E /* NewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordView.swift; sourceTree = "<group>"; };
+		B935A593241D6A720074E89E /* NewPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordPresenter.swift; sourceTree = "<group>"; };
+		B935A595241D6A7A0074E89E /* NewPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordInteractor.swift; sourceTree = "<group>"; };
+		B935A597241D6A820074E89E /* NewPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordRouter.swift; sourceTree = "<group>"; };
+		B935A599241D6A8A0074E89E /* NewPasswordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordBuilder.swift; sourceTree = "<group>"; };
+		B935A59C241D6F2D0074E89E /* UIButton+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Factory.swift"; sourceTree = "<group>"; };
 		B948A1DE241444B2001287B8 /* Bonup-Debug [PAID].app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bonup-Debug [PAID].app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B948A1E1241444B2001287B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B948A1E5241444B2001287B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B948A1EB241444B2001287B8 /* bonup_mobile.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bonup_mobile.xcdatamodel; sourceTree = "<group>"; };
 		B948A1ED241444B4001287B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B948A1F0241444B4001287B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,13 +105,22 @@
 		B948A22C2414556B001287B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B948A22E24145570001287B8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B948A22F241455A3001287B8 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
-		BD40FA456CD80A6213B58846 /* Pods-bonup-mobile-bonup-mobileUITests.release paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.release paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.release paid.xcconfig"; sourceTree = "<group>"; };
-		C1D6A0AE1129FDBE0425FE81 /* Pods-bonup-mobileTests.release paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobileTests.release paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobileTests/Pods-bonup-mobileTests.release paid.xcconfig"; sourceTree = "<group>"; };
-		C50A72780076541723B7E31D /* Pods-bonup-mobileTests.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobileTests.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobileTests/Pods-bonup-mobileTests.debug paid.xcconfig"; sourceTree = "<group>"; };
-		DF8F82BDFBBB79871EABAFCD /* libPods-bonup-mobileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bonup-mobileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E16948A70EDF9E69C20E894B /* Pods-bonup-mobile-bonup-mobileUITests.debug free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.debug free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.debug free.xcconfig"; sourceTree = "<group>"; };
-		F12294443C04E426C4D9CCB3 /* Pods-bonup-mobileTests.debug free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobileTests.debug free.xcconfig"; path = "Target Support Files/Pods-bonup-mobileTests/Pods-bonup-mobileTests.debug free.xcconfig"; sourceTree = "<group>"; };
+		B948A233241CBE61001287B8 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		B948A235241CBFA6001287B8 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B948A237241CBFB2001287B8 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		B948A239241CBFBA001287B8 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		B948A23B241CBFC1001287B8 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		B948A23D241CBFD8001287B8 /* LoginBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBuilder.swift; sourceTree = "<group>"; };
+		B948A246241CDE64001287B8 /* UIFont+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Fonts.swift"; sourceTree = "<group>"; };
+		B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Facade.swift"; sourceTree = "<group>"; };
+		B9CEE69B241CE98000308098 /* LoginDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDependency.swift; sourceTree = "<group>"; };
+		B9CEE69D241D558E00308098 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		B9CEE69F241D559E00308098 /* ResetPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordInteractor.swift; sourceTree = "<group>"; };
+		B9CEE6A1241D55A500308098 /* ResetPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordPresenter.swift; sourceTree = "<group>"; };
+		B9CEE6A3241D55B500308098 /* ResetPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordRouter.swift; sourceTree = "<group>"; };
+		B9CEE6A5241D55BE00308098 /* ResetPasswordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordBuilder.swift; sourceTree = "<group>"; };
 		F690A90CF9E18C6E6D5AFD13 /* Pods-bonup-mobile.release paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile.release paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile.release paid.xcconfig"; sourceTree = "<group>"; };
+		FABF9016B6937131B848003B /* Pods-bonup-mobile-bonup-mobileUITests.release paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.release paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.release paid.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69426A2D514E2C0E5C6CC4D4 /* libPods-bonup-mobileTests.a in Frameworks */,
+				65CD294FCEF2D37A9D7A6C0B /* libPods-bonup-mobileTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0960B27F8B9AA152B575E9A /* libPods-bonup-mobile-bonup-mobileUITests.a in Frameworks */,
+				4DCA0086033970A25AF3BCF9 /* libPods-bonup-mobile-bonup-mobileUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,8 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				22BA6F1BF6EDE172F625DF6B /* libPods-bonup-mobile.a */,
-				2B58CCD6B65C999103F43A0F /* libPods-bonup-mobile-bonup-mobileUITests.a */,
-				DF8F82BDFBBB79871EABAFCD /* libPods-bonup-mobileTests.a */,
+				9CBFCCED11CA0629242894D1 /* libPods-bonup-mobile-bonup-mobileUITests.a */,
+				06EF65132F5DE61D8CB6A5D5 /* libPods-bonup-mobileTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -128,16 +168,45 @@
 				283D2C0B542D1C33374CAFA0 /* Pods-bonup-mobile.debug free.xcconfig */,
 				F690A90CF9E18C6E6D5AFD13 /* Pods-bonup-mobile.release paid.xcconfig */,
 				9C90DC1F094518F324F6B139 /* Pods-bonup-mobile.release free.xcconfig */,
-				2D94B93A0F8CA33820D93918 /* Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig */,
-				E16948A70EDF9E69C20E894B /* Pods-bonup-mobile-bonup-mobileUITests.debug free.xcconfig */,
-				BD40FA456CD80A6213B58846 /* Pods-bonup-mobile-bonup-mobileUITests.release paid.xcconfig */,
-				38B583A7A6798BF4C72C0ACE /* Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig */,
-				C50A72780076541723B7E31D /* Pods-bonup-mobileTests.debug paid.xcconfig */,
-				F12294443C04E426C4D9CCB3 /* Pods-bonup-mobileTests.debug free.xcconfig */,
-				C1D6A0AE1129FDBE0425FE81 /* Pods-bonup-mobileTests.release paid.xcconfig */,
-				19A1C8D33AFC3E45BC1F9F29 /* Pods-bonup-mobileTests.release free.xcconfig */,
+				024FF5E8ED826A51DE308103 /* Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig */,
+				B7A0A2656977EC43EBA735F6 /* Pods-bonup-mobile-bonup-mobileUITests.debug free.xcconfig */,
+				FABF9016B6937131B848003B /* Pods-bonup-mobile-bonup-mobileUITests.release paid.xcconfig */,
+				8A06BB7BAB8C63D42AC7C855 /* Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig */,
+				54571D55711E521C5AEDAFB8 /* Pods-bonup-mobileTests.debug paid.xcconfig */,
+				64BF79D1986F5CB6EFFFC49F /* Pods-bonup-mobileTests.debug free.xcconfig */,
+				09AD254634146E221F3602AB /* Pods-bonup-mobileTests.release paid.xcconfig */,
+				8F870C452B9C3C617C315EFD /* Pods-bonup-mobileTests.release free.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B9259BA1241CE26C009585B7 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				B9259B9F241CE267009585B7 /* UIColor+Facade.swift */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		B935A59B241D6C560074E89E /* NewPasswordScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B935A591241D6A6A0074E89E /* NewPasswordView.swift */,
+				B935A593241D6A720074E89E /* NewPasswordPresenter.swift */,
+				B935A595241D6A7A0074E89E /* NewPasswordInteractor.swift */,
+				B935A597241D6A820074E89E /* NewPasswordRouter.swift */,
+				B935A599241D6A8A0074E89E /* NewPasswordBuilder.swift */,
+				B932365A241D743300A37634 /* NewPasswordDependency.swift */,
+			);
+			path = NewPasswordScreen;
+			sourceTree = "<group>";
+		};
+		B935A59E241D6F380074E89E /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				B935A59C241D6F2D0074E89E /* UIButton+Factory.swift */,
+			);
+			path = UIButton;
 			sourceTree = "<group>";
 		};
 		B948A1D5241444B2001287B8 = {
@@ -166,12 +235,11 @@
 			isa = PBXGroup;
 			children = (
 				B948A227241453A2001287B8 /* Application */,
-				B948A1E5241444B2001287B8 /* ViewController.swift */,
+				B948A243241CC02D001287B8 /* Modules */,
 				B948A232241455B7001287B8 /* Extensions */,
-				B948A1ED241444B4001287B8 /* Assets.xcassets */,
-				B948A1EF241444B4001287B8 /* LaunchScreen.storyboard */,
+				B948A242241CC024001287B8 /* CoreData */,
+				B948A240241CC00E001287B8 /* Resources */,
 				B948A1F2241444B4001287B8 /* Info.plist */,
-				B948A1EA241444B2001287B8 /* bonup_mobile.xcdatamodeld */,
 			);
 			path = "bonup-mobile";
 			sourceTree = "<group>";
@@ -210,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				B948A1E1241444B2001287B8 /* AppDelegate.swift */,
+				B948A233241CBE61001287B8 /* AppRouter.swift */,
 				B948A22424144A26001287B8 /* Configurations */,
 			);
 			path = Application;
@@ -228,8 +297,81 @@
 			isa = PBXGroup;
 			children = (
 				B948A231241455AD001287B8 /* Localization */,
+				B948A248241CDE69001287B8 /* UIFont */,
+				B95B619A241CE0E800B3FE99 /* NSAttributedString */,
+				B9259BA1241CE26C009585B7 /* UIColor */,
+				B935A59E241D6F380074E89E /* UIButton */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B948A23F241CBFF6001287B8 /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B948A235241CBFA6001287B8 /* LoginView.swift */,
+				B948A237241CBFB2001287B8 /* LoginInteractor.swift */,
+				B948A239241CBFBA001287B8 /* LoginPresenter.swift */,
+				B948A23B241CBFC1001287B8 /* LoginRouter.swift */,
+				B948A23D241CBFD8001287B8 /* LoginBuilder.swift */,
+				B9CEE69B241CE98000308098 /* LoginDependency.swift */,
+			);
+			path = LoginScreen;
+			sourceTree = "<group>";
+		};
+		B948A240241CC00E001287B8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B948A1ED241444B4001287B8 /* Assets.xcassets */,
+				B948A1EF241444B4001287B8 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B948A242241CC024001287B8 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B948A1EA241444B2001287B8 /* bonup_mobile.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B948A243241CC02D001287B8 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				B948A23F241CBFF6001287B8 /* LoginScreen */,
+				B9CEE6A9241D55FB00308098 /* ResetPasswordScreen */,
+				B935A59B241D6C560074E89E /* NewPasswordScreen */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		B948A248241CDE69001287B8 /* UIFont */ = {
+			isa = PBXGroup;
+			children = (
+				B948A246241CDE64001287B8 /* UIFont+Fonts.swift */,
+			);
+			path = UIFont;
+			sourceTree = "<group>";
+		};
+		B95B619A241CE0E800B3FE99 /* NSAttributedString */ = {
+			isa = PBXGroup;
+			children = (
+				B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */,
+			);
+			path = NSAttributedString;
+			sourceTree = "<group>";
+		};
+		B9CEE6A9241D55FB00308098 /* ResetPasswordScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B9CEE69D241D558E00308098 /* ResetPasswordView.swift */,
+				B9CEE69F241D559E00308098 /* ResetPasswordInteractor.swift */,
+				B9CEE6A1241D55A500308098 /* ResetPasswordPresenter.swift */,
+				B9CEE6A3241D55B500308098 /* ResetPasswordRouter.swift */,
+				B9CEE6A5241D55BE00308098 /* ResetPasswordBuilder.swift */,
+				B935A58F241D5B090074E89E /* ResetPasswordDependency.swift */,
+			);
+			path = ResetPasswordScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +399,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B948A20E241444B4001287B8 /* Build configuration list for PBXNativeTarget "bonup-mobileTests" */;
 			buildPhases = (
-				7C8F0AF3D27A4C3F5DC35053 /* [CP] Check Pods Manifest.lock */,
+				4A09D2AD4C4D320046C0438D /* [CP] Check Pods Manifest.lock */,
 				B948A1F3241444B4001287B8 /* Sources */,
 				B948A1F4241444B4001287B8 /* Frameworks */,
 				B948A1F5241444B4001287B8 /* Resources */,
@@ -276,7 +418,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B948A211241444B4001287B8 /* Build configuration list for PBXNativeTarget "bonup-mobileUITests" */;
 			buildPhases = (
-				16C07EF38554C98F68E98AFB /* [CP] Check Pods Manifest.lock */,
+				4B72507FE7935D71DAE0A7E7 /* [CP] Check Pods Manifest.lock */,
 				B948A1FE241444B4001287B8 /* Sources */,
 				B948A1FF241444B4001287B8 /* Frameworks */,
 				B948A200241444B4001287B8 /* Resources */,
@@ -341,12 +483,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B948A1F1241444B4001287B8 /* LaunchScreen.storyboard in Resources */,
-				B948A22324144A1C001287B8 /* PAID-RELEASE.xcconfig in Resources */,
 				B948A1EE241444B4001287B8 /* Assets.xcassets in Resources */,
 				B948A22B2414556B001287B8 /* Localizable.strings in Resources */,
-				B948A21D24144896001287B8 /* FREE-DEBUG.xcconfig in Resources */,
-				B948A22124144965001287B8 /* FREE-RELEASE.xcconfig in Resources */,
-				B948A21F241448A6001287B8 /* PAID-DEBUG.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,29 +505,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		16C07EF38554C98F68E98AFB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-bonup-mobile-bonup-mobileUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7C8F0AF3D27A4C3F5DC35053 /* [CP] Check Pods Manifest.lock */ = {
+		4A09D2AD4C4D320046C0438D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -405,6 +521,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-bonup-mobileTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B72507FE7935D71DAE0A7E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bonup-mobile-bonup-mobileUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -440,11 +578,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B935A59D241D6F2E0074E89E /* UIButton+Factory.swift in Sources */,
+				B935A598241D6A820074E89E /* NewPasswordRouter.swift in Sources */,
+				B935A594241D6A720074E89E /* NewPasswordPresenter.swift in Sources */,
+				B9CEE6A2241D55A500308098 /* ResetPasswordPresenter.swift in Sources */,
+				B9CEE69C241CE98000308098 /* LoginDependency.swift in Sources */,
+				B932365B241D743300A37634 /* NewPasswordDependency.swift in Sources */,
+				B935A596241D6A7A0074E89E /* NewPasswordInteractor.swift in Sources */,
+				B948A23E241CBFD8001287B8 /* LoginBuilder.swift in Sources */,
 				B948A1EC241444B2001287B8 /* bonup_mobile.xcdatamodeld in Sources */,
+				B948A236241CBFA6001287B8 /* LoginView.swift in Sources */,
+				B935A590241D5B090074E89E /* ResetPasswordDependency.swift in Sources */,
+				B935A592241D6A6A0074E89E /* NewPasswordView.swift in Sources */,
+				B935A59A241D6A8A0074E89E /* NewPasswordBuilder.swift in Sources */,
 				B948A230241455A3001287B8 /* Localization.swift in Sources */,
-				B948A1E6241444B2001287B8 /* ViewController.swift in Sources */,
+				B948A23A241CBFBA001287B8 /* LoginPresenter.swift in Sources */,
+				B948A234241CBE61001287B8 /* AppRouter.swift in Sources */,
+				B948A238241CBFB2001287B8 /* LoginInteractor.swift in Sources */,
+				B9CEE6A6241D55BE00308098 /* ResetPasswordBuilder.swift in Sources */,
 				B948A1E2241444B2001287B8 /* AppDelegate.swift in Sources */,
+				B9CEE6A0241D559E00308098 /* ResetPasswordInteractor.swift in Sources */,
+				B948A23C241CBFC1001287B8 /* LoginRouter.swift in Sources */,
+				B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */,
 				B948A22624144BFA001287B8 /* AppDelegate+Configurations.swift in Sources */,
+				B9CEE69E241D558E00308098 /* ResetPasswordView.swift in Sources */,
+				B9259BA0241CE267009585B7 /* UIColor+Facade.swift in Sources */,
+				B948A247241CDE64001287B8 /* UIFont+Fonts.swift in Sources */,
+				B9CEE6A4241D55B500308098 /* ResetPasswordRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +665,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B948A21E241448A6001287B8 /* PAID-DEBUG.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -567,6 +728,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B948A22224144A1C001287B8 /* PAID-RELEASE.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -623,6 +785,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 47066CD3D88DB7FA02E75DB4 /* Pods-bonup-mobile.debug paid.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
@@ -632,10 +795,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_SWIFT_FLAGS = "-DDEBUG_PAID";
+				OTHER_SWIFT_FLAGS = "$(inherited)\n\n$(inherited)\n\n$(inherited)\n\n$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = "$(APP_NAME)";
 				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = "Debug PAID";
@@ -644,6 +808,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F690A90CF9E18C6E6D5AFD13 /* Pods-bonup-mobile.release paid.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
@@ -653,19 +818,20 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_SWIFT_FLAGS = "-DRELEASE_PAID";
+				OTHER_SWIFT_FLAGS = "$(inherited)\n\n$(inherited)\n\n$(inherited)\n\n$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = "$(APP_NAME)";
 				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = "Release PAID";
 		};
 		B948A20F241444B4001287B8 /* Debug PAID */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C50A72780076541723B7E31D /* Pods-bonup-mobileTests.debug paid.xcconfig */;
+			baseConfigurationReference = 54571D55711E521C5AEDAFB8 /* Pods-bonup-mobileTests.debug paid.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
@@ -686,9 +852,9 @@
 		};
 		B948A210241444B4001287B8 /* Release PAID */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1D6A0AE1129FDBE0425FE81 /* Pods-bonup-mobileTests.release paid.xcconfig */;
+			baseConfigurationReference = 09AD254634146E221F3602AB /* Pods-bonup-mobileTests.release paid.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
@@ -709,9 +875,9 @@
 		};
 		B948A212241444B4001287B8 /* Debug PAID */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D94B93A0F8CA33820D93918 /* Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig */;
+			baseConfigurationReference = 024FF5E8ED826A51DE308103 /* Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
 				INFOPLIST_FILE = "bonup-mobileUITests/Info.plist";
@@ -730,9 +896,9 @@
 		};
 		B948A213241444B4001287B8 /* Release PAID */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD40FA456CD80A6213B58846 /* Pods-bonup-mobile-bonup-mobileUITests.release paid.xcconfig */;
+			baseConfigurationReference = FABF9016B6937131B848003B /* Pods-bonup-mobile-bonup-mobileUITests.release paid.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
 				INFOPLIST_FILE = "bonup-mobileUITests/Info.plist";
@@ -753,6 +919,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B948A21C24144896001287B8 /* FREE-DEBUG.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -815,6 +982,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 283D2C0B542D1C33374CAFA0 /* Pods-bonup-mobile.debug free.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
@@ -824,19 +992,20 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_SWIFT_FLAGS = "-DDEBUG_FREE";
+				OTHER_SWIFT_FLAGS = "$(inherited)\n\n$(inherited)\n\n$(inherited)\n\n$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = "$(APP_NAME)";
 				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = "Debug FREE";
 		};
 		B948A2162414481F001287B8 /* Debug FREE */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F12294443C04E426C4D9CCB3 /* Pods-bonup-mobileTests.debug free.xcconfig */;
+			baseConfigurationReference = 64BF79D1986F5CB6EFFFC49F /* Pods-bonup-mobileTests.debug free.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
@@ -857,9 +1026,9 @@
 		};
 		B948A2172414481F001287B8 /* Debug FREE */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E16948A70EDF9E69C20E894B /* Pods-bonup-mobile-bonup-mobileUITests.debug free.xcconfig */;
+			baseConfigurationReference = B7A0A2656977EC43EBA735F6 /* Pods-bonup-mobile-bonup-mobileUITests.debug free.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
 				INFOPLIST_FILE = "bonup-mobileUITests/Info.plist";
@@ -880,6 +1049,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B948A22024144965001287B8 /* FREE-RELEASE.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -936,6 +1106,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9C90DC1F094518F324F6B139 /* Pods-bonup-mobile.release free.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
@@ -945,19 +1116,20 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_SWIFT_FLAGS = "-DRELEASE_FREE";
+				OTHER_SWIFT_FLAGS = "$(inherited)\n\n$(inherited)\n\n$(inherited)\n\n$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = "$(APP_NAME)";
 				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = "Release FREE";
 		};
 		B948A21A24144827001287B8 /* Release FREE */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19A1C8D33AFC3E45BC1F9F29 /* Pods-bonup-mobileTests.release free.xcconfig */;
+			baseConfigurationReference = 8F870C452B9C3C617C315EFD /* Pods-bonup-mobileTests.release free.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
@@ -978,9 +1150,9 @@
 		};
 		B948A21B24144827001287B8 /* Release FREE */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38B583A7A6798BF4C72C0ACE /* Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig */;
+			baseConfigurationReference = 8A06BB7BAB8C63D42AC7C855 /* Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
 				INFOPLIST_FILE = "bonup-mobileUITests/Info.plist";

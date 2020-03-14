@@ -1,0 +1,123 @@
+//
+//  NewPasswordView.swift
+//  bonup-mobile
+//
+//  Created by yenz0redd on 14.03.2020.
+//  Copyright © 2020 Bonup. All rights reserved.
+//
+
+import UIKit
+
+protocol INewPasswordView: AnyObject {
+
+}
+
+final class NewPasswordView: UIViewController {
+
+    enum PasswordTextFieldType {
+        case newPass, repeatPass
+    }
+
+    // MARK: - Public variables
+
+    var presenter: NewPasswordPresenter!
+
+    // MARK: - Private variables
+
+    private var newPasswordTextField: UITextField!
+    private var repeatPasswordTextField: UITextField!
+    private var sendButton: UIButton!
+
+    private var containerStackView: UIStackView!
+    private var infoLabel: UILabel!
+
+    // MARK: - Lyfe cycle
+
+    override func loadView() {
+        self.view = UIView()
+
+        self.containerStackView = self.configureStackView()
+        self.view.addSubview(self.containerStackView)
+        self.containerStackView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(40.0)
+            make.height.equalTo(155.0)
+        }
+
+        self.newPasswordTextField = self.configureTextField(for: .newPass)
+        self.repeatPasswordTextField = self.configureTextField(for: .repeatPass)
+        self.sendButton = UIButton.systemButton(for: .yellowButton, title: "Save".localized)
+
+        self.containerStackView.addArrangedSubview(self.newPasswordTextField)
+        self.containerStackView.addArrangedSubview(self.repeatPasswordTextField)
+        self.containerStackView.addArrangedSubview(self.sendButton)
+
+        self.infoLabel = UILabel()
+        self.view.addSubview(self.infoLabel)
+        self.infoLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.containerStackView.snp.bottom).offset(20.0)
+            make.leading.trailing.equalTo(self.containerStackView)
+        }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.view.backgroundColor = .black
+        self.sendButton.addTarget(self, action: #selector(self.sendButtonTapped), for: .touchUpInside)
+    }
+
+    // MARK: - Selectors
+
+    @objc private func sendButtonTapped() {
+        self.presenter.handleSendButtonTapped(
+            newPass: self.newPasswordTextField.text,
+            repeatPass: self.repeatPasswordTextField.text
+        )
+    }
+
+    // MARK: - Configuration
+
+    private func configureStackView() -> UIStackView {
+        let stackView = UIStackView()
+
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.spacing = 10.0
+
+        return stackView
+    }
+
+    private func configureTextField(for type: PasswordTextFieldType) -> UITextField {
+        let tf = UITextField()
+
+        tf.layer.cornerRadius = 20.0
+        tf.layer.masksToBounds = true
+        tf.textAlignment = .center
+        tf.backgroundColor = UIColor.gray.withAlphaComponent(0.3)
+
+        switch type {
+        case .newPass:
+            tf.attributedPlaceholder = NSAttributedString.with(
+                title: "ui_new_password_placeholder".localized,
+                textColor: UIColor.white.withAlphaComponent(0.3),
+                font: UIFont.avenirRoman(14.0)
+            )
+        case .repeatPass:
+            tf.attributedPlaceholder = NSAttributedString.with(
+                title: "ui_repeat_password_placeholder".localized,
+                textColor: UIColor.white.withAlphaComponent(0.3),
+                font: UIFont.avenirRoman(14.0)
+            )
+        }
+
+        return tf
+    }
+}
+
+// MARK: - INewPasswordView implementation
+
+extension NewPasswordView: INewPasswordView {
+
+}
+
