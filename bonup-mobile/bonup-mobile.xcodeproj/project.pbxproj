@@ -11,6 +11,9 @@
 		65CD294FCEF2D37A9D7A6C0B /* libPods-bonup-mobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06EF65132F5DE61D8CB6A5D5 /* libPods-bonup-mobileTests.a */; };
 		B9259BA0241CE267009585B7 /* UIColor+Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9259B9F241CE267009585B7 /* UIColor+Facade.swift */; };
 		B932365B241D743300A37634 /* NewPasswordDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B932365A241D743300A37634 /* NewPasswordDependency.swift */; };
+		B932365D241D7C2C00A37634 /* MainNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B932365C241D7C2C00A37634 /* MainNetworkProvider.swift */; };
+		B9323661241D7E4F00A37634 /* AuthorizedTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9323660241D7E4F00A37634 /* AuthorizedTargetType.swift */; };
+		B9323663241D7F5300A37634 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9323662241D7F5300A37634 /* AuthService.swift */; };
 		B935A590241D5B090074E89E /* ResetPasswordDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B935A58F241D5B090074E89E /* ResetPasswordDependency.swift */; };
 		B935A592241D6A6A0074E89E /* NewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B935A591241D6A6A0074E89E /* NewPasswordView.swift */; };
 		B935A594241D6A720074E89E /* NewPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B935A593241D6A720074E89E /* NewPasswordPresenter.swift */; };
@@ -77,6 +80,9 @@
 		B7A0A2656977EC43EBA735F6 /* Pods-bonup-mobile-bonup-mobileUITests.debug free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.debug free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.debug free.xcconfig"; sourceTree = "<group>"; };
 		B9259B9F241CE267009585B7 /* UIColor+Facade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Facade.swift"; sourceTree = "<group>"; };
 		B932365A241D743300A37634 /* NewPasswordDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordDependency.swift; sourceTree = "<group>"; };
+		B932365C241D7C2C00A37634 /* MainNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNetworkProvider.swift; sourceTree = "<group>"; };
+		B9323660241D7E4F00A37634 /* AuthorizedTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizedTargetType.swift; sourceTree = "<group>"; };
+		B9323662241D7F5300A37634 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		B935A58F241D5B090074E89E /* ResetPasswordDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordDependency.swift; sourceTree = "<group>"; };
 		B935A591241D6A6A0074E89E /* NewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordView.swift; sourceTree = "<group>"; };
 		B935A593241D6A720074E89E /* NewPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordPresenter.swift; sourceTree = "<group>"; };
@@ -188,6 +194,32 @@
 			path = UIColor;
 			sourceTree = "<group>";
 		};
+		B932365E241D7C3500A37634 /* Subsystems */ = {
+			isa = PBXGroup;
+			children = (
+				B932365F241D7C4000A37634 /* Networking */,
+			);
+			path = Subsystems;
+			sourceTree = "<group>";
+		};
+		B932365F241D7C4000A37634 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B932365C241D7C2C00A37634 /* MainNetworkProvider.swift */,
+				B9323660241D7E4F00A37634 /* AuthorizedTargetType.swift */,
+				B9323664241D7F5B00A37634 /* Services */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		B9323664241D7F5B00A37634 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B9323662241D7F5300A37634 /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		B935A59B241D6C560074E89E /* NewPasswordScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +268,7 @@
 			children = (
 				B948A227241453A2001287B8 /* Application */,
 				B948A243241CC02D001287B8 /* Modules */,
+				B932365E241D7C3500A37634 /* Subsystems */,
 				B948A232241455B7001287B8 /* Extensions */,
 				B948A242241CC024001287B8 /* CoreData */,
 				B948A240241CC00E001287B8 /* Resources */,
@@ -600,9 +633,12 @@
 				B9CEE6A0241D559E00308098 /* ResetPasswordInteractor.swift in Sources */,
 				B948A23C241CBFC1001287B8 /* LoginRouter.swift in Sources */,
 				B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */,
+				B932365D241D7C2C00A37634 /* MainNetworkProvider.swift in Sources */,
 				B948A22624144BFA001287B8 /* AppDelegate+Configurations.swift in Sources */,
+				B9323661241D7E4F00A37634 /* AuthorizedTargetType.swift in Sources */,
 				B9CEE69E241D558E00308098 /* ResetPasswordView.swift in Sources */,
 				B9259BA0241CE267009585B7 /* UIColor+Facade.swift in Sources */,
+				B9323663241D7F5300A37634 /* AuthService.swift in Sources */,
 				B948A247241CDE64001287B8 /* UIFont+Fonts.swift in Sources */,
 				B9CEE6A4241D55B500308098 /* ResetPasswordRouter.swift in Sources */,
 			);
