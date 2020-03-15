@@ -9,8 +9,7 @@
 import UIKit
 import SnapKit
 
-protocol ILoginView: AnyObject {
-}
+protocol ILoginView: AnyObject { }
 
 final class LoginView: UIViewController {
 
@@ -247,16 +246,24 @@ final class LoginView: UIViewController {
     }
 
     @objc private func signUpButtonTapped() {
-        print("signUp")
+        self.presenter.handleSignButtonTap(
+            name: self.nameTextField.text,
+            email: self.emailTextField.text,
+            password: self.passwordTextField.text,
+            type: .register
+        )
     }
 
     @objc private func signInButtonTapped() {
-        print("signIn")
+        self.presenter.handleSignButtonTap(
+            name: self.nameTextField.text,
+            email: self.emailTextField.text,
+            password: self.passwordTextField.text,
+            type: .auth
+        )
     }
 }
 
 // MARK: - ILoginView implementation
 
-extension LoginView: ILoginView {
-
-}
+extension LoginView: ILoginView { }

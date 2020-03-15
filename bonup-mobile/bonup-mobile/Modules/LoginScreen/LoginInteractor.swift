@@ -9,13 +9,43 @@
 import Foundation
 
 protocol ILoginInteractor {
-
+    func handleLoginRequest(for type: LoginInteractor.LoginRequest,
+                            with authParams: AuthParams,
+                            completion: ((Bool) -> Void)?)
 }
 
 class LoginInteractor {
+    enum LoginRequest {
+        case auth, register
+    }
 
+    private let networkProvider = MainNetworkProvider<AuthService>()
 }
 
-extension LoginInteractor: ILoginInteractor {
+// MARK: - ILoginInteractor
 
+extension LoginInteractor: ILoginInteractor {
+     func handleLoginRequest(for type: LoginInteractor.LoginRequest,
+                                with authParams: AuthParams,
+                                completion: ((Bool) -> Void)?) {
+        var target: AuthService
+
+        switch type {
+        case .auth:
+            target = .auth(params: authParams)
+        case .register:
+            target = .register(params: authParams)
+        }
+
+        _ = networkProvider.requestString(
+            target,
+            completion: { token in
+                AccountManager.shared.currentToken = token
+                completion?(true)
+            },
+            failure: { _ in
+                completion?(false)
+            }
+        )
+    }
 }

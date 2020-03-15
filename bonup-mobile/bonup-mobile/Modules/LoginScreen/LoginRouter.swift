@@ -30,6 +30,8 @@ final class LoginRouter {
     }
 }
 
+// MARK: - ILoginRouter implementation
+
 extension LoginRouter: ILoginRouter {
     func start(_ completion: (() -> Void)?) {
         guard let view = self.view else { return }

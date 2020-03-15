@@ -9,21 +9,28 @@
 import Foundation
 import UIKit
 
-enum AppRouterScenario {
-    case login, openApplication
-}
-
 protocol IAppRouter {
-    func present(_ scenario: AppRouterScenario)
+    func present(_ scenario: AppRouter.AppRouterScenario)
     func dissmis()
 }
 
-class AppRouter: IAppRouter {
-    var appWindow: UIWindow?
+final class AppRouter: IAppRouter {
+
+    // MARK: - Scenatios
+
+    enum AppRouterScenario {
+        case login, openApplication
+    }
+
+    // MARK: - Singltone
 
     static let shared = AppRouter()
 
     private init() { }
+
+    // MARK: - Public variables
+
+    var appWindow: UIWindow?
 
     // MARK: - IAppRouter
 

@@ -8,17 +8,17 @@
 
 import Foundation
 
-protocol IXPSAuthorizedTargetType: IMainTargetType {
+protocol IAuthorizedTargetType: IMainTargetType {
 
 }
 
-extension IXPSAuthorizedTargetType {
+extension IAuthorizedTargetType {
 
     var requiredHeaders: [String: String]? {
 
-        // auth tocken
+        let authToken = AccountManager.shared.currentToken
 
-        return ["Authorization" : "", //tocken
+        return ["Authorization" : authToken ?? "",
                 "Content-Type" : "application/json"]
     }
 }
