@@ -6,7 +6,8 @@
 //  Copyright © 2020 Bonup. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import Firebase
 
 #if RELEASE_FREE || DEBUG_FREE
 let APP_IS_FREE_VERSION = true
@@ -20,3 +21,16 @@ let APP_IS_RELEASE_VERSION = true
 let APP_IS_RELEASE_VERSION = false
 #endif
 
+// MARK: - Google services setup
+
+extension AppDelegate {
+
+    func setupGoogleServices() {
+        FirebaseApp.configure()
+
+        if let uuid = UIDevice.current.identifierForVendor?.uuidString {
+            Crashlytics.crashlytics().setUserID(uuid)
+        }
+    }
+
+}

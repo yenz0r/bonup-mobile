@@ -41,6 +41,8 @@
 		B948A23C241CBFC1001287B8 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A23B241CBFC1001287B8 /* LoginRouter.swift */; };
 		B948A23E241CBFD8001287B8 /* LoginBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A23D241CBFD8001287B8 /* LoginBuilder.swift */; };
 		B948A247241CDE64001287B8 /* UIFont+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A246241CDE64001287B8 /* UIFont+Fonts.swift */; };
+		B959712A24269B3600EAEB6E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B959712924269B3600EAEB6E /* GoogleService-Info.plist */; };
+		B959712D24269F2A00EAEB6E /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B959712C24269F2A00EAEB6E /* TimerManager.swift */; };
 		B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */; };
 		B9CEE69C241CE98000308098 /* LoginDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CEE69B241CE98000308098 /* LoginDependency.swift */; };
 		B9CEE69E241D558E00308098 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CEE69D241D558E00308098 /* ResetPasswordView.swift */; };
@@ -126,6 +128,8 @@
 		B948A23B241CBFC1001287B8 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		B948A23D241CBFD8001287B8 /* LoginBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBuilder.swift; sourceTree = "<group>"; };
 		B948A246241CDE64001287B8 /* UIFont+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Fonts.swift"; sourceTree = "<group>"; };
+		B959712924269B3600EAEB6E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B959712C24269F2A00EAEB6E /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Facade.swift"; sourceTree = "<group>"; };
 		B9CEE69B241CE98000308098 /* LoginDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDependency.swift; sourceTree = "<group>"; };
 		B9CEE69D241D558E00308098 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 				B932365F241D7C4000A37634 /* Networking */,
 				B932366A241D96FC00A37634 /* Account */,
 				B932366D241D988500A37634 /* KeyChain */,
+				B959712E24269F2F00EAEB6E /* TimerManager */,
 			);
 			path = Subsystems;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 				B948A242241CC024001287B8 /* CoreData */,
 				B948A240241CC00E001287B8 /* Resources */,
 				B948A1F2241444B4001287B8 /* Info.plist */,
+				B959712924269B3600EAEB6E /* GoogleService-Info.plist */,
 			);
 			path = "bonup-mobile";
 			sourceTree = "<group>";
@@ -422,6 +428,14 @@
 			path = UIFont;
 			sourceTree = "<group>";
 		};
+		B959712E24269F2F00EAEB6E /* TimerManager */ = {
+			isa = PBXGroup;
+			children = (
+				B959712C24269F2A00EAEB6E /* TimerManager.swift */,
+			);
+			path = TimerManager;
+			sourceTree = "<group>";
+		};
 		B95B619A241CE0E800B3FE99 /* NSAttributedString */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,6 +468,7 @@
 				B948A1DA241444B2001287B8 /* Sources */,
 				B948A1DB241444B2001287B8 /* Frameworks */,
 				B948A1DC241444B2001287B8 /* Resources */,
+				B959712B24269C6C00EAEB6E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -552,6 +567,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B948A1F1241444B4001287B8 /* LaunchScreen.storyboard in Resources */,
+				B959712A24269B3600EAEB6E /* GoogleService-Info.plist in Resources */,
 				B948A1EE241444B4001287B8 /* Assets.xcassets in Resources */,
 				B948A22B2414556B001287B8 /* Localizable.strings in Resources */,
 			);
@@ -618,6 +634,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B959712B24269C6C00EAEB6E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
 		CB53AE0628DD672681FFCEB1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -673,6 +706,7 @@
 				B948A23C241CBFC1001287B8 /* LoginRouter.swift in Sources */,
 				B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */,
 				B9323669241D96F600A37634 /* AccountManager.swift in Sources */,
+				B959712D24269F2A00EAEB6E /* TimerManager.swift in Sources */,
 				B932365D241D7C2C00A37634 /* MainNetworkProvider.swift in Sources */,
 				B948A22624144BFA001287B8 /* AppDelegate+Configurations.swift in Sources */,
 				B9323661241D7E4F00A37634 /* AuthorizedTargetType.swift in Sources */,

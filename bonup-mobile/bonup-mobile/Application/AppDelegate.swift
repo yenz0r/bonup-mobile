@@ -16,10 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+        // setup app window
         self.window = UIWindow(frame: UIScreen.main.bounds)
+
+        // setup app router
         AppRouter.shared.appWindow = self.window
-        
         AppRouter.shared.present(.login)
+
+        // setup google services
+        self.setupGoogleServices()
 
         return true
     }

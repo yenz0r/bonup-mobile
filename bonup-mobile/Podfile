@@ -11,6 +11,9 @@ target 'bonup-mobile' do
   pod 'Moya', '~> 14.0'
   pod 'KeychainSwift', '~> 19.0'
 
+  pod 'Firebase/Crashlytics'
+  pod 'Firebase/Analytics'  
+
   target 'bonup-mobileTests' do
     inherit! :search_paths
     # Pods for testing
