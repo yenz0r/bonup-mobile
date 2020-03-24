@@ -54,9 +54,9 @@ final class NewPasswordView: LoginSectionViewController {
         self.containerStackView.addArrangedSubview(self.sendButton)
 
         self.infoLabel = UILabel()
-        self.view.addSubview(self.infoLabel)
+        self.scrollContentView.addSubview(self.infoLabel)
         self.infoLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.containerStackView.snp.bottom).offset(20.0)
+            make.bottom.equalTo(self.containerStackView.snp.top).offset(-20.0)
             make.leading.trailing.equalTo(self.containerStackView)
         }
     }
@@ -65,6 +65,10 @@ final class NewPasswordView: LoginSectionViewController {
         super.viewDidLoad()
 
         self.navigationItem.title = "ui_new_password_title".localized
+
+        self.infoLabel.numberOfLines = 0
+        self.infoLabel.textAlignment = .center
+        self.infoLabel.text = "ui_new_password_info".localized
 
         self.sendButton.addTarget(self, action: #selector(self.sendButtonTapped), for: .touchUpInside)
     }
