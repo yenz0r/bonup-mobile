@@ -10,7 +10,7 @@ import UIKit
 
 extension UIButton {
     enum ColoredButtonType {
-        case whiteButton, yellowButton
+        case whiteButton, emptyBackgroundButton
     }
 
     static func systemButton(for type: ColoredButtonType, title: String) -> UIButton {
@@ -20,21 +20,23 @@ extension UIButton {
         button.clipsToBounds = true
 
         switch type {
-        case .yellowButton:
+        case .emptyBackgroundButton:
             button.setAttributedTitle(
                 NSAttributedString.with(
-                    title: "ui_sign_in_title".localized,
+                    title: title,
                     textColor: UIColor.white,
                     font: UIFont.avenirRoman(14)
                 ),
                 for: .normal
             )
-            button.backgroundColor = UIColor.goldenYellow
+            button.backgroundColor = .clear
+            button.layer.borderWidth = 1
+            button.layer.borderColor = UIColor.white.cgColor
         case .whiteButton:
             button.setAttributedTitle(
                 NSAttributedString.with(
-                    title: "ui_sign_up_title".localized,
-                    textColor: UIColor.goldenYellow,
+                    title: title,
+                    textColor: UIColor.purpleLite,
                     font: UIFont.avenirRoman(14)
                 ),
                 for: .normal

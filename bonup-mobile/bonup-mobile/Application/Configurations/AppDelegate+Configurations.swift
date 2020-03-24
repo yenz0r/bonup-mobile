@@ -26,7 +26,20 @@ let APP_IS_RELEASE_VERSION = false
 extension AppDelegate {
 
     func setupGoogleServices() {
-        FirebaseApp.configure()
+        var optionsPath: String?
+        if APP_IS_FREE_VERSION && APP_IS_RELEASE_VERSION {
+            optionsPath = Bundle.main.path(forResource: "GoogleService-Realese-Free", ofType: "plist")
+        } else if APP_IS_FREE_VERSION && !APP_IS_RELEASE_VERSION {
+            optionsPath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist")
+        }
+
+        if
+            let optionsPath = optionsPath,
+            let options = FirebaseOptions(contentsOfFile: optionsPath) {
+            FirebaseApp.configure(options: options)
+        } else {
+            return
+        }
 
         if let uuid = UIDevice.current.identifierForVendor?.uuidString {
             Crashlytics.crashlytics().setUserID(uuid)

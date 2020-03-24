@@ -76,7 +76,7 @@
       </LocationScenarioReference>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Release PAID"
+      buildConfiguration = "Debug FREE"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -93,7 +93,7 @@
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Debug PAID">
+      buildConfiguration = "Debug FREE">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release PAID"

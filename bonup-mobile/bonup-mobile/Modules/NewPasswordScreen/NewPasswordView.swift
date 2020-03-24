@@ -12,7 +12,7 @@ protocol INewPasswordView: AnyObject {
 
 }
 
-final class NewPasswordView: UIViewController {
+final class NewPasswordView: LoginSectionViewController {
 
     enum PasswordTextFieldType {
         case newPass, repeatPass
@@ -31,22 +31,23 @@ final class NewPasswordView: UIViewController {
     private var containerStackView: UIStackView!
     private var infoLabel: UILabel!
 
-    // MARK: - Lyfe cycle
+    // MARK: - Life cycle
 
     override func loadView() {
-        self.view = UIView()
+        super.loadView()
 
         self.containerStackView = self.configureStackView()
-        self.view.addSubview(self.containerStackView)
+        self.scrollContentView.addSubview(self.containerStackView)
         self.containerStackView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(40.0)
             make.height.equalTo(155.0)
         }
+        self.bottomControlView = self.containerStackView
 
         self.newPasswordTextField = self.configureTextField(for: .newPass)
         self.repeatPasswordTextField = self.configureTextField(for: .repeatPass)
-        self.sendButton = UIButton.systemButton(for: .yellowButton, title: "Save".localized)
+        self.sendButton = UIButton.systemButton(for: .emptyBackgroundButton, title: "Save".localized)
 
         self.containerStackView.addArrangedSubview(self.newPasswordTextField)
         self.containerStackView.addArrangedSubview(self.repeatPasswordTextField)
@@ -63,7 +64,8 @@ final class NewPasswordView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .black
+        self.navigationItem.title = "ui_new_password_title".localized
+
         self.sendButton.addTarget(self, action: #selector(self.sendButtonTapped), for: .touchUpInside)
     }
 
@@ -94,19 +96,25 @@ final class NewPasswordView: UIViewController {
         tf.layer.cornerRadius = 20.0
         tf.layer.masksToBounds = true
         tf.textAlignment = .center
-        tf.backgroundColor = UIColor.gray.withAlphaComponent(0.3)
+        tf.backgroundColor = UIColor.pinkishGrey.withAlphaComponent(0.3)
+        tf.layer.borderColor = UIColor.white.cgColor
+        tf.layer.borderWidth = 1
+
+        tf.delegate = self
+        tf.isSecureTextEntry = true
+        tf.autocorrectionType = .no
 
         switch type {
         case .newPass:
             tf.attributedPlaceholder = NSAttributedString.with(
                 title: "ui_new_password_placeholder".localized,
-                textColor: UIColor.white.withAlphaComponent(0.3),
+                textColor: UIColor.white.withAlphaComponent(0.8),
                 font: UIFont.avenirRoman(14.0)
             )
         case .repeatPass:
             tf.attributedPlaceholder = NSAttributedString.with(
                 title: "ui_repeat_password_placeholder".localized,
-                textColor: UIColor.white.withAlphaComponent(0.3),
+                textColor: UIColor.white.withAlphaComponent(0.8),
                 font: UIFont.avenirRoman(14.0)
             )
         }

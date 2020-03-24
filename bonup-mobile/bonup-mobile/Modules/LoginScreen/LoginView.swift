@@ -11,7 +11,7 @@ import SnapKit
 
 protocol ILoginView: AnyObject { }
 
-final class LoginView: UIViewController {
+final class LoginView: LoginSectionViewController {
 
     enum LoginFieldType {
         case name, email, password
@@ -28,7 +28,7 @@ final class LoginView: UIViewController {
     // MARK: - Private variables
 
     private var logoImageView: UIImageView!
-    private var backgroundImageView: UIImageView!
+    private var mainContainerView: UIView!
     private var containerView: UIView!
     private var inputStackView: UIStackView!
     private var nameTextField: UITextField!
@@ -40,23 +40,24 @@ final class LoginView: UIViewController {
     private var signButtonsStackView: UIStackView!
     private var termsConditionsButton: UIButton!
 
-    // MARK: - Lyfe Cicle
+    // MARK: - Life Cicle
 
     override func loadView() {
-        self.view = UIView()
+        super.loadView()
 
-        self.backgroundImageView = UIImageView()
-        self.view.addSubview(self.backgroundImageView)
-        self.backgroundImageView.snp.makeConstraints { make in
+        self.mainContainerView = UIView()
+        self.scrollContentView.addSubview(self.mainContainerView)
+        self.mainContainerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
 
         self.containerView = UIView()
-        self.view.addSubview(self.containerView)
+        self.scrollContentView.addSubview(self.containerView)
         self.containerView.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(40.0)
         }
+        self.bottomControlView = self.containerView
 
         self.logoImageView = UIImageView()
         self.containerView.addSubview(self.logoImageView)
@@ -105,7 +106,11 @@ final class LoginView: UIViewController {
         super.viewDidLoad()
 
         // setup logo
-        
+
+        // setup container
+
+        self.mainContainerView.backgroundColor = .clear
+
         // setup inputStackView
 
         self.inputStackView.axis = .vertical
@@ -122,8 +127,8 @@ final class LoginView: UIViewController {
         self.forgotPasswordButton.setAttributedTitle(
             NSAttributedString.with(
                 title: "ui_forgot_password_title".localized,
-                textColor: UIColor.gray,
-                font: UIFont.avenirRoman(10)
+                textColor: UIColor.pinkishGrey.withAlphaComponent(0.6),
+                font: UIFont.avenirRoman(12)
             ),
             for: .normal
         )
@@ -138,7 +143,7 @@ final class LoginView: UIViewController {
         self.signInButton = UIButton.systemButton(for: .whiteButton, title: "ui_sign_in_title".localized)
         self.signInButton.addTarget(self, action: #selector(self.signInButtonTapped), for: .touchUpInside)
 
-        self.signUpButton = UIButton.systemButton(for: .yellowButton, title: "ui_sign_up_title".localized)
+        self.signUpButton = UIButton.systemButton(for: .emptyBackgroundButton, title: "ui_sign_up_title".localized)
         self.signUpButton.addTarget(self, action: #selector(self.signUpButtonTapped), for: .touchUpInside)
 
         self.signButtonsStackView.addArrangedSubview(self.signInButton)
@@ -150,7 +155,7 @@ final class LoginView: UIViewController {
         self.termsConditionsButton.setAttributedTitle(
             NSAttributedString.with(
                 title: "ui_terms_conditions_title".localized,
-                textColor: UIColor.pinkishGrey,
+                textColor: UIColor.pinkishGrey.withAlphaComponent(0.6),
                 font: UIFont.avenirRoman(12)
             ),
             for: .normal)
@@ -173,9 +178,10 @@ final class LoginView: UIViewController {
         let container = UIView()
 
         container.layer.cornerRadius = 15.0
-        container.layer.borderColor = UIColor.purple.withAlphaComponent(0.3).cgColor
+        container.layer.borderColor = UIColor.white.cgColor
         container.layer.borderWidth = 1.0
         container.clipsToBounds = true
+        container.backgroundColor = UIColor.pinkishGrey.withAlphaComponent(0.3)
 
         return container
     }
@@ -187,11 +193,11 @@ final class LoginView: UIViewController {
         textField.attributedPlaceholder = NSAttributedString(
             string: placeholder,
             attributes: [
-                .foregroundColor: UIColor.white.withAlphaComponent(0.3),
+                .foregroundColor: UIColor.white.withAlphaComponent(0.8),
                 .font: UIFont.avenirRoman(14)
             ]
         )
-        textField.textAlignment = .left
+        textField.textAlignment = .center
 
         return textField
     }
@@ -203,7 +209,7 @@ final class LoginView: UIViewController {
         containerView.addSubview(iconImageView)
         iconImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.size.equalTo(30.0)
+            make.size.equalTo(25.0)
             make.leading.equalToSuperview().offset(8.0)
         }
 
@@ -211,25 +217,29 @@ final class LoginView: UIViewController {
 
         switch type {
         case .name:
-            iconImageView.backgroundColor = .red
+            iconImageView.image = AssetsHelper.shared.image(.usernameIcon)
             self.nameTextField = self.configureTextField(with: "ui_name_placeholder".localized)
             textField = self.nameTextField
-        case .email:
-            iconImageView.backgroundColor = .blue
+        case .password:
+            iconImageView.image = AssetsHelper.shared.image(.passwordIcon)
             self.passwordTextField = self.configureTextField(with: "ui_password_placeholder".localized)
             self.passwordTextField.isSecureTextEntry = true
             textField = self.passwordTextField
-        case .password:
-            iconImageView.backgroundColor = .green
+        case .email:
+            iconImageView.image = AssetsHelper.shared.image(.emailIcon)
             self.emailTextField = self.configureTextField(with: "ui_email_placeholder".localized)
             textField = self.emailTextField
+            textField.keyboardType = .emailAddress
         }
+
+        textField.autocorrectionType = .no
+        textField.delegate = self
 
         containerView.addSubview(textField)
         textField.snp.makeConstraints { make in
             make.leading.equalTo(iconImageView.snp.trailing).offset(10.0)
             make.height.centerY.equalToSuperview()
-            make.trailing.equalToSuperview().offset(-8.0)
+            make.trailing.equalToSuperview().offset(-30.0)
         }
 
         return containerView

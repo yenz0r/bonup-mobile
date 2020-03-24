@@ -8,3 +8,20 @@
 
 "test-line" = "english-test-line";
 "reset_password_info" = "Enter your email to reset password from account linked to this address =)";
+
+"ui_forgot_password_title" = "Forgot password?";
+"ui_sign_in_title" = "SIGN IN";
+"ui_sign_up_title" = "SIGN UP";
+"ui_terms_conditions_title" = "Term & Conditions";
+"ui_name_placeholder" = "Name";
+"ui_password_placeholder" = "Password";
+"ui_email_placeholder" = "Email";
+"ui_send_mail_title" = "SEND MAIL";
+"ui_new_password_placeholder" = "New password";
+"ui_repeat_password_placeholder" = "Repeat password";
+"ui_alert_incorrect_auth_params" = "Incorrect autentification params..";
+"ui_alert_incorrect_auth_params_description" = "Please try to input one more time all fields =(";
+"ui_ok" = "Ok";
+"ui_cancel" = "Cancel";
+"ui_reset_password_title" = "Reset Password";
+"ui_new_password_title" = "New Password";

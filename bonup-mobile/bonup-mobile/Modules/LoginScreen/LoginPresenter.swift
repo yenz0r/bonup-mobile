@@ -33,12 +33,24 @@ extension LoginPresenter: ILoginPresenter {
                              password: String?,
                              type: LoginInteractor.LoginRequest) {
         guard
-            let name = name,
-            let email = email,
-            let password = password
-        else { return }
+            let currentName = name,
+            let currentEmail = email,
+            let currentPassword = password,
 
-        let authParams = AuthParams(name: name, email: email, password: password)
+            currentName != "",
+            currentEmail != "",
+            currentPassword != ""
+
+        else {
+            self.router.show(.alert(isError: true))
+            return
+        }
+
+        let authParams = AuthParams(
+            name: currentName,
+            email: currentEmail,
+            password: currentPassword)
+        
         self.interactor.handleLoginRequest(
             for: type,
             with: authParams,

@@ -52,7 +52,7 @@ extension AuthService: IMainTargetType {
                     "email": params.email,
                     "password": params.password
                 ],
-                encoding: URLEncoding.httpBody
+                encoding: JSONEncoding.default
             )
         case .register(let params):
             return .requestParameters(
@@ -61,7 +61,7 @@ extension AuthService: IMainTargetType {
                     "email": params.email,
                     "password": params.password
                 ],
-                encoding: URLEncoding.httpBody
+                encoding: JSONEncoding.default
             )
         }
     }

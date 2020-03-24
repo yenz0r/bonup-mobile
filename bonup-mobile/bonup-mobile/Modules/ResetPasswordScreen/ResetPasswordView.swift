@@ -12,7 +12,7 @@ protocol IResetPasswordView: AnyObject {
     func setupEmailText(_ email: String?)
 }
 
-final class ResetPasswordView: UIViewController {
+final class ResetPasswordView: LoginSectionViewController {
 
     // MARK: - Public properties
 
@@ -26,17 +26,18 @@ final class ResetPasswordView: UIViewController {
 
     private var containerView: UIView!
 
-    // MARK: - Lyfe cycle
+    // MARK: - Life cycle
 
     override func loadView() {
-        self.view = UIView()
+        super.loadView()
 
         self.containerView = UIView()
-        self.view.addSubview(self.containerView)
+        self.scrollContentView.addSubview(self.containerView)
         self.containerView.snp.makeConstraints { make in
             make.centerY.centerX.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(40.0)
         }
+        self.bottomControlView = self.containerView
 
         self.infoLabel = UILabel()
         self.containerView.addSubview(self.infoLabel)
@@ -52,7 +53,7 @@ final class ResetPasswordView: UIViewController {
             make.height.equalTo(45.0)
         }
 
-        self.sendButton = UIButton.systemButton(for: .yellowButton, title: "ui_send_mail_title".localized)
+        self.sendButton = UIButton.systemButton(for: .emptyBackgroundButton, title: "ui_send_mail_title".localized)
         self.containerView.addSubview(self.sendButton)
         self.sendButton.snp.makeConstraints { make in
             make.top.equalTo(self.emailTextField.snp.bottom).offset(10.0)
@@ -63,11 +64,12 @@ final class ResetPasswordView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .black
 
         self.presenter.viewDidLoad()
 
         // configurations
+
+        self.navigationItem.title = "ui_reset_password_title".localized
 
         self.configureInfoLabel()
         self.configureEmailTextField()
@@ -89,12 +91,19 @@ final class ResetPasswordView: UIViewController {
         self.emailTextField.textAlignment = .center
         self.emailTextField.layer.cornerRadius = 20.0
         self.emailTextField.layer.masksToBounds = true
+        self.emailTextField.backgroundColor = UIColor.pinkishGrey.withAlphaComponent(0.3)
+        self.emailTextField.layer.borderColor = UIColor.white.cgColor
+        self.emailTextField.layer.borderWidth = 1
+
         self.emailTextField.attributedPlaceholder = NSAttributedString.with(
             title: "ui_email_placeholder".localized,
-            textColor: UIColor.black.withAlphaComponent(0.3),
+            textColor: UIColor.white.withAlphaComponent(0.8),
             font: UIFont.avenirRoman(14)
         )
-        self.emailTextField.backgroundColor = UIColor.gray.withAlphaComponent(0.3)
+
+        self.emailTextField.delegate = self
+        self.emailTextField.keyboardType = .emailAddress
+        self.emailTextField.autocorrectionType = .no
     }
 
     // MARK: - Selectors

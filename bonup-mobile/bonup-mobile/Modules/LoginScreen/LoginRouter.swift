@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PMAlertController
 
 protocol ILoginRouter {
     func start(_ completion: (() -> Void)?)
@@ -54,8 +55,27 @@ extension LoginRouter: ILoginRouter {
             let resetPasswordDependency = ResetPasswordDependency(parentController: view, initialEmail: email)
             let resetPasswordRouter = ResetPasswordBuilder().build(resetPasswordDependency)
             resetPasswordRouter.start(nil)
-        default:
-            print("")
+        case .openApp:
+            print("openApp")
+        case .alert(_):
+            let alertVC = PMAlertController(
+                title: "ui_alert_incorrect_auth_params".localized,
+                description: "ui_alert_incorrect_auth_params_description".localized,
+                image: AssetsHelper.shared.image(.flagIcon),
+                style: .alert
+            )
+
+            alertVC.addAction(
+                PMAlertAction(
+                    title: "ui_ok".localized,
+                    style: .default,
+                    action: {
+                        print("Capture action OK")
+                    }
+                )
+            )
+
+            view.present(alertVC, animated: true, completion: nil)
         }
     }
 }

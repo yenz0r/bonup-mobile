@@ -72,7 +72,7 @@
       </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Release PAID"
+      buildConfiguration = "Debug PAID"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -92,7 +92,7 @@
       buildConfiguration = "Debug PAID">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release PAID"
+      buildConfiguration = "Debug PAID"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

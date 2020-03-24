@@ -9,5 +9,7 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
+#include "Pods/Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile.release paid.xcconfig"
+
 APP_NAME = Bonup
 APP_BUNDLE_ID = com.bonup.release.paid
