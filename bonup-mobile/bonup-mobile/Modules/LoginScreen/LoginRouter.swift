@@ -17,9 +17,10 @@ protocol ILoginRouter {
 
 final class LoginRouter {
     enum LoginRouterScenario {
-        case alert(isError: Bool)
+        case alert(isError: Bool, title: String, description: String)
         case resetPassword(email: String?)
         case openApp
+        case authVerification
     }
 
     private var view: LoginView?
@@ -57,25 +58,21 @@ extension LoginRouter: ILoginRouter {
             resetPasswordRouter.start(nil)
         case .openApp:
             print("openApp")
-        case .alert(_):
-            let alertVC = PMAlertController(
-                title: "ui_alert_incorrect_auth_params".localized,
-                description: "ui_alert_incorrect_auth_params_description".localized,
-                image: AssetsHelper.shared.image(.flagIcon),
-                style: .alert
+        case .authVerification:
+            let authVerificationDependency = AuthVerificationDependency(parentViewController: view)
+            let authVerificationBuilder = AuthVerificationBuilder()
+            let router = authVerificationBuilder.build(authVerificationDependency)
+            router.start(nil)
+        case .alert(let isError, let title, let desctiption):
+            AlertsFactory.shared.showInfoAlert(
+                for: isError ? .error : .loading,
+                title: title,
+                description: desctiption,
+                from: view,
+                completion: {
+                    print("error")
+                }
             )
-
-            alertVC.addAction(
-                PMAlertAction(
-                    title: "ui_ok".localized,
-                    style: .default,
-                    action: {
-                        print("Capture action OK")
-                    }
-                )
-            )
-
-            view.present(alertVC, animated: true, completion: nil)
         }
     }
 }

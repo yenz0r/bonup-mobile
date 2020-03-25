@@ -44,6 +44,8 @@ class LoginSectionViewController: UIViewController {
 
         self.scrollView.isScrollEnabled = false
 
+        self.configureNavigationBar()
+
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShown), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHiden), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -59,6 +61,26 @@ class LoginSectionViewController: UIViewController {
         self.view.setupGradient(UIColor.loginGradientColors)
     }
 
+    // MARK: - Private functions
+
+    private func configureNavigationBar() {
+        guard let navigation = self.navigationController else { return }
+
+        navigation.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigation.navigationBar.shadowImage = UIImage()
+        navigation.navigationBar.isTranslucent = true
+
+        let textAttributes = [
+            NSAttributedString.Key.foregroundColor:UIColor.purpleLite.withAlphaComponent(0.7),
+            .font: UIFont.avenirRoman(20)
+        ]
+        navigation.navigationBar.titleTextAttributes = textAttributes
+
+        let backItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        backItem.tintColor = UIColor.red.withAlphaComponent(0.7)
+        navigationItem.backBarButtonItem = backItem
+    }
+
     // MARK: - Selectors
 
     @objc private func hideViewTapped() {
@@ -70,6 +92,7 @@ class LoginSectionViewController: UIViewController {
         guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
         let keyboardFrame = keyboardSize.cgRectValue
 
+        // error in that place means that missed self.bottomControlView
         let offset = keyboardFrame.origin.y - self.bottomControlView.frame.maxY - 10.0
 
         self.scrollView.contentOffset = CGPoint(x: 0, y: -offset)

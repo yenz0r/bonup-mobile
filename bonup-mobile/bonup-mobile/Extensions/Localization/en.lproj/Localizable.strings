@@ -26,3 +26,12 @@
 "ui_reset_password_title" = "Reset Password";
 "ui_new_password_title" = "New Password";
 "ui_new_password_info" = "Nice man, glad to see you again =)\nNow enter your new password, and try do not forget it at this time 😜";
+"ui_code_placeholder" = "Enter code here";
+"ui_send_again_title" = "Send code again";
+"ui_code_verification_title" = "Now you can input code whitch we send to your email, but you have 3 mins to do it";
+"ui_send_code_title" = "SEND CODE";
+"ui_auth_error_title" = "Authetification error";
+"ui_auth_error_description" = "Please check your auth credentials..";
+"ui_auth_email_error_title" = "I'm not sure that it is real email";
+"ui_auth_email_error_description" = "Please check your input email..";
+"ui_time_is_off" = "Time is off..";

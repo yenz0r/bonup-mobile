@@ -42,14 +42,35 @@ extension LoginPresenter: ILoginPresenter {
             currentPassword != ""
 
         else {
-            self.router.show(.alert(isError: true))
+            self.router.show(
+                .alert(
+                    isError: true,
+                    title: "ui_alert_incorrect_auth_params".localized,
+                    description: "ui_alert_incorrect_auth_params_description".localized
+                )
+            )
             return
         }
+
+        guard currentEmail.isEmail else {
+            self.router.show(
+                .alert(
+                    isError: true,
+                    title: "ui_auth_email_error_title".localized,
+                    description: "ui_auth_email_error_description".localized
+                )
+            )
+            return
+        }
+
+        self.router.show(.authVerification)
+        return
 
         let authParams = AuthParams(
             name: currentName,
             email: currentEmail,
-            password: currentPassword)
+            password: currentPassword
+        )
         
         self.interactor.handleLoginRequest(
             for: type,
@@ -57,9 +78,15 @@ extension LoginPresenter: ILoginPresenter {
             completion: { [weak self] isSuccess in
                 DispatchQueue.main.async {
                     if isSuccess {
-                        self?.router.show(.openApp)
+                        self?.router.show(.authVerification)
                     } else {
-                        self?.router.show(.alert(isError: true))
+                        self?.router.show(
+                            .alert(
+                                isError: true,
+                                title: "ui_auth_error_title".localized,
+                                description: "ui_auth_error_description".localized
+                            )
+                        )
                     }
                 }
             }

@@ -48,6 +48,17 @@
 		B959712D24269F2A00EAEB6E /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B959712C24269F2A00EAEB6E /* TimerManager.swift */; };
 		B95971302426B7B700EAEB6E /* GoogleService-Realese-Free.plist in Resources */ = {isa = PBXBuildFile; fileRef = B959712F2426B7B700EAEB6E /* GoogleService-Realese-Free.plist */; };
 		B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */; };
+		B9CAA708242B9EE000E50668 /* AuthVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA707242B9EE000E50668 /* AuthVerificationView.swift */; };
+		B9CAA70A242B9EF600E50668 /* AuthVerificationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA709242B9EF600E50668 /* AuthVerificationInteractor.swift */; };
+		B9CAA70C242B9F0200E50668 /* AuthVerificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA70B242B9F0200E50668 /* AuthVerificationRouter.swift */; };
+		B9CAA70E242B9F0D00E50668 /* AuthVerificationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA70D242B9F0D00E50668 /* AuthVerificationBuilder.swift */; };
+		B9CAA710242B9F1600E50668 /* AuthVerificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA70F242B9F1600E50668 /* AuthVerificationPresenter.swift */; };
+		B9CAA712242B9F2100E50668 /* AuthVerificationDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA711242B9F2100E50668 /* AuthVerificationDependency.swift */; };
+		B9CAA715242B9FAE00E50668 /* UITextField+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA714242B9FAE00E50668 /* UITextField+Factory.swift */; };
+		B9CAA717242BB0AD00E50668 /* AlertsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA716242BB0AD00E50668 /* AlertsFactory.swift */; };
+		B9CAA71A242BE0CB00E50668 /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA719242BE0CB00E50668 /* String+Validation.swift */; };
+		B9CAA71F242BE8B500E50668 /* AuthVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA71E242BE8B500E50668 /* AuthVerificationService.swift */; };
+		B9CAA722242BE8DF00E50668 /* AuthVerificationResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA721242BE8DF00E50668 /* AuthVerificationResponseEntity.swift */; };
 		B9CEE69C241CE98000308098 /* LoginDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CEE69B241CE98000308098 /* LoginDependency.swift */; };
 		B9CEE69E241D558E00308098 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CEE69D241D558E00308098 /* ResetPasswordView.swift */; };
 		B9CEE6A0241D559E00308098 /* ResetPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CEE69F241D559E00308098 /* ResetPasswordInteractor.swift */; };
@@ -137,6 +148,17 @@
 		B959712C24269F2A00EAEB6E /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		B959712F2426B7B700EAEB6E /* GoogleService-Realese-Free.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Realese-Free.plist"; path = "../../../../Desktop/GoogleService-Realese-Free.plist"; sourceTree = "<group>"; };
 		B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Facade.swift"; sourceTree = "<group>"; };
+		B9CAA707242B9EE000E50668 /* AuthVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationView.swift; sourceTree = "<group>"; };
+		B9CAA709242B9EF600E50668 /* AuthVerificationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationInteractor.swift; sourceTree = "<group>"; };
+		B9CAA70B242B9F0200E50668 /* AuthVerificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationRouter.swift; sourceTree = "<group>"; };
+		B9CAA70D242B9F0D00E50668 /* AuthVerificationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationBuilder.swift; sourceTree = "<group>"; };
+		B9CAA70F242B9F1600E50668 /* AuthVerificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationPresenter.swift; sourceTree = "<group>"; };
+		B9CAA711242B9F2100E50668 /* AuthVerificationDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationDependency.swift; sourceTree = "<group>"; };
+		B9CAA714242B9FAE00E50668 /* UITextField+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Factory.swift"; sourceTree = "<group>"; };
+		B9CAA716242BB0AD00E50668 /* AlertsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsFactory.swift; sourceTree = "<group>"; };
+		B9CAA719242BE0CB00E50668 /* String+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validation.swift"; sourceTree = "<group>"; };
+		B9CAA71E242BE8B500E50668 /* AuthVerificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationService.swift; sourceTree = "<group>"; };
+		B9CAA721242BE8DF00E50668 /* AuthVerificationResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationResponseEntity.swift; sourceTree = "<group>"; };
 		B9CEE69B241CE98000308098 /* LoginDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDependency.swift; sourceTree = "<group>"; };
 		B9CEE69D241D558E00308098 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		B9CEE69F241D559E00308098 /* ResetPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordInteractor.swift; sourceTree = "<group>"; };
@@ -248,6 +270,7 @@
 				B932366D241D988500A37634 /* KeyChain */,
 				B959712E24269F2F00EAEB6E /* TimerManager */,
 				B9268921242A95CE00F1732A /* Assets */,
+				B9CAA718242BB0B500E50668 /* AlertFactory */,
 			);
 			path = Subsystems;
 			sourceTree = "<group>";
@@ -265,8 +288,8 @@
 		B9323664241D7F5B00A37634 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				B9323662241D7F5300A37634 /* AuthService.swift */,
-				B932366E241E6CCF00A37634 /* AuthResponseEntity.swift */,
+				B9CAA71D242BE89F00E50668 /* Auth */,
+				B9CAA720242BE8BA00E50668 /* AuthVerification */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -414,6 +437,8 @@
 				B9259BA1241CE26C009585B7 /* UIColor */,
 				B935A59E241D6F380074E89E /* UIButton */,
 				B92688FE2429520800F1732A /* UIView */,
+				B9CAA71C242BE0E400E50668 /* UITextField */,
+				B9CAA71B242BE0D000E50668 /* String */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -454,6 +479,7 @@
 				B948A23F241CBFF6001287B8 /* LoginScreen */,
 				B9CEE6A9241D55FB00308098 /* ResetPasswordScreen */,
 				B935A59B241D6C560074E89E /* NewPasswordScreen */,
+				B9CAA713242B9F2D00E50668 /* AuthVerification */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -480,6 +506,61 @@
 				B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */,
 			);
 			path = NSAttributedString;
+			sourceTree = "<group>";
+		};
+		B9CAA713242B9F2D00E50668 /* AuthVerification */ = {
+			isa = PBXGroup;
+			children = (
+				B9CAA707242B9EE000E50668 /* AuthVerificationView.swift */,
+				B9CAA709242B9EF600E50668 /* AuthVerificationInteractor.swift */,
+				B9CAA70B242B9F0200E50668 /* AuthVerificationRouter.swift */,
+				B9CAA70D242B9F0D00E50668 /* AuthVerificationBuilder.swift */,
+				B9CAA70F242B9F1600E50668 /* AuthVerificationPresenter.swift */,
+				B9CAA711242B9F2100E50668 /* AuthVerificationDependency.swift */,
+			);
+			path = AuthVerification;
+			sourceTree = "<group>";
+		};
+		B9CAA718242BB0B500E50668 /* AlertFactory */ = {
+			isa = PBXGroup;
+			children = (
+				B9CAA716242BB0AD00E50668 /* AlertsFactory.swift */,
+			);
+			path = AlertFactory;
+			sourceTree = "<group>";
+		};
+		B9CAA71B242BE0D000E50668 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				B9CAA719242BE0CB00E50668 /* String+Validation.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
+		B9CAA71C242BE0E400E50668 /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				B9CAA714242B9FAE00E50668 /* UITextField+Factory.swift */,
+			);
+			path = UITextField;
+			sourceTree = "<group>";
+		};
+		B9CAA71D242BE89F00E50668 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B9323662241D7F5300A37634 /* AuthService.swift */,
+				B932366E241E6CCF00A37634 /* AuthResponseEntity.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		B9CAA720242BE8BA00E50668 /* AuthVerification */ = {
+			isa = PBXGroup;
+			children = (
+				B9CAA71E242BE8B500E50668 /* AuthVerificationService.swift */,
+				B9CAA721242BE8DF00E50668 /* AuthVerificationResponseEntity.swift */,
+			);
+			path = AuthVerification;
 			sourceTree = "<group>";
 		};
 		B9CEE6A9241D55FB00308098 /* ResetPasswordScreen */ = {
@@ -771,21 +852,30 @@
 			files = (
 				B935A59D241D6F2E0074E89E /* UIButton+Factory.swift in Sources */,
 				B935A598241D6A820074E89E /* NewPasswordRouter.swift in Sources */,
+				B9CAA712242B9F2100E50668 /* AuthVerificationDependency.swift in Sources */,
 				B935A594241D6A720074E89E /* NewPasswordPresenter.swift in Sources */,
+				B9CAA71A242BE0CB00E50668 /* String+Validation.swift in Sources */,
 				B9CEE6A2241D55A500308098 /* ResetPasswordPresenter.swift in Sources */,
 				B9CEE69C241CE98000308098 /* LoginDependency.swift in Sources */,
 				B932365B241D743300A37634 /* NewPasswordDependency.swift in Sources */,
+				B9CAA717242BB0AD00E50668 /* AlertsFactory.swift in Sources */,
 				B935A596241D6A7A0074E89E /* NewPasswordInteractor.swift in Sources */,
 				B948A23E241CBFD8001287B8 /* LoginBuilder.swift in Sources */,
 				B948A1EC241444B2001287B8 /* bonup_mobile.xcdatamodeld in Sources */,
 				B948A236241CBFA6001287B8 /* LoginView.swift in Sources */,
 				B92688FD2429520300F1732A /* UIView+Gradient.swift in Sources */,
+				B9CAA71F242BE8B500E50668 /* AuthVerificationService.swift in Sources */,
+				B9CAA70C242B9F0200E50668 /* AuthVerificationRouter.swift in Sources */,
+				B9CAA708242B9EE000E50668 /* AuthVerificationView.swift in Sources */,
 				B935A590241D5B090074E89E /* ResetPasswordDependency.swift in Sources */,
 				B932366F241E6CCF00A37634 /* AuthResponseEntity.swift in Sources */,
 				B935A592241D6A6A0074E89E /* NewPasswordView.swift in Sources */,
+				B9CAA70E242B9F0D00E50668 /* AuthVerificationBuilder.swift in Sources */,
+				B9CAA710242B9F1600E50668 /* AuthVerificationPresenter.swift in Sources */,
 				B935A59A241D6A8A0074E89E /* NewPasswordBuilder.swift in Sources */,
 				B948A230241455A3001287B8 /* Localization.swift in Sources */,
 				B9323666241D96D700A37634 /* UserEntity.swift in Sources */,
+				B9CAA715242B9FAE00E50668 /* UITextField+Factory.swift in Sources */,
 				B948A23A241CBFBA001287B8 /* LoginPresenter.swift in Sources */,
 				B9126688242AA57D00BEA50C /* LoginSectionViewController.swift in Sources */,
 				B948A234241CBE61001287B8 /* AppRouter.swift in Sources */,
@@ -796,6 +886,7 @@
 				B9CEE6A0241D559E00308098 /* ResetPasswordInteractor.swift in Sources */,
 				B948A23C241CBFC1001287B8 /* LoginRouter.swift in Sources */,
 				B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */,
+				B9CAA722242BE8DF00E50668 /* AuthVerificationResponseEntity.swift in Sources */,
 				B9323669241D96F600A37634 /* AccountManager.swift in Sources */,
 				B9268920242A95CA00F1732A /* AssetsHelper.swift in Sources */,
 				B959712D24269F2A00EAEB6E /* TimerManager.swift in Sources */,
@@ -806,6 +897,7 @@
 				B9259BA0241CE267009585B7 /* UIColor+Facade.swift in Sources */,
 				B9323663241D7F5300A37634 /* AuthService.swift in Sources */,
 				B948A247241CDE64001287B8 /* UIFont+Fonts.swift in Sources */,
+				B9CAA70A242B9EF600E50668 /* AuthVerificationInteractor.swift in Sources */,
 				B9CEE6A4241D55B500308098 /* ResetPasswordRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
