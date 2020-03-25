@@ -35,3 +35,5 @@
 "ui_auth_email_error_title" = "I'm not sure that it is real email";
 "ui_auth_email_error_description" = "Please check your input email..";
 "ui_time_is_off" = "Time is off..";
+"ui_save_title" = "SAVE";
+"ui_auth_verification_title" = "Auth verification";

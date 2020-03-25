@@ -45,7 +45,7 @@ final class ResetPasswordView: LoginSectionViewController {
             make.top.leading.trailing.equalToSuperview()
         }
 
-        self.emailTextField = UITextField()
+        self.emailTextField = UITextField.loginTextField(with: "ui_email_placeholder".localized)
         self.containerView.addSubview(self.emailTextField)
         self.emailTextField.snp.makeConstraints { make in
             make.top.equalTo(self.infoLabel.snp.bottom).offset(30.0)
@@ -88,22 +88,8 @@ final class ResetPasswordView: LoginSectionViewController {
     }
 
     private func configureEmailTextField() {
-        self.emailTextField.textAlignment = .center
-        self.emailTextField.layer.cornerRadius = 20.0
-        self.emailTextField.layer.masksToBounds = true
-        self.emailTextField.backgroundColor = UIColor.pinkishGrey.withAlphaComponent(0.3)
-        self.emailTextField.layer.borderColor = UIColor.white.cgColor
-        self.emailTextField.layer.borderWidth = 1
-
-        self.emailTextField.attributedPlaceholder = NSAttributedString.with(
-            title: "ui_email_placeholder".localized,
-            textColor: UIColor.white.withAlphaComponent(0.8),
-            font: UIFont.avenirRoman(14)
-        )
-
         self.emailTextField.delegate = self
         self.emailTextField.keyboardType = .emailAddress
-        self.emailTextField.autocorrectionType = .no
     }
 
     // MARK: - Selectors

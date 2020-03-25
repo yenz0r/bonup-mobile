@@ -95,6 +95,8 @@ final class AuthVerificationView: LoginSectionViewController {
     // MARK: - Private functions
 
     private func configureViews() {
+        self.navigationItem.title = "ui_auth_verification_title".localized
+
         self.titleLabel.numberOfLines = 0
         self.titleLabel.font = UIFont.avenirRoman(20.0)
         self.titleLabel.textAlignment = .center
