@@ -252,7 +252,7 @@ final class LoginView: LoginSectionViewController {
     }
 
     @objc private func termConditionsButtonTapped() {
-        print("termsConditioins")
+        self.presenter.handleTermAndConditionButtonTap()
     }
 
     @objc private func signUpButtonTapped() {

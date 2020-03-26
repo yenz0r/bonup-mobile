@@ -37,3 +37,5 @@
 "ui_time_is_off" = "Time is off..";
 "ui_save_title" = "SAVE";
 "ui_auth_verification_title" = "Auth verification";
+"ui_incorrect_verification_title" = "Verification faild";
+"ui_incorrect_verification_description" = "Enter yout code again please..";

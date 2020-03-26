@@ -48,6 +48,7 @@
 		B959712D24269F2A00EAEB6E /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B959712C24269F2A00EAEB6E /* TimerManager.swift */; };
 		B95971302426B7B700EAEB6E /* GoogleService-Realese-Free.plist in Resources */ = {isa = PBXBuildFile; fileRef = B959712F2426B7B700EAEB6E /* GoogleService-Realese-Free.plist */; };
 		B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */; };
+		B9A732FB242D556C00860346 /* UIButton+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A732FA242D556C00860346 /* UIButton+Animations.swift */; };
 		B9CAA708242B9EE000E50668 /* AuthVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA707242B9EE000E50668 /* AuthVerificationView.swift */; };
 		B9CAA70A242B9EF600E50668 /* AuthVerificationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA709242B9EF600E50668 /* AuthVerificationInteractor.swift */; };
 		B9CAA70C242B9F0200E50668 /* AuthVerificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA70B242B9F0200E50668 /* AuthVerificationRouter.swift */; };
@@ -148,6 +149,7 @@
 		B959712C24269F2A00EAEB6E /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		B959712F2426B7B700EAEB6E /* GoogleService-Realese-Free.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Realese-Free.plist"; path = "../../../../Desktop/GoogleService-Realese-Free.plist"; sourceTree = "<group>"; };
 		B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Facade.swift"; sourceTree = "<group>"; };
+		B9A732FA242D556C00860346 /* UIButton+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Animations.swift"; sourceTree = "<group>"; };
 		B9CAA707242B9EE000E50668 /* AuthVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationView.swift; sourceTree = "<group>"; };
 		B9CAA709242B9EF600E50668 /* AuthVerificationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationInteractor.swift; sourceTree = "<group>"; };
 		B9CAA70B242B9F0200E50668 /* AuthVerificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationRouter.swift; sourceTree = "<group>"; };
@@ -278,8 +280,7 @@
 		B932365F241D7C4000A37634 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				B932365C241D7C2C00A37634 /* MainNetworkProvider.swift */,
-				B9323660241D7E4F00A37634 /* AuthorizedTargetType.swift */,
+				B9A732FC242D631800860346 /* Core */,
 				B9323664241D7F5B00A37634 /* Services */,
 			);
 			path = Networking;
@@ -335,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				B935A59C241D6F2D0074E89E /* UIButton+Factory.swift */,
+				B9A732FA242D556C00860346 /* UIButton+Animations.swift */,
 			);
 			path = UIButton;
 			sourceTree = "<group>";
@@ -506,6 +508,15 @@
 				B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */,
 			);
 			path = NSAttributedString;
+			sourceTree = "<group>";
+		};
+		B9A732FC242D631800860346 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B932365C241D7C2C00A37634 /* MainNetworkProvider.swift */,
+				B9323660241D7E4F00A37634 /* AuthorizedTargetType.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		B9CAA713242B9F2D00E50668 /* AuthVerification */ = {
@@ -854,6 +865,7 @@
 				B935A598241D6A820074E89E /* NewPasswordRouter.swift in Sources */,
 				B9CAA712242B9F2100E50668 /* AuthVerificationDependency.swift in Sources */,
 				B935A594241D6A720074E89E /* NewPasswordPresenter.swift in Sources */,
+				B9A732FB242D556C00860346 /* UIButton+Animations.swift in Sources */,
 				B9CAA71A242BE0CB00E50668 /* String+Validation.swift in Sources */,
 				B9CEE6A2241D55A500308098 /* ResetPasswordPresenter.swift in Sources */,
 				B9CEE69C241CE98000308098 /* LoginDependency.swift in Sources */,

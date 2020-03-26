@@ -17,6 +17,7 @@ protocol IAuthVerificationRouter {
 final class AuthVerificationRouter {
     enum AuthVerificationRouterScenario {
         case openApplication
+        case errorAlert
     }
 
     private var view: AuthVerificationView?
@@ -45,9 +46,20 @@ extension AuthVerificationRouter: IAuthVerificationRouter {
     }
 
     func show(_ scenario: AuthVerificationRouterScenario) {
+
+        guard let view = self.view else { return }
+
         switch scenario {
         case .openApplication:
-            print("empty")
+            self.stop(nil)
+        case .errorAlert:
+            AlertsFactory.shared.infoAlert(
+                for: .error,
+                title: "ui_incorrect_verification_title".localized,
+                description: "ui_incorrect_verification_description".localized,
+                from: view,
+                completion: nil
+            )
         }
     }
 }

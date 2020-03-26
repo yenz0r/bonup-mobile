@@ -56,7 +56,12 @@ extension MainNetworkProvider: IMainNetworkProvider {
                                completion: @escaping (T) -> Void,
                                failure: ((MoyaError?) -> Void)?) -> Cancellable {
 
+        AlertsFactory.shared.loadingAlert(.show(message: "Wait a bit please.."))
+
         return moyaProvider.request(target) { result in
+
+            AlertsFactory.shared.loadingAlert(.hide)
+
             switch result {
 
             case let .success(response):
@@ -80,11 +85,19 @@ extension MainNetworkProvider: IMainNetworkProvider {
         }
     }
 
+    func requestSignal(_ target: MainTarget) -> Cancellable {
+        return moyaProvider.request(target, completion: { _ in })
+    }
+
     func requestBool(_ target: MainTarget,
                      completion: @escaping (Bool) -> Void,
                      failure: ((MoyaError?) -> Void)?) -> Cancellable {
 
+        AlertsFactory.shared.loadingAlert(.show(message: "Wait a bit please.."))
+
         return moyaProvider.request(target) { result in
+
+            AlertsFactory.shared.loadingAlert(.hide)
 
             switch result {
 
@@ -118,7 +131,11 @@ extension MainNetworkProvider: IMainNetworkProvider {
                        completion: @escaping (String) -> Void,
                        failure: ((MoyaError?) -> Void)?) -> Cancellable {
 
+        AlertsFactory.shared.loadingAlert(.show(message: "Wait a bit please.."))
+
         return moyaProvider.request(target) { result in
+
+            AlertsFactory.shared.loadingAlert(.hide)
 
             switch result {
 

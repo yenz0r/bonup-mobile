@@ -8,22 +8,29 @@
 
 import UIKit
 import PMAlertController
+import SwiftSpinner
 
 final class AlertsFactory {
 
     enum AlertType {
-        case error, loading
+        case error
+    }
+
+    enum LoadinAlertAction {
+        case show(message: String)
+        case showWithDuration(duration: Double, message: String)
+        case hide
     }
 
     static let shared = AlertsFactory()
 
     private init() { }
 
-    func showInfoAlert(for type: AlertType,
-                       title: String,
-                       description: String,
-                       from controller: UIViewController,
-                       completion: (() -> Void)?) {
+    func infoAlert(for type: AlertType,
+                   title: String,
+                   description: String,
+                   from controller: UIViewController,
+                   completion: (() -> Void)?) {
         var alertVC: PMAlertController
 
         switch type {
@@ -44,15 +51,24 @@ final class AlertsFactory {
                     }
                 )
             )
-        case .loading:
-            alertVC = PMAlertController(
-                title: title,
-                description: description,
-                image: AssetsHelper.shared.image(.flagIcon),
-                style: .alert
-            )
+
+            controller.present(alertVC, animated: true, completion: nil)
         }
 
-        controller.present(alertVC, animated: true, completion: nil)
+    }
+
+    func loadingAlert(_ action: LoadinAlertAction) {
+        DispatchQueue.main.async {
+
+            switch action {
+            case .show(let message):
+                SwiftSpinner.show(message)
+            case .showWithDuration(let duration, let message):
+                SwiftSpinner.show(duration: duration, title: message)
+            case .hide:
+                SwiftSpinner.hide()
+            }
+
+        }
     }
 }

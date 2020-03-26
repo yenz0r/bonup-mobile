@@ -17,7 +17,8 @@ protocol ILoginRouter {
 
 final class LoginRouter {
     enum LoginRouterScenario {
-        case alert(isError: Bool, title: String, description: String)
+        case showErrorAlert(title: String, description: String)
+
         case resetPassword(email: String?)
         case openApp
         case authVerification
@@ -63,11 +64,11 @@ extension LoginRouter: ILoginRouter {
             let authVerificationBuilder = AuthVerificationBuilder()
             let router = authVerificationBuilder.build(authVerificationDependency)
             router.start(nil)
-        case .alert(let isError, let title, let desctiption):
-            AlertsFactory.shared.showInfoAlert(
-                for: isError ? .error : .loading,
+        case .showErrorAlert(let title, let description):
+            AlertsFactory.shared.infoAlert(
+                for: .error,
                 title: title,
-                description: desctiption,
+                description: description,
                 from: view,
                 completion: {
                     print("error")

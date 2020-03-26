@@ -14,7 +14,7 @@ protocol ILoginInteractor {
                             completion: ((Bool) -> Void)?)
 }
 
-class LoginInteractor {
+final class LoginInteractor {
     enum LoginRequest {
         case auth, register
     }
@@ -40,7 +40,7 @@ extension LoginInteractor: ILoginInteractor {
         _ = networkProvider.requestString(
             target,
             completion: { token in
-                AccountManager.shared.currentToken = token
+                //AccountManager.shared.currentToken = token
                 completion?(true)
             },
             failure: { _ in

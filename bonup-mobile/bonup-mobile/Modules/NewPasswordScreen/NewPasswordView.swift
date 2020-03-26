@@ -76,9 +76,19 @@ final class NewPasswordView: LoginSectionViewController {
     // MARK: - Selectors
 
     @objc private func sendButtonTapped() {
+        guard
+            let newText = self.newPasswordTextField.text,
+            let repeatText = self.repeatPasswordTextField.text,
+
+            newText != "",
+            repeatText == newText else {
+                self.sendButton.shake()
+                return
+        }
+
         self.presenter.handleSendButtonTapped(
-            newPass: self.newPasswordTextField.text,
-            repeatPass: self.repeatPasswordTextField.text
+            newPass: newText,
+            repeatPass: repeatText
         )
     }
 

@@ -10,13 +10,22 @@ import Foundation
 
 protocol ILoginPresenter {
     func handleResetPasswordButtonTap(with email: String?)
-    func handleSignButtonTap(name: String?, email: String?, password: String?, type: LoginInteractor.LoginRequest)
+    func handleSignButtonTap(name: String?,
+                             email: String?,
+                             password: String?,
+                             type: LoginInteractor.LoginRequest)
+    func handleTermAndConditionButtonTap()
 }
 
 final class LoginPresenter {
+
+    // MARK: - Private variables
+
     private weak var view: ILoginView?
     private let interactor: ILoginInteractor
     private let router: ILoginRouter
+
+    // MARK: - Initialization
 
     init(interactor: ILoginInteractor,
          router: ILoginRouter,
@@ -26,6 +35,8 @@ final class LoginPresenter {
         self.view = view
     }
 }
+
+// MARK: - ILoginPresenter implementation
 
 extension LoginPresenter: ILoginPresenter {
     func handleSignButtonTap(name: String?,
@@ -43,8 +54,7 @@ extension LoginPresenter: ILoginPresenter {
 
         else {
             self.router.show(
-                .alert(
-                    isError: true,
+                .showErrorAlert(
                     title: "ui_alert_incorrect_auth_params".localized,
                     description: "ui_alert_incorrect_auth_params_description".localized
                 )
@@ -54,35 +64,33 @@ extension LoginPresenter: ILoginPresenter {
 
         guard currentEmail.isEmail else {
             self.router.show(
-                .alert(
-                    isError: true,
-                    title: "ui_auth_email_error_title".localized,
+                .showErrorAlert(
+                    title: "ui_auth_error_title".localized,
                     description: "ui_auth_email_error_description".localized
                 )
             )
             return
         }
 
-        self.router.show(.authVerification)
-        return
+        //self.router.show(.authVerification)
 
         let authParams = AuthParams(
             name: currentName,
             email: currentEmail,
             password: currentPassword
         )
-        
+
         self.interactor.handleLoginRequest(
             for: type,
             with: authParams,
             completion: { [weak self] isSuccess in
-                DispatchQueue.main.async {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    
                     if isSuccess {
                         self?.router.show(.authVerification)
                     } else {
                         self?.router.show(
-                            .alert(
-                                isError: true,
+                            .showErrorAlert(
                                 title: "ui_auth_error_title".localized,
                                 description: "ui_auth_error_description".localized
                             )
@@ -95,5 +103,9 @@ extension LoginPresenter: ILoginPresenter {
 
     func handleResetPasswordButtonTap(with email: String?) {
         self.router.show(.resetPassword(email: email))
+    }
+
+    func handleTermAndConditionButtonTap() {
+        self.router.show(.authVerification)
     }
 }

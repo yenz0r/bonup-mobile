@@ -9,7 +9,7 @@
 import UIKit
 
 protocol IAuthVerificationPresenter {
-    func handleSendButtonTap(code: String?)
+    func handleSendButtonTap(code: String)
     func handleResendButtonTap()
     func viewDidAppear()
 }
@@ -21,6 +21,9 @@ final class AuthVerificationPresenter {
     private weak var view: IAuthVerificationView?
     private let interactor: IAuthVerificationInteractor
     private let router: IAuthVerificationRouter
+
+    private var restTime: UInt = 0
+    private let timeForCode: UInt = 180
 
     // MARK: - Services
 
@@ -38,31 +41,54 @@ final class AuthVerificationPresenter {
 // MARK: - INewPasswordPresenter implementation
 
 extension AuthVerificationPresenter: IAuthVerificationPresenter {
-    func handleSendButtonTap(code: String?) {
-        self.timerManager.stopNow(nil)
-        print(code ?? "empty code")
+    func handleSendButtonTap(code: String) {
+        self.timerManager.stopNow { [weak self] restTime in
+            self?.restTime = restTime
+        }
+
+        self.interactor.verify(code: code) { [weak self] isSuccess in
+
+            guard let strongSelf = self else { return }
+
+            DispatchQueue.main.async {
+                if isSuccess {
+                    strongSelf.router.show(.openApplication)
+                } else {
+                    strongSelf.router.show(.errorAlert)
+                    strongSelf.startTimer(with: strongSelf.restTime)
+                }
+            }
+        }
     }
 
     func handleResendButtonTap() {
         self.timerManager.stopNow(nil)
-        self.startTimer()
+        self.startTimer(with: self.timeForCode)
     }
 
     func viewDidAppear() {
-        self.startTimer()
+        self.startTimer(with: self.timeForCode)
     }
 }
 
 // MARK: - Helpers
 
 extension AuthVerificationPresenter {
-    private func startTimer() {
-        self.timerManager = TimerManager(initTime: 180, interval: 1, finishTime: 0, direction: .down)
+    private func startTimer(with initTime: UInt) {
+        self.timerManager = TimerManager(
+            initTime: initTime,
+            interval: 1,
+            finishTime: 0,
+            direction: .down
+        )
 
         self.timerManager.start(onProgress: { currentValue in
-            self.view?.displayTimerText("\(self.timeString(Int(currentValue)))")
+            self.view?.displayTimerText(
+                "\(self.timeString(Int(currentValue)))",
+                currentValue > 10 ? .white80 : .red
+            )
         }, onFinish: {
-            self.view?.displayTimerText("ui_time_is_off".localized)
+            self.view?.displayTimerText("ui_time_is_off".localized, .red)
         })
     }
 

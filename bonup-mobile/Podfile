@@ -15,6 +15,7 @@ target 'bonup-mobile' do
   pod 'Firebase/Analytics'  
   
   pod 'PMAlertController'
+  pod 'SwiftSpinner'
 
   target 'bonup-mobileTests' do
     inherit! :search_paths

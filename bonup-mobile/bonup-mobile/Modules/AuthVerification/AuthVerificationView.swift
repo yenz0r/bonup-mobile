@@ -9,7 +9,7 @@
 import UIKit
 
 protocol IAuthVerificationView: AnyObject {
-    func displayTimerText(_ text: String)
+    func displayTimerText(_ text: String, _ color: UIColor)
 }
 
 final class AuthVerificationView: LoginSectionViewController {
@@ -123,7 +123,14 @@ final class AuthVerificationView: LoginSectionViewController {
     }
 
     @objc private func sendButtonTapped() {
-        self.presenter.handleSendButtonTap(code: self.codeTextField.text)
+        guard
+            let code = self.codeTextField.text,
+            code != "" else {
+                self.sendButton.shake()
+                return
+        }
+
+        self.presenter.handleSendButtonTap(code: code)
     }
 
 }
@@ -131,7 +138,8 @@ final class AuthVerificationView: LoginSectionViewController {
 // MARK: - IAuthVerificationView implementation
 
 extension AuthVerificationView: IAuthVerificationView {
-    func displayTimerText(_ text: String) {
+    func displayTimerText(_ text: String, _ color: UIColor) {
         self.timerLabel.text = text
+        self.timerLabel.textColor = color
     }
 }

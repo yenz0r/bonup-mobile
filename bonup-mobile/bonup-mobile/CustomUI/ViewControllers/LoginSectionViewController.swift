@@ -61,6 +61,12 @@ class LoginSectionViewController: UIViewController {
         self.view.setupGradient(UIColor.loginGradientColors)
     }
 
+    // MARK: - Override
+
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+
     // MARK: - Private functions
 
     private func configureNavigationBar() {

@@ -9,15 +9,38 @@
 import Foundation
 
 protocol IAuthVerificationInteractor: AnyObject {
-
+    func verify(code: String, completion: ((Bool) -> Void)?)
+    func resend()
 }
 
 final class AuthVerificationInteractor {
+
+    // MARK: - Private variables
+
+    private let networkProvider = MainNetworkProvider<AuthVerificationService>()
 
 }
 
 // MAKR: - IAuthVerificationInteractor implemenetation
 
 extension AuthVerificationInteractor: IAuthVerificationInteractor {
-    
+    func verify(code: String, completion: ((Bool) -> Void)?) {
+
+        let verifyParams = AuthVerificationParams(code: code)
+
+        _ = networkProvider.requestString(
+            .verify(params: verifyParams),
+            completion: { token in
+                //AccountManager.shared.currentToken = token
+                completion?(true)
+            },
+            failure: { _ in
+                completion?(false)
+            }
+        )
+    }
+
+    func resend() {
+        _ = networkProvider.requestSignal(.resend)
+    }
 }
