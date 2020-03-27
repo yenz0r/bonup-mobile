@@ -10,7 +10,7 @@ import UIKit
 
 extension UIColor {
     static let loginGradientColors = [
-        UIColor(red: 220/255, green: 255/255, blue: 255/255, alpha: 1).cgColor,
+        UIColor(red: 192/255, green: 243/255, blue: 237/255, alpha: 1).cgColor,
         UIColor(red: 176/255, green: 75/255, blue: 255/255, alpha: 1).cgColor
     ]
 

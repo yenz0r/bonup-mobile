@@ -107,6 +107,8 @@ final class LoginView: LoginSectionViewController {
 
         // setup logo
 
+        self.logoImageView.image = AssetsHelper.shared.image(.bonupLogo)
+
         // setup container
 
         self.mainContainerView.backgroundColor = .clear
@@ -225,6 +227,20 @@ final class LoginView: LoginSectionViewController {
             self.passwordTextField = self.configureTextField(with: "ui_password_placeholder".localized)
             self.passwordTextField.isSecureTextEntry = true
             textField = self.passwordTextField
+
+            let eyeButton = UIButton(type: .system)
+            eyeButton.setImage(AssetsHelper.shared.image(.eyeIcon), for: .normal)
+            eyeButton.tintColor = UIColor.white80
+
+            eyeButton.addTarget(self, action: #selector(eyeTouchedDown), for: .touchDown)
+            eyeButton.addTarget(self, action: #selector(eyeTouchedUp), for: .touchUpInside)
+
+            containerView.addSubview(eyeButton)
+            eyeButton.snp.makeConstraints { make in
+                make.size.equalTo(25.0)
+                make.trailing.equalToSuperview().inset(10.0)
+                make.centerY.equalToSuperview()
+            }
         case .email:
             iconImageView.image = AssetsHelper.shared.image(.emailIcon)
             self.emailTextField = self.configureTextField(with: "ui_email_placeholder".localized)
@@ -271,6 +287,14 @@ final class LoginView: LoginSectionViewController {
             password: self.passwordTextField.text,
             type: .auth
         )
+    }
+
+    @objc private func eyeTouchedDown() {
+        self.passwordTextField.isSecureTextEntry = false
+    }
+
+    @objc private func eyeTouchedUp() {
+        self.passwordTextField.isSecureTextEntry = true
     }
 }
 

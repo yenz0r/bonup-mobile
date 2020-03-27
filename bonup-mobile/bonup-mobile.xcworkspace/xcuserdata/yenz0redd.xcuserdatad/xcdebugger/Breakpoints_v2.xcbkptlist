@@ -14,8 +14,8 @@
             filePath = "bonup-mobile/Modules/LoginScreen/LoginView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
+            startingLineNumber = "279"
+            endingLineNumber = "279"
             landmarkName = "signUpButtonTapped()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "bonup-mobile/Modules/LoginScreen/LoginView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
             landmarkName = "signInButtonTapped()"
             landmarkType = "7">
          </BreakpointContent>

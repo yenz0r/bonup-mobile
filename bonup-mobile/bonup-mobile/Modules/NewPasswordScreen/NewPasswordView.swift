@@ -24,6 +24,8 @@ final class NewPasswordView: LoginSectionViewController {
 
     // MARK: - Private variables
 
+    private var containerView: UIView!
+
     private var newPasswordTextField: UITextField!
     private var repeatPasswordTextField: UITextField!
     private var sendButton: UIButton!
@@ -31,19 +33,43 @@ final class NewPasswordView: LoginSectionViewController {
     private var containerStackView: UIStackView!
     private var infoLabel: UILabel!
 
+    private var logoImageView: UIImageView!
+
     // MARK: - Life cycle
 
     override func loadView() {
         super.loadView()
 
-        self.containerStackView = self.configureStackView()
-        self.scrollContentView.addSubview(self.containerStackView)
-        self.containerStackView.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.trailing.equalToSuperview().inset(40.0)
-            make.height.equalTo(155.0)
+        self.containerView = UIView()
+        self.scrollContentView.addSubview(self.containerView)
+        self.containerView.snp.makeConstraints { make in
+            make.centerY.centerX.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(20.0)
         }
-        self.bottomControlView = self.containerStackView
+
+        self.logoImageView = UIImageView()
+        self.containerView.addSubview(self.logoImageView)
+        self.logoImageView.snp.makeConstraints { make in
+            make.size.equalTo(150.0)
+            make.top.centerX.equalToSuperview()
+        }
+
+        self.infoLabel = UILabel()
+        self.containerView.addSubview(self.infoLabel)
+        self.infoLabel.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(20.0)
+            make.top.equalTo(self.logoImageView.snp.bottom).offset(40.0)
+        }
+
+        self.containerStackView = self.configureStackView()
+        self.containerView.addSubview(self.containerStackView)
+        self.containerStackView.snp.makeConstraints { make in
+            make.top.equalTo(self.infoLabel.snp.bottom).offset(40)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(155.0)
+            make.bottom.equalToSuperview()
+        }
+        self.bottomControlView = self.containerView
 
         self.newPasswordTextField = self.configureTextField(for: .newPass)
         self.repeatPasswordTextField = self.configureTextField(for: .repeatPass)
@@ -52,19 +78,14 @@ final class NewPasswordView: LoginSectionViewController {
         self.containerStackView.addArrangedSubview(self.newPasswordTextField)
         self.containerStackView.addArrangedSubview(self.repeatPasswordTextField)
         self.containerStackView.addArrangedSubview(self.sendButton)
-
-        self.infoLabel = UILabel()
-        self.scrollContentView.addSubview(self.infoLabel)
-        self.infoLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(self.containerStackView.snp.top).offset(-20.0)
-            make.leading.trailing.equalTo(self.containerStackView)
-        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.title = "ui_new_password_title".localized
+
+        self.logoImageView.image = AssetsHelper.shared.image(.passwordLogo)
 
         self.infoLabel.numberOfLines = 0
         self.infoLabel.textAlignment = .center
