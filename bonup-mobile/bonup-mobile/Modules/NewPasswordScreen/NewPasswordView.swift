@@ -90,6 +90,7 @@ final class NewPasswordView: LoginSectionViewController {
         self.infoLabel.numberOfLines = 0
         self.infoLabel.textAlignment = .center
         self.infoLabel.text = "ui_new_password_info".localized
+        self.infoLabel.textColor = .white80
 
         self.sendButton.addTarget(self, action: #selector(self.sendButtonTapped), for: .touchUpInside)
     }
@@ -134,6 +135,7 @@ final class NewPasswordView: LoginSectionViewController {
         tf.backgroundColor = UIColor.pinkishGrey.withAlphaComponent(0.3)
         tf.layer.borderColor = UIColor.white.cgColor
         tf.layer.borderWidth = 1
+        tf.textColor = .white80
 
         tf.delegate = self
         tf.isSecureTextEntry = true

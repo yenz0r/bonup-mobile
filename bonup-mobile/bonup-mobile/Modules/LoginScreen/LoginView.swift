@@ -250,6 +250,7 @@ final class LoginView: LoginSectionViewController {
 
         textField.autocorrectionType = .no
         textField.delegate = self
+        textField.textColor = UIColor.white80
 
         containerView.addSubview(textField)
         textField.snp.makeConstraints { make in

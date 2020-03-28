@@ -23,7 +23,7 @@ final class ResetPasswordView: LoginSectionViewController {
     private var infoLabel: UILabel!
     private var emailTextField: UITextField!
     private var sendButton: UIButton!
-
+    private var logoImageView: UIImageView!
     private var containerView: UIView!
 
     // MARK: - Life cycle
@@ -39,10 +39,19 @@ final class ResetPasswordView: LoginSectionViewController {
         }
         self.bottomControlView = self.containerView
 
+        self.logoImageView = UIImageView()
+        self.containerView.addSubview(self.logoImageView)
+        self.logoImageView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(90.0)
+            make.height.equalTo(self.logoImageView.snp.width)
+        }
+
         self.infoLabel = UILabel()
         self.containerView.addSubview(self.infoLabel)
         self.infoLabel.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
+            make.top.equalTo(self.logoImageView.snp.bottom).offset(20.0)
+            make.leading.trailing.equalToSuperview()
         }
 
         self.emailTextField = UITextField.loginTextField(with: "ui_email_placeholder".localized)
@@ -68,6 +77,8 @@ final class ResetPasswordView: LoginSectionViewController {
         self.presenter.viewDidLoad()
 
         // configurations
+
+        self.logoImageView.image = AssetsHelper.shared.image(.emailLogo)
 
         self.navigationItem.title = "ui_reset_password_title".localized
 

@@ -18,6 +18,7 @@ extension UITextField {
         textField.backgroundColor = UIColor.pinkishGrey.withAlphaComponent(0.3)
         textField.layer.borderColor = UIColor.white.cgColor
         textField.layer.borderWidth = 1
+        textField.textColor = .white80
 
         textField.attributedPlaceholder = NSAttributedString.with(
             title: placeholder ?? "",

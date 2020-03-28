@@ -21,6 +21,7 @@ final class AuthVerificationView: LoginSectionViewController {
     // MARK: - Private variables
 
     private var containerView: UIView!
+    private var logoImageView: UIImageView!
     private var titleLabel: UILabel!
     private var codeTextField: UITextField!
     private var sendButton: UIButton!
@@ -40,10 +41,19 @@ final class AuthVerificationView: LoginSectionViewController {
         }
         self.bottomControlView = self.containerView
 
+        self.logoImageView = UIImageView()
+        self.containerView.addSubview(self.logoImageView)
+        self.logoImageView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(60.0)
+            make.height.equalTo(self.logoImageView.snp.width)
+        }
+
         self.titleLabel = UILabel()
         self.containerView.addSubview(self.titleLabel)
         self.titleLabel.snp.makeConstraints { make in
-            make.leading.trailing.top.equalToSuperview()
+            make.top.equalTo(self.logoImageView.snp.bottom).offset(20.0)
+            make.leading.trailing.equalToSuperview()
         }
 
         self.codeTextField = UITextField.loginTextField(with: "ui_code_placeholder".localized)
@@ -96,6 +106,8 @@ final class AuthVerificationView: LoginSectionViewController {
 
     private func configureViews() {
         self.navigationItem.title = "ui_auth_verification_title".localized
+
+        self.logoImageView.image = AssetsHelper.shared.image(.codeLogo)
 
         self.titleLabel.numberOfLines = 0
         self.titleLabel.font = UIFont.avenirRoman(20.0)

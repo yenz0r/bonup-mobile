@@ -19,7 +19,7 @@ extension UIButton {
                     withRelativeStartTime: 0,
                     relativeDuration: 0.1,
                     animations: {
-                        self.frame.origin.x += 5
+                        self.frame.origin.x += 10
                     }
                 )
 
@@ -27,7 +27,7 @@ extension UIButton {
                     withRelativeStartTime: 0.1,
                     relativeDuration: 0.1,
                     animations: {
-                        self.frame.origin.x -= 10
+                        self.frame.origin.x -= 20
                     }
                 )
 
@@ -35,7 +35,7 @@ extension UIButton {
                     withRelativeStartTime: 0.2,
                     relativeDuration: 0.1,
                     animations: {
-                        self.frame.origin.x += 5
+                        self.frame.origin.x += 10
                     }
                 )
             },

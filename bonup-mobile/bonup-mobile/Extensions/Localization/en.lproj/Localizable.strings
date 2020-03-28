@@ -25,7 +25,7 @@
 "ui_cancel" = "Cancel";
 "ui_reset_password_title" = "Reset Password";
 "ui_new_password_title" = "New Password";
-"ui_new_password_info" = "Nice man, glad to see you again =)\nNow enter your new password, and try do not forget it at this time 😜";
+"ui_new_password_info" = "Good job! Enter your new password and verify it.";
 "ui_code_placeholder" = "Enter code here";
 "ui_send_again_title" = "Send code again";
 "ui_code_verification_title" = "Now you can input code whitch we send to your email, but you have 3 mins to do it";
