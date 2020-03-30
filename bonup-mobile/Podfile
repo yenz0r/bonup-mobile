@@ -17,6 +17,10 @@ target 'bonup-mobile' do
   pod 'PMAlertController'
   pod 'SwiftSpinner'
 
+  pod 'SOTabBar'
+
+  pod 'Shuffle-iOS'
+
   target 'bonup-mobileTests' do
     inherit! :search_paths
     # Pods for testing

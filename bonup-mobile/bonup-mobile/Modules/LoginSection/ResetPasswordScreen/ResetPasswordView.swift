@@ -10,6 +10,7 @@ import UIKit
 
 protocol IResetPasswordView: AnyObject {
     func setupEmailText(_ email: String?)
+    func shakeSendButtonAnimation()
 }
 
 final class ResetPasswordView: LoginSectionViewController {
@@ -106,14 +107,6 @@ final class ResetPasswordView: LoginSectionViewController {
     // MARK: - Selectors
 
     @objc private func sendButtonTapped() {
-        guard
-            let text = self.emailTextField.text,
-            text != "",
-            text.isEmail else {
-                self.sendButton.shake()
-                return
-        }
-
         self.presenter.handleSendButtonTapped(self.emailTextField.text)
     }
 }
@@ -123,5 +116,9 @@ final class ResetPasswordView: LoginSectionViewController {
 extension ResetPasswordView: IResetPasswordView {
     func setupEmailText(_ email: String?) {
         self.emailTextField.text = email
+    }
+
+    func shakeSendButtonAnimation() {
+        self.sendButton.shake()
     }
 }

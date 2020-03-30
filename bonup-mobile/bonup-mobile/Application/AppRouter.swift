@@ -19,7 +19,8 @@ final class AppRouter: IAppRouter {
     // MARK: - Scenatios
 
     enum AppRouterScenario {
-        case login, openApplication
+        case login(name: String?, email: String?)
+        case openApplication
     }
 
     // MARK: - Singltone
@@ -36,14 +37,21 @@ final class AppRouter: IAppRouter {
 
     func present(_ scenario: AppRouterScenario) {
         switch scenario {
-        case .login:
-            let loginDependency = LoginDependency(parentWindow: self.appWindow, initialName: "", initialEmail: "")
+        case .login(let name, let email):
+            let loginDependency = LoginDependency(
+                parentWindow: self.appWindow,
+                initialName: name ?? "",
+                initialEmail: email ?? ""
+            )
             let loginRouter = LoginBuilder().build(loginDependency)
             loginRouter.start(nil)
-            self.appWindow?.makeKeyAndVisible()
         case .openApplication:
-            print("openApplication")
+            let applicationContentDependency = ApplicationContentDependency(parentWindow: self.appWindow)
+            let applicationContentRouter = ApplicationContentBuilder().build(dependency: applicationContentDependency)
+            applicationContentRouter.start(nil)
         }
+
+        self.appWindow?.makeKeyAndVisible()
     }
 
     func dissmis() {

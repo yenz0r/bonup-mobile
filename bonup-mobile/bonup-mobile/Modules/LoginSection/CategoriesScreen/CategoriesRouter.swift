@@ -1,34 +1,36 @@
 //
-//  NewPasswordRouter.swift
+//  CategoriesRouter.swift
 //  bonup-mobile
 //
-//  Created by yenz0redd on 14.03.2020.
+//  Created by yenz0redd on 28.03.2020.
 //  Copyright © 2020 Bonup. All rights reserved.
 //
 
 import UIKit
 
-protocol INewPasswordRouter {
+protocol ICategoriesRouter {
     func start(_ completion: (() -> Void)?)
     func stop(_ completion: (() -> Void)?)
-    func show(_ scenario: NewPasswordRouter.NewPasswordRouterScenario)
+    func show(_ scenario: CategoriesRouter.CategoriesRouterScenario)
 }
 
-final class NewPasswordRouter {
-    enum NewPasswordRouterScenario {
-        case empty
+final class CategoriesRouter {
+    enum CategoriesRouterScenario {
+        case openApplication
     }
 
-    private var view: NewPasswordView?
+    private var view: CategoriesView?
     private var parentController: UIViewController?
 
-    init(view: NewPasswordView?, parentController: UIViewController?) {
+    init(view: CategoriesView?, parentController: UIViewController?) {
         self.view = view
         self.parentController = parentController
     }
 }
 
-extension NewPasswordRouter: INewPasswordRouter {
+// MARK: - ICategoriesRouter implementation
+
+extension CategoriesRouter: ICategoriesRouter {
     func start(_ completion: (() -> Void)?) {
         guard let view = self.view else { return }
 
@@ -44,11 +46,13 @@ extension NewPasswordRouter: INewPasswordRouter {
         self.view = nil
     }
 
-    func show(_ scenario: NewPasswordRouterScenario) {
-        switch scenario {
-        case .empty:
-            print("empty")
-        }
-    }
-}
+    func show(_ scenario: CategoriesRouterScenario) {
 
+        switch scenario {
+        case .openApplication:
+            AppRouter.shared.present(.openApplication)
+        }
+
+    }
+
+}

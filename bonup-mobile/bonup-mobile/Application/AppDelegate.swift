@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // setup app router
         AppRouter.shared.appWindow = self.window
-        AppRouter.shared.present(.login)
+        AppRouter.shared.present(.login(name: nil, email: nil))
 
         // setup google services
         self.setupGoogleServices()

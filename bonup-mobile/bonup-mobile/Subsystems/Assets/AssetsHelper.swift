@@ -20,6 +20,18 @@ final class AssetsHelper {
         case emailLogo
         case passwordLogo
         case eyeIcon
+
+        case organizationUnselectedIcon
+        case profileUnselectedIcon
+        case tasksUnselectedIcon
+        case qrUnselectedIcon
+        case actionsUnselectedIcon
+
+        case organizationSelectedIcon
+        case profileSelectedIcon
+        case tasksSelectedIcon
+        case qrSelectedIcon
+        case actionsSelectedIcon
     }
 
     static let shared = AssetsHelper()
@@ -46,6 +58,28 @@ final class AssetsHelper {
             return UIImage(named: "password-logo")
         case .eyeIcon:
             return UIImage(named: "eye-icon")
+
+        case .actionsSelectedIcon:
+            return UIImage(named: "actions-selected-icon")
+        case .actionsUnselectedIcon:
+            return UIImage(named: "actions-unselected-icon")
+        case .profileSelectedIcon:
+            return UIImage(named: "profile-selected-icon")
+        case .profileUnselectedIcon:
+            return UIImage(named: "profile-unselected-icon")
+        case .organizationSelectedIcon:
+            return UIImage(named: "orginization-selected-icon")
+        case .organizationUnselectedIcon:
+            return UIImage(named: "orginization-unselected-icon")
+        case .tasksSelectedIcon:
+            return UIImage(named: "tasks-selected-icon")
+        case .tasksUnselectedIcon:
+            return UIImage(named: "tasks-unselected-icon")
+        case .qrSelectedIcon:
+            return UIImage(named: "qr-selected-icon")
+        case .qrUnselectedIcon:
+            return UIImage(named: "qr-unselected-icon")
+
         @unknown default:
             assertionFailure("Incorrect \(String(describing: self)) enum value")
         }

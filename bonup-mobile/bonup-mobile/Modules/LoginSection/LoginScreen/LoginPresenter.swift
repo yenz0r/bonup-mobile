@@ -43,6 +43,7 @@ extension LoginPresenter: ILoginPresenter {
                              email: String?,
                              password: String?,
                              type: LoginInteractor.LoginRequest) {
+
         guard
             let currentName = name,
             let currentEmail = email,
@@ -73,7 +74,8 @@ extension LoginPresenter: ILoginPresenter {
         }
 
         //self.router.show(.authVerification)
-
+        self.router.show(.openApp)
+        return
         let authParams = AuthParams(
             name: currentName,
             email: currentEmail,

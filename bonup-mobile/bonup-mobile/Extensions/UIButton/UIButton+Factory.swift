@@ -10,7 +10,7 @@ import UIKit
 
 extension UIButton {
     enum ColoredButtonType {
-        case whiteButton, emptyBackgroundButton
+        case whiteButton, emptyBackgroundButton, onlyText
     }
 
     static func systemButton(for type: ColoredButtonType, title: String) -> UIButton {
@@ -42,6 +42,16 @@ extension UIButton {
                 for: .normal
             )
             button.backgroundColor = .white
+        case .onlyText:
+            button.setAttributedTitle(
+                NSAttributedString.with(
+                    title: title,
+                    textColor: UIColor.purpleLite,
+                    font: UIFont.avenirRoman(14)
+                ),
+                for: .normal
+            )
+            button.backgroundColor = .clear
         }
 
         return button

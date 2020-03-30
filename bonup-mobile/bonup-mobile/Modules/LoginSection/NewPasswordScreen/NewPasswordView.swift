@@ -9,7 +9,7 @@
 import UIKit
 
 protocol INewPasswordView: AnyObject {
-
+    func animateSendButtonOnError()
 }
 
 final class NewPasswordView: LoginSectionViewController {
@@ -98,20 +98,12 @@ final class NewPasswordView: LoginSectionViewController {
     // MARK: - Selectors
 
     @objc private func sendButtonTapped() {
-        guard
-            let newText = self.newPasswordTextField.text,
-            let repeatText = self.repeatPasswordTextField.text,
-
-            newText != "",
-            repeatText == newText else {
-                self.sendButton.shake()
-                return
-        }
 
         self.presenter.handleSendButtonTapped(
-            newPass: newText,
-            repeatPass: repeatText
+            newPass: self.newPasswordTextField.text,
+            repeatPass: self.repeatPasswordTextField.text
         )
+
     }
 
     // MARK: - Configuration
@@ -163,6 +155,10 @@ final class NewPasswordView: LoginSectionViewController {
 // MARK: - INewPasswordView implementation
 
 extension NewPasswordView: INewPasswordView {
+
+    func animateSendButtonOnError() {
+        self.sendButton.shake()
+    }
 
 }
 

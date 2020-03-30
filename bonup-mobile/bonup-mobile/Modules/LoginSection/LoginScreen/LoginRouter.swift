@@ -58,7 +58,7 @@ extension LoginRouter: ILoginRouter {
             let resetPasswordRouter = ResetPasswordBuilder().build(resetPasswordDependency)
             resetPasswordRouter.start(nil)
         case .openApp:
-            print("openApp")
+            AppRouter.shared.present(.openApplication)
         case .authVerification:
             let authVerificationDependency = AuthVerificationDependency(parentViewController: view)
             let authVerificationBuilder = AuthVerificationBuilder()

@@ -7,7 +7,7 @@
 */
 
 "test-line" = "english-test-line";
-"reset_password_info" = "Enter your email to reset password from account linked to this address 🤓";
+"reset_password_info" = "Enter your email to reset password linked to this address";
 
 "ui_forgot_password_title" = "Forgot password?";
 "ui_sign_in_title" = "SIGN IN";
@@ -20,7 +20,7 @@
 "ui_new_password_placeholder" = "New password";
 "ui_repeat_password_placeholder" = "Repeat password";
 "ui_alert_incorrect_auth_params" = "Incorrect autentification params..";
-"ui_alert_incorrect_auth_params_description" = "Please try to input one more time all fields 😇";
+"ui_alert_incorrect_auth_params_description" = "Please try to input one more time all fields";
 "ui_ok" = "Ok";
 "ui_cancel" = "Cancel";
 "ui_reset_password_title" = "Reset Password";
@@ -28,7 +28,7 @@
 "ui_new_password_info" = "Good job! Enter your new password and verify it.";
 "ui_code_placeholder" = "Enter code here";
 "ui_send_again_title" = "Send code again";
-"ui_code_verification_title" = "Now you can input code whitch we send to your email, but you have 3 mins to do it";
+"ui_code_verification_title" = "Now you can input code whitch we send to your email";
 "ui_send_code_title" = "SEND CODE";
 "ui_auth_error_title" = "Authetification error";
 "ui_auth_error_description" = "Please check your auth credentials..";
@@ -39,3 +39,13 @@
 "ui_auth_verification_title" = "Auth verification";
 "ui_incorrect_verification_title" = "Verification faild";
 "ui_incorrect_verification_description" = "Enter yout code again please..";
+"ui_tasks_title" = "Tasks";
+"ui_actions_title" = "Actions";
+"ui_profile_title" = "Profile";
+"ui_qr_title" = "QR";
+"ui_organization_title" = "Organization";
+"ui_email_not_created" = "This email do not exists, please verify it..";
+"ui_categories_title" = "Categories";
+"ui_skip_title" = "Skip";
+"ui_categories_text" = "The last step is selection of your favorite categories, interests, hobbies";
+"ui_location_placeholder" = "Enter your city";

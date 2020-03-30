@@ -36,8 +36,22 @@ final class ResetPasswordPresenter {
 
 extension ResetPasswordPresenter: IResetPasswordPresenter {
     func handleSendButtonTapped(_ email: String?) {
-        print(email)
-        self.router.show(.newPassword)
+
+        guard
+            let text = email,
+            text != "",
+            text.isEmail else {
+                self.view?.shakeSendButtonAnimation()
+                return
+        }
+
+        self.interactor.askResetCodeRequest(for: text) { resultBool in
+            if resultBool {
+                self.router.show(.newPassword)
+            } else {
+                self.router.show(.errorAlert(message: "ui_email_not_created".localized))
+            }
+        }
     }
 
     func viewDidLoad() {

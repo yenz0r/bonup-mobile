@@ -28,7 +28,25 @@ final class NewPasswordPresenter {
 
 extension NewPasswordPresenter: INewPasswordPresenter {
     func handleSendButtonTapped(newPass: String?, repeatPass: String?) {
-        print(newPass, repeatPass)
+
+        guard
+            let newText = newPass,
+            let repeatText = repeatPass,
+
+            newText != "",
+            repeatText == newText else {
+                self.view?.animateSendButtonOnError()
+                return
+        }
+
         self.router.stop(nil)
+        return
+
+        self.interactor.setupNewPasswordRequest(newText) { resultBool in
+            if resultBool {
+                self.router.show(.openApp)
+            }
+        }
+
     }
 }
