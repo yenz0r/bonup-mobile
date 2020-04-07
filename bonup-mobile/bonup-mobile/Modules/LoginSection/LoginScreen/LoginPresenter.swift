@@ -108,6 +108,6 @@ extension LoginPresenter: ILoginPresenter {
     }
 
     func handleTermAndConditionButtonTap() {
-        self.router.show(.authVerification)
+        self.router.show(.termsAndConditions)
     }
 }

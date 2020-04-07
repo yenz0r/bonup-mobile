@@ -13,5 +13,9 @@ extension UIFont {
     static func avenirRoman(_ size: CGFloat) -> UIFont {
         return UIFont(name: "Avenir-Roman", size: size)!
     }
+
+    static func avenirHeavy(_ size: CGFloat) -> UIFont {
+        return UIFont(name: "Avenir-Heavy", size: size)!
+    }
     
 }

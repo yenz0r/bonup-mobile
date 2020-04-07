@@ -22,6 +22,7 @@ final class LoginRouter {
         case resetPassword(email: String?)
         case openApp
         case authVerification
+        case termsAndConditions
     }
 
     private var view: LoginView?
@@ -74,6 +75,11 @@ extension LoginRouter: ILoginRouter {
                     print("error")
                 }
             )
+        case .termsAndConditions:
+            let termsAndConditionsBuilder = TermsAndConditionsBuilder()
+            let termsAndConditionsDependency = TermsAndConditionsDependency(parentViewController: view)
+            let router = termsAndConditionsBuilder.build(termsAndConditionsDependency)
+            router.start(nil)
         }
     }
 }

@@ -76,10 +76,15 @@
 		B9CEE6A2241D55A500308098 /* ResetPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CEE6A1241D55A500308098 /* ResetPasswordPresenter.swift */; };
 		B9CEE6A4241D55B500308098 /* ResetPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CEE6A3241D55B500308098 /* ResetPasswordRouter.swift */; };
 		B9CEE6A6241D55BE00308098 /* ResetPasswordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CEE6A5241D55BE00308098 /* ResetPasswordBuilder.swift */; };
+		B9D17580243CFCEA001FF58E /* TermsAndConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D1757F243CFCEA001FF58E /* TermsAndConditionsView.swift */; };
+		B9D17586243CFD1F001FF58E /* TermsAndConditionsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D17585243CFD1F001FF58E /* TermsAndConditionsRouter.swift */; };
+		B9D17588243CFD27001FF58E /* TermsAndConditionsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D17587243CFD27001FF58E /* TermsAndConditionsBuilder.swift */; };
+		B9D1758A243CFD38001FF58E /* TermsAndConditionsDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D17589243CFD38001FF58E /* TermsAndConditionsDependency.swift */; };
 		B9D743F92428008100EE4838 /* FREE-DEBUG.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B948A21C24144896001287B8 /* FREE-DEBUG.xcconfig */; };
 		B9D743FA2428008400EE4838 /* PAID-DEBUG.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B948A21E241448A6001287B8 /* PAID-DEBUG.xcconfig */; };
 		B9D743FB2428008600EE4838 /* FREE-RELEASE.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B948A22024144965001287B8 /* FREE-RELEASE.xcconfig */; };
 		B9D743FC2428008900EE4838 /* PAID-RELEASE.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B948A22224144A1C001287B8 /* PAID-RELEASE.xcconfig */; };
+		B9E0D2B6243D025400BAA634 /* TermsAndConditionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E0D2B5243D025400BAA634 /* TermsAndConditionsPresenter.swift */; };
 		B9FC7986242FB04000F2D5BC /* BUTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FC7985242FB04000F2D5BC /* BUTabBarController.swift */; };
 		B9FC7988242FB6E500F2D5BC /* ApplicationContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FC7987242FB6E500F2D5BC /* ApplicationContentView.swift */; };
 		B9FC798C242FB73900F2D5BC /* ApplicationContentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FC798B242FB73900F2D5BC /* ApplicationContentBuilder.swift */; };
@@ -192,6 +197,11 @@
 		B9CEE6A1241D55A500308098 /* ResetPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordPresenter.swift; sourceTree = "<group>"; };
 		B9CEE6A3241D55B500308098 /* ResetPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordRouter.swift; sourceTree = "<group>"; };
 		B9CEE6A5241D55BE00308098 /* ResetPasswordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordBuilder.swift; sourceTree = "<group>"; };
+		B9D1757F243CFCEA001FF58E /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
+		B9D17585243CFD1F001FF58E /* TermsAndConditionsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsRouter.swift; sourceTree = "<group>"; };
+		B9D17587243CFD27001FF58E /* TermsAndConditionsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsBuilder.swift; sourceTree = "<group>"; };
+		B9D17589243CFD38001FF58E /* TermsAndConditionsDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsDependency.swift; sourceTree = "<group>"; };
+		B9E0D2B5243D025400BAA634 /* TermsAndConditionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsPresenter.swift; sourceTree = "<group>"; };
 		B9FC7985242FB04000F2D5BC /* BUTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUTabBarController.swift; sourceTree = "<group>"; };
 		B9FC7987242FB6E500F2D5BC /* ApplicationContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationContentView.swift; sourceTree = "<group>"; };
 		B9FC798B242FB73900F2D5BC /* ApplicationContentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationContentBuilder.swift; sourceTree = "<group>"; };
@@ -411,7 +421,6 @@
 			children = (
 				B948A227241453A2001287B8 /* Application */,
 				B948A243241CC02D001287B8 /* Modules */,
-				B9FC798A242FB71700F2D5BC /* ApplicationContentSection */,
 				B9126689242AA58900BEA50C /* CustomUI */,
 				B932365E241D7C3500A37634 /* Subsystems */,
 				B9323667241D96DD00A37634 /* Entities */,
@@ -522,6 +531,7 @@
 		B948A243241CC02D001287B8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B9FC798A242FB71700F2D5BC /* ApplicationContentSection */,
 				B9FC7989242FB70300F2D5BC /* LoginSection */,
 			);
 			path = Modules;
@@ -657,6 +667,18 @@
 			path = ResetPasswordScreen;
 			sourceTree = "<group>";
 		};
+		B9D1758B243CFD48001FF58E /* TermsAndConditions */ = {
+			isa = PBXGroup;
+			children = (
+				B9D1757F243CFCEA001FF58E /* TermsAndConditionsView.swift */,
+				B9D17585243CFD1F001FF58E /* TermsAndConditionsRouter.swift */,
+				B9D17587243CFD27001FF58E /* TermsAndConditionsBuilder.swift */,
+				B9D17589243CFD38001FF58E /* TermsAndConditionsDependency.swift */,
+				B9E0D2B5243D025400BAA634 /* TermsAndConditionsPresenter.swift */,
+			);
+			path = TermsAndConditions;
+			sourceTree = "<group>";
+		};
 		B9FC7989242FB70300F2D5BC /* LoginSection */ = {
 			isa = PBXGroup;
 			children = (
@@ -665,6 +687,7 @@
 				B935A59B241D6C560074E89E /* NewPasswordScreen */,
 				B9CAA713242B9F2D00E50668 /* AuthVerificationScreen */,
 				B9A0C9B0242FC5A300EB6FAE /* CategoriesScreen */,
+				B9D1758B243CFD48001FF58E /* TermsAndConditions */,
 			);
 			path = LoginSection;
 			sourceTree = "<group>";
@@ -964,6 +987,8 @@
 			files = (
 				B935A59D241D6F2E0074E89E /* UIButton+Factory.swift in Sources */,
 				B935A598241D6A820074E89E /* NewPasswordRouter.swift in Sources */,
+				B9D17586243CFD1F001FF58E /* TermsAndConditionsRouter.swift in Sources */,
+				B9D17580243CFCEA001FF58E /* TermsAndConditionsView.swift in Sources */,
 				B9CAA712242B9F2100E50668 /* AuthVerificationDependency.swift in Sources */,
 				B9FC798E242FB75E00F2D5BC /* ApplicationContentRouter.swift in Sources */,
 				B935A594241D6A720074E89E /* NewPasswordPresenter.swift in Sources */,
@@ -978,6 +1003,7 @@
 				B9CAA717242BB0AD00E50668 /* AlertsFactory.swift in Sources */,
 				B935A596241D6A7A0074E89E /* NewPasswordInteractor.swift in Sources */,
 				B948A23E241CBFD8001287B8 /* LoginBuilder.swift in Sources */,
+				B9E0D2B6243D025400BAA634 /* TermsAndConditionsPresenter.swift in Sources */,
 				B9A0C9AD242FC59200EB6FAE /* CategoriesBuilder.swift in Sources */,
 				B948A1EC241444B2001287B8 /* bonup_mobile.xcdatamodeld in Sources */,
 				B9A0C9A5242FC56D00EB6FAE /* CategoriesView.swift in Sources */,
@@ -996,11 +1022,13 @@
 				B935A59A241D6A8A0074E89E /* NewPasswordBuilder.swift in Sources */,
 				B948A230241455A3001287B8 /* Localization.swift in Sources */,
 				B9323666241D96D700A37634 /* UserEntity.swift in Sources */,
+				B9D1758A243CFD38001FF58E /* TermsAndConditionsDependency.swift in Sources */,
 				B9CAA715242B9FAE00E50668 /* UITextField+Factory.swift in Sources */,
 				B948A23A241CBFBA001287B8 /* LoginPresenter.swift in Sources */,
 				B9126688242AA57D00BEA50C /* LoginSectionViewController.swift in Sources */,
 				B9A0C9AF242FC59B00EB6FAE /* CategoriesDependency.swift in Sources */,
 				B91E809B242FCEC100859C83 /* CategoriesResponseEntity.swift in Sources */,
+				B9D17588243CFD27001FF58E /* TermsAndConditionsBuilder.swift in Sources */,
 				B948A234241CBE61001287B8 /* AppRouter.swift in Sources */,
 				B9A0C9A7242FC57D00EB6FAE /* CategoriesInteractor.swift in Sources */,
 				B948A238241CBFB2001287B8 /* LoginInteractor.swift in Sources */,

@@ -73,7 +73,7 @@ final class NewPasswordView: LoginSectionViewController {
 
         self.newPasswordTextField = self.configureTextField(for: .newPass)
         self.repeatPasswordTextField = self.configureTextField(for: .repeatPass)
-        self.sendButton = UIButton.systemButton(for: .emptyBackgroundButton, title: "ui_save_title".localized)
+        self.sendButton = UIButton.systemButton(for: .emptyBackgroundButton(contentColor: .white), title: "ui_save_title".localized)
 
         self.containerStackView.addArrangedSubview(self.newPasswordTextField)
         self.containerStackView.addArrangedSubview(self.repeatPasswordTextField)

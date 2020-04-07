@@ -63,7 +63,7 @@ final class ResetPasswordView: LoginSectionViewController {
             make.height.equalTo(45.0)
         }
 
-        self.sendButton = UIButton.systemButton(for: .emptyBackgroundButton, title: "ui_send_mail_title".localized)
+        self.sendButton = UIButton.systemButton(for: .emptyBackgroundButton(contentColor: .white), title: "ui_send_mail_title".localized)
         self.containerView.addSubview(self.sendButton)
         self.sendButton.snp.makeConstraints { make in
             make.top.equalTo(self.emailTextField.snp.bottom).offset(10.0)

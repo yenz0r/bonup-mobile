@@ -10,7 +10,9 @@ import UIKit
 
 extension UIButton {
     enum ColoredButtonType {
-        case whiteButton, emptyBackgroundButton, onlyText
+        case whiteButton
+        case emptyBackgroundButton(contentColor: UIColor)
+        case onlyText
     }
 
     static func systemButton(for type: ColoredButtonType, title: String) -> UIButton {
@@ -20,18 +22,18 @@ extension UIButton {
         button.clipsToBounds = true
 
         switch type {
-        case .emptyBackgroundButton:
+        case .emptyBackgroundButton(let contentColor):
             button.setAttributedTitle(
                 NSAttributedString.with(
                     title: title,
-                    textColor: UIColor.white,
+                    textColor: contentColor,
                     font: UIFont.avenirRoman(14)
                 ),
                 for: .normal
             )
             button.backgroundColor = .clear
             button.layer.borderWidth = 1
-            button.layer.borderColor = UIColor.white.cgColor
+            button.layer.borderColor = contentColor.cgColor
         case .whiteButton:
             button.setAttributedTitle(
                 NSAttributedString.with(

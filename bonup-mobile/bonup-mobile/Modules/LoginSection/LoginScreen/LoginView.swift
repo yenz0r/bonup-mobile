@@ -145,7 +145,7 @@ final class LoginView: LoginSectionViewController {
         self.signInButton = UIButton.systemButton(for: .whiteButton, title: "ui_sign_in_title".localized)
         self.signInButton.addTarget(self, action: #selector(self.signInButtonTapped), for: .touchUpInside)
 
-        self.signUpButton = UIButton.systemButton(for: .emptyBackgroundButton, title: "ui_sign_up_title".localized)
+        self.signUpButton = UIButton.systemButton(for: .emptyBackgroundButton(contentColor: .white), title: "ui_sign_up_title".localized)
         self.signUpButton.addTarget(self, action: #selector(self.signUpButtonTapped), for: .touchUpInside)
 
         self.signButtonsStackView.addArrangedSubview(self.signInButton)
