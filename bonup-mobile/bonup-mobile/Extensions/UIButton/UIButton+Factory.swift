@@ -60,6 +60,11 @@ extension UIButton {
     }
 
     func configureCircleButton(with image: UIImage?) {
+        self.layer.shadowColor = UIColor.black.withAlphaComponent(0.7).cgColor
+        self.layer.shadowOpacity = 1
+        self.layer.shadowOffset = .zero
+        self.layer.shadowRadius = 10
+
         self.imageView?.contentMode = .scaleAspectFit
         self.setImage(image, for: .normal)
     }

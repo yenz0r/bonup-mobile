@@ -128,9 +128,15 @@ final class TaskSelectionView: UIViewController {
     private func configureSubviews() {
         self.view.backgroundColor = .white
 
+        // card stack setup
         self.tasksCardStack.dataSource = self
         self.tasksCardStack.delegate = self
+        self.tasksCardStack.layer.shadowColor = UIColor.black.withAlphaComponent(0.7).cgColor
+        self.tasksCardStack.layer.shadowOpacity = 1
+        self.tasksCardStack.layer.shadowOffset = .zero
+        self.tasksCardStack.layer.shadowRadius = 10
 
+        // footer buttons setup
         self.likeButton.tag = 0
         self.dislikeButton.tag = 1
         self.returnButton.tag = 2
@@ -139,11 +145,13 @@ final class TaskSelectionView: UIViewController {
             $0?.addTarget(self, action: #selector(footerButtonTapped(_:)), for: .touchUpInside)
         }
 
+        // footer buttons stackView setup
         self.footerButtonsStackView.axis = .horizontal
         self.footerButtonsStackView.distribution = .fillEqually
         self.footerButtonsStackView.alignment = .fill
         self.footerButtonsStackView.spacing = 40.0
 
+        // empty section setup
         self.emptyImageView.image = AssetsHelper.shared.image(.emptyTasksListIcon)
         self.emptyInfoLabel.text = "empty_tasks_list_info".localized
         self.emptyInfoLabel.textAlignment = .center
