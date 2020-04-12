@@ -51,3 +51,5 @@
 "ui_location_placeholder" = "Enter your city";
 "ui_bonup_title" = "Bonup";
 "ui_done_title" = "Done";
+"tasks_selection_title" = "Tasks Selection";
+"empty_tasks_list_info" = "Sorry, but your tasks list is empty for today.. Try again later";

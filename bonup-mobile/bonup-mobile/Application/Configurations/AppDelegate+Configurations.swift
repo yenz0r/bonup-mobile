@@ -9,13 +9,31 @@
 import UIKit
 import Firebase
 
-#if RELEASE_FREE || DEBUG_FREE
-let APP_IS_FREE_VERSION = true
+#if RELEASE_FREE
+let IS_RELEASE_FREE = true
 #else
-let APP_IS_FREE_VERSION = false
+let IS_RELEASE_FREE = false
 #endif
 
-#if RELEASE_FREE || RELEASE_PAID
+#if RELEASE_PAID
+let IS_RELEASE_PAID = true
+#else
+let IS_RELEASE_PAID = false
+#endif
+
+#if DEBUG_FREE
+let IS_DEBUG_FREE = true
+#else
+let IS_DEBUG_FREE = false
+#endif
+
+#if DEBUG_PAID
+let IS_DEBUG_PAID = true
+#else
+let IS_DEBUG_PAID = false
+#endif
+
+#if (RELEASE_FREE || RELEASE_PAID)
 let APP_IS_RELEASE_VERSION = true
 #else
 let APP_IS_RELEASE_VERSION = false
@@ -26,12 +44,22 @@ let APP_IS_RELEASE_VERSION = false
 extension AppDelegate {
 
     func setupGoogleServices() {
+        #if (DEBUG_FREE || DEBUG_PAID)
+print("debug")
+        #else
+print("release")
+        #endif
+
+        print("isdebugpaid \(IS_DEBUG_PAID)")
+        
+
         var optionsPath: String?
-        if APP_IS_FREE_VERSION && APP_IS_RELEASE_VERSION {
-            optionsPath = Bundle.main.path(forResource: "GoogleService-Realese-Free", ofType: "plist")
-        } else if APP_IS_FREE_VERSION && !APP_IS_RELEASE_VERSION {
-            optionsPath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist")
-        }
+        return
+//        if APP_IS_FREE_VERSION && APP_IS_RELEASE_VERSION {
+//            optionsPath = Bundle.main.path(forResource: "GoogleService-Realese-Free", ofType: "plist")
+//        } else if APP_IS_FREE_VERSION && !APP_IS_RELEASE_VERSION {
+//            optionsPath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist")
+//        }
 
         if
             let optionsPath = optionsPath,

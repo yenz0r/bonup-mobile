@@ -34,9 +34,23 @@ extension ApplicationContentRouter: IApplicationContentRouter {
     func start(_ completion: (() -> Void)?) {
         guard let view = self.view, let tabBarController = view as? BUTabBarController else { return }
 
-        var viewControllers = [UIViewController]()
-        let colors: [UIColor] = [.red, .green, .blue, .orange, .purple]
+        // taskSelection
 
+        let taskSelectionNavigationController = BUNavigationController()
+        taskSelectionNavigationController.setupTabBarItem(
+            with: "ui_tasks_title".localized,
+            unselectedImage: AssetsHelper.shared.image(.tasksUnselectedIcon),
+            selectedImage: AssetsHelper.shared.image(.tasksSelectedIcon)
+        )
+        let taskSelectionDependency = TaskSelectionDependency(parentNavigationController: taskSelectionNavigationController)
+        let taskSelectionBuilder = TaskSelectionBuilder()
+        let taskSelectionRouter = taskSelectionBuilder.build(taskSelectionDependency)
+        taskSelectionRouter.start(nil)
+
+        var viewControllers = [UIViewController]()
+        let colors: [UIColor] = [.green, .blue, .orange, .purple]
+
+        viewControllers.append(taskSelectionNavigationController)
         for color in colors {
             let viewController = UIViewController()
             viewController.view.backgroundColor = color

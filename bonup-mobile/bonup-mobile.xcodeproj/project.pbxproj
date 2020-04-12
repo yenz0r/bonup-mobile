@@ -46,12 +46,25 @@
 		B948A23C241CBFC1001287B8 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A23B241CBFC1001287B8 /* LoginRouter.swift */; };
 		B948A23E241CBFD8001287B8 /* LoginBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A23D241CBFD8001287B8 /* LoginBuilder.swift */; };
 		B948A247241CDE64001287B8 /* UIFont+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A246241CDE64001287B8 /* UIFont+Fonts.swift */; };
+		B95533D724431C8A006BFDFB /* TaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95533D624431C8A006BFDFB /* TaskCardView.swift */; };
 		B959712A24269B3600EAEB6E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B959712924269B3600EAEB6E /* GoogleService-Info.plist */; };
 		B959712D24269F2A00EAEB6E /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B959712C24269F2A00EAEB6E /* TimerManager.swift */; };
 		B95971302426B7B700EAEB6E /* GoogleService-Realese-Free.plist in Resources */ = {isa = PBXBuildFile; fileRef = B959712F2426B7B700EAEB6E /* GoogleService-Realese-Free.plist */; };
 		B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */; };
 		B96D54BD242FBED600023BC9 /* NewPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D54BC242FBED600023BC9 /* NewPasswordService.swift */; };
 		B96D54C0242FBF1400023BC9 /* ResetPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D54BF242FBF1400023BC9 /* ResetPasswordService.swift */; };
+		B977483B24431910004D39AD /* TaskSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977483A24431910004D39AD /* TaskSelectionView.swift */; };
+		B977483D2443194E004D39AD /* TaskSelectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977483C2443194E004D39AD /* TaskSelectionInteractor.swift */; };
+		B977483F24431955004D39AD /* TaskSelectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977483E24431955004D39AD /* TaskSelectionBuilder.swift */; };
+		B97748412443195D004D39AD /* TaskSelectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97748402443195D004D39AD /* TaskSelectionPresenter.swift */; };
+		B977484324431967004D39AD /* TaskSelectionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977484224431966004D39AD /* TaskSelectionRouter.swift */; };
+		B977484524431971004D39AD /* TaskSelectionDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977484424431971004D39AD /* TaskSelectionDependency.swift */; };
+		B977484824431A27004D39AD /* TasksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977484724431A27004D39AD /* TasksListView.swift */; };
+		B977484B24431A37004D39AD /* TasksListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977484A24431A37004D39AD /* TasksListPresenter.swift */; };
+		B977484D24431A3F004D39AD /* TasksListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977484C24431A3F004D39AD /* TasksListInteractor.swift */; };
+		B977484F24431A47004D39AD /* TasksListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977484E24431A47004D39AD /* TasksListBuilder.swift */; };
+		B977485124431A52004D39AD /* TasksListDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977485024431A52004D39AD /* TasksListDependency.swift */; };
+		B977485324431A5E004D39AD /* TasksListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977485224431A5E004D39AD /* TasksListRouter.swift */; };
 		B9A0C9A5242FC56D00EB6FAE /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A0C9A4242FC56D00EB6FAE /* CategoriesView.swift */; };
 		B9A0C9A7242FC57D00EB6FAE /* CategoriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A0C9A6242FC57D00EB6FAE /* CategoriesInteractor.swift */; };
 		B9A0C9A9242FC58500EB6FAE /* CategoriesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A0C9A8242FC58500EB6FAE /* CategoriesRouter.swift */; };
@@ -59,6 +72,8 @@
 		B9A0C9AD242FC59200EB6FAE /* CategoriesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A0C9AC242FC59200EB6FAE /* CategoriesBuilder.swift */; };
 		B9A0C9AF242FC59B00EB6FAE /* CategoriesDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A0C9AE242FC59B00EB6FAE /* CategoriesDependency.swift */; };
 		B9A732FB242D556C00860346 /* UIButton+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A732FA242D556C00860346 /* UIButton+Animations.swift */; };
+		B9BF7011244326530051CF41 /* TaskCardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BF7010244326530051CF41 /* TaskCardOverlay.swift */; };
+		B9BF701324433D590051CF41 /* BUNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BF701224433D590051CF41 /* BUNavigationController.swift */; };
 		B9CAA708242B9EE000E50668 /* AuthVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA707242B9EE000E50668 /* AuthVerificationView.swift */; };
 		B9CAA70A242B9EF600E50668 /* AuthVerificationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA709242B9EF600E50668 /* AuthVerificationInteractor.swift */; };
 		B9CAA70C242B9F0200E50668 /* AuthVerificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA70B242B9F0200E50668 /* AuthVerificationRouter.swift */; };
@@ -167,12 +182,25 @@
 		B948A23B241CBFC1001287B8 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		B948A23D241CBFD8001287B8 /* LoginBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBuilder.swift; sourceTree = "<group>"; };
 		B948A246241CDE64001287B8 /* UIFont+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Fonts.swift"; sourceTree = "<group>"; };
+		B95533D624431C8A006BFDFB /* TaskCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardView.swift; sourceTree = "<group>"; };
 		B959712924269B3600EAEB6E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B959712C24269F2A00EAEB6E /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		B959712F2426B7B700EAEB6E /* GoogleService-Realese-Free.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Realese-Free.plist"; path = "../../../../Desktop/GoogleService-Realese-Free.plist"; sourceTree = "<group>"; };
 		B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Facade.swift"; sourceTree = "<group>"; };
 		B96D54BC242FBED600023BC9 /* NewPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordService.swift; sourceTree = "<group>"; };
 		B96D54BF242FBF1400023BC9 /* ResetPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordService.swift; sourceTree = "<group>"; };
+		B977483A24431910004D39AD /* TaskSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSelectionView.swift; sourceTree = "<group>"; };
+		B977483C2443194E004D39AD /* TaskSelectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSelectionInteractor.swift; sourceTree = "<group>"; };
+		B977483E24431955004D39AD /* TaskSelectionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSelectionBuilder.swift; sourceTree = "<group>"; };
+		B97748402443195D004D39AD /* TaskSelectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSelectionPresenter.swift; sourceTree = "<group>"; };
+		B977484224431966004D39AD /* TaskSelectionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSelectionRouter.swift; sourceTree = "<group>"; };
+		B977484424431971004D39AD /* TaskSelectionDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSelectionDependency.swift; sourceTree = "<group>"; };
+		B977484724431A27004D39AD /* TasksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListView.swift; sourceTree = "<group>"; };
+		B977484A24431A37004D39AD /* TasksListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListPresenter.swift; sourceTree = "<group>"; };
+		B977484C24431A3F004D39AD /* TasksListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListInteractor.swift; sourceTree = "<group>"; };
+		B977484E24431A47004D39AD /* TasksListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListBuilder.swift; sourceTree = "<group>"; };
+		B977485024431A52004D39AD /* TasksListDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListDependency.swift; sourceTree = "<group>"; };
+		B977485224431A5E004D39AD /* TasksListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListRouter.swift; sourceTree = "<group>"; };
 		B9A0C9A4242FC56D00EB6FAE /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		B9A0C9A6242FC57D00EB6FAE /* CategoriesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesInteractor.swift; sourceTree = "<group>"; };
 		B9A0C9A8242FC58500EB6FAE /* CategoriesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRouter.swift; sourceTree = "<group>"; };
@@ -180,6 +208,8 @@
 		B9A0C9AC242FC59200EB6FAE /* CategoriesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesBuilder.swift; sourceTree = "<group>"; };
 		B9A0C9AE242FC59B00EB6FAE /* CategoriesDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesDependency.swift; sourceTree = "<group>"; };
 		B9A732FA242D556C00860346 /* UIButton+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Animations.swift"; sourceTree = "<group>"; };
+		B9BF7010244326530051CF41 /* TaskCardOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardOverlay.swift; sourceTree = "<group>"; };
+		B9BF701224433D590051CF41 /* BUNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUNavigationController.swift; sourceTree = "<group>"; };
 		B9CAA707242B9EE000E50668 /* AuthVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationView.swift; sourceTree = "<group>"; };
 		B9CAA709242B9EF600E50668 /* AuthVerificationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationInteractor.swift; sourceTree = "<group>"; };
 		B9CAA70B242B9F0200E50668 /* AuthVerificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationRouter.swift; sourceTree = "<group>"; };
@@ -277,6 +307,7 @@
 			children = (
 				B9126687242AA57D00BEA50C /* LoginSectionViewController.swift */,
 				B9FC7985242FB04000F2D5BC /* BUTabBarController.swift */,
+				B9BF701224433D590051CF41 /* BUNavigationController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -545,6 +576,15 @@
 			path = UIFont;
 			sourceTree = "<group>";
 		};
+		B95533D824431C93006BFDFB /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				B95533D624431C8A006BFDFB /* TaskCardView.swift */,
+				B9BF7010244326530051CF41 /* TaskCardOverlay.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		B959712E24269F2F00EAEB6E /* TimerManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -575,6 +615,33 @@
 				B96D54BF242FBF1400023BC9 /* ResetPasswordService.swift */,
 			);
 			path = ResetPassword;
+			sourceTree = "<group>";
+		};
+		B97748462443197A004D39AD /* TaskSelection */ = {
+			isa = PBXGroup;
+			children = (
+				B977483A24431910004D39AD /* TaskSelectionView.swift */,
+				B977483C2443194E004D39AD /* TaskSelectionInteractor.swift */,
+				B977483E24431955004D39AD /* TaskSelectionBuilder.swift */,
+				B97748402443195D004D39AD /* TaskSelectionPresenter.swift */,
+				B977484224431966004D39AD /* TaskSelectionRouter.swift */,
+				B977484424431971004D39AD /* TaskSelectionDependency.swift */,
+				B95533D824431C93006BFDFB /* Subviews */,
+			);
+			path = TaskSelection;
+			sourceTree = "<group>";
+		};
+		B977484924431A2C004D39AD /* TasksList */ = {
+			isa = PBXGroup;
+			children = (
+				B977484724431A27004D39AD /* TasksListView.swift */,
+				B977484A24431A37004D39AD /* TasksListPresenter.swift */,
+				B977484C24431A3F004D39AD /* TasksListInteractor.swift */,
+				B977484E24431A47004D39AD /* TasksListBuilder.swift */,
+				B977485024431A52004D39AD /* TasksListDependency.swift */,
+				B977485224431A5E004D39AD /* TasksListRouter.swift */,
+			);
+			path = TasksList;
 			sourceTree = "<group>";
 		};
 		B9A0C9B0242FC5A300EB6FAE /* CategoriesScreen */ = {
@@ -696,6 +763,8 @@
 			isa = PBXGroup;
 			children = (
 				B9FC7991242FB78500F2D5BC /* InitialTabBarSection */,
+				B97748462443197A004D39AD /* TaskSelection */,
+				B977484924431A2C004D39AD /* TasksList */,
 			);
 			path = ApplicationContentSection;
 			sourceTree = "<group>";
@@ -986,6 +1055,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B935A59D241D6F2E0074E89E /* UIButton+Factory.swift in Sources */,
+				B977485124431A52004D39AD /* TasksListDependency.swift in Sources */,
+				B977484324431967004D39AD /* TaskSelectionRouter.swift in Sources */,
 				B935A598241D6A820074E89E /* NewPasswordRouter.swift in Sources */,
 				B9D17586243CFD1F001FF58E /* TermsAndConditionsRouter.swift in Sources */,
 				B9D17580243CFCEA001FF58E /* TermsAndConditionsView.swift in Sources */,
@@ -993,11 +1064,13 @@
 				B9FC798E242FB75E00F2D5BC /* ApplicationContentRouter.swift in Sources */,
 				B935A594241D6A720074E89E /* NewPasswordPresenter.swift in Sources */,
 				B9A732FB242D556C00860346 /* UIButton+Animations.swift in Sources */,
+				B977483B24431910004D39AD /* TaskSelectionView.swift in Sources */,
 				B9CAA71A242BE0CB00E50668 /* String+Validation.swift in Sources */,
 				B9CEE6A2241D55A500308098 /* ResetPasswordPresenter.swift in Sources */,
 				B9FC7990242FB77C00F2D5BC /* ApplicationContentDependency.swift in Sources */,
 				B91E8099242FCEB400859C83 /* CategoriesService.swift in Sources */,
 				B9CEE69C241CE98000308098 /* LoginDependency.swift in Sources */,
+				B977484D24431A3F004D39AD /* TasksListInteractor.swift in Sources */,
 				B932365B241D743300A37634 /* NewPasswordDependency.swift in Sources */,
 				B9FC7988242FB6E500F2D5BC /* ApplicationContentView.swift in Sources */,
 				B9CAA717242BB0AD00E50668 /* AlertsFactory.swift in Sources */,
@@ -1008,13 +1081,16 @@
 				B948A1EC241444B2001287B8 /* bonup_mobile.xcdatamodeld in Sources */,
 				B9A0C9A5242FC56D00EB6FAE /* CategoriesView.swift in Sources */,
 				B948A236241CBFA6001287B8 /* LoginView.swift in Sources */,
+				B977484F24431A47004D39AD /* TasksListBuilder.swift in Sources */,
 				B96D54BD242FBED600023BC9 /* NewPasswordService.swift in Sources */,
 				B92688FD2429520300F1732A /* UIView+Gradient.swift in Sources */,
 				B9CAA71F242BE8B500E50668 /* AuthVerificationService.swift in Sources */,
 				B9CAA70C242B9F0200E50668 /* AuthVerificationRouter.swift in Sources */,
 				B9CAA708242B9EE000E50668 /* AuthVerificationView.swift in Sources */,
+				B95533D724431C8A006BFDFB /* TaskCardView.swift in Sources */,
 				B935A590241D5B090074E89E /* ResetPasswordDependency.swift in Sources */,
 				B932366F241E6CCF00A37634 /* AuthResponseEntity.swift in Sources */,
+				B977484524431971004D39AD /* TaskSelectionDependency.swift in Sources */,
 				B9FC7986242FB04000F2D5BC /* BUTabBarController.swift in Sources */,
 				B935A592241D6A6A0074E89E /* NewPasswordView.swift in Sources */,
 				B9CAA70E242B9F0D00E50668 /* AuthVerificationBuilder.swift in Sources */,
@@ -1031,26 +1107,34 @@
 				B9D17588243CFD27001FF58E /* TermsAndConditionsBuilder.swift in Sources */,
 				B948A234241CBE61001287B8 /* AppRouter.swift in Sources */,
 				B9A0C9A7242FC57D00EB6FAE /* CategoriesInteractor.swift in Sources */,
+				B977484824431A27004D39AD /* TasksListView.swift in Sources */,
 				B948A238241CBFB2001287B8 /* LoginInteractor.swift in Sources */,
 				B9FC798C242FB73900F2D5BC /* ApplicationContentBuilder.swift in Sources */,
 				B932366C241D980400A37634 /* KeyChainService.swift in Sources */,
 				B9CEE6A6241D55BE00308098 /* ResetPasswordBuilder.swift in Sources */,
+				B977485324431A5E004D39AD /* TasksListRouter.swift in Sources */,
 				B948A1E2241444B2001287B8 /* AppDelegate.swift in Sources */,
+				B977483D2443194E004D39AD /* TaskSelectionInteractor.swift in Sources */,
 				B9CEE6A0241D559E00308098 /* ResetPasswordInteractor.swift in Sources */,
 				B948A23C241CBFC1001287B8 /* LoginRouter.swift in Sources */,
 				B9A0C9A9242FC58500EB6FAE /* CategoriesRouter.swift in Sources */,
 				B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */,
 				B9CAA722242BE8DF00E50668 /* AuthVerificationResponseEntity.swift in Sources */,
 				B9323669241D96F600A37634 /* AccountManager.swift in Sources */,
+				B9BF7011244326530051CF41 /* TaskCardOverlay.swift in Sources */,
 				B9268920242A95CA00F1732A /* AssetsHelper.swift in Sources */,
+				B977483F24431955004D39AD /* TaskSelectionBuilder.swift in Sources */,
 				B959712D24269F2A00EAEB6E /* TimerManager.swift in Sources */,
 				B932365D241D7C2C00A37634 /* MainNetworkProvider.swift in Sources */,
 				B96D54C0242FBF1400023BC9 /* ResetPasswordService.swift in Sources */,
+				B97748412443195D004D39AD /* TaskSelectionPresenter.swift in Sources */,
 				B9A0C9AB242FC58C00EB6FAE /* CategoriesPresenter.swift in Sources */,
 				B948A22624144BFA001287B8 /* AppDelegate+Configurations.swift in Sources */,
+				B9BF701324433D590051CF41 /* BUNavigationController.swift in Sources */,
 				B9323661241D7E4F00A37634 /* AuthorizedTargetType.swift in Sources */,
 				B9CEE69E241D558E00308098 /* ResetPasswordView.swift in Sources */,
 				B9259BA0241CE267009585B7 /* UIColor+Facade.swift in Sources */,
+				B977484B24431A37004D39AD /* TasksListPresenter.swift in Sources */,
 				B9323663241D7F5300A37634 /* AuthService.swift in Sources */,
 				B948A247241CDE64001287B8 /* UIFont+Fonts.swift in Sources */,
 				B9CAA70A242B9EF600E50668 /* AuthVerificationInteractor.swift in Sources */,
@@ -1245,7 +1329,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG_PAID\"";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = "$(APP_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1268,7 +1352,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"RELEASE_PAID\"";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = "$(APP_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1443,7 +1527,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -DDEBUG_FREE";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"DEBUG_FREE\"";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = "$(APP_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1568,7 +1652,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"RELEASE_FREE\"";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = "$(APP_NAME)";
 				SWIFT_VERSION = 5.0;

@@ -58,4 +58,9 @@ extension UIButton {
 
         return button
     }
+
+    func configureCircleButton(with image: UIImage?) {
+        self.imageView?.contentMode = .scaleAspectFit
+        self.setImage(image, for: .normal)
+    }
 }

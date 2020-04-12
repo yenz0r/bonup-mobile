@@ -32,6 +32,12 @@ final class AssetsHelper {
         case tasksSelectedIcon
         case qrSelectedIcon
         case actionsSelectedIcon
+
+        case likeIcon
+        case disslikeIcon
+        case returnIcon
+        case tasksListIcon
+        case emptyTasksListIcon
     }
 
     static let shared = AssetsHelper()
@@ -79,6 +85,17 @@ final class AssetsHelper {
             return UIImage(named: "qr-selected-icon")
         case .qrUnselectedIcon:
             return UIImage(named: "qr-unselected-icon")
+
+        case .likeIcon:
+            return UIImage(named: "like-icon")
+        case .disslikeIcon:
+            return UIImage(named: "disslike-icon")
+        case .returnIcon:
+            return UIImage(named: "return-icon")
+        case .tasksListIcon:
+            return UIImage(named: "task-list-navigation-icon")
+        case .emptyTasksListIcon:
+            return UIImage(named: "empty-tasks-list-icon")
 
         @unknown default:
             assertionFailure("Incorrect \(String(describing: self)) enum value")
