@@ -7,3 +7,33 @@
 //
 
 import Foundation
+import UIKit
+
+protocol ITasksListPresenter: AnyObject {
+    var currentTasksList: [String] { get }
+    var finishedTasksList: [String] { get }
+}
+
+final class TasksListPresenter {
+    private weak var view: ITasksListView?
+    private let interactor: ITasksListInteractor
+    private let router: ITasksListRouter
+
+    init(view: ITasksListView?, interactor: ITasksListInteractor, router: ITasksListRouter) {
+        self.view = view
+        self.interactor = interactor
+        self.router = router
+    }
+}
+
+// MARK: - ITaskSelectionPresenter implementation
+
+extension TasksListPresenter: ITasksListPresenter {
+    var currentTasksList: [String] {
+        return []
+    }
+
+    var finishedTasksList: [String] {
+        return []
+    }
+}

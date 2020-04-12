@@ -7,3 +7,21 @@
 //
 
 import Foundation
+
+protocol ITasksListInteractor: AnyObject {
+
+}
+
+final class TasksListInteractor {
+
+    private let networkProvider = MainNetworkProvider<ResetPasswordService>()
+
+}
+
+// MARK: - ITaskSelectionInteractor implementation
+
+extension TasksListInteractor: ITasksListInteractor {
+
+
+
+}

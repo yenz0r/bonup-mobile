@@ -53,3 +53,8 @@
 "ui_done_title" = "Done";
 "tasks_selection_title" = "Tasks Selection";
 "empty_tasks_list_info" = "Sorry, but your tasks list is empty for today.. Try again later";
+"current_tasks_title" = "Current";
+"finished_tasks_title" = "Finished";
+"task_selection_info_title" = "Help for task selection";
+"task_selection_info_description" = "Here you can swipe interesting for you task to the right and boring to left..";
+"tasks_list_title" = "Tasks List";

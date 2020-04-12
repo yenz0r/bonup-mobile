@@ -12,6 +12,8 @@ import UIKit
 protocol ITaskSelectionPresenter: AnyObject {
     func handleTaskSelection(at index: Int, isLike: Bool)
     func handleReturnButtonTap()
+    func handleInfoButtonTap()
+    func handleShowTasksListButtonTap()
 }
 
 final class TaskSelectionPresenter {
@@ -29,6 +31,14 @@ final class TaskSelectionPresenter {
 // MARK: - ITaskSelectionPresenter implementation
 
 extension TaskSelectionPresenter: ITaskSelectionPresenter {
+    func handleInfoButtonTap() {
+        self.router.show(.showInfoAlert)
+    }
+
+    func handleShowTasksListButtonTap() {
+        self.router.show(.showTasksList)
+    }
+
     func handleTaskSelection(at index: Int, isLike: Bool) {
         print(index, isLike)
     }

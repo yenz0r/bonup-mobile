@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+protocol ITasksListBuilder {
+    func build(_ dependency: TasksListDependency) -> ITasksListRouter
+}
+
+final class TasksListBuilder: ITasksListBuilder {
+    func build(_ dependency: TasksListDependency) -> ITasksListRouter {
+        let view = TasksListView()
+        let router = TasksListRouter(view: view, parentController: dependency.parentController)
+        let interactor = TasksListInteractor()
+        let presenter =  TasksListPresenter(view: view, interactor: interactor, router: router)
+        view.presenter = presenter
+
+        return router
+    }
+}

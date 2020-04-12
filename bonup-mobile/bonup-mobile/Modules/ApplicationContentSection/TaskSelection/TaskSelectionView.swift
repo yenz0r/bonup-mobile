@@ -176,11 +176,11 @@ final class TaskSelectionView: UIViewController {
     }
 
     @objc private func tasksListTapped() {
-        print("tasks list")
+        self.presenter.handleShowTasksListButtonTap()
     }
 
     @objc private func infoNavigationItemTapped() {
-        print("info tapped")
+        self.presenter.handleInfoButtonTap()
     }
 }
 

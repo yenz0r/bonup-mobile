@@ -10,6 +10,10 @@
 		000993B5F4A018C215A59737 /* libPods-bonup-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E08E2FC007738639B3B1FB /* libPods-bonup-mobile.a */; };
 		45CB7F78204A3A11874541EB /* libPods-bonup-mobile-bonup-mobileUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D5E7A78F092619BB6A746 /* libPods-bonup-mobile-bonup-mobileUITests.a */; };
 		B9126688242AA57D00BEA50C /* LoginSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9126687242AA57D00BEA50C /* LoginSectionViewController.swift */; };
+		B914AC8B24435D30007494E3 /* CurrentTasksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC8A24435D30007494E3 /* CurrentTasksCollectionViewCell.swift */; };
+		B914AC8D24435D44007494E3 /* FinishedTasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC8C24435D44007494E3 /* FinishedTasksTableViewCell.swift */; };
+		B914AC8F24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC8E24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift */; };
+		B914AC9124435D80007494E3 /* TasksListFinishedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC9024435D80007494E3 /* TasksListFinishedCollectionViewCell.swift */; };
 		B91E8099242FCEB400859C83 /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91E8098242FCEB400859C83 /* CategoriesService.swift */; };
 		B91E809B242FCEC100859C83 /* CategoriesResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91E809A242FCEC000859C83 /* CategoriesResponseEntity.swift */; };
 		B9259BA0241CE267009585B7 /* UIColor+Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9259B9F241CE267009585B7 /* UIColor+Facade.swift */; };
@@ -134,6 +138,10 @@
 		846B54D9B4C1BCA3D32D575F /* Pods-bonup-mobile.debug free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile.debug free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile.debug free.xcconfig"; sourceTree = "<group>"; };
 		950486241D5ACB45CFB9B073 /* Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig"; sourceTree = "<group>"; };
 		B9126687242AA57D00BEA50C /* LoginSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSectionViewController.swift; sourceTree = "<group>"; };
+		B914AC8A24435D30007494E3 /* CurrentTasksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTasksCollectionViewCell.swift; sourceTree = "<group>"; };
+		B914AC8C24435D44007494E3 /* FinishedTasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedTasksTableViewCell.swift; sourceTree = "<group>"; };
+		B914AC8E24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListCurrentCollectionViewCell.swift; sourceTree = "<group>"; };
+		B914AC9024435D80007494E3 /* TasksListFinishedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListFinishedCollectionViewCell.swift; sourceTree = "<group>"; };
 		B91E8098242FCEB400859C83 /* CategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
 		B91E809A242FCEC000859C83 /* CategoriesResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesResponseEntity.swift; sourceTree = "<group>"; };
 		B9259B9F241CE267009585B7 /* UIColor+Facade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Facade.swift"; sourceTree = "<group>"; };
@@ -640,6 +648,7 @@
 				B977484E24431A47004D39AD /* TasksListBuilder.swift */,
 				B977485024431A52004D39AD /* TasksListDependency.swift */,
 				B977485224431A5E004D39AD /* TasksListRouter.swift */,
+				B9BF701624435CD70051CF41 /* Subviews */,
 			);
 			path = TasksList;
 			sourceTree = "<group>";
@@ -664,6 +673,17 @@
 				B9323660241D7E4F00A37634 /* AuthorizedTargetType.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		B9BF701624435CD70051CF41 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				B914AC8A24435D30007494E3 /* CurrentTasksCollectionViewCell.swift */,
+				B914AC8C24435D44007494E3 /* FinishedTasksTableViewCell.swift */,
+				B914AC8E24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift */,
+				B914AC9024435D80007494E3 /* TasksListFinishedCollectionViewCell.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		B9CAA713242B9F2D00E50668 /* AuthVerificationScreen */ = {
@@ -1054,12 +1074,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B914AC8D24435D44007494E3 /* FinishedTasksTableViewCell.swift in Sources */,
 				B935A59D241D6F2E0074E89E /* UIButton+Factory.swift in Sources */,
 				B977485124431A52004D39AD /* TasksListDependency.swift in Sources */,
 				B977484324431967004D39AD /* TaskSelectionRouter.swift in Sources */,
 				B935A598241D6A820074E89E /* NewPasswordRouter.swift in Sources */,
 				B9D17586243CFD1F001FF58E /* TermsAndConditionsRouter.swift in Sources */,
 				B9D17580243CFCEA001FF58E /* TermsAndConditionsView.swift in Sources */,
+				B914AC8F24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift in Sources */,
 				B9CAA712242B9F2100E50668 /* AuthVerificationDependency.swift in Sources */,
 				B9FC798E242FB75E00F2D5BC /* ApplicationContentRouter.swift in Sources */,
 				B935A594241D6A720074E89E /* NewPasswordPresenter.swift in Sources */,
@@ -1087,6 +1109,7 @@
 				B9CAA71F242BE8B500E50668 /* AuthVerificationService.swift in Sources */,
 				B9CAA70C242B9F0200E50668 /* AuthVerificationRouter.swift in Sources */,
 				B9CAA708242B9EE000E50668 /* AuthVerificationView.swift in Sources */,
+				B914AC8B24435D30007494E3 /* CurrentTasksCollectionViewCell.swift in Sources */,
 				B95533D724431C8A006BFDFB /* TaskCardView.swift in Sources */,
 				B935A590241D5B090074E89E /* ResetPasswordDependency.swift in Sources */,
 				B932366F241E6CCF00A37634 /* AuthResponseEntity.swift in Sources */,
@@ -1130,6 +1153,7 @@
 				B97748412443195D004D39AD /* TaskSelectionPresenter.swift in Sources */,
 				B9A0C9AB242FC58C00EB6FAE /* CategoriesPresenter.swift in Sources */,
 				B948A22624144BFA001287B8 /* AppDelegate+Configurations.swift in Sources */,
+				B914AC9124435D80007494E3 /* TasksListFinishedCollectionViewCell.swift in Sources */,
 				B9BF701324433D590051CF41 /* BUNavigationController.swift in Sources */,
 				B9323661241D7E4F00A37634 /* AuthorizedTargetType.swift in Sources */,
 				B9CEE69E241D558E00308098 /* ResetPasswordView.swift in Sources */,
