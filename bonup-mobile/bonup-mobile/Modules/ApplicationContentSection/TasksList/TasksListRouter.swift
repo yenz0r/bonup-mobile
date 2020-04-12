@@ -36,7 +36,7 @@ extension TasksListRouter: ITasksListRouter {
 
         view.modalPresentationStyle = .fullScreen
 
-        self.parentController.navigationController?.pushViewController(view, animated: false)
+        self.parentController.navigationController?.pushViewController(view, animated: true)
         completion?()
     }
 

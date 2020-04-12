@@ -11,7 +11,7 @@
 		45CB7F78204A3A11874541EB /* libPods-bonup-mobile-bonup-mobileUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D5E7A78F092619BB6A746 /* libPods-bonup-mobile-bonup-mobileUITests.a */; };
 		B9126688242AA57D00BEA50C /* LoginSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9126687242AA57D00BEA50C /* LoginSectionViewController.swift */; };
 		B914AC8B24435D30007494E3 /* CurrentTasksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC8A24435D30007494E3 /* CurrentTasksCollectionViewCell.swift */; };
-		B914AC8D24435D44007494E3 /* FinishedTasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC8C24435D44007494E3 /* FinishedTasksTableViewCell.swift */; };
+		B914AC8D24435D44007494E3 /* FinishedTasksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC8C24435D44007494E3 /* FinishedTasksCollectionViewCell.swift */; };
 		B914AC8F24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC8E24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift */; };
 		B914AC9124435D80007494E3 /* TasksListFinishedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC9024435D80007494E3 /* TasksListFinishedCollectionViewCell.swift */; };
 		B91E8099242FCEB400859C83 /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91E8098242FCEB400859C83 /* CategoriesService.swift */; };
@@ -76,6 +76,8 @@
 		B9A0C9AD242FC59200EB6FAE /* CategoriesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A0C9AC242FC59200EB6FAE /* CategoriesBuilder.swift */; };
 		B9A0C9AF242FC59B00EB6FAE /* CategoriesDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A0C9AE242FC59B00EB6FAE /* CategoriesDependency.swift */; };
 		B9A732FB242D556C00860346 /* UIButton+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A732FA242D556C00860346 /* UIButton+Animations.swift */; };
+		B9BA409F2443D0DD00950808 /* CurrentTasksListPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA409E2443D0DD00950808 /* CurrentTasksListPresentationModel.swift */; };
+		B9BA40A12443D0ED00950808 /* FinishedTasksPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA40A02443D0ED00950808 /* FinishedTasksPresentationModel.swift */; };
 		B9BF7011244326530051CF41 /* TaskCardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BF7010244326530051CF41 /* TaskCardOverlay.swift */; };
 		B9BF701324433D590051CF41 /* BUNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BF701224433D590051CF41 /* BUNavigationController.swift */; };
 		B9CAA708242B9EE000E50668 /* AuthVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA707242B9EE000E50668 /* AuthVerificationView.swift */; };
@@ -139,7 +141,7 @@
 		950486241D5ACB45CFB9B073 /* Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig"; sourceTree = "<group>"; };
 		B9126687242AA57D00BEA50C /* LoginSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSectionViewController.swift; sourceTree = "<group>"; };
 		B914AC8A24435D30007494E3 /* CurrentTasksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTasksCollectionViewCell.swift; sourceTree = "<group>"; };
-		B914AC8C24435D44007494E3 /* FinishedTasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedTasksTableViewCell.swift; sourceTree = "<group>"; };
+		B914AC8C24435D44007494E3 /* FinishedTasksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedTasksCollectionViewCell.swift; sourceTree = "<group>"; };
 		B914AC8E24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListCurrentCollectionViewCell.swift; sourceTree = "<group>"; };
 		B914AC9024435D80007494E3 /* TasksListFinishedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListFinishedCollectionViewCell.swift; sourceTree = "<group>"; };
 		B91E8098242FCEB400859C83 /* CategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
@@ -216,6 +218,8 @@
 		B9A0C9AC242FC59200EB6FAE /* CategoriesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesBuilder.swift; sourceTree = "<group>"; };
 		B9A0C9AE242FC59B00EB6FAE /* CategoriesDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesDependency.swift; sourceTree = "<group>"; };
 		B9A732FA242D556C00860346 /* UIButton+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Animations.swift"; sourceTree = "<group>"; };
+		B9BA409E2443D0DD00950808 /* CurrentTasksListPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTasksListPresentationModel.swift; sourceTree = "<group>"; };
+		B9BA40A02443D0ED00950808 /* FinishedTasksPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedTasksPresentationModel.swift; sourceTree = "<group>"; };
 		B9BF7010244326530051CF41 /* TaskCardOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardOverlay.swift; sourceTree = "<group>"; };
 		B9BF701224433D590051CF41 /* BUNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUNavigationController.swift; sourceTree = "<group>"; };
 		B9CAA707242B9EE000E50668 /* AuthVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationView.swift; sourceTree = "<group>"; };
@@ -649,6 +653,7 @@
 				B977485024431A52004D39AD /* TasksListDependency.swift */,
 				B977485224431A5E004D39AD /* TasksListRouter.swift */,
 				B9BF701624435CD70051CF41 /* Subviews */,
+				B9BA40A22443D0F100950808 /* Entities */,
 			);
 			path = TasksList;
 			sourceTree = "<group>";
@@ -675,11 +680,20 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		B9BA40A22443D0F100950808 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				B9BA409E2443D0DD00950808 /* CurrentTasksListPresentationModel.swift */,
+				B9BA40A02443D0ED00950808 /* FinishedTasksPresentationModel.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		B9BF701624435CD70051CF41 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
 				B914AC8A24435D30007494E3 /* CurrentTasksCollectionViewCell.swift */,
-				B914AC8C24435D44007494E3 /* FinishedTasksTableViewCell.swift */,
+				B914AC8C24435D44007494E3 /* FinishedTasksCollectionViewCell.swift */,
 				B914AC8E24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift */,
 				B914AC9024435D80007494E3 /* TasksListFinishedCollectionViewCell.swift */,
 			);
@@ -1074,7 +1088,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B914AC8D24435D44007494E3 /* FinishedTasksTableViewCell.swift in Sources */,
+				B914AC8D24435D44007494E3 /* FinishedTasksCollectionViewCell.swift in Sources */,
 				B935A59D241D6F2E0074E89E /* UIButton+Factory.swift in Sources */,
 				B977485124431A52004D39AD /* TasksListDependency.swift in Sources */,
 				B977484324431967004D39AD /* TaskSelectionRouter.swift in Sources */,
@@ -1104,6 +1118,7 @@
 				B9A0C9A5242FC56D00EB6FAE /* CategoriesView.swift in Sources */,
 				B948A236241CBFA6001287B8 /* LoginView.swift in Sources */,
 				B977484F24431A47004D39AD /* TasksListBuilder.swift in Sources */,
+				B9BA409F2443D0DD00950808 /* CurrentTasksListPresentationModel.swift in Sources */,
 				B96D54BD242FBED600023BC9 /* NewPasswordService.swift in Sources */,
 				B92688FD2429520300F1732A /* UIView+Gradient.swift in Sources */,
 				B9CAA71F242BE8B500E50668 /* AuthVerificationService.swift in Sources */,
@@ -1116,6 +1131,7 @@
 				B977484524431971004D39AD /* TaskSelectionDependency.swift in Sources */,
 				B9FC7986242FB04000F2D5BC /* BUTabBarController.swift in Sources */,
 				B935A592241D6A6A0074E89E /* NewPasswordView.swift in Sources */,
+				B9BA40A12443D0ED00950808 /* FinishedTasksPresentationModel.swift in Sources */,
 				B9CAA70E242B9F0D00E50668 /* AuthVerificationBuilder.swift in Sources */,
 				B9CAA710242B9F1600E50668 /* AuthVerificationPresenter.swift in Sources */,
 				B935A59A241D6A8A0074E89E /* NewPasswordBuilder.swift in Sources */,

@@ -80,23 +80,26 @@ final class TasksListView: UIViewController {
     }
 
     private func configureNavigationBar() {
-        guard let navigation = self.navigationController else { return }
-
-        navigation.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigation.navigationBar.shadowImage = UIImage()
-        navigation.navigationBar.isTranslucent = true
-
-        let textAttributes = [
-            NSAttributedString.Key.foregroundColor:UIColor.purpleLite.withAlphaComponent(0.7),
-            .font: UIFont.avenirRoman(20)
-        ]
-        navigation.navigationBar.titleTextAttributes = textAttributes
-
         let backItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         backItem.tintColor = UIColor.red.withAlphaComponent(0.7)
         navigationItem.backBarButtonItem = backItem
 
         self.navigationItem.title = "tasks_list_title".localized
+
+        let tasksListNavigationItem = UIBarButtonItem(
+            barButtonSystemItem: .trash,
+            target: self,
+            action: #selector(clearHistoryTapped)
+        )
+        tasksListNavigationItem.tintColor = .purpleLite
+
+
+        let infoButton = UIButton(type: .infoLight)
+        infoButton.tintColor = .purpleLite
+        infoButton.addTarget(self, action: #selector(infoNavigationItemTapped), for: .touchUpInside)
+        let infoNavigationItem = UIBarButtonItem(customView: infoButton)
+
+        self.navigationItem.rightBarButtonItems = [infoNavigationItem, tasksListNavigationItem]
     }
 
     // MARK: - Selectors
@@ -106,6 +109,13 @@ final class TasksListView: UIViewController {
         self.mainCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 
+    @objc private func clearHistoryTapped() {
+
+    }
+
+    @objc private func infoNavigationItemTapped() {
+
+    }
 }
 
 // MARK: - UICollectionViewDataSource implementation
@@ -122,12 +132,35 @@ extension TasksListView: UICollectionViewDataSource {
                 for: indexPath
             ) as! TasksListCurrentCollectionViewCell
 
+            let model = CurrentTasksListPresentationModel(
+                title: "title-\(indexPath.row)",
+                description: "description-\(indexPath.row)",
+                image: UIImage(named: "test-task-icon"),
+                aliveTime: "5d"
+            )
+            let models = Array(repeating: model, count: 10)
+            cell.presentationModels = models
+            cell.onSelect = { index in
+                print("=====", index)
+            }
+
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: TasksListFinishedCollectionViewCell.reuseId,
                 for: indexPath
             ) as! TasksListFinishedCollectionViewCell
+
+            let model = FinishedTasksListPresentationModel(
+                title: "title-\(indexPath.row)",
+                description: "description-\(indexPath.row)",
+                dateOfEnd: "10.02.2000 19:00",
+                isDone: indexPath.row % 2 == 0,
+                benefit: "+100"
+            )
+
+            let models = Array(repeating: model, count: 20)
+            cell.presentationModels = models
 
             return cell
         }
