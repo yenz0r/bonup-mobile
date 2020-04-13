@@ -35,7 +35,7 @@ extension CategoriesRouter: ICategoriesRouter {
         guard let view = self.view else { return }
 
         view.modalPresentationStyle = .fullScreen
-
+        
         self.parentController?.navigationController?.pushViewController(view, animated: true)
         completion?()
     }

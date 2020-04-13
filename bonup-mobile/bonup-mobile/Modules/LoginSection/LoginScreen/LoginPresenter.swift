@@ -73,8 +73,8 @@ extension LoginPresenter: ILoginPresenter {
             return
         }
 
-        //self.router.show(.authVerification)
-        self.router.show(.openApp)
+        self.router.show(.authVerification)
+//        self.router.show(.openApp)
         return
         let authParams = AuthParams(
             name: currentName,

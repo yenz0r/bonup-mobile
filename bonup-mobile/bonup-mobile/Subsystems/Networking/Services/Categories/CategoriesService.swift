@@ -9,12 +9,9 @@
 import Foundation
 import Moya
 
-struct CategoriesParams {
-    let location: String
-}
-
 enum CategoriesService {
-    case askCategories(params: CategoriesParams)
+    case askCategories
+    case sendSelectedCategories(selectedIds: [Int])
 }
 
 extension CategoriesService: IMainTargetType {
@@ -25,13 +22,20 @@ extension CategoriesService: IMainTargetType {
 
     var path: String {
         switch self {
-        case .askCategories(_):
-            return "/reset"
+        case .askCategories:
+            return "/categoriesList"
+        case .sendSelectedCategories(_):
+            return "/saveSelectedCategories"
         }
     }
 
     var method: Moya.Method {
-        return .post
+        switch self {
+        case .askCategories:
+            return .get
+        case .sendSelectedCategories(_):
+            return .post
+        }
     }
 
     var sampleData: Data {
@@ -40,10 +44,12 @@ extension CategoriesService: IMainTargetType {
 
     var task: Task {
         switch self {
-        case .askCategories(let params):
+        case .askCategories:
+            return .requestPlain
+        case .sendSelectedCategories(let selectedIds):
             return .requestParameters(
                 parameters: [
-                    "location": params.location
+                    "selectedIds": selectedIds
                 ],
                 encoding: JSONEncoding.default
             )

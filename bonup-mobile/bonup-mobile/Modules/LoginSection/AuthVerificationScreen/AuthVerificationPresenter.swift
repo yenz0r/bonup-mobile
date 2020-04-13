@@ -46,6 +46,10 @@ extension AuthVerificationPresenter: IAuthVerificationPresenter {
             self?.restTime = restTime
         }
 
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.router.show(.categories)
+        }
+        return
         self.interactor.verify(code: code) { [weak self] isSuccess in
 
             guard let strongSelf = self else { return }

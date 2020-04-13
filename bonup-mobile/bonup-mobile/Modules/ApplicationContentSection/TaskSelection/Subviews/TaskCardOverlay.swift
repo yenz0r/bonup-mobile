@@ -34,7 +34,7 @@ final class TaskCardOverlay: UIView {
 
         rightTextView.snp.makeConstraints { make in
             make.top.equalTo(overlay).offset(26)
-            make.leading.equalTo(overlay).offset(14)
+            make.leading.equalTo(overlay).offset(-14)
         }
 
         return overlay

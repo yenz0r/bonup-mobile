@@ -1,15 +1,15 @@
 //
-//  TaskCardView.swift
+//  CategoryCardView.swift
 //  bonup-mobile
 //
-//  Created by Yahor Bychkouski on 12.04.2020.
+//  Created by Yahor Bychkouski on 13.04.2020.
 //  Copyright © 2020 Bonup. All rights reserved.
 //
 
-import Shuffle_iOS
 import UIKit
+import Shuffle_iOS
 
-final class TaskCardView: SwipeCard {
+final class CategoryCardView: SwipeCard {
 
     // MARK: - Override
 
@@ -30,24 +30,19 @@ final class TaskCardView: SwipeCard {
 
     // MARK: - Initialization
 
-    init(title: String, description: String, image: UIImage?) {
+    init(title: String, desctiptionText: String) {
         super.init(frame: .zero)
 
         // subviews
 
         let containerView = self.configureContainerView()
         let infoContainerView = UIView()
-        let imageView = self.configureImageView(with: image)
         let titleLabel = self.configureTitleLabel(with: title)
-        let descriptionLabel = self.configureDescriptionLabel(with: description)
+        let desctiptionLabel = self.configureDescriptionLabel(with: desctiptionText)
+        let separatorView = self.configureSeparatorView()
         let blurView = self.configureBlurView()
 
         // setup subviews
-
-        containerView.addSubview(imageView)
-        imageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
 
         containerView.addSubview(blurView)
         blurView.snp.makeConstraints { make in
@@ -63,14 +58,20 @@ final class TaskCardView: SwipeCard {
         infoContainerView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview().inset(15.0)
-            make.height.greaterThanOrEqualTo(20.0)
         }
 
-        infoContainerView.addSubview(descriptionLabel)
-        descriptionLabel.snp.makeConstraints { make in
-            make.leading.trailing.bottom.equalToSuperview().inset(20.0)
+        infoContainerView.addSubview(separatorView)
+        separatorView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(20.0)
             make.top.equalTo(titleLabel.snp.bottom).offset(10.0)
-            make.height.greaterThanOrEqualTo(40.0)
+            make.height.equalTo(1.0)
+        }
+
+        infoContainerView.addSubview(desctiptionLabel)
+        desctiptionLabel.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(10.0)
+            make.top.equalTo(separatorView.snp.bottom).offset(10.0)
+            make.bottom.equalToSuperview().offset(-15.0)
         }
 
         self.content = containerView
@@ -82,6 +83,14 @@ final class TaskCardView: SwipeCard {
 
     // MARK: - Configurations
 
+    private func configureSeparatorView() -> UIView {
+        let view = UIView()
+
+        view.backgroundColor = UIColor.white80.withAlphaComponent(0.4)
+
+        return view
+    }
+
     private func configureContainerView() -> UIView {
         let containerView = UIView()
 
@@ -91,21 +100,11 @@ final class TaskCardView: SwipeCard {
         return containerView
     }
 
-    private func configureImageView(with image: UIImage?) -> UIImageView {
-        let imageView = UIImageView()
-
-        imageView.image = image
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-
-        return imageView
-    }
-
     private func configureTitleLabel(with text: String) -> UILabel {
         let label = UILabel()
 
-        label.textAlignment = .left
-        label.font = UIFont.avenirHeavy(25)
+        label.textAlignment = .center
+        label.font = UIFont.avenirHeavy(30)
         label.text = text
         label.textColor = .white80
 
@@ -115,11 +114,11 @@ final class TaskCardView: SwipeCard {
     private func configureDescriptionLabel(with text: String) -> UILabel {
         let label = UILabel()
 
-        label.textAlignment = .left
-        label.font = UIFont.avenirRoman(20)
+        label.textAlignment = .center
+        label.font = UIFont.avenirRoman(20.0)
         label.text = text
-        label.textColor = UIColor.white80.withAlphaComponent(0.4)
         label.numberOfLines = 0
+        label.textColor = UIColor.white80.withAlphaComponent(0.7)
 
         return label
     }
@@ -127,6 +126,9 @@ final class TaskCardView: SwipeCard {
     private func configureBlurView() -> UIView {
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
+
+        blurEffectView.layer.cornerRadius = 20.0
+        blurEffectView.layer.masksToBounds = true
 
         return blurEffectView
     }

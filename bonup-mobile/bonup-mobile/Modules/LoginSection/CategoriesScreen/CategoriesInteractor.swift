@@ -9,9 +9,9 @@
 import Foundation
 
 protocol ICategoriesInteractor: AnyObject {
-    func categotiesListRequest(location: String,
-                               success: (([CategoryInfo]) -> Void)?,
+    func categotiesListRequest(success: (([CategoryInfo]) -> Void)?,
                                failure: (() -> Void)?)
+    func saveSeletedCategoriesRequest(selectedIds: [Int])
 }
 
 final class CategoriesInteractor {
@@ -26,22 +26,32 @@ final class CategoriesInteractor {
 
 extension CategoriesInteractor: ICategoriesInteractor {
 
-    func categotiesListRequest(location: String,
-                               success: (([CategoryInfo]) -> Void)?,
+    func categotiesListRequest(success: (([CategoryInfo]) -> Void)?,
                                failure: (() -> Void)?) {
 
-        let categoriesParams = CategoriesParams(location: location)
-
         _ = networkProvider.request(
-            .askCategories(params: categoriesParams),
+            .askCategories,
             type: CategoriesResponseEntity.self,
             completion: { result in
-                success?(result.categoryInfoList)
+                //test
+                let info = CategoryInfo(id: 0, name: "Sport", description: "For everyone who are interested in sport and healthy life style")
+
+                success?(Array(repeating: info, count: 10))
             },
             failure: { _ in
-                failure?()
+                //failure?()
+
+                let info = CategoryInfo(id: 0, name: "Sport", description: "For everyone who are interested in sport and healthy life style")
+
+                success?(Array(repeating: info, count: 10))
             }
         )
+    }
+
+    func saveSeletedCategoriesRequest(selectedIds: [Int]) {
+
+        _ = networkProvider.requestSignal(.sendSelectedCategories(selectedIds: selectedIds))
+
     }
     
 }

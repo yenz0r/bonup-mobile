@@ -48,7 +48,7 @@ extension UIButton {
             button.setAttributedTitle(
                 NSAttributedString.with(
                     title: title,
-                    textColor: UIColor.purpleLite,
+                    textColor: UIColor.black.withAlphaComponent(0.6),
                     font: UIFont.avenirRoman(14)
                 ),
                 for: .normal

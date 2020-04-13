@@ -9,8 +9,9 @@
 import Foundation
 
 struct CategoryInfo: Codable {
+    let id: Int
     let name: String
-    let imageUrl: String
+    let description: String
 }
 
 struct CategoriesResponseEntity: Codable {

@@ -47,7 +47,7 @@
 "ui_email_not_created" = "This email do not exists, please verify it..";
 "ui_categories_title" = "Categories";
 "ui_skip_title" = "Skip";
-"ui_categories_text" = "The last step is selection of your favorite categories, interests, hobbies";
+"ui_categories_text" = "Here you can swipe to right categories which are interesting for you and to left boring.. You can do it later from settings";
 "ui_location_placeholder" = "Enter your city";
 "ui_bonup_title" = "Bonup";
 "ui_done_title" = "Done";

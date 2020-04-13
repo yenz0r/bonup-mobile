@@ -54,6 +54,9 @@ final class TasksListView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // self.view setup
+        self.view.backgroundColor = .white
+
         // segmentedControl setup
         self.segmentedControl.selectedSegmentIndex = 0
         self.segmentedControl.addTarget(self, action: #selector(segmentedControlChanged), for: .valueChanged)

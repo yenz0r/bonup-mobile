@@ -18,6 +18,7 @@ final class AuthVerificationRouter {
     enum AuthVerificationRouterScenario {
         case openApplication
         case errorAlert
+        case categories
     }
 
     private var view: AuthVerificationView?
@@ -51,7 +52,11 @@ extension AuthVerificationRouter: IAuthVerificationRouter {
 
         switch scenario {
         case .openApplication:
-            self.stop(nil)
+            AppRouter.shared.present(.openApplication)
+        case .categories:
+            let categoriesDependency = CategoriesDependency(parentViewController: view)
+            let categoriesRouter = CategoriesBuilder().build(categoriesDependency)
+            categoriesRouter.start(nil)
         case .errorAlert:
             AlertsFactory.shared.infoAlert(
                 for: .error,
