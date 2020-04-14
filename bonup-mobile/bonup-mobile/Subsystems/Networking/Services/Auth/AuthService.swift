@@ -23,20 +23,25 @@ enum AuthService {
 extension AuthService: IMainTargetType {
 
     var baseURL: URL {
-        return URL(string: "server")!
+        return URL(string: serverBase)!
     }
 
     var path: String {
         switch self {
         case .auth(_):
-            return "/auth"
+            return "/login_processing"
         case .register(_):
-            return "/register"
+            return "/registration"
         }
     }
 
     var method: Moya.Method {
-        return .post
+        switch self {
+        case .auth(_):
+            return .post
+        case .register(_):
+            return .put
+        }
     }
 
     var sampleData: Data {
@@ -67,6 +72,6 @@ extension AuthService: IMainTargetType {
     }
 
     var headers: [String : String]? {
-        return nil
+        return ["Content-Type" : "application/json"]
     }
 }

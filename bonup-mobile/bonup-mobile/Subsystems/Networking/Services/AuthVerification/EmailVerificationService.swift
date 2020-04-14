@@ -13,15 +13,15 @@ struct AuthVerificationParams {
     let code: String
 }
 
-enum AuthVerificationService {
+enum EmailVerificationService {
     case verify(params: AuthVerificationParams)
     case resend
 }
 
-extension AuthVerificationService: IMainTargetType {
+extension EmailVerificationService: IMainTargetType {
 
     var baseURL: URL {
-        return URL(string: "server")!
+        return URL(string: serverBase)!
     }
 
     var path: String {
@@ -29,7 +29,7 @@ extension AuthVerificationService: IMainTargetType {
         case .resend:
             return "/resend"
         case .verify(_):
-            return "/register"
+            return "/verifyMail"
         }
     }
 
@@ -46,6 +46,7 @@ extension AuthVerificationService: IMainTargetType {
         case .verify(let params):
             return .requestParameters(
                 parameters: [
+                    "email": AccountManager.shared.currentUser?.email ?? "",
                     "code": params.code
                 ],
                 encoding: JSONEncoding.default
@@ -58,4 +59,5 @@ extension AuthVerificationService: IMainTargetType {
     var headers: [String : String]? {
         return nil
     }
+
 }

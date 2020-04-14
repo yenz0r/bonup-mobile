@@ -51,12 +51,12 @@ extension ApplicationContentRouter: IApplicationContentRouter {
         let colors: [UIColor] = [.green, .blue, .orange, .purple]
 
         viewControllers.append(taskSelectionNavigationController)
-        for color in colors {
+        for (index, color) in colors.enumerated() {
             let viewController = UIViewController()
             viewController.view.backgroundColor = color
             viewControllers.append(viewController)
             viewController.tabBarItem = UITabBarItem(
-                title: "ui_tasks_title".localized,
+                title: "\(index)".localized,
                 image: AssetsHelper.shared.image(.tasksUnselectedIcon),
                 selectedImage: AssetsHelper.shared.image(.tasksSelectedIcon)
             )

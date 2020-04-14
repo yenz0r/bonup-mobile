@@ -17,16 +17,16 @@ enum NewPasswordService {
     case setupNewPassword(params: NewPasswordParams)
 }
 
-extension NewPasswordService: IMainTargetType {
+extension NewPasswordService: IAuthorizedTargetType {
 
     var baseURL: URL {
-        return URL(string: "server")!
+        return URL(string: serverBase)!
     }
 
     var path: String {
         switch self {
         case .setupNewPassword(_):
-            return ""
+            return "/newPassword"
         }
     }
 
@@ -43,7 +43,7 @@ extension NewPasswordService: IMainTargetType {
         case .setupNewPassword(let params):
             return .requestParameters(
                 parameters: [
-                    "newPassword": params.newPassword
+                    "password": params.newPassword
                 ],
                 encoding: JSONEncoding.default
             )
@@ -51,6 +51,6 @@ extension NewPasswordService: IMainTargetType {
     }
 
     var headers: [String : String]? {
-        return nil
+        return self.requiredHeaders
     }
 }

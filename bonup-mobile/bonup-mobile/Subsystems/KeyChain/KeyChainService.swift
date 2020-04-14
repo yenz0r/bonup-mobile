@@ -17,6 +17,7 @@ final class KeyChainService {
         case name = "kUserName"
         case email = "kUserEmail"
         case password = "kUserPassword"
+        case authToken = "kAuthToken"
     }
 
     enum BoolKeys: String {

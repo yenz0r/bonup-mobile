@@ -23,9 +23,18 @@ final class AccountManager {
     // MARK: - Public variables
 
     var currentUser: User?
-    var currentToken: String?
+    private(set) var currentToken: String?
 
     // MARK: - Public function
+
+    func saveToken(_ token: String?) {
+        if let token = token {
+            self.currentToken = token
+            self.keyChainService.setString(token, for: .authToken)
+        } else {
+            self.keyChainService.setString("", for: .authToken)
+        }
+    }
 
     func saveAuthCredentials(name: String?, email: String?, password: String?) {
         guard
@@ -43,6 +52,11 @@ final class AccountManager {
         self.keyChainService.setString("", for: .name)
         self.keyChainService.setString("", for: .password)
         self.keyChainService.setString("", for: .email)
+    }
+
+    func isLogined() -> Bool {
+        let authToken = self.keyChainService.getString(for: .authToken)
+        return authToken != ""
     }
 
 }

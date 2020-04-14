@@ -17,7 +17,7 @@ final class AuthVerificationInteractor {
 
     // MARK: - Private variables
 
-    private let networkProvider = MainNetworkProvider<AuthVerificationService>()
+    private let networkProvider = MainNetworkProvider<EmailVerificationService>()
 
 }
 

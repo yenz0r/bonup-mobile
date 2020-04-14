@@ -13,12 +13,11 @@ protocol IAuthorizedTargetType: IMainTargetType {
 }
 
 extension IAuthorizedTargetType {
-
     var requiredHeaders: [String: String]? {
 
         let authToken = AccountManager.shared.currentToken
 
-        return ["Authorization" : authToken ?? "",
+        return ["Token" : authToken ?? "",
                 "Content-Type" : "application/json"]
     }
 }

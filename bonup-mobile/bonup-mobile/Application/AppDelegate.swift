@@ -19,12 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // setup app window
         self.window = UIWindow(frame: UIScreen.main.bounds)
 
-        // setup app router
-        AppRouter.shared.appWindow = self.window
-        AppRouter.shared.present(.login(name: nil, email: nil))
-
         // setup google services
         self.setupGoogleServices()
+
+        // setup app router
+        AppRouter.shared.appWindow = self.window
+
+        // start application
+        if AccountManager.shared.isLogined() {
+            AppRouter.shared.present(.openApplication)
+        } else {
+            AppRouter.shared.present(.login(name: nil, email: nil))
+        }
 
         return true
     }

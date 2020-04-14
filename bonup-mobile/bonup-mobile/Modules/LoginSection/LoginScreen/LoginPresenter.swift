@@ -73,9 +73,6 @@ extension LoginPresenter: ILoginPresenter {
             return
         }
 
-        self.router.show(.authVerification)
-//        self.router.show(.openApp)
-        return
         let authParams = AuthParams(
             name: currentName,
             email: currentEmail,
@@ -85,19 +82,26 @@ extension LoginPresenter: ILoginPresenter {
         self.interactor.handleLoginRequest(
             for: type,
             with: authParams,
-            completion: { [weak self] isSuccess in
+            completion: { [weak self] isSuccess, errMessage in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     
                     if isSuccess {
+                        switch type {
+                        case .auth:
+                            self?.router.show(.openApp)
+                        case .register:
+                            self?.router.show(.authVerification)
+                        }
                         self?.router.show(.authVerification)
                     } else {
                         self?.router.show(
                             .showErrorAlert(
                                 title: "ui_auth_error_title".localized,
-                                description: "ui_auth_error_description".localized
+                                description: errMessage
                             )
                         )
                     }
+
                 }
             }
         )

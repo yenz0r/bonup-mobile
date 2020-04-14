@@ -14,6 +14,7 @@
 		B914AC8D24435D44007494E3 /* FinishedTasksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC8C24435D44007494E3 /* FinishedTasksCollectionViewCell.swift */; };
 		B914AC8F24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC8E24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift */; };
 		B914AC9124435D80007494E3 /* TasksListFinishedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC9024435D80007494E3 /* TasksListFinishedCollectionViewCell.swift */; };
+		B91AD2C22446682600F8989B /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91AD2C12446682600F8989B /* AppConstants.swift */; };
 		B91E8099242FCEB400859C83 /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91E8098242FCEB400859C83 /* CategoriesService.swift */; };
 		B91E809B242FCEC100859C83 /* CategoriesResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91E809A242FCEC000859C83 /* CategoriesResponseEntity.swift */; };
 		B9259BA0241CE267009585B7 /* UIColor+Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9259B9F241CE267009585B7 /* UIColor+Facade.swift */; };
@@ -56,6 +57,7 @@
 		B95971302426B7B700EAEB6E /* GoogleService-Realese-Free.plist in Resources */ = {isa = PBXBuildFile; fileRef = B959712F2426B7B700EAEB6E /* GoogleService-Realese-Free.plist */; };
 		B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */; };
 		B96AC7F82444A392005C25D1 /* CategoriesPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96AC7F72444A392005C25D1 /* CategoriesPresentationModel.swift */; };
+		B96AC7FB2446651C005C25D1 /* LocaleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96AC7FA2446651C005C25D1 /* LocaleManager.swift */; };
 		B96D54BD242FBED600023BC9 /* NewPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D54BC242FBED600023BC9 /* NewPasswordService.swift */; };
 		B96D54C0242FBF1400023BC9 /* ResetPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D54BF242FBF1400023BC9 /* ResetPasswordService.swift */; };
 		B977483B24431910004D39AD /* TaskSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977483A24431910004D39AD /* TaskSelectionView.swift */; };
@@ -91,8 +93,8 @@
 		B9CAA715242B9FAE00E50668 /* UITextField+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA714242B9FAE00E50668 /* UITextField+Factory.swift */; };
 		B9CAA717242BB0AD00E50668 /* AlertsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA716242BB0AD00E50668 /* AlertsFactory.swift */; };
 		B9CAA71A242BE0CB00E50668 /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA719242BE0CB00E50668 /* String+Validation.swift */; };
-		B9CAA71F242BE8B500E50668 /* AuthVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA71E242BE8B500E50668 /* AuthVerificationService.swift */; };
-		B9CAA722242BE8DF00E50668 /* AuthVerificationResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA721242BE8DF00E50668 /* AuthVerificationResponseEntity.swift */; };
+		B9CAA71F242BE8B500E50668 /* EmailVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA71E242BE8B500E50668 /* EmailVerificationService.swift */; };
+		B9CAA722242BE8DF00E50668 /* EmailVerificationResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA721242BE8DF00E50668 /* EmailVerificationResponseEntity.swift */; };
 		B9CEE69C241CE98000308098 /* LoginDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CEE69B241CE98000308098 /* LoginDependency.swift */; };
 		B9CEE69E241D558E00308098 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CEE69D241D558E00308098 /* ResetPasswordView.swift */; };
 		B9CEE6A0241D559E00308098 /* ResetPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CEE69F241D559E00308098 /* ResetPasswordInteractor.swift */; };
@@ -146,6 +148,7 @@
 		B914AC8C24435D44007494E3 /* FinishedTasksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedTasksCollectionViewCell.swift; sourceTree = "<group>"; };
 		B914AC8E24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListCurrentCollectionViewCell.swift; sourceTree = "<group>"; };
 		B914AC9024435D80007494E3 /* TasksListFinishedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListFinishedCollectionViewCell.swift; sourceTree = "<group>"; };
+		B91AD2C12446682600F8989B /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		B91E8098242FCEB400859C83 /* CategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
 		B91E809A242FCEC000859C83 /* CategoriesResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesResponseEntity.swift; sourceTree = "<group>"; };
 		B9259B9F241CE267009585B7 /* UIColor+Facade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Facade.swift"; sourceTree = "<group>"; };
@@ -200,6 +203,7 @@
 		B959712F2426B7B700EAEB6E /* GoogleService-Realese-Free.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Realese-Free.plist"; path = "../../../../Desktop/GoogleService-Realese-Free.plist"; sourceTree = "<group>"; };
 		B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Facade.swift"; sourceTree = "<group>"; };
 		B96AC7F72444A392005C25D1 /* CategoriesPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPresentationModel.swift; sourceTree = "<group>"; };
+		B96AC7FA2446651C005C25D1 /* LocaleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleManager.swift; sourceTree = "<group>"; };
 		B96D54BC242FBED600023BC9 /* NewPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordService.swift; sourceTree = "<group>"; };
 		B96D54BF242FBF1400023BC9 /* ResetPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordService.swift; sourceTree = "<group>"; };
 		B977483A24431910004D39AD /* TaskSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSelectionView.swift; sourceTree = "<group>"; };
@@ -235,8 +239,8 @@
 		B9CAA714242B9FAE00E50668 /* UITextField+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Factory.swift"; sourceTree = "<group>"; };
 		B9CAA716242BB0AD00E50668 /* AlertsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsFactory.swift; sourceTree = "<group>"; };
 		B9CAA719242BE0CB00E50668 /* String+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validation.swift"; sourceTree = "<group>"; };
-		B9CAA71E242BE8B500E50668 /* AuthVerificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationService.swift; sourceTree = "<group>"; };
-		B9CAA721242BE8DF00E50668 /* AuthVerificationResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationResponseEntity.swift; sourceTree = "<group>"; };
+		B9CAA71E242BE8B500E50668 /* EmailVerificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationService.swift; sourceTree = "<group>"; };
+		B9CAA721242BE8DF00E50668 /* EmailVerificationResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationResponseEntity.swift; sourceTree = "<group>"; };
 		B9CEE69B241CE98000308098 /* LoginDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDependency.swift; sourceTree = "<group>"; };
 		B9CEE69D241D558E00308098 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		B9CEE69F241D559E00308098 /* ResetPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordInteractor.swift; sourceTree = "<group>"; };
@@ -370,6 +374,7 @@
 				B959712E24269F2F00EAEB6E /* TimerManager */,
 				B9268921242A95CE00F1732A /* Assets */,
 				B9CAA718242BB0B500E50668 /* AlertFactory */,
+				B96AC7FC24466523005C25D1 /* Locale */,
 			);
 			path = Subsystems;
 			sourceTree = "<group>";
@@ -507,6 +512,7 @@
 				B948A22024144965001287B8 /* FREE-RELEASE.xcconfig */,
 				B948A22224144A1C001287B8 /* PAID-RELEASE.xcconfig */,
 				B948A22524144BFA001287B8 /* AppDelegate+Configurations.swift */,
+				B91AD2C12446682600F8989B /* AppConstants.swift */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -623,6 +629,14 @@
 				B96AC7F72444A392005C25D1 /* CategoriesPresentationModel.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		B96AC7FC24466523005C25D1 /* Locale */ = {
+			isa = PBXGroup;
+			children = (
+				B96AC7FA2446651C005C25D1 /* LocaleManager.swift */,
+			);
+			path = Locale;
 			sourceTree = "<group>";
 		};
 		B96D54BE242FBEE700023BC9 /* NewPassword */ = {
@@ -771,8 +785,8 @@
 		B9CAA720242BE8BA00E50668 /* AuthVerification */ = {
 			isa = PBXGroup;
 			children = (
-				B9CAA71E242BE8B500E50668 /* AuthVerificationService.swift */,
-				B9CAA721242BE8DF00E50668 /* AuthVerificationResponseEntity.swift */,
+				B9CAA71E242BE8B500E50668 /* EmailVerificationService.swift */,
+				B9CAA721242BE8DF00E50668 /* EmailVerificationResponseEntity.swift */,
 			);
 			path = AuthVerification;
 			sourceTree = "<group>";
@@ -1129,6 +1143,7 @@
 				B91E8099242FCEB400859C83 /* CategoriesService.swift in Sources */,
 				B9CEE69C241CE98000308098 /* LoginDependency.swift in Sources */,
 				B977484D24431A3F004D39AD /* TasksListInteractor.swift in Sources */,
+				B91AD2C22446682600F8989B /* AppConstants.swift in Sources */,
 				B932365B241D743300A37634 /* NewPasswordDependency.swift in Sources */,
 				B982CCDC244481D600CB6D81 /* CategoryCardView.swift in Sources */,
 				B9FC7988242FB6E500F2D5BC /* ApplicationContentView.swift in Sources */,
@@ -1144,7 +1159,7 @@
 				B9BA409F2443D0DD00950808 /* CurrentTasksListPresentationModel.swift in Sources */,
 				B96D54BD242FBED600023BC9 /* NewPasswordService.swift in Sources */,
 				B92688FD2429520300F1732A /* UIView+Gradient.swift in Sources */,
-				B9CAA71F242BE8B500E50668 /* AuthVerificationService.swift in Sources */,
+				B9CAA71F242BE8B500E50668 /* EmailVerificationService.swift in Sources */,
 				B9CAA70C242B9F0200E50668 /* AuthVerificationRouter.swift in Sources */,
 				B9CAA708242B9EE000E50668 /* AuthVerificationView.swift in Sources */,
 				B914AC8B24435D30007494E3 /* CurrentTasksCollectionViewCell.swift in Sources */,
@@ -1171,6 +1186,7 @@
 				B948A234241CBE61001287B8 /* AppRouter.swift in Sources */,
 				B9A0C9A7242FC57D00EB6FAE /* CategoriesInteractor.swift in Sources */,
 				B977484824431A27004D39AD /* TasksListView.swift in Sources */,
+				B96AC7FB2446651C005C25D1 /* LocaleManager.swift in Sources */,
 				B948A238241CBFB2001287B8 /* LoginInteractor.swift in Sources */,
 				B9FC798C242FB73900F2D5BC /* ApplicationContentBuilder.swift in Sources */,
 				B932366C241D980400A37634 /* KeyChainService.swift in Sources */,
@@ -1182,7 +1198,7 @@
 				B948A23C241CBFC1001287B8 /* LoginRouter.swift in Sources */,
 				B9A0C9A9242FC58500EB6FAE /* CategoriesRouter.swift in Sources */,
 				B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */,
-				B9CAA722242BE8DF00E50668 /* AuthVerificationResponseEntity.swift in Sources */,
+				B9CAA722242BE8DF00E50668 /* EmailVerificationResponseEntity.swift in Sources */,
 				B9323669241D96F600A37634 /* AccountManager.swift in Sources */,
 				B9BF7011244326530051CF41 /* TaskCardOverlay.swift in Sources */,
 				B9268920242A95CA00F1732A /* AssetsHelper.swift in Sources */,
