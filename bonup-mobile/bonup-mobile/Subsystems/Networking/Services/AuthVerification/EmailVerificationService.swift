@@ -9,12 +9,12 @@
 import Foundation
 import Moya
 
-struct AuthVerificationParams {
+struct EmailVerificationParams {
     let code: String
 }
 
 enum EmailVerificationService {
-    case verify(params: AuthVerificationParams)
+    case verify(params: EmailVerificationParams)
     case resend
 }
 

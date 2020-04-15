@@ -39,12 +39,11 @@ extension NewPasswordPresenter: INewPasswordPresenter {
                 return
         }
 
-        self.router.stop(nil)
-        return
-
-        self.interactor.setupNewPasswordRequest(newText) { resultBool in
+        self.interactor.setupNewPasswordRequest(newText) { resultBool, errMessage in
             if resultBool {
                 self.router.show(.openApp)
+            } else {
+                self.router.show(.showErrorAlert(errMessage))
             }
         }
 

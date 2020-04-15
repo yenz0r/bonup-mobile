@@ -9,5 +9,12 @@
 import UIKit
 
 struct AuthVerificationDependency {
+
+    enum AuthVerificationUsageType {
+        case resetPassword
+        case registration
+    }
+
     let parentViewController: UIViewController
+    let usageType: AuthVerificationUsageType
 }

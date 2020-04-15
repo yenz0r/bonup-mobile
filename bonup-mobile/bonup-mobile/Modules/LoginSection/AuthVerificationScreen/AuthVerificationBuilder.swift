@@ -17,7 +17,11 @@ final class AuthVerificationBuilder: IAuthVerificationBuilder {
         let view = AuthVerificationView()
         let router = AuthVerificationRouter(view: view, parentController: dependency.parentViewController)
         let interactor = AuthVerificationInteractor()
-        let presenter =  AuthVerificationPresenter(view: view, interactor: interactor, router: router)
+        let presenter =  AuthVerificationPresenter(
+            view: view,
+            interactor: interactor,
+            router: router,
+            usageType: dependency.usageType)
         view.presenter = presenter
 
         return router

@@ -55,7 +55,7 @@ final class AccountManager {
     }
 
     func isLogined() -> Bool {
-        let authToken = self.keyChainService.getString(for: .authToken)
+        guard let authToken = self.keyChainService.getString(for: .authToken) else { return false }
         return authToken != ""
     }
 

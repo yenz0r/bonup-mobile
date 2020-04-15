@@ -10,5 +10,6 @@ import Foundation
 
 struct EmailVerificationResponseEntity: Decodable {
     let token: String
-    let status: Bool
+    let isSuccess: Bool
+    let message: String
 }

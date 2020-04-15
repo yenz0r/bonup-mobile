@@ -9,7 +9,7 @@
 import Foundation
 
 protocol INewPasswordInteractor {
-    func setupNewPasswordRequest(_ newPassword: String, completion: ((Bool) -> Void)?)
+    func setupNewPasswordRequest(_ newPassword: String, completion: ((Bool, String) -> Void)?)
 }
 
 final class NewPasswordInteractor {
@@ -24,23 +24,28 @@ final class NewPasswordInteractor {
 
 extension NewPasswordInteractor: INewPasswordInteractor {
 
-    func setupNewPasswordRequest(_ newPassword: String, completion: ((Bool) -> Void)?) {
+    func setupNewPasswordRequest(_ newPassword: String, completion: ((Bool, String) -> Void)?) {
 
         let newPasswordParams = NewPasswordParams(newPassword: newPassword)
 
         // should return model with token to protect from hacking pass
         // and continue app work with new token
-        
-        _ = networkProvider.requestBool(
+
+        _ = networkProvider.request(
             .setupNewPassword(params: newPasswordParams),
-            completion: { resultBool in
-                completion?(true)
+            type: NewPasswordResponseEntity.self,
+            completion: { response in
+                if response.isSuccess {
+                    AccountManager.shared.saveToken(response.newToken)
+                    completion?(true, "")
+                } else {
+                    completion?(false, response.message)
+                }
             },
-            failure: { _ in
-                completion?(false)
+            failure: { err in
+                completion?(false, err?.localizedDescription ?? "")
             }
         )
-
     }
 
 }

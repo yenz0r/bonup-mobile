@@ -21,6 +21,7 @@ final class AuthVerificationPresenter {
     private weak var view: IAuthVerificationView?
     private let interactor: IAuthVerificationInteractor
     private let router: IAuthVerificationRouter
+    private let usageType: AuthVerificationDependency.AuthVerificationUsageType
 
     private var restTime: UInt = 0
     private let timeForCode: UInt = 180
@@ -31,10 +32,12 @@ final class AuthVerificationPresenter {
 
     init(view: IAuthVerificationView?,
          interactor: IAuthVerificationInteractor,
-         router: IAuthVerificationRouter) {
+         router: IAuthVerificationRouter,
+         usageType: AuthVerificationDependency.AuthVerificationUsageType) {
         self.view = view
         self.interactor = interactor
         self.router = router
+        self.usageType = usageType
     }
 }
 
@@ -46,19 +49,20 @@ extension AuthVerificationPresenter: IAuthVerificationPresenter {
             self?.restTime = restTime
         }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.router.show(.categories)
-        }
-        return
-        self.interactor.verify(code: code) { [weak self] isSuccess in
+        self.interactor.verify(code: code) { [weak self] isSuccess, errMessage in
 
             guard let strongSelf = self else { return }
 
             DispatchQueue.main.async {
                 if isSuccess {
-                    strongSelf.router.show(.openApplication)
+                    switch strongSelf.usageType {
+                    case .registration:
+                        strongSelf.router.show(.categories)
+                    case .resetPassword:
+                        strongSelf.router.show(.newPassword)
+                    }
                 } else {
-                    strongSelf.router.show(.errorAlert)
+                    strongSelf.router.show(.errorAlert(errMessage))
                     strongSelf.startTimer(with: strongSelf.restTime)
                 }
             }

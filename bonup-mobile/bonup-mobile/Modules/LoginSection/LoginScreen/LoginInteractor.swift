@@ -41,13 +41,13 @@ extension LoginInteractor: ILoginInteractor {
             target,
             type: AuthResponseEntity.self,
             completion: { entity in
-                if entity.status {
+                if entity.isSuccess {
                     if type == .auth {
                         AccountManager.shared.saveToken(entity.message)
                     }
-                    completion?(entity.status, "")
+                    completion?(entity.isSuccess, "")
                 } else {
-                    completion?(entity.status, entity.message)
+                    completion?(entity.isSuccess, entity.message)
                 }
             },
             failure: { err in

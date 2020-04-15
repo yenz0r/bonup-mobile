@@ -17,7 +17,8 @@ protocol IAuthVerificationRouter {
 final class AuthVerificationRouter {
     enum AuthVerificationRouterScenario {
         case openApplication
-        case errorAlert
+        case errorAlert(String)
+        case newPassword
         case categories
     }
 
@@ -57,11 +58,15 @@ extension AuthVerificationRouter: IAuthVerificationRouter {
             let categoriesDependency = CategoriesDependency(parentViewController: view)
             let categoriesRouter = CategoriesBuilder().build(categoriesDependency)
             categoriesRouter.start(nil)
-        case .errorAlert:
+        case .newPassword:
+            let newPasswordDependency = NewPasswordDependency(parentViewController: view)
+            let newPassowrdRouter = NewPasswordBuilder().build(newPasswordDependency)
+            newPassowrdRouter.start(nil)
+        case .errorAlert(let message):
             AlertsFactory.shared.infoAlert(
                 for: .error,
                 title: "ui_incorrect_verification_title".localized,
-                description: "ui_incorrect_verification_description".localized,
+                description: message,
                 from: view,
                 completion: nil
             )

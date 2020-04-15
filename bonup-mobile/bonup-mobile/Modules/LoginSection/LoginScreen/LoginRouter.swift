@@ -61,7 +61,7 @@ extension LoginRouter: ILoginRouter {
         case .openApp:
             AppRouter.shared.present(.openApplication)
         case .authVerification:
-            let authVerificationDependency = AuthVerificationDependency(parentViewController: view)
+            let authVerificationDependency = AuthVerificationDependency(parentViewController: view, usageType: .registration)
             let authVerificationBuilder = AuthVerificationBuilder()
             let router = authVerificationBuilder.build(authVerificationDependency)
             router.start(nil)

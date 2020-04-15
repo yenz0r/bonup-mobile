@@ -22,6 +22,7 @@
 "ui_alert_incorrect_auth_params" = "Incorrect autentification params..";
 "ui_alert_incorrect_auth_params_description" = "Please try to input one more time all fields";
 "ui_ok" = "Ok";
+"ui_error_title" = "Oooops, something go wrong..";
 "ui_cancel" = "Cancel";
 "ui_reset_password_title" = "Reset Password";
 "ui_new_password_title" = "New Password";

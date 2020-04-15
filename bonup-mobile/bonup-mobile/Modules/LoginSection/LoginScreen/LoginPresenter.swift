@@ -92,7 +92,6 @@ extension LoginPresenter: ILoginPresenter {
                         case .register:
                             self?.router.show(.authVerification)
                         }
-                        self?.router.show(.authVerification)
                     } else {
                         self?.router.show(
                             .showErrorAlert(

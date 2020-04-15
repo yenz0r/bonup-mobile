@@ -47,7 +47,7 @@ extension ResetPasswordPresenter: IResetPasswordPresenter {
 
         self.interactor.askResetCodeRequest(for: text) { resultBool in
             if resultBool {
-                self.router.show(.newPassword)
+                self.router.show(.emailVerification)
             } else {
                 self.router.show(.errorAlert(message: "ui_email_not_created".localized))
             }

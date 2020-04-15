@@ -16,7 +16,7 @@ protocol IResetPasswordRouter {
 
 final class ResetPasswordRouter {
     enum ResetPasswordRouterScenario {
-        case newPassword
+        case emailVerification
         case errorAlert(message: String)
     }
 
@@ -50,15 +50,15 @@ extension ResetPasswordRouter: IResetPasswordRouter {
         guard let view = self.view else { return }
 
         switch scenario {
-        case .newPassword:
-            let newPasswordDependency = NewPasswordDependency(parentViewController: view)
-            let newPasswordRouter = NewPasswordBuilder().build(newPasswordDependency)
+        case .emailVerification:
+            let dependency = AuthVerificationDependency(parentViewController: view, usageType: .resetPassword)
+            let router = AuthVerificationBuilder().build(dependency)
+            router.start(nil)
 
-            newPasswordRouter.start(nil)
         case .errorAlert(let message):
             AlertsFactory.shared.infoAlert(
                 for: .error,
-                title: "ui_error",
+                title: "ui_error_title".localized,
                 description: message,
                 from: view,
                 completion: nil

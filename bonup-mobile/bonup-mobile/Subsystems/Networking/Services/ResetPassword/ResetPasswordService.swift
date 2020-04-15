@@ -20,13 +20,13 @@ enum ResetPasswordService {
 extension ResetPasswordService: IMainTargetType {
 
     var baseURL: URL {
-        return URL(string: "server")!
+        return URL(string: serverBase)!
     }
 
     var path: String {
         switch self {
         case .askResetCode(_):
-            return "/reset"
+            return "/isUserExist"
         }
     }
 
@@ -51,6 +51,6 @@ extension ResetPasswordService: IMainTargetType {
     }
 
     var headers: [String : String]? {
-        return nil
+        return ["Content-Type" : "application/json"]
     }
 }

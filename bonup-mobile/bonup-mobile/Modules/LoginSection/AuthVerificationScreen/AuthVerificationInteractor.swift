@@ -9,7 +9,7 @@
 import Foundation
 
 protocol IAuthVerificationInteractor: AnyObject {
-    func verify(code: String, completion: ((Bool) -> Void)?)
+    func verify(code: String, completion: ((Bool, String) -> Void)?)
     func resend()
 }
 
@@ -24,18 +24,23 @@ final class AuthVerificationInteractor {
 // MAKR: - IAuthVerificationInteractor implemenetation
 
 extension AuthVerificationInteractor: IAuthVerificationInteractor {
-    func verify(code: String, completion: ((Bool) -> Void)?) {
+    func verify(code: String, completion: ((Bool, String) -> Void)?) {
 
-        let verifyParams = AuthVerificationParams(code: code)
+        let verifyParams = EmailVerificationParams(code: code)
 
-        _ = networkProvider.requestString(
+        _ = networkProvider.request(
             .verify(params: verifyParams),
-            completion: { token in
-                //AccountManager.shared.currentToken = token
-                completion?(true)
+            type: EmailVerificationResponseEntity.self,
+            completion: { response in
+                if response.isSuccess {
+                    AccountManager.shared.saveToken(response.token)
+                    completion?(true, "")
+                } else {
+                    completion?(false, response.message)
+                }
             },
-            failure: { _ in
-                completion?(false)
+            failure: { err in
+                completion?(false, err?.localizedDescription ?? "ui_incorrect_verification_description".localized)
             }
         )
     }
