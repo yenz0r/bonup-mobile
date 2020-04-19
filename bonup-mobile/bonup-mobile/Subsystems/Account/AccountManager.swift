@@ -22,7 +22,23 @@ final class AccountManager {
 
     // MARK: - Public variables
 
-    var currentUser: User?
+    var currentUser: User? {
+        get {
+            let name = self.keyChainService.getString(for: .name)
+            let email = self.keyChainService.getString(for: .email)
+            let password = self.keyChainService.getString(for: .password)
+
+            return User(name: name, email: email, password: password)
+        }
+        set {
+            let name = newValue?.name
+            let email = newValue?.email
+            let password = newValue?.password
+
+            self.saveAuthCredentials(name: name, email: email, password: password)
+        }
+    }
+
     private(set) var currentToken: String?
 
     // MARK: - Public function

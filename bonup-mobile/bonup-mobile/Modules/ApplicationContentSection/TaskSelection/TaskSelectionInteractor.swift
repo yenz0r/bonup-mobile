@@ -22,6 +22,4 @@ final class TaskSelectionInteractor {
 
 extension TaskSelectionInteractor: ITaskSelectionInteractor {
 
-
-
 }

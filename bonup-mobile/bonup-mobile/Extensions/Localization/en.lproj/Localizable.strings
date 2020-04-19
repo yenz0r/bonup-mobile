@@ -19,11 +19,13 @@
 "ui_send_mail_title" = "SEND MAIL";
 "ui_new_password_placeholder" = "New password";
 "ui_repeat_password_placeholder" = "Repeat password";
+"ui_change_title" = "Change";
 "ui_alert_incorrect_auth_params" = "Incorrect autentification params..";
 "ui_alert_incorrect_auth_params_description" = "Please try to input one more time all fields";
 "ui_ok" = "Ok";
 "ui_error_title" = "Oooops, something go wrong..";
 "ui_cancel" = "Cancel";
+"ui_old_password_title" = "Old Password";
 "ui_reset_password_title" = "Reset Password";
 "ui_new_password_title" = "New Password";
 "ui_new_password_info" = "Good job! Enter your new password and verify it.";
@@ -43,7 +45,12 @@
 "ui_tasks_title" = "Tasks";
 "ui_actions_title" = "Actions";
 "ui_profile_title" = "Profile";
+"ui_empty_fields" = "Please input all fields..";
+"ui_old_password_invalid" = "Sorry, but old password is not valid..";
+"ui_new_repeat_password_error" = "Sorry, but new and repeat passwords are different";
 "ui_qr_title" = "QR";
+"ui_settings_title" = "Settings";
+"ui_change_password_title" = "Change Password";
 "ui_organization_title" = "Organization";
 "ui_email_not_created" = "This email do not exists, please verify it..";
 "ui_categories_title" = "Categories";

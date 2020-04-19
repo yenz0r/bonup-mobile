@@ -6,7 +6,6 @@
 //  Copyright © 2020 Bonup. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 protocol ITaskSelectionPresenter: AnyObject {
