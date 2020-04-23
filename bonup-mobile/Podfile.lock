@@ -85,6 +85,7 @@ PODS:
   - SnapKit (5.0.1)
   - SOTabBar (1.1.3)
   - SwiftSpinner (2.1.0)
+  - UICircularProgressRing (6.5.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -96,6 +97,7 @@ DEPENDENCIES:
   - SnapKit
   - SOTabBar
   - SwiftSpinner
+  - UICircularProgressRing
 
 SPEC REPOS:
   trunk:
@@ -121,6 +123,7 @@ SPEC REPOS:
     - SnapKit
     - SOTabBar
     - SwiftSpinner
+    - UICircularProgressRing
 
 SPEC CHECKSUMS:
   Alamofire: 0fe5fd24b4298dc377a6550da7d5f1b30e286fcb
@@ -145,7 +148,8 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SOTabBar: 27aea95bd6b39d1be3535c867a2cd3b5adc172e6
   SwiftSpinner: 0f15c006307f8d8bbac075638927ec1361b565d7
+  UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
 
-PODFILE CHECKSUM: d55ea58934ca1f41f839796b62a8082b57a5e453
+PODFILE CHECKSUM: febcd8ec793701c9225815f74fe449abe5bb5ebf
 
 COCOAPODS: 1.9.1

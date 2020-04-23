@@ -20,6 +20,7 @@ target 'bonup-mobile' do
   pod 'SOTabBar'
 
   pod 'Shuffle-iOS'
+  pod 'UICircularProgressRing'
 
   target 'bonup-mobileTests' do
     inherit! :search_paths

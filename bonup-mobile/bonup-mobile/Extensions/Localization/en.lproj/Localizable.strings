@@ -66,3 +66,13 @@
 "task_selection_info_title" = "Help for task selection";
 "task_selection_info_description" = "Here you can swipe interesting for you task to the right and boring to left..";
 "tasks_list_title" = "Tasks List";
+"ui_done_title" = "Done";
+"ui_earned_title" = "Earned";
+"ui_spend_title" = "Spend";
+"ui_my_name" = "My Name: ";
+"ui_my_email" = "My Email: ";
+"ui_my_organization" = "My organization: ";
+"ui_all_period_title" = "All Period";
+"ui_last_week_title" = "Last Week";
+"ui_last_month_title" = "Last Month";
+"ui_today_title" = "Today";

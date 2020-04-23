@@ -22,9 +22,12 @@ final class SettingsPresenter {
         case changePassword
         case applicationTheme
         case applicationLanguage
+        case categories
+        case help
+        case rateUs
         case logout
 
-        static let count = 5
+        static let count = 8
     }
 
     private weak var view: ISettingsView?
@@ -65,6 +68,24 @@ extension SettingsPresenter: ISettingsPresenter {
         case .applicationLanguage:
             return SettingsPresentationModel(
                 title: "Application language",
+                isLogout: false,
+                icon: AssetsHelper.shared.image(.profileUnselectedIcon)
+            )
+        case .categories:
+            return SettingsPresentationModel(
+                title: "Categories",
+                isLogout: false,
+                icon: AssetsHelper.shared.image(.profileUnselectedIcon)
+            )
+        case .help:
+            return SettingsPresentationModel(
+                title: "Help",
+                isLogout: false,
+                icon: AssetsHelper.shared.image(.profileUnselectedIcon)
+            )
+        case .rateUs:
+            return SettingsPresentationModel(
+                title: "Rate Us",
                 isLogout: false,
                 icon: AssetsHelper.shared.image(.profileUnselectedIcon)
             )
