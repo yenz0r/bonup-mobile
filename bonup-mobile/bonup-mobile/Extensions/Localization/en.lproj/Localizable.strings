@@ -76,3 +76,7 @@
 "ui_last_week_title" = "Last Week";
 "ui_last_month_title" = "Last Month";
 "ui_today_title" = "Today";
+"ui_new_title" = "New";
+"ui_selected_title" = "Selected";
+"ui_used_title" = "Used";
+"ui_benefits_title" = "Benefits";

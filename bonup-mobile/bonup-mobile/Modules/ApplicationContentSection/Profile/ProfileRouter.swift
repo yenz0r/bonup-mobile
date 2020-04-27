@@ -16,6 +16,7 @@ protocol IProfileRouter {
 
 final class ProfileRouter {
     enum ProfileRouterScenario {
+        case infoAlert
     }
 
     private var view: ProfileView?
@@ -46,8 +47,18 @@ extension ProfileRouter: IProfileRouter {
     }
 
     func show(_ scenario: ProfileRouterScenario) {
-
+        guard let view = self.view else { return }
+        
+        switch scenario {
+        case .infoAlert:
+            AlertsFactory.shared.infoAlert(
+                for: .error,
+                title: "task_selection_info_title".localized,
+                description: "task_selection_info_description".localized,
+                from: view,
+                completion: nil
+            )
+        }
     }
 
 }
-

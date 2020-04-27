@@ -79,6 +79,29 @@ final class ProfileView: UIViewController {
 
     private func configureAppearance() {
         self.view.backgroundColor = .white
+
+        self.configureNavigationBar()
+    }
+
+    private func configureNavigationBar() {
+        let backItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        backItem.tintColor = UIColor.red.withAlphaComponent(0.7)
+        navigationItem.backBarButtonItem = backItem
+
+        self.navigationItem.title = "ui_profile_title".localized
+
+        let infoButton = UIButton(type: .infoLight)
+        infoButton.tintColor = .purpleLite
+        infoButton.addTarget(self, action: #selector(infoNavigationItemTapped), for: .touchUpInside)
+        let infoNavigationItem = UIBarButtonItem(customView: infoButton)
+
+        self.navigationItem.rightBarButtonItems = [infoNavigationItem]
+    }
+
+    // MARK: - Selectors
+
+    @objc private func infoNavigationItemTapped() {
+        self.presenter.handleInfoButtonTapped()
     }
 }
 

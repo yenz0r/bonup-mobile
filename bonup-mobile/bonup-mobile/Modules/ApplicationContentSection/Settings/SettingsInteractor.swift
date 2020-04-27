@@ -17,7 +17,7 @@ final class SettingsInteractor {
 
 }
 
-// MARK: - IChangePasswordInteractor implementation
+// MARK: - ISettingsInteractor implementation
 
 extension SettingsInteractor: ISettingsInteractor {
 }

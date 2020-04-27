@@ -9,7 +9,7 @@
 import Foundation
 
 protocol IProfilePresenter: AnyObject {
-
+    func handleInfoButtonTapped()
 }
 
 final class ProfilePresenter {
@@ -27,5 +27,9 @@ final class ProfilePresenter {
 // MARK: - ITaskSelectionPresenter implementation
 
 extension ProfilePresenter: IProfilePresenter {
+    func handleInfoButtonTapped() {
+        self.router.show(.infoAlert)
+    }
+
 }
 
