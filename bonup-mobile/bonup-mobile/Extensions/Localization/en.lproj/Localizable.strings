@@ -80,3 +80,8 @@
 "ui_selected_title" = "Selected";
 "ui_used_title" = "Used";
 "ui_benefits_title" = "Benefits";
+"ui_call" = "Call";
+"ui_visit_site" = "Visit Site";
+"ui_from_date" = "From Date:";
+"ui_to_date" = "To Date:";
+"ui_task_details" = "Task Details";

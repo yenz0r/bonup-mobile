@@ -12,6 +12,8 @@ import UIKit
 protocol ITasksListPresenter: AnyObject {
     var currentTasksList: [String] { get }
     var finishedTasksList: [String] { get }
+
+    func handleShowDetailsTap(with index: Int)
 }
 
 final class TasksListPresenter {
@@ -35,5 +37,9 @@ extension TasksListPresenter: ITasksListPresenter {
 
     var finishedTasksList: [String] {
         return []
+    }
+
+    func handleShowDetailsTap(with index: Int) {
+        self.router.show(.showTaskDescription)
     }
 }

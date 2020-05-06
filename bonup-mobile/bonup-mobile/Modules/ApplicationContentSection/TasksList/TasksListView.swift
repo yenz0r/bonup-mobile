@@ -143,8 +143,8 @@ extension TasksListView: UICollectionViewDataSource {
             )
             let models = Array(repeating: model, count: 10)
             cell.presentationModels = models
-            cell.onSelect = { index in
-                print("=====", index)
+            cell.onSelect = { [weak self] index in
+                self?.presenter.handleShowDetailsTap(with: index)
             }
 
             return cell

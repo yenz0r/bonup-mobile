@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		000993B5F4A018C215A59737 /* libPods-bonup-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E08E2FC007738639B3B1FB /* libPods-bonup-mobile.a */; };
 		45CB7F78204A3A11874541EB /* libPods-bonup-mobile-bonup-mobileUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D5E7A78F092619BB6A746 /* libPods-bonup-mobile-bonup-mobileUITests.a */; };
+		B9069104246235D7001A1F76 /* QRcodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9069103246235D7001A1F76 /* QRcodeManager.swift */; };
 		B9126688242AA57D00BEA50C /* LoginSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9126687242AA57D00BEA50C /* LoginSectionViewController.swift */; };
 		B914AC8B24435D30007494E3 /* CurrentTasksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC8A24435D30007494E3 /* CurrentTasksCollectionViewCell.swift */; };
 		B914AC8D24435D44007494E3 /* FinishedTasksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC8C24435D44007494E3 /* FinishedTasksCollectionViewCell.swift */; };
@@ -36,6 +37,12 @@
 		B935A598241D6A820074E89E /* NewPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B935A597241D6A820074E89E /* NewPasswordRouter.swift */; };
 		B935A59A241D6A8A0074E89E /* NewPasswordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B935A599241D6A8A0074E89E /* NewPasswordBuilder.swift */; };
 		B935A59D241D6F2E0074E89E /* UIButton+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B935A59C241D6F2D0074E89E /* UIButton+Factory.swift */; };
+		B944A8EE246217C0002170FD /* TaskDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B944A8ED246217C0002170FD /* TaskDescriptionView.swift */; };
+		B944A8F1246217EC002170FD /* TaskDescriptionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B944A8F0246217EC002170FD /* TaskDescriptionPresenter.swift */; };
+		B944A8F3246217F8002170FD /* TaskDescriptionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B944A8F2246217F8002170FD /* TaskDescriptionInteractor.swift */; };
+		B944A8F5246217FF002170FD /* TaskDescriptionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B944A8F4246217FF002170FD /* TaskDescriptionRouter.swift */; };
+		B944A8F724621807002170FD /* TaskDescriptionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B944A8F624621807002170FD /* TaskDescriptionBuilder.swift */; };
+		B944A8F924621816002170FD /* TaskDescriptionDependecy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B944A8F824621816002170FD /* TaskDescriptionDependecy.swift */; };
 		B948A1E2241444B2001287B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A1E1241444B2001287B8 /* AppDelegate.swift */; };
 		B948A1EC241444B2001287B8 /* bonup_mobile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B948A1EA241444B2001287B8 /* bonup_mobile.xcdatamodeld */; };
 		B948A1EE241444B4001287B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B948A1ED241444B4001287B8 /* Assets.xcassets */; };
@@ -186,6 +193,7 @@
 		60324272DDE74584350D1B41 /* Pods-bonup-mobile-bonup-mobileUITests.release paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.release paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.release paid.xcconfig"; sourceTree = "<group>"; };
 		846B54D9B4C1BCA3D32D575F /* Pods-bonup-mobile.debug free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile.debug free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile.debug free.xcconfig"; sourceTree = "<group>"; };
 		950486241D5ACB45CFB9B073 /* Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig"; sourceTree = "<group>"; };
+		B9069103246235D7001A1F76 /* QRcodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRcodeManager.swift; sourceTree = "<group>"; };
 		B9126687242AA57D00BEA50C /* LoginSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSectionViewController.swift; sourceTree = "<group>"; };
 		B914AC8A24435D30007494E3 /* CurrentTasksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTasksCollectionViewCell.swift; sourceTree = "<group>"; };
 		B914AC8C24435D44007494E3 /* FinishedTasksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedTasksCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -213,6 +221,12 @@
 		B935A597241D6A820074E89E /* NewPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordRouter.swift; sourceTree = "<group>"; };
 		B935A599241D6A8A0074E89E /* NewPasswordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordBuilder.swift; sourceTree = "<group>"; };
 		B935A59C241D6F2D0074E89E /* UIButton+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Factory.swift"; sourceTree = "<group>"; };
+		B944A8ED246217C0002170FD /* TaskDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionView.swift; sourceTree = "<group>"; };
+		B944A8F0246217EC002170FD /* TaskDescriptionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionPresenter.swift; sourceTree = "<group>"; };
+		B944A8F2246217F8002170FD /* TaskDescriptionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionInteractor.swift; sourceTree = "<group>"; };
+		B944A8F4246217FF002170FD /* TaskDescriptionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionRouter.swift; sourceTree = "<group>"; };
+		B944A8F624621807002170FD /* TaskDescriptionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionBuilder.swift; sourceTree = "<group>"; };
+		B944A8F824621816002170FD /* TaskDescriptionDependecy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionDependecy.swift; sourceTree = "<group>"; };
 		B948A1DE241444B2001287B8 /* Bonup-Debug [PAID].app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bonup-Debug [PAID].app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B948A1E1241444B2001287B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B948A1EB241444B2001287B8 /* bonup_mobile.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bonup_mobile.xcdatamodel; sourceTree = "<group>"; };
@@ -400,6 +414,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B9069105246235DB001A1F76 /* QRcode */ = {
+			isa = PBXGroup;
+			children = (
+				B9069103246235D7001A1F76 /* QRcodeManager.swift */,
+			);
+			path = QRcode;
+			sourceTree = "<group>";
+		};
 		B9126689242AA58900BEA50C /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,6 +483,7 @@
 				B9268921242A95CE00F1732A /* Assets */,
 				B9CAA718242BB0B500E50668 /* AlertFactory */,
 				B96AC7FC24466523005C25D1 /* Locale */,
+				B9069105246235DB001A1F76 /* QRcode */,
 			);
 			path = Subsystems;
 			sourceTree = "<group>";
@@ -530,6 +553,19 @@
 				B9A732FA242D556C00860346 /* UIButton+Animations.swift */,
 			);
 			path = UIButton;
+			sourceTree = "<group>";
+		};
+		B944A8EF246217CA002170FD /* TaskDescription */ = {
+			isa = PBXGroup;
+			children = (
+				B944A8ED246217C0002170FD /* TaskDescriptionView.swift */,
+				B944A8F0246217EC002170FD /* TaskDescriptionPresenter.swift */,
+				B944A8F2246217F8002170FD /* TaskDescriptionInteractor.swift */,
+				B944A8F4246217FF002170FD /* TaskDescriptionRouter.swift */,
+				B944A8F624621807002170FD /* TaskDescriptionBuilder.swift */,
+				B944A8F824621816002170FD /* TaskDescriptionDependecy.swift */,
+			);
+			path = TaskDescription;
 			sourceTree = "<group>";
 		};
 		B948A1D5241444B2001287B8 = {
@@ -1059,6 +1095,7 @@
 				B9D30C68244BA0A800B9E9AA /* ChangePassword */,
 				B9A13D34244E3AC200373827 /* Profile */,
 				B98DE0E0244BB601007AE007 /* Settings */,
+				B944A8EF246217CA002170FD /* TaskDescription */,
 				B992D51924578A50002ABF71 /* Benefits */,
 			);
 			path = ApplicationContentSection;
@@ -1350,9 +1387,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B914AC8D24435D44007494E3 /* FinishedTasksCollectionViewCell.swift in Sources */,
+				B944A8F924621816002170FD /* TaskDescriptionDependecy.swift in Sources */,
 				B9A13D36244E3AD600373827 /* ProfileBuilder.swift in Sources */,
 				B935A59D241D6F2E0074E89E /* UIButton+Factory.swift in Sources */,
 				B977485124431A52004D39AD /* TasksListDependency.swift in Sources */,
+				B944A8F5246217FF002170FD /* TaskDescriptionRouter.swift in Sources */,
 				B977484324431967004D39AD /* TaskSelectionRouter.swift in Sources */,
 				B935A598241D6A820074E89E /* NewPasswordRouter.swift in Sources */,
 				B9D17586243CFD1F001FF58E /* TermsAndConditionsRouter.swift in Sources */,
@@ -1421,6 +1460,7 @@
 				B935A59A241D6A8A0074E89E /* NewPasswordBuilder.swift in Sources */,
 				B98DE0E6244BB627007AE007 /* SettingsBuilder.swift in Sources */,
 				B9A13D38244E3ADE00373827 /* ProfileDependency.swift in Sources */,
+				B944A8F1246217EC002170FD /* TaskDescriptionPresenter.swift in Sources */,
 				B98DE0EA244BB648007AE007 /* SettingsRouter.swift in Sources */,
 				B948A230241455A3001287B8 /* Localization.swift in Sources */,
 				B9323666241D96D700A37634 /* UserEntity.swift in Sources */,
@@ -1451,6 +1491,7 @@
 				B977485324431A5E004D39AD /* TasksListRouter.swift in Sources */,
 				B948A1E2241444B2001287B8 /* AppDelegate.swift in Sources */,
 				B977483D2443194E004D39AD /* TaskSelectionInteractor.swift in Sources */,
+				B944A8EE246217C0002170FD /* TaskDescriptionView.swift in Sources */,
 				B9CEE6A0241D559E00308098 /* ResetPasswordInteractor.swift in Sources */,
 				B948A23C241CBFC1001287B8 /* LoginRouter.swift in Sources */,
 				B9D30C6C244BA0BB00B9E9AA /* ChangePasswordInteractor.swift in Sources */,
@@ -1469,11 +1510,13 @@
 				B96D54C0242FBF1400023BC9 /* ResetPasswordService.swift in Sources */,
 				B97748412443195D004D39AD /* TaskSelectionPresenter.swift in Sources */,
 				B9A0C9AB242FC58C00EB6FAE /* CategoriesPresenter.swift in Sources */,
+				B944A8F3246217F8002170FD /* TaskDescriptionInteractor.swift in Sources */,
 				B948A22624144BFA001287B8 /* AppDelegate+Configurations.swift in Sources */,
 				B914AC9124435D80007494E3 /* TasksListFinishedCollectionViewCell.swift in Sources */,
 				B992D522245793A9002ABF71 /* NewBenefitsContentCell.swift in Sources */,
 				B9BF701324433D590051CF41 /* BUNavigationController.swift in Sources */,
 				B9323661241D7E4F00A37634 /* AuthorizedTargetType.swift in Sources */,
+				B9069104246235D7001A1F76 /* QRcodeManager.swift in Sources */,
 				B992D52C2457A18F002ABF71 /* UsedBenefitsPresentationModel.swift in Sources */,
 				B992D51224578A11002ABF71 /* BenefitsInteractor.swift in Sources */,
 				B992D525245799DC002ABF71 /* NewBenefitsPresentationModel.swift in Sources */,
@@ -1482,6 +1525,7 @@
 				B9259BA0241CE267009585B7 /* UIColor+Facade.swift in Sources */,
 				B98DE0DF244BB5FA007AE007 /* SettingsView.swift in Sources */,
 				B992D52A2457A182002ABF71 /* SelectedBenefitsPresentationModel.swift in Sources */,
+				B944A8F724621807002170FD /* TaskDescriptionBuilder.swift in Sources */,
 				B977484B24431A37004D39AD /* TasksListPresenter.swift in Sources */,
 				B9323663241D7F5300A37634 /* AuthService.swift in Sources */,
 				B948A247241CDE64001287B8 /* UIFont+Fonts.swift in Sources */,

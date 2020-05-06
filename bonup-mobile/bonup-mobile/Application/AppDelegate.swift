@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // setup google services
         self.setupGoogleServices()
+        self.setupYandexServices()
 
         // setup app router
         AppRouter.shared.appWindow = self.window

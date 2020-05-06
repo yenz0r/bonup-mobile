@@ -22,6 +22,11 @@ target 'bonup-mobile' do
   pod 'Shuffle-iOS'
   pod 'UICircularProgressRing'
 
+  pod 'YandexMapKit', '3.5'
+  pod 'Google-Mobile-Ads-SDK'
+
+  pod 'Nuke'
+
   target 'bonup-mobileTests' do
     inherit! :search_paths
     # Pods for testing

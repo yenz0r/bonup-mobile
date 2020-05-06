@@ -16,7 +16,7 @@ protocol ITasksListRouter {
 
 final class TasksListRouter {
     enum TasksListRouterScenario {
-        case showTasksList
+        case showTaskDescription
     }
 
     private var view: TasksListView?
@@ -47,10 +47,14 @@ extension TasksListRouter: ITasksListRouter {
     }
 
     func show(_ scenario: TasksListRouterScenario) {
+        guard let view = self.view else { return }
 
         switch scenario {
-        case .showTasksList:
-            print("tasks list")
+        case .showTaskDescription:
+            let dependency = TaskDescriptionDependency(parentController: view, taskId: 100)
+            let builder = TaskDescriptionBuilder()
+            let router = builder.build(dependency)
+            router.start(nil)
         }
 
     }

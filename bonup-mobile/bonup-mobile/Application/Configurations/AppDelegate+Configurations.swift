@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import GoogleMobileAds
+import YandexMapKit
 
 #if RELEASE_FREE
 let IS_RELEASE_FREE = true
@@ -43,6 +45,10 @@ let APP_IS_RELEASE_VERSION = false
 
 extension AppDelegate {
 
+    func setupYandexServices() {
+        YMKMapKit.setApiKey("fb558813-f86a-45ed-aa70-f651e3769ca1")
+    }
+
     func setupGoogleServices() {
         #if (DEBUG_FREE || DEBUG_PAID)
 print("debug")
@@ -51,7 +57,8 @@ print("release")
         #endif
 
         print("isdebugpaid \(IS_DEBUG_PAID)")
-        
+
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
 
         var optionsPath: String?
         return
