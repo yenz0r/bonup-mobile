@@ -10,6 +10,7 @@ import UIKit
 
 protocol IBenefitsPresenter: AnyObject {
 
+    func handleShowDescription(for index: Int)
 }
 
 final class BenefitsPresenter {
@@ -28,5 +29,9 @@ final class BenefitsPresenter {
 // MARK: - IBenefitsPresenter implementation
 
 extension BenefitsPresenter: IBenefitsPresenter {
-    
+
+    func handleShowDescription(for index: Int) {
+
+        self.router.show(.benefitDescription)
+    }
 }

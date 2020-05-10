@@ -59,6 +59,8 @@
 		B948A23C241CBFC1001287B8 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A23B241CBFC1001287B8 /* LoginRouter.swift */; };
 		B948A23E241CBFD8001287B8 /* LoginBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A23D241CBFD8001287B8 /* LoginBuilder.swift */; };
 		B948A247241CDE64001287B8 /* UIFont+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A246241CDE64001287B8 /* UIFont+Fonts.swift */; };
+		B948C3B2246856EF001EB887 /* BenefitsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948C3B1246856EF001EB887 /* BenefitsService.swift */; };
+		B948C3B52468570D001EB887 /* BenefitsResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948C3B42468570D001EB887 /* BenefitsResponseEntity.swift */; };
 		B94F37912451C49800FBEB36 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94F37902451C49800FBEB36 /* ProfileHeaderView.swift */; };
 		B95533D724431C8A006BFDFB /* TaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95533D624431C8A006BFDFB /* TaskCardView.swift */; };
 		B959712A24269B3600EAEB6E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B959712924269B3600EAEB6E /* GoogleService-Info.plist */; };
@@ -67,6 +69,13 @@
 		B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */; };
 		B964CE8624475C6900161300 /* NewPasswordResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964CE8524475C6900161300 /* NewPasswordResponseEntity.swift */; };
 		B964E0C32451CFC400668EE8 /* ProfileAhievementsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964E0C22451CFC400668EE8 /* ProfileAhievementsCell.swift */; };
+		B966E7292468384A0043FD69 /* BenefitsContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B966E7282468384A0043FD69 /* BenefitsContentCell.swift */; };
+		B966E72B24684CB10043FD69 /* BenefitDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B966E72A24684CB10043FD69 /* BenefitDescriptionView.swift */; };
+		B966E72E24684D000043FD69 /* BenefitDescriptionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B966E72D24684D000043FD69 /* BenefitDescriptionPresenter.swift */; };
+		B966E73024684D090043FD69 /* BenefitDescriptionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B966E72F24684D090043FD69 /* BenefitDescriptionBuilder.swift */; };
+		B966E73224684D4D0043FD69 /* BenefitDescriptionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B966E73124684D4D0043FD69 /* BenefitDescriptionRouter.swift */; };
+		B966E73424684D640043FD69 /* BenefitDescriptionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B966E73324684D640043FD69 /* BenefitDescriptionInteractor.swift */; };
+		B966E73624684D700043FD69 /* BenefitDescriptionDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B966E73524684D700043FD69 /* BenefitDescriptionDependency.swift */; };
 		B967C2D5244BC3BD00AFE3A1 /* SettingsPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967C2D4244BC3BD00AFE3A1 /* SettingsPresentationModel.swift */; };
 		B96AC7F82444A392005C25D1 /* CategoriesPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96AC7F72444A392005C25D1 /* CategoriesPresentationModel.swift */; };
 		B96AC7FB2446651C005C25D1 /* LocaleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96AC7FA2446651C005C25D1 /* LocaleManager.swift */; };
@@ -255,6 +264,8 @@
 		B948A23B241CBFC1001287B8 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		B948A23D241CBFD8001287B8 /* LoginBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBuilder.swift; sourceTree = "<group>"; };
 		B948A246241CDE64001287B8 /* UIFont+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Fonts.swift"; sourceTree = "<group>"; };
+		B948C3B1246856EF001EB887 /* BenefitsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsService.swift; sourceTree = "<group>"; };
+		B948C3B42468570D001EB887 /* BenefitsResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsResponseEntity.swift; sourceTree = "<group>"; };
 		B94F37902451C49800FBEB36 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		B95533D624431C8A006BFDFB /* TaskCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardView.swift; sourceTree = "<group>"; };
 		B959712924269B3600EAEB6E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -263,6 +274,13 @@
 		B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Facade.swift"; sourceTree = "<group>"; };
 		B964CE8524475C6900161300 /* NewPasswordResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordResponseEntity.swift; sourceTree = "<group>"; };
 		B964E0C22451CFC400668EE8 /* ProfileAhievementsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAhievementsCell.swift; sourceTree = "<group>"; };
+		B966E7282468384A0043FD69 /* BenefitsContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsContentCell.swift; sourceTree = "<group>"; };
+		B966E72A24684CB10043FD69 /* BenefitDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitDescriptionView.swift; sourceTree = "<group>"; };
+		B966E72D24684D000043FD69 /* BenefitDescriptionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitDescriptionPresenter.swift; sourceTree = "<group>"; };
+		B966E72F24684D090043FD69 /* BenefitDescriptionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitDescriptionBuilder.swift; sourceTree = "<group>"; };
+		B966E73124684D4D0043FD69 /* BenefitDescriptionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitDescriptionRouter.swift; sourceTree = "<group>"; };
+		B966E73324684D640043FD69 /* BenefitDescriptionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitDescriptionInteractor.swift; sourceTree = "<group>"; };
+		B966E73524684D700043FD69 /* BenefitDescriptionDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitDescriptionDependency.swift; sourceTree = "<group>"; };
 		B967C2D4244BC3BD00AFE3A1 /* SettingsPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresentationModel.swift; sourceTree = "<group>"; };
 		B96AC7F72444A392005C25D1 /* CategoriesPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPresentationModel.swift; sourceTree = "<group>"; };
 		B96AC7FA2446651C005C25D1 /* LocaleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleManager.swift; sourceTree = "<group>"; };
@@ -505,6 +523,7 @@
 				B96D54BE242FBEE700023BC9 /* NewPassword */,
 				B96D54C1242FBF1C00023BC9 /* ResetPassword */,
 				B91E809C242FCEC700859C83 /* Categories */,
+				B948C3B3246856F3001EB887 /* Benefits */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -720,6 +739,15 @@
 			path = UIFont;
 			sourceTree = "<group>";
 		};
+		B948C3B3246856F3001EB887 /* Benefits */ = {
+			isa = PBXGroup;
+			children = (
+				B948C3B1246856EF001EB887 /* BenefitsService.swift */,
+				B948C3B42468570D001EB887 /* BenefitsResponseEntity.swift */,
+			);
+			path = Benefits;
+			sourceTree = "<group>";
+		};
 		B95533D824431C93006BFDFB /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
@@ -743,6 +771,19 @@
 				B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */,
 			);
 			path = NSAttributedString;
+			sourceTree = "<group>";
+		};
+		B966E72C24684CB60043FD69 /* BenefitDescription */ = {
+			isa = PBXGroup;
+			children = (
+				B966E72A24684CB10043FD69 /* BenefitDescriptionView.swift */,
+				B966E72D24684D000043FD69 /* BenefitDescriptionPresenter.swift */,
+				B966E72F24684D090043FD69 /* BenefitDescriptionBuilder.swift */,
+				B966E73124684D4D0043FD69 /* BenefitDescriptionRouter.swift */,
+				B966E73324684D640043FD69 /* BenefitDescriptionInteractor.swift */,
+				B966E73524684D700043FD69 /* BenefitDescriptionDependency.swift */,
+			);
+			path = BenefitDescription;
 			sourceTree = "<group>";
 		};
 		B967C2D6244BC3C100AFE3A1 /* Entities */ = {
@@ -847,7 +888,7 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
-		B992D51924578A50002ABF71 /* Benefits */ = {
+		B992D51924578A50002ABF71 /* BenefitsList */ = {
 			isa = PBXGroup;
 			children = (
 				B992D50D245789FF002ABF71 /* BenefitsView.swift */,
@@ -859,13 +900,14 @@
 				B992D51C245791E8002ABF71 /* Subviews */,
 				B992D526245799E2002ABF71 /* Entities */,
 			);
-			path = Benefits;
+			path = BenefitsList;
 			sourceTree = "<group>";
 		};
 		B992D51C245791E8002ABF71 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
 				B992D5272457A02D002ABF71 /* BenefitsCell.swift */,
+				B966E7282468384A0043FD69 /* BenefitsContentCell.swift */,
 				B992D523245793B0002ABF71 /* NewBenefits */,
 				B992D5312457A1B7002ABF71 /* SelectedBenefits */,
 				B992D5322457A1C1002ABF71 /* UsedBenefits */,
@@ -904,8 +946,8 @@
 		B992D5322457A1C1002ABF71 /* UsedBenefits */ = {
 			isa = PBXGroup;
 			children = (
-				B992D52F2457A1B2002ABF71 /* UsedBenefitsContentCell.swift */,
 				B992D51F24579217002ABF71 /* UsedBenefitsCell.swift */,
+				B992D52F2457A1B2002ABF71 /* UsedBenefitsContentCell.swift */,
 			);
 			path = UsedBenefits;
 			sourceTree = "<group>";
@@ -1096,7 +1138,8 @@
 				B9A13D34244E3AC200373827 /* Profile */,
 				B98DE0E0244BB601007AE007 /* Settings */,
 				B944A8EF246217CA002170FD /* TaskDescription */,
-				B992D51924578A50002ABF71 /* Benefits */,
+				B966E72C24684CB60043FD69 /* BenefitDescription */,
+				B992D51924578A50002ABF71 /* BenefitsList */,
 			);
 			path = ApplicationContentSection;
 			sourceTree = "<group>";
@@ -1398,6 +1441,7 @@
 				B94F37912451C49800FBEB36 /* ProfileHeaderView.swift in Sources */,
 				B9D17580243CFCEA001FF58E /* TermsAndConditionsView.swift in Sources */,
 				B914AC8F24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift in Sources */,
+				B966E73024684D090043FD69 /* BenefitDescriptionBuilder.swift in Sources */,
 				B9CAA712242B9F2100E50668 /* AuthVerificationDependency.swift in Sources */,
 				B992D50E245789FF002ABF71 /* BenefitsView.swift in Sources */,
 				B9FC798E242FB75E00F2D5BC /* ApplicationContentRouter.swift in Sources */,
@@ -1419,6 +1463,7 @@
 				B9FC7988242FB6E500F2D5BC /* ApplicationContentView.swift in Sources */,
 				B967C2D5244BC3BD00AFE3A1 /* SettingsPresentationModel.swift in Sources */,
 				B992D51024578A09002ABF71 /* BenefitsPresenter.swift in Sources */,
+				B966E7292468384A0043FD69 /* BenefitsContentCell.swift in Sources */,
 				B9CAA717242BB0AD00E50668 /* AlertsFactory.swift in Sources */,
 				B98DE0EC244BBAF1007AE007 /* SettingsHeaderView.swift in Sources */,
 				B935A596241D6A7A0074E89E /* NewPasswordInteractor.swift in Sources */,
@@ -1429,6 +1474,7 @@
 				B9A0C9AD242FC59200EB6FAE /* CategoriesBuilder.swift in Sources */,
 				B948A1EC241444B2001287B8 /* bonup_mobile.xcdatamodeld in Sources */,
 				B9A0C9A5242FC56D00EB6FAE /* CategoriesView.swift in Sources */,
+				B948C3B52468570D001EB887 /* BenefitsResponseEntity.swift in Sources */,
 				B948A236241CBFA6001287B8 /* LoginView.swift in Sources */,
 				B977484F24431A47004D39AD /* TasksListBuilder.swift in Sources */,
 				B9A13D3C244E3AF000373827 /* ProfileInteractor.swift in Sources */,
@@ -1450,6 +1496,7 @@
 				B96AC7F82444A392005C25D1 /* CategoriesPresentationModel.swift in Sources */,
 				B932366F241E6CCF00A37634 /* AuthResponseEntity.swift in Sources */,
 				B977484524431971004D39AD /* TaskSelectionDependency.swift in Sources */,
+				B966E73624684D700043FD69 /* BenefitDescriptionDependency.swift in Sources */,
 				B9A13D3A244E3AE400373827 /* ProfileRouter.swift in Sources */,
 				B9FC7986242FB04000F2D5BC /* BUTabBarController.swift in Sources */,
 				B935A592241D6A6A0074E89E /* NewPasswordView.swift in Sources */,
@@ -1485,6 +1532,7 @@
 				B992D51E245791F4002ABF71 /* SelectedBenefitsCell.swift in Sources */,
 				B948A238241CBFB2001287B8 /* LoginInteractor.swift in Sources */,
 				B9FC798C242FB73900F2D5BC /* ApplicationContentBuilder.swift in Sources */,
+				B966E73224684D4D0043FD69 /* BenefitDescriptionRouter.swift in Sources */,
 				B932366C241D980400A37634 /* KeyChainService.swift in Sources */,
 				B9A13D40244E3F1500373827 /* ProfileInfoContainer.swift in Sources */,
 				B9CEE6A6241D55BE00308098 /* ResetPasswordBuilder.swift in Sources */,
@@ -1499,10 +1547,12 @@
 				B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */,
 				B9CAA722242BE8DF00E50668 /* EmailVerificationResponseEntity.swift in Sources */,
 				B992D51624578A36002ABF71 /* BenefitsRouter.swift in Sources */,
+				B966E72B24684CB10043FD69 /* BenefitDescriptionView.swift in Sources */,
 				B9323669241D96F600A37634 /* AccountManager.swift in Sources */,
 				B9BF7011244326530051CF41 /* TaskCardOverlay.swift in Sources */,
 				B9268920242A95CA00F1732A /* AssetsHelper.swift in Sources */,
 				B992D51424578A2E002ABF71 /* BenefitsBuilder.swift in Sources */,
+				B966E72E24684D000043FD69 /* BenefitDescriptionPresenter.swift in Sources */,
 				B977483F24431955004D39AD /* TaskSelectionBuilder.swift in Sources */,
 				B959712D24269F2A00EAEB6E /* TimerManager.swift in Sources */,
 				B9D30C67244BA0A300B9E9AA /* ChangePasswordView.swift in Sources */,
@@ -1516,6 +1566,7 @@
 				B992D522245793A9002ABF71 /* NewBenefitsContentCell.swift in Sources */,
 				B9BF701324433D590051CF41 /* BUNavigationController.swift in Sources */,
 				B9323661241D7E4F00A37634 /* AuthorizedTargetType.swift in Sources */,
+				B948C3B2246856EF001EB887 /* BenefitsService.swift in Sources */,
 				B9069104246235D7001A1F76 /* QRcodeManager.swift in Sources */,
 				B992D52C2457A18F002ABF71 /* UsedBenefitsPresentationModel.swift in Sources */,
 				B992D51224578A11002ABF71 /* BenefitsInteractor.swift in Sources */,
@@ -1527,6 +1578,7 @@
 				B992D52A2457A182002ABF71 /* SelectedBenefitsPresentationModel.swift in Sources */,
 				B944A8F724621807002170FD /* TaskDescriptionBuilder.swift in Sources */,
 				B977484B24431A37004D39AD /* TasksListPresenter.swift in Sources */,
+				B966E73424684D640043FD69 /* BenefitDescriptionInteractor.swift in Sources */,
 				B9323663241D7F5300A37634 /* AuthService.swift in Sources */,
 				B948A247241CDE64001287B8 /* UIFont+Fonts.swift in Sources */,
 				B9CAA70A242B9EF600E50668 /* AuthVerificationInteractor.swift in Sources */,

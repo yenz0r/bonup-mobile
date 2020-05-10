@@ -1,5 +1,5 @@
 //
-//  NewBenefitsCell.swift
+//  SelectedBenefitsCell.swift
 //  bonup-mobile
 //
 //  Created by Yahor Bychkouski on 28.04.2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class NewBenefitsCell: BenefitsCell {
+final class SelectedBenefitsCell: BenefitsCell {
 
     // MARK: - Static variables
 
@@ -16,11 +16,13 @@ final class NewBenefitsCell: BenefitsCell {
 
     // MARK: - Public variables
 
-    var presentationModels: [NewBenefitsPresentationModel]? {
+    var presentationModels: [SelectedBenefitsPresentationModel]? {
         didSet {
             self.collectionView.reloadData()
         }
     }
+
+    var onBenefitSelect: ((Int) -> Void)?
 
     // MARK: - Initialization
 
@@ -37,10 +39,11 @@ final class NewBenefitsCell: BenefitsCell {
     // MARK: - Configure
 
     private func configureCollectionView() {
+        self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.register(
-            NewBenefitsContentCell.self,
-            forCellWithReuseIdentifier: NewBenefitsContentCell.reuseId
+            SelectedBenefitsContentCell.self,
+            forCellWithReuseIdentifier: SelectedBenefitsContentCell.reuseId
         )
     }
 
@@ -49,25 +52,35 @@ final class NewBenefitsCell: BenefitsCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        self.presentationModels = nil
+//        self.presentationModels = nil
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension SelectedBenefitsCell: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        self.onBenefitSelect?(indexPath.row)
     }
 }
 
 // MARK: - UICollectionViewDataSource
 
-extension NewBenefitsCell: UICollectionViewDataSource {
+extension SelectedBenefitsCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.presentationModels?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: NewBenefitsContentCell.reuseId,
+            withReuseIdentifier: SelectedBenefitsContentCell.reuseId,
             for: indexPath
         )
 
         guard
-            let benefitCell = cell as? NewBenefitsContentCell,
+            let benefitCell = cell as? SelectedBenefitsContentCell,
             let model = self.presentationModels?[indexPath.row] else {
             return cell
         }
@@ -75,10 +88,6 @@ extension NewBenefitsCell: UICollectionViewDataSource {
         benefitCell.titleText = model.title
         benefitCell.descriptionText = model.description
         benefitCell.coastText = model.coast
-        benefitCell.aliveTimeText = model.aliveTime
-        benefitCell.onSaveTap = {
-            print(indexPath.row)
-        }
 
         return cell
     }

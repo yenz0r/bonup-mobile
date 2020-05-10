@@ -19,7 +19,7 @@ class BenefitsCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        self.setupSubviews()
+        self.setupSubviewsForFrame(frame)
     }
 
     required init?(coder: NSCoder) {
@@ -28,8 +28,8 @@ class BenefitsCell: UICollectionViewCell {
 
     // MARK: - Setup subviews
 
-    private func setupSubviews() {
-        self.collectionView = self.configureCollectionView()
+    private func setupSubviewsForFrame(_ frame: CGRect) {
+        self.collectionView = self.configureCollectionViewForFrame(frame)
 
         self.contentView.addSubview(self.collectionView)
 
@@ -40,12 +40,15 @@ class BenefitsCell: UICollectionViewCell {
 
     // MARK: - Configure
 
-    private func configureCollectionView() -> UICollectionView {
+    private func configureCollectionViewForFrame(_ frame: CGRect) -> UICollectionView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = .zero
         layout.minimumInteritemSpacing = 10.0
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.estimatedItemSize = CGSize(
+            width: frame.width - 20.0,
+            height: 10
+        )
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
 

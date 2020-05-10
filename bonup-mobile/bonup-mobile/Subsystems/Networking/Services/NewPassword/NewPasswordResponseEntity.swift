@@ -9,6 +9,7 @@
 import Foundation
 
 struct NewPasswordResponseEntity: Codable {
+    
     let isSuccess: Bool
     let newToken: String
     let message: String

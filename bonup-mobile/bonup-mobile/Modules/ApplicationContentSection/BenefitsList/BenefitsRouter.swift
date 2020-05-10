@@ -16,6 +16,7 @@ protocol IBenefitsRouter {
 
 final class BenefitsRouter {
     enum BenefitsRouterScenario {
+        case benefitDescription
     }
 
     private var view: BenefitsView?
@@ -46,8 +47,21 @@ extension BenefitsRouter: IBenefitsRouter {
     }
 
     func show(_ scenario: BenefitsRouterScenario) {
+        guard let view = self.view else { return }
 
+        switch scenario {
+        case .benefitDescription:
+
+            let entity = BenefitsResponseEntity(id: 10, title: "Benefit", descriptionText: "Description af ksf sldjhf lkjasf hsfla kjgsl kjdhsfk ")
+
+            let dependency = BenefitDescriptionDependency(
+                parentController: view,
+                benefitsEntity: entity
+            )
+            let builder = BenefitDescriptionBuilder()
+            let router = builder.build(dependency)
+            router.start(nil)
+        }
     }
-
 }
 

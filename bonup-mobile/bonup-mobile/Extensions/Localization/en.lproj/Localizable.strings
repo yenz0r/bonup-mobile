@@ -85,3 +85,6 @@
 "ui_from_date" = "From Date:";
 "ui_to_date" = "To Date:";
 "ui_task_details" = "Task Details";
+"ui_date_of_use" = "Date of use:";
+"ui_empty_title" = "Sorry, there is no description for benefit";
+"ui_description_title" = "Author did not add description yet";

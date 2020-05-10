@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class NewBenefitsContentCell: UICollectionViewCell {
+final class NewBenefitsContentCell: BenefitsContentCell {
 
     enum InfoType {
         case title, description, alive
@@ -104,7 +104,7 @@ final class NewBenefitsContentCell: UICollectionViewCell {
 
         self.saveButton.snp.makeConstraints { make in
             make.trailing.top.bottom.equalToSuperview()
-            make.width.equalTo(40.0)
+            make.width.equalTo(70.0)
         }
 
         self.titleLabel.snp.makeConstraints { make in
@@ -170,14 +170,5 @@ final class NewBenefitsContentCell: UICollectionViewCell {
         self.coastText = nil
         self.aliveTimeText = nil
         self.onSaveTap = nil
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        self.layer.cornerRadius = 15.0
-        self.layer.masksToBounds = true
-        self.layer.borderWidth = 1.0
-        self.layer.borderColor = UIColor.purpleLite.withAlphaComponent(0.3).cgColor
     }
 }

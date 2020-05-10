@@ -406,7 +406,7 @@ extension TaskDescriptionView: ITaskDescriptionView {
         let placemark = self.mapView.mapWindow.map.mapObjects.addPlacemark(with: point)
         placemark.opacity = 0.5
         placemark.isDraggable = true
-        placemark.setIconWith(UIImage(named:"bonup-image-logo-2")!)
+        placemark.setIconWith(AssetsHelper.shared.image(.profileUnselectedIcon)!)
 
         self.mapView.mapWindow.map.move(
             with: YMKCameraPosition(target: point, zoom: 15, azimuth: 0, tilt: 0),

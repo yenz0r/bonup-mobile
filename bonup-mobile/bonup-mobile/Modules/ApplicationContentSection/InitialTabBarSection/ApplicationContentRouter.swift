@@ -44,12 +44,16 @@ extension ApplicationContentRouter: IApplicationContentRouter {
         // profile
         let profileContainer = self.configureProfileContainer()
 
+        // benefits
+        let benefitsContainer = self.configureBenefitsContainer()
+
         var viewControllers = [UIViewController]()
         viewControllers.append(taskSelectionContainer)
-        viewControllers.append(settingsContainer)
         viewControllers.append(profileContainer)
+        viewControllers.append(benefitsContainer)
+        viewControllers.append(settingsContainer)
 
-        let colors: [UIColor] = [.orange, .purple]
+        let colors: [UIColor] = [.orange]
 
         for (index, color) in colors.enumerated() {
             let viewController = UIViewController()
@@ -83,6 +87,26 @@ extension ApplicationContentRouter: IApplicationContentRouter {
 // MARK: - Helpers
 
 extension ApplicationContentRouter {
+
+    func configureBenefitsContainer() -> BUNavigationController {
+        let benefitsNavigationController = BUNavigationController()
+        benefitsNavigationController.setupTabBarItem(
+            with: "ui_benefits_title".localized,
+            unselectedImage: AssetsHelper.shared.image(.actionsUnselectedIcon),
+            selectedImage: AssetsHelper.shared.image(.actionsUnselectedIcon)
+        )
+
+        let benefitsDependency = BenefitsDependency(
+            parentNavigationController: benefitsNavigationController
+        )
+        let benefitsBuilder = BenefitsBuilder()
+        let benefitsRouter = benefitsBuilder.build(benefitsDependency)
+        benefitsRouter.start(nil)
+
+        return benefitsNavigationController
+    }
+
+
     func configureTaskSelectionContainer() -> BUNavigationController {
         let taskSelectionNavigationController = BUNavigationController()
         taskSelectionNavigationController.setupTabBarItem(

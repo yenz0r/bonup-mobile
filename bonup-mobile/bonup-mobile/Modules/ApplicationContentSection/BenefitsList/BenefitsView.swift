@@ -27,7 +27,7 @@ final class BenefitsView: UIViewController {
 
     private var pages = [
         "ui_new_title".localized,
-        "ui_salected_title".localized,
+        "ui_selected_title".localized,
         "ui_used_title".localized
     ]
 
@@ -39,11 +39,14 @@ final class BenefitsView: UIViewController {
         self.segmentedControl = UISegmentedControl(items: self.pages)
         self.view.addSubview(self.segmentedControl)
         self.segmentedControl.snp.makeConstraints { make in
-            make.leading.trailing.top.equalTo(self.view.safeAreaLayoutGuide).inset(40.0)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(8.0)
+            make.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(40.0)
         }
 
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = .zero
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
 
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -57,8 +60,7 @@ final class BenefitsView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // self.view setup
-        self.view.backgroundColor = .white
+        self.configureAppearance()
 
         // segmentedControl setup
         self.segmentedControl.selectedSegmentIndex = 0
@@ -74,12 +76,16 @@ final class BenefitsView: UIViewController {
         self.collectionView.backgroundColor = .white
 
         self.collectionView.register(
-            TasksListCurrentCollectionViewCell.self,
-            forCellWithReuseIdentifier: TasksListCurrentCollectionViewCell.reuseId
+            NewBenefitsCell.self,
+            forCellWithReuseIdentifier: NewBenefitsCell.reuseId
         )
         self.collectionView.register(
-            TasksListFinishedCollectionViewCell.self,
-            forCellWithReuseIdentifier: TasksListFinishedCollectionViewCell.reuseId
+            SelectedBenefitsCell.self,
+            forCellWithReuseIdentifier: SelectedBenefitsCell.reuseId
+        )
+        self.collectionView.register(
+            UsedBenefitsCell.self,
+            forCellWithReuseIdentifier: UsedBenefitsCell.reuseId
         )
     }
 
@@ -134,7 +140,52 @@ extension BenefitsView: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+
+        switch indexPath.row {
+        case 0:
+
+            let cell = collectionView .dequeueReusableCell(
+                withReuseIdentifier: NewBenefitsCell.reuseId,
+                for: indexPath
+            ) as! NewBenefitsCell
+            let model = NewBenefitsPresentationModel(
+                title: "title",
+                description: "description",
+                coast: "\(indexPath.row * 100)",
+                aliveTime: "alive time"
+            )
+            let models = Array(repeating: model, count: 10)
+            cell.presentationModels = models
+            return cell
+        case 1:
+
+            let cell = collectionView .dequeueReusableCell(
+                withReuseIdentifier: SelectedBenefitsCell.reuseId,
+                for: indexPath
+            ) as! SelectedBenefitsCell
+            let model = SelectedBenefitsPresentationModel(title: "title", description: "description", coast: "\(indexPath.row * 100)")
+            let models = Array(repeating: model, count: 10)
+            cell.presentationModels = models
+            cell.onBenefitSelect = { [weak self] index in
+
+                self?.presenter.handleShowDescription(for: index)
+            }
+            return cell
+        case 2:
+
+            let cell = collectionView .dequeueReusableCell(
+                withReuseIdentifier: UsedBenefitsCell.reuseId,
+                for: indexPath
+            ) as! UsedBenefitsCell
+            let model = UsedBenefitsPresentationModel(title: "title", description: "descripton", dateOfUse: "02.20.2000")
+            let models = Array(repeating: model, count: 10)
+            cell.presentationModels = models
+            return cell
+        default:
+
+            let cell = UICollectionViewCell()
+            return cell
+        }
     }
 }
 

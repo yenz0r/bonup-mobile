@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct UsedBenefitsPresentationModel {
+    let title: String?
+    let description: String?
+    let dateOfUse: String?
+}
