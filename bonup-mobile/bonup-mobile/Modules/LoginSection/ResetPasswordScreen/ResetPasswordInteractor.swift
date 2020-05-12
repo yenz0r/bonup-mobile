@@ -26,12 +26,19 @@ extension ResetPasswordInteractor: IResetPasswordInteractor {
 
         let params = ResetPasswordParams(email: email)
 
-        _ = self.networkProvider.requestBool(
+        _ = self.networkProvider.request(
             .askResetCode(params: params),
-            completion: { resultBool in
-                completion?(resultBool)
+            type: ResetPasswordResponseEntity.self,
+            completion: { result in
+
+                if result.isSuccess {
+                    AccountManager.shared.currentUser = User(name: "", email: email, password: "")
+                }
+
+                completion?(result.isSuccess)
             },
             failure: { _ in
+
                 completion?(false)
             }
         )

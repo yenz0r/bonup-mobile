@@ -10,5 +10,5 @@ import Foundation
 
 var serverBase: String {
     let languageCode = LocaleManager.shared.currentLocale
-    return "https://stark-garden-23287.herokuapp.com/\(languageCode)"
+    return "https://agile-river-68679.herokuapp.com/\(languageCode)"
 }

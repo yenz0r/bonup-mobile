@@ -23,7 +23,7 @@ final class CategoriesPresenter {
     private let interactor: ICategoriesInteractor
     private let router: ICategoriesRouter
 
-    private var responseCategories = [CategoryInfo]()
+    private var responseCategories = [CategoryInfoEntity]()
     private var selectedIds = [Int]()
 
     init(view: ICategoriesView?, interactor: ICategoriesInteractor, router: ICategoriesRouter) {

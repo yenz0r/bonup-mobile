@@ -76,7 +76,7 @@ final class AssetsHelper {
         case .organizationSelectedIcon:
             return UIImage(named: "orginization-selected-icon")
         case .organizationUnselectedIcon:
-            return UIImage(named: "orginization-unselected-icon")
+            return UIImage(named: "organization-unselected-icon")
         case .tasksSelectedIcon:
             return UIImage(named: "tasks-selected-icon")
         case .tasksUnselectedIcon:

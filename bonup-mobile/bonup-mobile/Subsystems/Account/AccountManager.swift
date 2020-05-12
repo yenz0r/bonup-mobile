@@ -65,6 +65,9 @@ final class AccountManager {
     }
 
     func resetAuthCredentials() {
+        self.currentUser = nil
+        self.saveToken(nil)
+
         self.keyChainService.setString("", for: .name)
         self.keyChainService.setString("", for: .password)
         self.keyChainService.setString("", for: .email)
@@ -72,6 +75,7 @@ final class AccountManager {
 
     func isLogined() -> Bool {
         guard let authToken = self.keyChainService.getString(for: .authToken) else { return false }
+        self.currentToken = authToken
         return authToken != ""
     }
 

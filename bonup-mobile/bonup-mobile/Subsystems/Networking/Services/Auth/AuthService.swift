@@ -29,7 +29,7 @@ extension AuthService: IMainTargetType {
     var path: String {
         switch self {
         case .auth(_):
-            return "/login_processing"
+            return "/login"
         case .register(_):
             return "/registration"
         }

@@ -8,8 +8,14 @@
 
 import Foundation
 
+struct CategoryInfoEntity {
+    let id: Int
+    let name: String
+    let description: String
+}
+
 protocol ICategoriesInteractor: AnyObject {
-    func categotiesListRequest(success: (([CategoryInfo]) -> Void)?,
+    func categotiesListRequest(success: (([CategoryInfoEntity]) -> Void)?,
                                failure: (() -> Void)?)
     func saveSeletedCategoriesRequest(selectedIds: [Int])
 }
@@ -26,24 +32,35 @@ final class CategoriesInteractor {
 
 extension CategoriesInteractor: ICategoriesInteractor {
 
-    func categotiesListRequest(success: (([CategoryInfo]) -> Void)?,
+    func categotiesListRequest(success: (([CategoryInfoEntity]) -> Void)?,
                                failure: (() -> Void)?) {
 
         _ = networkProvider.request(
             .askCategories,
-            type: CategoriesResponseEntity.self,
+            type: CategoryInfo.self,
             completion: { result in
-                //test
-                let info = CategoryInfo(id: 0, name: "Sport", description: "For everyone who are interested in sport and healthy life style")
 
-                success?(Array(repeating: info, count: 10))
+                if result.isSuccess {
+
+                    var resultArray = [CategoryInfoEntity]()
+                    let keys = result.map.keys
+                    for key in keys {
+
+                        let info = result.map[key] ?? ""
+                        let entity = CategoryInfoEntity(id: key, name: info, description: "For everyone who are interested in sport and healthy life style")
+                        resultArray.append(entity)
+                    }
+
+                    success?(resultArray)
+
+                } else {
+
+                    failure?()
+                }
             },
             failure: { _ in
-                //failure?()
 
-                let info = CategoryInfo(id: 0, name: "Sport", description: "For everyone who are interested in sport and healthy life style")
-
-                success?(Array(repeating: info, count: 10))
+                failure?()
             }
         )
     }

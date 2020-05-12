@@ -41,7 +41,7 @@ extension NewPasswordPresenter: INewPasswordPresenter {
 
         self.interactor.setupNewPasswordRequest(newText) { resultBool, errMessage in
             if resultBool {
-                self.router.show(.openApp)
+                self.router.show(.login)
             } else {
                 self.router.show(.showErrorAlert(errMessage))
             }

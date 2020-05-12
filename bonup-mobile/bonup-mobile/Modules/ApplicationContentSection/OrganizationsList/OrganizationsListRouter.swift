@@ -1,29 +1,27 @@
 //
-//  SettingsRouter.swift
+//  OrganizationsListRouter.swift
 //  bonup-mobile
 //
-//  Created by Yahor Bychkouski on 19.04.2020.
+//  Created by Yahor Bychkouski on 11.05.2020.
 //  Copyright © 2020 Bonup. All rights reserved.
 //
 
 import UIKit
 
-protocol ISettingsRouter {
+protocol IOrganizationsListRouter {
     func start(_ completion: (() -> Void)?)
     func stop(_ completion: (() -> Void)?)
-    func show(_ scenario: SettingsRouter.SettingsRouterScenario)
+    func show(_ scenario: OrganizationsListRouter.RouterScenario)
 }
 
-final class SettingsRouter {
-    enum SettingsRouterScenario {
-        case changePassword
-        case logout
+final class OrganizationsListRouter {
+    enum RouterScenario {
     }
 
-    private var view: SettingsView?
+    private var view: OrganizationsListView?
     private var parentNavigationController: UINavigationController
 
-    init(view: SettingsView?, parentNavigationController: UINavigationController) {
+    init(view: OrganizationsListView?, parentNavigationController: UINavigationController) {
         self.view = view
         self.parentNavigationController = parentNavigationController
     }
@@ -31,7 +29,7 @@ final class SettingsRouter {
 
 // MARK: - ICategoriesRouter implementation
 
-extension SettingsRouter: ISettingsRouter {
+extension OrganizationsListRouter: IOrganizationsListRouter {
     func start(_ completion: (() -> Void)?) {
         guard let view = self.view else { return }
 
@@ -47,18 +45,12 @@ extension SettingsRouter: ISettingsRouter {
         self.view = nil
     }
 
-    func show(_ scenario: SettingsRouterScenario) {
+    func show(_ scenario: RouterScenario) {
         guard let view = self.view else { return }
 
         switch scenario {
-        case .changePassword:
-            let dependency = ChangePasswordDependency(parentController: view)
-            let builder = ChangePasswordBuilder()
-            let router = builder.build(dependency)
-            router.start(nil)
-        case .logout:
-            AppRouter.shared.present(.login(name: nil, email: nil))
+        
         }
     }
-
 }
+

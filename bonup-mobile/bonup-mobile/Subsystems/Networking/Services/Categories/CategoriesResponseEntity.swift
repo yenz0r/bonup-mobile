@@ -9,11 +9,7 @@
 import Foundation
 
 struct CategoryInfo: Codable {
-    let id: Int
-    let name: String
-    let description: String
-}
-
-struct CategoriesResponseEntity: Codable {
-    let categoryInfoList: [CategoryInfo]
+    let message: String
+    let isSuccess: Bool
+    let map: [Int:String]
 }

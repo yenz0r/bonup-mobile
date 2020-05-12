@@ -68,7 +68,6 @@ final class ProfileAhievementsView: UIView {
 
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.backgroundColor = .clear
 
@@ -126,14 +125,14 @@ extension ProfileAhievementsView: UICollectionViewDataSource {
 
 extension ProfileAhievementsView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.size.height)
+        return CGSize(width: collectionView.frame.width * 0.7, height: collectionView.frame.size.height)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return .zero
+        return 15.0
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return .zero
+        return 15.0
     }
 }

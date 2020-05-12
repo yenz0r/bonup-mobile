@@ -32,6 +32,7 @@ extension AuthVerificationInteractor: IAuthVerificationInteractor {
             .verify(params: verifyParams),
             type: EmailVerificationResponseEntity.self,
             completion: { response in
+                
                 if response.isSuccess {
                     AccountManager.shared.saveToken(response.token)
                     completion?(true, "")
@@ -40,6 +41,7 @@ extension AuthVerificationInteractor: IAuthVerificationInteractor {
                 }
             },
             failure: { err in
+
                 completion?(false, err?.localizedDescription ?? "ui_incorrect_verification_description".localized)
             }
         )

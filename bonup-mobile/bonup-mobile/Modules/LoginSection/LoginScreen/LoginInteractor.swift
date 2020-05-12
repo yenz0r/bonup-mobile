@@ -45,6 +45,11 @@ extension LoginInteractor: ILoginInteractor {
                     if type == .auth {
                         AccountManager.shared.saveToken(entity.message)
                     }
+                    AccountManager.shared.currentUser = User(
+                        name: authParams.name,
+                        email: authParams.email,
+                        password: authParams.password
+                    )
                     completion?(entity.isSuccess, "")
                 } else {
                     completion?(entity.isSuccess, entity.message)

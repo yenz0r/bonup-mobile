@@ -87,6 +87,7 @@ PODS:
   - Shuffle-iOS (0.1.3)
   - SnapKit (5.0.1)
   - SOTabBar (1.1.3)
+  - SwiftQRScanner (1.0.9)
   - SwiftSpinner (2.1.0)
   - UICircularProgressRing (6.5.0)
   - YandexMapKit (3.5.0):
@@ -104,6 +105,7 @@ DEPENDENCIES:
   - Shuffle-iOS
   - SnapKit
   - SOTabBar
+  - SwiftQRScanner (from `https://github.com/vinodiOS/SwiftQRScanner`)
   - SwiftSpinner
   - UICircularProgressRing
   - YandexMapKit (= 3.5)
@@ -138,6 +140,15 @@ SPEC REPOS:
     - YandexMapKit
     - YandexRuntime
 
+EXTERNAL SOURCES:
+  SwiftQRScanner:
+    :git: https://github.com/vinodiOS/SwiftQRScanner
+
+CHECKOUT OPTIONS:
+  SwiftQRScanner:
+    :commit: 9aca78143307b4980a210caacf576dae667754f8
+    :git: https://github.com/vinodiOS/SwiftQRScanner
+
 SPEC CHECKSUMS:
   Alamofire: 0fe5fd24b4298dc377a6550da7d5f1b30e286fcb
   Firebase: fe7f74012742ab403451dd283e6909b8f1fb348a
@@ -162,11 +173,12 @@ SPEC CHECKSUMS:
   Shuffle-iOS: 03153c90ff2eb6c6f811157d601b2ac4e360c404
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SOTabBar: 27aea95bd6b39d1be3535c867a2cd3b5adc172e6
+  SwiftQRScanner: e09dc7b549d0d7301cdca505d483665af8cda58e
   SwiftSpinner: 0f15c006307f8d8bbac075638927ec1361b565d7
   UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
   YandexMapKit: ecd4b78de34a35df63d066ac299e6fd0fe46d1ba
   YandexRuntime: 2d55244d06267106cf9b00c25a1e63f72a73b6fd
 
-PODFILE CHECKSUM: e7383ed13b5bcfc281b7f339fdab74bb83ed83ba
+PODFILE CHECKSUM: 86eb86be8dd784e4f2676e2a5a207206ec0f0750
 
 COCOAPODS: 1.9.1

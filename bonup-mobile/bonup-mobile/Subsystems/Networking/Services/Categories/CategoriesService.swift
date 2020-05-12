@@ -17,15 +17,15 @@ enum CategoriesService {
 extension CategoriesService: IMainTargetType {
 
     var baseURL: URL {
-        return URL(string: "server")!
+        return URL(string: serverBase)!
     }
 
     var path: String {
         switch self {
         case .askCategories:
-            return "/categoriesList"
+            return "/categories"
         case .sendSelectedCategories(_):
-            return "/saveSelectedCategories"
+            return "/setCategoriesForUser"
         }
     }
 
@@ -34,7 +34,7 @@ extension CategoriesService: IMainTargetType {
         case .askCategories:
             return .get
         case .sendSelectedCategories(_):
-            return .post
+            return .put
         }
     }
 
@@ -49,7 +49,7 @@ extension CategoriesService: IMainTargetType {
         case .sendSelectedCategories(let selectedIds):
             return .requestParameters(
                 parameters: [
-                    "selectedIds": selectedIds
+                    "ids": selectedIds
                 ],
                 encoding: JSONEncoding.default
             )

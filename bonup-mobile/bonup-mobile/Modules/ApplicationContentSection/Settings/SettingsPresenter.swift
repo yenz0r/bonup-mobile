@@ -99,7 +99,15 @@ extension SettingsPresenter: ISettingsPresenter {
     }
 
     func handleDidSelectSetting(for type: SettingsType) {
-        self.router.show(.changePassword)
+        switch type {
+        case .changePassword:
+            self.router.show(.changePassword)
+        case .logout:
+            self.interactor.logout()
+            self.router.show(.logout)
+        default:
+            return
+        }
     }
 
     func numberOfSettings() -> Int {

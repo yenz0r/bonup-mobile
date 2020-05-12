@@ -27,12 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppRouter.shared.appWindow = self.window
 
         // start application
-        AppRouter.shared.present(.openApplication)
-//        if AccountManager.shared.isLogined() {
-//            AppRouter.shared.present(.openApplication)
-//        } else {
-//            AppRouter.shared.present(.login(name: nil, email: nil))
-//        }
+        if AccountManager.shared.isLogined() {
+            AppRouter.shared.present(.openApplication)
+        } else {
+            AppRouter.shared.present(.login(name: nil, email: nil))
+        }
 
         return true
     }

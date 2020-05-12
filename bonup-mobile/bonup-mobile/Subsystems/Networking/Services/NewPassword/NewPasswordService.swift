@@ -31,7 +31,7 @@ extension NewPasswordService: IAuthorizedTargetType {
     }
 
     var method: Moya.Method {
-        return .post
+        return .patch
     }
 
     var sampleData: Data {
@@ -43,6 +43,7 @@ extension NewPasswordService: IAuthorizedTargetType {
         case .setupNewPassword(let params):
             return .requestParameters(
                 parameters: [
+                    "token": AccountManager.shared.currentToken ?? "",
                     "password": params.newPassword
                 ],
                 encoding: JSONEncoding.default
@@ -51,6 +52,6 @@ extension NewPasswordService: IAuthorizedTargetType {
     }
 
     var headers: [String : String]? {
-        return self.requiredHeaders
+        return nil
     }
 }

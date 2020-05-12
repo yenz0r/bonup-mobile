@@ -47,24 +47,16 @@ extension ApplicationContentRouter: IApplicationContentRouter {
         // benefits
         let benefitsContainer = self.configureBenefitsContainer()
 
-        var viewControllers = [UIViewController]()
-        viewControllers.append(taskSelectionContainer)
-        viewControllers.append(profileContainer)
-        viewControllers.append(benefitsContainer)
-        viewControllers.append(settingsContainer)
+        // organizations
+        let organizationsContainer = self.configureOrganizationsContainer()
 
-        let colors: [UIColor] = [.orange]
-
-        for (index, color) in colors.enumerated() {
-            let viewController = UIViewController()
-            viewController.view.backgroundColor = color
-            viewControllers.append(viewController)
-            viewController.tabBarItem = UITabBarItem(
-                title: "\(index)".localized,
-                image: AssetsHelper.shared.image(.tasksUnselectedIcon),
-                selectedImage: AssetsHelper.shared.image(.tasksSelectedIcon)
-            )
-        }
+        let viewControllers = [
+            taskSelectionContainer,
+            benefitsContainer,
+            profileContainer,
+            organizationsContainer,
+            settingsContainer
+        ]
 
         tabBarController.viewControllers = viewControllers
         self.parentWindow?.rootViewController = tabBarController
@@ -141,6 +133,24 @@ extension ApplicationContentRouter {
         settingsRouter.start(nil)
 
         return settingsNavigationController
+    }
+
+    func configureOrganizationsContainer() -> BUNavigationController {
+        let organizationsNavigationController = BUNavigationController()
+        organizationsNavigationController.setupTabBarItem(
+            with: "ui_organizations_list".localized,
+            unselectedImage: AssetsHelper.shared.image(.organizationUnselectedIcon),
+            selectedImage: AssetsHelper.shared.image(.organizationSelectedIcon)
+        )
+
+        let organizationsDependency = OrganizationsListDependency(
+            parentNavigationController: organizationsNavigationController
+        )
+        let organizationsBuilder = OrganizationsListBuilder()
+        let organizationsRouter = organizationsBuilder.build(organizationsDependency)
+        organizationsRouter.start(nil)
+
+        return organizationsNavigationController
     }
 
     func configureProfileContainer() -> BUNavigationController {

@@ -16,7 +16,7 @@ protocol INewPasswordRouter {
 
 final class NewPasswordRouter {
     enum NewPasswordRouterScenario {
-        case openApp
+        case login
         case showErrorAlert(String)
     }
 
@@ -49,8 +49,8 @@ extension NewPasswordRouter: INewPasswordRouter {
         guard let view = self.view else { return }
         
         switch scenario {
-        case .openApp:
-            AppRouter.shared.present(.openApplication)
+        case .login:
+            self.stop(nil)
         case .showErrorAlert(let message):
             AlertsFactory.shared.infoAlert(
                 for: .error,

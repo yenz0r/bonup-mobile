@@ -27,6 +27,8 @@ target 'bonup-mobile' do
 
   pod 'Nuke'
 
+  pod 'SwiftQRScanner', :git => ‘https://github.com/vinodiOS/SwiftQRScanner’
+
   target 'bonup-mobileTests' do
     inherit! :search_paths
     # Pods for testing

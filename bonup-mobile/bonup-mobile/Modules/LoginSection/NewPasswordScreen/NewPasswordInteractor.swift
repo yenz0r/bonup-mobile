@@ -35,8 +35,8 @@ extension NewPasswordInteractor: INewPasswordInteractor {
             .setupNewPassword(params: newPasswordParams),
             type: NewPasswordResponseEntity.self,
             completion: { response in
+
                 if response.isSuccess {
-                    AccountManager.shared.saveToken(response.newToken)
                     completion?(true, "")
                 } else {
                     completion?(false, response.message)

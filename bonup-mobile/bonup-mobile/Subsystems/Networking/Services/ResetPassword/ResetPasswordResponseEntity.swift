@@ -1,14 +1,15 @@
 //
-//  NewPasswordResponseEntity.swift
+//  ResetPasswordResponseEntity.swift
 //  bonup-mobile
 //
-//  Created by Yahor Bychkouski on 15.04.2020.
+//  Created by Yahor Bychkouski on 12.05.2020.
 //  Copyright © 2020 Bonup. All rights reserved.
 //
 
 import Foundation
 
-struct NewPasswordResponseEntity: Codable {
+struct ResetPasswordResponseEntity: Codable {
+
     let isSuccess: Bool
     let message: String
 }

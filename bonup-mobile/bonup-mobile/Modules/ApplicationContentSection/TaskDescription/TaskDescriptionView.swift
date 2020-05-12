@@ -415,7 +415,7 @@ extension TaskDescriptionView: ITaskDescriptionView {
 
         // setup image
         let options = ImageLoadingOptions(
-            placeholder: UIImage(named: "bonup-image-logo-2"),
+            placeholder: UIImage(named: ""),
             transition: .fadeIn(duration: 0.33)
         )
         if let url = self.presenter.imageURL {

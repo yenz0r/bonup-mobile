@@ -9,6 +9,8 @@
 import Foundation
 
 protocol ISettingsInteractor: AnyObject {
+
+    func logout()
 }
 
 final class SettingsInteractor {
@@ -20,4 +22,9 @@ final class SettingsInteractor {
 // MARK: - ISettingsInteractor implementation
 
 extension SettingsInteractor: ISettingsInteractor {
+
+    func logout() {
+
+        AccountManager.shared.resetAuthCredentials()
+    }
 }
