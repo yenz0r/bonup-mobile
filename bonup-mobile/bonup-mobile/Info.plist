@@ -20,6 +20,8 @@
     <string>ca-app-pub-4243143975731364~4984738069</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Need to access your camera to capture a photo add and update profile picture.</string>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>You will get zero benefit allowing this app accessing your location. You should never see this alert. If you do alert technical support at foo@bar.baz</string>
 	<key>LSRequiresIPhoneOS</key>

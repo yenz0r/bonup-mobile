@@ -10,6 +10,11 @@ import UIKit
 
 protocol IOrganizationsListPresenter: AnyObject {
 
+    func viewWillAppear()
+    func title(for index: Int) -> String
+    func imagePath(for index: Int) -> String
+    func numberOfOrganizations() -> Int
+    func handleShowOgranizationControl()
 }
 
 final class OrganizationsListPresenter {
@@ -17,6 +22,8 @@ final class OrganizationsListPresenter {
     private weak var view: IOrganizationsListView?
     private let interactor: IOrganizationsListInteractor
     private let router: IOrganizationsListRouter
+
+    private var organizationsResponse: OrganizationsListResponseEntity?
 
     init(view: IOrganizationsListView?, interactor: IOrganizationsListInteractor, router: IOrganizationsListRouter) {
         self.view = view
@@ -28,5 +35,43 @@ final class OrganizationsListPresenter {
 // MARK: - IBenefitsPresenter implementation
 
 extension OrganizationsListPresenter: IOrganizationsListPresenter {
+    func title(for index: Int) -> String {
 
+        guard let response = self.organizationsResponse else { return "-" }
+
+        return response.organizations[index].name
+    }
+
+    func imagePath(for index: Int) -> String {
+
+        guard let response = self.organizationsResponse else { return "" }
+
+        return response.organizations[index].photo
+    }
+
+    func handleShowOgranizationControl() {
+
+        self.router.show(.showOrganizationControl)
+    }
+
+    func numberOfOrganizations() -> Int {
+
+        guard let response = self.organizationsResponse else { return 0 }
+
+        return response.organizations.count
+    }
+
+    func viewWillAppear() {
+
+        self.interactor.getOrganizationsList(
+            success: { [weak self] entity in
+
+                self?.organizationsResponse = entity
+                self?.view?.reloadData()
+            }, failure: { status, message in
+
+                print("---")
+            }
+        )
+    }
 }

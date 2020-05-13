@@ -37,6 +37,12 @@
 		B935A598241D6A820074E89E /* NewPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B935A597241D6A820074E89E /* NewPasswordRouter.swift */; };
 		B935A59A241D6A8A0074E89E /* NewPasswordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B935A599241D6A8A0074E89E /* NewPasswordBuilder.swift */; };
 		B935A59D241D6F2E0074E89E /* UIButton+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B935A59C241D6F2D0074E89E /* UIButton+Factory.swift */; };
+		B941E736246B933B0056B844 /* OrganizationControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941E735246B933B0056B844 /* OrganizationControlView.swift */; };
+		B941E738246B93480056B844 /* OrganizationControlPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941E737246B93480056B844 /* OrganizationControlPresenter.swift */; };
+		B941E73A246B93550056B844 /* OrganizationControlInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941E739246B93550056B844 /* OrganizationControlInteractor.swift */; };
+		B941E73C246B93600056B844 /* OrganizationControlBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941E73B246B93600056B844 /* OrganizationControlBuilder.swift */; };
+		B941E73E246B936B0056B844 /* OrganizationControlDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941E73D246B936B0056B844 /* OrganizationControlDependency.swift */; };
+		B941E740246B93730056B844 /* OrganizationControlRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941E73F246B93730056B844 /* OrganizationControlRouter.swift */; };
 		B944A8EE246217C0002170FD /* TaskDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B944A8ED246217C0002170FD /* TaskDescriptionView.swift */; };
 		B944A8F1246217EC002170FD /* TaskDescriptionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B944A8F0246217EC002170FD /* TaskDescriptionPresenter.swift */; };
 		B944A8F3246217F8002170FD /* TaskDescriptionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B944A8F2246217F8002170FD /* TaskDescriptionInteractor.swift */; };
@@ -77,6 +83,12 @@
 		B966E73424684D640043FD69 /* BenefitDescriptionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B966E73324684D640043FD69 /* BenefitDescriptionInteractor.swift */; };
 		B966E73624684D700043FD69 /* BenefitDescriptionDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B966E73524684D700043FD69 /* BenefitDescriptionDependency.swift */; };
 		B967C2D5244BC3BD00AFE3A1 /* SettingsPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B967C2D4244BC3BD00AFE3A1 /* SettingsPresentationModel.swift */; };
+		B96A71DD246B9C90007416DF /* OrganizationControlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96A71DC246B9C90007416DF /* OrganizationControlService.swift */; };
+		B96A71DF246B9CB5007416DF /* OrganizationControlResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96A71DE246B9CB5007416DF /* OrganizationControlResponseEntity.swift */; };
+		B96A71E2246BA79A007416DF /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96A71E1246BA79A007416DF /* ProfileService.swift */; };
+		B96A71E4246BA7A6007416DF /* ProfileResponseDetailsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96A71E3246BA7A6007416DF /* ProfileResponseDetailsEntity.swift */; };
+		B96A71E7246BA842007416DF /* ProfileGoalsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96A71E6246BA842007416DF /* ProfileGoalsResponse.swift */; };
+		B96A71E9246BAB7C007416DF /* ProfileResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96A71E8246BAB7C007416DF /* ProfileResponseEntity.swift */; };
 		B96AC7F82444A392005C25D1 /* CategoriesPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96AC7F72444A392005C25D1 /* CategoriesPresentationModel.swift */; };
 		B96AC7FB2446651C005C25D1 /* LocaleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96AC7FA2446651C005C25D1 /* LocaleManager.swift */; };
 		B96D54BD242FBED600023BC9 /* NewPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D54BC242FBED600023BC9 /* NewPasswordService.swift */; };
@@ -102,6 +114,9 @@
 		B9787F48246B75A3007DB617 /* TaskListResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9787F47246B75A3007DB617 /* TaskListResponseEntity.swift */; };
 		B9787F4B246B7DF3007DB617 /* TaskListFinishedTasksEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9787F4A246B7DF3007DB617 /* TaskListFinishedTasksEntity.swift */; };
 		B9787F4D246B7E08007DB617 /* TaskListCurrentTasksEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9787F4C246B7E08007DB617 /* TaskListCurrentTasksEntity.swift */; };
+		B9787F4F246B8C03007DB617 /* OrganizationsListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9787F4E246B8C03007DB617 /* OrganizationsListService.swift */; };
+		B9787F51246B8C15007DB617 /* OrganizationsListResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9787F50246B8C14007DB617 /* OrganizationsListResponseEntity.swift */; };
+		B9787F53246B8C50007DB617 /* OrganizationResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9787F52246B8C50007DB617 /* OrganizationResponseEntity.swift */; };
 		B982CCDC244481D600CB6D81 /* CategoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B982CCDB244481D600CB6D81 /* CategoryCardView.swift */; };
 		B98DE0DF244BB5FA007AE007 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DE0DE244BB5FA007AE007 /* SettingsView.swift */; };
 		B98DE0E2244BB614007AE007 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DE0E1244BB614007AE007 /* SettingsPresenter.swift */; };
@@ -246,6 +261,12 @@
 		B935A597241D6A820074E89E /* NewPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordRouter.swift; sourceTree = "<group>"; };
 		B935A599241D6A8A0074E89E /* NewPasswordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordBuilder.swift; sourceTree = "<group>"; };
 		B935A59C241D6F2D0074E89E /* UIButton+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Factory.swift"; sourceTree = "<group>"; };
+		B941E735246B933B0056B844 /* OrganizationControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlView.swift; sourceTree = "<group>"; };
+		B941E737246B93480056B844 /* OrganizationControlPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlPresenter.swift; sourceTree = "<group>"; };
+		B941E739246B93550056B844 /* OrganizationControlInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlInteractor.swift; sourceTree = "<group>"; };
+		B941E73B246B93600056B844 /* OrganizationControlBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlBuilder.swift; sourceTree = "<group>"; };
+		B941E73D246B936B0056B844 /* OrganizationControlDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlDependency.swift; sourceTree = "<group>"; };
+		B941E73F246B93730056B844 /* OrganizationControlRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlRouter.swift; sourceTree = "<group>"; };
 		B944A8ED246217C0002170FD /* TaskDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionView.swift; sourceTree = "<group>"; };
 		B944A8F0246217EC002170FD /* TaskDescriptionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionPresenter.swift; sourceTree = "<group>"; };
 		B944A8F2246217F8002170FD /* TaskDescriptionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionInteractor.swift; sourceTree = "<group>"; };
@@ -298,6 +319,12 @@
 		B966E73324684D640043FD69 /* BenefitDescriptionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitDescriptionInteractor.swift; sourceTree = "<group>"; };
 		B966E73524684D700043FD69 /* BenefitDescriptionDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitDescriptionDependency.swift; sourceTree = "<group>"; };
 		B967C2D4244BC3BD00AFE3A1 /* SettingsPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresentationModel.swift; sourceTree = "<group>"; };
+		B96A71DC246B9C90007416DF /* OrganizationControlService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlService.swift; sourceTree = "<group>"; };
+		B96A71DE246B9CB5007416DF /* OrganizationControlResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlResponseEntity.swift; sourceTree = "<group>"; };
+		B96A71E1246BA79A007416DF /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		B96A71E3246BA7A6007416DF /* ProfileResponseDetailsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponseDetailsEntity.swift; sourceTree = "<group>"; };
+		B96A71E6246BA842007416DF /* ProfileGoalsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGoalsResponse.swift; sourceTree = "<group>"; };
+		B96A71E8246BAB7C007416DF /* ProfileResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponseEntity.swift; sourceTree = "<group>"; };
 		B96AC7F72444A392005C25D1 /* CategoriesPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPresentationModel.swift; sourceTree = "<group>"; };
 		B96AC7FA2446651C005C25D1 /* LocaleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleManager.swift; sourceTree = "<group>"; };
 		B96D54BC242FBED600023BC9 /* NewPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordService.swift; sourceTree = "<group>"; };
@@ -323,6 +350,9 @@
 		B9787F47246B75A3007DB617 /* TaskListResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListResponseEntity.swift; sourceTree = "<group>"; };
 		B9787F4A246B7DF3007DB617 /* TaskListFinishedTasksEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListFinishedTasksEntity.swift; sourceTree = "<group>"; };
 		B9787F4C246B7E08007DB617 /* TaskListCurrentTasksEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListCurrentTasksEntity.swift; sourceTree = "<group>"; };
+		B9787F4E246B8C03007DB617 /* OrganizationsListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsListService.swift; sourceTree = "<group>"; };
+		B9787F50246B8C14007DB617 /* OrganizationsListResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsListResponseEntity.swift; sourceTree = "<group>"; };
+		B9787F52246B8C50007DB617 /* OrganizationResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationResponseEntity.swift; sourceTree = "<group>"; };
 		B982CCDB244481D600CB6D81 /* CategoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardView.swift; sourceTree = "<group>"; };
 		B98DE0DE244BB5FA007AE007 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B98DE0E1244BB614007AE007 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
@@ -558,6 +588,9 @@
 				B948C3B3246856F3001EB887 /* Benefits */,
 				B9787F41246B54FD007DB617 /* TaskSelection */,
 				B9787F49246B75A9007DB617 /* TaskList */,
+				B9787F54246B8C56007DB617 /* OrganizationsList */,
+				B96A71E0246B9CE1007416DF /* OrganizationControl */,
+				B96A71E5246BA7AD007416DF /* Profile */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -606,6 +639,19 @@
 				B9A732FA242D556C00860346 /* UIButton+Animations.swift */,
 			);
 			path = UIButton;
+			sourceTree = "<group>";
+		};
+		B941E741246B93B40056B844 /* OrganizationControl */ = {
+			isa = PBXGroup;
+			children = (
+				B941E735246B933B0056B844 /* OrganizationControlView.swift */,
+				B941E737246B93480056B844 /* OrganizationControlPresenter.swift */,
+				B941E739246B93550056B844 /* OrganizationControlInteractor.swift */,
+				B941E73B246B93600056B844 /* OrganizationControlBuilder.swift */,
+				B941E73D246B936B0056B844 /* OrganizationControlDependency.swift */,
+				B941E73F246B93730056B844 /* OrganizationControlRouter.swift */,
+			);
+			path = OrganizationControl;
 			sourceTree = "<group>";
 		};
 		B944A8EF246217CA002170FD /* TaskDescription */ = {
@@ -828,6 +874,26 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		B96A71E0246B9CE1007416DF /* OrganizationControl */ = {
+			isa = PBXGroup;
+			children = (
+				B96A71DC246B9C90007416DF /* OrganizationControlService.swift */,
+				B96A71DE246B9CB5007416DF /* OrganizationControlResponseEntity.swift */,
+			);
+			path = OrganizationControl;
+			sourceTree = "<group>";
+		};
+		B96A71E5246BA7AD007416DF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B96A71E1246BA79A007416DF /* ProfileService.swift */,
+				B96A71E3246BA7A6007416DF /* ProfileResponseDetailsEntity.swift */,
+				B96A71E6246BA842007416DF /* ProfileGoalsResponse.swift */,
+				B96A71E8246BAB7C007416DF /* ProfileResponseEntity.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		B96AC7F92444A395005C25D1 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -918,6 +984,16 @@
 				B9787F4C246B7E08007DB617 /* TaskListCurrentTasksEntity.swift */,
 			);
 			path = TaskList;
+			sourceTree = "<group>";
+		};
+		B9787F54246B8C56007DB617 /* OrganizationsList */ = {
+			isa = PBXGroup;
+			children = (
+				B9787F4E246B8C03007DB617 /* OrganizationsListService.swift */,
+				B9787F50246B8C14007DB617 /* OrganizationsListResponseEntity.swift */,
+				B9787F52246B8C50007DB617 /* OrganizationResponseEntity.swift */,
+			);
+			path = OrganizationsList;
 			sourceTree = "<group>";
 		};
 		B982CCDD244481DA00CB6D81 /* Subviews */ = {
@@ -1228,6 +1304,7 @@
 				B966E72C24684CB60043FD69 /* BenefitDescription */,
 				B992D51924578A50002ABF71 /* BenefitsList */,
 				B9D336A32469D002003E1CEB /* OrganizationsList */,
+				B941E741246B93B40056B844 /* OrganizationControl */,
 			);
 			path = ApplicationContentSection;
 			sourceTree = "<group>";
@@ -1534,12 +1611,14 @@
 				B992D50E245789FF002ABF71 /* BenefitsView.swift in Sources */,
 				B9787F4D246B7E08007DB617 /* TaskListCurrentTasksEntity.swift in Sources */,
 				B9FC798E242FB75E00F2D5BC /* ApplicationContentRouter.swift in Sources */,
+				B941E73C246B93600056B844 /* OrganizationControlBuilder.swift in Sources */,
 				B935A594241D6A720074E89E /* NewPasswordPresenter.swift in Sources */,
 				B9A732FB242D556C00860346 /* UIButton+Animations.swift in Sources */,
 				B977483B24431910004D39AD /* TaskSelectionView.swift in Sources */,
 				B9CAA71A242BE0CB00E50668 /* String+Validation.swift in Sources */,
 				B9D30C70244BA0CF00B9E9AA /* ChangePasswordDependency.swift in Sources */,
 				B9CEE6A2241D55A500308098 /* ResetPasswordPresenter.swift in Sources */,
+				B9787F4F246B8C03007DB617 /* OrganizationsListService.swift in Sources */,
 				B9787F4B246B7DF3007DB617 /* TaskListFinishedTasksEntity.swift in Sources */,
 				B9FC7990242FB77C00F2D5BC /* ApplicationContentDependency.swift in Sources */,
 				B91A1E572451CD3A00837E73 /* ProfileAhievementsView.swift in Sources */,
@@ -1551,6 +1630,7 @@
 				B932365B241D743300A37634 /* NewPasswordDependency.swift in Sources */,
 				B982CCDC244481D600CB6D81 /* CategoryCardView.swift in Sources */,
 				B9D3369E2469CFDE003E1CEB /* OrganizationsListDependency.swift in Sources */,
+				B96A71DF246B9CB5007416DF /* OrganizationControlResponseEntity.swift in Sources */,
 				B9FC7988242FB6E500F2D5BC /* ApplicationContentView.swift in Sources */,
 				B9787F43246B58A3007DB617 /* TaskCardEntity.swift in Sources */,
 				B967C2D5244BC3BD00AFE3A1 /* SettingsPresentationModel.swift in Sources */,
@@ -1569,6 +1649,7 @@
 				B9A0C9A5242FC56D00EB6FAE /* CategoriesView.swift in Sources */,
 				B948C3B52468570D001EB887 /* BenefitsResponseEntity.swift in Sources */,
 				B948A236241CBFA6001287B8 /* LoginView.swift in Sources */,
+				B941E738246B93480056B844 /* OrganizationControlPresenter.swift in Sources */,
 				B977484F24431A47004D39AD /* TasksListBuilder.swift in Sources */,
 				B9A13D3C244E3AF000373827 /* ProfileInteractor.swift in Sources */,
 				B9D336982469CFAB003E1CEB /* OrganizationsListView.swift in Sources */,
@@ -1577,6 +1658,7 @@
 				B96D54BD242FBED600023BC9 /* NewPasswordService.swift in Sources */,
 				B992D52E2457A1A7002ABF71 /* SelectedBenefitsContentCell.swift in Sources */,
 				B92688FD2429520300F1732A /* UIView+Gradient.swift in Sources */,
+				B941E736246B933B0056B844 /* OrganizationControlView.swift in Sources */,
 				B9A13D33244E3AB900373827 /* ProfileView.swift in Sources */,
 				B964CE8624475C6900161300 /* NewPasswordResponseEntity.swift in Sources */,
 				B98DE0E4244BB61E007AE007 /* SettingsInteractor.swift in Sources */,
@@ -1595,6 +1677,7 @@
 				B9A13D3A244E3AE400373827 /* ProfileRouter.swift in Sources */,
 				B9FC7986242FB04000F2D5BC /* BUTabBarController.swift in Sources */,
 				B9787F46246B7597007DB617 /* TaskListService.swift in Sources */,
+				B96A71E2246BA79A007416DF /* ProfileService.swift in Sources */,
 				B935A592241D6A6A0074E89E /* NewPasswordView.swift in Sources */,
 				B9BA40A12443D0ED00950808 /* FinishedTasksPresentationModel.swift in Sources */,
 				B9CAA70E242B9F0D00E50668 /* AuthVerificationBuilder.swift in Sources */,
@@ -1610,12 +1693,14 @@
 				B9D1758A243CFD38001FF58E /* TermsAndConditionsDependency.swift in Sources */,
 				B9CAA715242B9FAE00E50668 /* UITextField+Factory.swift in Sources */,
 				B98DE0E8244BB62D007AE007 /* SettingsDependency.swift in Sources */,
+				B96A71E7246BA842007416DF /* ProfileGoalsResponse.swift in Sources */,
 				B9D3369A2469CFCA003E1CEB /* OrganizationsListPresenter.swift in Sources */,
 				B992D52024579217002ABF71 /* UsedBenefitsCell.swift in Sources */,
 				B98DE0E2244BB614007AE007 /* SettingsPresenter.swift in Sources */,
 				B948A23A241CBFBA001287B8 /* LoginPresenter.swift in Sources */,
 				B964E0C32451CFC400668EE8 /* ProfileAhievementsCell.swift in Sources */,
 				B9126688242AA57D00BEA50C /* LoginSectionViewController.swift in Sources */,
+				B9787F51246B8C15007DB617 /* OrganizationsListResponseEntity.swift in Sources */,
 				B9A0C9AF242FC59B00EB6FAE /* CategoriesDependency.swift in Sources */,
 				B91E809B242FCEC100859C83 /* CategoriesResponseEntity.swift in Sources */,
 				B9D17588243CFD27001FF58E /* TermsAndConditionsBuilder.swift in Sources */,
@@ -1635,18 +1720,21 @@
 				B9D336A22469CFF3003E1CEB /* OrganizationsListIneractor.swift in Sources */,
 				B932366C241D980400A37634 /* KeyChainService.swift in Sources */,
 				B9A13D40244E3F1500373827 /* ProfileInfoContainer.swift in Sources */,
+				B96A71E9246BAB7C007416DF /* ProfileResponseEntity.swift in Sources */,
 				B9787F3A246B3D1B007DB617 /* ResetPasswordResponseEntity.swift in Sources */,
 				B9CEE6A6241D55BE00308098 /* ResetPasswordBuilder.swift in Sources */,
 				B977485324431A5E004D39AD /* TasksListRouter.swift in Sources */,
 				B948A1E2241444B2001287B8 /* AppDelegate.swift in Sources */,
 				B977483D2443194E004D39AD /* TaskSelectionInteractor.swift in Sources */,
 				B944A8EE246217C0002170FD /* TaskDescriptionView.swift in Sources */,
+				B941E73E246B936B0056B844 /* OrganizationControlDependency.swift in Sources */,
 				B9CEE6A0241D559E00308098 /* ResetPasswordInteractor.swift in Sources */,
 				B948A23C241CBFC1001287B8 /* LoginRouter.swift in Sources */,
 				B9D30C6C244BA0BB00B9E9AA /* ChangePasswordInteractor.swift in Sources */,
 				B9A0C9A9242FC58500EB6FAE /* CategoriesRouter.swift in Sources */,
 				B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */,
 				B9CAA722242BE8DF00E50668 /* EmailVerificationResponseEntity.swift in Sources */,
+				B96A71E4246BA7A6007416DF /* ProfileResponseDetailsEntity.swift in Sources */,
 				B992D51624578A36002ABF71 /* BenefitsRouter.swift in Sources */,
 				B966E72B24684CB10043FD69 /* BenefitDescriptionView.swift in Sources */,
 				B9323669241D96F600A37634 /* AccountManager.swift in Sources */,
@@ -1655,6 +1743,7 @@
 				B9268920242A95CA00F1732A /* AssetsHelper.swift in Sources */,
 				B992D51424578A2E002ABF71 /* BenefitsBuilder.swift in Sources */,
 				B966E72E24684D000043FD69 /* BenefitDescriptionPresenter.swift in Sources */,
+				B96A71DD246B9C90007416DF /* OrganizationControlService.swift in Sources */,
 				B977483F24431955004D39AD /* TaskSelectionBuilder.swift in Sources */,
 				B959712D24269F2A00EAEB6E /* TimerManager.swift in Sources */,
 				B9D30C67244BA0A300B9E9AA /* ChangePasswordView.swift in Sources */,
@@ -1672,6 +1761,7 @@
 				B948C3B2246856EF001EB887 /* BenefitsService.swift in Sources */,
 				B9069104246235D7001A1F76 /* QRcodeManager.swift in Sources */,
 				B992D52C2457A18F002ABF71 /* UsedBenefitsPresentationModel.swift in Sources */,
+				B9787F53246B8C50007DB617 /* OrganizationResponseEntity.swift in Sources */,
 				B992D51224578A11002ABF71 /* BenefitsInteractor.swift in Sources */,
 				B992D525245799DC002ABF71 /* NewBenefitsPresentationModel.swift in Sources */,
 				B992D5302457A1B2002ABF71 /* UsedBenefitsContentCell.swift in Sources */,
@@ -1679,10 +1769,12 @@
 				B9259BA0241CE267009585B7 /* UIColor+Facade.swift in Sources */,
 				B98DE0DF244BB5FA007AE007 /* SettingsView.swift in Sources */,
 				B992D52A2457A182002ABF71 /* SelectedBenefitsPresentationModel.swift in Sources */,
+				B941E73A246B93550056B844 /* OrganizationControlInteractor.swift in Sources */,
 				B944A8F724621807002170FD /* TaskDescriptionBuilder.swift in Sources */,
 				B9D3369C2469CFD4003E1CEB /* OrganizationsListBuilder.swift in Sources */,
 				B977484B24431A37004D39AD /* TasksListPresenter.swift in Sources */,
 				B966E73424684D640043FD69 /* BenefitDescriptionInteractor.swift in Sources */,
+				B941E740246B93730056B844 /* OrganizationControlRouter.swift in Sources */,
 				B9323663241D7F5300A37634 /* AuthService.swift in Sources */,
 				B948A247241CDE64001287B8 /* UIFont+Fonts.swift in Sources */,
 				B9CAA70A242B9EF600E50668 /* AuthVerificationInteractor.swift in Sources */,

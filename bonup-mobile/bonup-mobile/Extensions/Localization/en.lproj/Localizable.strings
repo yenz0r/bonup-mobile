@@ -51,7 +51,7 @@
 "ui_qr_title" = "QR";
 "ui_settings_title" = "Settings";
 "ui_change_password_title" = "Change Password";
-"ui_organization_title" = "Organization";
+"ui_organization_title" = "Company";
 "ui_email_not_created" = "This email do not exists, please verify it..";
 "ui_categories_title" = "Categories";
 "ui_skip_title" = "Skip";
@@ -90,3 +90,5 @@
 "ui_description_title" = "Author did not add description yet";
 "ui_empty_organizations_title" = "Sorry, but list of your organization is empty now.. You can add them any time, just write to our email: bonup@gmail.com";
 "ui_organizations_list_title" = "Organizations List";
+"ui_check_task" = "Verify Task";
+"ui_check_benefit" = "Activate Benefit";

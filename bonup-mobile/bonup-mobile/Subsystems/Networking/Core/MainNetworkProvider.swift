@@ -69,6 +69,7 @@ extension MainNetworkProvider: IMainNetworkProvider {
                                completion: @escaping (T) -> Void,
                                failure: ((MoyaError?) -> Void)?) -> Cancellable {
 
+        UIApplication.topViewController()?.view.endEditing(true)
         AlertsFactory.shared.loadingAlert(.show(message: "Wait a bit please.."))
 
         return moyaProvider.request(target) { result in

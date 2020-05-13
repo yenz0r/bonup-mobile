@@ -10,6 +10,7 @@ import UIKit
 import UICircularProgressRing
 
 protocol IProfileView: AnyObject {
+    
     func reloadData()
 }
 
@@ -75,6 +76,12 @@ final class ProfileView: UIViewController {
         self.reloadData()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.presenter.viewWillAppear()
+
+        super.viewWillAppear(animated)
+    }
+
     // MARK: - Configurations
 
     private func configureAppearance() {
@@ -108,6 +115,7 @@ final class ProfileView: UIViewController {
 // MARK: - IProfileView
 
 extension ProfileView: IProfileView {
+
     func reloadData() {
         self.headerView.reloadData()
         self.infoContainer.reloadData()
@@ -126,11 +134,11 @@ extension ProfileView: ProfileHeaderViewDataSource {
     func profileHeaderView(_ profileHeaderView: ProfileHeaderView, userInfoFor type: ProfileHeaderView.UserInfoType) -> String? {
         switch type {
         case .name:
-            return "name"
+            return self.presenter.name
         case .email:
-            return "email"
+            return self.presenter.email
         case .organization:
-            return "organization"
+            return self.presenter.organization
         }
     }
 }
@@ -141,11 +149,11 @@ extension ProfileView: ProfileInfoContainerDataSource {
     func profileInfoContainer(_ container: ProfileInfoContainer, valueFor type: ProfileInfoContainer.InfoType) -> String {
         switch type {
         case .done:
-            return "1010"
-        case .earned:
-            return "102"
+            return self.presenter.doneTasks
+        case .rest:
+            return self.presenter.restBalls
         case .spend:
-            return "502"
+            return self.presenter.allSpendBalls
         }
     }
 }
@@ -154,15 +162,16 @@ extension ProfileView: ProfileInfoContainerDataSource {
 
 extension ProfileView: ProfileProgressContainerDataSource {
     func profileProgressContainer(_ container: ProfileProgressContainer, progressFor type: ProfileProgressContainer.ProgressType) -> CGFloat {
+
         switch type {
         case .all:
-            return 15
+            return self.presenter.donePercent
         case .lastMonth:
-            return 50
+            return self.presenter.ballsPercent
         case .lastWeek:
-            return 70
+            return self.presenter.activatedCouponsPercent
         case .today:
-            return 39
+            return self.presenter.spentBallsPercent
         }
     }
 }
@@ -171,15 +180,17 @@ extension ProfileView: ProfileProgressContainerDataSource {
 
 extension ProfileView: ProfileAhievementsViewDataSource {
     func profileAhievementsView(_ profileAhievementsView: ProfileAhievementsView, infoFor type: ProfileAhievementsView.InfoType, at index: Int) -> String? {
+
         switch type {
         case .title:
-            return "Title"
+            return self.presenter.archiveTitle(for: index)
         case .description:
-            return "Description for adsf sfd asf asdf dasf a"
+            return self.presenter.archiveDescription(for: index)
         }
     }
 
     func numberOfItemsInprofileAhievementsView(_ profileAhievementsView: ProfileAhievementsView) -> Int {
-        return 10
+
+        return self.presenter.archivesCount()
     }
 }

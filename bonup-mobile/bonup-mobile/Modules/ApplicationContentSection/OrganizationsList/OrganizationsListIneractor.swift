@@ -9,15 +9,35 @@
 import Foundation
 
 protocol IOrganizationsListInteractor: AnyObject {
+
+    func getOrganizationsList(success:((OrganizationsListResponseEntity) -> Void)?, failure:((Bool, String) -> Void)?)
 }
 
 final class OrganizationsListInteractor {
 
-    private let networkProvider = MainNetworkProvider<NewPasswordService>()
+    private let networkProvider = MainNetworkProvider<OrganizationsListService>()
 
 }
 
 // MARK: - IChangePasswordInteractor implementation
 
 extension OrganizationsListInteractor: IOrganizationsListInteractor {
+
+    func getOrganizationsList(success: ((OrganizationsListResponseEntity) -> Void)?,
+                              failure: ((Bool, String) -> Void)?) {
+
+        guard let token = AccountManager.shared.currentToken else { return }
+
+        _ = self.networkProvider.request(
+            .getOrganizations(token),
+            type: OrganizationsListResponseEntity.self,
+            completion: { result in
+
+                success?(result)
+            },
+            failure: { err in
+                failure?(false, err?.localizedDescription ?? "")
+            }
+        )
+    }
 }

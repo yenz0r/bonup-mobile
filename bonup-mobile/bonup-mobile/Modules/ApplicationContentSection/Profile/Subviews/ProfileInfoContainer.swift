@@ -20,7 +20,7 @@ final class ProfileInfoContainer: UIView {
     }
 
     enum InfoType {
-        case done, spend, earned
+        case done, spend, rest
     }
 
     // MARK: - Public variables
@@ -57,7 +57,7 @@ final class ProfileInfoContainer: UIView {
     func reloadData() {
         self.doneValueLabel.text = self.dataSource.profileInfoContainer(self, valueFor: .done)
         self.spendValueLabel.text = self.dataSource.profileInfoContainer(self, valueFor: .spend)
-        self.earnedValueLabel.text = self.dataSource.profileInfoContainer(self, valueFor: .earned)
+        self.earnedValueLabel.text = self.dataSource.profileInfoContainer(self, valueFor: .rest)
     }
 
     // MARK: - Setup subviews

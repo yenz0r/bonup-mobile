@@ -138,7 +138,7 @@ extension ApplicationContentRouter {
     func configureOrganizationsContainer() -> BUNavigationController {
         let organizationsNavigationController = BUNavigationController()
         organizationsNavigationController.setupTabBarItem(
-            with: "ui_organizations_list".localized,
+            with: "ui_organization_title".localized,
             unselectedImage: AssetsHelper.shared.image(.organizationUnselectedIcon),
             selectedImage: AssetsHelper.shared.image(.organizationSelectedIcon)
         )

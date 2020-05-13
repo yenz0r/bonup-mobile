@@ -10,6 +10,7 @@ import UIKit
 
 protocol IOrganizationsListView: AnyObject {
 
+    func reloadData()
 }
 
 final class OrganizationsListView: UIViewController {
@@ -36,6 +37,12 @@ final class OrganizationsListView: UIViewController {
         super.viewDidLoad()
 
         self.configureAppearance()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.presenter.viewWillAppear()
     }
 
     // MARK: - Setup subviews
@@ -120,7 +127,8 @@ final class OrganizationsListView: UIViewController {
 extension OrganizationsListView: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+
+        self.presenter.handleShowOgranizationControl()
     }
 }
 
@@ -133,7 +141,7 @@ extension OrganizationsListView: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.presenter.numberOfOrganizations()
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -145,8 +153,8 @@ extension OrganizationsListView: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 
-        organizationCell.titleText = "Title"
-        organizationCell.imageLink = "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg"
+        organizationCell.titleText = self.presenter.title(for: indexPath.row)
+        organizationCell.imageLink = self.presenter.imagePath(for: indexPath.row)
 
         return organizationCell
     }
@@ -158,15 +166,15 @@ extension OrganizationsListView: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        return CGSize(width: self.collectionView.bounds.size.width, height: 130.0)
+        return CGSize(width: self.collectionView.bounds.size.width - 40.0, height: 150.0)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10.0
+        return 20.0
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10.0
+        return 20.0
     }
 }
 
@@ -174,4 +182,8 @@ extension OrganizationsListView: UICollectionViewDelegateFlowLayout {
 
 extension OrganizationsListView: IOrganizationsListView {
 
+    func reloadData() {
+
+        self.collectionView.reloadData()
+    }
 }
