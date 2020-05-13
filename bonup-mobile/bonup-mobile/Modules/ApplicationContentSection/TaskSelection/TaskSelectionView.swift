@@ -104,6 +104,18 @@ final class TaskSelectionView: UIViewController {
         self.configureSubviews()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.presenter.viewWillAppear()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        self.presenter.viewWillDisappear()
+    }
+
     // MARK: - Configurations
 
     private func configureNavigationBar() {
@@ -200,11 +212,18 @@ extension TaskSelectionView: ITaskSelectionView {
 
 extension TaskSelectionView: SwipeCardStackDataSource {
     func numberOfCards(in cardStack: SwipeCardStack) -> Int {
-        return 10
+        return self.presenter.numberOfCards()
     }
 
     func cardStack(_ cardStack: SwipeCardStack, cardForIndexAt index: Int) -> SwipeCard {
-        return TaskCardView(title: "title-\(index)", description: "description-\(index)", image: UIImage(named: "test-task-icon"))
+
+        let entity = self.presenter.cardForIndex(index)
+
+        return TaskCardView(
+            title: entity.title,
+            description: entity.description,
+            imageLink: entity.imageLink
+        )
     }
 }
 

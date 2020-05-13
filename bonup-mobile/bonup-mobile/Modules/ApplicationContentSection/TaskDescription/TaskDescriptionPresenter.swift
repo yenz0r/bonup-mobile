@@ -27,13 +27,16 @@ final class TaskDescriptionPresenter {
     private weak var view: ITaskDescriptionView?
     private let interactor: ITaskDescriptionInteractor
     private let router: ITaskDescriptionRouter
+    private let currentTask: TaskListCurrentTasksEntity
 
     init(view: ITaskDescriptionView?,
          interactor: ITaskDescriptionInteractor,
-         router: ITaskDescriptionRouter) {
+         router: ITaskDescriptionRouter,
+         currentTask: TaskListCurrentTasksEntity) {
         self.view = view
         self.interactor = interactor
         self.router = router
+        self.currentTask = currentTask
     }
 }
 
@@ -41,46 +44,50 @@ final class TaskDescriptionPresenter {
 
 extension TaskDescriptionPresenter: ITaskDescriptionPresenter {
     var latitude: Double {
-        return 59.952
+        return Double(self.currentTask.x)
     }
 
     var longitude: Double {
-        return 30.318
+        return Double(self.currentTask.y)
     }
 
     var qrCodeImage: UIImage? {
-        return QRcodeManager.shared.createQRFromString(str: "test-line")
+        guard let userToken = AccountManager.shared.currentToken else { return nil }
+        let taskId = self.currentTask.id
+        let qrLine = "\(taskId)-\(userToken)"
+
+        return QRcodeManager.shared.createQRFromString(str: qrLine)
     }
 
     var title: String {
-        return "Visit RuCompany"
+        return self.currentTask.name
     }
 
     var description: String {
-        return "You need to visit "
+        return self.currentTask.description
     }
 
     var imageURL: URL? {
-        return URL(string: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg")
+        return URL(string: self.currentTask.photos.first ?? "")
     }
 
     var organizationTitle: String {
-        return "RuCompany"
+        return self.currentTask.organizationName
     }
 
     var fromDate: String {
-        return "05.10.2020"
+        return self.currentTask.dateFrom
     }
 
     var toDate: String {
-        return "10.10.2020"
+        return self.currentTask.dateTo
     }
 
     var categoryTitle: String {
-        return "#coffesporthealthylifestyle"
+        return "#\(self.currentTask.category)\(self.currentTask.subcategory)"
     }
 
     var balls: String {
-        return "+300"
+        return "+\(self.currentTask.ballCount)"
     }
 }

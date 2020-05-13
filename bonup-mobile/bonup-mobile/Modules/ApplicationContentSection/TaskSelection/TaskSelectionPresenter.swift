@@ -13,12 +13,19 @@ protocol ITaskSelectionPresenter: AnyObject {
     func handleReturnButtonTap()
     func handleInfoButtonTap()
     func handleShowTasksListButtonTap()
+    func cardForIndex(_ index: Int) -> TaskCardEntity
+    func numberOfCards() -> Int
+    func viewWillAppear()
+    func viewWillDisappear()
 }
 
 final class TaskSelectionPresenter {
     private weak var view: ITaskSelectionView?
     private let interactor: ITaskSelectionInteractor
     private let router: ITaskSelectionRouter
+
+    private var selectedCards = [TaskCardEntity]()
+    private var taskCardEntities = [TaskCardEntity]()
 
     init(view: ITaskSelectionView?, interactor: ITaskSelectionInteractor, router: ITaskSelectionRouter) {
         self.view = view
@@ -30,19 +37,64 @@ final class TaskSelectionPresenter {
 // MARK: - ITaskSelectionPresenter implementation
 
 extension TaskSelectionPresenter: ITaskSelectionPresenter {
+    func cardForIndex(_ index: Int) -> TaskCardEntity {
+
+        return self.taskCardEntities[index]
+    }
+
+    func numberOfCards() -> Int {
+
+        return self.taskCardEntities.count
+    }
+
+    func viewWillAppear() {
+
+        self.interactor.getTasks { [weak self] (responseEntities, isSuccess) in
+
+            self?.taskCardEntities = responseEntities.map { entity in
+                return TaskCardEntity(
+                    id: entity.id,
+                    title: entity.name,
+                    description: entity.description,
+                    imageLink: entity.photos.first ?? ""
+                )
+            }
+            self?.view?.reloadData()
+        }
+    }
+
+    func viewWillDisappear() {
+
+        let selectedIds = self.selectedCards.map { $0.id }
+
+        self.interactor.saveTasks(ids: selectedIds, completion: nil)
+    }
+
     func handleInfoButtonTap() {
+
         self.router.show(.showInfoAlert)
     }
 
     func handleShowTasksListButtonTap() {
+        
         self.router.show(.showTasksList)
     }
 
     func handleTaskSelection(at index: Int, isLike: Bool) {
-        print(index, isLike)
+
+        let card = self.taskCardEntities[index]
+
+        if isLike {
+
+            self.selectedCards.append(card)
+        } else {
+
+            self.selectedCards.removeAll { $0.id == card.id }
+        }
     }
 
     func handleReturnButtonTap() {
+        
         self.view?.returnPrevCard()
     }
 }

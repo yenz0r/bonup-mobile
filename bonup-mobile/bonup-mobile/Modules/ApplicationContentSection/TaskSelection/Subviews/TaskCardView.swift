@@ -8,6 +8,7 @@
 
 import Shuffle_iOS
 import UIKit
+import Nuke
 
 final class TaskCardView: SwipeCard {
 
@@ -30,14 +31,14 @@ final class TaskCardView: SwipeCard {
 
     // MARK: - Initialization
 
-    init(title: String, description: String, image: UIImage?) {
+    init(title: String, description: String, imageLink: String) {
         super.init(frame: .zero)
 
         // subviews
 
         let containerView = self.configureContainerView()
         let infoContainerView = UIView()
-        let imageView = self.configureImageView(with: image)
+        let imageView = self.configureImageView(with: imageLink)
         let titleLabel = self.configureTitleLabel(with: title)
         let descriptionLabel = self.configureDescriptionLabel(with: description)
         let blurView = self.configureBlurView()
@@ -91,10 +92,20 @@ final class TaskCardView: SwipeCard {
         return containerView
     }
 
-    private func configureImageView(with image: UIImage?) -> UIImageView {
+    private func configureImageView(with imageLink: String) -> UIImageView {
         let imageView = UIImageView()
 
-        imageView.image = image
+        if let url = URL(string: imageLink) {
+            let imageRequst = ImageRequest(url: url)
+            Nuke.loadImage(
+                with: imageRequst,
+                options: ImageLoadingOptions(),
+                into: imageView,
+                progress: nil,
+                completion: nil
+            )
+        }
+
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
 

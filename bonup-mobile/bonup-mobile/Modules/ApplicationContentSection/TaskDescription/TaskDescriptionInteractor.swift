@@ -13,16 +13,6 @@ protocol ITaskDescriptionInteractor: AnyObject {
 
 final class TaskDescriptionInteractor {
 
-    // MARK: - Private variables
-
-    private let networkProvider = MainNetworkProvider<NewPasswordService>()
-    private let taskId: Int
-
-    // MARK: - Initialization
-
-    init(taskId: Int) {
-        self.taskId = taskId
-    }
 }
 
 // MARK: - ITaskDescriptionInteractor implementation

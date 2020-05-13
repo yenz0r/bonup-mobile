@@ -50,6 +50,19 @@ class MainNetworkProvider<MainTarget: IMainTargetType> {
 
 extension MainNetworkProvider: IMainNetworkProvider {
 
+    private func isSessionOutdated(_ code: Int) -> Bool {
+
+        if (code == 400) {
+
+            let user = AccountManager.shared.currentUser
+            AppRouter.shared.present(.login(name: user?.name, email: user?.email))
+            AccountManager.shared.currentUser = nil
+            return true
+        }
+
+        return false
+    }
+
     @discardableResult
     func request<T: Decodable>(_ target: MainTarget,
                                type: T.Type,
@@ -67,6 +80,10 @@ extension MainNetworkProvider: IMainNetworkProvider {
             case let .success(response):
 
                 do {
+
+//                    if (self.isSessionOutdated(response.statusCode)) {
+//                        return;
+//                    }
 
                     let data = try JSONDecoder().decode(T.self,
                                                         from: response.data)
@@ -105,6 +122,10 @@ extension MainNetworkProvider: IMainNetworkProvider {
 
                 do {
 
+//                    if (self.isSessionOutdated(response.statusCode)) {
+//                        return;
+//                    }
+
                     let string = String(data: response.data, encoding: .utf8)
 
                     guard let unwrapped = string else {
@@ -142,6 +163,10 @@ extension MainNetworkProvider: IMainNetworkProvider {
             case let .success(response):
 
                 do {
+
+//                    if (self.isSessionOutdated(response.statusCode)) {
+//                        return;
+//                    }
 
                     let string = String(data: response.data, encoding: .utf8)
 

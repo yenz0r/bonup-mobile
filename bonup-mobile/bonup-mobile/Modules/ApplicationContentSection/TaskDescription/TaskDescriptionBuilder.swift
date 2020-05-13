@@ -16,8 +16,8 @@ final class TaskDescriptionBuilder: ITaskDescriptionBuilder {
     func build(_ dependency: TaskDescriptionDependency) -> ITaskDescriptionRouter {
         let view = TaskDescriptionView()
         let router = TaskDescriptionRouter(view: view, parentController: dependency.parentController)
-        let interactor = TaskDescriptionInteractor(taskId: dependency.taskId)
-        let presenter =  TaskDescriptionPresenter(view: view, interactor: interactor, router: router)
+        let interactor = TaskDescriptionInteractor()
+        let presenter =  TaskDescriptionPresenter(view: view, interactor: interactor, router: router, currentTask: dependency.currentTask)
         view.presenter = presenter
 
         return router

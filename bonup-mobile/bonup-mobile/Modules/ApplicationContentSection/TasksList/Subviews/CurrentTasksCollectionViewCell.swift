@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 final class CurrentTasksCollectionViewCell: UICollectionViewCell {
 
@@ -32,9 +33,23 @@ final class CurrentTasksCollectionViewCell: UICollectionViewCell {
         }
     }
 
-    var image: UIImage? {
+    var imageLink: String? {
         didSet {
-            self.imageView.image = image
+            guard let link = self.imageLink else {
+                self.imageView.image = nil
+                return
+            }
+            
+            if let url = URL(string: link) {
+                let imageRequst = ImageRequest(url: url)
+                Nuke.loadImage(
+                    with: imageRequst,
+                    options: ImageLoadingOptions(),
+                    into: self.imageView,
+                    progress: nil,
+                    completion: nil
+                )
+            }
         }
     }
 
@@ -170,6 +185,6 @@ final class CurrentTasksCollectionViewCell: UICollectionViewCell {
         self.titleText = nil
         self.descriptionText = nil
         self.aliveTimeText = nil
-        self.image = nil
+        self.imageLink = nil
     }
 }

@@ -10,5 +10,5 @@ import UIKit
 
 struct TaskDescriptionDependency {
     let parentController: UIViewController
-    let taskId: Int
+    let currentTask: TaskListCurrentTasksEntity
 }

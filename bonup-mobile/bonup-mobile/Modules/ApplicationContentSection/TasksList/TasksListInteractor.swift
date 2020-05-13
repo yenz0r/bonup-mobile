@@ -10,11 +10,12 @@ import Foundation
 
 protocol ITasksListInteractor: AnyObject {
 
+    func getTasks(success: ((TaskListResponseEntity) -> Void)?, failure: ((Bool, String) -> Void)?)
 }
 
 final class TasksListInteractor {
 
-    private let networkProvider = MainNetworkProvider<ResetPasswordService>()
+    private let networkProvider = MainNetworkProvider<TaskListService>()
 
 }
 
@@ -22,6 +23,22 @@ final class TasksListInteractor {
 
 extension TasksListInteractor: ITasksListInteractor {
 
+    func getTasks(success: ((TaskListResponseEntity) -> Void)?, failure: ((Bool, String) -> Void)?) {
 
+        guard let token = AccountManager.shared.currentToken else { return }
 
+        _ = networkProvider.request(
+            .getLists(token),
+            type: TaskListResponseEntity.self,
+            completion: { result in
+
+                success?(result)
+            },
+            failure: { err in
+
+                failure?(false, err?.localizedDescription ?? "")
+            }
+        )
+
+    }
 }

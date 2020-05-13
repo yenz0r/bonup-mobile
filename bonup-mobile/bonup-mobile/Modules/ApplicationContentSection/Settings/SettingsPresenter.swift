@@ -57,13 +57,13 @@ extension SettingsPresenter: ISettingsPresenter {
             return SettingsPresentationModel(
                 title: "Change password",
                 isLogout: false,
-                icon: AssetsHelper.shared.image(.profileUnselectedIcon)
+                icon: AssetsHelper.shared.image(.settingsPassword)
             )
         case .applicationTheme:
             return SettingsPresentationModel(
                 title: "Application theme",
                 isLogout: false,
-                icon: AssetsHelper.shared.image(.profileUnselectedIcon)
+                icon: AssetsHelper.shared.image(.settingsTheme)
             )
         case .applicationLanguage:
             return SettingsPresentationModel(
@@ -75,19 +75,19 @@ extension SettingsPresenter: ISettingsPresenter {
             return SettingsPresentationModel(
                 title: "Categories",
                 isLogout: false,
-                icon: AssetsHelper.shared.image(.profileUnselectedIcon)
+                icon: AssetsHelper.shared.image(.settingsCategory)
             )
         case .help:
             return SettingsPresentationModel(
                 title: "Help",
                 isLogout: false,
-                icon: AssetsHelper.shared.image(.profileUnselectedIcon)
+                icon: AssetsHelper.shared.image(.settingsHelp)
             )
         case .rateUs:
             return SettingsPresentationModel(
                 title: "Rate Us",
                 isLogout: false,
-                icon: AssetsHelper.shared.image(.profileUnselectedIcon)
+                icon: AssetsHelper.shared.image(.settingsRateUs)
             )
         case .logout:
             return SettingsPresentationModel(

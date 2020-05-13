@@ -57,7 +57,7 @@ extension CategoriesService: IMainTargetType {
     }
 
     var headers: [String : String]? {
-        return nil
+        return ["Content-Type" : "application/json"]
     }
 }
 

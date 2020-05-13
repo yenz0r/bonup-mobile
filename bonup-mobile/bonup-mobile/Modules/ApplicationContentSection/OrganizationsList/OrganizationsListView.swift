@@ -62,7 +62,7 @@ final class OrganizationsListView: UIViewController {
     private func configureAppearance() {
         self.view.backgroundColor = .white
 
-        self.navigationItem.title = "ui_organizations_list_title".localized
+        self.navigationItem.title = "ui_organization_title".localized
     }
 
     private func configureCollectioView() -> UICollectionView {

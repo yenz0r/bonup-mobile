@@ -82,6 +82,14 @@ final class TasksListView: UIViewController {
         self.configureNavigationBar()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.presenter.viewWillAppear()
+    }
+
+    // MARK: - Configure
+
     private func configureNavigationBar() {
         let backItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         backItem.tintColor = UIColor.red.withAlphaComponent(0.7)
@@ -135,14 +143,7 @@ extension TasksListView: UICollectionViewDataSource {
                 for: indexPath
             ) as! TasksListCurrentCollectionViewCell
 
-            let model = CurrentTasksListPresentationModel(
-                title: "title-\(indexPath.row)",
-                description: "description-\(indexPath.row)",
-                image: UIImage(named: "test-task-icon"),
-                aliveTime: "5d"
-            )
-            let models = Array(repeating: model, count: 10)
-            cell.presentationModels = models
+            cell.presentationModels = self.presenter.currentTasksList
             cell.onSelect = { [weak self] index in
                 self?.presenter.handleShowDetailsTap(with: index)
             }
@@ -154,16 +155,7 @@ extension TasksListView: UICollectionViewDataSource {
                 for: indexPath
             ) as! TasksListFinishedCollectionViewCell
 
-            let model = FinishedTasksListPresentationModel(
-                title: "title-\(indexPath.row)",
-                description: "description-\(indexPath.row)",
-                dateOfEnd: "10.02.2000 19:00",
-                isDone: indexPath.row % 2 == 0,
-                benefit: "+100"
-            )
-
-            let models = Array(repeating: model, count: 20)
-            cell.presentationModels = models
+            cell.presentationModels = self.presenter.finishedTasksList
 
             return cell
         }

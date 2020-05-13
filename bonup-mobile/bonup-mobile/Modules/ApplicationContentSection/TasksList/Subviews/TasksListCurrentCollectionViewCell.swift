@@ -68,7 +68,7 @@ extension TasksListCurrentCollectionViewCell: UICollectionViewDataSource {
 
         cell.titleText = self.presentationModels?[indexPath.row].title
         cell.descriptionText = self.presentationModels?[indexPath.row].description
-        cell.image = self.presentationModels?[indexPath.row].image
+        cell.imageLink = self.presentationModels?[indexPath.row].imageLink
         cell.aliveTimeText = self.presentationModels?[indexPath.row].aliveTime
 
         return cell

@@ -16,7 +16,7 @@ protocol ITasksListRouter {
 
 final class TasksListRouter {
     enum TasksListRouterScenario {
-        case showTaskDescription
+        case showTaskDescription(TaskListCurrentTasksEntity)
     }
 
     private var view: TasksListView?
@@ -50,8 +50,8 @@ extension TasksListRouter: ITasksListRouter {
         guard let view = self.view else { return }
 
         switch scenario {
-        case .showTaskDescription:
-            let dependency = TaskDescriptionDependency(parentController: view, taskId: 100)
+        case .showTaskDescription(let currentTask):
+            let dependency = TaskDescriptionDependency(parentController: view, currentTask: currentTask)
             let builder = TaskDescriptionBuilder()
             let router = builder.build(dependency)
             router.start(nil)

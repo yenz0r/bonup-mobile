@@ -11,6 +11,6 @@ import UIKit
 struct CurrentTasksListPresentationModel {
     let title: String
     let description: String
-    let image: UIImage?
+    let imageLink: String
     let aliveTime: String
 }
