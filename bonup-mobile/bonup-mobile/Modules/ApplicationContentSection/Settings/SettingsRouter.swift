@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 
 protocol ISettingsRouter {
     func start(_ completion: (() -> Void)?)
@@ -19,6 +20,9 @@ final class SettingsRouter {
         case changePassword
         case logout
         case categories
+        case rateUs
+        case help
+        case inProgress(String)
     }
 
     private var view: SettingsView?
@@ -64,6 +68,24 @@ extension SettingsRouter: ISettingsRouter {
             let builder = CategoriesBuilder()
             let router = builder.build(dependency)
             router.start(nil)
+        case .rateUs:
+            SKStoreReviewController.requestReview()
+        case .help:
+            AlertsFactory.shared.infoAlert(
+                for: .error,
+                title: "ui_help_title".localized,
+                description: "ui_help_description".localized,
+                from: view,
+                completion: nil
+            )
+        case .inProgress(let message):
+            AlertsFactory.shared.infoAlert(
+                for: .error,
+                title: message,
+                description: "ui_in_progress".localized,
+                from: view,
+                completion: nil
+            )
         }
     }
 

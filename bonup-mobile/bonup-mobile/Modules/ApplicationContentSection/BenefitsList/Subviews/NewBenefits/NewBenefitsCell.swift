@@ -22,6 +22,8 @@ final class NewBenefitsCell: BenefitsCell {
         }
     }
 
+    var onSaveTap: ((Int) -> Void)?
+
     // MARK: - Initialization
 
     override init(frame: CGRect) {
@@ -38,6 +40,7 @@ final class NewBenefitsCell: BenefitsCell {
 
     private func configureCollectionView() {
         self.collectionView.dataSource = self
+        self.collectionView.delegate = self
         self.collectionView.register(
             NewBenefitsContentCell.self,
             forCellWithReuseIdentifier: NewBenefitsContentCell.reuseId
@@ -50,6 +53,14 @@ final class NewBenefitsCell: BenefitsCell {
         super.prepareForReuse()
 
 //        self.presentationModels = nil
+    }
+}
+
+extension NewBenefitsCell: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return CGSize(width: collectionView.bounds.width - 20, height: 70)
     }
 }
 
@@ -76,8 +87,9 @@ extension NewBenefitsCell: UICollectionViewDataSource {
         benefitCell.descriptionText = model.description
         benefitCell.coastText = model.coast
         benefitCell.aliveTimeText = model.aliveTime
-        benefitCell.onSaveTap = {
-            print(indexPath.row)
+        benefitCell.onSaveTap = { [weak self] in
+
+            self?.onSaveTap?(indexPath.row)
         }
 
         return cell

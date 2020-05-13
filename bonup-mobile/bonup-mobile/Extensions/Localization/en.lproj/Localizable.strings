@@ -97,3 +97,5 @@
 "ui_help_title" = "Help";
 "ui_rate_us_title" = "Rate Us";
 "ui_logout_title" = "Logout";
+"ui_help_description" = "You can find help icon on each screen in the top right corner with additional information for it's functionality =)";
+"ui_in_progress" = "In progress.. We are working hard for it";

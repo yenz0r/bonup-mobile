@@ -89,6 +89,11 @@ final class BenefitsView: UIViewController {
         )
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.presenter.viewWillAppear()
+        super.viewWillAppear(animated)
+    }
+
     // MARK: - Configure
 
     private func configureAppearance() {
@@ -148,14 +153,20 @@ extension BenefitsView: UICollectionViewDataSource {
                 withReuseIdentifier: NewBenefitsCell.reuseId,
                 for: indexPath
             ) as! NewBenefitsCell
-            let model = NewBenefitsPresentationModel(
-                title: "title",
-                description: "description",
-                coast: "\(indexPath.row * 100)",
-                aliveTime: "alive time"
-            )
-            let models = Array(repeating: model, count: 10)
-            cell.presentationModels = models
+
+            let presentationModels = self.presenter.savedBenfits.map {
+                return NewBenefitsPresentationModel(
+                            title: $0.name,
+                            description: $0.description,
+                            coast: "\($0.costCount)",
+                            aliveTime: $0.dateTo
+                        )
+            }
+            cell.presentationModels = presentationModels
+            cell.onSaveTap = { [weak self] index in
+
+                self?.presenter.handleBuyBenefit(for: index)
+            }
             return cell
         case 1:
 
@@ -163,9 +174,16 @@ extension BenefitsView: UICollectionViewDataSource {
                 withReuseIdentifier: SelectedBenefitsCell.reuseId,
                 for: indexPath
             ) as! SelectedBenefitsCell
-            let model = SelectedBenefitsPresentationModel(title: "title", description: "description", coast: "\(indexPath.row * 100)")
-            let models = Array(repeating: model, count: 10)
-            cell.presentationModels = models
+
+            let presentationModels = self.presenter.boughtBenfits.map { benefit in
+                return SelectedBenefitsPresentationModel(
+                    title: benefit.name,
+                    description: benefit.description,
+                    coast: "\(benefit.costCount)"
+                )
+            }
+
+            cell.presentationModels = presentationModels
             cell.onBenefitSelect = { [weak self] index in
 
                 self?.presenter.handleShowDescription(for: index)
@@ -177,12 +195,20 @@ extension BenefitsView: UICollectionViewDataSource {
                 withReuseIdentifier: UsedBenefitsCell.reuseId,
                 for: indexPath
             ) as! UsedBenefitsCell
-            let model = UsedBenefitsPresentationModel(title: "title", description: "descripton", dateOfUse: "02.20.2000")
-            let models = Array(repeating: model, count: 10)
-            cell.presentationModels = models
-            return cell
-        default:
 
+            let presentationModels = self.presenter.finishedBenefits.map {  benefit in
+                return UsedBenefitsPresentationModel(
+                    title: benefit.name,
+                    description: benefit.description,
+                    dateOfUse: benefit.dateTo,
+                    isDied: benefit.isDied
+                )
+            }
+
+            cell.presentationModels = presentationModels
+            return cell
+
+        default:
             let cell = UICollectionViewCell()
             return cell
         }

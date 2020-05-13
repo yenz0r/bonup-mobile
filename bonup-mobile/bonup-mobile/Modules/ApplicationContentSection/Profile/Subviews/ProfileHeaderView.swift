@@ -115,6 +115,8 @@ final class ProfileHeaderView: UIView {
             make.top.bottom.trailing.equalToSuperview().inset(10.0)
             make.leading.equalTo(self.iconImageView.snp.trailing).offset(8.0)
         }
+
+        userInfoStackView.clipsToBounds = true
     }
 
     // MARK: - Configure
@@ -171,9 +173,10 @@ final class ProfileHeaderView: UIView {
 
         label.textAlignment = .left
         label.font = UIFont.avenirRoman(15.0)
-        label.textColor = UIColor.purpleLite.withAlphaComponent(0.8)
+        label.textColor = UIColor.black.withAlphaComponent(0.8)
         label.text = text
         label.contentScaleFactor = 0.4
+        label.adjustsFontSizeToFitWidth = true
 
         return label
     }

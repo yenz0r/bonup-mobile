@@ -85,7 +85,7 @@ extension ApplicationContentRouter {
         benefitsNavigationController.setupTabBarItem(
             with: "ui_benefits_title".localized,
             unselectedImage: AssetsHelper.shared.image(.actionsUnselectedIcon),
-            selectedImage: AssetsHelper.shared.image(.actionsUnselectedIcon)
+            selectedImage: AssetsHelper.shared.image(.actionsSelectedIcon)
         )
 
         let benefitsDependency = BenefitsDependency(
@@ -157,8 +157,8 @@ extension ApplicationContentRouter {
         let profileNavigationController = BUNavigationController()
         profileNavigationController.setupTabBarItem(
             with: "ui_profile_title".localized,
-            unselectedImage: AssetsHelper.shared.image(.qrUnselectedIcon),
-            selectedImage: AssetsHelper.shared.image(.qrSelectedIcon)
+            unselectedImage: AssetsHelper.shared.image(.settingsHelp),
+            selectedImage: AssetsHelper.shared.image(.settingsHelp)
         )
 
         let profileDependency = ProfileDependency(

@@ -20,6 +20,17 @@ final class UsedBenefitsContentCell: BenefitsContentCell {
 
     // MARK: - Public variables
 
+    var isDied: Bool? {
+        didSet {
+            guard let died = self.isDied else {
+                self.indicatorView.backgroundColor = .red
+                return
+            }
+
+            self.indicatorView.backgroundColor = died ? .red : .green
+        }
+    }
+
     var titleText: String? {
         didSet {
             self.titleLabel.text = self.titleText
@@ -49,6 +60,7 @@ final class UsedBenefitsContentCell: BenefitsContentCell {
     private var titleLabel: UILabel!
     private var descriptionLabel: UILabel!
     private var dateOfUseLabel: UILabel!
+    private var indicatorView: UIView!
 
     // MARK: - Initialization
 
@@ -69,6 +81,7 @@ final class UsedBenefitsContentCell: BenefitsContentCell {
         self.titleText = nil
         self.descriptionText = nil
         self.dateOfUseText = nil
+        self.isDied = nil
     }
 
     // MARK: - Setup subviews
@@ -78,26 +91,30 @@ final class UsedBenefitsContentCell: BenefitsContentCell {
         self.titleLabel = self.configureLabel(for: .title)
         self.descriptionLabel = self.configureLabel(for: .description)
         self.dateOfUseLabel = self.configureLabel(for: .dateOfUse)
+        self.indicatorView = UIView()
 
+        self.contentView.addSubview(self.indicatorView)
         self.contentView.addSubview(self.titleLabel)
         self.contentView.addSubview(self.descriptionLabel)
         self.contentView.addSubview(self.dateOfUseLabel)
 
+        self.indicatorView.snp.makeConstraints { make in
+            make.leading.top.bottom.equalToSuperview()
+            make.width.equalTo(20.0)
+        }
+
         self.titleLabel.snp.makeConstraints { make in
             make.top.trailing.equalToSuperview().inset(8.0)
-            make.leading.equalToSuperview().inset(15.0)
+            make.leading.equalTo(self.indicatorView.snp.trailing).offset(15.0)
         }
 
         self.descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(self.titleLabel.snp.bottom).offset(10.0)
-            make.leading.trailing.equalToSuperview().inset(8.0)
+            make.trailing.equalToSuperview().inset(8.0)
+            make.leading.equalTo(self.indicatorView.snp.trailing).offset(15.0)
         }
 
-        self.dateOfUseLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.descriptionLabel.snp.bottom).offset(8.0)
-            make.trailing.equalToSuperview().offset(-8.0)
-            make.bottom.equalToSuperview().offset(-8.0)
-        }
+        
     }
 
     // MARK: - Configure

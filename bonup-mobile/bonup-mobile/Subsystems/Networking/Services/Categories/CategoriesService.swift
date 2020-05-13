@@ -32,7 +32,7 @@ extension CategoriesService: IMainTargetType {
     var method: Moya.Method {
         switch self {
         case .askCategories:
-            return .get
+            return .post
         case .sendSelectedCategories(_):
             return .put
         }

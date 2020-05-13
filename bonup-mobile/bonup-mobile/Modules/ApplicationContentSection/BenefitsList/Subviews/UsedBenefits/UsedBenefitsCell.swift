@@ -37,7 +37,9 @@ final class UsedBenefitsCell: BenefitsCell {
     // MARK: - Configure
 
     private func configureCollectionView() {
+
         self.collectionView.dataSource = self
+        self.collectionView.delegate = self
         self.collectionView.register(
             UsedBenefitsContentCell.self,
             forCellWithReuseIdentifier: UsedBenefitsContentCell.reuseId
@@ -54,6 +56,14 @@ final class UsedBenefitsCell: BenefitsCell {
 }
 
 // MARK: - UICollectionViewDataSource
+
+extension UsedBenefitsCell: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return CGSize(width: collectionView.bounds.width - 20, height: 70)
+    }
+}
 
 extension UsedBenefitsCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -75,6 +85,7 @@ extension UsedBenefitsCell: UICollectionViewDataSource {
         benefitCell.titleText = model.title
         benefitCell.descriptionText = model.description
         benefitCell.dateOfUseText = model.dateOfUse
+        benefitCell.isDied = model.isDied
 
         return cell
     }

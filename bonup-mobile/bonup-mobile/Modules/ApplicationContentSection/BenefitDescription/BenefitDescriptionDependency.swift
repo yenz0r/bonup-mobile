@@ -11,5 +11,5 @@ import UIKit
 struct BenefitDescriptionDependency {
 
     let parentController: UIViewController
-    let benefitsEntity: BenefitsResponseEntity
+    let benefitsEntity: ActualBenefitEntity
 }

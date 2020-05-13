@@ -37,6 +37,8 @@
 		B935A598241D6A820074E89E /* NewPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B935A597241D6A820074E89E /* NewPasswordRouter.swift */; };
 		B935A59A241D6A8A0074E89E /* NewPasswordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B935A599241D6A8A0074E89E /* NewPasswordBuilder.swift */; };
 		B935A59D241D6F2E0074E89E /* UIButton+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B935A59C241D6F2D0074E89E /* UIButton+Factory.swift */; };
+		B93FDB1D246BDC57006E93F4 /* BenefitsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93FDB1C246BDC57006E93F4 /* BenefitsService.swift */; };
+		B93FDB1F246BDCB6006E93F4 /* BenefitsResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93FDB1E246BDCB6006E93F4 /* BenefitsResponseEntity.swift */; };
 		B941E736246B933B0056B844 /* OrganizationControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941E735246B933B0056B844 /* OrganizationControlView.swift */; };
 		B941E738246B93480056B844 /* OrganizationControlPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941E737246B93480056B844 /* OrganizationControlPresenter.swift */; };
 		B941E73A246B93550056B844 /* OrganizationControlInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941E739246B93550056B844 /* OrganizationControlInteractor.swift */; };
@@ -65,8 +67,6 @@
 		B948A23C241CBFC1001287B8 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A23B241CBFC1001287B8 /* LoginRouter.swift */; };
 		B948A23E241CBFD8001287B8 /* LoginBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A23D241CBFD8001287B8 /* LoginBuilder.swift */; };
 		B948A247241CDE64001287B8 /* UIFont+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A246241CDE64001287B8 /* UIFont+Fonts.swift */; };
-		B948C3B2246856EF001EB887 /* BenefitsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948C3B1246856EF001EB887 /* BenefitsService.swift */; };
-		B948C3B52468570D001EB887 /* BenefitsResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948C3B42468570D001EB887 /* BenefitsResponseEntity.swift */; };
 		B94F37912451C49800FBEB36 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94F37902451C49800FBEB36 /* ProfileHeaderView.swift */; };
 		B95533D724431C8A006BFDFB /* TaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95533D624431C8A006BFDFB /* TaskCardView.swift */; };
 		B959712A24269B3600EAEB6E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B959712924269B3600EAEB6E /* GoogleService-Info.plist */; };
@@ -200,6 +200,8 @@
 		B9D743FB2428008600EE4838 /* FREE-RELEASE.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B948A22024144965001287B8 /* FREE-RELEASE.xcconfig */; };
 		B9D743FC2428008900EE4838 /* PAID-RELEASE.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B948A22224144A1C001287B8 /* PAID-RELEASE.xcconfig */; };
 		B9E0D2B6243D025400BAA634 /* TermsAndConditionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E0D2B5243D025400BAA634 /* TermsAndConditionsPresenter.swift */; };
+		B9EFFBA8246BDFF400084B7E /* ActualBenefitEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EFFBA7246BDFF400084B7E /* ActualBenefitEntity.swift */; };
+		B9EFFBAA246BE00200084B7E /* FinishedBenefitEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EFFBA9246BE00200084B7E /* FinishedBenefitEntity.swift */; };
 		B9FC7986242FB04000F2D5BC /* BUTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FC7985242FB04000F2D5BC /* BUTabBarController.swift */; };
 		B9FC7988242FB6E500F2D5BC /* ApplicationContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FC7987242FB6E500F2D5BC /* ApplicationContentView.swift */; };
 		B9FC798C242FB73900F2D5BC /* ApplicationContentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FC798B242FB73900F2D5BC /* ApplicationContentBuilder.swift */; };
@@ -261,6 +263,8 @@
 		B935A597241D6A820074E89E /* NewPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordRouter.swift; sourceTree = "<group>"; };
 		B935A599241D6A8A0074E89E /* NewPasswordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordBuilder.swift; sourceTree = "<group>"; };
 		B935A59C241D6F2D0074E89E /* UIButton+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Factory.swift"; sourceTree = "<group>"; };
+		B93FDB1C246BDC57006E93F4 /* BenefitsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsService.swift; sourceTree = "<group>"; };
+		B93FDB1E246BDCB6006E93F4 /* BenefitsResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsResponseEntity.swift; sourceTree = "<group>"; };
 		B941E735246B933B0056B844 /* OrganizationControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlView.swift; sourceTree = "<group>"; };
 		B941E737246B93480056B844 /* OrganizationControlPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlPresenter.swift; sourceTree = "<group>"; };
 		B941E739246B93550056B844 /* OrganizationControlInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlInteractor.swift; sourceTree = "<group>"; };
@@ -301,8 +305,6 @@
 		B948A23B241CBFC1001287B8 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		B948A23D241CBFD8001287B8 /* LoginBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBuilder.swift; sourceTree = "<group>"; };
 		B948A246241CDE64001287B8 /* UIFont+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Fonts.swift"; sourceTree = "<group>"; };
-		B948C3B1246856EF001EB887 /* BenefitsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsService.swift; sourceTree = "<group>"; };
-		B948C3B42468570D001EB887 /* BenefitsResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsResponseEntity.swift; sourceTree = "<group>"; };
 		B94F37902451C49800FBEB36 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		B95533D624431C8A006BFDFB /* TaskCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardView.swift; sourceTree = "<group>"; };
 		B959712924269B3600EAEB6E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -432,6 +434,8 @@
 		B9D3369F2469CFE7003E1CEB /* OrganizationsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsListRouter.swift; sourceTree = "<group>"; };
 		B9D336A12469CFF3003E1CEB /* OrganizationsListIneractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsListIneractor.swift; sourceTree = "<group>"; };
 		B9E0D2B5243D025400BAA634 /* TermsAndConditionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsPresenter.swift; sourceTree = "<group>"; };
+		B9EFFBA7246BDFF400084B7E /* ActualBenefitEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActualBenefitEntity.swift; sourceTree = "<group>"; };
+		B9EFFBA9246BE00200084B7E /* FinishedBenefitEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedBenefitEntity.swift; sourceTree = "<group>"; };
 		B9FC7985242FB04000F2D5BC /* BUTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUTabBarController.swift; sourceTree = "<group>"; };
 		B9FC7987242FB6E500F2D5BC /* ApplicationContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationContentView.swift; sourceTree = "<group>"; };
 		B9FC798B242FB73900F2D5BC /* ApplicationContentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationContentBuilder.swift; sourceTree = "<group>"; };
@@ -585,12 +589,12 @@
 				B96D54BE242FBEE700023BC9 /* NewPassword */,
 				B96D54C1242FBF1C00023BC9 /* ResetPassword */,
 				B91E809C242FCEC700859C83 /* Categories */,
-				B948C3B3246856F3001EB887 /* Benefits */,
 				B9787F41246B54FD007DB617 /* TaskSelection */,
 				B9787F49246B75A9007DB617 /* TaskList */,
 				B9787F54246B8C56007DB617 /* OrganizationsList */,
 				B96A71E0246B9CE1007416DF /* OrganizationControl */,
 				B96A71E5246BA7AD007416DF /* Profile */,
+				B93FDB20246BDCBA006E93F4 /* BenefitsService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -639,6 +643,17 @@
 				B9A732FA242D556C00860346 /* UIButton+Animations.swift */,
 			);
 			path = UIButton;
+			sourceTree = "<group>";
+		};
+		B93FDB20246BDCBA006E93F4 /* BenefitsService */ = {
+			isa = PBXGroup;
+			children = (
+				B93FDB1C246BDC57006E93F4 /* BenefitsService.swift */,
+				B93FDB1E246BDCB6006E93F4 /* BenefitsResponseEntity.swift */,
+				B9EFFBA7246BDFF400084B7E /* ActualBenefitEntity.swift */,
+				B9EFFBA9246BE00200084B7E /* FinishedBenefitEntity.swift */,
+			);
+			path = BenefitsService;
 			sourceTree = "<group>";
 		};
 		B941E741246B93B40056B844 /* OrganizationControl */ = {
@@ -817,15 +832,6 @@
 				B948A246241CDE64001287B8 /* UIFont+Fonts.swift */,
 			);
 			path = UIFont;
-			sourceTree = "<group>";
-		};
-		B948C3B3246856F3001EB887 /* Benefits */ = {
-			isa = PBXGroup;
-			children = (
-				B948C3B1246856EF001EB887 /* BenefitsService.swift */,
-				B948C3B42468570D001EB887 /* BenefitsResponseEntity.swift */,
-			);
-			path = Benefits;
 			sourceTree = "<group>";
 		};
 		B95533D824431C93006BFDFB /* Subviews */ = {
@@ -1647,7 +1653,6 @@
 				B948A1EC241444B2001287B8 /* bonup_mobile.xcdatamodeld in Sources */,
 				B9D336A02469CFE7003E1CEB /* OrganizationsListRouter.swift in Sources */,
 				B9A0C9A5242FC56D00EB6FAE /* CategoriesView.swift in Sources */,
-				B948C3B52468570D001EB887 /* BenefitsResponseEntity.swift in Sources */,
 				B948A236241CBFA6001287B8 /* LoginView.swift in Sources */,
 				B941E738246B93480056B844 /* OrganizationControlPresenter.swift in Sources */,
 				B977484F24431A47004D39AD /* TasksListBuilder.swift in Sources */,
@@ -1656,6 +1661,7 @@
 				B9BA409F2443D0DD00950808 /* CurrentTasksListPresentationModel.swift in Sources */,
 				B992D5282457A02D002ABF71 /* BenefitsCell.swift in Sources */,
 				B96D54BD242FBED600023BC9 /* NewPasswordService.swift in Sources */,
+				B9EFFBAA246BE00200084B7E /* FinishedBenefitEntity.swift in Sources */,
 				B992D52E2457A1A7002ABF71 /* SelectedBenefitsContentCell.swift in Sources */,
 				B92688FD2429520300F1732A /* UIView+Gradient.swift in Sources */,
 				B941E736246B933B0056B844 /* OrganizationControlView.swift in Sources */,
@@ -1666,6 +1672,7 @@
 				B9D30C72244BA0DC00B9E9AA /* ChangePasswordPresenter.swift in Sources */,
 				B9CAA70C242B9F0200E50668 /* AuthVerificationRouter.swift in Sources */,
 				B9CAA708242B9EE000E50668 /* AuthVerificationView.swift in Sources */,
+				B9EFFBA8246BDFF400084B7E /* ActualBenefitEntity.swift in Sources */,
 				B9AF05D72469D510007773B2 /* OrganizationsListCell.swift in Sources */,
 				B914AC8B24435D30007494E3 /* CurrentTasksCollectionViewCell.swift in Sources */,
 				B95533D724431C8A006BFDFB /* TaskCardView.swift in Sources */,
@@ -1727,6 +1734,7 @@
 				B948A1E2241444B2001287B8 /* AppDelegate.swift in Sources */,
 				B977483D2443194E004D39AD /* TaskSelectionInteractor.swift in Sources */,
 				B944A8EE246217C0002170FD /* TaskDescriptionView.swift in Sources */,
+				B93FDB1F246BDCB6006E93F4 /* BenefitsResponseEntity.swift in Sources */,
 				B941E73E246B936B0056B844 /* OrganizationControlDependency.swift in Sources */,
 				B9CEE6A0241D559E00308098 /* ResetPasswordInteractor.swift in Sources */,
 				B948A23C241CBFC1001287B8 /* LoginRouter.swift in Sources */,
@@ -1745,6 +1753,7 @@
 				B966E72E24684D000043FD69 /* BenefitDescriptionPresenter.swift in Sources */,
 				B96A71DD246B9C90007416DF /* OrganizationControlService.swift in Sources */,
 				B977483F24431955004D39AD /* TaskSelectionBuilder.swift in Sources */,
+				B93FDB1D246BDC57006E93F4 /* BenefitsService.swift in Sources */,
 				B959712D24269F2A00EAEB6E /* TimerManager.swift in Sources */,
 				B9D30C67244BA0A300B9E9AA /* ChangePasswordView.swift in Sources */,
 				B932365D241D7C2C00A37634 /* MainNetworkProvider.swift in Sources */,
@@ -1758,7 +1767,6 @@
 				B9787F40246B54F2007DB617 /* TaskSelectionResponseEntity.swift in Sources */,
 				B9BF701324433D590051CF41 /* BUNavigationController.swift in Sources */,
 				B9323661241D7E4F00A37634 /* AuthorizedTargetType.swift in Sources */,
-				B948C3B2246856EF001EB887 /* BenefitsService.swift in Sources */,
 				B9069104246235D7001A1F76 /* QRcodeManager.swift in Sources */,
 				B992D52C2457A18F002ABF71 /* UsedBenefitsPresentationModel.swift in Sources */,
 				B9787F53246B8C50007DB617 /* OrganizationResponseEntity.swift in Sources */,

@@ -115,7 +115,7 @@ final class ProfileProgressContainer: UIView {
     private func conifigureProgressContainer(for type: ProgressType) -> UIView {
         let containerView = UIView()
 
-        let progressViewSize = 120;
+        let progressViewSize = 140;
 
         switch type {
         case .all:
@@ -171,7 +171,7 @@ final class ProfileProgressContainer: UIView {
             }
         case .today:
             let titleLabel = self.configureTitleLabel(with: "ui_today_title".localized)
-            self.todayProgressView = self.configureProgressView(with: 100.0, tint: .brown, pattern: 4.0)
+            self.todayProgressView = self.configureProgressView(with: 100.0, tint: .purple, pattern: 4.0)
 
             containerView.addSubview(titleLabel)
             containerView.addSubview(self.todayProgressView)
@@ -199,7 +199,7 @@ final class ProfileProgressContainer: UIView {
         progressRing.maxValue = maxValue
         progressRing.style = .dashed(pattern: [pattern, 1.0])
         progressRing.tintColor = color
-        progressRing.innerRingColor = color.withAlphaComponent(0.3)
+        progressRing.innerRingColor = color
 
         return progressRing
     }

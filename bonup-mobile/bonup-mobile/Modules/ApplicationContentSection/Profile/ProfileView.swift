@@ -60,7 +60,6 @@ final class ProfileView: UIViewController {
         self.ahievementsContainer.snp.makeConstraints { make in
             make.top.equalTo(self.progressContainer.snp.bottom).offset(10.0)
             make.leading.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(10.0)
-            make.height.equalTo(50.0)
         }
     }
 

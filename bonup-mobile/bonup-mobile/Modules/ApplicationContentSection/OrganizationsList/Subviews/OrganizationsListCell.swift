@@ -78,6 +78,7 @@ final class OrganizationsListCell: UICollectionViewCell {
 
         self.titleLabel.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview().inset(8.0)
+            make.height.equalTo(30.0)
         }
     }
 

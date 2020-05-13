@@ -131,7 +131,7 @@ final class TaskDescriptionView: UIViewController {
         self.scrollContentView.addSubview(buttonsStackView)
         buttonsStackView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(20.0)
-            make.top.equalTo(self.organizationTitleLabel.snp.bottom).offset(10.0)
+            make.top.equalTo(firstSeparatorView.snp.bottom).offset(10.0)
             make.height.equalTo(30.0)
         }
 
@@ -223,7 +223,7 @@ final class TaskDescriptionView: UIViewController {
     private func configureCategoryLabel() -> UILabel {
         let label = UILabel()
 
-        label.textColor = .systemBlue
+        label.textColor = UIColor.black
         label.font = UIFont.avenirHeavy(20.0)
         label.textAlignment = .right
         label.numberOfLines = 1
@@ -337,7 +337,7 @@ final class TaskDescriptionView: UIViewController {
     private func configureTitleLabel() -> UILabel {
         let label = UILabel()
 
-        label.textColor = .purpleLite
+        label.textColor = UIColor.black.withAlphaComponent(0.7)
         label.font = UIFont.avenirHeavy(20.0)
         label.textAlignment = .left
         label.numberOfLines = 0
@@ -348,8 +348,8 @@ final class TaskDescriptionView: UIViewController {
     private func configureDescriptionLabel() -> UILabel {
         let label = UILabel()
 
-        label.textColor = UIColor.purpleLite.withAlphaComponent(0.3)
-        label.font = UIFont.avenirHeavy(15.0)
+        label.textColor = UIColor.black.withAlphaComponent(0.4)
+        label.font = UIFont.avenirRoman(15.0)
         label.textAlignment = .left
         label.numberOfLines = 0
 
@@ -377,11 +377,19 @@ final class TaskDescriptionView: UIViewController {
     // MARK: - Selectors
 
     @objc private func callButtonTapped() {
-
+        if let url = URL(string: "telprompt://+375293774737") {
+          if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.openURL(url)
+          }
+        }
     }
 
     @objc private func visitSiteButtonTapped() {
-
+        if let url = URL(string: "https://google.com") {
+                 if UIApplication.shared.canOpenURL(url) {
+                   UIApplication.shared.openURL(url)
+                 }
+               }
     }
 }
 
@@ -406,7 +414,7 @@ extension TaskDescriptionView: ITaskDescriptionView {
         let placemark = self.mapView.mapWindow.map.mapObjects.addPlacemark(with: point)
         placemark.opacity = 0.5
         placemark.isDraggable = true
-        placemark.setIconWith(AssetsHelper.shared.image(.profileUnselectedIcon)!)
+        placemark.setIconWith(UIImage(named: "map-mark")!)
 
         self.mapView.mapWindow.map.move(
             with: YMKCameraPosition(target: point, zoom: 15, azimuth: 0, tilt: 0),

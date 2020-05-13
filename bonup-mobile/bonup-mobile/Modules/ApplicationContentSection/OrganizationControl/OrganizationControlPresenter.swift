@@ -24,7 +24,9 @@ final class OrganizationControlPresenter {
 
     private let titles = [
         "ui_check_task".localized,
-        "ui_check_benefit".localized
+        "ui_check_benefit".localized,
+//        "ui_add_task".localized,
+//        "ui_add_benefit".localized
     ]
 
     private let icons = [

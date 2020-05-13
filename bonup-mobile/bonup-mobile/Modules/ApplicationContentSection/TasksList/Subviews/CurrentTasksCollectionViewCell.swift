@@ -175,8 +175,10 @@ final class CurrentTasksCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        self.contentView.layer.cornerRadius = 10.0
-        self.contentView.clipsToBounds = true
+        self.layer.cornerRadius = 10.0
+        self.clipsToBounds = true
+        self.layer.borderColor = UIColor.purpleLite.withAlphaComponent(0.5).cgColor
+        self.layer.borderWidth = 1.0
     }
 
     override func prepareForReuse() {

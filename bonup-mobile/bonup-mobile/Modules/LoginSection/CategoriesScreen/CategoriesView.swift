@@ -64,7 +64,7 @@ final class CategoriesView: LoginSectionViewController {
         self.skipButton.snp.makeConstraints { make in
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-20.0)
             make.height.equalTo(30.0)
-            make.width.equalTo(50.0)
+            make.width.equalTo(100.0)
             make.centerX.equalToSuperview()
         }
 

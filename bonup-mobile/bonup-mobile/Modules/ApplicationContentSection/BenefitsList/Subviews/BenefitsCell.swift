@@ -45,10 +45,6 @@ class BenefitsCell: UICollectionViewCell {
         layout.scrollDirection = .vertical
         layout.sectionInset = .zero
         layout.minimumInteritemSpacing = 10.0
-        layout.estimatedItemSize = CGSize(
-            width: frame.width - 20.0,
-            height: 10
-        )
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
 

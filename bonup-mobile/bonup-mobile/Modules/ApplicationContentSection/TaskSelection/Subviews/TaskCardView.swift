@@ -88,6 +88,7 @@ final class TaskCardView: SwipeCard {
 
         containerView.layer.cornerRadius = 20.0
         containerView.layer.masksToBounds = true
+        containerView.backgroundColor = .white
 
         return containerView
     }

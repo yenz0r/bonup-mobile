@@ -39,9 +39,11 @@ extension BenefitDescriptionPresenter: IBenefitDescriptionPresenter {
         )
         let title = self.interactor.benefitTitle
         let description = self.interactor.benefitDescription
+        let imageLink = self.interactor.benefitImageLink
 
         self.view?.setupTitle(title)
         self.view?.setupDescription(description)
         self.view?.setupQrCodeImage(qrCodeImage)
+        self.view?.setupImage(imageLink)
     }
 }

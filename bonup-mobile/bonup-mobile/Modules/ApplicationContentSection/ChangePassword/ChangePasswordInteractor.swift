@@ -28,13 +28,15 @@ extension ChangePasswordInteractor: IChangePasswordInteractor {
                                success: (() -> Void)?,
                                failure: ((String) -> Void)?) {
         let params = NewPasswordParams(newPassword: newPassword)
-        _ = self.networkProvider.requestBool(
+
+        _ = self.networkProvider.request(
             .setupNewPassword(params: params),
+            type: NewPasswordResponseEntity.self,
             completion: { result in
-                if result {
+                if result.isSuccess {
                     success?()
                 } else {
-                    failure?("".localized)
+                    failure?(result.message)
                 }
             },
             failure: { err in

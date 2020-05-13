@@ -12,17 +12,18 @@ protocol IBenefitDescriptionInteractor: AnyObject {
     var codeLine: String { get }
     var benefitTitle: String { get }
     var benefitDescription: String { get }
+    var benefitImageLink: String { get }
 }
 
 final class BenefitDescriptionInteractor {
 
     // MARK: - Private variables
 
-    private let benefitEntity: BenefitsResponseEntity
+    private let benefitEntity: ActualBenefitEntity
 
     // MARK: - Initialization
 
-    init(benefitEntity: BenefitsResponseEntity) {
+    init(benefitEntity: ActualBenefitEntity) {
 
         self.benefitEntity = benefitEntity
     }
@@ -34,23 +35,27 @@ extension BenefitDescriptionInteractor: IBenefitDescriptionInteractor {
 
     var benefitTitle: String {
 
-        return self.benefitEntity.title ?? "ui_empty_title".localized
+        return self.benefitEntity.name
     }
 
     var benefitDescription: String {
 
-        return self.benefitEntity.descriptionText ?? "ui_description_title".localized
+        return self.benefitEntity.description
+    }
+
+    var benefitImageLink: String {
+        
+        return self.benefitEntity.photos.first ?? ""
     }
 
     var codeLine: String {
 
-        guard
-            let id = self.benefitEntity.id,
-            let userToken = AccountManager.shared.currentToken
-        else {
+        guard let userToken = AccountManager.shared.currentToken else {
 
             return ""
         }
+
+        let id = self.benefitEntity.id
 
         return "\(id) - \(userToken)"
     }

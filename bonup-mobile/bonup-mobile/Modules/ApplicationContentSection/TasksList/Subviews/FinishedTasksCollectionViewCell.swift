@@ -132,6 +132,7 @@ final class FinishedTasksCollectionViewCell: UICollectionViewCell {
         label.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(10.0)
             make.centerY.equalTo(self.titleLabel)
+            make.width.equalTo(70.0)
         }
 
         return label

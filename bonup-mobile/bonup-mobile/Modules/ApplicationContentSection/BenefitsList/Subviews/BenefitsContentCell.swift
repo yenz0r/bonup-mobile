@@ -15,19 +15,13 @@ class BenefitsContentCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        self.contentView.snp.makeConstraints { make in
-            make.width.equalTo(frame.size.width)
-        }
+//        self.contentView.snp.makeConstraints { make in
+//            make.width.equalTo(frame.size.width)
+//        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    // MARK: - Override
-
-    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-        return self.contentView .systemLayoutSizeFitting(CGSize(width: targetSize.width, height: 1))
     }
 
     // MARK: - Life cycle

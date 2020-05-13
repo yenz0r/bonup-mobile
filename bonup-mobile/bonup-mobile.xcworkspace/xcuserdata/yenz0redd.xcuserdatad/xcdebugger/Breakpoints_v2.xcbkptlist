@@ -103,22 +103,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EC960B18-1E2A-4148-8B6E-0306A6F78CDB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bonup-mobile/Modules/LoginSection/CategoriesScreen/CategoriesInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "categotiesListRequest(success:failure:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "EB7DFFAF-DE57-4956-91F8-79CB67C20DB5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -167,32 +151,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6C04C774-1062-4627-AF65-1D2E23ED3E22"
+            uuid = "4302AF78-9534-4CFF-826E-CBDBC1983EA0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "bonup-mobile/Modules/ApplicationContentSection/Profile/ProfileInteractor.swift"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/BenefitDescription/BenefitDescriptionView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "getUserInfo(success:failure:)"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "setupImage(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "88AAC865-16C8-4279-9C6F-170038620347"
+            uuid = "FC169C19-A31A-4111-8C75-9493CDE90672"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "bonup-mobile/Modules/ApplicationContentSection/Profile/ProfileInteractor.swift"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/BenefitDescription/BenefitDescriptionInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "getUserInfo(success:failure:)"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "benefitImageLink"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E9459133-F122-4D95-AC5C-DE9A2898081B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/LoginSection/ResetPasswordScreen/ResetPasswordInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "askResetCodeRequest(for:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B8CA8ED2-C601-48BC-90F5-E05471E34096"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/LoginSection/ResetPasswordScreen/ResetPasswordInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "askResetCodeRequest(for:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

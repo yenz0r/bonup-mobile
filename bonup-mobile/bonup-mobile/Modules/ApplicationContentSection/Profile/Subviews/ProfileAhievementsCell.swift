@@ -89,6 +89,8 @@ final class ProfileAhievementsCell: UICollectionViewCell {
         label.textAlignment = .center
         label.font = UIFont.avenirHeavy(25.0)
         label.textColor = UIColor.orange.withAlphaComponent(0.5)
+        label.minimumScaleFactor = 0.4
+        label.adjustsFontSizeToFitWidth = true
 
         return label
     }
@@ -99,6 +101,7 @@ final class ProfileAhievementsCell: UICollectionViewCell {
         label.textAlignment = .center
         label.font = UIFont.avenirHeavy(15.0)
         label.textColor = UIColor.blue.withAlphaComponent(0.4)
+        label.numberOfLines = 0
 
         return label
     }

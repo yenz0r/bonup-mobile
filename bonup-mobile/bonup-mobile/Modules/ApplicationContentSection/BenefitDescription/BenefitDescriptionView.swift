@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Nuke
 
 protocol IBenefitDescriptionView: AnyObject {
     func setupQrCodeImage(_ image: UIImage?)
     func setupTitle(_ title: String?)
     func setupDescription(_ descriptionText: String?)
+    func setupImage(_ link: String?)
 }
 
 final class BenefitDescriptionView: UIViewController {
@@ -30,6 +32,7 @@ final class BenefitDescriptionView: UIViewController {
     private var descriptionLabel: UILabel!
     private var separatorView: UIView!
     private var qrImageView: UIImageView!
+    private var imageView: UIImageView!
 
     // MARK: - Life cycle
 
@@ -54,15 +57,23 @@ final class BenefitDescriptionView: UIViewController {
         self.descriptionLabel = self.configureLabel(for: .description)
         self.separatorView = self.configureSeparatorView()
         self.qrImageView = self.configureImageView()
+        self.imageView = self.configureImageView()
 
+        self.view.addSubview(self.imageView)
         self.view.addSubview(self.titleLabel)
         self.view.addSubview(self.descriptionLabel)
         self.view.addSubview(self.separatorView)
         self.view.addSubview(self.qrImageView)
 
+        self.imageView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(self.view.safeAreaLayoutGuide)
+            make.height.equalTo(100.0)
+        }
+
         self.titleLabel.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(10.0)
-            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(15.0)
+            make.top.equalTo(self.imageView.snp.bottom).offset(15.0)
         }
 
         self.descriptionLabel.snp.makeConstraints { make in
@@ -93,6 +104,7 @@ final class BenefitDescriptionView: UIViewController {
     private func configureImageView() -> UIImageView {
         let imageView = UIImageView()
 
+        imageView.clipsToBounds = true
         imageView.contentMode = .scaleToFill
 
         return imageView
@@ -139,5 +151,19 @@ extension BenefitDescriptionView: IBenefitDescriptionView {
 
     func setupDescription(_ descriptionText: String?) {
         self.descriptionLabel.text = descriptionText
+    }
+
+    func setupImage(_ link: String?) {
+        guard let link = link else { return }
+        guard let url = URL(string: link) else { return }
+
+        let imageRequst = ImageRequest(url: url)
+        Nuke.loadImage(
+            with: imageRequst,
+            options: ImageLoadingOptions(),
+            into: self.imageView,
+            progress: nil,
+            completion: nil
+        )
     }
 }

@@ -58,6 +58,14 @@ final class SelectedBenefitsCell: BenefitsCell {
 
 // MARK: - UICollectionViewDelegate
 
+extension SelectedBenefitsCell: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return CGSize(width: collectionView.bounds.width - 20, height: 70)
+    }
+}
+
 extension SelectedBenefitsCell: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

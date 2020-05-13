@@ -103,6 +103,18 @@ extension SettingsPresenter: ISettingsPresenter {
         case .categories:
             self.router.show(.categories)
 
+        case .rateUs:
+            self.router.show(.rateUs)
+
+        case .help:
+            self.router.show(.help)
+
+        case .applicationLanguage:
+            self.router.show(.inProgress("ui_application_language_title".localized))
+
+        case .applicationTheme:
+            self.router.show(.inProgress("ui_application_theme_title"))
+
         default:
             return
         }

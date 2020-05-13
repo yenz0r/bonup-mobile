@@ -10,7 +10,13 @@ import UIKit
 
 protocol IBenefitsPresenter: AnyObject {
 
+    func handleBuyBenefit(for index: Int)
     func handleShowDescription(for index: Int)
+    func viewWillAppear()
+
+    var savedBenfits: [ActualBenefitEntity] { get }
+    var boughtBenfits: [ActualBenefitEntity] { get }
+    var finishedBenefits: [FinishedBenefitEntity] { get }
 }
 
 final class BenefitsPresenter {
@@ -18,6 +24,12 @@ final class BenefitsPresenter {
     private weak var view: IBenefitsView?
     private let interactor: IBenefitsInteractor
     private let router: IBenefitsRouter
+
+    private var responseEntity: BenefitsResponseEntity?
+
+    private var saved: [ActualBenefitEntity]?
+    private var bought: [ActualBenefitEntity]?
+    private var finished: [FinishedBenefitEntity]?
 
     init(view: IBenefitsView?, interactor: IBenefitsInteractor, router: IBenefitsRouter) {
         self.view = view
@@ -29,9 +41,64 @@ final class BenefitsPresenter {
 // MARK: - IBenefitsPresenter implementation
 
 extension BenefitsPresenter: IBenefitsPresenter {
+    var savedBenfits: [ActualBenefitEntity] {
+        return self.saved ?? []
+    }
+
+    var boughtBenfits: [ActualBenefitEntity] {
+        return self.bought ?? []
+    }
+
+    var finishedBenefits: [FinishedBenefitEntity] {
+        return self.finished ?? []
+    }
+
 
     func handleShowDescription(for index: Int) {
 
-        self.router.show(.benefitDescription)
+        guard let boughtBenefits = self.bought else { return }
+
+        self.router.show(.benefitDescription(boughtBenefits[index]))
+    }
+
+    func handleBuyBenefit(for index: Int) {
+
+        guard let saved = self.saved else { return }
+
+        let id = saved[index].id
+
+        self.interactor.buyBenefits(id: id,
+
+                                    success: { [weak self] entity in
+
+                                        self?.responseEntity = entity
+                                        self?.bought = entity.bought
+                                        self?.saved = entity.saved
+                                        self?.finished = entity.finished
+                                        self?.view?.reloadData()
+                                    },
+                                    failure: { message in
+
+                                        print(message)
+                                    }
+        )
+    }
+
+    func viewWillAppear() {
+
+        self.interactor.getBenefits(
+            success: { [weak self] entity in
+
+                self?.responseEntity = entity
+                self?.bought = entity.bought
+                self?.saved = entity.saved
+                self?.finished = entity.finished
+                self?.view?.reloadData()
+            },
+            failure: { message in
+
+                print(message)
+            }
+        )
     }
 }
