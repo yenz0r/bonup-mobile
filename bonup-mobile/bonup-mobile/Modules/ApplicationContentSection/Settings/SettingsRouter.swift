@@ -18,6 +18,7 @@ final class SettingsRouter {
     enum SettingsRouterScenario {
         case changePassword
         case logout
+        case categories
     }
 
     private var view: SettingsView?
@@ -58,6 +59,11 @@ extension SettingsRouter: ISettingsRouter {
             router.start(nil)
         case .logout:
             AppRouter.shared.present(.login(name: nil, email: nil))
+        case .categories:
+            let dependency = CategoriesDependency(parentViewController: view)
+            let builder = CategoriesBuilder()
+            let router = builder.build(dependency)
+            router.start(nil)
         }
     }
 

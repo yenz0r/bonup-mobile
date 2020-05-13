@@ -92,3 +92,8 @@
 "ui_organizations_list_title" = "Organizations List";
 "ui_check_task" = "Verify Task";
 "ui_check_benefit" = "Activate Benefit";
+"ui_application_theme_title" = "Application Theme";
+"ui_application_language_title" = "Application Language";
+"ui_help_title" = "Help";
+"ui_rate_us_title" = "Rate Us";
+"ui_logout_title" = "Logout";

@@ -18,8 +18,7 @@ protocol ISettingsPresenter: AnyObject {
 
 final class SettingsPresenter {
     enum SettingsType: Int {
-        case profile = 0
-        case changePassword
+        case changePassword = 0
         case applicationTheme
         case applicationLanguage
         case categories
@@ -27,7 +26,7 @@ final class SettingsPresenter {
         case rateUs
         case logout
 
-        static let count = 8
+        static let count = 7
     }
 
     private weak var view: ISettingsView?
@@ -47,51 +46,45 @@ extension SettingsPresenter: ISettingsPresenter {
 
     func presentationModel(for type: SettingsPresenter.SettingsType) -> SettingsPresentationModel {
         switch type {
-        case .profile:
-            return SettingsPresentationModel(
-                title: "Profile",
-                isLogout: false,
-                icon: AssetsHelper.shared.image(.profileUnselectedIcon)
-            )
         case .changePassword:
             return SettingsPresentationModel(
-                title: "Change password",
+                title: "ui_change_password_title".localized,
                 isLogout: false,
                 icon: AssetsHelper.shared.image(.settingsPassword)
             )
         case .applicationTheme:
             return SettingsPresentationModel(
-                title: "Application theme",
+                title: "ui_application_theme_title".localized,
                 isLogout: false,
                 icon: AssetsHelper.shared.image(.settingsTheme)
             )
         case .applicationLanguage:
             return SettingsPresentationModel(
-                title: "Application language",
+                title: "ui_application_language_title".localized,
                 isLogout: false,
-                icon: AssetsHelper.shared.image(.profileUnselectedIcon)
+                icon: AssetsHelper.shared.image(.settingsLanguage)
             )
         case .categories:
             return SettingsPresentationModel(
-                title: "Categories",
+                title: "ui_categories_title".localized,
                 isLogout: false,
                 icon: AssetsHelper.shared.image(.settingsCategory)
             )
         case .help:
             return SettingsPresentationModel(
-                title: "Help",
+                title: "ui_help_title".localized,
                 isLogout: false,
                 icon: AssetsHelper.shared.image(.settingsHelp)
             )
         case .rateUs:
             return SettingsPresentationModel(
-                title: "Rate Us",
+                title: "ui_rate_us_title".localized,
                 isLogout: false,
                 icon: AssetsHelper.shared.image(.settingsRateUs)
             )
         case .logout:
             return SettingsPresentationModel(
-                title: "Logout",
+                title: "ui_logout_title".localized,
                 isLogout: true,
                 icon: AssetsHelper.shared.image(.eyeIcon)
             )
@@ -102,9 +95,14 @@ extension SettingsPresenter: ISettingsPresenter {
         switch type {
         case .changePassword:
             self.router.show(.changePassword)
+
         case .logout:
             self.interactor.logout()
             self.router.show(.logout)
+
+        case .categories:
+            self.router.show(.categories)
+
         default:
             return
         }

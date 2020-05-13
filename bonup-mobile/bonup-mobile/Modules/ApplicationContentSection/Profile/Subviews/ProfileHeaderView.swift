@@ -87,14 +87,14 @@ final class ProfileHeaderView: UIView {
         let emailContainer = self.configureTextContainer(
             title: emailTitleLabel,
             value: self.emailValueLabel,
-            position: .center)
+            position: .left)
 
         let organizationTitleLabel = self.configureLabel(with: "ui_my_organization".localized)
         self.organizationValueLabel = self.configureLabel(with: nil)
         let organizationContainer = self.configureTextContainer(
             title: organizationTitleLabel,
             value: self.organizationValueLabel,
-            position: .right
+            position: .left
         )
 
         let userInfoStackView = self.configureStackView()
@@ -173,6 +173,7 @@ final class ProfileHeaderView: UIView {
         label.font = UIFont.avenirRoman(15.0)
         label.textColor = UIColor.purpleLite.withAlphaComponent(0.8)
         label.text = text
+        label.contentScaleFactor = 0.4
 
         return label
     }

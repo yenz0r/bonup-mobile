@@ -73,7 +73,7 @@ extension SettingsView: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let type = SettingsPresenter.SettingsType(rawValue: indexPath.row)
-        self.presenter.handleDidSelectSetting(for: type ?? .profile)
+        self.presenter.handleDidSelectSetting(for: type ?? .categories)
     }
 }
 
@@ -86,7 +86,7 @@ extension SettingsView: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let type = SettingsPresenter.SettingsType(rawValue: indexPath.row)
-        let presentationModel = self.presenter.presentationModel(for: type ?? .profile)
+        let presentationModel = self.presenter.presentationModel(for: type ?? .categories)
 
         let cell = tableView.dequeueReusableCell(
             withIdentifier: SettingsTableViewCell.reuseId,

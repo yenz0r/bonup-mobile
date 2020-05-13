@@ -52,15 +52,15 @@ final class OrganizationsListView: UIViewController {
         self.collectionView = self.configureCollectioView()
         self.emptyContainerView = self.configureEmtpyContainerView()
 
-        self.view.addSubview(self.emptyContainerView)
-        self.emptyContainerView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(90.0)
-            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(20.0)
-        }
-
         self.view.addSubview(self.collectionView)
         self.collectionView.snp.makeConstraints { make in
             make.edges.equalTo(self.view.safeAreaLayoutGuide).inset(10.0)
+        }
+
+        self.view.addSubview(self.emptyContainerView)
+        self.emptyContainerView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(70.0)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(20.0)
         }
     }
 
@@ -101,6 +101,7 @@ final class OrganizationsListView: UIViewController {
         let label = UILabel()
         label.text = "ui_empty_organizations_title".localized
         label.textAlignment = .center
+        label.numberOfLines = 0
         label.font = UIFont.avenirRoman(20.0)
         label.textColor = UIColor.black.withAlphaComponent(0.3)
 
@@ -141,7 +142,10 @@ extension OrganizationsListView: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.presenter.numberOfOrganizations()
+        let num = self.presenter.numberOfOrganizations()
+
+        self.emptyContainerView.isHidden = num != 0
+        return num
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

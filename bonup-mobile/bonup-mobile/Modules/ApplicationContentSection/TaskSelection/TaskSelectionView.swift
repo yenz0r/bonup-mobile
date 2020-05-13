@@ -32,6 +32,8 @@ final class TaskSelectionView: UIViewController {
     private var footerButtonsStackView: UIStackView!
     private var tasksCardStack: SwipeCardStack!
 
+    private var footerButtonsHeight: NSLayoutConstraint!
+
     // MARK: - Life Cycle
 
     override func loadView() {
@@ -66,9 +68,11 @@ final class TaskSelectionView: UIViewController {
 
         self.footerButtonsStackView = UIStackView()
         self.view.addSubview(self.footerButtonsStackView)
+        self.footerButtonsStackView.translatesAutoresizingMaskIntoConstraints = false
+        self.footerButtonsHeight = self.footerButtonsStackView.heightAnchor.constraint(equalToConstant: 35.0)
+        self.footerButtonsHeight.isActive = true
         self.footerButtonsStackView.snp.makeConstraints { make in
             make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-20)
-            make.height.equalTo(35.0)
             make.width.equalTo(185.0)
             make.centerX.equalToSuperview()
             make.top.equalTo(self.tasksCardStack.snp.bottom).offset(20.0)
@@ -212,6 +216,10 @@ extension TaskSelectionView: ITaskSelectionView {
 
 extension TaskSelectionView: SwipeCardStackDataSource {
     func numberOfCards(in cardStack: SwipeCardStack) -> Int {
+        UIView.animate(withDuration: 0.2) {
+            self.footerButtonsHeight.constant = self.presenter.numberOfCards() == 0 ? 0 : 35.0
+        }
+
         return self.presenter.numberOfCards()
     }
 
@@ -231,6 +239,11 @@ extension TaskSelectionView: SwipeCardStackDataSource {
 
 extension TaskSelectionView: SwipeCardStackDelegate {
     func cardStack(_ cardStack: SwipeCardStack, didSwipeCardAt index: Int, with direction: SwipeDirection) {
+
+        UIView.animate(withDuration: 0.2) {
+            self.footerButtonsHeight.constant = cardStack.numberOfVisibleCards == 0 ? 0 : 35.0
+        }
+
         switch direction {
         case .left:
             self.presenter.handleTaskSelection(at: index, isLike: false)

@@ -81,6 +81,7 @@ final class SettingsHeaderView: UIView {
             label.font = UIFont.avenirHeavy(30.0)
             label.textColor = UIColor.black.withAlphaComponent(0.6)
             label.textAlignment = .left
+            label.contentScaleFactor = 0.4
 
             return label
         }()
@@ -91,6 +92,7 @@ final class SettingsHeaderView: UIView {
             label.font = UIFont.avenirRoman(20.0)
             label.textColor = UIColor.black.withAlphaComponent(0.6)
             label.textAlignment = .left
+            label.contentScaleFactor = 0.4
 
             return label
         }()

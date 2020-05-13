@@ -115,12 +115,12 @@ final class ProfileProgressContainer: UIView {
     private func conifigureProgressContainer(for type: ProgressType) -> UIView {
         let containerView = UIView()
 
-        let progressViewSize = 150;
+        let progressViewSize = 120;
 
         switch type {
         case .all:
             let titleLabel = self.configureTitleLabel(with: "ui_all_period_title".localized)
-            self.allProgressView = self.configureProgressView(with: 100.0, tint: .orange)
+            self.allProgressView = self.configureProgressView(with: 100.0, tint: .orange, pattern: 1.0)
 
             containerView.addSubview(titleLabel)
             containerView.addSubview(self.allProgressView)
@@ -137,7 +137,7 @@ final class ProfileProgressContainer: UIView {
             }
         case .lastWeek:
             let titleLabel = self.configureTitleLabel(with: "ui_last_week_title".localized)
-            self.lastWeekProgressView = self.configureProgressView(with: 100.0, tint: .green)
+            self.lastWeekProgressView = self.configureProgressView(with: 100.0, tint: .green, pattern: 2.0)
 
             containerView.addSubview(titleLabel)
             containerView.addSubview(self.lastWeekProgressView)
@@ -154,7 +154,7 @@ final class ProfileProgressContainer: UIView {
             }
         case .lastMonth:
             let titleLabel = self.configureTitleLabel(with: "ui_last_month_title".localized)
-            self.lastMonthProgressView = self.configureProgressView(with: 100.0, tint: .blue)
+            self.lastMonthProgressView = self.configureProgressView(with: 100.0, tint: .red , pattern: 3.0)
 
             containerView.addSubview(titleLabel)
             containerView.addSubview(self.lastMonthProgressView)
@@ -171,7 +171,7 @@ final class ProfileProgressContainer: UIView {
             }
         case .today:
             let titleLabel = self.configureTitleLabel(with: "ui_today_title".localized)
-            self.todayProgressView = self.configureProgressView(with: 100.0, tint: .pinkishGrey)
+            self.todayProgressView = self.configureProgressView(with: 100.0, tint: .brown, pattern: 4.0)
 
             containerView.addSubview(titleLabel)
             containerView.addSubview(self.todayProgressView)
@@ -192,12 +192,14 @@ final class ProfileProgressContainer: UIView {
     }
 
     private func configureProgressView(with maxValue: CGFloat,
-                                       tint color: UIColor) -> UICircularProgressRing {
+                                       tint color: UIColor,
+                                       pattern: CGFloat) -> UICircularProgressRing {
         let progressRing = UICircularProgressRing()
 
         progressRing.maxValue = maxValue
-        progressRing.style = .dashed(pattern: [2.0, 2.0])
+        progressRing.style = .dashed(pattern: [pattern, 1.0])
         progressRing.tintColor = color
+        progressRing.innerRingColor = color.withAlphaComponent(0.3)
 
         return progressRing
     }

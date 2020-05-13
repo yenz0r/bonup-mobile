@@ -147,7 +147,7 @@ final class ProfileInfoContainer: UIView {
 
         label.textAlignment = .center
         label.text = text
-        label.font = UIFont.avenirHeavy(20.0)
+        label.font = UIFont.avenirHeavy(15.0)
         label.textColor = UIColor.black.withAlphaComponent(0.5)
 
         return label
@@ -165,7 +165,7 @@ final class ProfileInfoContainer: UIView {
         let label = UILabel()
 
         label.textAlignment = .center
-        label.font = UIFont.avenirRoman(15.0)
+        label.font = UIFont.avenirRoman(12.0)
         label.textColor = UIColor.purpleLite.withAlphaComponent(0.6)
 
         return label
