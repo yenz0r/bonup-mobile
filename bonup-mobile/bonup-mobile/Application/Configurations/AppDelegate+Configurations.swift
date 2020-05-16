@@ -50,13 +50,6 @@ extension AppDelegate {
     }
 
     func setupGoogleServices() {
-        #if (DEBUG_FREE || DEBUG_PAID)
-print("debug")
-        #else
-print("release")
-        #endif
-
-        print("isdebugpaid \(IS_DEBUG_PAID)")
 
         GADMobileAds.sharedInstance().start(completionHandler: nil)
 

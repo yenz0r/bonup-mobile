@@ -183,6 +183,8 @@
 		B9D17586243CFD1F001FF58E /* TermsAndConditionsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D17585243CFD1F001FF58E /* TermsAndConditionsRouter.swift */; };
 		B9D17588243CFD27001FF58E /* TermsAndConditionsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D17587243CFD27001FF58E /* TermsAndConditionsBuilder.swift */; };
 		B9D1758A243CFD38001FF58E /* TermsAndConditionsDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D17589243CFD38001FF58E /* TermsAndConditionsDependency.swift */; };
+		B9D17E2D246C1D0700258BA3 /* OrganizationControlInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D17E2C246C1D0700258BA3 /* OrganizationControlInput.swift */; };
+		B9D17E32246C2B9C00258BA3 /* OrganizationAppendResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D17E31246C2B9C00258BA3 /* OrganizationAppendResponseEntity.swift */; };
 		B9D30C67244BA0A300B9E9AA /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D30C66244BA0A300B9E9AA /* ChangePasswordView.swift */; };
 		B9D30C6A244BA0B400B9E9AA /* ChangePasswordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D30C69244BA0B400B9E9AA /* ChangePasswordBuilder.swift */; };
 		B9D30C6C244BA0BB00B9E9AA /* ChangePasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D30C6B244BA0BB00B9E9AA /* ChangePasswordInteractor.swift */; };
@@ -421,6 +423,8 @@
 		B9D17585243CFD1F001FF58E /* TermsAndConditionsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsRouter.swift; sourceTree = "<group>"; };
 		B9D17587243CFD27001FF58E /* TermsAndConditionsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsBuilder.swift; sourceTree = "<group>"; };
 		B9D17589243CFD38001FF58E /* TermsAndConditionsDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsDependency.swift; sourceTree = "<group>"; };
+		B9D17E2C246C1D0700258BA3 /* OrganizationControlInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlInput.swift; sourceTree = "<group>"; };
+		B9D17E31246C2B9C00258BA3 /* OrganizationAppendResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationAppendResponseEntity.swift; sourceTree = "<group>"; };
 		B9D30C66244BA0A300B9E9AA /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		B9D30C69244BA0B400B9E9AA /* ChangePasswordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordBuilder.swift; sourceTree = "<group>"; };
 		B9D30C6B244BA0BB00B9E9AA /* ChangePasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordInteractor.swift; sourceTree = "<group>"; };
@@ -665,6 +669,7 @@
 				B941E73B246B93600056B844 /* OrganizationControlBuilder.swift */,
 				B941E73D246B936B0056B844 /* OrganizationControlDependency.swift */,
 				B941E73F246B93730056B844 /* OrganizationControlRouter.swift */,
+				B9D17E2C246C1D0700258BA3 /* OrganizationControlInput.swift */,
 			);
 			path = OrganizationControl;
 			sourceTree = "<group>";
@@ -885,6 +890,7 @@
 			children = (
 				B96A71DC246B9C90007416DF /* OrganizationControlService.swift */,
 				B96A71DE246B9CB5007416DF /* OrganizationControlResponseEntity.swift */,
+				B9D17E31246C2B9C00258BA3 /* OrganizationAppendResponseEntity.swift */,
 			);
 			path = OrganizationControl;
 			sourceTree = "<group>";
@@ -1742,11 +1748,13 @@
 				B9A0C9A9242FC58500EB6FAE /* CategoriesRouter.swift in Sources */,
 				B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */,
 				B9CAA722242BE8DF00E50668 /* EmailVerificationResponseEntity.swift in Sources */,
+				B9D17E32246C2B9C00258BA3 /* OrganizationAppendResponseEntity.swift in Sources */,
 				B96A71E4246BA7A6007416DF /* ProfileResponseDetailsEntity.swift in Sources */,
 				B992D51624578A36002ABF71 /* BenefitsRouter.swift in Sources */,
 				B966E72B24684CB10043FD69 /* BenefitDescriptionView.swift in Sources */,
 				B9323669241D96F600A37634 /* AccountManager.swift in Sources */,
 				B9BF7011244326530051CF41 /* TaskCardOverlay.swift in Sources */,
+				B9D17E2D246C1D0700258BA3 /* OrganizationControlInput.swift in Sources */,
 				B9787F3C246B517D007DB617 /* TermsAndConditionsConstants.swift in Sources */,
 				B9268920242A95CA00F1732A /* AssetsHelper.swift in Sources */,
 				B992D51424578A2E002ABF71 /* BenefitsBuilder.swift in Sources */,

@@ -109,9 +109,8 @@ final class TaskSelectionView: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
         self.presenter.viewWillAppear()
+        super.viewWillAppear(animated)
     }
 
     override func viewWillDisappear(_ animated: Bool) {

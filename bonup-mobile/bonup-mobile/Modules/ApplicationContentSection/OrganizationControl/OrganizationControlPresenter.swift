@@ -14,6 +14,9 @@ protocol IOrganizationControlPresenter: AnyObject {
     func title(for index: Int) -> String
     func icon(for index: Int) -> UIImage?
     func handleScanResult(_ result: String, at index: Int)
+
+    func handleAddTask(name: String, deskriptionText: String, count: Int, type: Int)
+    func handleAddBenefit(name: String, deskriptionText: String, count: Int, type: Int)
 }
 
 final class OrganizationControlPresenter {
@@ -25,13 +28,15 @@ final class OrganizationControlPresenter {
     private let titles = [
         "ui_check_task".localized,
         "ui_check_benefit".localized,
-//        "ui_add_task".localized,
-//        "ui_add_benefit".localized
+        "ui_add_task".localized,
+        "ui_add_benefit".localized
     ]
 
     private let icons = [
         AssetsHelper.shared.image(.settingsRateUs),
-        AssetsHelper.shared.image(.settingsHelp)
+        AssetsHelper.shared.image(.settingsHelp),
+        AssetsHelper.shared.image(.settingsCategory),
+        AssetsHelper.shared.image(.settingsRateUs)
     ]
 
     init(view: IOrganizationControlView?, interactor: IOrganizationControlInteractor, router: IOrganizationControlRouter) {
@@ -44,9 +49,39 @@ final class OrganizationControlPresenter {
 // MARK: - IOrganizationControlPresenter implementation
 
 extension OrganizationControlPresenter: IOrganizationControlPresenter {
+    func handleAddTask(name: String, deskriptionText: String, count: Int, type: Int) {
+        self.interactor.addTask(
+            name: name,
+            descriptionText: deskriptionText,
+            count: count,
+            type: type,
+            success: { message in
+                self.router.show(.showResultAlert(message))
+            },
+            failure: { message in
+                self.router.show(.showResultAlert(message))
+            }
+        )
+    }
+
+    func handleAddBenefit(name: String, deskriptionText: String, count: Int, type: Int) {
+        self.interactor.addBenefit(
+            name: name,
+            descriptionText: deskriptionText,
+            count: count,
+            type: type,
+            success: { message in
+                self.router.show(.showResultAlert(message))
+        },
+            failure: { message in
+                self.router.show(.showResultAlert(message))
+        }
+        )
+    }
+
     func numberOfControls() -> Int {
 
-        return 2
+        return 4
     }
 
     func title(for index: Int) -> String {
@@ -61,18 +96,19 @@ extension OrganizationControlPresenter: IOrganizationControlPresenter {
 
     func handleScanResult(_ result: String, at index: Int) {
 
-        if index == 0 {
-
+        switch index {
+        case 0:
             self.interactor.resolveTask(qrCode: result, block: { [weak self] isSuccess, message in
 
                 self?.router.show(.showResultAlert(message))
             })
-        } else {
-
+        case 1:
             self.interactor.activateCoupon(qrCode: result, block: { [weak self] isSuccess, message in
 
-                self?.router.show(.showResultAlert(message))
-            })
+                           self?.router.show(.showResultAlert(message))
+                       })
+        default:
+            return
         }
     }
 }

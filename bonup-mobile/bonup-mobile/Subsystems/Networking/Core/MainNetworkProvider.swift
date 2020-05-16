@@ -70,7 +70,7 @@ extension MainNetworkProvider: IMainNetworkProvider {
                                failure: ((MoyaError?) -> Void)?) -> Cancellable {
 
         UIApplication.topViewController()?.view.endEditing(true)
-        AlertsFactory.shared.loadingAlert(.show(message: "Wait a bit please.."))
+        AlertsFactory.shared.loadingAlert(.show(message: "ui_wait_a_bit_please".localized))
 
         return moyaProvider.request(target) { result in
 
@@ -111,7 +111,7 @@ extension MainNetworkProvider: IMainNetworkProvider {
                      completion: @escaping (Bool) -> Void,
                      failure: ((MoyaError?) -> Void)?) -> Cancellable {
 
-        AlertsFactory.shared.loadingAlert(.show(message: "Wait a bit please.."))
+        AlertsFactory.shared.loadingAlert(.show(message: "ui_wait_a_bit_please".localized))
 
         return moyaProvider.request(target) { result in
 
@@ -153,7 +153,7 @@ extension MainNetworkProvider: IMainNetworkProvider {
                        completion: @escaping (String) -> Void,
                        failure: ((MoyaError?) -> Void)?) -> Cancellable {
 
-        AlertsFactory.shared.loadingAlert(.show(message: "Wait a bit please.."))
+        AlertsFactory.shared.loadingAlert(.show(message: "ui_wait_a_bit_please".localized))
 
         return moyaProvider.request(target) { result in
 

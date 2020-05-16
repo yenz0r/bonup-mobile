@@ -40,9 +40,9 @@ final class OrganizationsListView: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
         self.presenter.viewWillAppear()
+
+        super.viewWillAppear(animated)
     }
 
     // MARK: - Setup subviews
@@ -129,7 +129,7 @@ extension OrganizationsListView: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-        self.presenter.handleShowOgranizationControl()
+        self.presenter.handleShowOgranizationControl(for: indexPath.row)
     }
 }
 

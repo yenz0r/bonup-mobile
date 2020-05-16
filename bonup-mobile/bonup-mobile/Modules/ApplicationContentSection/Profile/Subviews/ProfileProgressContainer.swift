@@ -115,7 +115,7 @@ final class ProfileProgressContainer: UIView {
     private func conifigureProgressContainer(for type: ProgressType) -> UIView {
         let containerView = UIView()
 
-        let progressViewSize = 140;
+        let progressViewSize = 130;
 
         switch type {
         case .all:

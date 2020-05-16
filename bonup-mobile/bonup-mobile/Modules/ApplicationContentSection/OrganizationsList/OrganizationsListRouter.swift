@@ -17,7 +17,7 @@ protocol IOrganizationsListRouter {
 final class OrganizationsListRouter {
     enum RouterScenario {
 
-        case showOrganizationControl
+        case showOrganizationControl(String)
     }
 
     private var view: OrganizationsListView?
@@ -52,9 +52,9 @@ extension OrganizationsListRouter: IOrganizationsListRouter {
 
         switch scenario {
 
-        case .showOrganizationControl:
+        case .showOrganizationControl(let organizationName):
             
-            let dependency = OrganizationControlDependency(parentController: view)
+            let dependency = OrganizationControlDependency(parentController: view, organizationName: organizationName)
             let builder = OrganizationControlBuilder()
             let router = builder.build(dependency)
             router.start(nil)

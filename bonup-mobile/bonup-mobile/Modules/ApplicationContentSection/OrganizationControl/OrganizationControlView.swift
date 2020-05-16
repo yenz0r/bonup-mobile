@@ -96,15 +96,33 @@ extension OrganizationControlView: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 50.0
+        return 70.0
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        self.currentIndex = indexPath.row
-        let scanner = QRCodeScannerController()
-        scanner.delegate = self
-        self.present(scanner, animated: true, completion: nil)
+        if (indexPath.row == 0 || indexPath.row == 1) {
+            self.currentIndex = indexPath.row
+            let scanner = QRCodeScannerController()
+            scanner.delegate = self
+            self.present(scanner, animated: true, completion: nil)
+        } else {
+            let inputVC = OrganizationControlInput()
+
+            if (indexPath.row == 2) {
+                inputVC.onClose = { [weak self] name, descriptionText, count, type in
+                    self?.presenter.handleAddTask(name: name, deskriptionText: descriptionText, count: count, type: type)
+                }
+            } else {
+                inputVC.onClose = { [weak self] name, descriptionText, count, type in
+                    self?.presenter.handleAddBenefit(name: name, deskriptionText: descriptionText, count: count, type: type)
+                }
+            }
+
+            inputVC.modalPresentationStyle = .overCurrentContext
+            inputVC.modalTransitionStyle = .crossDissolve
+            self.present(inputVC, animated: true, completion: nil)
+        }
     }
 }
 

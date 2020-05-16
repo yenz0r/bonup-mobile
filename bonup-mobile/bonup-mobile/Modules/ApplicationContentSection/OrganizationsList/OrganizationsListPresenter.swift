@@ -14,7 +14,7 @@ protocol IOrganizationsListPresenter: AnyObject {
     func title(for index: Int) -> String
     func imagePath(for index: Int) -> String
     func numberOfOrganizations() -> Int
-    func handleShowOgranizationControl()
+    func handleShowOgranizationControl(for index: Int) 
 }
 
 final class OrganizationsListPresenter {
@@ -49,9 +49,11 @@ extension OrganizationsListPresenter: IOrganizationsListPresenter {
         return response.organizations[index].photo
     }
 
-    func handleShowOgranizationControl() {
+    func handleShowOgranizationControl(for index: Int) {
 
-        self.router.show(.showOrganizationControl)
+        guard let response = self.organizationsResponse else { return }
+
+        self.router.show(.showOrganizationControl(response.organizations[index].name))
     }
 
     func numberOfOrganizations() -> Int {

@@ -17,6 +17,7 @@ protocol IBenefitsRouter {
 final class BenefitsRouter {
     enum BenefitsRouterScenario {
         case benefitDescription(ActualBenefitEntity)
+        case showHelpAlert
     }
 
     private var view: BenefitsView?
@@ -60,6 +61,16 @@ extension BenefitsRouter: IBenefitsRouter {
             let builder = BenefitDescriptionBuilder()
             let router = builder.build(dependency)
             router.start(nil)
+
+        case .showHelpAlert:
+
+            AlertsFactory.shared.infoAlert(
+                for: .error,
+                title: "ui_benefits_title".localized,
+                description: "ui_benefits_help".localized,
+                from: view,
+                completion: nil
+            )
         }
     }
 }

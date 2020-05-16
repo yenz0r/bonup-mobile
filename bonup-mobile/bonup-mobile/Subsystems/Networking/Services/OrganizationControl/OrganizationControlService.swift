@@ -14,6 +14,8 @@ enum OrganizationControlService {
 
     case resolveTask(Int, String, String)
     case activateCoupon(Int, String, String)
+    case putCoupon(String, String, Int, Int, String, String)
+    case putTask(String, String, Int, Int, String, String)
 }
 
 extension OrganizationControlService: IAuthorizedTargetType {
@@ -28,6 +30,10 @@ extension OrganizationControlService: IAuthorizedTargetType {
             return "/resolveTask"
         case .activateCoupon(_, _, _):
             return "/activateCoupon"
+        case .putCoupon(_, _, _, _, _, _):
+            return "/putCoupon"
+        case .putTask(_, _, _, _, _, _):
+            return "/putTask"
         }
     }
 
@@ -37,6 +43,10 @@ extension OrganizationControlService: IAuthorizedTargetType {
             return .post
         case .activateCoupon(_, _, _):
             return .post
+        case .putCoupon(_, _, _, _, _, _):
+            return .put
+        case .putTask(_, _, _, _, _, _):
+            return .put
         }
     }
 
@@ -63,6 +73,31 @@ extension OrganizationControlService: IAuthorizedTargetType {
                 ],
                 encoding: JSONEncoding.default
             )
+        case .putTask(let name, let descriptionText, let count, let type, let token, let organizationName):
+            return .requestParameters(
+                parameters: [
+                    "description": descriptionText,
+                    "organizationName": organizationName,
+                    "typeId": type + 1,
+                    "token": token,
+                    "count": count,
+                    "name": name
+                ],
+                encoding: JSONEncoding.default
+            )
+        case .putCoupon(let name, let descriptionText, let count, let type, let token, let organizationName):
+            return .requestParameters(
+                parameters: [
+                    "description": descriptionText,
+                    "organizationName": organizationName,
+                    "typeId": type + 1,
+                    "token": token,
+                    "count": count,
+                    "name": name
+                ],
+                encoding: JSONEncoding.default
+            )
+
         }
     }
 

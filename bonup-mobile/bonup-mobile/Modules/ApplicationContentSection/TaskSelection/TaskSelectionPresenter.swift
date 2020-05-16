@@ -68,6 +68,8 @@ extension TaskSelectionPresenter: ITaskSelectionPresenter {
         let selectedIds = self.selectedCards.map { $0.id }
 
         self.interactor.saveTasks(ids: selectedIds, completion: nil)
+
+        self.selectedCards = []
     }
 
     func handleInfoButtonTap() {
@@ -86,7 +88,18 @@ extension TaskSelectionPresenter: ITaskSelectionPresenter {
 
         if isLike {
 
-            self.selectedCards.append(card)
+            var isContains = false
+
+            for localCard in selectedCards {
+                if localCard.id == card.id {
+                    isContains = true
+                    break
+                }
+            }
+
+            if !isContains {
+                self.selectedCards.append(card)
+            }
         } else {
 
             self.selectedCards.removeAll { $0.id == card.id }

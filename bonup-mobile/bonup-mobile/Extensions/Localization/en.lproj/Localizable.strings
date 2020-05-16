@@ -99,3 +99,11 @@
 "ui_logout_title" = "Logout";
 "ui_help_description" = "You can find help icon on each screen in the top right corner with additional information for it's functionality =)";
 "ui_in_progress" = "In progress.. We are working hard for it";
+"ui_add_task" = "Add Task";
+"ui_add_benefit" = "Add Benefit";
+"ui_description_placeholder" = "Description";
+"ui_price_placeholder" = "Price";
+"ui_count_placeholder" = "Count";
+"ui_wait_a_bit_please" = "Wait a bit please..";
+"ui_profile_help" = "Here you can control your progress, using diagrams and tables, achivements";
+"ui_benefits_help" = "Save money in this section using benefits from your favorit organizations";

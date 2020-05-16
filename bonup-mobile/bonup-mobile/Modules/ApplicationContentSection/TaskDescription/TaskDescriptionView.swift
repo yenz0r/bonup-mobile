@@ -377,7 +377,8 @@ final class TaskDescriptionView: UIViewController {
     // MARK: - Selectors
 
     @objc private func callButtonTapped() {
-        if let url = URL(string: "telprompt://+375293774737") {
+        // Use phone number when back will be ready
+        if let url = URL(string: "telprompt://mobile") {
           if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.openURL(url)
           }
@@ -385,6 +386,7 @@ final class TaskDescriptionView: UIViewController {
     }
 
     @objc private func visitSiteButtonTapped() {
+        // Use url when back will be ready
         if let url = URL(string: "https://google.com") {
                  if UIApplication.shared.canOpenURL(url) {
                    UIApplication.shared.openURL(url)

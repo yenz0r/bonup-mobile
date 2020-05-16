@@ -18,6 +18,7 @@ final class OrganizationControlRouter {
     enum RouterScenario {
 
         case showResultAlert(String)
+        case showControlInput(((String, String, Int, Int) -> Void)?)
     }
 
     private var view: OrganizationControlView?
@@ -56,11 +57,17 @@ extension OrganizationControlRouter: IOrganizationControlRouter {
         case .showResultAlert(let message):
             AlertsFactory.shared.infoAlert(
                 for: .error,
-                title: "ui_error_title".localized,
+                title: "ui_help_title".localized,
                 description: message,
                 from: view,
                 completion: nil
             )
+        case .showControlInput(let completion):
+            let inputVC = OrganizationControlInput()
+            inputVC.onClose = completion
+
+            inputVC.modalPresentationStyle = .overCurrentContext
+//            view.present(inputVC, animated: true, completion: nil)
         }
     }
 }

@@ -68,7 +68,7 @@ final class BenefitDescriptionView: UIViewController {
         self.imageView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(self.view.safeAreaLayoutGuide)
-            make.height.equalTo(100.0)
+            make.height.equalTo(150.0)
         }
 
         self.titleLabel.snp.makeConstraints { make in
@@ -105,7 +105,7 @@ final class BenefitDescriptionView: UIViewController {
         let imageView = UIImageView()
 
         imageView.clipsToBounds = true
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
 
         return imageView
     }

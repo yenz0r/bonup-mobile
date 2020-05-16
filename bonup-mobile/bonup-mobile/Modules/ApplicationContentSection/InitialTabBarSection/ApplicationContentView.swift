@@ -8,7 +8,5 @@
 
 import UIKit
 
-final class ApplicationContentView: BUTabBarController {
-    
-}
+final class ApplicationContentView: BUTabBarController { }
 

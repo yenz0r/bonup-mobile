@@ -37,7 +37,7 @@ extension ProfileInteractor: IProfileInteractor {
                     success?(result.userInfo)
                 } else {
 
-                    failure?(result.message)
+                    //failure?(result.message)
                 }
             },
             failure: { err in

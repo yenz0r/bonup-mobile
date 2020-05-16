@@ -53,8 +53,8 @@ extension ProfileRouter: IProfileRouter {
         case .infoAlert(let message):
             AlertsFactory.shared.infoAlert(
                 for: .error,
-                title: "task_selection_info_title".localized,
-                description: message ?? "task_selection_info_description".localized,
+                title: "ui_profile_title".localized,
+                description: message ?? "ui_profile_help".localized,
                 from: view,
                 completion: nil
             )
