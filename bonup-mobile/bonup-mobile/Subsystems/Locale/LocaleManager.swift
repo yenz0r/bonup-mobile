@@ -10,16 +10,48 @@ import Foundation
 
 final class LocaleManager {
 
-    // MARK: - Public variables
+    enum Languages: String {
 
-    static let shared = LocaleManager()
-
-    var currentLocale: String {
-        return NSLocale.current.languageCode ?? "en"
+        case ru = "ru"
+        case en = "en"
     }
 
     // MARK: - Initialization
 
     private init() { }
 
+    // MARK: - Public variables
+
+    static let shared = LocaleManager()
+
+    var currentLocale: String {
+        
+        let langCode: String? = UserDefaultsManager.shared.getValue(key: .language)
+        return langCode ?? (NSLocale.current.languageCode ?? "en")
+    }
+
+    var currentLanguage: Languages {
+
+        return Languages(rawValue: self.currentLocale) ?? .en
+    }
+
+    let supportedLanguages: [Languages] = [.ru, .en]
+
+    // MARK: - Public functions
+
+    func titleForLanguage(_ lang: Languages) -> String {
+
+        switch lang {
+        case .ru:
+            return "Русский"
+
+        case .en:
+            return "English"
+        }
+    }
+
+    func setupCurrLang(_ lang: Languages) {
+
+        UserDefaultsManager.shared.saveValue(lang.rawValue, key: .language)
+    }
 }

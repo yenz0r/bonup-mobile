@@ -45,6 +45,8 @@ final class AssetsHelper {
         case settingsRateUs
         case settingsHelp
         case settingsCategory
+
+        case activeCheckBox
     }
 
     static let shared = AssetsHelper()
@@ -117,6 +119,8 @@ final class AssetsHelper {
         case .settingsLanguage:
             return UIImage(named: "settings-language")
 
+        case .activeCheckBox:
+            return UIImage(named: "active-check-box")
 
         @unknown default:
             assertionFailure("Incorrect \(String(describing: self)) enum value")

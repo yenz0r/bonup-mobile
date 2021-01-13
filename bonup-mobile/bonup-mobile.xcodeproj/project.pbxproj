@@ -91,6 +91,7 @@
 		B96AC7FB2446651C005C25D1 /* LocaleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96AC7FA2446651C005C25D1 /* LocaleManager.swift */; };
 		B96D54BD242FBED600023BC9 /* NewPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D54BC242FBED600023BC9 /* NewPasswordService.swift */; };
 		B96D54C0242FBF1400023BC9 /* ResetPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D54BF242FBF1400023BC9 /* ResetPasswordService.swift */; };
+		B9721AB425AF39840019D6D4 /* SettingsParamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9721AB325AF39840019D6D4 /* SettingsParamsView.swift */; };
 		B977483B24431910004D39AD /* TaskSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977483A24431910004D39AD /* TaskSelectionView.swift */; };
 		B977483D2443194E004D39AD /* TaskSelectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977483C2443194E004D39AD /* TaskSelectionInteractor.swift */; };
 		B977483F24431955004D39AD /* TaskSelectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977483E24431955004D39AD /* TaskSelectionBuilder.swift */; };
@@ -126,6 +127,15 @@
 		B98DE0EA244BB648007AE007 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DE0E9244BB648007AE007 /* SettingsRouter.swift */; };
 		B98DE0EC244BBAF1007AE007 /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DE0EB244BBAF1007AE007 /* SettingsHeaderView.swift */; };
 		B98DE0EF244BBEDF007AE007 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DE0EE244BBEDF007AE007 /* SettingsTableViewCell.swift */; };
+		B990930725AF3A2F00CF381B /* SettingsParamsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990930625AF3A2F00CF381B /* SettingsParamsPresenter.swift */; };
+		B990930C25AF3A3600CF381B /* SettingsParamsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990930B25AF3A3600CF381B /* SettingsParamsInteractor.swift */; };
+		B990931125AF3A3C00CF381B /* SettingsParamsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990931025AF3A3B00CF381B /* SettingsParamsBuilder.swift */; };
+		B990931625AF3A4C00CF381B /* SettingsParamsDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990931525AF3A4C00CF381B /* SettingsParamsDependency.swift */; };
+		B990931B25AF3A5500CF381B /* SettingsParamsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990931A25AF3A5500CF381B /* SettingsParamsRouter.swift */; };
+		B990932025AF3B0D00CF381B /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990931F25AF3B0D00CF381B /* UserDefaultsManager.swift */; };
+		B990932925AF403100CF381B /* ThemeColorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990932825AF403100CF381B /* ThemeColorsManager.swift */; };
+		B990935A25AF478E00CF381B /* SettingsParamsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990935925AF478E00CF381B /* SettingsParamsCell.swift */; };
+		B990935F25AF479700CF381B /* SettingsParamsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990935E25AF479700CF381B /* SettingsParamsCellViewModel.swift */; };
 		B992D50E245789FF002ABF71 /* BenefitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D50D245789FF002ABF71 /* BenefitsView.swift */; };
 		B992D51024578A09002ABF71 /* BenefitsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D50F24578A09002ABF71 /* BenefitsPresenter.swift */; };
 		B992D51224578A11002ABF71 /* BenefitsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D51124578A11002ABF71 /* BenefitsInteractor.swift */; };
@@ -331,6 +341,7 @@
 		B96AC7FA2446651C005C25D1 /* LocaleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleManager.swift; sourceTree = "<group>"; };
 		B96D54BC242FBED600023BC9 /* NewPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordService.swift; sourceTree = "<group>"; };
 		B96D54BF242FBF1400023BC9 /* ResetPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordService.swift; sourceTree = "<group>"; };
+		B9721AB325AF39840019D6D4 /* SettingsParamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsParamsView.swift; sourceTree = "<group>"; };
 		B977483A24431910004D39AD /* TaskSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSelectionView.swift; sourceTree = "<group>"; };
 		B977483C2443194E004D39AD /* TaskSelectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSelectionInteractor.swift; sourceTree = "<group>"; };
 		B977483E24431955004D39AD /* TaskSelectionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSelectionBuilder.swift; sourceTree = "<group>"; };
@@ -366,6 +377,15 @@
 		B98DE0E9244BB648007AE007 /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		B98DE0EB244BBAF1007AE007 /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
 		B98DE0EE244BBEDF007AE007 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		B990930625AF3A2F00CF381B /* SettingsParamsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsParamsPresenter.swift; sourceTree = "<group>"; };
+		B990930B25AF3A3600CF381B /* SettingsParamsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsParamsInteractor.swift; sourceTree = "<group>"; };
+		B990931025AF3A3B00CF381B /* SettingsParamsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsParamsBuilder.swift; sourceTree = "<group>"; };
+		B990931525AF3A4C00CF381B /* SettingsParamsDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsParamsDependency.swift; sourceTree = "<group>"; };
+		B990931A25AF3A5500CF381B /* SettingsParamsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsParamsRouter.swift; sourceTree = "<group>"; };
+		B990931F25AF3B0D00CF381B /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		B990932825AF403100CF381B /* ThemeColorsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorsManager.swift; sourceTree = "<group>"; };
+		B990935925AF478E00CF381B /* SettingsParamsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsParamsCell.swift; sourceTree = "<group>"; };
+		B990935E25AF479700CF381B /* SettingsParamsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsParamsCellViewModel.swift; sourceTree = "<group>"; };
 		B992D50D245789FF002ABF71 /* BenefitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsView.swift; sourceTree = "<group>"; };
 		B992D50F24578A09002ABF71 /* BenefitsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsPresenter.swift; sourceTree = "<group>"; };
 		B992D51124578A11002ABF71 /* BenefitsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsInteractor.swift; sourceTree = "<group>"; };
@@ -572,6 +592,8 @@
 				B9CAA718242BB0B500E50668 /* AlertFactory */,
 				B96AC7FC24466523005C25D1 /* Locale */,
 				B9069105246235DB001A1F76 /* QRcode */,
+				B990932425AF3B1B00CF381B /* UserDefaults */,
+				B990932D25AF403600CF381B /* Theme */,
 			);
 			path = Subsystems;
 			sourceTree = "<group>";
@@ -940,6 +962,20 @@
 			path = ResetPassword;
 			sourceTree = "<group>";
 		};
+		B9721AB825AF39880019D6D4 /* SettingsParams */ = {
+			isa = PBXGroup;
+			children = (
+				B9721AB325AF39840019D6D4 /* SettingsParamsView.swift */,
+				B990930625AF3A2F00CF381B /* SettingsParamsPresenter.swift */,
+				B990930B25AF3A3600CF381B /* SettingsParamsInteractor.swift */,
+				B990931025AF3A3B00CF381B /* SettingsParamsBuilder.swift */,
+				B990931525AF3A4C00CF381B /* SettingsParamsDependency.swift */,
+				B990931A25AF3A5500CF381B /* SettingsParamsRouter.swift */,
+				B990936325AF479C00CF381B /* Cell */,
+			);
+			path = SettingsParams;
+			sourceTree = "<group>";
+		};
 		B97748462443197A004D39AD /* TaskSelection */ = {
 			isa = PBXGroup;
 			children = (
@@ -1038,6 +1074,31 @@
 				B98DE0EE244BBEDF007AE007 /* SettingsTableViewCell.swift */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		B990932425AF3B1B00CF381B /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				B990931F25AF3B0D00CF381B /* UserDefaultsManager.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		B990932D25AF403600CF381B /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				B990932825AF403100CF381B /* ThemeColorsManager.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		B990936325AF479C00CF381B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B990935925AF478E00CF381B /* SettingsParamsCell.swift */,
+				B990935E25AF479700CF381B /* SettingsParamsCellViewModel.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		B992D51924578A50002ABF71 /* BenefitsList */ = {
@@ -1312,6 +1373,7 @@
 				B9D30C68244BA0A800B9E9AA /* ChangePassword */,
 				B9A13D34244E3AC200373827 /* Profile */,
 				B98DE0E0244BB601007AE007 /* Settings */,
+				B9721AB825AF39880019D6D4 /* SettingsParams */,
 				B944A8EF246217CA002170FD /* TaskDescription */,
 				B966E72C24684CB60043FD69 /* BenefitDescription */,
 				B992D51924578A50002ABF71 /* BenefitsList */,
@@ -1615,11 +1677,13 @@
 				B977484324431967004D39AD /* TaskSelectionRouter.swift in Sources */,
 				B935A598241D6A820074E89E /* NewPasswordRouter.swift in Sources */,
 				B9D17586243CFD1F001FF58E /* TermsAndConditionsRouter.swift in Sources */,
+				B990935F25AF479700CF381B /* SettingsParamsCellViewModel.swift in Sources */,
 				B94F37912451C49800FBEB36 /* ProfileHeaderView.swift in Sources */,
 				B9D17580243CFCEA001FF58E /* TermsAndConditionsView.swift in Sources */,
 				B914AC8F24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift in Sources */,
 				B966E73024684D090043FD69 /* BenefitDescriptionBuilder.swift in Sources */,
 				B9CAA712242B9F2100E50668 /* AuthVerificationDependency.swift in Sources */,
+				B990931125AF3A3C00CF381B /* SettingsParamsBuilder.swift in Sources */,
 				B992D50E245789FF002ABF71 /* BenefitsView.swift in Sources */,
 				B9787F4D246B7E08007DB617 /* TaskListCurrentTasksEntity.swift in Sources */,
 				B9FC798E242FB75E00F2D5BC /* ApplicationContentRouter.swift in Sources */,
@@ -1632,6 +1696,7 @@
 				B9CEE6A2241D55A500308098 /* ResetPasswordPresenter.swift in Sources */,
 				B9787F4F246B8C03007DB617 /* OrganizationsListService.swift in Sources */,
 				B9787F4B246B7DF3007DB617 /* TaskListFinishedTasksEntity.swift in Sources */,
+				B990932925AF403100CF381B /* ThemeColorsManager.swift in Sources */,
 				B9FC7990242FB77C00F2D5BC /* ApplicationContentDependency.swift in Sources */,
 				B91A1E572451CD3A00837E73 /* ProfileAhievementsView.swift in Sources */,
 				B91E8099242FCEB400859C83 /* CategoriesService.swift in Sources */,
@@ -1654,6 +1719,7 @@
 				B992D51824578A3E002ABF71 /* BenefitsDependency.swift in Sources */,
 				B98DE0EF244BBEDF007AE007 /* SettingsTableViewCell.swift in Sources */,
 				B948A23E241CBFD8001287B8 /* LoginBuilder.swift in Sources */,
+				B990931B25AF3A5500CF381B /* SettingsParamsRouter.swift in Sources */,
 				B9E0D2B6243D025400BAA634 /* TermsAndConditionsPresenter.swift in Sources */,
 				B9A0C9AD242FC59200EB6FAE /* CategoriesBuilder.swift in Sources */,
 				B948A1EC241444B2001287B8 /* bonup_mobile.xcdatamodeld in Sources */,
@@ -1668,6 +1734,7 @@
 				B992D5282457A02D002ABF71 /* BenefitsCell.swift in Sources */,
 				B96D54BD242FBED600023BC9 /* NewPasswordService.swift in Sources */,
 				B9EFFBAA246BE00200084B7E /* FinishedBenefitEntity.swift in Sources */,
+				B990931625AF3A4C00CF381B /* SettingsParamsDependency.swift in Sources */,
 				B992D52E2457A1A7002ABF71 /* SelectedBenefitsContentCell.swift in Sources */,
 				B92688FD2429520300F1732A /* UIView+Gradient.swift in Sources */,
 				B941E736246B933B0056B844 /* OrganizationControlView.swift in Sources */,
@@ -1679,6 +1746,8 @@
 				B9CAA70C242B9F0200E50668 /* AuthVerificationRouter.swift in Sources */,
 				B9CAA708242B9EE000E50668 /* AuthVerificationView.swift in Sources */,
 				B9EFFBA8246BDFF400084B7E /* ActualBenefitEntity.swift in Sources */,
+				B990930C25AF3A3600CF381B /* SettingsParamsInteractor.swift in Sources */,
+				B990930725AF3A2F00CF381B /* SettingsParamsPresenter.swift in Sources */,
 				B9AF05D72469D510007773B2 /* OrganizationsListCell.swift in Sources */,
 				B914AC8B24435D30007494E3 /* CurrentTasksCollectionViewCell.swift in Sources */,
 				B95533D724431C8A006BFDFB /* TaskCardView.swift in Sources */,
@@ -1697,6 +1766,7 @@
 				B9CAA710242B9F1600E50668 /* AuthVerificationPresenter.swift in Sources */,
 				B9D30C6A244BA0B400B9E9AA /* ChangePasswordBuilder.swift in Sources */,
 				B935A59A241D6A8A0074E89E /* NewPasswordBuilder.swift in Sources */,
+				B9721AB425AF39840019D6D4 /* SettingsParamsView.swift in Sources */,
 				B98DE0E6244BB627007AE007 /* SettingsBuilder.swift in Sources */,
 				B9A13D38244E3ADE00373827 /* ProfileDependency.swift in Sources */,
 				B944A8F1246217EC002170FD /* TaskDescriptionPresenter.swift in Sources */,
@@ -1775,9 +1845,11 @@
 				B9787F40246B54F2007DB617 /* TaskSelectionResponseEntity.swift in Sources */,
 				B9BF701324433D590051CF41 /* BUNavigationController.swift in Sources */,
 				B9323661241D7E4F00A37634 /* AuthorizedTargetType.swift in Sources */,
+				B990935A25AF478E00CF381B /* SettingsParamsCell.swift in Sources */,
 				B9069104246235D7001A1F76 /* QRcodeManager.swift in Sources */,
 				B992D52C2457A18F002ABF71 /* UsedBenefitsPresentationModel.swift in Sources */,
 				B9787F53246B8C50007DB617 /* OrganizationResponseEntity.swift in Sources */,
+				B990932025AF3B0D00CF381B /* UserDefaultsManager.swift in Sources */,
 				B992D51224578A11002ABF71 /* BenefitsInteractor.swift in Sources */,
 				B992D525245799DC002ABF71 /* NewBenefitsPresentationModel.swift in Sources */,
 				B992D5302457A1B2002ABF71 /* UsedBenefitsContentCell.swift in Sources */,

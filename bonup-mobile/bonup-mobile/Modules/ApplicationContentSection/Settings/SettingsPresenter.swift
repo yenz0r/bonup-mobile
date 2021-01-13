@@ -110,13 +110,10 @@ extension SettingsPresenter: ISettingsPresenter {
             self.router.show(.help)
 
         case .applicationLanguage:
-            self.router.show(.inProgress("ui_application_language_title".localized))
+            self.router.show(.params(.lang))
 
         case .applicationTheme:
-            self.router.show(.inProgress("ui_application_theme_title"))
-
-        default:
-            return
+            self.router.show(.params(.theme))
         }
     }
 
@@ -132,4 +129,3 @@ extension SettingsPresenter: ISettingsPresenter {
         )
     }
 }
-

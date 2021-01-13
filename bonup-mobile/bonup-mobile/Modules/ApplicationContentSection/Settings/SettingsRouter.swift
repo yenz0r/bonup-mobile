@@ -23,6 +23,7 @@ final class SettingsRouter {
         case rateUs
         case help
         case inProgress(String)
+        case params(SettingsParamsDependency.SettingsParamsType)
     }
 
     private var view: SettingsView?
@@ -86,7 +87,14 @@ extension SettingsRouter: ISettingsRouter {
                 from: view,
                 completion: nil
             )
+        case .params(let paramType):
+            let dependecy = SettingsParamsDependency(
+                settingsParamsType: paramType,
+                parentNavigationController: self.parentNavigationController
+            )
+            let builder = SettingsParamsBuilder()
+            let router = builder.build(dependecy)
+            router.start(nil)
         }
     }
-
 }

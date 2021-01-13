@@ -17,6 +17,8 @@ target 'bonup-mobile' do
   pod 'PMAlertController'
   pod 'SwiftSpinner'
 
+  pod 'SwiftTheme'
+
   pod 'SOTabBar'
 
   pod 'Shuffle-iOS'
