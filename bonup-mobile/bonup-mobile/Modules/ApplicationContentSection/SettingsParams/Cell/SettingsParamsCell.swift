@@ -70,7 +70,7 @@ final class SettingsParamsCell: UITableViewCell {
 
     private func setupAppearance() {
 
-        self.contentView.backgroundColor = .clear
+        self.backgroundColor = .clear
     }
 
     // MARK: - Configure
@@ -78,6 +78,9 @@ final class SettingsParamsCell: UITableViewCell {
     private func configureTitleLabel() -> UILabel {
 
         let label = UILabel()
+
+        label.theme_textColor = Colors.defaultTextColor
+        label.font = UIFont.avenirRoman(20.0)
 
         return label
     }
@@ -87,6 +90,7 @@ final class SettingsParamsCell: UITableViewCell {
         let imageView = UIImageView()
 
         imageView.contentMode = .scaleAspectFit
+        imageView.theme_tintColor = Colors.defaultTextColor
 
         return imageView
     }

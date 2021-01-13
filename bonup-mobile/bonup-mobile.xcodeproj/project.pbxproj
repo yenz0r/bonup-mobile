@@ -136,6 +136,8 @@
 		B990932925AF403100CF381B /* ThemeColorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990932825AF403100CF381B /* ThemeColorsManager.swift */; };
 		B990935A25AF478E00CF381B /* SettingsParamsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990935925AF478E00CF381B /* SettingsParamsCell.swift */; };
 		B990935F25AF479700CF381B /* SettingsParamsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990935E25AF479700CF381B /* SettingsParamsCellViewModel.swift */; };
+		B990939025AF75D600CF381B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990938F25AF75D600CF381B /* Colors.swift */; };
+		B990939625AF788F00CF381B /* Bundle+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990939525AF788F00CF381B /* Bundle+Localization.swift */; };
 		B992D50E245789FF002ABF71 /* BenefitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D50D245789FF002ABF71 /* BenefitsView.swift */; };
 		B992D51024578A09002ABF71 /* BenefitsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D50F24578A09002ABF71 /* BenefitsPresenter.swift */; };
 		B992D51224578A11002ABF71 /* BenefitsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D51124578A11002ABF71 /* BenefitsInteractor.swift */; };
@@ -386,6 +388,8 @@
 		B990932825AF403100CF381B /* ThemeColorsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorsManager.swift; sourceTree = "<group>"; };
 		B990935925AF478E00CF381B /* SettingsParamsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsParamsCell.swift; sourceTree = "<group>"; };
 		B990935E25AF479700CF381B /* SettingsParamsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsParamsCellViewModel.swift; sourceTree = "<group>"; };
+		B990938F25AF75D600CF381B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		B990939525AF788F00CF381B /* Bundle+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Localization.swift"; sourceTree = "<group>"; };
 		B992D50D245789FF002ABF71 /* BenefitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsView.swift; sourceTree = "<group>"; };
 		B992D50F24578A09002ABF71 /* BenefitsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsPresenter.swift; sourceTree = "<group>"; };
 		B992D51124578A11002ABF71 /* BenefitsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsInteractor.swift; sourceTree = "<group>"; };
@@ -791,6 +795,7 @@
 		B948A231241455AD001287B8 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				B990939525AF788F00CF381B /* Bundle+Localization.swift */,
 				B948A22F241455A3001287B8 /* Localization.swift */,
 				B948A22D2414556B001287B8 /* Localizable.strings */,
 			);
@@ -832,6 +837,7 @@
 				B985BB5C25AEC0900067390C /* GoogleService-Realese-Free.plist */,
 				B948A1ED241444B4001287B8 /* Assets.xcassets */,
 				B948A1EF241444B4001287B8 /* LaunchScreen.storyboard */,
+				B990938F25AF75D600CF381B /* Colors.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1749,6 +1755,7 @@
 				B990930C25AF3A3600CF381B /* SettingsParamsInteractor.swift in Sources */,
 				B990930725AF3A2F00CF381B /* SettingsParamsPresenter.swift in Sources */,
 				B9AF05D72469D510007773B2 /* OrganizationsListCell.swift in Sources */,
+				B990939025AF75D600CF381B /* Colors.swift in Sources */,
 				B914AC8B24435D30007494E3 /* CurrentTasksCollectionViewCell.swift in Sources */,
 				B95533D724431C8A006BFDFB /* TaskCardView.swift in Sources */,
 				B935A590241D5B090074E89E /* ResetPasswordDependency.swift in Sources */,
@@ -1788,6 +1795,7 @@
 				B91E809B242FCEC100859C83 /* CategoriesResponseEntity.swift in Sources */,
 				B9D17588243CFD27001FF58E /* TermsAndConditionsBuilder.swift in Sources */,
 				B992D51B245791E4002ABF71 /* NewBenefitsCell.swift in Sources */,
+				B990939625AF788F00CF381B /* Bundle+Localization.swift in Sources */,
 				B9A13D3E244E3AFC00373827 /* ProfilePresenter.swift in Sources */,
 				B948A234241CBE61001287B8 /* AppRouter.swift in Sources */,
 				B9A0C9A7242FC57D00EB6FAE /* CategoriesInteractor.swift in Sources */,

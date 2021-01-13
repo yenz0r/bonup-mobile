@@ -19,9 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // setup app window
         self.window = UIWindow(frame: UIScreen.main.bounds)
 
-        // setup google services
+        // setup services
         self.setupGoogleServices()
         self.setupYandexServices()
+
+        // setup theme
+        ThemeColorsManager.shared.start()
+
+        // setup localization
+        LocaleManager.shared.start()
 
         // setup app router
         AppRouter.shared.appWindow = self.window

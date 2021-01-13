@@ -51,28 +51,12 @@ final class SettingsParamsView: UIViewController {
 
     private func setupAppearance() {
 
-        self.view.backgroundColor = UIColor.white
+        self.view.theme_backgroundColor = Colors.backgroundColor
     }
 
     private func setupNavigation() {
 
         self.navigationItem.title = "ui_settings_title".localized
-
-        guard let navigation = self.navigationController else { return }
-
-        navigation.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigation.navigationBar.shadowImage = UIImage()
-        navigation.navigationBar.isTranslucent = true
-
-        let textAttributes = [
-            NSAttributedString.Key.foregroundColor:UIColor.purpleLite.withAlphaComponent(0.7),
-            .font: UIFont.avenirRoman(20)
-        ]
-        navigation.navigationBar.titleTextAttributes = textAttributes
-
-        let backItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        backItem.tintColor = UIColor.red.withAlphaComponent(0.7)
-        navigationItem.backBarButtonItem = backItem
     }
 
     // MARK: - Configure
@@ -88,6 +72,7 @@ final class SettingsParamsView: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        tableView.backgroundColor = .clear
 
         return tableView
     }

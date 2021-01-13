@@ -107,3 +107,5 @@
 "ui_wait_a_bit_please" = "Wait a bit please..";
 "ui_profile_help" = "Here you can control your progress, using diagrams and tables, achivements";
 "ui_benefits_help" = "Save money in this section using benefits from your favorit organizations";
+"ui_light" = "Light";
+"ui_dark" = "Dark";

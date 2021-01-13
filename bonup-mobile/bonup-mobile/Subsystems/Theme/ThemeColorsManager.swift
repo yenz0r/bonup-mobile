@@ -6,7 +6,7 @@
 //  Copyright © 2021 Bonup. All rights reserved.
 //
 
-import Foundation
+import SwiftTheme
 
 final class ThemeColorsManager {
 
@@ -42,9 +42,19 @@ final class ThemeColorsManager {
 
     // MARK: - Public functions
 
+    func start() {
+
+        if let index: Int = UserDefaultsManager.shared.getValue(key: .theme) {
+
+            ThemeManager.setTheme(index: index)
+        }
+    }
+
     func setupCurrTheme(_ theme: Themes) {
 
         UserDefaultsManager.shared.saveValue(theme.rawValue, key: .theme)
+
+        ThemeManager.setTheme(index: theme.rawValue)
     }
 
     func titleForTheme(_ theme: Themes) -> String {

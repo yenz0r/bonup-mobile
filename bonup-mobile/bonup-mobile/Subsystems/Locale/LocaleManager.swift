@@ -39,6 +39,11 @@ final class LocaleManager {
 
     // MARK: - Public functions
 
+    func start() {
+
+        Bundle.set(language: self.currentLanguage.rawValue)
+    }
+
     func titleForLanguage(_ lang: Languages) -> String {
 
         switch lang {
@@ -53,5 +58,7 @@ final class LocaleManager {
     func setupCurrLang(_ lang: Languages) {
 
         UserDefaultsManager.shared.saveValue(lang.rawValue, key: .language)
+
+        Bundle.set(language: lang.rawValue)
     }
 }

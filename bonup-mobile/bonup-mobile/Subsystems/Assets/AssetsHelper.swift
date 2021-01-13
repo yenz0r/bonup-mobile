@@ -120,7 +120,7 @@ final class AssetsHelper {
             return UIImage(named: "settings-language")
 
         case .activeCheckBox:
-            return UIImage(named: "active-check-box")
+            return UIImage(named: "active-check-box")!.withRenderingMode(.alwaysTemplate)
 
         @unknown default:
             assertionFailure("Incorrect \(String(describing: self)) enum value")

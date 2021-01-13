@@ -86,7 +86,7 @@ extension SettingsPresenter: ISettingsPresenter {
             return SettingsPresentationModel(
                 title: "ui_logout_title".localized,
                 isLogout: true,
-                icon: AssetsHelper.shared.image(.eyeIcon)
+                icon: nil
             )
         }
     }

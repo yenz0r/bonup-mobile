@@ -32,13 +32,30 @@ final class SettingsView: UIViewController {
     override func loadView() {
         self.view = UIView()
 
+        self.setupSubviews()
+    }
+
+    override func viewDidLoad() {
+
+        super.viewDidLoad()
+
+        self.setupAppearance()
+        self.setupNavigation()
+
+        self.presenter.viewDidLoad()
+    }
+
+    // MARK: - Setup
+
+    private func setupSubviews() {
+
         self.headerView = SettingsHeaderView()
         self.view.addSubview(self.headerView)
         self.headerView.snp.makeConstraints { make in
             make.leading.trailing.top.equalTo(self.view.safeAreaLayoutGuide).inset(20.0)
         }
 
-        self.tableView = UITableView()
+        self.tableView = self.configureTableView()
         self.view.addSubview(self.tableView)
         self.tableView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview().inset(8.0)
@@ -46,21 +63,32 @@ final class SettingsView: UIViewController {
         }
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private func setupAppearance() {
 
-        self.view.backgroundColor = .white
+        self.view.theme_backgroundColor = Colors.backgroundColor
+    }
+
+    private func setupNavigation() {
+
         self.navigationItem.title = "ui_settings_title".localized
+    }
 
-        self.tableView.register(
+    // MARK: - Configure
+
+    private func configureTableView() -> UITableView {
+
+        let tableView = UITableView()
+
+        tableView.register(
             SettingsTableViewCell.self,
             forCellReuseIdentifier: SettingsTableViewCell.reuseId
         )
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.tableFooterView = UIView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+        tableView.backgroundColor = .clear
 
-        self.presenter.viewDidLoad()
+        return tableView
     }
 }
 

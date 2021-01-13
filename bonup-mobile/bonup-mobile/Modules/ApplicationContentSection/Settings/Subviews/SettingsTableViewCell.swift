@@ -29,7 +29,7 @@ final class SettingsTableViewCell: UITableViewCell {
     var isLogout: Bool? {
         didSet {
             let isLogout = self.isLogout ?? false
-            self.titleLabel.textColor = isLogout ? .red : .purpleLite
+            self.titleLabel.theme_textColor = isLogout ? Colors.redTextColor : Colors.defaultTextColor
         }
     }
 
@@ -44,13 +44,19 @@ final class SettingsTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         self.setupSubviews()
+        self.setupAppearance()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Setup subviews
+    // MARK: - Setup
+
+    private func setupAppearance() {
+
+        self.backgroundColor = .clear
+    }
 
     private func setupSubviews() {
 
@@ -67,7 +73,7 @@ final class SettingsTableViewCell: UITableViewCell {
             let label = UILabel()
 
             label.font = UIFont.avenirRoman(20.0)
-            label.textColor = UIColor.purpleLite
+            label.theme_textColor = Colors.defaultTextColor
             label.textAlignment = .left
 
             return label
