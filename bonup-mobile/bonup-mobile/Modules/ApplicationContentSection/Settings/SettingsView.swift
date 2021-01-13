@@ -16,7 +16,7 @@ protocol ISettingsView: AnyObject {
     func reloadData()
 }
 
-final class SettingsView: UIViewController {
+final class SettingsView: BUContentViewController {
 
     // MARK: - Public variables
 
@@ -40,7 +40,6 @@ final class SettingsView: UIViewController {
         super.viewDidLoad()
 
         self.setupAppearance()
-        self.setupNavigation()
 
         self.presenter.viewDidLoad()
     }
@@ -68,9 +67,13 @@ final class SettingsView: UIViewController {
         self.view.theme_backgroundColor = Colors.backgroundColor
     }
 
-    private func setupNavigation() {
+    // MARK: - Localization
+
+    override func setupLocalizableContent() {
 
         self.navigationItem.title = "ui_settings_title".localized
+
+        self.tableView.reloadData()
     }
 
     // MARK: - Configure

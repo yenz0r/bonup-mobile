@@ -29,7 +29,7 @@ final class SettingsTableViewCell: UITableViewCell {
     var isLogout: Bool? {
         didSet {
             let isLogout = self.isLogout ?? false
-            self.titleLabel.theme_textColor = isLogout ? Colors.redTextColor : Colors.defaultTextColor
+            self.titleLabel.theme_textColor = isLogout ? Colors.redColor : Colors.defaultTextColor
         }
     }
 
@@ -65,6 +65,7 @@ final class SettingsTableViewCell: UITableViewCell {
 
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
+            imageView.theme_tintColor = Colors.settingsIconsColor
 
             return imageView
         }()

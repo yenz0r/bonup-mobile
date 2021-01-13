@@ -14,7 +14,7 @@ protocol ITaskSelectionView: AnyObject {
     func reloadData()
 }
 
-final class TaskSelectionView: UIViewController {
+final class TaskSelectionView: BUContentViewController {
 
     // MARK: - Public properties
 
@@ -119,21 +119,28 @@ final class TaskSelectionView: UIViewController {
         self.presenter.viewWillDisappear()
     }
 
+    // MARK: - Localization
+
+    override func setupLocalizableContent() {
+
+        self.navigationItem.title = "tasks_selection_title".localized
+        self.emptyInfoLabel.text = "empty_tasks_list_info".localized
+    }
+
     // MARK: - Configurations
 
     private func configureNavigationBar() {
-        self.navigationItem.title = "tasks_selection_title".localized
 
         let tasksListNavigationItem = UIBarButtonItem(
             barButtonSystemItem: .bookmarks,
             target: self,
             action: #selector(tasksListTapped)
         )
-        tasksListNavigationItem.tintColor = .purpleLite
+        tasksListNavigationItem.theme_tintColor = Colors.navBarIconColor
 
 
         let infoButton = UIButton(type: .infoLight)
-        infoButton.tintColor = .purpleLite
+        infoButton.theme_tintColor = Colors.navBarIconColor
         infoButton.addTarget(self, action: #selector(infoNavigationItemTapped), for: .touchUpInside)
         let infoNavigationItem = UIBarButtonItem(customView: infoButton)
 
@@ -141,7 +148,7 @@ final class TaskSelectionView: UIViewController {
     }
 
     private func configureSubviews() {
-        self.view.backgroundColor = .white
+        self.view.theme_backgroundColor = Colors.backgroundColor
 
         // card stack setup
         self.tasksCardStack.dataSource = self
@@ -168,11 +175,10 @@ final class TaskSelectionView: UIViewController {
 
         // empty section setup
         self.emptyImageView.image = AssetsHelper.shared.image(.emptyTasksListIcon)
-        self.emptyInfoLabel.text = "empty_tasks_list_info".localized
         self.emptyInfoLabel.textAlignment = .center
         self.emptyInfoLabel.numberOfLines = 0
         self.emptyInfoLabel.font = UIFont.avenirRoman(20.0)
-        self.emptyInfoLabel.textColor = UIColor.black.withAlphaComponent(0.3)
+        self.emptyInfoLabel.theme_textColor = Colors.settingsIconsColor
     }
 
     // MARK: - Selectors

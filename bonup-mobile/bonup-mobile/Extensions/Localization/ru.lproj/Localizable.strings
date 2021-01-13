@@ -49,7 +49,7 @@
 "ui_qr_title" = "QR";
 "ui_settings_title" = "Настройки";
 "ui_change_password_title" = "Изменить Пароль";
-"ui_organization_title" = "Организация";
+"ui_organization_title" = "Компании";
 "ui_email_not_created" = "Этот адрес почты не существует, пожалуйста, проверьте его ..";
 "ui_categories_title" = "Категории";
 "ui_skip_title" = "Пропуск";

@@ -12,5 +12,17 @@ struct Colors {
 
     static let backgroundColor: ThemeColorPicker = ["#fff", "#3a3647"]
     static let defaultTextColor: ThemeColorPicker = ["#000", "#FFF"]
-    static let redTextColor: ThemeColorPicker = ["#cc1f28", "#cc1f28"]
+
+    static let redColor: ThemeColorPicker = ["#cc1f28", "#cc1f28"]
+    static let greenColor: ThemeColorPicker = ["#03912bff", "#186e30ff"]
+
+    static let tabBarBackgroudColor: ThemeColorPicker = ["#fff", "#3a3040ff"]
+    static let tabBarTextColor: ThemeColorPicker = ["#fff", "#a5a2d0"]
+    static let tabBarIconColor: ThemeColorPicker = ["#000", "#fff"]
+
+    static let navBarTextColor: ThemeColorPicker = ["#000", "#fff"]
+    static let navBarIconColor: ThemeColorPicker = ["#cf0a17", "#6a697fff"]
+
+
+    static let settingsIconsColor: ThemeColorPicker = ["#000", "#6a697fff"]
 }

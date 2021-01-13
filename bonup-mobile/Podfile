@@ -19,8 +19,6 @@ target 'bonup-mobile' do
 
   pod 'SwiftTheme'
 
-  pod 'SOTabBar'
-
   pod 'Shuffle-iOS'
   pod 'UICircularProgressRing'
 

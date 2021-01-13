@@ -138,6 +138,8 @@
 		B990935F25AF479700CF381B /* SettingsParamsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990935E25AF479700CF381B /* SettingsParamsCellViewModel.swift */; };
 		B990939025AF75D600CF381B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990938F25AF75D600CF381B /* Colors.swift */; };
 		B990939625AF788F00CF381B /* Bundle+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990939525AF788F00CF381B /* Bundle+Localization.swift */; };
+		B990939E25AF7F8E00CF381B /* SOTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990939D25AF7F8E00CF381B /* SOTabBar.swift */; };
+		B99093CF25AF862500CF381B /* BUContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99093CE25AF862500CF381B /* BUContentViewController.swift */; };
 		B992D50E245789FF002ABF71 /* BenefitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D50D245789FF002ABF71 /* BenefitsView.swift */; };
 		B992D51024578A09002ABF71 /* BenefitsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D50F24578A09002ABF71 /* BenefitsPresenter.swift */; };
 		B992D51224578A11002ABF71 /* BenefitsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D51124578A11002ABF71 /* BenefitsInteractor.swift */; };
@@ -390,6 +392,8 @@
 		B990935E25AF479700CF381B /* SettingsParamsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsParamsCellViewModel.swift; sourceTree = "<group>"; };
 		B990938F25AF75D600CF381B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B990939525AF788F00CF381B /* Bundle+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Localization.swift"; sourceTree = "<group>"; };
+		B990939D25AF7F8E00CF381B /* SOTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTabBar.swift; sourceTree = "<group>"; };
+		B99093CE25AF862500CF381B /* BUContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUContentViewController.swift; sourceTree = "<group>"; };
 		B992D50D245789FF002ABF71 /* BenefitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsView.swift; sourceTree = "<group>"; };
 		B992D50F24578A09002ABF71 /* BenefitsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsPresenter.swift; sourceTree = "<group>"; };
 		B992D51124578A11002ABF71 /* BenefitsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsInteractor.swift; sourceTree = "<group>"; };
@@ -546,8 +550,10 @@
 			isa = PBXGroup;
 			children = (
 				B9126687242AA57D00BEA50C /* LoginSectionViewController.swift */,
+				B99093CE25AF862500CF381B /* BUContentViewController.swift */,
 				B9FC7985242FB04000F2D5BC /* BUTabBarController.swift */,
 				B9BF701224433D590051CF41 /* BUNavigationController.swift */,
+				B990939D25AF7F8E00CF381B /* SOTabBar.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1775,11 +1781,13 @@
 				B935A59A241D6A8A0074E89E /* NewPasswordBuilder.swift in Sources */,
 				B9721AB425AF39840019D6D4 /* SettingsParamsView.swift in Sources */,
 				B98DE0E6244BB627007AE007 /* SettingsBuilder.swift in Sources */,
+				B990939E25AF7F8E00CF381B /* SOTabBar.swift in Sources */,
 				B9A13D38244E3ADE00373827 /* ProfileDependency.swift in Sources */,
 				B944A8F1246217EC002170FD /* TaskDescriptionPresenter.swift in Sources */,
 				B98DE0EA244BB648007AE007 /* SettingsRouter.swift in Sources */,
 				B948A230241455A3001287B8 /* Localization.swift in Sources */,
 				B9323666241D96D700A37634 /* UserEntity.swift in Sources */,
+				B99093CF25AF862500CF381B /* BUContentViewController.swift in Sources */,
 				B9D1758A243CFD38001FF58E /* TermsAndConditionsDependency.swift in Sources */,
 				B9CAA715242B9FAE00E50668 /* UITextField+Factory.swift in Sources */,
 				B98DE0E8244BB62D007AE007 /* SettingsDependency.swift in Sources */,

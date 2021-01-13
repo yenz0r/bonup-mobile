@@ -20,9 +20,13 @@ final class LocaleManager {
 
     private init() { }
 
-    // MARK: - Public variables
+    // MARK: - Static variables
 
     static let shared = LocaleManager()
+
+    // MARK: - Public variables
+
+    let notificationName = NSNotification.Name(rawValue: "localizationChanged")
 
     var currentLocale: String {
         
@@ -41,7 +45,7 @@ final class LocaleManager {
 
     func start() {
 
-        Bundle.set(language: self.currentLanguage.rawValue)
+        self.setupCurrLang(self.currentLanguage)
     }
 
     func titleForLanguage(_ lang: Languages) -> String {
@@ -60,5 +64,7 @@ final class LocaleManager {
         UserDefaultsManager.shared.saveValue(lang.rawValue, key: .language)
 
         Bundle.set(language: lang.rawValue)
+
+        NotificationCenter.default.post(name: self.notificationName, object: nil, userInfo: nil)
     }
 }

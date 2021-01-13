@@ -64,7 +64,7 @@ final class SettingsParamsCell: UITableViewCell {
 
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().offset(-10.0)
-            make.size.equalTo(40.0)
+            make.size.equalTo(30.0)
         }
     }
 
@@ -90,7 +90,7 @@ final class SettingsParamsCell: UITableViewCell {
         let imageView = UIImageView()
 
         imageView.contentMode = .scaleAspectFit
-        imageView.theme_tintColor = Colors.defaultTextColor
+        imageView.theme_tintColor = Colors.greenColor
 
         return imageView
     }

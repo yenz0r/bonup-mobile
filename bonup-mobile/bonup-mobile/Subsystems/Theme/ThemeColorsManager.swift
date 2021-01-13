@@ -26,6 +26,8 @@ final class ThemeColorsManager {
 
     // MARK: - Public variables
 
+    let notificationName = Notification.Name("themeChanged")
+
     let supportedThemes: [Themes] = [.light, .dark]
 
     var currentTheme: Themes {
@@ -55,6 +57,8 @@ final class ThemeColorsManager {
         UserDefaultsManager.shared.saveValue(theme.rawValue, key: .theme)
 
         ThemeManager.setTheme(index: theme.rawValue)
+
+        NotificationCenter.default.post(name: self.notificationName, object: nil, userInfo: ["theme" : theme])
     }
 
     func titleForTheme(_ theme: Themes) -> String {

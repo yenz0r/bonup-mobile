@@ -107,17 +107,17 @@ final class AssetsHelper {
             return UIImage(named: "empty-tasks-list-icon")
 
         case .settingsHelp:
-            return UIImage(named: "settings-help")
+            return UIImage(named: "settings-help")!.withRenderingMode(.alwaysTemplate)
         case .settingsTheme:
-            return UIImage(named: "settings-theme")
+            return UIImage(named: "settings-theme")!.withRenderingMode(.alwaysTemplate)
         case .settingsRateUs:
-            return UIImage(named: "settings-rate-us")
+            return UIImage(named: "settings-rate-us")!.withRenderingMode(.alwaysTemplate)
         case .settingsCategory:
-            return UIImage(named: "settings-category")
+            return UIImage(named: "settings-category")!.withRenderingMode(.alwaysTemplate)
         case .settingsPassword:
-            return UIImage(named: "settings-password")
+            return UIImage(named: "settings-password")!.withRenderingMode(.alwaysTemplate)
         case .settingsLanguage:
-            return UIImage(named: "settings-language")
+            return UIImage(named: "settings-language")!.withRenderingMode(.alwaysTemplate)
 
         case .activeCheckBox:
             return UIImage(named: "active-check-box")!.withRenderingMode(.alwaysTemplate)
