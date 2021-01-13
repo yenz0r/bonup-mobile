@@ -69,9 +69,7 @@
 		B948A247241CDE64001287B8 /* UIFont+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A246241CDE64001287B8 /* UIFont+Fonts.swift */; };
 		B94F37912451C49800FBEB36 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94F37902451C49800FBEB36 /* ProfileHeaderView.swift */; };
 		B95533D724431C8A006BFDFB /* TaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95533D624431C8A006BFDFB /* TaskCardView.swift */; };
-		B959712A24269B3600EAEB6E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B959712924269B3600EAEB6E /* GoogleService-Info.plist */; };
 		B959712D24269F2A00EAEB6E /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B959712C24269F2A00EAEB6E /* TimerManager.swift */; };
-		B95971302426B7B700EAEB6E /* GoogleService-Realese-Free.plist in Resources */ = {isa = PBXBuildFile; fileRef = B959712F2426B7B700EAEB6E /* GoogleService-Realese-Free.plist */; };
 		B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */; };
 		B964CE8624475C6900161300 /* NewPasswordResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964CE8524475C6900161300 /* NewPasswordResponseEntity.swift */; };
 		B964E0C32451CFC400668EE8 /* ProfileAhievementsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964E0C22451CFC400668EE8 /* ProfileAhievementsCell.swift */; };
@@ -118,6 +116,8 @@
 		B9787F51246B8C15007DB617 /* OrganizationsListResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9787F50246B8C14007DB617 /* OrganizationsListResponseEntity.swift */; };
 		B9787F53246B8C50007DB617 /* OrganizationResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9787F52246B8C50007DB617 /* OrganizationResponseEntity.swift */; };
 		B982CCDC244481D600CB6D81 /* CategoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B982CCDB244481D600CB6D81 /* CategoryCardView.swift */; };
+		B985BB5E25AEC0900067390C /* GoogleService-Realese-Free.plist in Resources */ = {isa = PBXBuildFile; fileRef = B985BB5C25AEC0900067390C /* GoogleService-Realese-Free.plist */; };
+		B985BB5F25AEC0900067390C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B985BB5D25AEC0900067390C /* GoogleService-Info.plist */; };
 		B98DE0DF244BB5FA007AE007 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DE0DE244BB5FA007AE007 /* SettingsView.swift */; };
 		B98DE0E2244BB614007AE007 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DE0E1244BB614007AE007 /* SettingsPresenter.swift */; };
 		B98DE0E4244BB61E007AE007 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DE0E3244BB61E007AE007 /* SettingsInteractor.swift */; };
@@ -309,9 +309,7 @@
 		B948A246241CDE64001287B8 /* UIFont+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Fonts.swift"; sourceTree = "<group>"; };
 		B94F37902451C49800FBEB36 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		B95533D624431C8A006BFDFB /* TaskCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardView.swift; sourceTree = "<group>"; };
-		B959712924269B3600EAEB6E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B959712C24269F2A00EAEB6E /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
-		B959712F2426B7B700EAEB6E /* GoogleService-Realese-Free.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Realese-Free.plist"; path = "../../../../Desktop/GoogleService-Realese-Free.plist"; sourceTree = "<group>"; };
 		B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Facade.swift"; sourceTree = "<group>"; };
 		B964CE8524475C6900161300 /* NewPasswordResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordResponseEntity.swift; sourceTree = "<group>"; };
 		B964E0C22451CFC400668EE8 /* ProfileAhievementsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAhievementsCell.swift; sourceTree = "<group>"; };
@@ -358,6 +356,8 @@
 		B9787F50246B8C14007DB617 /* OrganizationsListResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsListResponseEntity.swift; sourceTree = "<group>"; };
 		B9787F52246B8C50007DB617 /* OrganizationResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationResponseEntity.swift; sourceTree = "<group>"; };
 		B982CCDB244481D600CB6D81 /* CategoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardView.swift; sourceTree = "<group>"; };
+		B985BB5C25AEC0900067390C /* GoogleService-Realese-Free.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Realese-Free.plist"; sourceTree = "<group>"; };
+		B985BB5D25AEC0900067390C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B98DE0DE244BB5FA007AE007 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B98DE0E1244BB614007AE007 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		B98DE0E3244BB61E007AE007 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
@@ -721,8 +721,6 @@
 				B948A242241CC024001287B8 /* CoreData */,
 				B948A240241CC00E001287B8 /* Resources */,
 				B948A1F2241444B4001287B8 /* Info.plist */,
-				B959712924269B3600EAEB6E /* GoogleService-Info.plist */,
-				B959712F2426B7B700EAEB6E /* GoogleService-Realese-Free.plist */,
 			);
 			path = "bonup-mobile";
 			sourceTree = "<group>";
@@ -808,6 +806,8 @@
 		B948A240241CC00E001287B8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B985BB5D25AEC0900067390C /* GoogleService-Info.plist */,
+				B985BB5C25AEC0900067390C /* GoogleService-Realese-Free.plist */,
 				B948A1ED241444B4001287B8 /* Assets.xcassets */,
 				B948A1EF241444B4001287B8 /* LaunchScreen.storyboard */,
 			);
@@ -1455,8 +1455,8 @@
 			files = (
 				B9D743F92428008100EE4838 /* FREE-DEBUG.xcconfig in Resources */,
 				B948A1F1241444B4001287B8 /* LaunchScreen.storyboard in Resources */,
-				B959712A24269B3600EAEB6E /* GoogleService-Info.plist in Resources */,
-				B95971302426B7B700EAEB6E /* GoogleService-Realese-Free.plist in Resources */,
+				B985BB5F25AEC0900067390C /* GoogleService-Info.plist in Resources */,
+				B985BB5E25AEC0900067390C /* GoogleService-Realese-Free.plist in Resources */,
 				B9D743FB2428008600EE4838 /* FREE-RELEASE.xcconfig in Resources */,
 				B948A1EE241444B4001287B8 /* Assets.xcassets in Resources */,
 				B9D743FC2428008900EE4838 /* PAID-RELEASE.xcconfig in Resources */,
