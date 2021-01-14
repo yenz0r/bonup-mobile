@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginSectionViewController: UIViewController {
+class BULoginViewController: UIViewController {
 
     // MARK: - Private variables
 
@@ -82,9 +82,11 @@ class LoginSectionViewController: UIViewController {
         ]
         navigation.navigationBar.titleTextAttributes = textAttributes
 
-        let backItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        backItem.tintColor = UIColor.red.withAlphaComponent(0.7)
-        navigationItem.backBarButtonItem = backItem
+        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(
+            UIOffset(horizontal: -500, vertical: 0),
+            for:UIBarMetrics.default
+        )
+        self.navigationController?.navigationBar.theme_tintColor = Colors.redColor
     }
 
     // MARK: - Selectors
@@ -111,7 +113,7 @@ class LoginSectionViewController: UIViewController {
 
 // MARK: - UITextFieldDelegate
 
-extension LoginSectionViewController: UITextFieldDelegate {
+extension BULoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
 

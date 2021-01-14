@@ -10,7 +10,7 @@ import UIKit
 
 protocol IChangePasswordView: AnyObject { }
 
-final class ChangePasswordView: LoginSectionViewController {
+final class ChangePasswordView: BULoginViewController {
 
     // MARK: - Public variables
 

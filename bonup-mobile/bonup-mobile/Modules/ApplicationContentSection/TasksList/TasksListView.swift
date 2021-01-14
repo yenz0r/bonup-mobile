@@ -12,7 +12,7 @@ protocol ITasksListView: AnyObject {
     func reloadData()
 }
 
-final class TasksListView: UIViewController {
+final class TasksListView: BUContentViewController {
 
     // MARK: - Public properties
 
@@ -28,11 +28,7 @@ final class TasksListView: UIViewController {
     override func loadView() {
         self.view = UIView()
 
-        let items = [
-            "current_tasks_title".localized,
-            "finished_tasks_title".localized
-        ]
-        self.segmentedControl = UISegmentedControl(items: items)
+        self.segmentedControl = UISegmentedControl(items: [])
         self.view.addSubview(self.segmentedControl)
         self.segmentedControl.snp.makeConstraints { make in
             make.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(40.0)
@@ -55,7 +51,7 @@ final class TasksListView: UIViewController {
         super.viewDidLoad()
 
         // self.view setup
-        self.view.backgroundColor = .white
+        self.view.theme_backgroundColor = Colors.backgroundColor
 
         // segmentedControl setup
         self.segmentedControl.selectedSegmentIndex = 0
@@ -68,7 +64,7 @@ final class TasksListView: UIViewController {
         self.mainCollectionView.showsHorizontalScrollIndicator = false
         self.mainCollectionView.contentInset = .zero
         self.mainCollectionView.isPagingEnabled = true
-        self.mainCollectionView.backgroundColor = .white
+        self.mainCollectionView.backgroundColor = .clear
 
         self.mainCollectionView.register(
             TasksListCurrentCollectionViewCell.self,
@@ -88,25 +84,38 @@ final class TasksListView: UIViewController {
         self.presenter.viewWillAppear()
     }
 
+    // MARK: - Localization
+
+    override func setupLocalizableContent() {
+
+        self.navigationItem.title = "tasks_list_title".localized
+
+        let selectedIndex = self.segmentedControl.selectedSegmentIndex
+
+        self.segmentedControl.removeAllSegments()
+
+        for (index, page) in self.presenter.pages.enumerated() {
+
+            self.segmentedControl.insertSegment(withTitle: page, at: index, animated: false)
+        }
+
+        self.segmentedControl.selectedSegmentIndex = selectedIndex
+    }
+
     // MARK: - Configure
 
     private func configureNavigationBar() {
-        let backItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        backItem.tintColor = UIColor.red.withAlphaComponent(0.7)
-        navigationItem.backBarButtonItem = backItem
-
-        self.navigationItem.title = "tasks_list_title".localized
 
         let tasksListNavigationItem = UIBarButtonItem(
             barButtonSystemItem: .trash,
             target: self,
             action: #selector(clearHistoryTapped)
         )
-        tasksListNavigationItem.tintColor = .purpleLite
+        tasksListNavigationItem.theme_tintColor = Colors.navBarIconColor
 
 
         let infoButton = UIButton(type: .infoLight)
-        infoButton.tintColor = .purpleLite
+        infoButton.theme_tintColor = Colors.navBarIconColor
         infoButton.addTarget(self, action: #selector(infoNavigationItemTapped), for: .touchUpInside)
         let infoNavigationItem = UIBarButtonItem(customView: infoButton)
 

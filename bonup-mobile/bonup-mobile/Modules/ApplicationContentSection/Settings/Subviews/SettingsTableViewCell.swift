@@ -89,7 +89,7 @@ final class SettingsTableViewCell: UITableViewCell {
 
         self.contentView.addSubview(self.titleLabel)
         self.titleLabel.snp.makeConstraints { make in
-            make.leading.equalTo(self.iconImageView.snp.trailing).offset(10.0)
+            make.leading.equalTo(self.iconImageView.snp.trailing).offset(20.0)
             make.top.trailing.bottom.equalToSuperview()
         }
 

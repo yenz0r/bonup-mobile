@@ -20,9 +20,11 @@ final class BUNavigationController: UINavigationController {
         self.navigationBar.shadowImage = UIImage()
         self.navigationBar.isTranslucent = true
 
-        let backItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        backItem.tintColor = UIColor.red.withAlphaComponent(0.7)
-        self.navigationItem.backBarButtonItem = backItem
+        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(
+            UIOffset(horizontal: -500, vertical: 0),
+            for:UIBarMetrics.default
+        )
+        self.navigationBar.theme_tintColor = Colors.redColor
 
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(themeChanged(_:)),

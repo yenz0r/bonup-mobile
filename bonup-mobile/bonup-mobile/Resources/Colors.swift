@@ -11,7 +11,9 @@ import SwiftTheme
 struct Colors {
 
     static let backgroundColor: ThemeColorPicker = ["#fff", "#3a3647"]
+
     static let defaultTextColor: ThemeColorPicker = ["#000", "#FFF"]
+    static let grayTextColor: ThemeColorPicker = ["#6a697fff", "#6a697fff"]
 
     static let redColor: ThemeColorPicker = ["#cc1f28", "#cc1f28"]
     static let greenColor: ThemeColorPicker = ["#03912bff", "#186e30ff"]

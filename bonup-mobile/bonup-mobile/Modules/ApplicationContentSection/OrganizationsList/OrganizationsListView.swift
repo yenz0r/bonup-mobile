@@ -13,7 +13,7 @@ protocol IOrganizationsListView: AnyObject {
     func reloadData()
 }
 
-final class OrganizationsListView: UIViewController {
+final class OrganizationsListView: BUContentViewController {
 
     // MARK: - Public variables
 
@@ -22,7 +22,7 @@ final class OrganizationsListView: UIViewController {
     // MARK: - User interface variables
 
     private var collectionView: UICollectionView!
-    private var emptyContainerView: UIView!
+    private var emptyContainer: EmptyContainer!
 
     // MARK: - Life cycle
 
@@ -45,31 +45,39 @@ final class OrganizationsListView: UIViewController {
         super.viewWillAppear(animated)
     }
 
+    // MARK: - Localization
+
+    override func setupLocalizableContent() {
+
+        self.navigationItem.title = "ui_organization_title".localized
+        self.emptyContainer.descriptionText = "ui_empty_organizations_title".localized
+    }
+
     // MARK: - Setup subviews
 
     private func setupSubviews() {
 
         self.collectionView = self.configureCollectioView()
-        self.emptyContainerView = self.configureEmtpyContainerView()
+        self.emptyContainer = EmptyContainer()
+        self.emptyContainer.image = AssetsHelper.shared.image(.emptyTasksListIcon)
 
         self.view.addSubview(self.collectionView)
         self.collectionView.snp.makeConstraints { make in
             make.edges.equalTo(self.view.safeAreaLayoutGuide).inset(10.0)
         }
 
-        self.view.addSubview(self.emptyContainerView)
-        self.emptyContainerView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(70.0)
-            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(20.0)
+        self.view.addSubview(self.emptyContainer)
+        self.emptyContainer.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(100)
         }
     }
 
     // MARK: - Configurations
 
     private func configureAppearance() {
-        self.view.backgroundColor = .white
 
-        self.navigationItem.title = "ui_organization_title".localized
+        self.view.theme_backgroundColor = Colors.backgroundColor
     }
 
     private func configureCollectioView() -> UICollectionView {
@@ -85,41 +93,9 @@ final class OrganizationsListView: UIViewController {
             forCellWithReuseIdentifier: OrganizationsListCell.reuseId
         )
 
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .clear
 
         return collectionView
-    }
-
-    private func configureEmtpyContainerView() -> UIView {
-
-        let container = UIView()
-
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = AssetsHelper.shared.image(.emptyTasksListIcon)
-
-        let label = UILabel()
-        label.text = "ui_empty_organizations_title".localized
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.font = UIFont.avenirRoman(20.0)
-        label.textColor = UIColor.black.withAlphaComponent(0.3)
-
-        container.addSubview(imageView)
-        container.addSubview(label)
-
-        imageView.snp.makeConstraints { make in
-            make.leading.trailing.top.equalToSuperview()
-            make.width.equalTo(imageView.snp.height)
-        }
-
-        label.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(10.0)
-            make.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
-        }
-
-        return container
     }
 }
 
@@ -144,7 +120,7 @@ extension OrganizationsListView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let num = self.presenter.numberOfOrganizations()
 
-        self.emptyContainerView.isHidden = num != 0
+        self.emptyContainer.isHidden = num != 0
         return num
     }
 

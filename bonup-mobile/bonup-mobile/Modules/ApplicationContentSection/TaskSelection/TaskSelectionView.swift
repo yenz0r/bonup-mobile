@@ -178,7 +178,7 @@ final class TaskSelectionView: BUContentViewController {
         self.emptyInfoLabel.textAlignment = .center
         self.emptyInfoLabel.numberOfLines = 0
         self.emptyInfoLabel.font = UIFont.avenirRoman(20.0)
-        self.emptyInfoLabel.theme_textColor = Colors.settingsIconsColor
+        self.emptyInfoLabel.theme_textColor = Colors.grayTextColor
     }
 
     // MARK: - Selectors

@@ -13,7 +13,7 @@ protocol IResetPasswordView: AnyObject {
     func shakeSendButtonAnimation()
 }
 
-final class ResetPasswordView: LoginSectionViewController {
+final class ResetPasswordView: BULoginViewController {
 
     // MARK: - Public properties
 

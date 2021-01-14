@@ -12,7 +12,7 @@ protocol IAuthVerificationView: AnyObject {
     func displayTimerText(_ text: String, _ color: UIColor)
 }
 
-final class AuthVerificationView: LoginSectionViewController {
+final class AuthVerificationView: BULoginViewController {
 
     // MARK: - Public variables
 

@@ -10,7 +10,7 @@
 		000993B5F4A018C215A59737 /* libPods-bonup-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E08E2FC007738639B3B1FB /* libPods-bonup-mobile.a */; };
 		45CB7F78204A3A11874541EB /* libPods-bonup-mobile-bonup-mobileUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D5E7A78F092619BB6A746 /* libPods-bonup-mobile-bonup-mobileUITests.a */; };
 		B9069104246235D7001A1F76 /* QRcodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9069103246235D7001A1F76 /* QRcodeManager.swift */; };
-		B9126688242AA57D00BEA50C /* LoginSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9126687242AA57D00BEA50C /* LoginSectionViewController.swift */; };
+		B9126688242AA57D00BEA50C /* BULoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9126687242AA57D00BEA50C /* BULoginViewController.swift */; };
 		B914AC8B24435D30007494E3 /* CurrentTasksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC8A24435D30007494E3 /* CurrentTasksCollectionViewCell.swift */; };
 		B914AC8D24435D44007494E3 /* FinishedTasksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC8C24435D44007494E3 /* FinishedTasksCollectionViewCell.swift */; };
 		B914AC8F24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC8E24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift */; };
@@ -140,6 +140,7 @@
 		B990939625AF788F00CF381B /* Bundle+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990939525AF788F00CF381B /* Bundle+Localization.swift */; };
 		B990939E25AF7F8E00CF381B /* SOTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990939D25AF7F8E00CF381B /* SOTabBar.swift */; };
 		B99093CF25AF862500CF381B /* BUContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99093CE25AF862500CF381B /* BUContentViewController.swift */; };
+		B99093D425AFC25700CF381B /* EmptyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99093D325AFC25700CF381B /* EmptyContainer.swift */; };
 		B992D50E245789FF002ABF71 /* BenefitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D50D245789FF002ABF71 /* BenefitsView.swift */; };
 		B992D51024578A09002ABF71 /* BenefitsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D50F24578A09002ABF71 /* BenefitsPresenter.swift */; };
 		B992D51224578A11002ABF71 /* BenefitsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D51124578A11002ABF71 /* BenefitsInteractor.swift */; };
@@ -252,7 +253,7 @@
 		846B54D9B4C1BCA3D32D575F /* Pods-bonup-mobile.debug free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile.debug free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile.debug free.xcconfig"; sourceTree = "<group>"; };
 		950486241D5ACB45CFB9B073 /* Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig"; sourceTree = "<group>"; };
 		B9069103246235D7001A1F76 /* QRcodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRcodeManager.swift; sourceTree = "<group>"; };
-		B9126687242AA57D00BEA50C /* LoginSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSectionViewController.swift; sourceTree = "<group>"; };
+		B9126687242AA57D00BEA50C /* BULoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BULoginViewController.swift; sourceTree = "<group>"; };
 		B914AC8A24435D30007494E3 /* CurrentTasksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTasksCollectionViewCell.swift; sourceTree = "<group>"; };
 		B914AC8C24435D44007494E3 /* FinishedTasksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedTasksCollectionViewCell.swift; sourceTree = "<group>"; };
 		B914AC8E24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListCurrentCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -394,6 +395,7 @@
 		B990939525AF788F00CF381B /* Bundle+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Localization.swift"; sourceTree = "<group>"; };
 		B990939D25AF7F8E00CF381B /* SOTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTabBar.swift; sourceTree = "<group>"; };
 		B99093CE25AF862500CF381B /* BUContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUContentViewController.swift; sourceTree = "<group>"; };
+		B99093D325AFC25700CF381B /* EmptyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyContainer.swift; sourceTree = "<group>"; };
 		B992D50D245789FF002ABF71 /* BenefitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsView.swift; sourceTree = "<group>"; };
 		B992D50F24578A09002ABF71 /* BenefitsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsPresenter.swift; sourceTree = "<group>"; };
 		B992D51124578A11002ABF71 /* BenefitsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsInteractor.swift; sourceTree = "<group>"; };
@@ -542,6 +544,7 @@
 			isa = PBXGroup;
 			children = (
 				B912668A242AA5A400BEA50C /* ViewControllers */,
+				B99093D825AFC25E00CF381B /* Views */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -549,11 +552,8 @@
 		B912668A242AA5A400BEA50C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B9126687242AA57D00BEA50C /* LoginSectionViewController.swift */,
-				B99093CE25AF862500CF381B /* BUContentViewController.swift */,
-				B9FC7985242FB04000F2D5BC /* BUTabBarController.swift */,
-				B9BF701224433D590051CF41 /* BUNavigationController.swift */,
-				B990939D25AF7F8E00CF381B /* SOTabBar.swift */,
+				B99093E225AFCB4800CF381B /* ParentControllers */,
+				B99093E625AFCB6500CF381B /* ContainerControllers */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1111,6 +1111,33 @@
 				B990935E25AF479700CF381B /* SettingsParamsCellViewModel.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		B99093D825AFC25E00CF381B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B99093D325AFC25700CF381B /* EmptyContainer.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B99093E225AFCB4800CF381B /* ParentControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B9126687242AA57D00BEA50C /* BULoginViewController.swift */,
+				B99093CE25AF862500CF381B /* BUContentViewController.swift */,
+			);
+			path = ParentControllers;
+			sourceTree = "<group>";
+		};
+		B99093E625AFCB6500CF381B /* ContainerControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B9FC7985242FB04000F2D5BC /* BUTabBarController.swift */,
+				B9BF701224433D590051CF41 /* BUNavigationController.swift */,
+				B990939D25AF7F8E00CF381B /* SOTabBar.swift */,
+			);
+			path = ContainerControllers;
 			sourceTree = "<group>";
 		};
 		B992D51924578A50002ABF71 /* BenefitsList */ = {
@@ -1749,6 +1776,7 @@
 				B990931625AF3A4C00CF381B /* SettingsParamsDependency.swift in Sources */,
 				B992D52E2457A1A7002ABF71 /* SelectedBenefitsContentCell.swift in Sources */,
 				B92688FD2429520300F1732A /* UIView+Gradient.swift in Sources */,
+				B99093D425AFC25700CF381B /* EmptyContainer.swift in Sources */,
 				B941E736246B933B0056B844 /* OrganizationControlView.swift in Sources */,
 				B9A13D33244E3AB900373827 /* ProfileView.swift in Sources */,
 				B964CE8624475C6900161300 /* NewPasswordResponseEntity.swift in Sources */,
@@ -1797,7 +1825,7 @@
 				B98DE0E2244BB614007AE007 /* SettingsPresenter.swift in Sources */,
 				B948A23A241CBFBA001287B8 /* LoginPresenter.swift in Sources */,
 				B964E0C32451CFC400668EE8 /* ProfileAhievementsCell.swift in Sources */,
-				B9126688242AA57D00BEA50C /* LoginSectionViewController.swift in Sources */,
+				B9126688242AA57D00BEA50C /* BULoginViewController.swift in Sources */,
 				B9787F51246B8C15007DB617 /* OrganizationsListResponseEntity.swift in Sources */,
 				B9A0C9AF242FC59B00EB6FAE /* CategoriesDependency.swift in Sources */,
 				B91E809B242FCEC100859C83 /* CategoriesResponseEntity.swift in Sources */,

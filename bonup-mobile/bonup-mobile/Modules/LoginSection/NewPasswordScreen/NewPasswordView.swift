@@ -12,7 +12,7 @@ protocol INewPasswordView: AnyObject {
     func animateSendButtonOnError()
 }
 
-final class NewPasswordView: LoginSectionViewController {
+final class NewPasswordView: BULoginViewController {
 
     enum PasswordTextFieldType {
         case newPass, repeatPass

@@ -13,6 +13,8 @@ protocol ITasksListPresenter: AnyObject {
     var currentTasksList: [CurrentTasksListPresentationModel] { get }
     var finishedTasksList: [FinishedTasksListPresentationModel] { get }
 
+    var pages: [String] { get }
+
     func handleShowDetailsTap(with index: Int)
 
     func viewWillAppear()
@@ -35,6 +37,14 @@ final class TasksListPresenter {
 // MARK: - ITaskSelectionPresenter implementation
 
 extension TasksListPresenter: ITasksListPresenter {
+
+    var pages: [String] {
+
+        return [
+            "current_tasks_title".localized,
+            "finished_tasks_title".localized
+        ]
+    }
 
     var currentTasksList: [CurrentTasksListPresentationModel] {
 

@@ -11,7 +11,7 @@ import SnapKit
 
 protocol ILoginView: AnyObject { }
 
-final class LoginView: LoginSectionViewController {
+final class LoginView: BULoginViewController {
 
     enum LoginFieldType {
         case name, email, password

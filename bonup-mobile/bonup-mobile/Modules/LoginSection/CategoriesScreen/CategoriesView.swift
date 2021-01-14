@@ -13,7 +13,7 @@ protocol ICategoriesView: AnyObject {
     func relaodData()
 }
 
-final class CategoriesView: LoginSectionViewController {
+final class CategoriesView: BULoginViewController {
 
     // MARK: - Public variables
 

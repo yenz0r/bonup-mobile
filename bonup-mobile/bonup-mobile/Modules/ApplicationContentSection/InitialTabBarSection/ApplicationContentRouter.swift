@@ -98,7 +98,6 @@ extension ApplicationContentRouter {
         return benefitsNavigationController
     }
 
-
     func configureTaskSelectionContainer() -> BUNavigationController {
         let taskSelectionNavigationController = BUNavigationController()
         taskSelectionNavigationController.setupTabBarItem(
