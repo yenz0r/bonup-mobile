@@ -14,7 +14,7 @@ protocol IProfileView: AnyObject {
     func reloadData()
 }
 
-final class ProfileView: UIViewController {
+final class ProfileView: BUContentViewController {
 
     // MARK: - Public variables
 
@@ -30,6 +30,7 @@ final class ProfileView: UIViewController {
     // MARK: - Life cycle
 
     override func loadView() {
+
         self.view = UIView()
 
         self.headerView = ProfileHeaderView(frame: .zero)
@@ -64,6 +65,7 @@ final class ProfileView: UIViewController {
     }
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
 
         self.configureAppearance()
@@ -82,23 +84,30 @@ final class ProfileView: UIViewController {
         super.viewWillAppear(animated)
     }
 
+    // MARK: - Localication
+
+    override func setupLocalizableContent() {
+
+        self.navigationItem.title = "ui_profile_title".localized
+    }
+
     // MARK: - Configurations
 
     private func configureAppearance() {
-        self.view.backgroundColor = .white
 
+        self.view.theme_backgroundColor = Colors.backgroundColor
         self.configureNavigationBar()
     }
 
     private func configureNavigationBar() {
+
         let backItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         backItem.tintColor = UIColor.red.withAlphaComponent(0.7)
         navigationItem.backBarButtonItem = backItem
 
-        self.navigationItem.title = "ui_profile_title".localized
 
         let infoButton = UIButton(type: .infoLight)
-        infoButton.tintColor = .purpleLite
+        infoButton.theme_tintColor = Colors.navBarIconColor
         infoButton.addTarget(self, action: #selector(infoNavigationItemTapped), for: .touchUpInside)
         let infoNavigationItem = UIBarButtonItem(customView: infoButton)
 
