@@ -48,7 +48,7 @@ class BenefitsCell: UICollectionViewCell {
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
 
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .clear
 
         return collectionView
     }

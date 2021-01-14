@@ -12,11 +12,14 @@ protocol IBenefitsPresenter: AnyObject {
 
     func handleBuyBenefit(for index: Int)
     func handleShowDescription(for index: Int)
+    func handleShowHelpAction()
     func viewWillAppear()
 
     var savedBenfits: [ActualBenefitEntity] { get }
     var boughtBenfits: [ActualBenefitEntity] { get }
     var finishedBenefits: [FinishedBenefitEntity] { get }
+
+    var pages: [String] { get }
 }
 
 final class BenefitsPresenter {
@@ -41,6 +44,16 @@ final class BenefitsPresenter {
 // MARK: - IBenefitsPresenter implementation
 
 extension BenefitsPresenter: IBenefitsPresenter {
+
+    var pages: [String] {
+
+        return [
+            "ui_new_title".localized,
+            "ui_selected_title".localized,
+            "ui_used_title".localized
+        ]
+    }
+
     var savedBenfits: [ActualBenefitEntity] {
         return self.saved ?? []
     }
@@ -53,6 +66,10 @@ extension BenefitsPresenter: IBenefitsPresenter {
         return self.finished ?? []
     }
 
+    func handleShowHelpAction() {
+
+        self.router.show(.showHelpAlert)
+    }
 
     func handleShowDescription(for index: Int) {
 

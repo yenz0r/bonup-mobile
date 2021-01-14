@@ -12,7 +12,7 @@ protocol IBenefitsView: AnyObject {
     func reloadData()
 }
 
-final class BenefitsView: UIViewController {
+final class BenefitsView: BUContentViewController {
 
     // MARK: - Public variables
 
@@ -23,20 +23,12 @@ final class BenefitsView: UIViewController {
     private var segmentedControl: UISegmentedControl!
     private var collectionView: UICollectionView!
 
-    // MARK: - Private Logic variables
-
-    private var pages = [
-        "ui_new_title".localized,
-        "ui_selected_title".localized,
-        "ui_used_title".localized
-    ]
-
     // MARK: - Life cycle
 
     override func loadView() {
         self.view = UIView()
 
-        self.segmentedControl = UISegmentedControl(items: self.pages)
+        self.segmentedControl = UISegmentedControl(items: [])
         self.view.addSubview(self.segmentedControl)
         self.segmentedControl.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(8.0)
@@ -61,6 +53,7 @@ final class BenefitsView: UIViewController {
         super.viewDidLoad()
 
         self.configureAppearance()
+        self.configureNavigationBar()
 
         // segmentedControl setup
         self.segmentedControl.selectedSegmentIndex = 0
@@ -73,7 +66,7 @@ final class BenefitsView: UIViewController {
         self.collectionView.showsHorizontalScrollIndicator = false
         self.collectionView.contentInset = .zero
         self.collectionView.isPagingEnabled = true
-        self.collectionView.backgroundColor = .white
+        self.collectionView.backgroundColor = .clear
 
         self.collectionView.register(
             NewBenefitsCell.self,
@@ -94,23 +87,40 @@ final class BenefitsView: UIViewController {
         super.viewWillAppear(animated)
     }
 
+    // MARK: - Localization
+
+    override func setupLocalizableContent() {
+
+        self.navigationItem.title = "ui_benefits_title".localized
+
+        let selectedIndex = self.segmentedControl.selectedSegmentIndex
+
+        self.segmentedControl.removeAllSegments()
+
+        for (index, page) in self.presenter.pages.enumerated() {
+
+            self.segmentedControl.insertSegment(withTitle: page, at: index, animated: false)
+        }
+
+        self.segmentedControl.selectedSegmentIndex = selectedIndex
+    }
+
     // MARK: - Configure
 
     private func configureAppearance() {
-        self.view.backgroundColor = .white
 
-        self.configureNavigationBar()
+        self.view.theme_backgroundColor = Colors.backgroundColor
+        self.collectionView.backgroundColor = .clear
     }
 
     private func configureNavigationBar() {
+
         let backItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         backItem.tintColor = UIColor.red.withAlphaComponent(0.7)
         navigationItem.backBarButtonItem = backItem
 
-        self.navigationItem.title = "ui_benefits_title".localized
-
         let infoButton = UIButton(type: .infoLight)
-        infoButton.tintColor = .purpleLite
+        infoButton.theme_tintColor = Colors.navBarIconColor
         infoButton.addTarget(self, action: #selector(infoNavigationItemTapped), for: .touchUpInside)
         let infoNavigationItem = UIBarButtonItem(customView: infoButton)
 
@@ -120,12 +130,14 @@ final class BenefitsView: UIViewController {
     // MARK: - Selectors
 
     @objc private func segmentedControlChanged(_ sender: UISegmentedControl) {
+
         let indexPath = IndexPath(item: sender.selectedSegmentIndex, section: 0)
         self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 
     @objc private func infoNavigationItemTapped() {
-        print("info")
+
+        self.presenter.handleShowHelpAction()
     }
 }
 
@@ -141,7 +153,7 @@ extension BenefitsView: IBenefitsView {
 
 extension BenefitsView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.pages.count
+        return self.presenter.pages.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

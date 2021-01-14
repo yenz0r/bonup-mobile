@@ -9,6 +9,6 @@
 import Foundation
 
 var serverBase: String {
-    let languageCode = LocaleManager.shared.currentLocale
+    let languageCode = LocaleManager.shared.currentLanguage.rawValue
     return "https://pacific-wildwood-63664.herokuapp.com/\(languageCode)"
 }
