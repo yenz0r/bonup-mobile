@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class EmptyContainer: UIView {
+final class BUEmptyContainer: UIView {
 
     // MARK: - UI variables
 

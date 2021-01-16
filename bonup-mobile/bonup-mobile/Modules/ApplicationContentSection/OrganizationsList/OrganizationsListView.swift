@@ -22,7 +22,7 @@ final class OrganizationsListView: BUContentViewController {
     // MARK: - User interface variables
 
     private var collectionView: UICollectionView!
-    private var emptyContainer: EmptyContainer!
+    private var emptyContainer: BUEmptyContainer!
 
     // MARK: - Life cycle
 
@@ -58,7 +58,7 @@ final class OrganizationsListView: BUContentViewController {
     private func setupSubviews() {
 
         self.collectionView = self.configureCollectioView()
-        self.emptyContainer = EmptyContainer()
+        self.emptyContainer = BUEmptyContainer()
         self.emptyContainer.image = AssetsHelper.shared.image(.emptyTasksListIcon)
 
         self.view.addSubview(self.collectionView)

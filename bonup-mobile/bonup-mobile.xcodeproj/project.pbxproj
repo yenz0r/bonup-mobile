@@ -89,6 +89,21 @@
 		B96A71E9246BAB7C007416DF /* ProfileResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96A71E8246BAB7C007416DF /* ProfileResponseEntity.swift */; };
 		B96AC7F82444A392005C25D1 /* CategoriesPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96AC7F72444A392005C25D1 /* CategoriesPresentationModel.swift */; };
 		B96AC7FB2446651C005C25D1 /* LocaleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96AC7FA2446651C005C25D1 /* LocaleManager.swift */; };
+		B96CA62F25B37BA900FF157C /* CompaniesSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA62E25B37BA900FF157C /* CompaniesSearchView.swift */; };
+		B96CA63425B37BB900FF157C /* CompaniesSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA63325B37BB800FF157C /* CompaniesSearchPresenter.swift */; };
+		B96CA63925B37BC100FF157C /* CompaniesSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA63825B37BC100FF157C /* CompaniesSearchInteractor.swift */; };
+		B96CA63E25B37BC900FF157C /* CompaniesSearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA63D25B37BC900FF157C /* CompaniesSearchRouter.swift */; };
+		B96CA64325B37BD200FF157C /* CompaniesSearchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA64225B37BD200FF157C /* CompaniesSearchBuilder.swift */; };
+		B96CA64825B37BDA00FF157C /* CompaniesSearchDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA64725B37BDA00FF157C /* CompaniesSearchDependency.swift */; };
+		B96CA65125B380A700FF157C /* CompaniesSearchCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA65025B380A700FF157C /* CompaniesSearchCategoryCell.swift */; };
+		B96CA65D25B3867700FF157C /* CompaniesSearchCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA65C25B3867700FF157C /* CompaniesSearchCategoryModel.swift */; };
+		B96CA66225B3895100FF157C /* BUMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA66125B3895100FF157C /* BUMapView.swift */; };
+		B96CA66A25B38ED900FF157C /* CompaniesSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA66925B38ED900FF157C /* CompaniesSectionView.swift */; };
+		B96CA66F25B38EDF00FF157C /* CompaniesSectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA66E25B38EDF00FF157C /* CompaniesSectionPresenter.swift */; };
+		B96CA67425B38EE900FF157C /* CompaniesSectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA67325B38EE900FF157C /* CompaniesSectionInteractor.swift */; };
+		B96CA67925B38EF000FF157C /* CompaniesSectionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA67825B38EF000FF157C /* CompaniesSectionRouter.swift */; };
+		B96CA67E25B38EF800FF157C /* CompaniesSectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA67D25B38EF800FF157C /* CompaniesSectionBuilder.swift */; };
+		B96CA68325B38F0400FF157C /* CompaniesSectionDependecy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA68225B38F0400FF157C /* CompaniesSectionDependecy.swift */; };
 		B96D54BD242FBED600023BC9 /* NewPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D54BC242FBED600023BC9 /* NewPasswordService.swift */; };
 		B96D54C0242FBF1400023BC9 /* ResetPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D54BF242FBF1400023BC9 /* ResetPasswordService.swift */; };
 		B9721AB425AF39840019D6D4 /* SettingsParamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9721AB325AF39840019D6D4 /* SettingsParamsView.swift */; };
@@ -140,7 +155,7 @@
 		B990939625AF788F00CF381B /* Bundle+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990939525AF788F00CF381B /* Bundle+Localization.swift */; };
 		B990939E25AF7F8E00CF381B /* SOTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990939D25AF7F8E00CF381B /* SOTabBar.swift */; };
 		B99093CF25AF862500CF381B /* BUContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99093CE25AF862500CF381B /* BUContentViewController.swift */; };
-		B99093D425AFC25700CF381B /* EmptyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99093D325AFC25700CF381B /* EmptyContainer.swift */; };
+		B99093D425AFC25700CF381B /* BUEmptyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99093D325AFC25700CF381B /* BUEmptyContainer.swift */; };
 		B992D50E245789FF002ABF71 /* BenefitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D50D245789FF002ABF71 /* BenefitsView.swift */; };
 		B992D51024578A09002ABF71 /* BenefitsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D50F24578A09002ABF71 /* BenefitsPresenter.swift */; };
 		B992D51224578A11002ABF71 /* BenefitsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D51124578A11002ABF71 /* BenefitsInteractor.swift */; };
@@ -345,6 +360,21 @@
 		B96A71E8246BAB7C007416DF /* ProfileResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponseEntity.swift; sourceTree = "<group>"; };
 		B96AC7F72444A392005C25D1 /* CategoriesPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPresentationModel.swift; sourceTree = "<group>"; };
 		B96AC7FA2446651C005C25D1 /* LocaleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleManager.swift; sourceTree = "<group>"; };
+		B96CA62E25B37BA900FF157C /* CompaniesSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesSearchView.swift; sourceTree = "<group>"; };
+		B96CA63325B37BB800FF157C /* CompaniesSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesSearchPresenter.swift; sourceTree = "<group>"; };
+		B96CA63825B37BC100FF157C /* CompaniesSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesSearchInteractor.swift; sourceTree = "<group>"; };
+		B96CA63D25B37BC900FF157C /* CompaniesSearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesSearchRouter.swift; sourceTree = "<group>"; };
+		B96CA64225B37BD200FF157C /* CompaniesSearchBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesSearchBuilder.swift; sourceTree = "<group>"; };
+		B96CA64725B37BDA00FF157C /* CompaniesSearchDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesSearchDependency.swift; sourceTree = "<group>"; };
+		B96CA65025B380A700FF157C /* CompaniesSearchCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesSearchCategoryCell.swift; sourceTree = "<group>"; };
+		B96CA65C25B3867700FF157C /* CompaniesSearchCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesSearchCategoryModel.swift; sourceTree = "<group>"; };
+		B96CA66125B3895100FF157C /* BUMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUMapView.swift; sourceTree = "<group>"; };
+		B96CA66925B38ED900FF157C /* CompaniesSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesSectionView.swift; sourceTree = "<group>"; };
+		B96CA66E25B38EDF00FF157C /* CompaniesSectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesSectionPresenter.swift; sourceTree = "<group>"; };
+		B96CA67325B38EE900FF157C /* CompaniesSectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesSectionInteractor.swift; sourceTree = "<group>"; };
+		B96CA67825B38EF000FF157C /* CompaniesSectionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesSectionRouter.swift; sourceTree = "<group>"; };
+		B96CA67D25B38EF800FF157C /* CompaniesSectionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesSectionBuilder.swift; sourceTree = "<group>"; };
+		B96CA68225B38F0400FF157C /* CompaniesSectionDependecy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesSectionDependecy.swift; sourceTree = "<group>"; };
 		B96D54BC242FBED600023BC9 /* NewPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordService.swift; sourceTree = "<group>"; };
 		B96D54BF242FBF1400023BC9 /* ResetPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordService.swift; sourceTree = "<group>"; };
 		B9721AB325AF39840019D6D4 /* SettingsParamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsParamsView.swift; sourceTree = "<group>"; };
@@ -396,7 +426,7 @@
 		B990939525AF788F00CF381B /* Bundle+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Localization.swift"; sourceTree = "<group>"; };
 		B990939D25AF7F8E00CF381B /* SOTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTabBar.swift; sourceTree = "<group>"; };
 		B99093CE25AF862500CF381B /* BUContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUContentViewController.swift; sourceTree = "<group>"; };
-		B99093D325AFC25700CF381B /* EmptyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyContainer.swift; sourceTree = "<group>"; };
+		B99093D325AFC25700CF381B /* BUEmptyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUEmptyContainer.swift; sourceTree = "<group>"; };
 		B992D50D245789FF002ABF71 /* BenefitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsView.swift; sourceTree = "<group>"; };
 		B992D50F24578A09002ABF71 /* BenefitsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsPresenter.swift; sourceTree = "<group>"; };
 		B992D51124578A11002ABF71 /* BenefitsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsInteractor.swift; sourceTree = "<group>"; };
@@ -959,6 +989,42 @@
 			path = Locale;
 			sourceTree = "<group>";
 		};
+		B96CA64C25B37BED00FF157C /* CompaniesSearch */ = {
+			isa = PBXGroup;
+			children = (
+				B96CA62E25B37BA900FF157C /* CompaniesSearchView.swift */,
+				B96CA63325B37BB800FF157C /* CompaniesSearchPresenter.swift */,
+				B96CA63825B37BC100FF157C /* CompaniesSearchInteractor.swift */,
+				B96CA63D25B37BC900FF157C /* CompaniesSearchRouter.swift */,
+				B96CA64225B37BD200FF157C /* CompaniesSearchBuilder.swift */,
+				B96CA64725B37BDA00FF157C /* CompaniesSearchDependency.swift */,
+				B96CA65525B380AB00FF157C /* Subviews */,
+			);
+			path = CompaniesSearch;
+			sourceTree = "<group>";
+		};
+		B96CA65525B380AB00FF157C /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				B96CA65025B380A700FF157C /* CompaniesSearchCategoryCell.swift */,
+				B96CA65C25B3867700FF157C /* CompaniesSearchCategoryModel.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		B96CA68725B38F2700FF157C /* CompaniesSection */ = {
+			isa = PBXGroup;
+			children = (
+				B96CA66925B38ED900FF157C /* CompaniesSectionView.swift */,
+				B96CA66E25B38EDF00FF157C /* CompaniesSectionPresenter.swift */,
+				B96CA67325B38EE900FF157C /* CompaniesSectionInteractor.swift */,
+				B96CA67825B38EF000FF157C /* CompaniesSectionRouter.swift */,
+				B96CA67D25B38EF800FF157C /* CompaniesSectionBuilder.swift */,
+				B96CA68225B38F0400FF157C /* CompaniesSectionDependecy.swift */,
+			);
+			path = CompaniesSection;
+			sourceTree = "<group>";
+		};
 		B96D54BE242FBEE700023BC9 /* NewPassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -1119,7 +1185,8 @@
 		B99093D825AFC25E00CF381B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B99093D325AFC25700CF381B /* EmptyContainer.swift */,
+				B99093D325AFC25700CF381B /* BUEmptyContainer.swift */,
+				B96CA66125B3895100FF157C /* BUMapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1429,6 +1496,8 @@
 				B992D51924578A50002ABF71 /* BenefitsList */,
 				B9D336A32469D002003E1CEB /* OrganizationsList */,
 				B941E741246B93B40056B844 /* OrganizationControl */,
+				B96CA64C25B37BED00FF157C /* CompaniesSearch */,
+				B96CA68725B38F2700FF157C /* CompaniesSection */,
 			);
 			path = ApplicationContentSection;
 			sourceTree = "<group>";
@@ -1730,11 +1799,15 @@
 				B966E73024684D090043FD69 /* BenefitDescriptionBuilder.swift in Sources */,
 				B9CAA712242B9F2100E50668 /* AuthVerificationDependency.swift in Sources */,
 				B990931125AF3A3C00CF381B /* SettingsParamsBuilder.swift in Sources */,
+				B96CA67425B38EE900FF157C /* CompaniesSectionInteractor.swift in Sources */,
 				B992D50E245789FF002ABF71 /* BenefitsView.swift in Sources */,
 				B9787F4D246B7E08007DB617 /* TaskListCurrentTasksEntity.swift in Sources */,
 				B9FC798E242FB75E00F2D5BC /* ApplicationContentRouter.swift in Sources */,
+				B96CA64825B37BDA00FF157C /* CompaniesSearchDependency.swift in Sources */,
 				B941E73C246B93600056B844 /* OrganizationControlBuilder.swift in Sources */,
+				B96CA63425B37BB900FF157C /* CompaniesSearchPresenter.swift in Sources */,
 				B935A594241D6A720074E89E /* NewPasswordPresenter.swift in Sources */,
+				B96CA67925B38EF000FF157C /* CompaniesSectionRouter.swift in Sources */,
 				B9A732FB242D556C00860346 /* UIButton+Animations.swift in Sources */,
 				B977483B24431910004D39AD /* TaskSelectionView.swift in Sources */,
 				B9CAA71A242BE0CB00E50668 /* String+Validation.swift in Sources */,
@@ -1748,10 +1821,14 @@
 				B91E8099242FCEB400859C83 /* CategoriesService.swift in Sources */,
 				B9CEE69C241CE98000308098 /* LoginDependency.swift in Sources */,
 				B977484D24431A3F004D39AD /* TasksListInteractor.swift in Sources */,
+				B96CA62F25B37BA900FF157C /* CompaniesSearchView.swift in Sources */,
 				B9D30C6E244BA0C400B9E9AA /* ChangePasswordRouter.swift in Sources */,
+				B96CA66225B3895100FF157C /* BUMapView.swift in Sources */,
 				B91AD2C22446682600F8989B /* AppConstants.swift in Sources */,
 				B932365B241D743300A37634 /* NewPasswordDependency.swift in Sources */,
+				B96CA67E25B38EF800FF157C /* CompaniesSectionBuilder.swift in Sources */,
 				B982CCDC244481D600CB6D81 /* CategoryCardView.swift in Sources */,
+				B96CA65125B380A700FF157C /* CompaniesSearchCategoryCell.swift in Sources */,
 				B9D3369E2469CFDE003E1CEB /* OrganizationsListDependency.swift in Sources */,
 				B96A71DF246B9CB5007416DF /* OrganizationControlResponseEntity.swift in Sources */,
 				B9FC7988242FB6E500F2D5BC /* ApplicationContentView.swift in Sources */,
@@ -1781,9 +1858,10 @@
 				B96D54BD242FBED600023BC9 /* NewPasswordService.swift in Sources */,
 				B9EFFBAA246BE00200084B7E /* FinishedBenefitEntity.swift in Sources */,
 				B990931625AF3A4C00CF381B /* SettingsParamsDependency.swift in Sources */,
+				B96CA64325B37BD200FF157C /* CompaniesSearchBuilder.swift in Sources */,
 				B992D52E2457A1A7002ABF71 /* SelectedBenefitsContentCell.swift in Sources */,
 				B92688FD2429520300F1732A /* UIView+Gradient.swift in Sources */,
-				B99093D425AFC25700CF381B /* EmptyContainer.swift in Sources */,
+				B99093D425AFC25700CF381B /* BUEmptyContainer.swift in Sources */,
 				B941E736246B933B0056B844 /* OrganizationControlView.swift in Sources */,
 				B9A13D33244E3AB900373827 /* ProfileView.swift in Sources */,
 				B964CE8624475C6900161300 /* NewPasswordResponseEntity.swift in Sources */,
@@ -1791,7 +1869,9 @@
 				B9CAA71F242BE8B500E50668 /* EmailVerificationService.swift in Sources */,
 				B9D30C72244BA0DC00B9E9AA /* ChangePasswordPresenter.swift in Sources */,
 				B9CAA70C242B9F0200E50668 /* AuthVerificationRouter.swift in Sources */,
+				B96CA65D25B3867700FF157C /* CompaniesSearchCategoryModel.swift in Sources */,
 				B9CAA708242B9EE000E50668 /* AuthVerificationView.swift in Sources */,
+				B96CA63925B37BC100FF157C /* CompaniesSearchInteractor.swift in Sources */,
 				B9EFFBA8246BDFF400084B7E /* ActualBenefitEntity.swift in Sources */,
 				B990930C25AF3A3600CF381B /* SettingsParamsInteractor.swift in Sources */,
 				B990930725AF3A2F00CF381B /* SettingsParamsPresenter.swift in Sources */,
@@ -1815,6 +1895,7 @@
 				B9CAA710242B9F1600E50668 /* AuthVerificationPresenter.swift in Sources */,
 				B9D30C6A244BA0B400B9E9AA /* ChangePasswordBuilder.swift in Sources */,
 				B935A59A241D6A8A0074E89E /* NewPasswordBuilder.swift in Sources */,
+				B96CA63E25B37BC900FF157C /* CompaniesSearchRouter.swift in Sources */,
 				B9721AB425AF39840019D6D4 /* SettingsParamsView.swift in Sources */,
 				B98DE0E6244BB627007AE007 /* SettingsBuilder.swift in Sources */,
 				B990939E25AF7F8E00CF381B /* SOTabBar.swift in Sources */,
@@ -1831,7 +1912,9 @@
 				B9D3369A2469CFCA003E1CEB /* OrganizationsListPresenter.swift in Sources */,
 				B992D52024579217002ABF71 /* UsedBenefitsCell.swift in Sources */,
 				B98DE0E2244BB614007AE007 /* SettingsPresenter.swift in Sources */,
+				B96CA66F25B38EDF00FF157C /* CompaniesSectionPresenter.swift in Sources */,
 				B948A23A241CBFBA001287B8 /* LoginPresenter.swift in Sources */,
+				B96CA68325B38F0400FF157C /* CompaniesSectionDependecy.swift in Sources */,
 				B964E0C32451CFC400668EE8 /* ProfileAhievementsCell.swift in Sources */,
 				B9126688242AA57D00BEA50C /* BULoginViewController.swift in Sources */,
 				B9787F51246B8C15007DB617 /* OrganizationsListResponseEntity.swift in Sources */,
@@ -1871,6 +1954,7 @@
 				B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */,
 				B9CAA722242BE8DF00E50668 /* EmailVerificationResponseEntity.swift in Sources */,
 				B9D17E32246C2B9C00258BA3 /* OrganizationAppendResponseEntity.swift in Sources */,
+				B96CA66A25B38ED900FF157C /* CompaniesSectionView.swift in Sources */,
 				B96A71E4246BA7A6007416DF /* ProfileResponseDetailsEntity.swift in Sources */,
 				B992D51624578A36002ABF71 /* BenefitsRouter.swift in Sources */,
 				B966E72B24684CB10043FD69 /* BenefitDescriptionView.swift in Sources */,

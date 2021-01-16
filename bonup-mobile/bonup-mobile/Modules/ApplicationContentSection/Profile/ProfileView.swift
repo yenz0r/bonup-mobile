@@ -80,7 +80,6 @@ final class ProfileView: BUContentViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         self.presenter.viewWillAppear()
-
         super.viewWillAppear(animated)
     }
 
