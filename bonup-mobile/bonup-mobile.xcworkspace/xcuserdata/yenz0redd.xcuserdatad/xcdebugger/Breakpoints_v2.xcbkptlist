@@ -3,4 +3,70 @@
    uuid = "DE7BADDB-50BC-4F3C-A987-8DACDA0E41E4"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AB83E904-7487-445E-8183-E6D732B9626D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/Settings/SettingsPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AB83E904-7487-445E-8183-E6D732B9626D - c8dcf4d4fa8a4b58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Bonup_Debug__PAID_.SettingsPresenter.viewDidLoad() -&gt; ()"
+                  moduleName = "Bonup-Debug [PAID]"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yenz0redd/git/bonup-mobile/bonup-mobile/bonup-mobile/Modules/ApplicationContentSection/Settings/SettingsPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "886">
+               </Location>
+               <Location
+                  uuid = "AB83E904-7487-445E-8183-E6D732B9626D - 42628bb2cf2a7f5e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.UIImage&gt;) -&gt; () in Bonup_Debug__PAID_.SettingsPresenter.viewDidLoad() -&gt; ()"
+                  moduleName = "Bonup-Debug [PAID]"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yenz0redd/git/bonup-mobile/bonup-mobile/bonup-mobile/Modules/ApplicationContentSection/Settings/SettingsPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "205">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E60B4F88-2300-456F-8614-14278F463EDB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/Settings/SettingsInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "loadAvatar(success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

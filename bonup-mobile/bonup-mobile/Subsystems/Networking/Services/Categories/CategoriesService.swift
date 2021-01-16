@@ -60,4 +60,3 @@ extension CategoriesService: IMainTargetType {
         return ["Content-Type" : "application/json"]
     }
 }
-

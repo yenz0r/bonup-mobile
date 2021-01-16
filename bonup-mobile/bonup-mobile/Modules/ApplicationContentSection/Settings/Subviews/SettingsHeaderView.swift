@@ -13,7 +13,9 @@ final class SettingsHeaderView: UIView {
     // MARK: - Public variables
 
     var avatarImage: UIImage? {
+
         didSet {
+
             self.avatarImageView.image = self.avatarImage
         }
     }
@@ -29,6 +31,8 @@ final class SettingsHeaderView: UIView {
             self.emailLabel.text = self.email
         }
     }
+
+    var onAvatarTap: (() -> ())?
 
     // MARK: - Private variables
 
@@ -55,11 +59,6 @@ final class SettingsHeaderView: UIView {
         super.layoutSubviews()
 
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.height / 2
-
-        self.layer.cornerRadius = 15.0
-        self.layer.borderColor = UIColor.purpleLite.withAlphaComponent(0.3).cgColor
-        self.layer.borderWidth = 1.0
-        self.layer.masksToBounds = true
     }
 
     // MARK: - Setup subviews
@@ -72,14 +71,18 @@ final class SettingsHeaderView: UIView {
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
 
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(avatarTapped))
+            imageView.addGestureRecognizer(gesture)
+            imageView.isUserInteractionEnabled = true
+
             return imageView
         }()
 
         self.nameLabel = {
             let label = UILabel()
 
-            label.font = UIFont.avenirHeavy(30.0)
-            label.textColor = UIColor.black.withAlphaComponent(0.6)
+            label.font = UIFont.avenirHeavy(28.0)
+            label.theme_textColor = Colors.defaultTextColor
             label.textAlignment = .left
             label.contentScaleFactor = 0.4
 
@@ -89,8 +92,8 @@ final class SettingsHeaderView: UIView {
         self.emailLabel = {
             let label = UILabel()
 
-            label.font = UIFont.avenirRoman(20.0)
-            label.textColor = UIColor.black.withAlphaComponent(0.6)
+            label.font = UIFont.avenirRoman(18.0)
+            label.theme_textColor = Colors.defaultTextColor
             label.textAlignment = .left
             label.contentScaleFactor = 0.4
 
@@ -100,8 +103,7 @@ final class SettingsHeaderView: UIView {
         self.addSubview(self.avatarImageView)
         self.avatarImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(20.0)
-            make.size.equalTo(40.0)
-//            make.top.bottom.greaterThanOrEqualToSuperview().inset(10.0)
+            make.size.equalTo(60.0)
             make.centerY.equalToSuperview()
         }
 
@@ -123,6 +125,13 @@ final class SettingsHeaderView: UIView {
             make.top.equalTo(self.nameLabel.snp.bottom).offset(10.0)
         }
 
+    }
+
+    // MARK: - Selectors
+
+    @objc private func avatarTapped() {
+
+        self.onAvatarTap?()
     }
 
 }

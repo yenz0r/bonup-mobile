@@ -13,6 +13,8 @@ protocol ISettingsView: AnyObject {
                      name: String,
                      email: String)
 
+    func updateAvatarIcon(_ icon: UIImage?)
+
     func reloadData()
 }
 
@@ -137,13 +139,30 @@ extension SettingsView: UITableViewDataSource {
 // MARK: - ISettingsView
 
 extension SettingsView: ISettingsView {
+    
     func setupHeader(with image: UIImage?, name: String, email: String) {
+
         self.headerView.avatarImage = image
         self.headerView.name = name
         self.headerView.email = email
+
+        self.headerView.onAvatarTap = { [weak self] in
+
+            self?.presenter.handleAvatarIconTap()
+        }
     }
 
     func reloadData() {
         self.tableView.reloadData()
+    }
+
+    func updateAvatarIcon(_ icon: UIImage?) {
+
+        if let icon = icon {
+
+            self.headerView.avatarImage = icon
+        }
+        
+        self.dismiss(animated: true, completion: nil)
     }
 }

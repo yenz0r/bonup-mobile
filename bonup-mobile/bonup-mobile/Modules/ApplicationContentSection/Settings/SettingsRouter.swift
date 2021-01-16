@@ -8,6 +8,7 @@
 
 import UIKit
 import StoreKit
+import FMPhotoPicker
 
 protocol ISettingsRouter {
     func start(_ completion: (() -> Void)?)
@@ -24,6 +25,8 @@ final class SettingsRouter {
         case help
         case inProgress(String)
         case params(SettingsParamsDependency.SettingsParamsType)
+        case avatarSelection(FMPhotoPickerViewControllerDelegate, FMPhotoPickerConfig)
+        case showErrorAlert(String)
     }
 
     private var view: SettingsView?
@@ -95,6 +98,22 @@ extension SettingsRouter: ISettingsRouter {
             let builder = SettingsParamsBuilder()
             let router = builder.build(dependecy)
             router.start(nil)
+        case .avatarSelection(let delegate, let config):
+
+            let picker = FMPhotoPickerViewController(config: config)
+            picker.delegate = delegate
+            self.view?.present(picker, animated: true)
+
+        case .showErrorAlert(let message):
+            AlertsFactory.shared.infoAlert(
+                for: .error,
+                title: "ui_error_title".localized,
+                description: message,
+                from: view,
+                completion: {
+                    print("error")
+                }
+            )
         }
     }
 }

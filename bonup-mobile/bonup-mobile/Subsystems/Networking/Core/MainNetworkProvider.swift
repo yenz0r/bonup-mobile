@@ -149,6 +149,34 @@ extension MainNetworkProvider: IMainNetworkProvider {
         }
     }
 
+    func requestImage(_ target: MainTarget,
+                      completion: @escaping (UIImage?) -> Void,
+                      failure: ((MoyaError?) -> Void)?) -> Cancellable {
+
+        AlertsFactory.shared.loadingAlert(.show(message: "ui_wait_a_bit_please".localized))
+
+        return moyaProvider.request(target) { result in
+
+            AlertsFactory.shared.loadingAlert(.hide)
+
+            switch result {
+
+            case let .success(response):
+
+                do {
+
+                    completion(UIImage(data: response.data))
+                }
+
+            case let .failure(error):
+
+                failure?(error)
+
+            }
+        }
+    }
+
+
     func requestString(_ target: MainTarget,
                        completion: @escaping (String) -> Void,
                        failure: ((MoyaError?) -> Void)?) -> Cancellable {

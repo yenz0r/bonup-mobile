@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -172,6 +172,7 @@
 		B9A13D40244E3F1500373827 /* ProfileInfoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A13D3F244E3F1500373827 /* ProfileInfoContainer.swift */; };
 		B9A13D43244E474200373827 /* ProfileProgressContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A13D42244E474200373827 /* ProfileProgressContainer.swift */; };
 		B9A732FB242D556C00860346 /* UIButton+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A732FA242D556C00860346 /* UIButton+Animations.swift */; };
+		B9A9189425B3430D00919FE9 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A9189325B3430D00919FE9 /* SettingsService.swift */; };
 		B9AF05D72469D510007773B2 /* OrganizationsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AF05D62469D510007773B2 /* OrganizationsListCell.swift */; };
 		B9BA409F2443D0DD00950808 /* CurrentTasksListPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA409E2443D0DD00950808 /* CurrentTasksListPresentationModel.swift */; };
 		B9BA40A12443D0ED00950808 /* FinishedTasksPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA40A02443D0ED00950808 /* FinishedTasksPresentationModel.swift */; };
@@ -427,6 +428,7 @@
 		B9A13D3F244E3F1500373827 /* ProfileInfoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoContainer.swift; sourceTree = "<group>"; };
 		B9A13D42244E474200373827 /* ProfileProgressContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProgressContainer.swift; sourceTree = "<group>"; };
 		B9A732FA242D556C00860346 /* UIButton+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Animations.swift"; sourceTree = "<group>"; };
+		B9A9189325B3430D00919FE9 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		B9AF05D62469D510007773B2 /* OrganizationsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsListCell.swift; sourceTree = "<group>"; };
 		B9BA409E2443D0DD00950808 /* CurrentTasksListPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTasksListPresentationModel.swift; sourceTree = "<group>"; };
 		B9BA40A02443D0ED00950808 /* FinishedTasksPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedTasksPresentationModel.swift; sourceTree = "<group>"; };
@@ -631,6 +633,7 @@
 				B96A71E0246B9CE1007416DF /* OrganizationControl */,
 				B96A71E5246BA7AD007416DF /* Profile */,
 				B93FDB20246BDCBA006E93F4 /* BenefitsService */,
+				B9A9189825B3431200919FE9 /* Settings */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -811,14 +814,14 @@
 		B948A232241455B7001287B8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B9CAA71B242BE0D000E50668 /* String */,
+				B95B619A241CE0E800B3FE99 /* NSAttributedString */,
 				B948A231241455AD001287B8 /* Localization */,
 				B948A248241CDE69001287B8 /* UIFont */,
-				B95B619A241CE0E800B3FE99 /* NSAttributedString */,
 				B9259BA1241CE26C009585B7 /* UIColor */,
 				B935A59E241D6F380074E89E /* UIButton */,
 				B92688FE2429520800F1732A /* UIView */,
 				B9CAA71C242BE0E400E50668 /* UITextField */,
-				B9CAA71B242BE0D000E50668 /* String */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1254,6 +1257,14 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		B9A9189825B3431200919FE9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B9A9189325B3430D00919FE9 /* SettingsService.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		B9AF05D82469D513007773B2 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
@@ -1589,11 +1600,9 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1667,11 +1676,9 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1797,6 +1804,7 @@
 				B932366F241E6CCF00A37634 /* AuthResponseEntity.swift in Sources */,
 				B977484524431971004D39AD /* TaskSelectionDependency.swift in Sources */,
 				B966E73624684D700043FD69 /* BenefitDescriptionDependency.swift in Sources */,
+				B9A9189425B3430D00919FE9 /* SettingsService.swift in Sources */,
 				B9A13D3A244E3AE400373827 /* ProfileRouter.swift in Sources */,
 				B9FC7986242FB04000F2D5BC /* BUTabBarController.swift in Sources */,
 				B9787F46246B7597007DB617 /* TaskListService.swift in Sources */,

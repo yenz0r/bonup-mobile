@@ -104,3 +104,13 @@
 "ui_benefits_help" = "Место для получения выгоды. Покупаешь купоны, выжидаешь предложения и тратишь";
 "ui_light" = "Светлая";
 "ui_dark" = "Тёмная";
+"ui_edit" = "Изменить";
+"ui_filter" = "Фильтр";
+"ui_crop" = "Обрезать";
+"ui_reset" = "Сбросить";
+"ui_rotate" = "Повернуть";
+"ui_custom" = "Новое";
+"ui_origin" = "Оригинал";
+"ui_square" = "Квадрат";
+"ui_select_photo_title" = "Выбор Фото";
+"ui_select_photo_description" = "Необходим доступ к фото..";

@@ -109,3 +109,13 @@
 "ui_benefits_help" = "Save money in this section using benefits from your favorit organizations";
 "ui_light" = "Light";
 "ui_dark" = "Dark";
+"ui_edit" = "Edit";
+"ui_filter" = "Filter";
+"ui_crop" = "Crop";
+"ui_reset" = "Reset";
+"ui_rotate" = "Rotate";
+"ui_custom" = "Custom";
+"ui_origin" = "Origin";
+"ui_square" = "Square";
+"ui_select_photo_title" = "Select Photo";
+"ui_select_photo_description" = "Needs access to Photo Library";
