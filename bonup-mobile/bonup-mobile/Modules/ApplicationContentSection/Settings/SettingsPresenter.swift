@@ -143,7 +143,7 @@ extension SettingsPresenter: ISettingsPresenter {
 
             DispatchQueue.main.async {
 
-                self?.router.show(.showErrorAlert(message))
+//                self?.router.show(.showErrorAlert(message))
 
                 self?.view?.setupHeader(
                     with: AssetsHelper.shared.image(.profileUnselectedIcon),

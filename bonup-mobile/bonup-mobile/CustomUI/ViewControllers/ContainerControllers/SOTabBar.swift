@@ -70,6 +70,11 @@ public class SOTabBar: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         dropShadow()
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(langChanged),
+                                               name: LocaleManager.shared.notificationName,
+                                               object: nil)
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -85,7 +90,19 @@ public class SOTabBar: UIView {
         layer.shadowRadius = 3
     }
 
+    @objc private func langChanged() {
+
+        for index in self.viewControllers.indices {
+
+            if let item = self.stackView.arrangedSubviews[index] as? SOTabBarItem {
+
+                item.title = self.viewControllers[index].tabBarItem.title ?? ""
+            }
+        }
+    }
+
     private func drawTabs() {
+
         for vc in viewControllers {
             let barView = SOTabBarItem(tabBarItem: vc.tabBarItem)
             barView.heightAnchor.constraint(equalToConstant: SOTabBarSetting.tabBarHeight).isActive = true
@@ -282,11 +299,17 @@ open class SOTabBarController: UIViewController, SOTabBarDelegate {
 class SOTabBarItem: UIView {
 
     let image: UIImage
-    let title: String
+    var title: String {
+
+        didSet {
+
+            self.titleLabel.text = self.title
+        }
+    }
 
     private lazy var titleLabel: UILabel = {
         let lbl = UILabel()
-        lbl.text = self.title
+        lbl.text = self.title.localized
         lbl.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.semibold)
         lbl.textColor = UIColor.darkGray
         lbl.textAlignment = .center
