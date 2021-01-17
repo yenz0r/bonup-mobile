@@ -38,6 +38,7 @@ final class AddCompanyView: BUContentViewController {
         super.viewDidLoad()
 
         self.setupAppearance()
+        self.setupNavBar()
     }
 
     // MARK: - Localization
@@ -45,9 +46,20 @@ final class AddCompanyView: BUContentViewController {
     override func setupLocalizableContent() {
 
         self.navigationItem.title = "ui_add_new_company".localized
+        self.navigationItem.rightBarButtonItem?.title = "ui_done_title".localized
     }
 
     // MARK: - Setup
+
+    private func setupNavBar() {
+
+        let done = UIBarButtonItem(title: "ui_done_title".localized,
+                                   style: .plain,
+                                   target: self,
+                                   action: #selector(doneTapped))
+        done.theme_tintColor = Colors.navBarIconColor
+        self.navigationItem.rightBarButtonItem = done
+    }
 
     private func setupSubviews() {
 
@@ -99,7 +111,7 @@ final class AddCompanyView: BUContentViewController {
 
     private func configureCategoriesContainer() -> SelectCategoriesContainer {
 
-        let dataSource = SelectCategoriesDataSource()
+        let dataSource = SelectCategoriesDataSource(isActiveByDefault: false)
         let container = SelectCategoriesContainer(delegate: self, dataSource: dataSource)
 
         return container
@@ -127,6 +139,10 @@ final class AddCompanyView: BUContentViewController {
     @objc private func imageViewTapped() {
 
         self.presenter.handleAddImageTap()
+    }
+
+    @objc private func doneTapped() {
+
     }
 }
 

@@ -98,7 +98,7 @@ final class CompaniesSearchView: BUContentViewController {
 
     private func configureSelectCategoriesContainer() -> SelectCategoriesContainer {
 
-        let dataSource = SelectCategoriesDataSource()
+        let dataSource = SelectCategoriesDataSource(isActiveByDefault: true)
         let container = SelectCategoriesContainer(delegate: self, dataSource: dataSource)
 
         return container

@@ -16,11 +16,11 @@ final class SelectCategoriesDataSource: SelectCategoriesContainerDataSource {
 
     // MARK: - Initialization
 
-    init() {
+    init(isActiveByDefault: Bool) {
 
         self.categoriesModels = InterestCategories.allCases.map { SelectCategoriesCellModel(title: $0.title,
                                                                                             category: $0,
-                                                                                            isActive: false) }
+                                                                                            isActive: isActiveByDefault) }
     }
 
     // MARK: - SelectCategoriesContainerDataSource
