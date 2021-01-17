@@ -303,7 +303,7 @@ class SOTabBarItem: UIView {
 
         didSet {
 
-            self.titleLabel.text = self.title
+            self.titleLabel.text = self.title.localized
         }
     }
 

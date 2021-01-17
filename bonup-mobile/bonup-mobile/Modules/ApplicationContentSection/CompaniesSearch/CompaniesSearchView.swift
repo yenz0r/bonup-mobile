@@ -109,6 +109,7 @@ final class CompaniesSearchView: BUContentViewController {
         collectionView.dataSource = self
 
         collectionView.backgroundColor = .clear
+        collectionView.showsHorizontalScrollIndicator = false
 
         collectionView.register(CompaniesSearchCategoryCell.self,
                                 forCellWithReuseIdentifier: CompaniesSearchCategoryCell.reuseId)

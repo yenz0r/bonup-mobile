@@ -33,6 +33,7 @@ final class CompaniesSectionView: BUContentViewController {
         self.view = UIView()
 
         self.setupSubviews()
+        self.setupNavBar()
     }
 
     override func viewDidLoad() {
@@ -41,7 +42,6 @@ final class CompaniesSectionView: BUContentViewController {
 
         self.setupAppearance()
         self.setupChilds()
-        self.setupNavBar()
     }
 
     // MARK: - Setup
@@ -89,13 +89,19 @@ final class CompaniesSectionView: BUContentViewController {
         let infoNavigationItem = UIBarButtonItem(customView: infoButton)
 
         self.navigationItem.rightBarButtonItems = [infoNavigationItem]
+
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "ui_organization_title".localized,
+                                                                style: .plain,
+                                                                target: nil,
+                                                                action: nil)
+        self.navigationItem.leftBarButtonItem?.theme_tintColor = Colors.defaultTextColor
     }
 
     // MARK: - Localization
 
     override func setupLocalizableContent() {
 
-        let selectedIndex = self.segmentControl.selectedSegmentIndex
+        let selectedIndex = self.segmentControl.selectedSegmentIndex > 0 ? self.segmentControl.selectedSegmentIndex : 0
 
         self.segmentControl.removeAllSegments()
 
@@ -106,11 +112,7 @@ final class CompaniesSectionView: BUContentViewController {
 
         self.segmentControl.selectedSegmentIndex = selectedIndex
 
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "ui_organization_title".localized,
-                                                                style: .plain,
-                                                                target: nil,
-                                                                action: nil)
-        self.navigationItem.leftBarButtonItem!.theme_tintColor = Colors.defaultTextColor
+        self.navigationItem.leftBarButtonItem?.title = "ui_organization_title".localized
     }
 
     // MARK: - Configure
@@ -136,6 +138,7 @@ final class CompaniesSectionView: BUContentViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
 
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "sectionCell")
 
@@ -146,9 +149,11 @@ final class CompaniesSectionView: BUContentViewController {
 
     @objc private func segmentControlChanged(_ sender: UISegmentedControl) {
 
-        let indexPath = IndexPath(item: sender.selectedSegmentIndex, section: 0)
-        self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        self.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
+//        let indexPath = IndexPath(item: sender.selectedSegmentIndex, section: 0)
+//        self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+//        self.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
+        let offset: CGFloat = sender.selectedSegmentIndex == 0 ? 0 : self.collectionView.frame.width
+        self.collectionView.setContentOffset(CGPoint(x: offset, y: 0), animated: true)
     }
 
     @objc private func infoNavigationItemTapped() {
