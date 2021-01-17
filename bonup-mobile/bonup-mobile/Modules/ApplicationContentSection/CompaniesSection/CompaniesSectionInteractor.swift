@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+protocol ICompaniesSectionInteractor: AnyObject {
+
+}
+
+final class CompaniesSectionInteractor {
+
+}
+
+// MARK: - ISettingsInteractor implementation
+
+extension CompaniesSectionInteractor: ICompaniesSectionInteractor {
+
+}

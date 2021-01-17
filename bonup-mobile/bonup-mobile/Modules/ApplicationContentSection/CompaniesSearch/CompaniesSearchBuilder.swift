@@ -6,16 +6,16 @@
 //  Copyright © 2021 Bonup. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol ICompaniesSearchBuilder {
 
-    func build(_ dependency: CompaniesSearchDependency) -> ICompaniesSearchRouter
+    func build(_ dependency: CompaniesSearchDependency) -> UIViewController
 }
 
 final class CompaniesSearchBuilder: ICompaniesSearchBuilder {
 
-    func build(_ dependency: CompaniesSearchDependency) -> ICompaniesSearchRouter {
+    func build(_ dependency: CompaniesSearchDependency) -> UIViewController {
 
         let view = CompaniesSearchView()
         let router = CompaniesSearchRouter(view: view, parentNavigationController: dependency.parentNavigationController)
@@ -23,6 +23,6 @@ final class CompaniesSearchBuilder: ICompaniesSearchBuilder {
         let presenter = CompaniesSearchPresenter(view: view, interactor: interactor, router: router)
         view.presenter = presenter
 
-        return router
+        return view
     }
 }

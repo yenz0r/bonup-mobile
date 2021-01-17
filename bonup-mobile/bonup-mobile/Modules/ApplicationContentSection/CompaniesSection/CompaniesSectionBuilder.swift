@@ -7,3 +7,22 @@
 //
 
 import Foundation
+
+protocol ICompaniesSectionBuilder {
+
+    func build(_ dependency: CompaniesSectionDependency) -> ICompaniesSectionRouter
+}
+
+final class CompaniesSectionBuilder: ICompaniesSectionBuilder {
+
+    func build(_ dependency: CompaniesSectionDependency) -> ICompaniesSectionRouter {
+
+        let view = CompaniesSectionView()
+        let router = CompaniesSectionRouter(view: view, parentNavigationController: dependency.parentNavigationController)
+        let interactor = CompaniesSectionInteractor()
+        let presenter = CompaniesSectionPresenter(view: view, interactor: interactor, router: router)
+        view.presenter = presenter
+
+        return router
+    }
+}

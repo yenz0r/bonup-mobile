@@ -6,21 +6,21 @@
 //  Copyright © 2020 Bonup. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol IOrganizationsListBuilder {
-    func build(_ dependency: OrganizationsListDependency) -> IOrganizationsListRouter
+    func build(_ dependency: OrganizationsListDependency) -> UIViewController
 }
 
 final class OrganizationsListBuilder: IOrganizationsListBuilder {
     
-    func build(_ dependency: OrganizationsListDependency) -> IOrganizationsListRouter {
+    func build(_ dependency: OrganizationsListDependency) -> UIViewController {
         let view = OrganizationsListView()
         let router = OrganizationsListRouter(view: view, parentNavigationController: dependency.parentNavigationController)
         let interactor = OrganizationsListInteractor()
         let presenter =  OrganizationsListPresenter(view: view, interactor: interactor, router: router)
         view.presenter = presenter
 
-        return router
+        return view
     }
 }

@@ -142,10 +142,10 @@ extension ApplicationContentRouter {
             selectedImage: AssetsHelper.shared.image(.organizationSelectedIcon)
         )
 
-        let organizationsDependency = OrganizationsListDependency(
+        let organizationsDependency = CompaniesSectionDependency(
             parentNavigationController: organizationsNavigationController
         )
-        let organizationsBuilder = OrganizationsListBuilder()
+        let organizationsBuilder = CompaniesSectionBuilder()
         let organizationsRouter = organizationsBuilder.build(organizationsDependency)
         organizationsRouter.start(nil)
 

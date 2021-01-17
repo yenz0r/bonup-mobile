@@ -47,7 +47,5 @@ extension CompaniesSearchPresenter: ICompaniesSearchPresenter {
             CompaniesSearchCategoryModel(title: "123", isActive: false),
             CompaniesSearchCategoryModel(title: "12313213", isActive: false)
         ]
-    }
-
-    
+    }    
 }

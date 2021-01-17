@@ -23,6 +23,10 @@ final class CompaniesSearchCategoryCell: UICollectionViewCell {
         self.titleLabel.textColor = model.isActive ? .green : .red
     }
 
+    // MARK: - State variables
+
+    private var isFirstLayout = true
+
     // MARK: - UI variables
 
     private var titleLabel: UILabel!
@@ -47,7 +51,11 @@ final class CompaniesSearchCategoryCell: UICollectionViewCell {
 
         super.layoutSubviews()
 
-        self.contentView.setupBlur()
+        if (self.isFirstLayout) {
+
+            self.contentView.setupBlur()
+            self.isFirstLayout = false
+        }
     }
 
     // MARK: - Setup

@@ -6,4 +6,9 @@
 //  Copyright © 2021 Bonup. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+struct CompaniesSectionDependency {
+
+    let parentNavigationController: UINavigationController
+}

@@ -60,5 +60,4 @@ extension ProfileRouter: IProfileRouter {
             )
         }
     }
-
 }

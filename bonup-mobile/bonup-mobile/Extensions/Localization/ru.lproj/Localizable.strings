@@ -86,7 +86,7 @@
 "ui_date_of_use" = "Срок действия:";
 "ui_empty_title" = "Извините, нет описания акции";
 "ui_description_title" = "Автор еще не добавил описание";
-"ui_empty_organizations_title" = "Извините, но список ваших организация пуст. Вы можете добавить их в любое время, просто напишите на нашу почту: BonupApp@gmail.com";
+"ui_empty_organizations_title" = "Извините, но список ваших организация пуст..";
 "ui_organizations_list_title" = "Список Организаций";
 "ui_check_task" = "Проверить задачу";
 "ui_check_benefit" = "Активировать бонус";
@@ -114,3 +114,7 @@
 "ui_square" = "Квадрат";
 "ui_select_photo_title" = "Выбор Фото";
 "ui_select_photo_description" = "Необходим доступ к фото..";
+"ui_all" = "Все";
+"ui_my" = "Мои";
+"ui_all_companies_help_message" = "Вы можете просмотреть самые близкие организации к Вам, в зависимости от выбранных категорий..";
+"ui_my_companies_help_message" = "Здесь Вы можете осуществить просмотр Ваших ограниций, и при необходимости добавить новую..";
