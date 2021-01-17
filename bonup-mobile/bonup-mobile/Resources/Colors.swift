@@ -27,4 +27,6 @@ struct Colors {
 
 
     static let settingsIconsColor: ThemeColorPicker = ["#000", "#6a697fff"]
+
+    static let keyboardAppearance = ThemeKeyboardAppearancePicker(styles: .light, .dark)
 }

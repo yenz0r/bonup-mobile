@@ -30,6 +30,8 @@ target 'bonup-mobile' do
   pod 'SwiftQRScanner', :git => 'https://github.com/vinodiOS/SwiftQRScanner'
   pod 'FMPhotoPicker', '~> 1.3.0'
 
+  pod 'IQKeyboardManagerSwift'
+
   target 'bonup-mobileTests' do
     inherit! :search_paths
     # Pods for testing

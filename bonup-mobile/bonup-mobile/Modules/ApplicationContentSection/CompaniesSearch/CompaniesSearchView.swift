@@ -22,7 +22,7 @@ final class CompaniesSearchView: BUContentViewController {
     // MARK: - UI variabes
 
     private var mapView: BUMapView!
-    private var categoriesCollectionView: UICollectionView!
+    private var selectCategoriesContainer: SelectCategoriesContainer!
 
     // MARK: - Life cycle
 
@@ -70,20 +70,19 @@ final class CompaniesSearchView: BUContentViewController {
     private func setupSubviews() {
 
         self.mapView = self.configureMapView()
-        self.categoriesCollectionView = self.configureCollectionView()
+        self.selectCategoriesContainer = self.configureSelectCategoriesContainer()
 
         self.view.addSubview(self.mapView)
-        self.mapView.addSubview(self.categoriesCollectionView)
+        self.mapView.addSubview(self.selectCategoriesContainer)
 
         self.mapView.snp.makeConstraints { make in
             make.leading.trailing.top.equalTo(self.view)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
         }
 
-        self.categoriesCollectionView.snp.makeConstraints { make in
+        self.selectCategoriesContainer.snp.makeConstraints { make in
             make.leading.trailing.equalTo(self.mapView.safeAreaLayoutGuide).inset(10)
-            make.bottom.equalToSuperview().offset(-30)
-            make.height.equalTo(50)
+            make.bottom.equalToSuperview().offset(-40)
         }
     }
 
@@ -97,50 +96,22 @@ final class CompaniesSearchView: BUContentViewController {
         return BUMapView()
     }
 
-    private func configureCollectionView() -> UICollectionView {
+    private func configureSelectCategoriesContainer() -> SelectCategoriesContainer {
 
-        let collectionViewLayout = UICollectionViewFlowLayout()
-        collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        collectionViewLayout.scrollDirection = .horizontal
+        let dataSource = SelectCategoriesDataSource()
+        let container = SelectCategoriesContainer(delegate: self, dataSource: dataSource)
 
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
-
-        collectionView.delegate = self
-        collectionView.dataSource = self
-
-        collectionView.backgroundColor = .clear
-        collectionView.showsHorizontalScrollIndicator = false
-
-        collectionView.register(CompaniesSearchCategoryCell.self,
-                                forCellWithReuseIdentifier: CompaniesSearchCategoryCell.reuseId)
-
-        return collectionView
+        return container
     }
 }
 
-// MARK: - UICollectionViewDelegate
+// MARK: - SelectCategoriesContainerDelegate
 
-extension CompaniesSearchView: UICollectionViewDelegate {
+extension CompaniesSearchView: SelectCategoriesContainerDelegate {
 
-}
+    func selectCategoriesContainerDidUpdateCategoriesList(_ container: SelectCategoriesContainer) {
 
-// MARK: - UICollectionViewDataSource
-
-extension CompaniesSearchView: UICollectionViewDataSource {
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        return self.presenter.categories.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompaniesSearchCategoryCell.reuseId,
-                                                      for: indexPath) as! CompaniesSearchCategoryCell
-
-        cell.configure(with: self.presenter.categories[indexPath.row])
-
-        return cell
+        print(container.dataSource.selectedCategories)
     }
 }
 

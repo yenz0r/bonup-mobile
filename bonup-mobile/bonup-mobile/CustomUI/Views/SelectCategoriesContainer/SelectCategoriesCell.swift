@@ -1,5 +1,5 @@
 //
-//  CompanySearchCategoryCell.swift
+//  SelectCategoriesCell.swift
 //  bonup-mobile
 //
 //  Created by Yahor Bychkouski on 16.01.2021.
@@ -8,16 +8,16 @@
 
 import UIKit
 
-final class CompaniesSearchCategoryCell: UICollectionViewCell {
+final class SelectCategoriesCell: UICollectionViewCell {
 
     // MARK: - Static
 
-    static let reuseId = NSStringFromClass(CompaniesSearchCategoryCell.self)
+    static let reuseId = NSStringFromClass(SelectCategoriesCell.self)
     static let cellHeight: CGFloat = 50
 
     // MARK: - Public
 
-    func configure(with model: CompaniesSearchCategoryModel) {
+    func configure(with model: SelectCategoriesCellModel) {
 
         self.titleLabel.text = model.title
         self.titleLabel.textColor = model.isActive ? .green : .red
@@ -80,7 +80,7 @@ final class CompaniesSearchCategoryCell: UICollectionViewCell {
         }
 
         self.contentView.snp.makeConstraints { make in
-            make.height.equalTo(CompaniesSearchCategoryCell.cellHeight)
+            make.height.equalTo(SelectCategoriesCell.cellHeight)
             make.edges.equalToSuperview()
         }
     }

@@ -25,7 +25,7 @@ final class SettingsRouter {
         case help
         case inProgress(String)
         case params(SettingsParamsDependency.SettingsParamsType)
-        case avatarSelection(FMPhotoPickerViewControllerDelegate, FMPhotoPickerConfig)
+        case avatarSelection(FMPhotoPickerViewControllerDelegate)
         case showErrorAlert(String)
     }
 
@@ -98,9 +98,9 @@ extension SettingsRouter: ISettingsRouter {
             let builder = SettingsParamsBuilder()
             let router = builder.build(dependecy)
             router.start(nil)
-        case .avatarSelection(let delegate, let config):
+        case .avatarSelection(let delegate):
 
-            let picker = FMPhotoPickerViewController(config: config)
+            let picker = FMPhotoPickerViewController(config: FMPhotoPickerViewController.defaultConfig)
             picker.delegate = delegate
             self.view?.present(picker, animated: true)
 

@@ -123,3 +123,4 @@
 "ui_my" = "My";
 "ui_all_companies_help_message" = "Here you can find companies, which are the most close for you, following for selection categories..";
 "ui_my_companies_help_message" = "Here you can see all your organizations, and append new, if you need..";
+"ui_add_new_company" = "Add New Company";

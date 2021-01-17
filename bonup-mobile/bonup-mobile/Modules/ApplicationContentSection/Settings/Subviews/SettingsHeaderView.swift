@@ -70,6 +70,7 @@ final class SettingsHeaderView: UIView {
 
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
+            imageView.theme_tintColor = Colors.tabBarIconColor
 
             let gesture = UITapGestureRecognizer(target: self, action: #selector(avatarTapped))
             imageView.addGestureRecognizer(gesture)

@@ -22,6 +22,7 @@ final class OrganizationsListView: BUContentViewController {
     // MARK: - User interface variables
 
     private var collectionView: UICollectionView!
+    private var addButton: OrganizationsListAddButton!
     private var emptyContainer: BUEmptyContainer!
 
     // MARK: - Life cycle
@@ -58,12 +59,22 @@ final class OrganizationsListView: BUContentViewController {
     private func setupSubviews() {
 
         self.collectionView = self.configureCollectioView()
+        self.addButton = OrganizationsListAddButton { [weak self] in
+
+            self?.presenter.handleAddButtonTap()
+        }
         self.emptyContainer = BUEmptyContainer()
         self.emptyContainer.image = AssetsHelper.shared.image(.emptyTasksListIcon)
 
+        self.view.addSubview(self.addButton)
+        self.addButton.snp.makeConstraints { make in
+            make.top.centerX.equalTo(self.view.safeAreaLayoutGuide)
+        }
+
         self.view.addSubview(self.collectionView)
         self.collectionView.snp.makeConstraints { make in
-            make.edges.equalTo(self.view.safeAreaLayoutGuide).inset(10.0)
+            make.top.equalTo(self.addButton.snp.bottom)
+            make.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(10.0)
         }
 
         self.view.addSubview(self.emptyContainer)

@@ -14,7 +14,9 @@ protocol IOrganizationsListPresenter: AnyObject {
     func title(for index: Int) -> String
     func imagePath(for index: Int) -> String
     func numberOfOrganizations() -> Int
-    func handleShowOgranizationControl(for index: Int) 
+    func handleShowOgranizationControl(for index: Int)
+
+    func handleAddButtonTap()
 }
 
 final class OrganizationsListPresenter {
@@ -75,5 +77,10 @@ extension OrganizationsListPresenter: IOrganizationsListPresenter {
                 print("---")
             }
         )
+    }
+
+    func handleAddButtonTap() {
+
+        self.router.show(.showAddNewOrganization)
     }
 }

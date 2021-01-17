@@ -18,6 +18,7 @@ final class OrganizationsListRouter {
     enum RouterScenario {
 
         case showOrganizationControl(String)
+        case showAddNewOrganization
     }
 
     private var view: OrganizationsListView?
@@ -56,6 +57,13 @@ extension OrganizationsListRouter: IOrganizationsListRouter {
             
             let dependency = OrganizationControlDependency(parentController: view, organizationName: organizationName)
             let builder = OrganizationControlBuilder()
+            let router = builder.build(dependency)
+            router.start(nil)
+
+        case .showAddNewOrganization:
+
+            let dependency = AddCompanyDependency(parentNavigationController: self.parentNavigationController)
+            let builder = AddCompanyBuilder()
             let router = builder.build(dependency)
             router.start(nil)
         }

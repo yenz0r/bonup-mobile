@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // setup localization
         LocaleManager.shared.start()
+
+        // setup keyboard handler
+        IQKeyboardManager.shared.enable = true
 
         // setup app router
         AppRouter.shared.appWindow = self.window

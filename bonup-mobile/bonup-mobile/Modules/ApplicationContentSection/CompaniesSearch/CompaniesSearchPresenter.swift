@@ -9,8 +9,6 @@
 import Foundation
 
 protocol ICompaniesSearchPresenter: AnyObject {
-
-    var categories: [CompaniesSearchCategoryModel] { get }
 }
 
 final class CompaniesSearchPresenter {
@@ -34,18 +32,5 @@ final class CompaniesSearchPresenter {
 // MARK: - ICompanySearchPresenter
 
 extension CompaniesSearchPresenter: ICompaniesSearchPresenter {
-    
-    var categories: [CompaniesSearchCategoryModel] {
 
-        return [
-            CompaniesSearchCategoryModel(title: "123", isActive: true),
-            CompaniesSearchCategoryModel(title: "12313213", isActive: false),
-            CompaniesSearchCategoryModel(title: "123", isActive: false),
-            CompaniesSearchCategoryModel(title: "12313213", isActive: true),
-            CompaniesSearchCategoryModel(title: "123", isActive: false),
-            CompaniesSearchCategoryModel(title: "12313213", isActive: true),
-            CompaniesSearchCategoryModel(title: "123", isActive: false),
-            CompaniesSearchCategoryModel(title: "12313213", isActive: false)
-        ]
-    }    
 }

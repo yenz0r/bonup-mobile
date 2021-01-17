@@ -1,5 +1,5 @@
 //
-//  CompanySearchCategoryModel.swift
+//  SelectCategoriesCellModel.swift
 //  bonup-mobile
 //
 //  Created by Yahor Bychkouski on 16.01.2021.
@@ -8,8 +8,9 @@
 
 import Foundation
 
-struct CompaniesSearchCategoryModel {
+struct SelectCategoriesCellModel {
 
     let title: String
+    let category: InterestCategories
     var isActive: Bool
 }

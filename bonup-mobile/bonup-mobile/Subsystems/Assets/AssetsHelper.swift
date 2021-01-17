@@ -47,6 +47,9 @@ final class AssetsHelper {
         case settingsCategory
 
         case activeCheckBox
+
+        case addIcon
+        case addImageIcon
     }
 
     static let shared = AssetsHelper()
@@ -121,6 +124,11 @@ final class AssetsHelper {
 
         case .activeCheckBox:
             return UIImage(named: "active-check-box")!.withRenderingMode(.alwaysTemplate)
+
+        case .addIcon:
+            return UIImage(named: "add-icon")!.withRenderingMode(.alwaysTemplate)
+        case .addImageIcon:
+            return UIImage(named: "add-image-icon")!.withRenderingMode(.alwaysTemplate)
 
         @unknown default:
             assertionFailure("Incorrect \(String(describing: self)) enum value")
