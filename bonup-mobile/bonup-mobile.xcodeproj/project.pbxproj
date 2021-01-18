@@ -10,6 +10,13 @@
 		000993B5F4A018C215A59737 /* libPods-bonup-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E08E2FC007738639B3B1FB /* libPods-bonup-mobile.a */; };
 		45CB7F78204A3A11874541EB /* libPods-bonup-mobile-bonup-mobileUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D5E7A78F092619BB6A746 /* libPods-bonup-mobile-bonup-mobileUITests.a */; };
 		B9069104246235D7001A1F76 /* QRcodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9069103246235D7001A1F76 /* QRcodeManager.swift */; };
+		B90867DD25B5DB0800E0DE91 /* BUAmountSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90867DC25B5DB0800E0DE91 /* BUAmountSetter.swift */; };
+		B90BED4425B5D92200AD78A8 /* CompanyPacketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED4325B5D92200AD78A8 /* CompanyPacketView.swift */; };
+		B90BED4925B5D92900AD78A8 /* CompanyPacketPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED4825B5D92900AD78A8 /* CompanyPacketPresenter.swift */; };
+		B90BED4E25B5D93000AD78A8 /* CompanyPacketInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED4D25B5D93000AD78A8 /* CompanyPacketInteractor.swift */; };
+		B90BED5325B5D93900AD78A8 /* CompanyPacketRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED5225B5D93900AD78A8 /* CompanyPacketRouter.swift */; };
+		B90BED5825B5D94200AD78A8 /* CompanyPacketBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED5725B5D94200AD78A8 /* CompanyPacketBuilder.swift */; };
+		B90BED5D25B5D94A00AD78A8 /* CompanyPacketDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED5C25B5D94A00AD78A8 /* CompanyPacketDependency.swift */; };
 		B9126688242AA57D00BEA50C /* BULoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9126687242AA57D00BEA50C /* BULoginViewController.swift */; };
 		B914AC8B24435D30007494E3 /* CurrentTasksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC8A24435D30007494E3 /* CurrentTasksCollectionViewCell.swift */; };
 		B914AC8D24435D44007494E3 /* FinishedTasksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC8C24435D44007494E3 /* FinishedTasksCollectionViewCell.swift */; };
@@ -286,6 +293,13 @@
 		846B54D9B4C1BCA3D32D575F /* Pods-bonup-mobile.debug free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile.debug free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile.debug free.xcconfig"; sourceTree = "<group>"; };
 		950486241D5ACB45CFB9B073 /* Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig"; sourceTree = "<group>"; };
 		B9069103246235D7001A1F76 /* QRcodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRcodeManager.swift; sourceTree = "<group>"; };
+		B90867DC25B5DB0800E0DE91 /* BUAmountSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUAmountSetter.swift; sourceTree = "<group>"; };
+		B90BED4325B5D92200AD78A8 /* CompanyPacketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketView.swift; sourceTree = "<group>"; };
+		B90BED4825B5D92900AD78A8 /* CompanyPacketPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketPresenter.swift; sourceTree = "<group>"; };
+		B90BED4D25B5D93000AD78A8 /* CompanyPacketInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketInteractor.swift; sourceTree = "<group>"; };
+		B90BED5225B5D93900AD78A8 /* CompanyPacketRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketRouter.swift; sourceTree = "<group>"; };
+		B90BED5725B5D94200AD78A8 /* CompanyPacketBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketBuilder.swift; sourceTree = "<group>"; };
+		B90BED5C25B5D94A00AD78A8 /* CompanyPacketDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketDependency.swift; sourceTree = "<group>"; };
 		B9126687242AA57D00BEA50C /* BULoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BULoginViewController.swift; sourceTree = "<group>"; };
 		B914AC8A24435D30007494E3 /* CurrentTasksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTasksCollectionViewCell.swift; sourceTree = "<group>"; };
 		B914AC8C24435D44007494E3 /* FinishedTasksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedTasksCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -604,6 +618,19 @@
 				B9069103246235D7001A1F76 /* QRcodeManager.swift */,
 			);
 			path = QRcode;
+			sourceTree = "<group>";
+		};
+		B90BED6125B5D95400AD78A8 /* CompanyPacket */ = {
+			isa = PBXGroup;
+			children = (
+				B90BED4325B5D92200AD78A8 /* CompanyPacketView.swift */,
+				B90BED4825B5D92900AD78A8 /* CompanyPacketPresenter.swift */,
+				B90BED4D25B5D93000AD78A8 /* CompanyPacketInteractor.swift */,
+				B90BED5225B5D93900AD78A8 /* CompanyPacketRouter.swift */,
+				B90BED5725B5D94200AD78A8 /* CompanyPacketBuilder.swift */,
+				B90BED5C25B5D94A00AD78A8 /* CompanyPacketDependency.swift */,
+			);
+			path = CompanyPacket;
 			sourceTree = "<group>";
 		};
 		B9126689242AA58900BEA50C /* CustomUI */ = {
@@ -1229,6 +1256,7 @@
 				B95FB96525B45A6200AB2566 /* BULabel.swift */,
 				B9E7CEB425B492E30033810D /* BUTextField.swift */,
 				B9B67F3D25B4781700AC7184 /* SelectCategoriesContainer */,
+				B90867DC25B5DB0800E0DE91 /* BUAmountSetter.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1581,6 +1609,7 @@
 				B96CA64C25B37BED00FF157C /* CompaniesSearch */,
 				B96CA68725B38F2700FF157C /* CompaniesSection */,
 				B95FB98825B462A100AB2566 /* AddCompany */,
+				B90BED6125B5D95400AD78A8 /* CompanyPacket */,
 			);
 			path = ApplicationContentSection;
 			sourceTree = "<group>";
@@ -1873,6 +1902,7 @@
 				B977485124431A52004D39AD /* TasksListDependency.swift in Sources */,
 				B944A8F5246217FF002170FD /* TaskDescriptionRouter.swift in Sources */,
 				B977484324431967004D39AD /* TaskSelectionRouter.swift in Sources */,
+				B90BED5825B5D94200AD78A8 /* CompanyPacketBuilder.swift in Sources */,
 				B935A598241D6A820074E89E /* NewPasswordRouter.swift in Sources */,
 				B9D17586243CFD1F001FF58E /* TermsAndConditionsRouter.swift in Sources */,
 				B990935F25AF479700CF381B /* SettingsParamsCellViewModel.swift in Sources */,
@@ -1882,10 +1912,12 @@
 				B914AC8F24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift in Sources */,
 				B966E73024684D090043FD69 /* BenefitDescriptionBuilder.swift in Sources */,
 				B9CAA712242B9F2100E50668 /* AuthVerificationDependency.swift in Sources */,
+				B90867DD25B5DB0800E0DE91 /* BUAmountSetter.swift in Sources */,
 				B990931125AF3A3C00CF381B /* SettingsParamsBuilder.swift in Sources */,
 				B96CA67425B38EE900FF157C /* CompaniesSectionInteractor.swift in Sources */,
 				B992D50E245789FF002ABF71 /* BenefitsView.swift in Sources */,
 				B9787F4D246B7E08007DB617 /* TaskListCurrentTasksEntity.swift in Sources */,
+				B90BED4425B5D92200AD78A8 /* CompanyPacketView.swift in Sources */,
 				B9FC798E242FB75E00F2D5BC /* ApplicationContentRouter.swift in Sources */,
 				B96CA64825B37BDA00FF157C /* CompaniesSearchDependency.swift in Sources */,
 				B941E73C246B93600056B844 /* OrganizationControlBuilder.swift in Sources */,
@@ -1970,6 +2002,7 @@
 				B935A590241D5B090074E89E /* ResetPasswordDependency.swift in Sources */,
 				B96AC7F82444A392005C25D1 /* CategoriesPresentationModel.swift in Sources */,
 				B932366F241E6CCF00A37634 /* AuthResponseEntity.swift in Sources */,
+				B90BED4925B5D92900AD78A8 /* CompanyPacketPresenter.swift in Sources */,
 				B977484524431971004D39AD /* TaskSelectionDependency.swift in Sources */,
 				B966E73624684D700043FD69 /* BenefitDescriptionDependency.swift in Sources */,
 				B9A9189425B3430D00919FE9 /* SettingsService.swift in Sources */,
@@ -2008,6 +2041,7 @@
 				B96CA68325B38F0400FF157C /* CompaniesSectionDependecy.swift in Sources */,
 				B964E0C32451CFC400668EE8 /* ProfileAhievementsCell.swift in Sources */,
 				B9126688242AA57D00BEA50C /* BULoginViewController.swift in Sources */,
+				B90BED5325B5D93900AD78A8 /* CompanyPacketRouter.swift in Sources */,
 				B9787F51246B8C15007DB617 /* OrganizationsListResponseEntity.swift in Sources */,
 				B9A0C9AF242FC59B00EB6FAE /* CategoriesDependency.swift in Sources */,
 				B91E809B242FCEC100859C83 /* CategoriesResponseEntity.swift in Sources */,
@@ -2089,7 +2123,9 @@
 				B95FB96625B45A6200AB2566 /* BULabel.swift in Sources */,
 				B992D525245799DC002ABF71 /* NewBenefitsPresentationModel.swift in Sources */,
 				B992D5302457A1B2002ABF71 /* UsedBenefitsContentCell.swift in Sources */,
+				B90BED5D25B5D94A00AD78A8 /* CompanyPacketDependency.swift in Sources */,
 				B9CEE69E241D558E00308098 /* ResetPasswordView.swift in Sources */,
+				B90BED4E25B5D93000AD78A8 /* CompanyPacketInteractor.swift in Sources */,
 				B9259BA0241CE267009585B7 /* UIColor+Facade.swift in Sources */,
 				B98DE0DF244BB5FA007AE007 /* SettingsView.swift in Sources */,
 				B992D52A2457A182002ABF71 /* SelectedBenefitsPresentationModel.swift in Sources */,
