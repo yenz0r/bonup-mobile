@@ -53,6 +53,11 @@ final class AssetsHelper {
 
         case minusIcon
         case plusIcon
+
+        case juniorPacketIcon
+        case middlePacketIcon
+        case seniorPacketIcon
+        case customPacketIcon
     }
 
     static let shared = AssetsHelper()
@@ -138,6 +143,18 @@ final class AssetsHelper {
 
         case .minusIcon:
             return UIImage(named: "minus-icon")!.withRenderingMode(.alwaysTemplate)
+
+        case .juniorPacketIcon:
+            return UIImage(named: "junior-packet-icon")
+
+        case .middlePacketIcon:
+            return UIImage(named: "middle-packet-icon")
+
+        case .seniorPacketIcon:
+            return UIImage(named: "senior-packet-icon")
+
+        case .customPacketIcon:
+            return UIImage(named: "custom-packet-icon")
 
         @unknown default:
             assertionFailure("Incorrect \(String(describing: self)) enum value")

@@ -61,27 +61,12 @@ final class CompanyPacketView: BUContentViewController {
 
     private func setupSubviews() {
 
-        self.companyImageView = self.configureCompanyImageView()
-        self.categoriesContainer = self.configureCategoriesContainer()
         self.tableView = self.configureTableView()
 
-        self.view.addSubview(self.companyImageView)
-        self.view.addSubview(self.categoriesContainer)
         self.view.addSubview(self.tableView)
 
-        self.companyImageView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
-            make.height.equalTo(150)
-        }
-
-        self.categoriesContainer.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
-            make.top.equalTo(self.companyImageView.snp.bottom).offset(10)
-        }
-
         self.tableView.snp.makeConstraints { make in
-            make.top.equalTo(self.categoriesContainer.snp.bottom).offset(10)
-            make.leading.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide)
+            make.edges.equalTo(self.view.safeAreaLayoutGuide)
         }
     }
 
@@ -91,29 +76,6 @@ final class CompanyPacketView: BUContentViewController {
     }
 
     // MARK: - Configure
-
-    private func configureCompanyImageView() -> UIImageView {
-
-        let iv = UIImageView()
-
-        iv.image = AssetsHelper.shared.image(.addImageIcon)
-        iv.contentMode = .scaleAspectFit
-        iv.theme_tintColor = Colors.navBarTextColor
-
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
-        iv.addGestureRecognizer(gesture)
-        iv.isUserInteractionEnabled = true
-
-        return iv
-    }
-
-    private func configureCategoriesContainer() -> SelectCategoriesContainer {
-
-        let dataSource = SelectCategoriesDataSource(isActiveByDefault: false)
-        let container = SelectCategoriesContainer(delegate: self, dataSource: dataSource)
-
-        return container
-    }
 
     private func configureTableView() -> UITableView {
 
@@ -126,18 +88,14 @@ final class CompanyPacketView: BUContentViewController {
         tableView.allowsSelection = false
         tableView.backgroundColor = .clear
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+        tableView.tableFooterView = UIView()
 
-        tableView.register(AddCompanyInputCell.self, forCellReuseIdentifier: AddCompanyInputCell.reuseId)
+        tableView.register(CompanyPacketCell.self, forCellReuseIdentifier: CompanyPacketCell.reuseId)
 
         return tableView
     }
 
     // MARK: - Selectors
-
-    @objc private func imageViewTapped() {
-
-        self.presenter.handleAddImageTap()
-    }
 
     @objc private func doneTapped() {
 
@@ -146,58 +104,33 @@ final class CompanyPacketView: BUContentViewController {
 
 // MARK: - UITableViewDelegate
 
-extension AddCompanyView: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
-        let header = AddCompanyInputHeader(frame: .zero)
-
-        header.title = self.presenter.inputSections[section].title
-
-        return header
-    }
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-
-        return 50
-    }
-}
+extension CompanyPacketView: UITableViewDelegate { }
 
 // MARK: - UITableViewDataSource
 
-extension AddCompanyView: UITableViewDataSource {
+extension CompanyPacketView: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
 
-        return self.presenter.inputSections.count
+        return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return self.presenter.inputSections[section].rows.count
+        return self.presenter.packets.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: AddCompanyInputCell.reuseId,
-                                                 for: indexPath) as! AddCompanyInputCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CompanyPacketCell.reuseId,
+                                                 for: indexPath) as! CompanyPacketCell
 
-        cell.configure(with: self.presenter.inputSections[indexPath.section].rows[indexPath.row])
+        cell.packetType = self.presenter.packets[indexPath.row]
 
         return cell
     }
 }
 
-// MARK: - SelectCategoriesContainerDelegate
+// MARK: - ICompanyPacketView
 
-extension AddCompanyView: SelectCategoriesContainerDelegate {
-
-    func selectCategoriesContainerDidUpdateCategoriesList(_ container: SelectCategoriesContainer) {
-
-        print(container.dataSource.selectedCategories)
-    }
-}
-
-// MARK: - ISettingsParamsView
-
-extension AddCompanyView: IAddCompanyView { }
+extension CompanyPacketView: ICompanyPacketView { }

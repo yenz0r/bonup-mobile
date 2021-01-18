@@ -41,7 +41,7 @@ final class AddCompanyInteractor {
             AddCompanyInputRowModel(rowType: .title)
         ]
 
-        return AddCompanyInputSectionModel(rows: rows, title: "ui_company_title_label".localized)
+        return AddCompanyInputSectionModel(rows: rows, title: "ui_company_title_label")
     }
 
     private func configureOwnerInfoSection() -> AddCompanyInputSectionModel {
@@ -53,7 +53,7 @@ final class AddCompanyInteractor {
             AddCompanyInputRowModel(rowType: .ownerLastName)
         ]
 
-        return AddCompanyInputSectionModel(rows: rows, title: "ui_company_owner_info_label".localized)
+        return AddCompanyInputSectionModel(rows: rows, title: "ui_company_owner_info_label")
     }
 
     private func configureLocationInfoSection() -> AddCompanyInputSectionModel {
@@ -66,7 +66,7 @@ final class AddCompanyInteractor {
             AddCompanyInputRowModel(rowType: .houseNumber)
         ]
 
-        return AddCompanyInputSectionModel(rows: rows, title: "ui_company_location_info_label".localized)
+        return AddCompanyInputSectionModel(rows: rows, title: "ui_company_location_info_label")
     }
 
     private func configureContactsInfoSection() -> AddCompanyInputSectionModel {
@@ -78,7 +78,7 @@ final class AddCompanyInteractor {
             AddCompanyInputRowModel(rowType: .webSite)
         ]
 
-        return AddCompanyInputSectionModel(rows: rows, title: "ui_company_contacts_info_label".localized)
+        return AddCompanyInputSectionModel(rows: rows, title: "ui_company_contacts_info_label")
     }
 
     private func configureDescriptionInfoSection() -> AddCompanyInputSectionModel {
@@ -88,7 +88,7 @@ final class AddCompanyInteractor {
             AddCompanyInputRowModel(rowType: .descriptionInfo)
         ]
 
-        return AddCompanyInputSectionModel(rows: rows, title: "ui_company_description_info_label".localized)
+        return AddCompanyInputSectionModel(rows: rows, title: "ui_company_description_info_label")
     }
 }
 

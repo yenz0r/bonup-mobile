@@ -62,8 +62,13 @@ extension OrganizationsListRouter: IOrganizationsListRouter {
 
         case .showAddNewOrganization:
 
-            let dependency = AddCompanyDependency(parentNavigationController: self.parentNavigationController)
-            let builder = AddCompanyBuilder()
+//            let dependency = AddCompanyDependency(parentNavigationController: self.parentNavigationController)
+//            let builder = AddCompanyBuilder()
+//            let router = builder.build(dependency)
+//            router.start(nil)
+
+            let dependency = CompanyPacketDependency(parentNavigationController: self.parentNavigationController)
+            let builder = CompanyPacketBuilder()
             let router = builder.build(dependency)
             router.start(nil)
         }
