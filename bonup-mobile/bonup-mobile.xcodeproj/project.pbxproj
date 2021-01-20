@@ -266,6 +266,13 @@
 		B9FC798C242FB73900F2D5BC /* ApplicationContentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FC798B242FB73900F2D5BC /* ApplicationContentBuilder.swift */; };
 		B9FC798E242FB75E00F2D5BC /* ApplicationContentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FC798D242FB75E00F2D5BC /* ApplicationContentRouter.swift */; };
 		B9FC7990242FB77C00F2D5BC /* ApplicationContentDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FC798F242FB77C00F2D5BC /* ApplicationContentDependency.swift */; };
+		B9FE3A3825B6186D007ED803 /* CompanyCustomPacketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FE3A3725B6186D007ED803 /* CompanyCustomPacketView.swift */; };
+		B9FE3A3D25B61873007ED803 /* CompanyCustomPacketPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FE3A3C25B61873007ED803 /* CompanyCustomPacketPresenter.swift */; };
+		B9FE3A4225B6187E007ED803 /* CompanyCustomPacketInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FE3A4125B6187E007ED803 /* CompanyCustomPacketInteractor.swift */; };
+		B9FE3A4725B61888007ED803 /* CompanyCustomPacketRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FE3A4625B61888007ED803 /* CompanyCustomPacketRouter.swift */; };
+		B9FE3A4C25B61890007ED803 /* CompanyCustomPacketDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FE3A4B25B61890007ED803 /* CompanyCustomPacketDependency.swift */; };
+		B9FE3A5125B61897007ED803 /* CompanyCustomPacketBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FE3A5025B61897007ED803 /* CompanyCustomPacketBuilder.swift */; };
+		B9FE3A5A25B6230E007ED803 /* UBottomSheetCoordinator+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FE3A5925B6230E007ED803 /* UBottomSheetCoordinator+DataSource.swift */; };
 		D83A7C32A21EC6925567FBB5 /* libPods-bonup-mobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5CDDCDF5D268CCF81AFC04 /* libPods-bonup-mobileTests.a */; };
 /* End PBXBuildFile section */
 
@@ -559,6 +566,13 @@
 		B9FC798B242FB73900F2D5BC /* ApplicationContentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationContentBuilder.swift; sourceTree = "<group>"; };
 		B9FC798D242FB75E00F2D5BC /* ApplicationContentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationContentRouter.swift; sourceTree = "<group>"; };
 		B9FC798F242FB77C00F2D5BC /* ApplicationContentDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationContentDependency.swift; sourceTree = "<group>"; };
+		B9FE3A3725B6186D007ED803 /* CompanyCustomPacketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCustomPacketView.swift; sourceTree = "<group>"; };
+		B9FE3A3C25B61873007ED803 /* CompanyCustomPacketPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCustomPacketPresenter.swift; sourceTree = "<group>"; };
+		B9FE3A4125B6187E007ED803 /* CompanyCustomPacketInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCustomPacketInteractor.swift; sourceTree = "<group>"; };
+		B9FE3A4625B61888007ED803 /* CompanyCustomPacketRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCustomPacketRouter.swift; sourceTree = "<group>"; };
+		B9FE3A4B25B61890007ED803 /* CompanyCustomPacketDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCustomPacketDependency.swift; sourceTree = "<group>"; };
+		B9FE3A5025B61897007ED803 /* CompanyCustomPacketBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCustomPacketBuilder.swift; sourceTree = "<group>"; };
+		B9FE3A5925B6230E007ED803 /* UBottomSheetCoordinator+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UBottomSheetCoordinator+DataSource.swift"; sourceTree = "<group>"; };
 		CE0D5E7A78F092619BB6A746 /* libPods-bonup-mobile-bonup-mobileUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bonup-mobile-bonup-mobileUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF45C3827A35374FC24C4363 /* Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig"; sourceTree = "<group>"; };
 		D01057BDAD0A1EFFA61522ED /* Pods-bonup-mobileTests.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobileTests.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobileTests/Pods-bonup-mobileTests.debug paid.xcconfig"; sourceTree = "<group>"; };
@@ -927,6 +941,7 @@
 				B935A59E241D6F380074E89E /* UIButton */,
 				B92688FE2429520800F1732A /* UIView */,
 				B9CAA71C242BE0E400E50668 /* UITextField */,
+				B9FE3A5E25B62314007ED803 /* UBottomSheetCoordinator */,
 				B9E7CECD25B49A4F0033810D /* FMPhotoPickerViewController */,
 			);
 			path = Extensions;
@@ -1624,6 +1639,7 @@
 				B96CA68725B38F2700FF157C /* CompaniesSection */,
 				B95FB98825B462A100AB2566 /* AddCompany */,
 				B90BED6125B5D95400AD78A8 /* CompanyPacket */,
+				B9FE3A5525B618AB007ED803 /* CompanyCustomPacket */,
 			);
 			path = ApplicationContentSection;
 			sourceTree = "<group>";
@@ -1637,6 +1653,27 @@
 				B9FC798F242FB77C00F2D5BC /* ApplicationContentDependency.swift */,
 			);
 			path = InitialTabBarSection;
+			sourceTree = "<group>";
+		};
+		B9FE3A5525B618AB007ED803 /* CompanyCustomPacket */ = {
+			isa = PBXGroup;
+			children = (
+				B9FE3A3725B6186D007ED803 /* CompanyCustomPacketView.swift */,
+				B9FE3A3C25B61873007ED803 /* CompanyCustomPacketPresenter.swift */,
+				B9FE3A4125B6187E007ED803 /* CompanyCustomPacketInteractor.swift */,
+				B9FE3A4625B61888007ED803 /* CompanyCustomPacketRouter.swift */,
+				B9FE3A4B25B61890007ED803 /* CompanyCustomPacketDependency.swift */,
+				B9FE3A5025B61897007ED803 /* CompanyCustomPacketBuilder.swift */,
+			);
+			path = CompanyCustomPacket;
+			sourceTree = "<group>";
+		};
+		B9FE3A5E25B62314007ED803 /* UBottomSheetCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B9FE3A5925B6230E007ED803 /* UBottomSheetCoordinator+DataSource.swift */,
+			);
+			path = UBottomSheetCoordinator;
 			sourceTree = "<group>";
 		};
 		F63C6FCB5F7C61B7CB5C909E /* Frameworks */ = {
@@ -1920,6 +1957,7 @@
 				B935A598241D6A820074E89E /* NewPasswordRouter.swift in Sources */,
 				B9D17586243CFD1F001FF58E /* TermsAndConditionsRouter.swift in Sources */,
 				B990935F25AF479700CF381B /* SettingsParamsCellViewModel.swift in Sources */,
+				B9FE3A3D25B61873007ED803 /* CompanyCustomPacketPresenter.swift in Sources */,
 				B94F37912451C49800FBEB36 /* ProfileHeaderView.swift in Sources */,
 				B9E7CE7325B4815F0033810D /* AddCompanyInputSectionModel.swift in Sources */,
 				B9D17580243CFCEA001FF58E /* TermsAndConditionsView.swift in Sources */,
@@ -1927,6 +1965,7 @@
 				B966E73024684D090043FD69 /* BenefitDescriptionBuilder.swift in Sources */,
 				B9CAA712242B9F2100E50668 /* AuthVerificationDependency.swift in Sources */,
 				B90867DD25B5DB0800E0DE91 /* BUAmountSetter.swift in Sources */,
+				B9FE3A4725B61888007ED803 /* CompanyCustomPacketRouter.swift in Sources */,
 				B990931125AF3A3C00CF381B /* SettingsParamsBuilder.swift in Sources */,
 				B96CA67425B38EE900FF157C /* CompaniesSectionInteractor.swift in Sources */,
 				B992D50E245789FF002ABF71 /* BenefitsView.swift in Sources */,
@@ -1972,6 +2011,7 @@
 				B992D51824578A3E002ABF71 /* BenefitsDependency.swift in Sources */,
 				B98DE0EF244BBEDF007AE007 /* SettingsTableViewCell.swift in Sources */,
 				B948A23E241CBFD8001287B8 /* LoginBuilder.swift in Sources */,
+				B9FE3A4C25B61890007ED803 /* CompanyCustomPacketDependency.swift in Sources */,
 				B90867E225B5E33E00E0DE91 /* CompanyPacketConstants.swift in Sources */,
 				B9B67F3625B4780F00AC7184 /* SelectCategoriesConstants.swift in Sources */,
 				B990931B25AF3A5500CF381B /* SettingsParamsRouter.swift in Sources */,
@@ -2026,6 +2066,7 @@
 				B9787F46246B7597007DB617 /* TaskListService.swift in Sources */,
 				B90867E725B5E63C00E0DE91 /* CompanyPacketCell.swift in Sources */,
 				B96A71E2246BA79A007416DF /* ProfileService.swift in Sources */,
+				B9FE3A3825B6186D007ED803 /* CompanyCustomPacketView.swift in Sources */,
 				B935A592241D6A6A0074E89E /* NewPasswordView.swift in Sources */,
 				B95FB97025B4625200AB2566 /* AddCompanyPresenter.swift in Sources */,
 				B9BA40A12443D0ED00950808 /* FinishedTasksPresentationModel.swift in Sources */,
@@ -2036,6 +2077,7 @@
 				B935A59A241D6A8A0074E89E /* NewPasswordBuilder.swift in Sources */,
 				B96CA63E25B37BC900FF157C /* CompaniesSearchRouter.swift in Sources */,
 				B9721AB425AF39840019D6D4 /* SettingsParamsView.swift in Sources */,
+				B9FE3A4225B6187E007ED803 /* CompanyCustomPacketInteractor.swift in Sources */,
 				B98DE0E6244BB627007AE007 /* SettingsBuilder.swift in Sources */,
 				B990939E25AF7F8E00CF381B /* SOTabBar.swift in Sources */,
 				B9A13D38244E3ADE00373827 /* ProfileDependency.swift in Sources */,
@@ -2061,6 +2103,7 @@
 				B9787F51246B8C15007DB617 /* OrganizationsListResponseEntity.swift in Sources */,
 				B9A0C9AF242FC59B00EB6FAE /* CategoriesDependency.swift in Sources */,
 				B91E809B242FCEC100859C83 /* CategoriesResponseEntity.swift in Sources */,
+				B9FE3A5A25B6230E007ED803 /* UBottomSheetCoordinator+DataSource.swift in Sources */,
 				B9D17588243CFD27001FF58E /* TermsAndConditionsBuilder.swift in Sources */,
 				B992D51B245791E4002ABF71 /* NewBenefitsCell.swift in Sources */,
 				B990939625AF788F00CF381B /* Bundle+Localization.swift in Sources */,
@@ -2068,6 +2111,7 @@
 				B948A234241CBE61001287B8 /* AppRouter.swift in Sources */,
 				B9A0C9A7242FC57D00EB6FAE /* CategoriesInteractor.swift in Sources */,
 				B9A13D43244E474200373827 /* ProfileProgressContainer.swift in Sources */,
+				B9FE3A5125B61897007ED803 /* CompanyCustomPacketBuilder.swift in Sources */,
 				B9787F3E246B54E1007DB617 /* TaskSelectionService.swift in Sources */,
 				B9787F48246B75A3007DB617 /* TaskListResponseEntity.swift in Sources */,
 				B977484824431A27004D39AD /* TasksListView.swift in Sources */,

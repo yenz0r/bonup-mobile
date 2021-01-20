@@ -31,14 +31,27 @@ final class CompanyPacketCell: UITableViewCell {
 
     // MARK: - Public variables
 
+    var isPacketSelected: Bool = false {
+
+        didSet {
+
+            UIView.transition(with: self.iconImageView,
+                              duration: 0.3,
+                              options: .transitionFlipFromLeft,
+                              animations: {
+
+                                self.iconImageView.image = self.isPacketSelected ? AssetsHelper.shared.image(.activeCheckBox) : self.packetType.icon
+                              },
+                              completion: nil)
+        }
+    }
+
     var packetType: CompanyPacketType = .junior {
 
         didSet {
 
             self.titleLabel.nonlocalizedTitle = self.packetType.title
             self.titleLabel.textColor = self.packetType.color
-
-            self.iconImageView.image = self.packetType.icon
 
             if let tasks = self.packetType.tasksCount {
                 self.tasksContainer.value = "\(tasks)"
@@ -115,6 +128,7 @@ final class CompanyPacketCell: UITableViewCell {
     private func setupAppearance() {
 
         self.backgroundColor = .clear
+        self.selectionStyle = .none
     }
 
     // MARK: - Configure

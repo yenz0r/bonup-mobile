@@ -21,6 +21,7 @@ target 'bonup-mobile' do
 
   pod 'Shuffle-iOS'
   pod 'UICircularProgressRing'
+  pod 'UBottomSheet'
 
   pod 'YandexMapKit', '3.5'
   pod 'Google-Mobile-Ads-SDK'

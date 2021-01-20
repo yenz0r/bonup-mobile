@@ -30,6 +30,15 @@ final class BUAmountSetter: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Life cycle
+
+    override func didMoveToSuperview() {
+
+        super.didMoveToSuperview()
+
+        self.currValue = self.initValue
+    }
+
     // MARK: - Value variables
 
     private let minValue: Int
@@ -37,11 +46,26 @@ final class BUAmountSetter: UIView {
     private let initValue: Int
     private let stepValue: Int
 
+    // MARK: - Public variables
+
     private(set) var currValue: Int = 0 {
 
         didSet {
 
             self.valueLabel.text = "\(self.currValue)"
+
+            self.updateButtonState(self.plusButton, isEnabled: self.currValue < self.maxValue)
+            self.updateButtonState(self.minusButton, isEnabled: self.currValue > self.minValue)
+
+            self.onValueChanged?(self.currValue)
+        }
+    }
+
+    var title: String? {
+
+        didSet {
+
+            self.titleLabel.nonlocalizedTitle = self.title
         }
     }
 
@@ -49,6 +73,7 @@ final class BUAmountSetter: UIView {
 
     // MARK: - UI variables
 
+    private var titleLabel: BULabel!
     private var minusButton: UIButton!
     private var plusButton: UIButton!
     private var valueLabel: UILabel!
@@ -57,16 +82,27 @@ final class BUAmountSetter: UIView {
 
     private func setupSubviews() {
 
+        self.titleLabel = self.configureTitleLabel()
         self.valueLabel = self.configureValueLabel()
         self.minusButton = self.configureMinusButton()
         self.plusButton = self.configurePlusButton()
 
+        self.addSubview(self.titleLabel)
         self.addSubview(self.minusButton)
         self.addSubview(self.valueLabel)
         self.addSubview(self.plusButton)
 
-        self.minusButton.snp.makeConstraints { make in
+        self.snp.makeConstraints { make in
+            make.height.equalTo(40)
+        }
+
+        self.titleLabel.snp.makeConstraints { make in
             make.leading.top.bottom.equalToSuperview()
+            make.trailing.equalTo(self.minusButton.snp.leading).offset(10)
+        }
+
+        self.minusButton.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
             make.size.equalTo(40)
         }
 
@@ -89,6 +125,17 @@ final class BUAmountSetter: UIView {
     }
 
     // MARK: - Configure
+
+    private func configureTitleLabel() -> BULabel {
+
+        let label = BULabel()
+
+        label.theme_textColor = Colors.defaultTextColor
+        label.font = UIFont.avenirHeavy(20)
+        label.textAlignment = .left
+
+        return label
+    }
 
     private func configureMinusButton() -> UIButton {
 
@@ -123,6 +170,14 @@ final class BUAmountSetter: UIView {
         return label
     }
 
+    // MARK: - Helpers
+
+    private func updateButtonState(_ button: UIButton, isEnabled: Bool) {
+
+        button.isUserInteractionEnabled = isEnabled
+        button.alpha = isEnabled ? 1 : 0.3
+    }
+
     // MARK: - Selectors
 
     @objc private func plusTapped() {
@@ -131,10 +186,6 @@ final class BUAmountSetter: UIView {
 
             self.currValue += self.stepValue
         }
-
-        self.plusButton.isEnabled = self.currValue <= self.maxValue
-
-        self.onValueChanged?(self.currValue)
     }
 
     @objc private func minusTapped() {
@@ -143,9 +194,5 @@ final class BUAmountSetter: UIView {
 
             self.currValue -= self.stepValue
         }
-
-        self.minusButton.isEnabled = self.currValue >= self.minValue
-
-        self.onValueChanged?(self.currValue)
     }
 }

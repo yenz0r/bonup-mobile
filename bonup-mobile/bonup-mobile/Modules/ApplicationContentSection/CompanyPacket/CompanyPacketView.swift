@@ -10,6 +10,9 @@ import UIKit
 
 protocol ICompanyPacketView: AnyObject {
 
+    func updateBlurState(active state: Bool)
+
+    func reloadItem(at index: Int)
 }
 
 final class CompanyPacketView: BUContentViewController {
@@ -21,6 +24,11 @@ final class CompanyPacketView: BUContentViewController {
     // MARK: - UI variabes
 
     private var tableView: UITableView!
+    private var blurView: UIView!
+
+    // MARK: - State variables
+
+    private var isFirstLayout = true
 
     // MARK: - Life cycle
 
@@ -37,6 +45,17 @@ final class CompanyPacketView: BUContentViewController {
 
         self.setupAppearance()
         self.setupNavBar()
+    }
+
+    override func viewDidLayoutSubviews() {
+
+        super.viewDidLayoutSubviews()
+
+        if (self.isFirstLayout) {
+
+            self.blurView.setupBlur()
+            self.isFirstLayout = false
+        }
     }
 
     // MARK: - Localization
@@ -62,8 +81,17 @@ final class CompanyPacketView: BUContentViewController {
     private func setupSubviews() {
 
         self.tableView = self.configureTableView()
+        self.blurView = UIView()
+        self.blurView.backgroundColor = .clear
+        self.blurView.alpha = 0
+        self.blurView.isUserInteractionEnabled = false
 
         self.view.addSubview(self.tableView)
+        self.view.addSubview(self.blurView)
+
+        self.blurView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
 
         self.tableView.snp.makeConstraints { make in
             make.edges.equalTo(self.view.safeAreaLayoutGuide)
@@ -85,7 +113,6 @@ final class CompanyPacketView: BUContentViewController {
         tableView.dataSource = self
 
         tableView.estimatedRowHeight = UITableView.automaticDimension
-        tableView.allowsSelection = false
         tableView.backgroundColor = .clear
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         tableView.tableFooterView = UIView()
@@ -104,7 +131,19 @@ final class CompanyPacketView: BUContentViewController {
 
 // MARK: - UITableViewDelegate
 
-extension CompanyPacketView: UITableViewDelegate { }
+extension CompanyPacketView: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let prevSelected = self.presenter.selectedPacketIndex
+        let currSelected = indexPath.row
+
+        self.presenter.handlePacketSelection(at: currSelected)
+
+        self.tableView.reloadRows(at: [IndexPath(row: prevSelected, section: 0),
+                                       IndexPath(row: currSelected, section: 0)], with: .automatic)
+    }
+}
 
 // MARK: - UITableViewDataSource
 
@@ -126,6 +165,7 @@ extension CompanyPacketView: UITableViewDataSource {
                                                  for: indexPath) as! CompanyPacketCell
 
         cell.packetType = self.presenter.packets[indexPath.row]
+        cell.isPacketSelected = self.presenter.selectedPacketIndex == indexPath.row
 
         return cell
     }
@@ -133,4 +173,21 @@ extension CompanyPacketView: UITableViewDataSource {
 
 // MARK: - ICompanyPacketView
 
-extension CompanyPacketView: ICompanyPacketView { }
+extension CompanyPacketView: ICompanyPacketView {
+
+    func updateBlurState(active state: Bool) {
+
+        UIView.animate(withDuration: 0.3) {
+
+            self.blurView.alpha = state ? 1 : 0
+            self.blurView.isUserInteractionEnabled = state
+        }
+    }
+
+    func reloadItem(at index: Int) {
+
+        let indexPath = IndexPath(row: index, section: 0)
+
+        self.tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+}

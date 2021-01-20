@@ -23,10 +23,11 @@ extension UIView {
 
     func setupBlur() {
 
-        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        let blurEffectView = UIVisualEffectView()
+        blurEffectView.theme_effect = Colors.blurEffect
         blurEffectView.frame = self.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.alpha = 0.93
         self.insertSubview(blurEffectView, at: 0)
     }
 }

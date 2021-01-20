@@ -12,14 +12,14 @@ protocol ICompanyPacketRouter {
 
     func start(_ completion: (() -> Void)?)
     func stop(_ completion: (() -> Void)?)
-    func show(_ scenario: CompanyPacketRouter.RouterScenario)
+    func show(_ scenario: CompanyPacketRouter.RouterScenario, completion: ((CompanyPacketType) -> Void)?)
 }
 
 final class CompanyPacketRouter {
 
     enum RouterScenario {
 
-
+        case customPacket
     }
 
     private var view: CompanyPacketView?
@@ -52,11 +52,22 @@ extension CompanyPacketRouter: ICompanyPacketRouter {
         completion?()
     }
 
-    func show(_ scenario: RouterScenario) {
-//        guard let view = self.view else { return }
+    func show(_ scenario: RouterScenario, completion: ((CompanyPacketType) -> Void)?) {
+        
+        guard let view = self.view else { return }
 
         switch scenario {
 
+        case .customPacket:
+
+            let dependency = CompanyCustomPacketDependency(parentController: view)
+            let builder = CompanyCustomPacketBuilder()
+            let router = builder.build(dependency)
+
+            router.start { [weak self] customType in
+                
+                completion?(customType)
+            }
         }
     }
 }

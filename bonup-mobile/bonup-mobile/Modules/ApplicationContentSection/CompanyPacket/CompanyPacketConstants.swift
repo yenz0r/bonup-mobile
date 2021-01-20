@@ -10,7 +10,7 @@ import UIKit
 
 enum CompanyPacketType {
 
-    case junior, middle, senior, custom(tasksCount: Int, benefitsCount: Int, price: Float)
+    case junior, middle, senior, custom(tasksCount: Int, benefitsCount: Int, price: Float), none
 
     static var allCases: [CompanyPacketType] {
 
@@ -31,6 +31,8 @@ enum CompanyPacketType {
             return 2
         case .custom(_, _, _):
             return 3
+        case .none:
+            return 4
         }
     }
 
@@ -45,6 +47,8 @@ enum CompanyPacketType {
             return "ui_company_packet_senior_title"
         case .custom(_, _, _):
             return "ui_company_packet_custom_title"
+        case .none:
+            return ""
         }
     }
 
@@ -57,7 +61,9 @@ enum CompanyPacketType {
             return 100
         case .senior:
             return 500
-        case .custom(_, _, _):
+        case .custom(let tasksCount, _, _):
+            return tasksCount
+        case .none:
             return nil
         }
     }
@@ -71,7 +77,9 @@ enum CompanyPacketType {
             return 20
         case .senior:
             return 50
-        case .custom(_, _, _):
+        case .custom(_, let benefitsCount, _):
+            return benefitsCount
+        case .none:
             return nil
         }
     }
@@ -85,7 +93,9 @@ enum CompanyPacketType {
             return 10
         case .senior:
             return 50
-        case .custom(_, _, _):
+        case .custom(_, _, let price):
+            return price
+        case .none:
             return nil
         }
     }
@@ -100,7 +110,9 @@ enum CompanyPacketType {
         case .senior:
             return .red
         case .custom(_, _, _):
-            return .blue
+            return .purple
+        case .none:
+        return .black
         }
     }
 
@@ -115,6 +127,8 @@ enum CompanyPacketType {
             return AssetsHelper.shared.image(.seniorPacketIcon)
         case .custom(_, _, _):
             return AssetsHelper.shared.image(.customPacketIcon)
+        case .none:
+            return nil
         }
     }
 }
