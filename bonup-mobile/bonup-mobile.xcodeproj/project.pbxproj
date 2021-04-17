@@ -106,6 +106,8 @@
 		B96A71E9246BAB7C007416DF /* ProfileResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96A71E8246BAB7C007416DF /* ProfileResponseEntity.swift */; };
 		B96AC7F82444A392005C25D1 /* CategoriesPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96AC7F72444A392005C25D1 /* CategoriesPresentationModel.swift */; };
 		B96AC7FB2446651C005C25D1 /* LocaleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96AC7FA2446651C005C25D1 /* LocaleManager.swift */; };
+		B96C7547262ACC7600101A1E /* GoogleService-Realese-Free.plist in Resources */ = {isa = PBXBuildFile; fileRef = B982F2E1262ACAF5006C9B78 /* GoogleService-Realese-Free.plist */; };
+		B96C754B262ACC7900101A1E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B982F2E0262ACAF5006C9B78 /* GoogleService-Info.plist */; };
 		B96CA62F25B37BA900FF157C /* CompaniesSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA62E25B37BA900FF157C /* CompaniesSearchView.swift */; };
 		B96CA63425B37BB900FF157C /* CompaniesSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA63325B37BB800FF157C /* CompaniesSearchPresenter.swift */; };
 		B96CA63925B37BC100FF157C /* CompaniesSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA63825B37BC100FF157C /* CompaniesSearchInteractor.swift */; };
@@ -149,8 +151,6 @@
 		B9787F51246B8C15007DB617 /* OrganizationsListResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9787F50246B8C14007DB617 /* OrganizationsListResponseEntity.swift */; };
 		B9787F53246B8C50007DB617 /* OrganizationResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9787F52246B8C50007DB617 /* OrganizationResponseEntity.swift */; };
 		B982CCDC244481D600CB6D81 /* CategoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B982CCDB244481D600CB6D81 /* CategoryCardView.swift */; };
-		B985BB5E25AEC0900067390C /* GoogleService-Realese-Free.plist in Resources */ = {isa = PBXBuildFile; fileRef = B985BB5C25AEC0900067390C /* GoogleService-Realese-Free.plist */; };
-		B985BB5F25AEC0900067390C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B985BB5D25AEC0900067390C /* GoogleService-Info.plist */; };
 		B98DE0DF244BB5FA007AE007 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DE0DE244BB5FA007AE007 /* SettingsView.swift */; };
 		B98DE0E2244BB614007AE007 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DE0E1244BB614007AE007 /* SettingsPresenter.swift */; };
 		B98DE0E4244BB61E007AE007 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DE0E3244BB61E007AE007 /* SettingsInteractor.swift */; };
@@ -453,6 +453,8 @@
 		B9787F50246B8C14007DB617 /* OrganizationsListResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsListResponseEntity.swift; sourceTree = "<group>"; };
 		B9787F52246B8C50007DB617 /* OrganizationResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationResponseEntity.swift; sourceTree = "<group>"; };
 		B982CCDB244481D600CB6D81 /* CategoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardView.swift; sourceTree = "<group>"; };
+		B982F2E0262ACAF5006C9B78 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B982F2E1262ACAF5006C9B78 /* GoogleService-Realese-Free.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Realese-Free.plist"; sourceTree = "<group>"; };
 		B985BB5C25AEC0900067390C /* GoogleService-Realese-Free.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Realese-Free.plist"; sourceTree = "<group>"; };
 		B985BB5D25AEC0900067390C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B98DE0DE244BB5FA007AE007 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -875,6 +877,8 @@
 				B948A242241CC024001287B8 /* CoreData */,
 				B948A240241CC00E001287B8 /* Resources */,
 				B948A1F2241444B4001287B8 /* Info.plist */,
+				B982F2E0262ACAF5006C9B78 /* GoogleService-Info.plist */,
+				B982F2E1262ACAF5006C9B78 /* GoogleService-Realese-Free.plist */,
 			);
 			path = "bonup-mobile";
 			sourceTree = "<group>";
@@ -1799,8 +1803,8 @@
 			files = (
 				B9D743F92428008100EE4838 /* FREE-DEBUG.xcconfig in Resources */,
 				B948A1F1241444B4001287B8 /* LaunchScreen.storyboard in Resources */,
-				B985BB5F25AEC0900067390C /* GoogleService-Info.plist in Resources */,
-				B985BB5E25AEC0900067390C /* GoogleService-Realese-Free.plist in Resources */,
+				B96C754B262ACC7900101A1E /* GoogleService-Info.plist in Resources */,
+				B96C7547262ACC7600101A1E /* GoogleService-Realese-Free.plist in Resources */,
 				B9D743FB2428008600EE4838 /* FREE-RELEASE.xcconfig in Resources */,
 				B948A1EE241444B4001287B8 /* Assets.xcassets in Resources */,
 				B9D743FC2428008900EE4838 /* PAID-RELEASE.xcconfig in Resources */,
@@ -2383,6 +2387,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "bonup-mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2406,6 +2411,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "bonup-mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2581,6 +2587,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "bonup-mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2706,6 +2713,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "bonup-mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
