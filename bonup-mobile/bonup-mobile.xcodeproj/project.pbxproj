@@ -10,6 +10,8 @@
 		000993B5F4A018C215A59737 /* libPods-bonup-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E08E2FC007738639B3B1FB /* libPods-bonup-mobile.a */; };
 		45CB7F78204A3A11874541EB /* libPods-bonup-mobile-bonup-mobileUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D5E7A78F092619BB6A746 /* libPods-bonup-mobile-bonup-mobileUITests.a */; };
 		B9069104246235D7001A1F76 /* QRcodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9069103246235D7001A1F76 /* QRcodeManager.swift */; };
+		B90C4B54262A379200E0D41F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B90C4B52262A379200E0D41F /* GoogleService-Info.plist */; };
+		B90C4B55262A379200E0D41F /* GoogleService-Realese-Free.plist in Resources */ = {isa = PBXBuildFile; fileRef = B90C4B53262A379200E0D41F /* GoogleService-Realese-Free.plist */; };
 		B9126688242AA57D00BEA50C /* LoginSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9126687242AA57D00BEA50C /* LoginSectionViewController.swift */; };
 		B914AC8B24435D30007494E3 /* CurrentTasksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC8A24435D30007494E3 /* CurrentTasksCollectionViewCell.swift */; };
 		B914AC8D24435D44007494E3 /* FinishedTasksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914AC8C24435D44007494E3 /* FinishedTasksCollectionViewCell.swift */; };
@@ -69,9 +71,7 @@
 		B948A247241CDE64001287B8 /* UIFont+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948A246241CDE64001287B8 /* UIFont+Fonts.swift */; };
 		B94F37912451C49800FBEB36 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94F37902451C49800FBEB36 /* ProfileHeaderView.swift */; };
 		B95533D724431C8A006BFDFB /* TaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95533D624431C8A006BFDFB /* TaskCardView.swift */; };
-		B959712A24269B3600EAEB6E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B959712924269B3600EAEB6E /* GoogleService-Info.plist */; };
 		B959712D24269F2A00EAEB6E /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B959712C24269F2A00EAEB6E /* TimerManager.swift */; };
-		B95971302426B7B700EAEB6E /* GoogleService-Realese-Free.plist in Resources */ = {isa = PBXBuildFile; fileRef = B959712F2426B7B700EAEB6E /* GoogleService-Realese-Free.plist */; };
 		B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */; };
 		B964CE8624475C6900161300 /* NewPasswordResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964CE8524475C6900161300 /* NewPasswordResponseEntity.swift */; };
 		B964E0C32451CFC400668EE8 /* ProfileAhievementsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964E0C22451CFC400668EE8 /* ProfileAhievementsCell.swift */; };
@@ -238,6 +238,8 @@
 		846B54D9B4C1BCA3D32D575F /* Pods-bonup-mobile.debug free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile.debug free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile.debug free.xcconfig"; sourceTree = "<group>"; };
 		950486241D5ACB45CFB9B073 /* Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig"; sourceTree = "<group>"; };
 		B9069103246235D7001A1F76 /* QRcodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRcodeManager.swift; sourceTree = "<group>"; };
+		B90C4B52262A379200E0D41F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B90C4B53262A379200E0D41F /* GoogleService-Realese-Free.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Realese-Free.plist"; sourceTree = "<group>"; };
 		B9126687242AA57D00BEA50C /* LoginSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSectionViewController.swift; sourceTree = "<group>"; };
 		B914AC8A24435D30007494E3 /* CurrentTasksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTasksCollectionViewCell.swift; sourceTree = "<group>"; };
 		B914AC8C24435D44007494E3 /* FinishedTasksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedTasksCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -309,9 +311,7 @@
 		B948A246241CDE64001287B8 /* UIFont+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Fonts.swift"; sourceTree = "<group>"; };
 		B94F37902451C49800FBEB36 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		B95533D624431C8A006BFDFB /* TaskCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardView.swift; sourceTree = "<group>"; };
-		B959712924269B3600EAEB6E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B959712C24269F2A00EAEB6E /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
-		B959712F2426B7B700EAEB6E /* GoogleService-Realese-Free.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Realese-Free.plist"; path = "../../../../Desktop/GoogleService-Realese-Free.plist"; sourceTree = "<group>"; };
 		B95B6198241CE0E000B3FE99 /* NSAttributedString+Facade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Facade.swift"; sourceTree = "<group>"; };
 		B964CE8524475C6900161300 /* NewPasswordResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordResponseEntity.swift; sourceTree = "<group>"; };
 		B964E0C22451CFC400668EE8 /* ProfileAhievementsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAhievementsCell.swift; sourceTree = "<group>"; };
@@ -721,8 +721,8 @@
 				B948A242241CC024001287B8 /* CoreData */,
 				B948A240241CC00E001287B8 /* Resources */,
 				B948A1F2241444B4001287B8 /* Info.plist */,
-				B959712924269B3600EAEB6E /* GoogleService-Info.plist */,
-				B959712F2426B7B700EAEB6E /* GoogleService-Realese-Free.plist */,
+				B90C4B52262A379200E0D41F /* GoogleService-Info.plist */,
+				B90C4B53262A379200E0D41F /* GoogleService-Realese-Free.plist */,
 			);
 			path = "bonup-mobile";
 			sourceTree = "<group>";
@@ -1454,9 +1454,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9D743F92428008100EE4838 /* FREE-DEBUG.xcconfig in Resources */,
+				B90C4B55262A379200E0D41F /* GoogleService-Realese-Free.plist in Resources */,
+				B90C4B54262A379200E0D41F /* GoogleService-Info.plist in Resources */,
 				B948A1F1241444B4001287B8 /* LaunchScreen.storyboard in Resources */,
-				B959712A24269B3600EAEB6E /* GoogleService-Info.plist in Resources */,
-				B95971302426B7B700EAEB6E /* GoogleService-Realese-Free.plist in Resources */,
 				B9D743FB2428008600EE4838 /* FREE-RELEASE.xcconfig in Resources */,
 				B948A1EE241444B4001287B8 /* Assets.xcassets in Resources */,
 				B9D743FC2428008900EE4838 /* PAID-RELEASE.xcconfig in Resources */,
@@ -1979,6 +1979,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "bonup-mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2002,6 +2003,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "bonup-mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2177,6 +2179,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "bonup-mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2302,6 +2305,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F69M5SBR3W;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "bonup-mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
