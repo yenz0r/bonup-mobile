@@ -7,16 +7,15 @@
 //
 
 import UIKit
+import SwiftQRScanner
 
 protocol IOrganizationControlPresenter: AnyObject {
 
     func numberOfControls() -> Int
     func title(for index: Int) -> String
     func icon(for index: Int) -> UIImage?
-    func handleScanResult(_ result: String, at index: Int)
-
-    func handleAddTask(name: String, deskriptionText: String, count: Int, type: Int)
-    func handleAddBenefit(name: String, deskriptionText: String, count: Int, type: Int)
+    
+    func handleActionSelection(at index: Int)
 }
 
 final class OrganizationControlPresenter {
@@ -25,21 +24,17 @@ final class OrganizationControlPresenter {
     private let interactor: IOrganizationControlInteractor
     private let router: IOrganizationControlRouter
 
-    private let titles = [
-        "ui_check_task".localized,
-        "ui_check_benefit".localized,
-        "ui_add_task".localized,
-        "ui_add_benefit".localized
-    ]
+    private let actions: [OrganizationControlAction] = [.verifyTask,
+                                                        .varifyCoupon,
+                                                        .addTask,
+                                                        .addCoupon,
+                                                        .statistics]
+    
+    private var currentAction: OrganizationControlAction?
 
-    private let icons = [
-        AssetsHelper.shared.image(.settingsRateUs),
-        AssetsHelper.shared.image(.settingsHelp),
-        AssetsHelper.shared.image(.settingsCategory),
-        AssetsHelper.shared.image(.settingsRateUs)
-    ]
-
-    init(view: IOrganizationControlView?, interactor: IOrganizationControlInteractor, router: IOrganizationControlRouter) {
+    init(view: IOrganizationControlView?,
+         interactor: IOrganizationControlInteractor,
+         router: IOrganizationControlRouter) {
         self.view = view
         self.interactor = interactor
         self.router = router
@@ -49,66 +44,84 @@ final class OrganizationControlPresenter {
 // MARK: - IOrganizationControlPresenter implementation
 
 extension OrganizationControlPresenter: IOrganizationControlPresenter {
-    func handleAddTask(name: String, deskriptionText: String, count: Int, type: Int) {
-        self.interactor.addTask(
-            name: name,
-            descriptionText: deskriptionText,
-            count: count,
-            type: type,
-            success: { message in
-                self.router.show(.showResultAlert(message))
-            },
-            failure: { message in
-                self.router.show(.showResultAlert(message))
-            }
-        )
-    }
-
-    func handleAddBenefit(name: String, deskriptionText: String, count: Int, type: Int) {
-        self.interactor.addBenefit(
-            name: name,
-            descriptionText: deskriptionText,
-            count: count,
-            type: type,
-            success: { message in
-                self.router.show(.showResultAlert(message))
-        },
-            failure: { message in
-                self.router.show(.showResultAlert(message))
-        }
-        )
-    }
 
     func numberOfControls() -> Int {
 
-        return 4
+        return self.actions.count
     }
 
     func title(for index: Int) -> String {
 
-        return self.titles[index]
+        return self.actions[index].title
     }
 
     func icon(for index: Int) -> UIImage? {
 
-        return self.icons[index]
+        return self.actions[index].icon
     }
 
-    func handleScanResult(_ result: String, at index: Int) {
+    func handleActionSelection(at index: Int) {
 
-        switch index {
-        case 0:
-            self.interactor.resolveTask(qrCode: result, block: { [weak self] isSuccess, message in
+        let action = self.actions[index]
+        
+        switch action {
+        case .verifyTask:
+            fallthrough
+        case .varifyCoupon:
+            self.currentAction = action
+            self.router.show(.verifyAction(self))
+            
+        case .addTask:
+            self.router.show(.showAddAction(.task, self.interactor.organizationName))
+            
+        case .addCoupon:
+            self.router.show(.showAddAction(.coupon, self.interactor.organizationName))
+            
+        case .statistics:
+            break
+        }
+    }
+}
 
-                self?.router.show(.showResultAlert(message))
-            })
-        case 1:
-            self.interactor.activateCoupon(qrCode: result, block: { [weak self] isSuccess, message in
+// MARK: - QRScannerCodeDelegate
 
-                           self?.router.show(.showResultAlert(message))
-                       })
-        default:
+extension OrganizationControlPresenter: QRScannerCodeDelegate {
+
+    func qrScanner(_ controller: UIViewController, scanDidComplete result: String) {
+
+        guard let action = self.currentAction else {
+            
+            self.view?.dismissPresentedScanner()
             return
         }
+        
+        switch action {
+        
+        case .verifyTask:
+            self.interactor.resolveTask(qrCode: result, block: { [weak self] isSuccess, message in
+                
+                self?.router.show(.showResultAlert(message))
+            })
+            
+        case .varifyCoupon:
+            self.interactor.activateCoupon(qrCode: result, block: { [weak self] isSuccess, message in
+                
+                self?.router.show(.showResultAlert(message))
+            })
+            
+        default:
+            break
+        }
+        
+        self.currentAction = nil
+        self.view?.dismissPresentedScanner()
+    }
+
+    func qrScannerDidFail(_ controller: UIViewController, error: String) {
+        print("error:\(error)")
+    }
+
+    func qrScannerDidCancel(_ controller: UIViewController) {
+        print("SwiftQRScanner did cancel")
     }
 }

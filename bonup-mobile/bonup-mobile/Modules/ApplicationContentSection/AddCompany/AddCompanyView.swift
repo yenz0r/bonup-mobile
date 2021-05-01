@@ -10,6 +10,7 @@ import UIKit
 
 protocol IAddCompanyView: AnyObject {
 
+    func setupImage(_ image: UIImage)
 }
 
 final class AddCompanyView: BUContentViewController {
@@ -143,6 +144,7 @@ final class AddCompanyView: BUContentViewController {
 
     @objc private func doneTapped() {
 
+        self.presenter.handleDoneTap()
     }
 }
 
@@ -185,6 +187,11 @@ extension AddCompanyView: UITableViewDataSource {
                                                  for: indexPath) as! AddCompanyInputCell
 
         cell.configure(with: self.presenter.inputSections[indexPath.section].rows[indexPath.row])
+        
+        cell.onValueChange = { [weak self, indexPath] newValue in
+            
+            self?.presenter.handleValueUpdate(newValue, at: indexPath)
+        }
 
         return cell
     }
@@ -202,4 +209,10 @@ extension AddCompanyView: SelectCategoriesContainerDelegate {
 
 // MARK: - ISettingsParamsView
 
-extension AddCompanyView: IAddCompanyView { }
+extension AddCompanyView: IAddCompanyView {
+    
+    func setupImage(_ image: UIImage) {
+        
+        self.companyImageView.image = image
+    }
+}

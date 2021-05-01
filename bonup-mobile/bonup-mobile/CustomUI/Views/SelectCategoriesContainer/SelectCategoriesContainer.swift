@@ -103,8 +103,16 @@ extension SelectCategoriesContainer: UICollectionViewDelegate {
 
         self.dataSource.selectCategoriesContainer(self, didSelectCategoryAt: indexPath.row)
         self.delegate.selectCategoriesContainerDidUpdateCategoriesList(self)
-
-        self.collectionView.reloadItems(at: [indexPath])
+        
+        for cell in collectionView.visibleCells {
+            
+            if let indexPath = collectionView.indexPath(for: cell),
+               let categoryCell = cell as? SelectCategoriesCell {
+                
+                let model = self.dataSource.selectCategoriesContainer(self, cellModelAt: indexPath.row)
+                categoryCell.configure(with: model)
+            }
+        }
     }
 }
 

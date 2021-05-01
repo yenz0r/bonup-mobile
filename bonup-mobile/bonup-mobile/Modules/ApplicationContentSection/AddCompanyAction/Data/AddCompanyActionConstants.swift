@@ -7,3 +7,50 @@
 //
 
 import Foundation
+
+enum CompanyActionType {
+    
+    case task
+    case coupon
+    
+    var title: String {
+        
+        switch self {
+        
+        case .task:
+            return "ui_company_add_task"
+            
+        case .coupon:
+            return "ui_company_add_coupon"
+        }
+    }
+}
+
+enum CompanyActionFieldType {
+    
+    case title
+    case description
+    case startDate
+    case endDate
+    case bonuses
+    
+    var title: String {
+        
+        switch self {
+        case .title:
+            return "ui_title_label"
+            
+        case .description:
+            return "ui_description_label"
+            
+        case .startDate:
+            return "ui_start_date_label"
+            
+        case .endDate:
+            return "ui_end_date_label"
+            
+        case .bonuses:
+            return "ui_bonuses_count_label"
+        }
+    }
+}

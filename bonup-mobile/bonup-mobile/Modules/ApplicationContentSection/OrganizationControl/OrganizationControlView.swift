@@ -12,15 +12,20 @@ import SwiftQRScanner
 protocol IOrganizationControlView: AnyObject {
 
     func reloadData()
+    func dismissPresentedScanner()
 }
 
 final class OrganizationControlView: UIViewController {
 
+    // MARK: - Data variables
+    
     var presenter: IOrganizationControlPresenter!
 
+    // MARK: - UI variables
+    
     private var tableView: UITableView!
 
-    private var currentIndex: Int!
+    // MARK: - Life Cycle
 
     override func loadView() {
 
@@ -35,6 +40,8 @@ final class OrganizationControlView: UIViewController {
 
         self.configureAppearance()
     }
+    
+    // MARK: - Setup
 
     private func setupSubviews() {
 
@@ -47,10 +54,12 @@ final class OrganizationControlView: UIViewController {
             make.edges.equalTo(self.view.safeAreaLayoutGuide).inset(10.0)
         }
     }
+    
+    // MARK: - Configure
 
     private func configureAppearance() {
-        self.view.backgroundColor = .white
-
+        
+        self.view.theme_backgroundColor = Colors.backgroundColor
         self.navigationItem.title = "ui_organization_title".localized
     }
 
@@ -60,13 +69,17 @@ final class OrganizationControlView: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
+        
         tableView.tableFooterView = UIView()
+        tableView.backgroundColor = .clear
 
         tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.reuseId)
 
         return tableView
     }
 }
+
+// MARK: - UITableViewDataSource
 
 extension OrganizationControlView: UITableViewDataSource {
 
@@ -101,28 +114,7 @@ extension OrganizationControlView: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        if (indexPath.row == 0 || indexPath.row == 1) {
-            self.currentIndex = indexPath.row
-            let scanner = QRCodeScannerController()
-            scanner.delegate = self
-            self.present(scanner, animated: true, completion: nil)
-        } else {
-            let inputVC = OrganizationControlInput()
-
-            if (indexPath.row == 2) {
-                inputVC.onClose = { [weak self] name, descriptionText, count, type in
-                    self?.presenter.handleAddTask(name: name, deskriptionText: descriptionText, count: count, type: type)
-                }
-            } else {
-                inputVC.onClose = { [weak self] name, descriptionText, count, type in
-                    self?.presenter.handleAddBenefit(name: name, deskriptionText: descriptionText, count: count, type: type)
-                }
-            }
-
-            inputVC.modalPresentationStyle = .overCurrentContext
-            inputVC.modalTransitionStyle = .crossDissolve
-            self.present(inputVC, animated: true, completion: nil)
-        }
+        self.presenter.handleActionSelection(at: indexPath.row)
     }
 }
 
@@ -132,21 +124,9 @@ extension OrganizationControlView: IOrganizationControlView {
 
         self.tableView.reloadData()
     }
-}
-
-extension OrganizationControlView: QRScannerCodeDelegate {
-
-    func qrScanner(_ controller: UIViewController, scanDidComplete result: String) {
-
-        self.presenter.handleScanResult(result, at: self.currentIndex)
+    
+    func dismissPresentedScanner() {
+        
         self.dismiss(animated: true, completion: nil)
-    }
-
-    func qrScannerDidFail(_ controller: UIViewController, error: String) {
-        print("error:\(error)")
-    }
-
-    func qrScannerDidCancel(_ controller: UIViewController) {
-        print("SwiftQRScanner did cancel")
     }
 }

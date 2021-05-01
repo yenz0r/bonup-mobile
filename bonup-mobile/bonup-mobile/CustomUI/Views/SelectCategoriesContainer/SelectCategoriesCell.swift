@@ -19,8 +19,8 @@ final class SelectCategoriesCell: UICollectionViewCell {
 
     func configure(with model: SelectCategoriesCellModel) {
 
-        self.titleLabel.text = model.title
-        self.titleLabel.textColor = model.isActive ? .green : .red
+        self.categoryTitleLabel.nonlocalizedTitle = model.title
+        self.categoryTitleLabel.textColor = model.isActive ? .green : .red
     }
 
     // MARK: - State variables
@@ -29,7 +29,7 @@ final class SelectCategoriesCell: UICollectionViewCell {
 
     // MARK: - UI variables
 
-    private var titleLabel: UILabel!
+    private var categoryTitleLabel: BULabel!
 
     // MARK: - Initialization
 
@@ -62,7 +62,7 @@ final class SelectCategoriesCell: UICollectionViewCell {
 
     private func setupAppearance() {
 
-        self.backgroundColor = .clear
+        self.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
 
         self.layer.cornerRadius = 20
         self.layer.masksToBounds = true
@@ -70,26 +70,27 @@ final class SelectCategoriesCell: UICollectionViewCell {
 
     private func setupSubviews() {
 
-        self.titleLabel = configureTitleLabel()
+        self.categoryTitleLabel = configureTitleLabel()
 
-        self.contentView.addSubview(self.titleLabel)
+        self.contentView.addSubview(self.categoryTitleLabel)
 
-        self.titleLabel.snp.makeConstraints { make in
+        self.categoryTitleLabel.snp.makeConstraints { make in
             make.leading.trailing.equalTo(self.contentView).inset(20)
             make.top.bottom.equalTo(self.contentView)
         }
 
         self.contentView.snp.makeConstraints { make in
             make.height.equalTo(SelectCategoriesCell.cellHeight)
-            make.edges.equalToSuperview()
+            make.top.bottom.equalToSuperview().priority(999)
+            make.leading.trailing.equalToSuperview()
         }
     }
 
     // MARK: - Configure
 
-    private func configureTitleLabel() -> UILabel {
+    private func configureTitleLabel() -> BULabel {
 
-        let label = UILabel()
+        let label = BULabel()
 
         return label
     }

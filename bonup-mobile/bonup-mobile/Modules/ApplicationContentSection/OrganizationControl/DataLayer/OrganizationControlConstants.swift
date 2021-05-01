@@ -6,9 +6,9 @@
 //  Copyright © 2021 Bonup. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-enum OrganizationControlActions {
+enum OrganizationControlAction {
     
     case verifyTask
     case varifyCoupon
@@ -33,6 +33,27 @@ enum OrganizationControlActions {
             
         case .statistics:
             return "ui_organization_statistics"
+        }
+    }
+    
+    var icon: UIImage? {
+        
+        switch self {
+        
+        case .verifyTask:
+            return AssetsHelper.shared.image(.settingsRateUs)
+            
+        case .varifyCoupon:
+            return AssetsHelper.shared.image(.settingsHelp)
+            
+        case .addTask:
+            return AssetsHelper.shared.image(.settingsCategory)
+            
+        case .addCoupon:
+            return AssetsHelper.shared.image(.settingsRateUs)
+            
+        case .statistics:
+            return AssetsHelper.shared.image(.settingsCategory)
         }
     }
 }

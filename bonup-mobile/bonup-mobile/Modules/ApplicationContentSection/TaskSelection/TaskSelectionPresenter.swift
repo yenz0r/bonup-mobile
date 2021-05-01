@@ -56,7 +56,7 @@ extension TaskSelectionPresenter: ITaskSelectionPresenter {
                     id: entity.id,
                     title: entity.name,
                     description: entity.description,
-                    imageLink: entity.photos.first ?? ""
+                    imageLink: String(entity.photos.first ?? 0)
                 )
             }
             self?.view?.reloadData()

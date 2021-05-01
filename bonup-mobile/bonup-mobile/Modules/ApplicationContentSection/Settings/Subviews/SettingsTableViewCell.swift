@@ -22,7 +22,7 @@ final class SettingsTableViewCell: UITableViewCell {
 
     var title: String? {
         didSet {
-            self.titleLabel.text = self.title
+            self.titleLabel.nonlocalizedTitle = self.title
         }
     }
 
@@ -36,7 +36,7 @@ final class SettingsTableViewCell: UITableViewCell {
     // MARK: - Private variables
 
     private var iconImageView: UIImageView!
-    private var titleLabel: UILabel!
+    private var titleLabel: BULabel!
 
     // MARK: - Initialization
 
@@ -71,7 +71,7 @@ final class SettingsTableViewCell: UITableViewCell {
         }()
 
         self.titleLabel = {
-            let label = UILabel()
+            let label = BULabel()
 
             label.font = UIFont.avenirRoman(20.0)
             label.theme_textColor = Colors.defaultTextColor

@@ -9,6 +9,10 @@
 import UIKit
 
 final class AddCompanyInputHeader: UIView {
+    
+    // MARK: - State variables
+    
+    private var isFirstLayout = true
 
     // MARK: - Initialization
 
@@ -17,11 +21,23 @@ final class AddCompanyInputHeader: UIView {
         super.init(frame: frame)
 
         self.setupSubviews()
-        self.setupAppearance()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Life cycle
+    
+    override func layoutSubviews() {
+        
+        super.layoutSubviews()
+        
+        if self.isFirstLayout {
+            
+            self.isFirstLayout.toggle()
+            self.setupBlur()
+        }
     }
 
     // MARK: - Public variables
@@ -39,11 +55,6 @@ final class AddCompanyInputHeader: UIView {
     private var titleLabel: BULabel!
 
     // MARK: - Setup
-
-    private func setupAppearance() {
-
-        self.backgroundColor = UIColor.gray.withAlphaComponent(0.3)
-    }
 
     private func setupSubviews() {
 

@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct AddCompanyActionViewModel {
+    
+    var fieldType: CompanyActionFieldType
+    var value: Any
+}

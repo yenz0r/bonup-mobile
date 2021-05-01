@@ -12,65 +12,30 @@ protocol IOrganizationControlInteractor: AnyObject {
 
     func resolveTask(qrCode: String, block: ((Bool, String) -> Void)?)
     func activateCoupon(qrCode: String, block: ((Bool, String) -> Void)?)
-    func addTask(name: String, descriptionText: String, count: Int, type: Int, success:((String) -> Void)?, failure:((String) -> Void)?)
-    func addBenefit(name: String, descriptionText: String, count: Int, type: Int, success:((String) -> Void)?, failure:((String) -> Void)?)
+    
+    var organizationName: String { get }
 }
 
 final class OrganizationControlInteractor {
 
+    // MARK: - Private properties
+    
     private let networkProvider = MainNetworkProvider<OrganizationControlService>()
+    
+    // MARK: - Public properties
+    
+    var organizationName: String
 
-    private let organizationName: String
-
+    // MARK: - Init
+    
     init(organizationName: String) {
         self.organizationName = organizationName
     }
-
 }
 
 // MARK: - IChangePasswordInteractor implementation
 
 extension OrganizationControlInteractor: IOrganizationControlInteractor {
-
-    func addTask(name: String, descriptionText: String, count: Int, type: Int, success:((String) -> Void)?, failure:((String) -> Void)?) {
-
-        guard let token = AccountManager.shared.currentToken else { return }
-
-        _ = networkProvider.request(
-            .putTask(name, descriptionText, count, type, token, organizationName),
-            type: OrganizationAppendResponseEntity.self,
-            completion: { result in
-                if result.isSuccess {
-                    success?(result.message)
-                } else {
-                    failure?(result.message)
-                }
-            },
-            failure: { err in
-                failure?(err?.localizedDescription ?? "")
-            }
-        )
-    }
-
-    func addBenefit(name: String, descriptionText: String, count: Int, type: Int, success:((String) -> Void)?, failure:((String) -> Void)?) {
-
-        guard let token = AccountManager.shared.currentToken else { return }
-
-        _ = networkProvider.request(
-            .putCoupon(name, descriptionText, count, type, token, organizationName),
-            type: OrganizationAppendResponseEntity.self,
-            completion: { result in
-                if result.isSuccess {
-                    success?(result.message)
-                } else {
-                    failure?(result.message)
-                }
-            },
-            failure: { err in
-                failure?(err?.localizedDescription ?? "")
-            }
-        )
-    }
 
     func resolveTask(qrCode: String, block: ((Bool, String) -> Void)?) {
 

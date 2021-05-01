@@ -37,7 +37,7 @@ final class SelectCategoriesDataSource: SelectCategoriesContainerDataSource {
 
     func selectCategoriesContainer(_ container: SelectCategoriesContainer, didSelectCategoryAt index: Int) {
 
-        self.categoriesModels[index].isActive = !self.categoriesModels[index].isActive
+        self.categoriesModels[index].isActive.toggle()
     }
 
     var selectedCategories: [InterestCategories] {

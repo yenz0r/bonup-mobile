@@ -13,7 +13,9 @@ protocol IAddCompanyPresenter: AnyObject {
 
     var inputSections: [AddCompanyInputSectionModel] { get }
 
+    func handleValueUpdate(_ value: String?, at indexPath: IndexPath)
     func handleAddImageTap()
+    func handleDoneTap()
 }
 
 final class AddCompanyPresenter {
@@ -37,7 +39,11 @@ final class AddCompanyPresenter {
 // MARK: - IAddCompanyPresenter
 
 extension AddCompanyPresenter: IAddCompanyPresenter {
-
+    
+    func handleValueUpdate(_ value: String?, at indexPath: IndexPath) {
+        
+    }
+    
     func handleAddImageTap() {
 
         self.router.show(.addImage(self))
@@ -47,13 +53,20 @@ extension AddCompanyPresenter: IAddCompanyPresenter {
 
         return self.interactor.inputSections
     }
+    
+    func handleDoneTap() {
+        
+        self.router.show(.organizationsList)
+    }
 }
 
 // MARK: - FMPhotoPickerViewControllerDelegate
 
 extension AddCompanyPresenter: FMPhotoPickerViewControllerDelegate {
 
-    func fmPhotoPickerController(_ picker: FMPhotoPickerViewController, didFinishPickingPhotoWith photos: [UIImage]) {
+    func fmPhotoPickerController(_ picker: FMPhotoPickerViewController,
+                                 didFinishPickingPhotoWith photos: [UIImage]) {
 
+        self.view?.setupImage(photos.first ?? AssetsHelper.shared.image(.addImageIcon)!)
     }
 }

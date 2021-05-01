@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftQRScanner
 
 protocol IOrganizationControlRouter {
     func start(_ completion: (() -> Void)?)
@@ -18,7 +19,8 @@ final class OrganizationControlRouter {
     enum RouterScenario {
 
         case showResultAlert(String)
-        case showControlInput(((String, String, Int, Int) -> Void)?)
+        case showAddAction(CompanyActionType, String)
+        case verifyAction(QRScannerCodeDelegate)
     }
 
     private var view: OrganizationControlView?
@@ -62,12 +64,24 @@ extension OrganizationControlRouter: IOrganizationControlRouter {
                 from: view,
                 completion: nil
             )
-        case .showControlInput(let completion):
-            let inputVC = OrganizationControlInput()
-            inputVC.onClose = completion
-
-            inputVC.modalPresentationStyle = .overCurrentContext
-//            view.present(inputVC, animated: true, completion: nil)
+            
+        case .showAddAction(let actionType, let organizationId):
+            
+            let dependency = AddCompanyActionDependency(
+                parentNavigationController: self.parentController.navigationController!,
+                actionType: actionType,
+                organizationId: organizationId
+            )
+            let builder = AddCompanyActionBuilder()
+            let router = builder.build(dependency)
+            router.start(nil)
+            
+        case .verifyAction(let qrCodeDelegate):
+            
+            let scanner = QRCodeScannerController()
+            scanner.delegate = qrCodeDelegate
+            
+            self.view?.present(scanner, animated: true, completion: nil)
         }
     }
 }

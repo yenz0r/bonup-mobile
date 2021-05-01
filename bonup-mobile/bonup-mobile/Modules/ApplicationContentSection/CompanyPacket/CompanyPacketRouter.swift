@@ -20,6 +20,7 @@ final class CompanyPacketRouter {
     enum RouterScenario {
 
         case customPacket
+        case addCompany
     }
 
     private var view: CompanyPacketView?
@@ -68,6 +69,14 @@ extension CompanyPacketRouter: ICompanyPacketRouter {
                 
                 completion?(customType)
             }
+            
+        case .addCompany:
+            
+            let dependency = AddCompanyDependency(parentNavigationController: self.parentNavigationController)
+            let builder = AddCompanyBuilder()
+            let router = builder.build(dependency)
+            
+            router.start(nil)
         }
     }
 }

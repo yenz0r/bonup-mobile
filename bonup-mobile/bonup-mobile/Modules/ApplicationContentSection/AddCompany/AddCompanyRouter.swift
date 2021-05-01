@@ -21,6 +21,7 @@ final class AddCompanyRouter {
     enum RouterScenario {
 
         case addImage(FMPhotoPickerViewControllerDelegate)
+        case organizationsList
     }
 
     private var view: AddCompanyView?
@@ -54,7 +55,8 @@ extension AddCompanyRouter: IAddCompanyRouter {
     }
 
     func show(_ scenario: RouterScenario) {
-//        guard let view = self.view else { return }
+        
+        guard let view = self.view else { return }
 
         switch scenario {
 
@@ -62,7 +64,11 @@ extension AddCompanyRouter: IAddCompanyRouter {
 
             let picker = FMPhotoPickerViewController(config: FMPhotoPickerViewController.defaultConfig)
             picker.delegate = delegate
-            self.view?.present(picker, animated: true)
+            view.present(picker, animated: true)
+            
+        case .organizationsList:
+            
+            self.parentNavigationController.popToRootViewController(animated: true)
         }
     }
 }

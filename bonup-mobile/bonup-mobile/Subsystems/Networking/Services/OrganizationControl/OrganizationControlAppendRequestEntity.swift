@@ -10,9 +10,12 @@ import Foundation
 
 struct OrganizationControlAppendRequestEntity {
     
-    let title: String
-    let descriptionText: String
-    let categoriesIds: [Int]
-    let token: String
-    let bonusesCount: Int
+    var title: String = ""
+    var descriptionText: String = ""
+    var categoriesIds: [Int] = []
+    var token: String = ""
+    var bonusesCount: Int = 0
+    var organizationId: String = ""
+    var startDateTimestamp: Double = 0
+    var endDateTimestamp: Double = 0
 }

@@ -15,6 +15,8 @@ protocol ICompanyPacketPresenter: AnyObject {
     var selectedPacketIndex: Int { get }
 
     func handlePacketSelection(at index: Int)
+    
+    func handleDoneAction()
 }
 
 final class CompanyPacketPresenter {
@@ -69,6 +71,11 @@ extension CompanyPacketPresenter: ICompanyPacketPresenter {
         case .none:
             return
         }
+    }
+    
+    func handleDoneAction() {
+    
+        self.router.show(.addCompany, completion: nil)
     }
 
     var selectedPacket: CompanyPacketType {

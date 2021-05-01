@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (5.0.4)
+  - DatePicker (1.3.1):
+    - Extended
+  - Extended (1.0.5)
   - Firebase/Analytics (6.20.0):
     - Firebase/Core
   - Firebase/Core (6.20.0):
@@ -98,6 +101,7 @@ PODS:
   - YandexRuntime (3.5.0)
 
 DEPENDENCIES:
+  - DatePicker (~> 1.3.0)
   - Firebase/Analytics
   - Firebase/Crashlytics
   - FMPhotoPicker (~> 1.3.0)
@@ -119,6 +123,8 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - DatePicker
+    - Extended
     - Firebase
     - FirebaseAnalytics
     - FirebaseAnalyticsInterop
@@ -160,6 +166,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 0fe5fd24b4298dc377a6550da7d5f1b30e286fcb
+  DatePicker: 05ddbd2b57d00ce6f44c1f0611ced32f948d33a6
+  Extended: c463225e0c29b2823847866c1b106827772ac678
   Firebase: fe7f74012742ab403451dd283e6909b8f1fb348a
   FirebaseAnalytics: 572e467f3d977825266e8ccd52674aa3e6f47eac
   FirebaseAnalyticsInterop: 3f86269c38ae41f47afeb43ebf32a001f58fcdae
@@ -191,6 +199,6 @@ SPEC CHECKSUMS:
   YandexMapKit: ecd4b78de34a35df63d066ac299e6fd0fe46d1ba
   YandexRuntime: 2d55244d06267106cf9b00c25a1e63f72a73b6fd
 
-PODFILE CHECKSUM: 312f0d1949e68d08ebc11fce111e2ab5594bb10b
+PODFILE CHECKSUM: e0920a36b7a583d48c3881910bda3824733ad713
 
 COCOAPODS: 1.10.1

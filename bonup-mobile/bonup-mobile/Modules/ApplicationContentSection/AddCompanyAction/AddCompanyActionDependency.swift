@@ -6,4 +6,11 @@
 //  Copyright © 2021 Bonup. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+struct AddCompanyActionDependency {
+
+    let parentNavigationController: UINavigationController
+    let actionType: CompanyActionType
+    let organizationId: String
+}

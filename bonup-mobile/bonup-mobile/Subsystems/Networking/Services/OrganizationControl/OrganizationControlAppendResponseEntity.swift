@@ -1,5 +1,5 @@
 //
-//  OrganizationAppendResponseEntity.swift
+//  OrganizationControlAppendResponseEntity.swift
 //  bonup-mobile
 //
 //  Created by Yahor Bychkouski on 13.05.2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct OrganizationAppendResponseEntity: Decodable {
+struct OrganizationControlAppendResponseEntity: Decodable {
     
     let isSuccess: Bool
     let message: String

@@ -7,3 +7,25 @@
 //
 
 import Foundation
+
+extension Date {
+    
+    static var dateFormatter: DateFormatter {
+     
+        let df = DateFormatter()
+        
+        df.dateFormat = "dd.MM.YYYY"
+        
+        return df
+    }
+    
+    static func dateFromTimestamp(_ timestamp: Double) -> Date {
+    
+        return Date(timeIntervalSince1970: timestamp)
+    }
+    
+    var timestamp: Double {
+        
+        return self.timeIntervalSince1970
+    }
+}

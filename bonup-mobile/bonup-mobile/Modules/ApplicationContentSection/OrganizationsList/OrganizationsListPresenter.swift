@@ -77,6 +77,8 @@ extension OrganizationsListPresenter: IOrganizationsListPresenter {
                 print("---")
             }
         )
+        
+        self.router.show(.showOrganizationControl("0"))
     }
 
     func handleAddButtonTap() {

@@ -7,15 +7,14 @@
 //
 
 import Foundation
-
 import Moya
 
 enum OrganizationControlService {
 
     case resolveTask(Int, String, String)
     case activateCoupon(Int, String, String)
-    case putCoupon(String, String, Int, Int, String, String)
-    case putTask(String, String, Int, Int, String, String)
+    case putCoupon(OrganizationControlAppendRequestEntity)
+    case putTask(OrganizationControlAppendRequestEntity)
 }
 
 extension OrganizationControlService: IAuthorizedTargetType {
@@ -30,9 +29,9 @@ extension OrganizationControlService: IAuthorizedTargetType {
             return "/resolveTask"
         case .activateCoupon(_, _, _):
             return "/activateCoupon"
-        case .putCoupon(_, _, _, _, _, _):
+        case .putCoupon(_):
             return "/putCoupon"
-        case .putTask(_, _, _, _, _, _):
+        case .putTask(_):
             return "/putTask"
         }
     }
@@ -43,9 +42,9 @@ extension OrganizationControlService: IAuthorizedTargetType {
             return .post
         case .activateCoupon(_, _, _):
             return .post
-        case .putCoupon(_, _, _, _, _, _):
+        case .putCoupon(_):
             return .put
-        case .putTask(_, _, _, _, _, _):
+        case .putTask(_):
             return .put
         }
     }
@@ -73,31 +72,20 @@ extension OrganizationControlService: IAuthorizedTargetType {
                 ],
                 encoding: JSONEncoding.default
             )
-        case .putTask(let name, let descriptionText, let count, let type, let token, let organizationName):
+        case .putTask(let entity):
+            fallthrough
+        case .putCoupon(let entity):
             return .requestParameters(
                 parameters: [
-                    "description": descriptionText,
-                    "organizationName": organizationName,
-                    "typeId": type + 1,
-                    "token": token,
-                    "count": count,
-                    "name": name
+                    "description": entity.descriptionText,
+                    "organizationName": entity.organizationId,
+                    "typeId": 1,
+                    "token": entity.token,
+                    "count": entity.bonusesCount,
+                    "name": entity.title
                 ],
                 encoding: JSONEncoding.default
             )
-        case .putCoupon(let name, let descriptionText, let count, let type, let token, let organizationName):
-            return .requestParameters(
-                parameters: [
-                    "description": descriptionText,
-                    "organizationName": organizationName,
-                    "typeId": type + 1,
-                    "token": token,
-                    "count": count,
-                    "name": name
-                ],
-                encoding: JSONEncoding.default
-            )
-
         }
     }
 

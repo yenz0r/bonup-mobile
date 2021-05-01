@@ -209,10 +209,13 @@
 		B9B67F2325B4759B00AC7184 /* SelectCategoriesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B67F2225B4759B00AC7184 /* SelectCategoriesContainer.swift */; };
 		B9B67F2825B475D200AC7184 /* SelectCategoriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B67F2725B475D200AC7184 /* SelectCategoriesDataSource.swift */; };
 		B9B67F3625B4780F00AC7184 /* SelectCategoriesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B67F3525B4780F00AC7184 /* SelectCategoriesConstants.swift */; };
+		B9B75F02263D907900DF630E /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B75F01263D907900DF630E /* Date+Utils.swift */; };
 		B9BA409F2443D0DD00950808 /* CurrentTasksListPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA409E2443D0DD00950808 /* CurrentTasksListPresentationModel.swift */; };
 		B9BA40A12443D0ED00950808 /* FinishedTasksPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA40A02443D0ED00950808 /* FinishedTasksPresentationModel.swift */; };
 		B9BF7011244326530051CF41 /* TaskCardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BF7010244326530051CF41 /* TaskCardOverlay.swift */; };
 		B9BF701324433D590051CF41 /* BUNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BF701224433D590051CF41 /* BUNavigationController.swift */; };
+		B9C97006263D9ADE00066625 /* OrganizationControlConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C97005263D9ADE00066625 /* OrganizationControlConstants.swift */; };
+		B9C97013263DAA5400066625 /* OrganizationControlAppendRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C97012263DAA5400066625 /* OrganizationControlAppendRequestEntity.swift */; };
 		B9CAA708242B9EE000E50668 /* AuthVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA707242B9EE000E50668 /* AuthVerificationView.swift */; };
 		B9CAA70A242B9EF600E50668 /* AuthVerificationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA709242B9EF600E50668 /* AuthVerificationInteractor.swift */; };
 		B9CAA70C242B9F0200E50668 /* AuthVerificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA70B242B9F0200E50668 /* AuthVerificationRouter.swift */; };
@@ -235,7 +238,7 @@
 		B9D17588243CFD27001FF58E /* TermsAndConditionsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D17587243CFD27001FF58E /* TermsAndConditionsBuilder.swift */; };
 		B9D1758A243CFD38001FF58E /* TermsAndConditionsDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D17589243CFD38001FF58E /* TermsAndConditionsDependency.swift */; };
 		B9D17E2D246C1D0700258BA3 /* OrganizationControlInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D17E2C246C1D0700258BA3 /* OrganizationControlInput.swift */; };
-		B9D17E32246C2B9C00258BA3 /* OrganizationAppendResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D17E31246C2B9C00258BA3 /* OrganizationAppendResponseEntity.swift */; };
+		B9D17E32246C2B9C00258BA3 /* OrganizationControlAppendResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D17E31246C2B9C00258BA3 /* OrganizationControlAppendResponseEntity.swift */; };
 		B9D30C67244BA0A300B9E9AA /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D30C66244BA0A300B9E9AA /* ChangePasswordView.swift */; };
 		B9D30C6A244BA0B400B9E9AA /* ChangePasswordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D30C69244BA0B400B9E9AA /* ChangePasswordBuilder.swift */; };
 		B9D30C6C244BA0BB00B9E9AA /* ChangePasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D30C6B244BA0BB00B9E9AA /* ChangePasswordInteractor.swift */; };
@@ -261,6 +264,15 @@
 		B9E7CEC925B49A490033810D /* FMPhotoPickerViewController+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E7CEC825B49A490033810D /* FMPhotoPickerViewController+Config.swift */; };
 		B9EFFBA8246BDFF400084B7E /* ActualBenefitEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EFFBA7246BDFF400084B7E /* ActualBenefitEntity.swift */; };
 		B9EFFBAA246BE00200084B7E /* FinishedBenefitEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EFFBA9246BE00200084B7E /* FinishedBenefitEntity.swift */; };
+		B9F04628263573DB00D2D3D8 /* AddCompanyActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F04627263573DB00D2D3D8 /* AddCompanyActionView.swift */; };
+		B9F04631263573F400D2D3D8 /* AddCompanyActionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F04630263573F400D2D3D8 /* AddCompanyActionPresenter.swift */; };
+		B9F04639263573FA00D2D3D8 /* AddCompanyActionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F04638263573FA00D2D3D8 /* AddCompanyActionInteractor.swift */; };
+		B9F0463E2635741200D2D3D8 /* AddCompanyActionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F0463D2635741200D2D3D8 /* AddCompanyActionRouter.swift */; };
+		B9F046432635741800D2D3D8 /* AddCompanyActionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F046422635741800D2D3D8 /* AddCompanyActionBuilder.swift */; };
+		B9F046482635741F00D2D3D8 /* AddCompanyActionDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F046472635741F00D2D3D8 /* AddCompanyActionDependency.swift */; };
+		B9F0464D2635742500D2D3D8 /* AddCompanyActionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F0464C2635742500D2D3D8 /* AddCompanyActionConstants.swift */; };
+		B9F046522635742A00D2D3D8 /* AddCompanyActionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F046512635742A00D2D3D8 /* AddCompanyActionViewModel.swift */; };
+		B9F0465B2635A33600D2D3D8 /* AddCompanyActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F0465A2635A33600D2D3D8 /* AddCompanyActionCell.swift */; };
 		B9FC7986242FB04000F2D5BC /* BUTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FC7985242FB04000F2D5BC /* BUTabBarController.swift */; };
 		B9FC7988242FB6E500F2D5BC /* ApplicationContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FC7987242FB6E500F2D5BC /* ApplicationContentView.swift */; };
 		B9FC798C242FB73900F2D5BC /* ApplicationContentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FC798B242FB73900F2D5BC /* ApplicationContentBuilder.swift */; };
@@ -515,10 +527,13 @@
 		B9B67F2225B4759B00AC7184 /* SelectCategoriesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoriesContainer.swift; sourceTree = "<group>"; };
 		B9B67F2725B475D200AC7184 /* SelectCategoriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoriesDataSource.swift; sourceTree = "<group>"; };
 		B9B67F3525B4780F00AC7184 /* SelectCategoriesConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoriesConstants.swift; sourceTree = "<group>"; };
+		B9B75F01263D907900DF630E /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		B9BA409E2443D0DD00950808 /* CurrentTasksListPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTasksListPresentationModel.swift; sourceTree = "<group>"; };
 		B9BA40A02443D0ED00950808 /* FinishedTasksPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedTasksPresentationModel.swift; sourceTree = "<group>"; };
 		B9BF7010244326530051CF41 /* TaskCardOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardOverlay.swift; sourceTree = "<group>"; };
 		B9BF701224433D590051CF41 /* BUNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUNavigationController.swift; sourceTree = "<group>"; };
+		B9C97005263D9ADE00066625 /* OrganizationControlConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlConstants.swift; sourceTree = "<group>"; };
+		B9C97012263DAA5400066625 /* OrganizationControlAppendRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlAppendRequestEntity.swift; sourceTree = "<group>"; };
 		B9CAA707242B9EE000E50668 /* AuthVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationView.swift; sourceTree = "<group>"; };
 		B9CAA709242B9EF600E50668 /* AuthVerificationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationInteractor.swift; sourceTree = "<group>"; };
 		B9CAA70B242B9F0200E50668 /* AuthVerificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationRouter.swift; sourceTree = "<group>"; };
@@ -541,7 +556,7 @@
 		B9D17587243CFD27001FF58E /* TermsAndConditionsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsBuilder.swift; sourceTree = "<group>"; };
 		B9D17589243CFD38001FF58E /* TermsAndConditionsDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsDependency.swift; sourceTree = "<group>"; };
 		B9D17E2C246C1D0700258BA3 /* OrganizationControlInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlInput.swift; sourceTree = "<group>"; };
-		B9D17E31246C2B9C00258BA3 /* OrganizationAppendResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationAppendResponseEntity.swift; sourceTree = "<group>"; };
+		B9D17E31246C2B9C00258BA3 /* OrganizationControlAppendResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlAppendResponseEntity.swift; sourceTree = "<group>"; };
 		B9D30C66244BA0A300B9E9AA /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		B9D30C69244BA0B400B9E9AA /* ChangePasswordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordBuilder.swift; sourceTree = "<group>"; };
 		B9D30C6B244BA0BB00B9E9AA /* ChangePasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordInteractor.swift; sourceTree = "<group>"; };
@@ -563,6 +578,15 @@
 		B9E7CEC825B49A490033810D /* FMPhotoPickerViewController+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FMPhotoPickerViewController+Config.swift"; sourceTree = "<group>"; };
 		B9EFFBA7246BDFF400084B7E /* ActualBenefitEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActualBenefitEntity.swift; sourceTree = "<group>"; };
 		B9EFFBA9246BE00200084B7E /* FinishedBenefitEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedBenefitEntity.swift; sourceTree = "<group>"; };
+		B9F04627263573DB00D2D3D8 /* AddCompanyActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyActionView.swift; sourceTree = "<group>"; };
+		B9F04630263573F400D2D3D8 /* AddCompanyActionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyActionPresenter.swift; sourceTree = "<group>"; };
+		B9F04638263573FA00D2D3D8 /* AddCompanyActionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyActionInteractor.swift; sourceTree = "<group>"; };
+		B9F0463D2635741200D2D3D8 /* AddCompanyActionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyActionRouter.swift; sourceTree = "<group>"; };
+		B9F046422635741800D2D3D8 /* AddCompanyActionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyActionBuilder.swift; sourceTree = "<group>"; };
+		B9F046472635741F00D2D3D8 /* AddCompanyActionDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyActionDependency.swift; sourceTree = "<group>"; };
+		B9F0464C2635742500D2D3D8 /* AddCompanyActionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyActionConstants.swift; sourceTree = "<group>"; };
+		B9F046512635742A00D2D3D8 /* AddCompanyActionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyActionViewModel.swift; sourceTree = "<group>"; };
+		B9F0465A2635A33600D2D3D8 /* AddCompanyActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyActionCell.swift; sourceTree = "<group>"; };
 		B9FC7985242FB04000F2D5BC /* BUTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUTabBarController.swift; sourceTree = "<group>"; };
 		B9FC7987242FB6E500F2D5BC /* ApplicationContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationContentView.swift; sourceTree = "<group>"; };
 		B9FC798B242FB73900F2D5BC /* ApplicationContentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationContentBuilder.swift; sourceTree = "<group>"; };
@@ -825,7 +849,8 @@
 				B941E73B246B93600056B844 /* OrganizationControlBuilder.swift */,
 				B941E73D246B936B0056B844 /* OrganizationControlDependency.swift */,
 				B941E73F246B93730056B844 /* OrganizationControlRouter.swift */,
-				B9D17E2C246C1D0700258BA3 /* OrganizationControlInput.swift */,
+				B9C9700A263D9C1600066625 /* Subviews */,
+				B9C9700E263D9C1C00066625 /* DataLayer */,
 			);
 			path = OrganizationControl;
 			sourceTree = "<group>";
@@ -947,6 +972,7 @@
 				B9CAA71C242BE0E400E50668 /* UITextField */,
 				B9FE3A5E25B62314007ED803 /* UBottomSheetCoordinator */,
 				B9E7CECD25B49A4F0033810D /* FMPhotoPickerViewController */,
+				B9B75F06263D907E00DF630E /* Date */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1035,6 +1061,7 @@
 				B95FB97925B4627600AB2566 /* AddCompanyRouter.swift */,
 				B95FB97E25B4628100AB2566 /* AddCompanyDependency.swift */,
 				B95FB98325B4628800AB2566 /* AddCompanyBuilder.swift */,
+				B9E7CE7925B4816E0033810D /* Models */,
 				B9E7CE7125B4813F0033810D /* Subviews */,
 			);
 			path = AddCompany;
@@ -1066,7 +1093,8 @@
 			children = (
 				B96A71DC246B9C90007416DF /* OrganizationControlService.swift */,
 				B96A71DE246B9CB5007416DF /* OrganizationControlResponseEntity.swift */,
-				B9D17E31246C2B9C00258BA3 /* OrganizationAppendResponseEntity.swift */,
+				B9D17E31246C2B9C00258BA3 /* OrganizationControlAppendResponseEntity.swift */,
+				B9C97012263DAA5400066625 /* OrganizationControlAppendRequestEntity.swift */,
 			);
 			path = OrganizationControl;
 			sourceTree = "<group>";
@@ -1456,6 +1484,14 @@
 			path = SelectCategoriesContainer;
 			sourceTree = "<group>";
 		};
+		B9B75F06263D907E00DF630E /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				B9B75F01263D907900DF630E /* Date+Utils.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
 		B9BA40A22443D0F100950808 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -1474,6 +1510,22 @@
 				B914AC9024435D80007494E3 /* TasksListFinishedCollectionViewCell.swift */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		B9C9700A263D9C1600066625 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				B9D17E2C246C1D0700258BA3 /* OrganizationControlInput.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		B9C9700E263D9C1C00066625 /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				B9C97005263D9ADE00066625 /* OrganizationControlConstants.swift */,
+			);
+			path = DataLayer;
 			sourceTree = "<group>";
 		};
 		B9CAA713242B9F2D00E50668 /* AuthVerificationScreen */ = {
@@ -1589,7 +1641,6 @@
 			children = (
 				B9E7CE6C25B480AC0033810D /* AddCompanyInputCell.swift */,
 				B9E7CE8325B481870033810D /* AddCompanyInputHeader.swift */,
-				B9E7CE7925B4816E0033810D /* Models */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -1609,6 +1660,38 @@
 				B9E7CEC825B49A490033810D /* FMPhotoPickerViewController+Config.swift */,
 			);
 			path = FMPhotoPickerViewController;
+			sourceTree = "<group>";
+		};
+		B9F0462C263573E300D2D3D8 /* AddCompanyAction */ = {
+			isa = PBXGroup;
+			children = (
+				B9F04627263573DB00D2D3D8 /* AddCompanyActionView.swift */,
+				B9F04630263573F400D2D3D8 /* AddCompanyActionPresenter.swift */,
+				B9F04638263573FA00D2D3D8 /* AddCompanyActionInteractor.swift */,
+				B9F0463D2635741200D2D3D8 /* AddCompanyActionRouter.swift */,
+				B9F046422635741800D2D3D8 /* AddCompanyActionBuilder.swift */,
+				B9F046472635741F00D2D3D8 /* AddCompanyActionDependency.swift */,
+				B9F046562635742E00D2D3D8 /* Data */,
+				B9F0465F2635A33B00D2D3D8 /* Subviews */,
+			);
+			path = AddCompanyAction;
+			sourceTree = "<group>";
+		};
+		B9F046562635742E00D2D3D8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B9F0464C2635742500D2D3D8 /* AddCompanyActionConstants.swift */,
+				B9F046512635742A00D2D3D8 /* AddCompanyActionViewModel.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B9F0465F2635A33B00D2D3D8 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				B9F0465A2635A33600D2D3D8 /* AddCompanyActionCell.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		B9FC7989242FB70300F2D5BC /* LoginSection */ = {
@@ -1642,6 +1725,7 @@
 				B96CA64C25B37BED00FF157C /* CompaniesSearch */,
 				B96CA68725B38F2700FF157C /* CompaniesSection */,
 				B95FB98825B462A100AB2566 /* AddCompany */,
+				B9F0462C263573E300D2D3D8 /* AddCompanyAction */,
 				B90BED6125B5D95400AD78A8 /* CompanyPacket */,
 				B9FE3A5525B618AB007ED803 /* CompanyCustomPacket */,
 			);
@@ -1966,6 +2050,7 @@
 				B9E7CE7325B4815F0033810D /* AddCompanyInputSectionModel.swift in Sources */,
 				B9D17580243CFCEA001FF58E /* TermsAndConditionsView.swift in Sources */,
 				B914AC8F24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift in Sources */,
+				B9C97006263D9ADE00066625 /* OrganizationControlConstants.swift in Sources */,
 				B966E73024684D090043FD69 /* BenefitDescriptionBuilder.swift in Sources */,
 				B9CAA712242B9F2100E50668 /* AuthVerificationDependency.swift in Sources */,
 				B90867DD25B5DB0800E0DE91 /* BUAmountSetter.swift in Sources */,
@@ -1988,6 +2073,7 @@
 				B9CEE6A2241D55A500308098 /* ResetPasswordPresenter.swift in Sources */,
 				B9787F4F246B8C03007DB617 /* OrganizationsListService.swift in Sources */,
 				B9787F4B246B7DF3007DB617 /* TaskListFinishedTasksEntity.swift in Sources */,
+				B9F04628263573DB00D2D3D8 /* AddCompanyActionView.swift in Sources */,
 				B990932925AF403100CF381B /* ThemeColorsManager.swift in Sources */,
 				B9FC7990242FB77C00F2D5BC /* ApplicationContentDependency.swift in Sources */,
 				B91A1E572451CD3A00837E73 /* ProfileAhievementsView.swift in Sources */,
@@ -2007,6 +2093,7 @@
 				B9FC7988242FB6E500F2D5BC /* ApplicationContentView.swift in Sources */,
 				B9787F43246B58A3007DB617 /* TaskCardEntity.swift in Sources */,
 				B967C2D5244BC3BD00AFE3A1 /* SettingsPresentationModel.swift in Sources */,
+				B9B75F02263D907900DF630E /* Date+Utils.swift in Sources */,
 				B992D51024578A09002ABF71 /* BenefitsPresenter.swift in Sources */,
 				B966E7292468384A0043FD69 /* BenefitsContentCell.swift in Sources */,
 				B9CAA717242BB0AD00E50668 /* AlertsFactory.swift in Sources */,
@@ -2034,6 +2121,7 @@
 				B96D54BD242FBED600023BC9 /* NewPasswordService.swift in Sources */,
 				B9EFFBAA246BE00200084B7E /* FinishedBenefitEntity.swift in Sources */,
 				B990931625AF3A4C00CF381B /* SettingsParamsDependency.swift in Sources */,
+				B9F0465B2635A33600D2D3D8 /* AddCompanyActionCell.swift in Sources */,
 				B96CA64325B37BD200FF157C /* CompaniesSearchBuilder.swift in Sources */,
 				B992D52E2457A1A7002ABF71 /* SelectedBenefitsContentCell.swift in Sources */,
 				B92688FD2429520300F1732A /* UIView+Gradient.swift in Sources */,
@@ -2043,6 +2131,7 @@
 				B964CE8624475C6900161300 /* NewPasswordResponseEntity.swift in Sources */,
 				B98DE0E4244BB61E007AE007 /* SettingsInteractor.swift in Sources */,
 				B9CAA71F242BE8B500E50668 /* EmailVerificationService.swift in Sources */,
+				B9C97013263DAA5400066625 /* OrganizationControlAppendRequestEntity.swift in Sources */,
 				B9B67F2825B475D200AC7184 /* SelectCategoriesDataSource.swift in Sources */,
 				B9D30C72244BA0DC00B9E9AA /* ChangePasswordPresenter.swift in Sources */,
 				B9CAA70C242B9F0200E50668 /* AuthVerificationRouter.swift in Sources */,
@@ -2092,6 +2181,7 @@
 				B99093CF25AF862500CF381B /* BUContentViewController.swift in Sources */,
 				B9D1758A243CFD38001FF58E /* TermsAndConditionsDependency.swift in Sources */,
 				B9CAA715242B9FAE00E50668 /* UITextField+Factory.swift in Sources */,
+				B9F0463E2635741200D2D3D8 /* AddCompanyActionRouter.swift in Sources */,
 				B98DE0E8244BB62D007AE007 /* SettingsDependency.swift in Sources */,
 				B95FB97525B4625D00AB2566 /* AddCompanyInteractor.swift in Sources */,
 				B96A71E7246BA842007416DF /* ProfileGoalsResponse.swift in Sources */,
@@ -2100,9 +2190,11 @@
 				B98DE0E2244BB614007AE007 /* SettingsPresenter.swift in Sources */,
 				B96CA66F25B38EDF00FF157C /* CompaniesSectionPresenter.swift in Sources */,
 				B948A23A241CBFBA001287B8 /* LoginPresenter.swift in Sources */,
+				B9F046522635742A00D2D3D8 /* AddCompanyActionViewModel.swift in Sources */,
 				B96CA68325B38F0400FF157C /* CompaniesSectionDependecy.swift in Sources */,
 				B964E0C32451CFC400668EE8 /* ProfileAhievementsCell.swift in Sources */,
 				B9126688242AA57D00BEA50C /* BULoginViewController.swift in Sources */,
+				B9F046432635741800D2D3D8 /* AddCompanyActionBuilder.swift in Sources */,
 				B90BED5325B5D93900AD78A8 /* CompanyPacketRouter.swift in Sources */,
 				B9787F51246B8C15007DB617 /* OrganizationsListResponseEntity.swift in Sources */,
 				B9A0C9AF242FC59B00EB6FAE /* CategoriesDependency.swift in Sources */,
@@ -2113,9 +2205,11 @@
 				B990939625AF788F00CF381B /* Bundle+Localization.swift in Sources */,
 				B9A13D3E244E3AFC00373827 /* ProfilePresenter.swift in Sources */,
 				B948A234241CBE61001287B8 /* AppRouter.swift in Sources */,
+				B9F04631263573F400D2D3D8 /* AddCompanyActionPresenter.swift in Sources */,
 				B9A0C9A7242FC57D00EB6FAE /* CategoriesInteractor.swift in Sources */,
 				B9A13D43244E474200373827 /* ProfileProgressContainer.swift in Sources */,
 				B9FE3A5125B61897007ED803 /* CompanyCustomPacketBuilder.swift in Sources */,
+				B9F04639263573FA00D2D3D8 /* AddCompanyActionInteractor.swift in Sources */,
 				B9787F3E246B54E1007DB617 /* TaskSelectionService.swift in Sources */,
 				B9787F48246B75A3007DB617 /* TaskListResponseEntity.swift in Sources */,
 				B977484824431A27004D39AD /* TasksListView.swift in Sources */,
@@ -2144,7 +2238,7 @@
 				B9A0C9A9242FC58500EB6FAE /* CategoriesRouter.swift in Sources */,
 				B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */,
 				B9CAA722242BE8DF00E50668 /* EmailVerificationResponseEntity.swift in Sources */,
-				B9D17E32246C2B9C00258BA3 /* OrganizationAppendResponseEntity.swift in Sources */,
+				B9D17E32246C2B9C00258BA3 /* OrganizationControlAppendResponseEntity.swift in Sources */,
 				B96CA66A25B38ED900FF157C /* CompaniesSectionView.swift in Sources */,
 				B96A71E4246BA7A6007416DF /* ProfileResponseDetailsEntity.swift in Sources */,
 				B992D51624578A36002ABF71 /* BenefitsRouter.swift in Sources */,
@@ -2183,8 +2277,10 @@
 				B992D52C2457A18F002ABF71 /* UsedBenefitsPresentationModel.swift in Sources */,
 				B9787F53246B8C50007DB617 /* OrganizationResponseEntity.swift in Sources */,
 				B990932025AF3B0D00CF381B /* UserDefaultsManager.swift in Sources */,
+				B9F046482635741F00D2D3D8 /* AddCompanyActionDependency.swift in Sources */,
 				B992D51224578A11002ABF71 /* BenefitsInteractor.swift in Sources */,
 				B95FB96625B45A6200AB2566 /* BULabel.swift in Sources */,
+				B9F0464D2635742500D2D3D8 /* AddCompanyActionConstants.swift in Sources */,
 				B992D525245799DC002ABF71 /* NewBenefitsPresentationModel.swift in Sources */,
 				B992D5302457A1B2002ABF71 /* UsedBenefitsContentCell.swift in Sources */,
 				B90BED5D25B5D94A00AD78A8 /* CompanyPacketDependency.swift in Sources */,

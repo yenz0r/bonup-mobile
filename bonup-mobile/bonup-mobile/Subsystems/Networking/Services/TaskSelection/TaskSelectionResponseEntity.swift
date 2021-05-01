@@ -22,6 +22,10 @@ struct TaskSelectionResponseEntity: Codable {
     let category: String
     let typeId: Int
     let type: String
-    let ballCount: Int
-    let photos: [String]
+    let pointsCount: Int
+    let photos: [Int]
+    let activity: Bool
+    let accepted: Bool
+    let rejected: Bool
+    let done: Bool
 }

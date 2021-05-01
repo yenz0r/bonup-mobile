@@ -126,6 +126,7 @@ final class CompanyPacketView: BUContentViewController {
 
     @objc private func doneTapped() {
 
+        self.presenter.handleDoneAction()
     }
 }
 
