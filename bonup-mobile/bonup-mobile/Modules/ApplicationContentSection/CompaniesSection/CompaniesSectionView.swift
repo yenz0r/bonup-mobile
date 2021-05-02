@@ -139,6 +139,7 @@ final class CompaniesSectionView: BUContentViewController {
         collectionView.dataSource = self
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isScrollEnabled = false
 
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "sectionCell")
 

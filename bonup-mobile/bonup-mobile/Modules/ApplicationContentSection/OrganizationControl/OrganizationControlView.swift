@@ -60,7 +60,7 @@ final class OrganizationControlView: UIViewController {
     private func configureAppearance() {
         
         self.view.theme_backgroundColor = Colors.backgroundColor
-        self.navigationItem.title = "ui_organization_title".localized
+        self.navigationItem.title = "ui_organization_control_title".localized
     }
 
     private func configureTableView() -> UITableView {

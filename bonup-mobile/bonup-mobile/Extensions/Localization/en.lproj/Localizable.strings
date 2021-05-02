@@ -165,3 +165,9 @@
 "ui_services_category" = "Services";
 "ui_company_add_coupon" = "Add Coupon";
 "ui_company_add_task" = "Add Task";
+"ui_period_week" = "Week";
+"ui_period_month" = "Month";
+"ui_period_year" = "Year";
+"ui_user_activity" = "User Activity";
+"ui_company_statistics_title" = "Statistics";
+"ui_organization_control_title" = "Organisation Control";

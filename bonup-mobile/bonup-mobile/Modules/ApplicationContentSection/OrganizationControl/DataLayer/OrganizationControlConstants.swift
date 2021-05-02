@@ -26,10 +26,10 @@ enum OrganizationControlAction {
             return "ui_check_benefit"
             
         case .addTask:
-            return "ui_add_task"
+            return "ui_company_add_task"
             
         case .addCoupon:
-            return "ui_add_benefit"
+            return "ui_company_add_coupon"
             
         case .statistics:
             return "ui_organization_statistics"

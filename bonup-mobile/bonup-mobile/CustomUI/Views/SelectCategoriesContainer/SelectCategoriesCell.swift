@@ -20,7 +20,20 @@ final class SelectCategoriesCell: UICollectionViewCell {
     func configure(with model: SelectCategoriesCellModel) {
 
         self.categoryTitleLabel.nonlocalizedTitle = model.title
-        self.categoryTitleLabel.textColor = model.isActive ? .green : .red
+        
+        var color: UIColor
+        if model.isActive {
+            
+            color = UIColor.systemGreen.withAlphaComponent(0.15)
+        }
+        else {
+            
+            color = UIColor.systemRed.withAlphaComponent(0.3)
+        }
+        
+        UIView.animate(withDuration: 0.3) {
+            self.contentView.backgroundColor = color
+        }
     }
 
     // MARK: - State variables
@@ -53,7 +66,7 @@ final class SelectCategoriesCell: UICollectionViewCell {
 
         if (self.isFirstLayout) {
 
-            self.contentView.setupBlur()
+//            self.contentView.setupBlur()
             self.isFirstLayout = false
         }
     }
@@ -62,7 +75,7 @@ final class SelectCategoriesCell: UICollectionViewCell {
 
     private func setupAppearance() {
 
-        self.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+        self.backgroundColor = UIColor.black.withAlphaComponent(0.2)
 
         self.layer.cornerRadius = 20
         self.layer.masksToBounds = true
@@ -91,6 +104,8 @@ final class SelectCategoriesCell: UICollectionViewCell {
     private func configureTitleLabel() -> BULabel {
 
         let label = BULabel()
+        
+        label.textColor = .white
 
         return label
     }

@@ -162,3 +162,9 @@
 "ui_services_category" = "Сервисы";
 "ui_company_add_coupon" = "Добавить Купон";
 "ui_company_add_task" = "Добавить Задачу";
+"ui_period_week" = "Неделя";
+"ui_period_month" = "Месяц";
+"ui_period_year" = "Год";
+"ui_user_activity" = "Активность пользователей";
+"ui_company_statistics_title" = "Статистика";
+"ui_organization_control_title" = "Упраление Организацией";

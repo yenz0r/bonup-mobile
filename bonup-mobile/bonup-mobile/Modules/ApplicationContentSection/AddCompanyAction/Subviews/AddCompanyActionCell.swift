@@ -151,6 +151,8 @@ final class AddCompanyActionCell: UITableViewCell {
     
     @objc private func gestureTapped(_ sender: UITapGestureRecognizer) {
         
+        self.contentView.endEditing(true)
+        
         let datePicker = DatePicker()
         datePicker.setup(beginWith: Date()) { [weak self] selected, date in
             
@@ -167,8 +169,6 @@ final class AddCompanyActionCell: UITableViewCell {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
               let controller = appDelegate.window?.rootViewController else { return }
-        
-        self.valueTextField.resignFirstResponder()
         
         datePicker.show(in: controller)
     }

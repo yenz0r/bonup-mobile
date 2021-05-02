@@ -33,6 +33,8 @@ target 'bonup-mobile' do
   pod 'FMPhotoPicker', '~> 1.3.0'
 
   pod 'IQKeyboardManagerSwift'
+  
+  pod 'Charts'
 
   target 'bonup-mobileTests' do
     inherit! :search_paths

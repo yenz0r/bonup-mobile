@@ -174,7 +174,10 @@ extension TasksListView: UICollectionViewDataSource {
 // MARK: - UICollectionViewDataSource implementation
 
 extension TasksListView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.frame.size
     }
 }
@@ -194,6 +197,7 @@ extension TasksListView: UIScrollViewDelegate {
 // MARK: - ITaskListView implementation
 
 extension TasksListView: ITasksListView {
+    
     func reloadData() {
         self.mainCollectionView.reloadData()
     }

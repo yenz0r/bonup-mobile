@@ -20,6 +20,7 @@ final class OrganizationControlRouter {
 
         case showResultAlert(String)
         case showAddAction(CompanyActionType, String)
+        case showStatistics(String)
         case verifyAction(QRScannerCodeDelegate)
     }
 
@@ -75,6 +76,16 @@ extension OrganizationControlRouter: IOrganizationControlRouter {
             let builder = AddCompanyActionBuilder()
             let router = builder.build(dependency)
             router.start(nil)
+            
+        case .showStatistics(let companyId):
+            let dependency = CompanyStatisticsDependency(
+                parentNavigationController: self.parentController.navigationController!,
+                organizationId: companyId
+            )
+            let builder = CompanyStatisticsBuilder()
+            let router = builder.build(dependency)
+            
+            router.start(startCompletion: nil)
             
         case .verifyAction(let qrCodeDelegate):
             

@@ -10,7 +10,7 @@ import Foundation
 
 final class LocaleManager {
 
-    enum Languages: String {
+    enum Languages: String, CaseIterable {
 
         case ru = "ru"
         case en = "en"
@@ -39,7 +39,7 @@ final class LocaleManager {
         return Languages(rawValue: self.currentLocale) ?? .en
     }
 
-    let supportedLanguages: [Languages] = [.ru, .en]
+    let supportedLanguages = Languages.allCases
 
     // MARK: - Public functions
 

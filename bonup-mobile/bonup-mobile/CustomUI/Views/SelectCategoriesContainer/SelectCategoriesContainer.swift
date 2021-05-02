@@ -35,6 +35,11 @@ final class SelectCategoriesContainer: UIView {
 
         self.setupAppearance()
         self.setupSubviews()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(languageChanged),
+                                               name: LocaleManager.shared.notificationName,
+                                               object: nil)
     }
 
     required init?(coder: NSCoder) {
@@ -92,6 +97,13 @@ final class SelectCategoriesContainer: UIView {
                                 forCellWithReuseIdentifier: SelectCategoriesCell.reuseId)
 
         return collectionView
+    }
+    
+    // MARK: - Selectors
+    
+    @objc private func languageChanged() {
+        
+        self.collectionView.reloadData()
     }
 }
 

@@ -78,7 +78,7 @@ extension OrganizationControlPresenter: IOrganizationControlPresenter {
             self.router.show(.showAddAction(.coupon, self.interactor.organizationName))
             
         case .statistics:
-            break
+            self.router.show(.showStatistics(self.interactor.organizationName))
         }
     }
 }
