@@ -82,6 +82,8 @@ final class AddCompanyInputCell: UITableViewCell {
     private func configureTitleLabel() -> BULabel {
 
         let label = BULabel()
+        
+        label.theme_textColor = Colors.defaultTextColor
 
         return label
     }
@@ -91,6 +93,7 @@ final class AddCompanyInputCell: UITableViewCell {
         let textField = BUTextField()
 
         textField.addTarget(self, action: #selector(textFieldValueChanged(_:)), for: .valueChanged)
+        textField.theme_textColor = Colors.defaultTextColor
 
         return textField
     }

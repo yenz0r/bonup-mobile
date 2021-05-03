@@ -112,7 +112,9 @@ final class AddCompanyActionView: BUContentViewController {
 
     private func configureCategoriesContainer() -> SelectCategoriesContainer {
 
-        let dataSource = SelectCategoriesDataSource(isActiveByDefault: false)
+        let dataSource = SelectCategoriesDataSource(isActiveByDefault: false,
+                                                    isSingleSelectionOnly: true,
+                                                    initCategory: self.presenter.selectedCategory)
         let container = SelectCategoriesContainer(delegate: self, dataSource: dataSource)
 
         return container
@@ -191,7 +193,7 @@ extension AddCompanyActionView: SelectCategoriesContainerDelegate {
 
     func selectCategoriesContainerDidUpdateCategoriesList(_ container: SelectCategoriesContainer) {
 
-        self.presenter.handleCategoriesUpdate(container.dataSource.selectedCategories.map { $0.rawValue })
+        self.presenter.handleCategoriesUpdate(container.dataSource.selectedCategories)
     }
 }
 

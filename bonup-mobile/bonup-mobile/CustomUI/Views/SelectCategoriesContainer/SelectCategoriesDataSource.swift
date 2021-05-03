@@ -13,14 +13,29 @@ final class SelectCategoriesDataSource: SelectCategoriesContainerDataSource {
     // MARK: - Private variables
 
     private var categoriesModels: [SelectCategoriesCellModel]
+    private var isSingleSelectionOnly: Bool
 
     // MARK: - Initialization
 
-    init(isActiveByDefault: Bool) {
+    init(isActiveByDefault: Bool, isSingleSelectionOnly: Bool = false, initCategory: InterestCategories? = nil) {
 
-        self.categoriesModels = InterestCategories.allCases.map { SelectCategoriesCellModel(title: $0.title,
-                                                                                            category: $0,
-                                                                                            isActive: isActiveByDefault) }
+        self.isSingleSelectionOnly = isSingleSelectionOnly
+        
+        self.categoriesModels = InterestCategories.allCases.map {
+            
+            SelectCategoriesCellModel(
+                title: $0.title,
+                category: $0,
+                isActive: isSingleSelectionOnly ? isActiveByDefault : false
+            )
+        }
+        
+        if isSingleSelectionOnly,
+           let category = initCategory,
+           let index = self.categoriesModels.firstIndex(where: { $0.category == category }) {
+            
+            self.categoriesModels[index].isActive = true
+        }
     }
 
     // MARK: - SelectCategoriesContainerDataSource
@@ -37,7 +52,19 @@ final class SelectCategoriesDataSource: SelectCategoriesContainerDataSource {
 
     func selectCategoriesContainer(_ container: SelectCategoriesContainer, didSelectCategoryAt index: Int) {
 
-        self.categoriesModels[index].isActive.toggle()
+        if (isSingleSelectionOnly) {
+            
+            if let prevIndex = self.categoriesModels.firstIndex(where: { $0.isActive }) {
+                
+                self.categoriesModels[prevIndex].isActive = false
+            }
+            
+            self.categoriesModels[index].isActive = true
+        }
+        else {
+        
+            self.categoriesModels[index].isActive.toggle()
+        }
     }
 
     var selectedCategories: [InterestCategories] {

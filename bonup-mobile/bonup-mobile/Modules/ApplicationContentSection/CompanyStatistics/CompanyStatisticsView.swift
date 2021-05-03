@@ -34,6 +34,7 @@ final class CompanyStatisticsView: BUContentViewController {
         
         self.setupSubviews()
         self.setupAppearance()
+        self.setupNavigationBar()
     }
     
     override func controllerDidTerminate() {
@@ -67,7 +68,7 @@ final class CompanyStatisticsView: BUContentViewController {
         
         self.categoriesContainer.snp.makeConstraints { make in
             make.trailing.leading.equalTo(self.view.safeAreaLayoutGuide).inset(20)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-50)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-40)
         }
         
         self.chartView.snp.makeConstraints { make in
@@ -75,6 +76,17 @@ final class CompanyStatisticsView: BUContentViewController {
             make.top.equalTo(self.periodSegmentedControl.snp.bottom).offset(20)
             make.bottom.equalTo(self.categoriesContainer.snp.top).offset(-20)
         }
+    }
+    
+    private func setupNavigationBar() {
+        
+        let navigationItem = UIBarButtonItem(barButtonSystemItem: .action,
+                                             target: self,
+                                             action: #selector(shareTapped))
+        
+        navigationItem.theme_tintColor = Colors.navBarIconColor
+        
+        self.navigationItem.rightBarButtonItem = navigationItem
     }
     
     // MARK: - Localization
@@ -136,6 +148,11 @@ final class CompanyStatisticsView: BUContentViewController {
     @objc private func segmentDidChange(_ sender: UISegmentedControl) {
         
         self.presenter.updateSelectedPeriod(at: sender.selectedSegmentIndex)
+    }
+    
+    @objc private func shareTapped() {
+        
+        self.presenter.handleShareAction(image: self.chartView.toImage())
     }
 }
 

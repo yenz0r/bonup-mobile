@@ -171,3 +171,4 @@
 "ui_user_activity" = "User Activity";
 "ui_company_statistics_title" = "Statistics";
 "ui_organization_control_title" = "Organisation Control";
+"ui_allowed_count_label" = "Allowed Count:";

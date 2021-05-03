@@ -168,3 +168,4 @@
 "ui_user_activity" = "Активность пользователей";
 "ui_company_statistics_title" = "Статистика";
 "ui_organization_control_title" = "Упраление Организацией";
+"ui_allowed_count_label" = "Допустимое количество:";

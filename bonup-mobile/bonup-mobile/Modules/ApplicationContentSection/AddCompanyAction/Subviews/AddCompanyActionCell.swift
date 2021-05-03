@@ -56,9 +56,11 @@ final class AddCompanyActionCell: UITableViewCell {
             fallthrough
         case .description:
             fallthrough
+        case .allowedCount:
+            fallthrough
         case .bonuses:
             self.valueTextField.isEnabled = true
-            self.valueTextField.keyboardType = fieldType == .bonuses ? .numberPad : .alphabet;
+            self.valueTextField.keyboardType = fieldType == .bonuses || fieldType == .allowedCount ? .numberPad : .alphabet;
             self.tapGesture.isEnabled = false
             
         case .startDate:

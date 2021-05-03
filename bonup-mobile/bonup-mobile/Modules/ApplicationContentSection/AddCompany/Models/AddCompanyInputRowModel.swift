@@ -62,5 +62,5 @@ enum AddCompanyInputRowModelType {
 struct AddCompanyInputRowModel {
 
     let rowType: AddCompanyInputRowModelType
-    let value: String? = nil
+    var value: String? = nil
 }

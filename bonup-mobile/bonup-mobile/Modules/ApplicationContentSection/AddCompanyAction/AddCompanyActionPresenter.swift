@@ -13,13 +13,14 @@ protocol IAddCompanyActionPresenter: AnyObject {
 
     var fieldsCount: Int { get }
     var screenTitle: String { get }
+    var selectedCategory: InterestCategories { get }
     
     func fieldTitle(at index: Int) -> String
     func fieldValue(at index: Int) -> String
     func fieldType(at index: Int) -> CompanyActionFieldType
 
     func handleValueUpdate(_ value: Any, at indexPath: IndexPath)
-    func handleCategoriesUpdate(_ categoriesIds: [Int])
+    func handleCategoriesUpdate(_ categories: [InterestCategories])
     func handleAddImageTap()
     func handleDoneTap()
 }
@@ -76,9 +77,17 @@ extension AddCompanyActionPresenter: IAddCompanyActionPresenter {
         }
     }
     
-    func handleCategoriesUpdate(_ categoriesIds: [Int]) {
+    func handleCategoriesUpdate(_ categories: [InterestCategories]) {
         
-        self.interactor.categoriesIds = categoriesIds
+        if let category = categories.first {
+        
+            self.interactor.selectedCategory = category
+        }
+    }
+    
+    var selectedCategory: InterestCategories {
+        
+        self.interactor.selectedCategory
     }
     
     func fieldType(at index: Int) -> CompanyActionFieldType {
@@ -107,6 +116,8 @@ extension AddCompanyActionPresenter: IAddCompanyActionPresenter {
             return Date.dateFormatter.string(from: viewModel.value as? Date ?? Date())
             
         case .bonuses:
+            fallthrough
+        case .allowedCount:
             return String(viewModel.value as? String ?? "")
         }
     }

@@ -33,6 +33,7 @@ enum CompanyActionFieldType {
     case startDate
     case endDate
     case bonuses
+    case allowedCount
     
     var title: String {
         
@@ -51,6 +52,9 @@ enum CompanyActionFieldType {
             
         case .bonuses:
             return "ui_bonuses_count_label"
+            
+        case .allowedCount:
+            return "ui_allowed_count_label"
         }
     }
 }

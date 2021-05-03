@@ -19,6 +19,8 @@ protocol ICompanyStatisticsPresenter: AnyObject {
     func updateSelectedCategories(ids: [Int])
     
     func terminate()
+    
+    func handleShareAction(image: UIImage)
 }
 
 final class CompanyStatisticsPresenter {
@@ -77,6 +79,11 @@ extension CompanyStatisticsPresenter: ICompanyStatisticsPresenter {
     func terminate() {
         
         self.router.stop(withPop: false, stopCompetion: nil)
+    }
+    
+    func handleShareAction(image: UIImage) {
+        
+        self.router.show(.share(image))
     }
     
     // TEST!!!!!!!!

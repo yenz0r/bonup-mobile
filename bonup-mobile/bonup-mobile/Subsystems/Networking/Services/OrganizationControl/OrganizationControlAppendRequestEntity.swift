@@ -13,9 +13,9 @@ struct OrganizationControlAppendRequestEntity {
     var title: String = ""
     var descriptionText: String = ""
     var categoriesIds: [Int] = []
-    var token: String = ""
     var bonusesCount: Int = 0
     var organizationId: String = ""
     var startDateTimestamp: Double = 0
     var endDateTimestamp: Double = 0
+    var allowedCount: Int = 0
 }

@@ -13,8 +13,8 @@ enum OrganizationControlService {
 
     case resolveTask(Int, String, String)
     case activateCoupon(Int, String, String)
-    case putCoupon(OrganizationControlAppendRequestEntity)
-    case putTask(OrganizationControlAppendRequestEntity)
+    case putCoupon(String, OrganizationControlAppendRequestEntity)
+    case putTask(String, OrganizationControlAppendRequestEntity)
 }
 
 extension OrganizationControlService: IAuthorizedTargetType {
@@ -29,9 +29,9 @@ extension OrganizationControlService: IAuthorizedTargetType {
             return "/resolveTask"
         case .activateCoupon(_, _, _):
             return "/activateCoupon"
-        case .putCoupon(_):
+        case .putCoupon(_, _):
             return "/putCoupon"
-        case .putTask(_):
+        case .putTask(_, _):
             return "/putTask"
         }
     }
@@ -42,9 +42,9 @@ extension OrganizationControlService: IAuthorizedTargetType {
             return .post
         case .activateCoupon(_, _, _):
             return .post
-        case .putCoupon(_):
+        case .putCoupon(_, _):
             return .put
-        case .putTask(_):
+        case .putTask(_, _):
             return .put
         }
     }
@@ -72,15 +72,15 @@ extension OrganizationControlService: IAuthorizedTargetType {
                 ],
                 encoding: JSONEncoding.default
             )
-        case .putTask(let entity):
+        case .putTask(let token, let entity):
             fallthrough
-        case .putCoupon(let entity):
+        case .putCoupon(let token, let entity):
             return .requestParameters(
                 parameters: [
                     "description": entity.descriptionText,
                     "organizationName": entity.organizationId,
                     "typeId": 1,
-                    "token": entity.token,
+                    "token": token,
                     "count": entity.bonusesCount,
                     "name": entity.title
                 ],

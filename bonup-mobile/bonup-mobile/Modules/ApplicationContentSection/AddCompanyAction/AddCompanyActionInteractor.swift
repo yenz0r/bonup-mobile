@@ -11,7 +11,7 @@ import Foundation
 protocol IAddCompanyActionInteractor: AnyObject {
 
     var viewModels: [AddCompanyActionViewModel] { get }
-    var categoriesIds: [Int] { get set }
+    var selectedCategory: InterestCategories { get set }
     var actionType: CompanyActionType { get }
     
     func updateValue(_ value: Any, at index: Int)
@@ -24,12 +24,12 @@ final class AddCompanyActionInteractor {
     
     private let networkProvider = MainNetworkProvider<OrganizationControlService>()
     private var _viewModels: [AddCompanyActionViewModel]
-    internal var categoriesIds: [Int]
     internal let organizationId: String
     
     // MARK: - Public properties
     
     var actionType: CompanyActionType
+    var selectedCategory: InterestCategories = .food
     
     // MARK: - Initialization
 
@@ -42,6 +42,7 @@ final class AddCompanyActionInteractor {
                 AddCompanyActionViewModel(fieldType: .title, value: ""),
                 AddCompanyActionViewModel(fieldType: .description, value: ""),
                 AddCompanyActionViewModel(fieldType: .bonuses, value: 0),
+                AddCompanyActionViewModel(fieldType: .allowedCount, value: 0),
                 AddCompanyActionViewModel(fieldType: .startDate, value: Date()),
                 AddCompanyActionViewModel(fieldType: .endDate, value: Date())
             ]
@@ -51,12 +52,12 @@ final class AddCompanyActionInteractor {
                 AddCompanyActionViewModel(fieldType: .title, value: ""),
                 AddCompanyActionViewModel(fieldType: .description, value: ""),
                 AddCompanyActionViewModel(fieldType: .bonuses, value: 0),
+                AddCompanyActionViewModel(fieldType: .allowedCount, value: 0),
                 AddCompanyActionViewModel(fieldType: .startDate, value: Date()),
                 AddCompanyActionViewModel(fieldType: .endDate, value: Date())
             ]
         }
         
-        self.categoriesIds = []
         self.actionType = actionType
         self.organizationId = organizationId
     }
@@ -82,8 +83,6 @@ extension AddCompanyActionInteractor: IAddCompanyActionInteractor {
         
         guard let token = AccountManager.shared.currentToken else { return }
         
-        requestEntity.token = token
-        
         for viewModel in _viewModels {
             
             switch viewModel.fieldType {
@@ -102,18 +101,24 @@ extension AddCompanyActionInteractor: IAddCompanyActionInteractor {
             case .bonuses:
                 requestEntity.bonusesCount = viewModel.value as? Int ?? 0
                 
+            case .allowedCount:
+                requestEntity.allowedCount = viewModel.value as? Int ?? 0
+                
             }
         }
         
-        let target: OrganizationControlService = self.actionType == .coupon ? .putCoupon(requestEntity) : .putTask(requestEntity)
+        let target: OrganizationControlService = self.actionType == .coupon ? .putCoupon(token, requestEntity) : .putTask(token, requestEntity)
         
         _ = networkProvider.request(
             target,
             type: OrganizationControlAppendResponseEntity.self,
             completion: { result in
+                
                 if result.isSuccess {
+                    
                     success?(result.message)
                 } else {
+                    
                     failure?(result.message)
                 }
             },

@@ -311,6 +311,7 @@ class SOTabBarItem: UIView {
         let lbl = UILabel()
         lbl.text = self.title.localized
         lbl.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.semibold)
+        lbl.adjustsFontSizeToFitWidth = true
         lbl.textColor = UIColor.darkGray
         lbl.textAlignment = .center
         lbl.translatesAutoresizingMaskIntoConstraints = false

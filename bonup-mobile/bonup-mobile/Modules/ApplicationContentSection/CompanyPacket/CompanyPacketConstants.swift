@@ -104,15 +104,15 @@ enum CompanyPacketType {
 
         switch self {
         case .junior:
-            return .green
+            return .systemGreen
         case .middle:
             return .orange
         case .senior:
-            return .red
+            return .systemRed
         case .custom(_, _, _):
-            return .purple
+            return .cyan
         case .none:
-        return .black
+            return .black
         }
     }
 

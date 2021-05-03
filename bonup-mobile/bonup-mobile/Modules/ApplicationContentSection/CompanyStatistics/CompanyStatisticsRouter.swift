@@ -17,7 +17,10 @@ protocol ICompanyStatisticsRouter {
 
 final class CompanyStatisticsRouter {
 
-    enum RouterScenario { }
+    enum RouterScenario {
+        
+        case share(UIImage)
+    }
 
     private var view: CompanyStatisticsView?
     private var parentNavigationController: UINavigationController
@@ -50,6 +53,26 @@ extension CompanyStatisticsRouter: ICompanyStatisticsRouter {
         self.view = nil
     }
 
-    func show(_ scenario: RouterScenario) { }
+    func show(_ scenario: RouterScenario) {
+        
+        guard let view = self.view else { return }
+        
+        switch scenario {
+        
+        case .share(let image):
+            
+            let imageShare = [image]
+            let activityViewController = UIActivityViewController(activityItems: imageShare,
+                                                                  applicationActivities: nil)
+            activityViewController.title = "Bonup Platform"
+            if #available(iOS 13.0, *) {
+                
+                activityViewController.overrideUserInterfaceStyle = ThemeColorsManager.shared.currentTheme == .dark ? .dark : .light
+            }
+            
+            activityViewController.popoverPresentationController?.sourceView = view.view
+            view.present(activityViewController, animated: true, completion: nil)
+        }
+    }
 }
 

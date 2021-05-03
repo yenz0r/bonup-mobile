@@ -11,6 +11,11 @@ import Foundation
 protocol IAddCompanyInteractor: AnyObject {
 
     var inputSections: [AddCompanyInputSectionModel] { get }
+    var selectedCategory: InterestCategories { get set }
+    
+    func updateValue(_ value: String?, at indexPath: IndexPath)
+    
+    func addCompany(success: (() -> Void)?, failure: ((String) -> Void)?)
 }
 
 final class AddCompanyInteractor {
@@ -18,6 +23,8 @@ final class AddCompanyInteractor {
     // MARK: - Initialization
 
     init() {
+        
+        self.selectedCategory = InterestCategories.food
         
         self.sections = [
             self.configureTitleInfoSection(),
@@ -30,8 +37,11 @@ final class AddCompanyInteractor {
 
     // MARK: - Private variables
 
-    var sections: [AddCompanyInputSectionModel] = []
+    private var sections: [AddCompanyInputSectionModel] = []
+    var selectedCategory: InterestCategories = .food
 
+    private lazy var networkProvider = MainNetworkProvider<AddCompanyService>()
+    
     // MARK: - Configure
 
     private func configureTitleInfoSection() -> AddCompanyInputSectionModel {
@@ -95,9 +105,90 @@ final class AddCompanyInteractor {
 // MARK: - IAddCompanyInteractor implementation
 
 extension AddCompanyInteractor: IAddCompanyInteractor {
-
+    
+    func updateValue(_ value: String?, at indexPath: IndexPath) {
+        
+        self.sections[indexPath.section].rows[indexPath.row].value = value
+    }
+    
     var inputSections: [AddCompanyInputSectionModel] {
 
         return self.sections
+    }
+    
+    func addCompany(success: (() -> Void)?, failure: ((String) -> Void)?) {
+        
+        guard let token = AccountManager.shared.currentToken else {
+            
+            failure?("ui_error_title".localized)
+            return
+        }
+        
+        DispatchQueue.global(qos: .background).async {
+         
+            var requestModel = AddCompanyRequestEntity()
+            for section in self.sections {
+                
+                for row in section.rows {
+                    
+                    switch row.rowType {
+                    
+                    case .title:
+                        requestModel.title = row.value ?? ""
+                        
+                    case .ownerName:
+                        requestModel.directorFirstName = row.value ?? ""
+                        
+                    case .ownerSecondName:
+                        requestModel.directorSecondName = row.value ?? ""
+                        
+                    case .ownerLastName:
+                        requestModel.directorLastName = row.value ?? ""
+                        
+                    case .country:
+                        requestModel.locationCountry = row.value ?? ""
+                        
+                    case .city:
+                        requestModel.locationCity = row.value ?? ""
+                        
+                    case .street:
+                        requestModel.locationStreet = row.value ?? ""
+                        
+                    case .houseNumber:
+                        requestModel.locationHomeNumber = row.value ?? ""
+                        
+                    case .phone:
+                        requestModel.contactsPhone = row.value ?? ""
+                        
+                    case .vkLink:
+                        requestModel.contactsVK = row.value ?? ""
+                        
+                    case .webSite:
+                        requestModel.contactsWebSite = row.value ?? ""
+                        
+                    case .descriptionInfo:
+                        requestModel.descriptionText = row.value ?? ""
+                    }
+                }
+            }
+            
+            _ = self.networkProvider
+                .requestBool(.addCompany(token: token, companyEntity: requestModel),
+                             completion: { result in
+                                
+                                if result {
+                                    
+                                    success?()
+                                }
+                                else {
+                                    
+                                    failure?("ui_error_title".localized)
+                                }
+                                
+                             }, failure: { _ in
+                                
+                                failure?("ui_error_title".localized)
+                             })
+        }
     }
 }

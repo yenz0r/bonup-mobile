@@ -22,6 +22,7 @@ final class AddCompanyRouter {
 
         case addImage(FMPhotoPickerViewControllerDelegate)
         case organizationsList
+        case showResultAlert(String)
     }
 
     private var view: AddCompanyView?
@@ -48,7 +49,8 @@ extension AddCompanyRouter: IAddCompanyRouter {
     }
 
     func stop(_ completion: (() -> Void)?) {
-        self.parentNavigationController.popViewController(animated: true)
+        
+        self.parentNavigationController.popToRootViewController(animated: true)
         self.view = nil
 
         completion?()
@@ -59,6 +61,15 @@ extension AddCompanyRouter: IAddCompanyRouter {
         guard let view = self.view else { return }
 
         switch scenario {
+        
+        case .showResultAlert(let message):
+            AlertsFactory.shared.infoAlert(
+                for: .error,
+                title: "ui_help_title".localized,
+                description: message,
+                from: view,
+                completion: nil
+            )
 
         case .addImage(let delegate):
 

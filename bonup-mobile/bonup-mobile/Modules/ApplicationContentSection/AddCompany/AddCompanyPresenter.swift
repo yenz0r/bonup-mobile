@@ -12,10 +12,12 @@ import FMPhotoPicker
 protocol IAddCompanyPresenter: AnyObject {
 
     var inputSections: [AddCompanyInputSectionModel] { get }
+    var selectedCategory: InterestCategories { get }
 
     func handleValueUpdate(_ value: String?, at indexPath: IndexPath)
     func handleAddImageTap()
     func handleDoneTap()
+    func handleSectionsUpdate(categories: [InterestCategories])
 }
 
 final class AddCompanyPresenter {
@@ -40,8 +42,14 @@ final class AddCompanyPresenter {
 
 extension AddCompanyPresenter: IAddCompanyPresenter {
     
+    var selectedCategory: InterestCategories {
+        
+        return self.interactor.selectedCategory
+    }
+    
     func handleValueUpdate(_ value: String?, at indexPath: IndexPath) {
         
+        self.interactor.updateValue(value, at: indexPath)
     }
     
     func handleAddImageTap() {
@@ -56,7 +64,24 @@ extension AddCompanyPresenter: IAddCompanyPresenter {
     
     func handleDoneTap() {
         
-        self.router.show(.organizationsList)
+        self.interactor.addCompany(
+            success: { [weak self] in
+                
+                self?.router.stop(nil)
+            },
+            failure: { [weak self] message in
+                
+                self?.router.show(.showResultAlert(message))
+            }
+        )
+    }
+    
+    func handleSectionsUpdate(categories: [InterestCategories]) {
+        
+        if let category = categories.first {
+        
+            self.interactor.selectedCategory = category
+        }
     }
 }
 
