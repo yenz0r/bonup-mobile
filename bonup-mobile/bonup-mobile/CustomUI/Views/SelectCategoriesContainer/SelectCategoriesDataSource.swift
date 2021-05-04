@@ -26,7 +26,7 @@ final class SelectCategoriesDataSource: SelectCategoriesContainerDataSource {
             SelectCategoriesCellModel(
                 title: $0.title,
                 category: $0,
-                isActive: isSingleSelectionOnly ? isActiveByDefault : false
+                isActive: isSingleSelectionOnly ? false : isActiveByDefault
             )
         }
         

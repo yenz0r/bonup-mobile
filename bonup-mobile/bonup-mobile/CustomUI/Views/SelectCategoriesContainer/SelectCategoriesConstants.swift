@@ -6,7 +6,7 @@
 //  Copyright © 2021 Bonup. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum InterestCategories: Int, CaseIterable {
 
@@ -41,6 +41,39 @@ enum InterestCategories: Int, CaseIterable {
             return "ui_coffe_category"
         case .services:
             return "ui_services_category"
+        }
+    }
+    
+    var color: UIColor {
+        
+        switch self {
+        
+        case .food:
+            return .init(hex: "#E37C55")
+            
+        case .sport:
+            return .init(hex: "#D36157")
+            
+        case .media:
+            return .init(hex: "#F1B355")
+            
+        case .health:
+            return .init(hex: "#FF7B94")
+            
+        case .literature:
+            return .init(hex: "#7E707D")
+            
+        case .films:
+            return .init(hex: "#B1C3DF")
+            
+        case .music:
+            return .init(hex: "#F2E4E4")
+            
+        case .coffe:
+            return .init(hex: "#B0EBE1")
+            
+        case .services:
+            return .init(hex: "#A0DDFA")
         }
     }
 }

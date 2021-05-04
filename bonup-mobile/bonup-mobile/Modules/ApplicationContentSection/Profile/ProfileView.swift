@@ -8,6 +8,7 @@
 
 import UIKit
 import UICircularProgressRing
+import Charts
 
 protocol IProfileView: AnyObject {
     
@@ -24,7 +25,7 @@ final class ProfileView: BUContentViewController {
 
     private var headerView: ProfileHeaderView!
     private var infoContainer: ProfileInfoContainer!
-    private var progressContainer: ProfileProgressContainer!
+    private var actionsChartsContainer: ProfileActionsChartsContainer!
     private var ahievementsContainer: ProfileAhievementsView!
 
     // MARK: - Life cycle
@@ -35,12 +36,16 @@ final class ProfileView: BUContentViewController {
 
         self.headerView = ProfileHeaderView(frame: .zero)
         self.infoContainer = ProfileInfoContainer(frame: .zero)
-        self.progressContainer = ProfileProgressContainer(frame: .zero)
         self.ahievementsContainer = ProfileAhievementsView(frame: .zero)
+        self.actionsChartsContainer = ProfileActionsChartsContainer(
+            selectedCategory: .tasks,
+            onCategorySelection: { [weak self] newCategory in
+                
+            })
 
         [self.headerView,
          self.infoContainer,
-         self.progressContainer,
+         self.actionsChartsContainer,
          self.ahievementsContainer].forEach { self.view.addSubview($0) }
 
         self.headerView.snp.makeConstraints { make in
@@ -53,13 +58,14 @@ final class ProfileView: BUContentViewController {
             make.height.equalTo(50.0)
         }
 
-        self.progressContainer.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+        self.actionsChartsContainer.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(10)
             make.top.equalTo(self.infoContainer.snp.bottom).offset(10.0)
         }
 
         self.ahievementsContainer.snp.makeConstraints { make in
-            make.top.equalTo(self.progressContainer.snp.bottom).offset(10.0)
+            make.top.equalTo(self.actionsChartsContainer.snp.bottom).offset(10.0)
+            make.height.equalTo(100)
             make.leading.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(10.0)
         }
     }
@@ -72,14 +78,16 @@ final class ProfileView: BUContentViewController {
 
         self.headerView.dataSource = self
         self.infoContainer.dataSource = self
-        self.progressContainer.dataSource = self
+        self.actionsChartsContainer.dataSource = self
         self.ahievementsContainer.dataSource = self
 
         self.reloadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        
         self.presenter.viewWillAppear()
+        
         super.viewWillAppear(animated)
     }
 
@@ -120,9 +128,10 @@ final class ProfileView: BUContentViewController {
 extension ProfileView: IProfileView {
 
     func reloadData() {
+        
         self.headerView.reloadData()
         self.infoContainer.reloadData()
-        self.progressContainer.reloadData()
+        self.actionsChartsContainer.reloadData()
         self.ahievementsContainer.reloadData()
     }
 }
@@ -134,7 +143,8 @@ extension ProfileView: ProfileHeaderViewDataSource {
         return AssetsHelper.shared.image(.usernameIcon)
     }
 
-    func profileHeaderView(_ profileHeaderView: ProfileHeaderView, userInfoFor type: ProfileHeaderView.UserInfoType) -> String? {
+    func profileHeaderView(_ profileHeaderView: ProfileHeaderView,
+                           userInfoFor type: ProfileHeaderView.UserInfoType) -> String? {
         switch type {
         case .name:
             return self.presenter.name
@@ -149,7 +159,8 @@ extension ProfileView: ProfileHeaderViewDataSource {
 // MARK: - ProfileInfoContainerDataSource
 
 extension ProfileView: ProfileInfoContainerDataSource {
-    func profileInfoContainer(_ container: ProfileInfoContainer, valueFor type: ProfileInfoContainer.InfoType) -> String {
+    func profileInfoContainer(_ container: ProfileInfoContainer,
+                              valueFor type: ProfileInfoContainer.InfoType) -> String {
         switch type {
         case .done:
             return self.presenter.doneTasks
@@ -195,5 +206,16 @@ extension ProfileView: ProfileAhievementsViewDataSource {
     func numberOfItemsInprofileAhievementsView(_ profileAhievementsView: ProfileAhievementsView) -> Int {
 
         return self.presenter.archivesCount()
+    }
+}
+
+// MARK: - ProfileActionsChartsContainerDataSource
+
+extension ProfileView: ProfileActionsChartsContainerDataSource {
+    
+    func actionsCharts(_ charts: ProfileActionsChartsContainer,
+                       needsDataFor category: ProfileActionsChartsContainer.Category) -> PieChartData {
+        
+        return self.presenter.actionsChartData(for: category)
     }
 }

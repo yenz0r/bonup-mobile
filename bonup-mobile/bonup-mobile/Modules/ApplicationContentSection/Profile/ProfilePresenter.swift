@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Charts
 
 protocol IProfilePresenter: AnyObject {
 
@@ -30,6 +31,8 @@ protocol IProfilePresenter: AnyObject {
     func archiveDescription(for index: Int) -> String
     func archiveState(for index: Int) -> Bool
     func archivesCount() -> Int
+    
+    func actionsChartData(for category: ProfileActionsChartsContainer.Category) -> PieChartData
 }
 
 final class ProfilePresenter {
@@ -138,5 +141,38 @@ extension ProfilePresenter: IProfilePresenter {
             }
         )
     }
+    
+    func actionsChartData(for category: ProfileActionsChartsContainer.Category) -> PieChartData {
+        
+        let entries = (0..<5).map { (i) -> PieChartDataEntry in
+            return PieChartDataEntry(value: 0.4,
+                                     label: "Test")
+        }
+        
+        let set = PieChartDataSet(entries: entries, label: "Election Results")
+        set.drawIconsEnabled = false
+        set.sliceSpace = 2
+        
+        
+        set.colors = ChartColorTemplates.vordiplom()
+            + ChartColorTemplates.joyful()
+            + ChartColorTemplates.colorful()
+            + ChartColorTemplates.liberty()
+            + ChartColorTemplates.pastel()
+            + [UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1)]
+        
+        let data = PieChartData(dataSet: set)
+        
+        let pFormatter = NumberFormatter()
+        pFormatter.numberStyle = .percent
+        pFormatter.maximumFractionDigits = 1
+        pFormatter.multiplier = 1
+        pFormatter.percentSymbol = " %"
+        data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
+        
+        data.setValueFont(.systemFont(ofSize: 11, weight: .light))
+        data.setValueTextColor(.black)
+        
+        return data
+    }
 }
-

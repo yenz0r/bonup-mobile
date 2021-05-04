@@ -27,7 +27,6 @@ extension ProfileInteractor: IProfileInteractor {
 
         guard let token = AccountManager.shared.currentToken else { return }
 
-
         _ = networkProvider.request(
             .getUsetData(token),
             type: ProfileResponseEntity.self,

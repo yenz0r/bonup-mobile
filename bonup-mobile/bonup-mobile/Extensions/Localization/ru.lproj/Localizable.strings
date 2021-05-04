@@ -169,3 +169,5 @@
 "ui_company_statistics_title" = "Статистика";
 "ui_organization_control_title" = "Упраление Организацией";
 "ui_allowed_count_label" = "Допустимое количество:";
+"ui_tasks_title" = "Задачи";
+"ui_coupons_title" = "Купоны";

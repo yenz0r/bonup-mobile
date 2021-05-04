@@ -55,6 +55,8 @@
 		B93F2B73263F0F0700A8A8D6 /* CompanyStatisticsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B72263F0F0700A8A8D6 /* CompanyStatisticsConstants.swift */; };
 		B93F2B76264079FF00A8A8D6 /* AddCompanyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B75264079FF00A8A8D6 /* AddCompanyService.swift */; };
 		B93F2B7826407A1300A8A8D6 /* AddCompanyRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B7726407A1300A8A8D6 /* AddCompanyRequestEntity.swift */; };
+		B93F2B7B2641F4B700A8A8D6 /* ProfileActionsChartsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B7A2641F4B700A8A8D6 /* ProfileActionsChartsContainer.swift */; };
+		B93F2B7D2641FABF00A8A8D6 /* BUSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B7C2641FABF00A8A8D6 /* BUSegmentedControl.swift */; };
 		B93FDB1D246BDC57006E93F4 /* BenefitsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93FDB1C246BDC57006E93F4 /* BenefitsService.swift */; };
 		B93FDB1F246BDCB6006E93F4 /* BenefitsResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93FDB1E246BDCB6006E93F4 /* BenefitsResponseEntity.swift */; };
 		B941E736246B933B0056B844 /* OrganizationControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941E735246B933B0056B844 /* OrganizationControlView.swift */; };
@@ -368,6 +370,8 @@
 		B93F2B72263F0F0700A8A8D6 /* CompanyStatisticsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyStatisticsConstants.swift; sourceTree = "<group>"; };
 		B93F2B75264079FF00A8A8D6 /* AddCompanyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyService.swift; sourceTree = "<group>"; };
 		B93F2B7726407A1300A8A8D6 /* AddCompanyRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyRequestEntity.swift; sourceTree = "<group>"; };
+		B93F2B7A2641F4B700A8A8D6 /* ProfileActionsChartsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionsChartsContainer.swift; sourceTree = "<group>"; };
+		B93F2B7C2641FABF00A8A8D6 /* BUSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUSegmentedControl.swift; sourceTree = "<group>"; };
 		B93FDB1C246BDC57006E93F4 /* BenefitsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsService.swift; sourceTree = "<group>"; };
 		B93FDB1E246BDCB6006E93F4 /* BenefitsResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsResponseEntity.swift; sourceTree = "<group>"; };
 		B941E735246B933B0056B844 /* OrganizationControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlView.swift; sourceTree = "<group>"; };
@@ -1366,6 +1370,7 @@
 				B96CA66125B3895100FF157C /* BUMapView.swift */,
 				B95FB96525B45A6200AB2566 /* BULabel.swift */,
 				B9E7CEB425B492E30033810D /* BUTextField.swift */,
+				B93F2B7C2641FABF00A8A8D6 /* BUSegmentedControl.swift */,
 				B9B67F3D25B4781700AC7184 /* SelectCategoriesContainer */,
 				B90867DC25B5DB0800E0DE91 /* BUAmountSetter.swift */,
 			);
@@ -1492,6 +1497,7 @@
 				B9A13D42244E474200373827 /* ProfileProgressContainer.swift */,
 				B91A1E562451CD3A00837E73 /* ProfileAhievementsView.swift */,
 				B964E0C22451CFC400668EE8 /* ProfileAhievementsCell.swift */,
+				B93F2B7A2641F4B700A8A8D6 /* ProfileActionsChartsContainer.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -2184,6 +2190,7 @@
 				B964CE8624475C6900161300 /* NewPasswordResponseEntity.swift in Sources */,
 				B98DE0E4244BB61E007AE007 /* SettingsInteractor.swift in Sources */,
 				B9CAA71F242BE8B500E50668 /* EmailVerificationService.swift in Sources */,
+				B93F2B7D2641FABF00A8A8D6 /* BUSegmentedControl.swift in Sources */,
 				B9C97013263DAA5400066625 /* OrganizationControlAppendRequestEntity.swift in Sources */,
 				B9B67F2825B475D200AC7184 /* SelectCategoriesDataSource.swift in Sources */,
 				B9D30C72244BA0DC00B9E9AA /* ChangePasswordPresenter.swift in Sources */,
@@ -2307,6 +2314,7 @@
 				B9787F3C246B517D007DB617 /* TermsAndConditionsConstants.swift in Sources */,
 				B9268920242A95CA00F1732A /* AssetsHelper.swift in Sources */,
 				B992D51424578A2E002ABF71 /* BenefitsBuilder.swift in Sources */,
+				B93F2B7B2641F4B700A8A8D6 /* ProfileActionsChartsContainer.swift in Sources */,
 				B966E72E24684D000043FD69 /* BenefitDescriptionPresenter.swift in Sources */,
 				B96A71DD246B9C90007416DF /* OrganizationControlService.swift in Sources */,
 				B977483F24431955004D39AD /* TaskSelectionBuilder.swift in Sources */,
