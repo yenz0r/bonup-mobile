@@ -13,6 +13,7 @@ protocol IAddCompanyPresenter: AnyObject {
 
     var inputSections: [AddCompanyInputSectionModel] { get }
     var selectedCategory: InterestCategories { get }
+    var moduleMode: AddCompanyInteractor.ModuleMode { get }
 
     func handleValueUpdate(_ value: String?, at indexPath: IndexPath)
     func handleAddImageTap()
@@ -67,11 +68,17 @@ extension AddCompanyPresenter: IAddCompanyPresenter {
         self.interactor.addCompany(
             success: { [weak self] in
                 
-                self?.router.stop(nil)
+                DispatchQueue.main.async {
+                 
+                    self?.router.stop(nil)
+                }
             },
             failure: { [weak self] message in
                 
-                self?.router.show(.showResultAlert(message))
+                DispatchQueue.main.async {
+                
+                    self?.router.show(.showResultAlert(message))
+                }
             }
         )
     }
@@ -82,6 +89,11 @@ extension AddCompanyPresenter: IAddCompanyPresenter {
         
             self.interactor.selectedCategory = category
         }
+    }
+    
+    var moduleMode: AddCompanyInteractor.ModuleMode {
+        
+        return self.interactor.moduleMode
     }
 }
 

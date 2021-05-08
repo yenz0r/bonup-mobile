@@ -46,20 +46,31 @@ final class AddCompanyView: BUContentViewController {
 
     override func setupLocalizableContent() {
 
-        self.navigationItem.title = "ui_add_new_company".localized
-        self.navigationItem.rightBarButtonItem?.title = "ui_done_title".localized
+        if self.presenter.moduleMode == .add {
+            
+            self.navigationItem.title = "ui_add_new_company".localized
+            self.navigationItem.rightBarButtonItem?.title = "ui_done_title".localized
+        }
+        else {
+            
+            self.navigationItem.title = "ui_company_details_title".localized
+        }
     }
 
     // MARK: - Setup
 
     private func setupNavBar() {
 
-        let done = UIBarButtonItem(title: "ui_done_title".localized,
-                                   style: .plain,
-                                   target: self,
-                                   action: #selector(doneTapped))
-        done.theme_tintColor = Colors.navBarIconColor
-        self.navigationItem.rightBarButtonItem = done
+        if self.presenter.moduleMode == .add {
+            
+            let done = UIBarButtonItem(title: "ui_done_title".localized,
+                                       style: .plain,
+                                       target: self,
+                                       action: #selector(doneTapped))
+            done.theme_tintColor = Colors.navBarIconColor
+            self.navigationItem.rightBarButtonItem = done
+            
+        }
     }
 
     private func setupSubviews() {
@@ -105,16 +116,16 @@ final class AddCompanyView: BUContentViewController {
 
         let gesture = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
         iv.addGestureRecognizer(gesture)
-        iv.isUserInteractionEnabled = true
+        iv.isUserInteractionEnabled = self.presenter.moduleMode == .add
 
         return iv
     }
 
     private func configureCategoriesContainer() -> SelectCategoriesContainer {
 
-        let dataSource = SelectCategoriesDataSource(isActiveByDefault: false,
-                                                    isSingleSelectionOnly: true,
-                                                    initCategory: self.presenter.selectedCategory)
+        let dataSource = SelectCategoriesDataSource(selectedCategories: [self.presenter.selectedCategory],
+                                                    selectionMode: .single,
+                                                    isChangable: self.presenter.moduleMode == .add)
         let container = SelectCategoriesContainer(delegate: self, dataSource: dataSource)
 
         return container

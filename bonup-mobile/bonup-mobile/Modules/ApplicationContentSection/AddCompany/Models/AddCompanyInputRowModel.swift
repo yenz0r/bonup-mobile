@@ -63,4 +63,12 @@ struct AddCompanyInputRowModel {
 
     let rowType: AddCompanyInputRowModelType
     var value: String? = nil
+    var isEnabled: Bool
+    
+    init(value: String?, rowType: AddCompanyInputRowModelType) {
+        
+        self.rowType = rowType
+        self.value = value
+        self.isEnabled = value == nil
+    }
 }

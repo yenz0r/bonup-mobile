@@ -9,6 +9,7 @@
 import UIKit
 
 struct AddCompanyDependency {
-
+    
     let parentNavigationController: UINavigationController
+    let initCompany: CompanyEntity?
 }

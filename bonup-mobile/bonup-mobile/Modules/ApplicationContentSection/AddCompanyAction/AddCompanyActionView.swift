@@ -112,9 +112,10 @@ final class AddCompanyActionView: BUContentViewController {
 
     private func configureCategoriesContainer() -> SelectCategoriesContainer {
 
-        let dataSource = SelectCategoriesDataSource(isActiveByDefault: false,
-                                                    isSingleSelectionOnly: true,
-                                                    initCategory: self.presenter.selectedCategory)
+        let dataSource = SelectCategoriesDataSource(
+            selectedCategories: [self.presenter.selectedCategory],
+            selectionMode: SelectCategoriesDataSource.SelectionMode.single
+        )
         let container = SelectCategoriesContainer(delegate: self, dataSource: dataSource)
 
         return container

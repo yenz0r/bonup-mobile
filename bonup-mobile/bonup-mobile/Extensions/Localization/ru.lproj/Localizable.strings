@@ -171,3 +171,5 @@
 "ui_allowed_count_label" = "Допустимое количество:";
 "ui_tasks_title" = "Задачи";
 "ui_coupons_title" = "Купоны";
+"ui_company_details_title" = "О компании";
+"ui_search_company_placeholder" = "Поиск организации..";

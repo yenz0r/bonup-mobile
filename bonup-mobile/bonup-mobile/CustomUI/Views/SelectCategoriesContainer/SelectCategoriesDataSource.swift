@@ -10,31 +10,45 @@ import Foundation
 
 final class SelectCategoriesDataSource: SelectCategoriesContainerDataSource {
 
+    enum SelectionMode {
+        case single, multiple
+    }
+    
     // MARK: - Private variables
 
     private var categoriesModels: [SelectCategoriesCellModel]
-    private var isSingleSelectionOnly: Bool
+    private var selectionMode: SelectionMode
+    private var isChangable: Bool
 
     // MARK: - Initialization
 
-    init(isActiveByDefault: Bool, isSingleSelectionOnly: Bool = false, initCategory: InterestCategories? = nil) {
+    init(selectedCategories: [InterestCategories], selectionMode: SelectionMode, isChangable: Bool = true) {
 
-        self.isSingleSelectionOnly = isSingleSelectionOnly
+        self.selectionMode = selectionMode
+        self.isChangable = isChangable
         
         self.categoriesModels = InterestCategories.allCases.map {
             
             SelectCategoriesCellModel(
                 title: $0.title,
                 category: $0,
-                isActive: isSingleSelectionOnly ? false : isActiveByDefault
+                isActive: selectedCategories.contains($0)
             )
         }
         
-        if isSingleSelectionOnly,
-           let category = initCategory,
+        if self.selectionMode == .single,
+           let category = selectedCategories.first,
            let index = self.categoriesModels.firstIndex(where: { $0.category == category }) {
             
             self.categoriesModels[index].isActive = true
+            
+            for modelIndex in self.categoriesModels.indices {
+                
+                if modelIndex != index {
+                    
+                    self.categoriesModels[modelIndex].isActive = false
+                }
+            }
         }
     }
 
@@ -52,7 +66,9 @@ final class SelectCategoriesDataSource: SelectCategoriesContainerDataSource {
 
     func selectCategoriesContainer(_ container: SelectCategoriesContainer, didSelectCategoryAt index: Int) {
 
-        if (isSingleSelectionOnly) {
+        guard self.isChangable else { return }
+        
+        if (self.selectionMode == .single) {
             
             if let prevIndex = self.categoriesModels.firstIndex(where: { $0.isActive }) {
                 

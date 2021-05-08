@@ -65,14 +65,17 @@ extension CompanyPacketRouter: ICompanyPacketRouter {
             let builder = CompanyCustomPacketBuilder()
             let router = builder.build(dependency)
 
-            router.start { [weak self] customType in
+            router.start { customType in
                 
                 completion?(customType)
             }
             
         case .addCompany:
             
-            let dependency = AddCompanyDependency(parentNavigationController: self.parentNavigationController)
+            let dependency = AddCompanyDependency(
+                parentNavigationController: self.parentNavigationController,
+                initCompany: nil
+            )
             let builder = AddCompanyBuilder()
             let router = builder.build(dependency)
             

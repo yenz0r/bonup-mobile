@@ -137,7 +137,8 @@ final class CompanyStatisticsView: BUContentViewController {
     
     private func configureCategoriesContainer() -> SelectCategoriesContainer {
         
-        let dataSource = SelectCategoriesDataSource(isActiveByDefault: false)
+        let dataSource = SelectCategoriesDataSource(selectedCategories: InterestCategories.allCases,
+                                                    selectionMode: .multiple)
         let container = SelectCategoriesContainer(delegate: self, dataSource: dataSource)
 
         return container

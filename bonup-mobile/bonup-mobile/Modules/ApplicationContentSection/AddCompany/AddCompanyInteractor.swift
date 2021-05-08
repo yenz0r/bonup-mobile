@@ -12,6 +12,7 @@ protocol IAddCompanyInteractor: AnyObject {
 
     var inputSections: [AddCompanyInputSectionModel] { get }
     var selectedCategory: InterestCategories { get set }
+    var moduleMode: AddCompanyInteractor.ModuleMode { get }
     
     func updateValue(_ value: String?, at indexPath: IndexPath)
     
@@ -20,11 +21,17 @@ protocol IAddCompanyInteractor: AnyObject {
 
 final class AddCompanyInteractor {
 
+    enum ModuleMode: Int {
+        
+        case add = 0, details
+    }
+    
     // MARK: - Initialization
 
-    init() {
+    init(initCompany: CompanyEntity?) {
         
-        self.selectedCategory = InterestCategories.food
+        self.initCompany = initCompany
+        self.selectedCategory = .food
         
         self.sections = [
             self.configureTitleInfoSection(),
@@ -38,9 +45,12 @@ final class AddCompanyInteractor {
     // MARK: - Private variables
 
     private var sections: [AddCompanyInputSectionModel] = []
-    var selectedCategory: InterestCategories = .food
-
     private lazy var networkProvider = MainNetworkProvider<AddCompanyService>()
+    private let initCompany: CompanyEntity?
+    
+    // MARK: - Public variables
+    
+    var selectedCategory: InterestCategories
     
     // MARK: - Configure
 
@@ -48,7 +58,7 @@ final class AddCompanyInteractor {
 
         let rows: [AddCompanyInputRowModel] = [
 
-            AddCompanyInputRowModel(rowType: .title)
+            AddCompanyInputRowModel(value: self.initCompany?.title, rowType: .title)
         ]
 
         return AddCompanyInputSectionModel(rows: rows, title: "ui_company_title_label")
@@ -58,9 +68,9 @@ final class AddCompanyInteractor {
 
         let rows: [AddCompanyInputRowModel] = [
 
-            AddCompanyInputRowModel(rowType: .ownerName),
-            AddCompanyInputRowModel(rowType: .ownerSecondName),
-            AddCompanyInputRowModel(rowType: .ownerLastName)
+            AddCompanyInputRowModel(value: self.initCompany?.directorFirstName, rowType: .ownerName),
+            AddCompanyInputRowModel(value: self.initCompany?.directorSecondName, rowType: .ownerSecondName),
+            AddCompanyInputRowModel(value: self.initCompany?.directorLastName, rowType: .ownerLastName)
         ]
 
         return AddCompanyInputSectionModel(rows: rows, title: "ui_company_owner_info_label")
@@ -70,10 +80,10 @@ final class AddCompanyInteractor {
 
         let rows: [AddCompanyInputRowModel] = [
 
-            AddCompanyInputRowModel(rowType: .country),
-            AddCompanyInputRowModel(rowType: .city),
-            AddCompanyInputRowModel(rowType: .street),
-            AddCompanyInputRowModel(rowType: .houseNumber)
+            AddCompanyInputRowModel(value: self.initCompany?.locationCountry, rowType: .country),
+            AddCompanyInputRowModel(value: self.initCompany?.locationCity, rowType: .city),
+            AddCompanyInputRowModel(value: self.initCompany?.locationStreet, rowType: .street),
+            AddCompanyInputRowModel(value: self.initCompany?.locationHomeNumber, rowType: .houseNumber)
         ]
 
         return AddCompanyInputSectionModel(rows: rows, title: "ui_company_location_info_label")
@@ -83,9 +93,9 @@ final class AddCompanyInteractor {
 
         let rows: [AddCompanyInputRowModel] = [
 
-            AddCompanyInputRowModel(rowType: .phone),
-            AddCompanyInputRowModel(rowType: .vkLink),
-            AddCompanyInputRowModel(rowType: .webSite)
+            AddCompanyInputRowModel(value: self.initCompany?.contactsPhone, rowType: .phone),
+            AddCompanyInputRowModel(value: self.initCompany?.contactsVK, rowType: .vkLink),
+            AddCompanyInputRowModel(value: self.initCompany?.contactsWebSite, rowType: .webSite)
         ]
 
         return AddCompanyInputSectionModel(rows: rows, title: "ui_company_contacts_info_label")
@@ -95,7 +105,7 @@ final class AddCompanyInteractor {
 
         let rows: [AddCompanyInputRowModel] = [
 
-            AddCompanyInputRowModel(rowType: .descriptionInfo)
+            AddCompanyInputRowModel(value: self.initCompany?.descriptionText, rowType: .descriptionInfo)
         ]
 
         return AddCompanyInputSectionModel(rows: rows, title: "ui_company_description_info_label")
@@ -105,6 +115,11 @@ final class AddCompanyInteractor {
 // MARK: - IAddCompanyInteractor implementation
 
 extension AddCompanyInteractor: IAddCompanyInteractor {
+    
+    var moduleMode: ModuleMode {
+        
+        return self.initCompany == nil ? .add : .details
+    }
     
     func updateValue(_ value: String?, at indexPath: IndexPath) {
         
@@ -126,7 +141,7 @@ extension AddCompanyInteractor: IAddCompanyInteractor {
         
         DispatchQueue.global(qos: .background).async {
          
-            var requestModel = AddCompanyRequestEntity()
+            var requestModel = CompanyEntity()
             for section in self.sections {
                 
                 for row in section.rows {

@@ -25,6 +25,7 @@ struct Colors {
     static let navBarTextColor: ThemeColorPicker = ["#000", "#fff"]
     static let navBarIconColor: ThemeColorPicker = ["#cf0a17", "#6a697fff"]
 
+    static let borderCGColor: ThemeCGColorPicker = ["#445e4d", "#71997f"]
 
     static let settingsIconsColor: ThemeColorPicker = ["#000", "#6a697fff"]
 

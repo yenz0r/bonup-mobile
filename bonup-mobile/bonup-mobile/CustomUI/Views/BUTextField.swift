@@ -10,6 +10,17 @@ import UIKit
 
 final class BUTextField: UITextField {
 
+    // MARK: - Public variables
+    
+    var placeholderLocalicationKey: String? {
+        
+        didSet {
+            
+            self.placeholder = placeholderLocalicationKey?.localized
+            self.themeChanged()
+        }
+    }
+    
     // MARK: - Initialization
 
     init() {
@@ -17,6 +28,7 @@ final class BUTextField: UITextField {
         super.init(frame: .zero)
 
         self.setupAppearance()
+        self.setupObservers()
     }
 
     required init?(coder: NSCoder) {
@@ -24,9 +36,40 @@ final class BUTextField: UITextField {
     }
 
     // MARK: - Setup
+    
+    private func setupObservers() {
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(langChanged),
+                                               name: LocaleManager.shared.notificationName,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(themeChanged),
+                                               name: ThemeColorsManager.shared.notificationName,
+                                               object: nil)
+    }
 
     private func setupAppearance() {
 
         self.theme_keyboardAppearance = Colors.keyboardAppearance
+    }
+    
+    // MARK: - Selectors
+    
+    @objc private func langChanged() {
+        
+        let key = self.placeholderLocalicationKey
+        self.placeholderLocalicationKey = key
+    }
+    
+    @objc private func themeChanged() {
+        
+        let color: UIColor = ThemeColorsManager.shared.currentTheme == .dark ? .white : .black
+        
+        self.attributedPlaceholder = NSAttributedString(
+            string: self.placeholder ?? "",
+            attributes: [NSAttributedString.Key.foregroundColor: color.withAlphaComponent(0.5)]
+        )
     }
 }

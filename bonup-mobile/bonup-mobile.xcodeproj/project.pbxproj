@@ -54,9 +54,12 @@
 		B93F2B70263F0B8E00A8A8D6 /* CompanyStatisticsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B6F263F0B8E00A8A8D6 /* CompanyStatisticsBuilder.swift */; };
 		B93F2B73263F0F0700A8A8D6 /* CompanyStatisticsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B72263F0F0700A8A8D6 /* CompanyStatisticsConstants.swift */; };
 		B93F2B76264079FF00A8A8D6 /* AddCompanyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B75264079FF00A8A8D6 /* AddCompanyService.swift */; };
-		B93F2B7826407A1300A8A8D6 /* AddCompanyRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B7726407A1300A8A8D6 /* AddCompanyRequestEntity.swift */; };
+		B93F2B7826407A1300A8A8D6 /* CompanyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B7726407A1300A8A8D6 /* CompanyEntity.swift */; };
 		B93F2B7B2641F4B700A8A8D6 /* ProfileActionsChartsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B7A2641F4B700A8A8D6 /* ProfileActionsChartsContainer.swift */; };
 		B93F2B7D2641FABF00A8A8D6 /* BUSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B7C2641FABF00A8A8D6 /* BUSegmentedControl.swift */; };
+		B93F2B7F2645C3D200A8A8D6 /* CompaniesSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B7E2645C3D200A8A8D6 /* CompaniesSearchService.swift */; };
+		B93F2B822645E68C00A8A8D6 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B812645E68C00A8A8D6 /* UIImage+Utils.swift */; };
+		B93F2B852646AF4000A8A8D6 /* BUSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B842646AF4000A8A8D6 /* BUSearchBar.swift */; };
 		B93FDB1D246BDC57006E93F4 /* BenefitsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93FDB1C246BDC57006E93F4 /* BenefitsService.swift */; };
 		B93FDB1F246BDCB6006E93F4 /* BenefitsResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93FDB1E246BDCB6006E93F4 /* BenefitsResponseEntity.swift */; };
 		B941E736246B933B0056B844 /* OrganizationControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941E735246B933B0056B844 /* OrganizationControlView.swift */; };
@@ -369,9 +372,12 @@
 		B93F2B6F263F0B8E00A8A8D6 /* CompanyStatisticsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyStatisticsBuilder.swift; sourceTree = "<group>"; };
 		B93F2B72263F0F0700A8A8D6 /* CompanyStatisticsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyStatisticsConstants.swift; sourceTree = "<group>"; };
 		B93F2B75264079FF00A8A8D6 /* AddCompanyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyService.swift; sourceTree = "<group>"; };
-		B93F2B7726407A1300A8A8D6 /* AddCompanyRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyRequestEntity.swift; sourceTree = "<group>"; };
+		B93F2B7726407A1300A8A8D6 /* CompanyEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyEntity.swift; sourceTree = "<group>"; };
 		B93F2B7A2641F4B700A8A8D6 /* ProfileActionsChartsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionsChartsContainer.swift; sourceTree = "<group>"; };
 		B93F2B7C2641FABF00A8A8D6 /* BUSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUSegmentedControl.swift; sourceTree = "<group>"; };
+		B93F2B7E2645C3D200A8A8D6 /* CompaniesSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesSearchService.swift; sourceTree = "<group>"; };
+		B93F2B812645E68C00A8A8D6 /* UIImage+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
+		B93F2B842646AF4000A8A8D6 /* BUSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUSearchBar.swift; sourceTree = "<group>"; };
 		B93FDB1C246BDC57006E93F4 /* BenefitsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsService.swift; sourceTree = "<group>"; };
 		B93FDB1E246BDCB6006E93F4 /* BenefitsResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsResponseEntity.swift; sourceTree = "<group>"; };
 		B941E735246B933B0056B844 /* OrganizationControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlView.swift; sourceTree = "<group>"; };
@@ -801,6 +807,7 @@
 				B96A71E5246BA7AD007416DF /* Profile */,
 				B93FDB20246BDCBA006E93F4 /* BenefitsService */,
 				B9A9189825B3431200919FE9 /* Settings */,
+				B93F2B802645C3DA00A8A8D6 /* CompaniesSearch */,
 				B93F2B7926407B4200A8A8D6 /* AddCompany */,
 			);
 			path = Services;
@@ -878,9 +885,25 @@
 			isa = PBXGroup;
 			children = (
 				B93F2B75264079FF00A8A8D6 /* AddCompanyService.swift */,
-				B93F2B7726407A1300A8A8D6 /* AddCompanyRequestEntity.swift */,
+				B93F2B7726407A1300A8A8D6 /* CompanyEntity.swift */,
 			);
 			path = AddCompany;
+			sourceTree = "<group>";
+		};
+		B93F2B802645C3DA00A8A8D6 /* CompaniesSearch */ = {
+			isa = PBXGroup;
+			children = (
+				B93F2B7E2645C3D200A8A8D6 /* CompaniesSearchService.swift */,
+			);
+			path = CompaniesSearch;
+			sourceTree = "<group>";
+		};
+		B93F2B832645E69000A8A8D6 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				B93F2B812645E68C00A8A8D6 /* UIImage+Utils.swift */,
+			);
+			path = UIImage;
 			sourceTree = "<group>";
 		};
 		B93FDB20246BDCBA006E93F4 /* BenefitsService */ = {
@@ -1027,6 +1050,7 @@
 				B9FE3A5E25B62314007ED803 /* UBottomSheetCoordinator */,
 				B9E7CECD25B49A4F0033810D /* FMPhotoPickerViewController */,
 				B9B75F06263D907E00DF630E /* Date */,
+				B93F2B832645E69000A8A8D6 /* UIImage */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1367,6 +1391,7 @@
 			isa = PBXGroup;
 			children = (
 				B99093D325AFC25700CF381B /* BUEmptyContainer.swift */,
+				B93F2B842646AF4000A8A8D6 /* BUSearchBar.swift */,
 				B96CA66125B3895100FF157C /* BUMapView.swift */,
 				B95FB96525B45A6200AB2566 /* BULabel.swift */,
 				B9E7CEB425B492E30033810D /* BUTextField.swift */,
@@ -2144,6 +2169,7 @@
 				B91AD2C22446682600F8989B /* AppConstants.swift in Sources */,
 				B932365B241D743300A37634 /* NewPasswordDependency.swift in Sources */,
 				B96CA67E25B38EF800FF157C /* CompaniesSectionBuilder.swift in Sources */,
+				B93F2B822645E68C00A8A8D6 /* UIImage+Utils.swift in Sources */,
 				B982CCDC244481D600CB6D81 /* CategoryCardView.swift in Sources */,
 				B96CA65125B380A700FF157C /* SelectCategoriesCell.swift in Sources */,
 				B9D3369E2469CFDE003E1CEB /* OrganizationsListDependency.swift in Sources */,
@@ -2186,6 +2212,7 @@
 				B92688FD2429520300F1732A /* UIView+Gradient.swift in Sources */,
 				B99093D425AFC25700CF381B /* BUEmptyContainer.swift in Sources */,
 				B941E736246B933B0056B844 /* OrganizationControlView.swift in Sources */,
+				B93F2B852646AF4000A8A8D6 /* BUSearchBar.swift in Sources */,
 				B9A13D33244E3AB900373827 /* ProfileView.swift in Sources */,
 				B964CE8624475C6900161300 /* NewPasswordResponseEntity.swift in Sources */,
 				B98DE0E4244BB61E007AE007 /* SettingsInteractor.swift in Sources */,
@@ -2217,6 +2244,7 @@
 				B9A9189425B3430D00919FE9 /* SettingsService.swift in Sources */,
 				B9A13D3A244E3AE400373827 /* ProfileRouter.swift in Sources */,
 				B9FC7986242FB04000F2D5BC /* BUTabBarController.swift in Sources */,
+				B93F2B7F2645C3D200A8A8D6 /* CompaniesSearchService.swift in Sources */,
 				B9787F46246B7597007DB617 /* TaskListService.swift in Sources */,
 				B90867E725B5E63C00E0DE91 /* CompanyPacketCell.swift in Sources */,
 				B96A71E2246BA79A007416DF /* ProfileService.swift in Sources */,
@@ -2359,7 +2387,7 @@
 				B941E73A246B93550056B844 /* OrganizationControlInteractor.swift in Sources */,
 				B944A8F724621807002170FD /* TaskDescriptionBuilder.swift in Sources */,
 				B9D3369C2469CFD4003E1CEB /* OrganizationsListBuilder.swift in Sources */,
-				B93F2B7826407A1300A8A8D6 /* AddCompanyRequestEntity.swift in Sources */,
+				B93F2B7826407A1300A8A8D6 /* CompanyEntity.swift in Sources */,
 				B977484B24431A37004D39AD /* TasksListPresenter.swift in Sources */,
 				B966E73424684D640043FD69 /* BenefitDescriptionInteractor.swift in Sources */,
 				B941E740246B93730056B844 /* OrganizationControlRouter.swift in Sources */,

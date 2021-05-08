@@ -1,20 +1,20 @@
 //
-//  AddCompanyService.swift
+//  CompaniesSearchService.swift
 //  bonup-mobile
 //
-//  Created by Yahor Bychkouski on 3.05.21.
+//  Created by Yahor Bychkouski on 7.05.21.
 //  Copyright © 2021 Bonup. All rights reserved.
 //
 
 import Foundation
 import Moya
 
-enum AddCompanyService {
+enum CompaniesSearchService {
     
-    case addCompany(token: String, companyEntity: CompanyEntity)
+    case loadCompanies(token: String)
 }
 
-extension AddCompanyService: IMainTargetType {
+extension CompaniesSearchService: IMainTargetType {
 
     var baseURL: URL {
         return URL(string: serverBase)!
@@ -22,8 +22,8 @@ extension AddCompanyService: IMainTargetType {
 
     var path: String {
         switch self {
-        case .addCompany(_, _):
-            return "/isUserExist"
+        case .loadCompanies(_):
+            return "/companies"
         }
     }
 
@@ -37,10 +37,10 @@ extension AddCompanyService: IMainTargetType {
 
     var task: Task {
         switch self {
-        case .addCompany(_, _):
+        case .loadCompanies(let token):
             return .requestParameters(
                 parameters: [
-                    "email": "params.email"
+                    "token": token
                 ],
                 encoding: JSONEncoding.default
             )

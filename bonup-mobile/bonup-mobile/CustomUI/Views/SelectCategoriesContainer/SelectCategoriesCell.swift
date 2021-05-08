@@ -24,11 +24,11 @@ final class SelectCategoriesCell: UICollectionViewCell {
         var color: UIColor
         if model.isActive {
             
-            color = UIColor.systemGreen.withAlphaComponent(0.15)
+            color = UIColor.systemGreen.withAlphaComponent(0.5)
         }
         else {
             
-            color = UIColor.systemRed.withAlphaComponent(0.3)
+            color = UIColor.systemRed.withAlphaComponent(0.5)
         }
         
         UIView.animate(withDuration: 0.3) {

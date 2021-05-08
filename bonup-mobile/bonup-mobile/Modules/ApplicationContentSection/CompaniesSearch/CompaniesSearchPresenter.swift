@@ -9,6 +9,15 @@
 import Foundation
 
 protocol ICompaniesSearchPresenter: AnyObject {
+    
+    func viewDidAppear()
+    
+    func handleCategoriesUpdate(categories: [InterestCategories])
+    func handleSearchValueUpdate(_ searchText: String?)
+    func handleCompanySelection(_ companyTitle: String)
+    
+    func companies() -> [CompanyEntity]
+    func userLocation() -> (latitude: Double, longitude: Double)?
 }
 
 final class CompaniesSearchPresenter {
@@ -32,5 +41,59 @@ final class CompaniesSearchPresenter {
 // MARK: - ICompanySearchPresenter
 
 extension CompaniesSearchPresenter: ICompaniesSearchPresenter {
+    
+    func userLocation() -> (latitude: Double, longitude: Double)? {
+        
+        return self.interactor.userLocation
+    }
+    
+    func companies() -> [CompanyEntity] {
+        
+        return self.interactor.organizations
+    }
 
+    func viewDidAppear() {
+        
+        if self.interactor.organizations.isEmpty {
+            
+            self.interactor.loadOrganizations { [weak self] success in
+                
+                DispatchQueue.main.async {
+                 
+                    if success {
+                        
+                        self?.view?.reloadMap()
+                    }
+                    else {
+                        
+                        self?.router.show(.showErrorAlert)
+                    }
+                }
+            }
+        }
+    }
+    
+    func handleCategoriesUpdate(categories: [InterestCategories]) {
+        
+        self.interactor.selectedCategories = categories
+        
+        self.view?.reloadMap()
+    }
+    
+    func handleSearchValueUpdate(_ searchText: String?) {
+        
+        self.interactor.searchText = searchText
+        
+        self.view?.reloadMap()
+    }
+    
+    func handleCompanySelection(_ companyTitle: String) {
+        
+        guard let company = self.interactor.organizations.first(where: { $0.title == companyTitle }) else {
+            
+            return
+        }
+        
+        self.router.show(.showCompanyDescription(company))
+    }
 }

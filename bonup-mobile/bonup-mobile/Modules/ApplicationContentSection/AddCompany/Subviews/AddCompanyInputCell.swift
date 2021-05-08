@@ -38,6 +38,7 @@ final class AddCompanyInputCell: UITableViewCell {
 
         self.titleLabel.nonlocalizedTitle = model.rowType.title
         self.textField.text = model.value
+        self.isUserInteractionEnabled = model.isEnabled
     }
 
     // MARK: - UI variabes

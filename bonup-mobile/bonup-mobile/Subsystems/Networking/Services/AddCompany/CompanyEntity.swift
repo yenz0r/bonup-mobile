@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct AddCompanyRequestEntity: Codable {
+struct CompanyEntity: Codable {
 
     var title: String = ""
     var descriptionText: String = ""
@@ -22,4 +22,7 @@ struct AddCompanyRequestEntity: Codable {
     var contactsPhone: String = ""
     var contactsVK: String = ""
     var contactsWebSite: String = ""
+    var latitude: Double = 0
+    var longitude: Double = 0
+    var categoryId: Int = 0
 }

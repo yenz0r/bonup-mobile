@@ -174,3 +174,5 @@
 "ui_allowed_count_label" = "Allowed Count:";
 "ui_tasks_title" = "Tasks";
 "ui_coupons_title" = "Coupons";
+"ui_company_details_title" = "About company";
+"ui_search_company_placeholder" = "Search company..";

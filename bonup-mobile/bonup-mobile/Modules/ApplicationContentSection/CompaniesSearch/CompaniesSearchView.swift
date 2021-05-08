@@ -11,6 +11,7 @@ import YandexMapKit
 
 protocol ICompaniesSearchView: AnyObject {
 
+    func reloadMap()
 }
 
 final class CompaniesSearchView: BUContentViewController {
@@ -23,6 +24,11 @@ final class CompaniesSearchView: BUContentViewController {
 
     private var mapView: BUMapView!
     private var selectCategoriesContainer: SelectCategoriesContainer!
+    private var searchBar: BUSearchBar!
+    
+    // MARK: - State variables
+    
+    private var placemarkCollection: YMKClusterizedPlacemarkCollection?
 
     // MARK: - Life cycle
 
@@ -38,50 +44,53 @@ final class CompaniesSearchView: BUContentViewController {
         super.viewDidLoad()
 
         self.setupAppearance()
+        self.setupMapItems()
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        
         super.viewDidAppear(animated)
 
-        let point = YMKPoint(
-            latitude: 20,
-            longitude: 70
-        )
-
-        let placemark = self.mapView.mapWindow.map.mapObjects.addPlacemark(with: point)
-        placemark.opacity = 0.5
-        placemark.isDraggable = true
-        placemark.setIconWith(UIImage(named: "map-mark")!)
-
-        self.mapView.mapWindow.map.move(
-            with: YMKCameraPosition(target: point, zoom: 15, azimuth: 0, tilt: 0),
-            animationType: YMKAnimation(type: YMKAnimationType.smooth, duration: 5),
-            cameraCallback: nil)
+        self.presenter.viewDidAppear()
     }
 
     // MARK: - Localization
 
-    override func setupLocalizableContent() {
-
-    }
+    override func setupLocalizableContent() { }
 
     // MARK: - Setup
+    
+    private func setupMapItems() {
+        
+        self.placemarkCollection = self.mapView
+            .mapWindow
+            .map
+            .mapObjects
+            .addClusterizedPlacemarkCollection(with: self)
+        
+        self.placemarkCollection?.addTapListener(with: self)
+    }
 
     private func setupSubviews() {
 
         self.mapView = self.configureMapView()
+        self.searchBar = self.configureSearchBar()
         self.selectCategoriesContainer = self.configureSelectCategoriesContainer()
 
         self.view.addSubview(self.mapView)
+        self.mapView.addSubview(self.searchBar)
         self.mapView.addSubview(self.selectCategoriesContainer)
 
         self.mapView.snp.makeConstraints { make in
-            make.leading.trailing.top.equalTo(self.view)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+            make.edges.equalTo(self.view.safeAreaLayoutGuide)
         }
 
+        self.searchBar.snp.makeConstraints { make in
+            make.top.leading.trailing.equalTo(self.mapView).inset(20)
+        }
+        
         self.selectCategoriesContainer.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(self.mapView.safeAreaLayoutGuide).inset(10)
+            make.leading.trailing.equalTo(self.mapView.safeAreaLayoutGuide)
             make.bottom.equalToSuperview().offset(-40)
         }
     }
@@ -98,10 +107,24 @@ final class CompaniesSearchView: BUContentViewController {
 
     private func configureSelectCategoriesContainer() -> SelectCategoriesContainer {
 
-        let dataSource = SelectCategoriesDataSource(isActiveByDefault: true)
+        let dataSource = SelectCategoriesDataSource(selectedCategories: InterestCategories.allCases,
+                                                    selectionMode: .multiple)
         let container = SelectCategoriesContainer(delegate: self, dataSource: dataSource)
 
         return container
+    }
+    
+    private func configureSearchBar() -> BUSearchBar {
+        
+        let bar = BUSearchBar()
+        
+        bar.placeholderLocalizationKey = "ui_search_company_placeholder"
+        bar.onSearchChange = { [weak self] searchText in
+            
+            self?.presenter.handleSearchValueUpdate(searchText)
+        }
+        
+        return bar
     }
 }
 
@@ -111,10 +134,94 @@ extension CompaniesSearchView: SelectCategoriesContainerDelegate {
 
     func selectCategoriesContainerDidUpdateCategoriesList(_ container: SelectCategoriesContainer) {
 
-        print(container.dataSource.selectedCategories)
+        self.presenter.handleCategoriesUpdate(categories: container.dataSource.selectedCategories)
     }
 }
 
-// MARK: - ISettingsParamsView
+// MARK: - YMKClusterListener
 
-extension CompaniesSearchView: ICompaniesSearchView { }
+extension CompaniesSearchView: YMKClusterListener {
+    
+    func onClusterAdded(with cluster: YMKCluster) { }
+}
+
+// MARK: - YMKMapObjectTapListener
+
+extension CompaniesSearchView: YMKMapObjectTapListener {
+    
+    func onMapObjectTap(with mapObject: YMKMapObject, point: YMKPoint) -> Bool {
+        
+        guard let userPoint = mapObject as? YMKPlacemarkMapObject,
+              let userData = userPoint.userData else {
+            
+            return false
+        }
+        
+        if let companyTitle = userData as? String {
+        
+            self.presenter.handleCompanySelection(companyTitle)
+        }
+        
+        return true
+    }
+}
+
+// MARK: - ICompaniesSearchView
+
+extension CompaniesSearchView: ICompaniesSearchView {
+    
+    func reloadMap() {
+        
+        self.placemarkCollection?.clear()
+        
+        for (index, company) in self.presenter.companies().enumerated() {
+            
+            let point = YMKPoint(latitude: company.latitude, longitude: company.longitude)
+            
+            let placemark = self.placemarkCollection?.addPlacemark(
+                with: point,
+                image: AssetsHelper
+                        .shared
+                        .image(.companyLocationMapIcon)!
+                        .resizedImage(targetSize: CGSize(width: 70, height: 70)),
+                style: .init()
+            )
+            
+            placemark?.userData = company.title
+            
+            // TEST
+            if index == 0 {
+                
+                self.mapView.mapWindow.map.move(
+                    with: YMKCameraPosition(target: point, zoom: 13, azimuth: 0, tilt: 0),
+                    animationType: YMKAnimation(type: YMKAnimationType.smooth, duration: 1.5),
+                    cameraCallback: nil
+                )
+            }
+        }
+        
+        if let userLocation = self.presenter.userLocation() {
+            
+            let userPoint = YMKPoint(latitude: userLocation.latitude,
+                                     longitude: userLocation.longitude)
+            
+            let placemark = self.placemarkCollection?.addPlacemark(
+                with: userPoint,
+                image: AssetsHelper
+                    .shared
+                    .image(.userLocationMapIcon)!
+                    .resizedImage(targetSize: CGSize(width: 70, height: 70)),
+                style: .init())
+            
+            placemark?.userData = nil
+            
+//            self.mapView.mapWindow.map.move(
+//                with: YMKCameraPosition(target: userPoint, zoom: 13, azimuth: 0, tilt: 0),
+//                animationType: YMKAnimation(type: YMKAnimationType.smooth, duration: 3),
+//                cameraCallback: nil
+//            )
+        }
+        
+        self.placemarkCollection?.clusterPlacemarks(withClusterRadius: 15, minZoom: 15)
+    }
+}
