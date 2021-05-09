@@ -200,6 +200,7 @@
 		B99093CF25AF862500CF381B /* BUContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99093CE25AF862500CF381B /* BUContentViewController.swift */; };
 		B99093D425AFC25700CF381B /* BUEmptyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99093D325AFC25700CF381B /* BUEmptyContainer.swift */; };
 		B991A47E2647E2390006884B /* BUCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B991A47D2647E2390006884B /* BUCollectionView.swift */; };
+		B991A4802648397B0006884B /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B991A47F2648397B0006884B /* Validator.swift */; };
 		B992D50E245789FF002ABF71 /* BenefitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D50D245789FF002ABF71 /* BenefitsView.swift */; };
 		B992D51024578A09002ABF71 /* BenefitsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D50F24578A09002ABF71 /* BenefitsPresenter.swift */; };
 		B992D51224578A11002ABF71 /* BenefitsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D51124578A11002ABF71 /* BenefitsInteractor.swift */; };
@@ -548,6 +549,7 @@
 		B99093CE25AF862500CF381B /* BUContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUContentViewController.swift; sourceTree = "<group>"; };
 		B99093D325AFC25700CF381B /* BUEmptyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUEmptyContainer.swift; sourceTree = "<group>"; };
 		B991A47D2647E2390006884B /* BUCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUCollectionView.swift; sourceTree = "<group>"; };
+		B991A47F2648397B0006884B /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		B992D50D245789FF002ABF71 /* BenefitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsView.swift; sourceTree = "<group>"; };
 		B992D50F24578A09002ABF71 /* BenefitsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsPresenter.swift; sourceTree = "<group>"; };
 		B992D51124578A11002ABF71 /* BenefitsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsInteractor.swift; sourceTree = "<group>"; };
@@ -806,6 +808,7 @@
 				B990932425AF3B1B00CF381B /* UserDefaults */,
 				B990932D25AF403600CF381B /* Theme */,
 				B93F2B882646D64E00A8A8D6 /* DataBase */,
+				B991A481264839800006884B /* Validator */,
 			);
 			path = Subsystems;
 			sourceTree = "<group>";
@@ -1505,6 +1508,14 @@
 				B990939D25AF7F8E00CF381B /* SOTabBar.swift */,
 			);
 			path = ContainerControllers;
+			sourceTree = "<group>";
+		};
+		B991A481264839800006884B /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				B991A47F2648397B0006884B /* Validator.swift */,
+			);
+			path = Validator;
 			sourceTree = "<group>";
 		};
 		B992D51924578A50002ABF71 /* BenefitsList */ = {
@@ -2396,6 +2407,7 @@
 				B9323666241D96D700A37634 /* UserEntity.swift in Sources */,
 				B99093CF25AF862500CF381B /* BUContentViewController.swift in Sources */,
 				B9D1758A243CFD38001FF58E /* TermsAndConditionsDependency.swift in Sources */,
+				B991A4802648397B0006884B /* Validator.swift in Sources */,
 				B9CAA715242B9FAE00E50668 /* UITextField+Factory.swift in Sources */,
 				B9F0463E2635741200D2D3D8 /* AddCompanyActionRouter.swift in Sources */,
 				B98DE0E8244BB62D007AE007 /* SettingsDependency.swift in Sources */,

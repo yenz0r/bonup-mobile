@@ -181,6 +181,10 @@
 "ui_empty_new_benefits_list" = "Список новых купонов пуст..";
 "ui_empty_selected_benefits_list" = "Список выбранных купонов пуст..";
 "ui_empty_used_benefits_list" = "Список использованных купонов пуст..";
-"ui_empty_archivementes_list" = "Список Вашиз достижение пока пуст..";
+"ui_empty_archivementes_list" = "Список Ваших достижений пока пуст..";
 "ui_empty_current_tasks_list" = "Список текущих задач пуст..";
 "ui_empty_done_tasks_list" = "Список выполненных задач пуст..";
+"ui_profile_bonuses_label" = "Бонусы:";
+"ui_profile_statistics_label" = "Статистика:";
+"ui_profile_archivements_label" = "Достижения:";
+"ui_validation_faild" = "Ошибка валидации";

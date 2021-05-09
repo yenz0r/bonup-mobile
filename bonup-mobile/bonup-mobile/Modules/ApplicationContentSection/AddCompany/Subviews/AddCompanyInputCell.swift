@@ -93,9 +93,11 @@ final class AddCompanyInputCell: UITableViewCell {
 
         let textField = BUTextField()
 
-        textField.addTarget(self, action: #selector(textFieldValueChanged(_:)), for: .valueChanged)
+        textField.addTarget(self, action: #selector(textFieldValueChanged(_:)), for: .editingChanged)
         textField.theme_textColor = Colors.defaultTextColor
-
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        
         return textField
     }
 

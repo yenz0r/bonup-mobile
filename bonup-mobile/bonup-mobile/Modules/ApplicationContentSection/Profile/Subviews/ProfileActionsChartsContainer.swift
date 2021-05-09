@@ -45,6 +45,7 @@ final class ProfileActionsChartsContainer: UIView {
     
     private var pieChart: PieChartView!
     private var segmentControl: BUSegmentedControl!
+    private var titleLabel: UILabel!
     
     // MARK: - Public variables
     
@@ -88,16 +89,30 @@ final class ProfileActionsChartsContainer: UIView {
     
     private func setupAppearance() {
         
-        self.backgroundColor = .clear
+        self.layer.cornerRadius = 25
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowOffset = .zero
+        self.layer.shadowRadius = 4
+        
+        self.theme_backgroundColor = Colors.profileSectionColor
     }
     
     private func setupSubviews() {
        
+        self.titleLabel = self.configureTitleLabel()
         self.segmentControl = self.configureSegmentControl()
         self.pieChart = self.configureChartView()
         
+        self.addSubview(self.titleLabel)
         self.addSubview(self.pieChart)
         self.pieChart.addSubview(self.segmentControl)
+        
+        self.titleLabel.snp.makeConstraints { make in
+            
+            make.leading.equalToSuperview().offset(25)
+            make.top.equalToSuperview().offset(10)
+        }
         
         self.segmentControl.snp.makeConstraints { make in
             
@@ -111,6 +126,17 @@ final class ProfileActionsChartsContainer: UIView {
     }
     
     // MARK: - Configure
+    
+    private func configureTitleLabel() -> UILabel {
+        
+        let label = BULabel()
+        
+        label.theme_textColor = Colors.defaultTextColorWithAlpha
+        label.font = .avenirRoman(15)
+        label.nonlocalizedTitle = "ui_profile_statistics_label"
+        
+        return label
+    }
     
     private func configureChartView() -> PieChartView {
         

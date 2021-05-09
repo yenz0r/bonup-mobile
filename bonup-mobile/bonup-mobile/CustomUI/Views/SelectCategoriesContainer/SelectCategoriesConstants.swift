@@ -19,6 +19,11 @@ enum InterestCategories: Int, CaseIterable {
     case music
     case coffe
     case services
+    
+    static func category(id: Int) -> InterestCategories {
+        
+        return InterestCategories(rawValue: id) ?? .food
+    }
 
     var title: String {
 

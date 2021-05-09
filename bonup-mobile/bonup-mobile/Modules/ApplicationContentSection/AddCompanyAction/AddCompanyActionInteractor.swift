@@ -87,10 +87,24 @@ extension AddCompanyActionInteractor: IAddCompanyActionInteractor {
             
             switch viewModel.fieldType {
             case .title:
-                requestEntity.title = viewModel.value as? String ?? ""
+                
+                guard let string = viewModel.value as? String, string != "" else {
+                    
+                    failure?(self.validationError(.title))
+                    return
+                }
+                
+                requestEntity.title = string
                 
             case .description:
-                requestEntity.descriptionText = viewModel.value as? String ?? ""
+                
+                guard let string = viewModel.value as? String, string != "" else {
+                    
+                    failure?(self.validationError(.description))
+                    return
+                }
+                
+                requestEntity.descriptionText = string
                 
             case .startDate:
                 requestEntity.startDateTimestamp = (viewModel.value as? Date ?? Date()).timestamp
@@ -126,5 +140,12 @@ extension AddCompanyActionInteractor: IAddCompanyActionInteractor {
                 failure?(err?.localizedDescription ?? "")
             }
         )
+    }
+    
+    // MARK: - Private
+    
+    private func validationError(_ rowType: CompanyActionFieldType) -> String {
+        
+        return "\(rowType.title.localized) \("ui_validation_faild".localized)"
     }
 }

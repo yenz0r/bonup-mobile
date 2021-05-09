@@ -144,15 +144,15 @@ extension ProfilePresenter: IProfilePresenter {
     
     func actionsChartData(for category: ProfileActionsChartsContainer.Category) -> PieChartData {
         
-        let entries = (0..<5).map { (i) -> PieChartDataEntry in
-            return PieChartDataEntry(value: 0.4,
+        let entries: [PieChartDataEntry] = [1,2,3,4,5].map {
+            
+            return PieChartDataEntry(value: $0 * 100,
                                      label: "Test")
         }
         
-        let set = PieChartDataSet(entries: entries, label: "Election Results")
+        let set = PieChartDataSet(entries: entries, label: "")
         set.drawIconsEnabled = false
-        set.sliceSpace = 2
-        
+        set.sliceSpace = 10
         
         set.colors = ChartColorTemplates.vordiplom()
             + ChartColorTemplates.joyful()
@@ -170,7 +170,7 @@ extension ProfilePresenter: IProfilePresenter {
         pFormatter.percentSymbol = " %"
         data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
         
-        data.setValueFont(.systemFont(ofSize: 11, weight: .light))
+        data.setValueFont(.avenirRoman(14))
         data.setValueTextColor(.black)
         
         return data

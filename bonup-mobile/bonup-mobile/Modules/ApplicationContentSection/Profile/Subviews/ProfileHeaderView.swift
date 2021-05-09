@@ -55,8 +55,6 @@ final class ProfileHeaderView: UIView {
 
         self.iconImageView.layer.cornerRadius = self.iconImageView.frame.width / 2
         self.iconImageView.layer.masksToBounds = true
-        
-        self.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.14)
     }
 
     // MARK: - Public functions
@@ -125,8 +123,14 @@ final class ProfileHeaderView: UIView {
     // MARK: - Configure
 
     private func configureAppearace() {
-        self.layer.cornerRadius = 15.0
-        self.layer.masksToBounds = true
+        
+        self.layer.cornerRadius = 25.0
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowOffset = .zero
+        self.layer.shadowRadius = 4
+        
+        self.theme_backgroundColor = Colors.profileSectionColor
     }
 
     private func configureTextContainer(title: UILabel,

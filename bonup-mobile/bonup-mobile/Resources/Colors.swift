@@ -14,6 +14,8 @@ struct Colors {
 
     static let defaultTextColor: ThemeColorPicker = ["#000", "#FFF"]
     static let grayTextColor: ThemeColorPicker = ["#6a697fff", "#6a697fff"]
+    static let defaultTextColorWithAlpha: ThemeColorPicker = .init(colors: UIColor.black.withAlphaComponent(0.5),
+                                                                   UIColor.white.withAlphaComponent(0.5))
 
     static let redColor: ThemeColorPicker = ["#cc1f28", "#cc1f28"]
     static let greenColor: ThemeColorPicker = ["#03912bff", "#186e30ff"]
@@ -29,7 +31,7 @@ struct Colors {
 
     static let settingsIconsColor: ThemeColorPicker = ["#000", "#6a697fff"]
     
-    static let profileSectionColor: ThemeColorPicker = ["#EFF6FF", "#EFF6FF"]
+    static let profileSectionColor: ThemeColorPicker = ["#EFF6FF", "#5e5564"]
 
     static let keyboardAppearance = ThemeKeyboardAppearancePicker(styles: .light, .dark)
     

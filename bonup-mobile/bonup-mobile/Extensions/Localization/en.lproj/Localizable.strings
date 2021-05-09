@@ -187,3 +187,7 @@
 "ui_empty_archivementes_list" = "Your list of arvhivements is empty..";
 "ui_empty_current_tasks_list" = "Empty current tasks list..";
 "ui_empty_done_tasks_list" = "Empty done tasks list..";
+"ui_profile_bonuses_label" = "Bonuses:";
+"ui_profile_statistics_label" = "Statistics:";
+"ui_profile_archivements_label" = "Archivements:";
+"ui_validation_faild" = "Validation faild";

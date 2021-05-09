@@ -23,6 +23,8 @@ final class ProfileView: BUContentViewController {
 
     // MARK: - Private variables
 
+    private var scrollView: UIScrollView!
+    private var scrollContentView: UIView!
     private var headerView: ProfileHeaderView!
     private var infoContainer: ProfileInfoContainer!
     private var actionsChartsContainer: ProfileActionsChartsContainer!
@@ -33,6 +35,9 @@ final class ProfileView: BUContentViewController {
     override func loadView() {
 
         self.view = UIView()
+        
+        self.scrollView = self.configureScrollView()
+        self.scrollContentView = self.configureScrollContentView()
 
         self.headerView = ProfileHeaderView(frame: .zero)
         self.infoContainer = ProfileInfoContainer(frame: .zero)
@@ -43,31 +48,49 @@ final class ProfileView: BUContentViewController {
                 
             })
 
+        self.view.addSubview(self.scrollView)
+        self.scrollView.addSubview(self.scrollContentView)
+        
         [self.headerView,
          self.infoContainer,
          self.actionsChartsContainer,
-         self.ahievementsContainer].forEach { self.view.addSubview($0) }
+         self.ahievementsContainer].forEach { self.scrollContentView.addSubview($0) }
 
+        self.scrollView.snp.makeConstraints { make in
+            
+            make.edges.equalTo(self.view.safeAreaLayoutGuide)
+        }
+        
+        self.scrollContentView.snp.makeConstraints { make in
+            
+            make.width.leading.trailing.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.height.greaterThanOrEqualToSuperview()
+        }
+        
         self.headerView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(10.0)
+            
+            make.top.leading.trailing.equalToSuperview().inset(15.0)
         }
 
         self.infoContainer.snp.makeConstraints { make in
-            make.top.equalTo(self.headerView.snp.bottom).offset(10.0)
-            make.leading.trailing.equalToSuperview().inset(10.0)
-            make.height.equalTo(50.0)
+            
+            make.top.equalTo(self.headerView.snp.bottom).offset(15.0)
+            make.leading.trailing.equalToSuperview().inset(15.0)
         }
 
         self.actionsChartsContainer.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(10)
-            make.top.equalTo(self.infoContainer.snp.bottom).offset(10.0)
+            
+            make.leading.trailing.equalToSuperview().inset(15)
+            make.top.equalTo(self.infoContainer.snp.bottom).offset(15.0)
+            make.width.equalTo(self.actionsChartsContainer.snp.height)
         }
 
         self.ahievementsContainer.snp.makeConstraints { make in
-            make.top.equalTo(self.actionsChartsContainer.snp.bottom).offset(10.0)
-            make.height.equalTo(100)
-            make.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-30)
+            
+            make.top.equalTo(self.actionsChartsContainer.snp.bottom).offset(15.0)
+            make.leading.trailing.equalToSuperview().inset(15)
+            make.bottom.equalToSuperview().offset(-10)
         }
     }
 
@@ -75,7 +98,7 @@ final class ProfileView: BUContentViewController {
 
         super.viewDidLoad()
 
-        self.configureAppearance()
+        self.setupAppearance()
 
         self.headerView.dataSource = self
         self.infoContainer.dataSource = self
@@ -99,12 +122,33 @@ final class ProfileView: BUContentViewController {
         self.navigationItem.title = "ui_profile_title".localized
     }
 
-    // MARK: - Configurations
+    // MARK: - Setup
 
-    private func configureAppearance() {
+    private func setupAppearance() {
 
         self.view.theme_backgroundColor = Colors.backgroundColor
         self.configureNavigationBar()
+    }
+    
+    // MARK: - Configure
+    
+    private func configureScrollView() -> UIScrollView {
+        
+        let scroll = UIScrollView()
+        
+        scroll.showsVerticalScrollIndicator = false
+        scroll.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
+        
+        return scroll
+    }
+    
+    private func configureScrollContentView() -> UIView {
+        
+        let container = UIView()
+        
+        container.backgroundColor = .clear
+        
+        return container
     }
 
     private func configureNavigationBar() {

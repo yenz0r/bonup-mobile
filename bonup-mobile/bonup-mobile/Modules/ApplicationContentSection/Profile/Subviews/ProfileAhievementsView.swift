@@ -26,6 +26,7 @@ final class ProfileAhievementsView: UIView {
 
     // MARK: - Private variables
 
+    private var sectionTitleLabel: UILabel!
     private var collectionView: UICollectionView!
 
     // MARK: - Initialization
@@ -34,6 +35,7 @@ final class ProfileAhievementsView: UIView {
         super.init(frame: frame)
 
         self.setupSubviews()
+        self.setupAppearance()
     }
 
     required init?(coder: NSCoder) {
@@ -48,19 +50,54 @@ final class ProfileAhievementsView: UIView {
         self.collectionView.reloadEmptyDataSet()
     }
 
-    // MARK: - Setup subviews
+    // MARK: - Setup
+    
+    private func setupAppearance() {
+        
+        self.theme_backgroundColor = Colors.profileSectionColor
+        
+        self.layer.cornerRadius = 25
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowOffset = .zero
+        self.layer.shadowRadius = 4
+    }
 
     private func setupSubviews() {
+        
+        self.sectionTitleLabel = self.configureSectionTitleLabel()
         self.collectionView = self.configureCollectionView()
 
+        self.addSubview(self.sectionTitleLabel)
         self.addSubview(self.collectionView)
 
+        self.sectionTitleLabel.snp.makeConstraints { make in
+            
+            make.leading.equalToSuperview().offset(25)
+            make.top.equalToSuperview().offset(10)
+        }
+        
         self.collectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            
+            make.top.equalTo(self.sectionTitleLabel.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.bottom.equalToSuperview().offset(-15)
+            make.height.equalTo(100)
         }
     }
 
     // MARK: - Configure
+    
+    private func configureSectionTitleLabel() -> UILabel {
+        
+        let label = BULabel()
+        
+        label.theme_textColor = Colors.defaultTextColorWithAlpha
+        label.font = .avenirRoman(15)
+        label.nonlocalizedTitle = "ui_profile_archivements_label"
+        
+        return label
+    }
 
     private func configureCollectionView() -> UICollectionView {
         let collectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -150,13 +187,13 @@ extension ProfileAhievementsView: EmptyDataSetSource {
         
         return NSAttributedString(string: "ui_empty_archivementes_list".localized,
                                   attributes: [.foregroundColor : Colors.textStateColor,
-                                               .font: UIFont.avenirHeavy(20)])
+                                               .font: UIFont.avenirRoman(16)])
     }
     
     func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
         
-        return AssetsHelper.shared.image(.emptyTasksListIcon)?.resizedImage(targetSize: .init(width: 70,
-                                                                                              height: 70))
+        return AssetsHelper.shared.image(.emptyTasksListIcon)?.resizedImage(targetSize: .init(width: 50,
+                                                                                              height: 50))
     }
     
     func imageTintColor(forEmptyDataSet scrollView: UIScrollView) -> UIColor? {
