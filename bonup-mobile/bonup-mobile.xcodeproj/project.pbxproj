@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		000993B5F4A018C215A59737 /* libPods-bonup-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E08E2FC007738639B3B1FB /* libPods-bonup-mobile.a */; };
-		45CB7F78204A3A11874541EB /* libPods-bonup-mobile-bonup-mobileUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D5E7A78F092619BB6A746 /* libPods-bonup-mobile-bonup-mobileUITests.a */; };
+		096E6AD9494C75A7B1D64CDB /* Pods_bonup_mobileTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792BEFBDE7EC2A9E6E38958F /* Pods_bonup_mobileTests.framework */; };
+		2032F00FD2EC9648CB2C5785 /* Pods_bonup_mobile_bonup_mobileUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95D0EB77B15E1B12F277DC /* Pods_bonup_mobile_bonup_mobileUITests.framework */; };
 		B9069104246235D7001A1F76 /* QRcodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9069103246235D7001A1F76 /* QRcodeManager.swift */; };
 		B90867DD25B5DB0800E0DE91 /* BUAmountSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90867DC25B5DB0800E0DE91 /* BUAmountSetter.swift */; };
 		B90867E225B5E33E00E0DE91 /* CompanyPacketConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90867E125B5E33E00E0DE91 /* CompanyPacketConstants.swift */; };
@@ -60,6 +60,18 @@
 		B93F2B7F2645C3D200A8A8D6 /* CompaniesSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B7E2645C3D200A8A8D6 /* CompaniesSearchService.swift */; };
 		B93F2B822645E68C00A8A8D6 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B812645E68C00A8A8D6 /* UIImage+Utils.swift */; };
 		B93F2B852646AF4000A8A8D6 /* BUSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B842646AF4000A8A8D6 /* BUSearchBar.swift */; };
+		B93F2B872646D64B00A8A8D6 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B862646D64B00A8A8D6 /* RealmProvider.swift */; };
+		B93F2B8A2646DCB400A8A8D6 /* DataBaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B892646DCB400A8A8D6 /* DataBaseProvider.swift */; };
+		B93F2B8C2646DCEB00A8A8D6 /* RealmProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B8B2646DCEB00A8A8D6 /* RealmProtocols.swift */; };
+		B93F2B8E2646DD0100A8A8D6 /* AuthRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B8D2646DD0100A8A8D6 /* AuthRealm.swift */; };
+		B93F2B922646DDC300A8A8D6 /* AuthCredRealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B912646DDC300A8A8D6 /* AuthCredRealmObject.swift */; };
+		B93F2B952646E0B800A8A8D6 /* AccountsCredsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B942646E0B800A8A8D6 /* AccountsCredsView.swift */; };
+		B93F2B972646E0BD00A8A8D6 /* AccountsCredsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B962646E0BD00A8A8D6 /* AccountsCredsPresenter.swift */; };
+		B93F2B992646E0CC00A8A8D6 /* AccountsCredsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B982646E0CC00A8A8D6 /* AccountsCredsInteractor.swift */; };
+		B93F2B9B2646E0D700A8A8D6 /* AccountsCredsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B9A2646E0D700A8A8D6 /* AccountsCredsBuilder.swift */; };
+		B93F2B9D2646E0E300A8A8D6 /* AccountsCredsDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B9C2646E0E300A8A8D6 /* AccountsCredsDependency.swift */; };
+		B93F2B9F2646E0EF00A8A8D6 /* AccountsCredsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2B9E2646E0EF00A8A8D6 /* AccountsCredsRouter.swift */; };
+		B93F2BA22646E28400A8A8D6 /* AccountCredsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F2BA12646E28400A8A8D6 /* AccountCredsCell.swift */; };
 		B93FDB1D246BDC57006E93F4 /* BenefitsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93FDB1C246BDC57006E93F4 /* BenefitsService.swift */; };
 		B93FDB1F246BDCB6006E93F4 /* BenefitsResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93FDB1E246BDCB6006E93F4 /* BenefitsResponseEntity.swift */; };
 		B941E736246B933B0056B844 /* OrganizationControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941E735246B933B0056B844 /* OrganizationControlView.swift */; };
@@ -187,6 +199,7 @@
 		B990939E25AF7F8E00CF381B /* SOTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990939D25AF7F8E00CF381B /* SOTabBar.swift */; };
 		B99093CF25AF862500CF381B /* BUContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99093CE25AF862500CF381B /* BUContentViewController.swift */; };
 		B99093D425AFC25700CF381B /* BUEmptyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99093D325AFC25700CF381B /* BUEmptyContainer.swift */; };
+		B991A47E2647E2390006884B /* BUCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B991A47D2647E2390006884B /* BUCollectionView.swift */; };
 		B992D50E245789FF002ABF71 /* BenefitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D50D245789FF002ABF71 /* BenefitsView.swift */; };
 		B992D51024578A09002ABF71 /* BenefitsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D50F24578A09002ABF71 /* BenefitsPresenter.swift */; };
 		B992D51224578A11002ABF71 /* BenefitsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992D51124578A11002ABF71 /* BenefitsInteractor.swift */; };
@@ -299,7 +312,7 @@
 		B9FE3A4C25B61890007ED803 /* CompanyCustomPacketDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FE3A4B25B61890007ED803 /* CompanyCustomPacketDependency.swift */; };
 		B9FE3A5125B61897007ED803 /* CompanyCustomPacketBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FE3A5025B61897007ED803 /* CompanyCustomPacketBuilder.swift */; };
 		B9FE3A5A25B6230E007ED803 /* UBottomSheetCoordinator+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FE3A5925B6230E007ED803 /* UBottomSheetCoordinator+DataSource.swift */; };
-		D83A7C32A21EC6925567FBB5 /* libPods-bonup-mobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5CDDCDF5D268CCF81AFC04 /* libPods-bonup-mobileTests.a */; };
+		F0AAFD235DC6AAFDE3442CC1 /* Pods_bonup_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09011FEA798A936A5818A174 /* Pods_bonup_mobile.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -320,13 +333,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09011FEA798A936A5818A174 /* Pods_bonup_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bonup_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E9044C804E9ABA05AAE8FD6 /* Pods-bonup-mobileTests.debug free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobileTests.debug free.xcconfig"; path = "Target Support Files/Pods-bonup-mobileTests/Pods-bonup-mobileTests.debug free.xcconfig"; sourceTree = "<group>"; };
 		17E76EF16FA3D1922AA95F95 /* Pods-bonup-mobile.release paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile.release paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile.release paid.xcconfig"; sourceTree = "<group>"; };
 		2F053C4B53A9D980782EE927 /* Pods-bonup-mobileTests.release free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobileTests.release free.xcconfig"; path = "Target Support Files/Pods-bonup-mobileTests/Pods-bonup-mobileTests.release free.xcconfig"; sourceTree = "<group>"; };
 		4059C932F00693AA27CC1391 /* Pods-bonup-mobile.release free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile.release free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile.release free.xcconfig"; sourceTree = "<group>"; };
 		60324272DDE74584350D1B41 /* Pods-bonup-mobile-bonup-mobileUITests.release paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.release paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.release paid.xcconfig"; sourceTree = "<group>"; };
+		792BEFBDE7EC2A9E6E38958F /* Pods_bonup_mobileTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bonup_mobileTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		846B54D9B4C1BCA3D32D575F /* Pods-bonup-mobile.debug free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile.debug free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile.debug free.xcconfig"; sourceTree = "<group>"; };
 		950486241D5ACB45CFB9B073 /* Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.debug paid.xcconfig"; sourceTree = "<group>"; };
+		9D95D0EB77B15E1B12F277DC /* Pods_bonup_mobile_bonup_mobileUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bonup_mobile_bonup_mobileUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9069103246235D7001A1F76 /* QRcodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRcodeManager.swift; sourceTree = "<group>"; };
 		B90867DC25B5DB0800E0DE91 /* BUAmountSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUAmountSetter.swift; sourceTree = "<group>"; };
 		B90867E125B5E33E00E0DE91 /* CompanyPacketConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketConstants.swift; sourceTree = "<group>"; };
@@ -378,6 +394,18 @@
 		B93F2B7E2645C3D200A8A8D6 /* CompaniesSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesSearchService.swift; sourceTree = "<group>"; };
 		B93F2B812645E68C00A8A8D6 /* UIImage+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
 		B93F2B842646AF4000A8A8D6 /* BUSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUSearchBar.swift; sourceTree = "<group>"; };
+		B93F2B862646D64B00A8A8D6 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
+		B93F2B892646DCB400A8A8D6 /* DataBaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseProvider.swift; sourceTree = "<group>"; };
+		B93F2B8B2646DCEB00A8A8D6 /* RealmProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProtocols.swift; sourceTree = "<group>"; };
+		B93F2B8D2646DD0100A8A8D6 /* AuthRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRealm.swift; sourceTree = "<group>"; };
+		B93F2B912646DDC300A8A8D6 /* AuthCredRealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredRealmObject.swift; sourceTree = "<group>"; };
+		B93F2B942646E0B800A8A8D6 /* AccountsCredsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsCredsView.swift; sourceTree = "<group>"; };
+		B93F2B962646E0BD00A8A8D6 /* AccountsCredsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsCredsPresenter.swift; sourceTree = "<group>"; };
+		B93F2B982646E0CC00A8A8D6 /* AccountsCredsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsCredsInteractor.swift; sourceTree = "<group>"; };
+		B93F2B9A2646E0D700A8A8D6 /* AccountsCredsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsCredsBuilder.swift; sourceTree = "<group>"; };
+		B93F2B9C2646E0E300A8A8D6 /* AccountsCredsDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsCredsDependency.swift; sourceTree = "<group>"; };
+		B93F2B9E2646E0EF00A8A8D6 /* AccountsCredsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsCredsRouter.swift; sourceTree = "<group>"; };
+		B93F2BA12646E28400A8A8D6 /* AccountCredsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredsCell.swift; sourceTree = "<group>"; };
 		B93FDB1C246BDC57006E93F4 /* BenefitsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsService.swift; sourceTree = "<group>"; };
 		B93FDB1E246BDCB6006E93F4 /* BenefitsResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsResponseEntity.swift; sourceTree = "<group>"; };
 		B941E735246B933B0056B844 /* OrganizationControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlView.swift; sourceTree = "<group>"; };
@@ -519,6 +547,7 @@
 		B990939D25AF7F8E00CF381B /* SOTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTabBar.swift; sourceTree = "<group>"; };
 		B99093CE25AF862500CF381B /* BUContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUContentViewController.swift; sourceTree = "<group>"; };
 		B99093D325AFC25700CF381B /* BUEmptyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUEmptyContainer.swift; sourceTree = "<group>"; };
+		B991A47D2647E2390006884B /* BUCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUCollectionView.swift; sourceTree = "<group>"; };
 		B992D50D245789FF002ABF71 /* BenefitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsView.swift; sourceTree = "<group>"; };
 		B992D50F24578A09002ABF71 /* BenefitsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsPresenter.swift; sourceTree = "<group>"; };
 		B992D51124578A11002ABF71 /* BenefitsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsInteractor.swift; sourceTree = "<group>"; };
@@ -627,14 +656,11 @@
 		B9FE3A4B25B61890007ED803 /* CompanyCustomPacketDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCustomPacketDependency.swift; sourceTree = "<group>"; };
 		B9FE3A5025B61897007ED803 /* CompanyCustomPacketBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCustomPacketBuilder.swift; sourceTree = "<group>"; };
 		B9FE3A5925B6230E007ED803 /* UBottomSheetCoordinator+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UBottomSheetCoordinator+DataSource.swift"; sourceTree = "<group>"; };
-		CE0D5E7A78F092619BB6A746 /* libPods-bonup-mobile-bonup-mobileUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bonup-mobile-bonup-mobileUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF45C3827A35374FC24C4363 /* Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig"; sourceTree = "<group>"; };
 		D01057BDAD0A1EFFA61522ED /* Pods-bonup-mobileTests.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobileTests.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobileTests/Pods-bonup-mobileTests.debug paid.xcconfig"; sourceTree = "<group>"; };
 		D9C3A1A74CDA15157D40FAF0 /* Pods-bonup-mobile.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile.debug paid.xcconfig"; sourceTree = "<group>"; };
-		DF5CDDCDF5D268CCF81AFC04 /* libPods-bonup-mobileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bonup-mobileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2B6D9255A9D091C27B64522 /* Pods-bonup-mobileTests.release paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobileTests.release paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobileTests/Pods-bonup-mobileTests.release paid.xcconfig"; sourceTree = "<group>"; };
 		E4758B1BEF6D54C7D0C4E409 /* Pods-bonup-mobile-bonup-mobileUITests.debug free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.debug free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.debug free.xcconfig"; sourceTree = "<group>"; };
-		F7E08E2FC007738639B3B1FB /* libPods-bonup-mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bonup-mobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -642,7 +668,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				000993B5F4A018C215A59737 /* libPods-bonup-mobile.a in Frameworks */,
+				F0AAFD235DC6AAFDE3442CC1 /* Pods_bonup_mobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,7 +676,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D83A7C32A21EC6925567FBB5 /* libPods-bonup-mobileTests.a in Frameworks */,
+				096E6AD9494C75A7B1D64CDB /* Pods_bonup_mobileTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,7 +684,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45CB7F78204A3A11874541EB /* libPods-bonup-mobile-bonup-mobileUITests.a in Frameworks */,
+				2032F00FD2EC9648CB2C5785 /* Pods_bonup_mobile_bonup_mobileUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -779,6 +805,7 @@
 				B9069105246235DB001A1F76 /* QRcode */,
 				B990932425AF3B1B00CF381B /* UserDefaults */,
 				B990932D25AF403600CF381B /* Theme */,
+				B93F2B882646D64E00A8A8D6 /* DataBase */,
 			);
 			path = Subsystems;
 			sourceTree = "<group>";
@@ -904,6 +931,64 @@
 				B93F2B812645E68C00A8A8D6 /* UIImage+Utils.swift */,
 			);
 			path = UIImage;
+			sourceTree = "<group>";
+		};
+		B93F2B882646D64E00A8A8D6 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				B93F2B892646DCB400A8A8D6 /* DataBaseProvider.swift */,
+				B93F2B8F2646DD1900A8A8D6 /* RealmProvider */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		B93F2B8F2646DD1900A8A8D6 /* RealmProvider */ = {
+			isa = PBXGroup;
+			children = (
+				B93F2B8B2646DCEB00A8A8D6 /* RealmProtocols.swift */,
+				B93F2B862646D64B00A8A8D6 /* RealmProvider.swift */,
+				B93F2B902646DD1F00A8A8D6 /* Realms */,
+				B93F2B932646DDC700A8A8D6 /* RealmObjects */,
+			);
+			path = RealmProvider;
+			sourceTree = "<group>";
+		};
+		B93F2B902646DD1F00A8A8D6 /* Realms */ = {
+			isa = PBXGroup;
+			children = (
+				B93F2B8D2646DD0100A8A8D6 /* AuthRealm.swift */,
+			);
+			path = Realms;
+			sourceTree = "<group>";
+		};
+		B93F2B932646DDC700A8A8D6 /* RealmObjects */ = {
+			isa = PBXGroup;
+			children = (
+				B93F2B912646DDC300A8A8D6 /* AuthCredRealmObject.swift */,
+			);
+			path = RealmObjects;
+			sourceTree = "<group>";
+		};
+		B93F2BA02646E0F600A8A8D6 /* AccountsCreds */ = {
+			isa = PBXGroup;
+			children = (
+				B93F2B942646E0B800A8A8D6 /* AccountsCredsView.swift */,
+				B93F2B962646E0BD00A8A8D6 /* AccountsCredsPresenter.swift */,
+				B93F2B982646E0CC00A8A8D6 /* AccountsCredsInteractor.swift */,
+				B93F2B9A2646E0D700A8A8D6 /* AccountsCredsBuilder.swift */,
+				B93F2B9C2646E0E300A8A8D6 /* AccountsCredsDependency.swift */,
+				B93F2B9E2646E0EF00A8A8D6 /* AccountsCredsRouter.swift */,
+				B93F2BA32646E28700A8A8D6 /* Subviews */,
+			);
+			path = AccountsCreds;
+			sourceTree = "<group>";
+		};
+		B93F2BA32646E28700A8A8D6 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				B93F2BA12646E28400A8A8D6 /* AccountCredsCell.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		B93FDB20246BDCBA006E93F4 /* BenefitsService */ = {
@@ -1392,6 +1477,7 @@
 			children = (
 				B99093D325AFC25700CF381B /* BUEmptyContainer.swift */,
 				B93F2B842646AF4000A8A8D6 /* BUSearchBar.swift */,
+				B991A47D2647E2390006884B /* BUCollectionView.swift */,
 				B96CA66125B3895100FF157C /* BUMapView.swift */,
 				B95FB96525B45A6200AB2566 /* BULabel.swift */,
 				B9E7CEB425B492E30033810D /* BUTextField.swift */,
@@ -1784,6 +1870,7 @@
 				B9CAA713242B9F2D00E50668 /* AuthVerificationScreen */,
 				B9A0C9B0242FC5A300EB6FAE /* CategoriesScreen */,
 				B9D1758B243CFD48001FF58E /* TermsAndConditions */,
+				B93F2BA02646E0F600A8A8D6 /* AccountsCreds */,
 			);
 			path = LoginSection;
 			sourceTree = "<group>";
@@ -1849,9 +1936,9 @@
 		F63C6FCB5F7C61B7CB5C909E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F7E08E2FC007738639B3B1FB /* libPods-bonup-mobile.a */,
-				CE0D5E7A78F092619BB6A746 /* libPods-bonup-mobile-bonup-mobileUITests.a */,
-				DF5CDDCDF5D268CCF81AFC04 /* libPods-bonup-mobileTests.a */,
+				09011FEA798A936A5818A174 /* Pods_bonup_mobile.framework */,
+				9D95D0EB77B15E1B12F277DC /* Pods_bonup_mobile_bonup_mobileUITests.framework */,
+				792BEFBDE7EC2A9E6E38958F /* Pods_bonup_mobileTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1869,6 +1956,7 @@
 				B948A1DC241444B2001287B8 /* Resources */,
 				B959712B24269C6C00EAEB6E /* ShellScript */,
 				ED7E486F2B921BECDDBD9854 /* [CP] Copy Pods Resources */,
+				15D379AE07F17735146ADE88 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1907,6 +1995,7 @@
 				B948A1FF241444B4001287B8 /* Frameworks */,
 				B948A200241444B4001287B8 /* Resources */,
 				159A9E4189FA71EEFEA43CEF /* [CP] Copy Pods Resources */,
+				04A95F6AB78C41BC4C289FB9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1996,6 +2085,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		04A95F6AB78C41BC4C289FB9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		159A9E4189FA71EEFEA43CEF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2009,6 +2113,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		15D379AE07F17735146ADE88 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5B13C92652E37C02E119BD76 /* [CP] Check Pods Manifest.lock */ = {
@@ -2116,6 +2235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B93F2B8A2646DCB400A8A8D6 /* DataBaseProvider.swift in Sources */,
 				B914AC8D24435D44007494E3 /* FinishedTasksCollectionViewCell.swift in Sources */,
 				B944A8F924621816002170FD /* TaskDescriptionDependecy.swift in Sources */,
 				B9A13D36244E3AD600373827 /* ProfileBuilder.swift in Sources */,
@@ -2220,8 +2340,11 @@
 				B93F2B7D2641FABF00A8A8D6 /* BUSegmentedControl.swift in Sources */,
 				B9C97013263DAA5400066625 /* OrganizationControlAppendRequestEntity.swift in Sources */,
 				B9B67F2825B475D200AC7184 /* SelectCategoriesDataSource.swift in Sources */,
+				B93F2B872646D64B00A8A8D6 /* RealmProvider.swift in Sources */,
 				B9D30C72244BA0DC00B9E9AA /* ChangePasswordPresenter.swift in Sources */,
+				B93F2B992646E0CC00A8A8D6 /* AccountsCredsInteractor.swift in Sources */,
 				B9CAA70C242B9F0200E50668 /* AuthVerificationRouter.swift in Sources */,
+				B93F2B9B2646E0D700A8A8D6 /* AccountsCredsBuilder.swift in Sources */,
 				B95FB96B25B4624B00AB2566 /* AddCompanyView.swift in Sources */,
 				B93F2B6A263F0B7800A8A8D6 /* CompanyStatisticsInteractor.swift in Sources */,
 				B96CA65D25B3867700FF157C /* SelectCategoriesCellModel.swift in Sources */,
@@ -2240,6 +2363,7 @@
 				B932366F241E6CCF00A37634 /* AuthResponseEntity.swift in Sources */,
 				B90BED4925B5D92900AD78A8 /* CompanyPacketPresenter.swift in Sources */,
 				B977484524431971004D39AD /* TaskSelectionDependency.swift in Sources */,
+				B93F2BA22646E28400A8A8D6 /* AccountCredsCell.swift in Sources */,
 				B966E73624684D700043FD69 /* BenefitDescriptionDependency.swift in Sources */,
 				B9A9189425B3430D00919FE9 /* SettingsService.swift in Sources */,
 				B9A13D3A244E3AE400373827 /* ProfileRouter.swift in Sources */,
@@ -2254,6 +2378,7 @@
 				B9BA40A12443D0ED00950808 /* FinishedTasksPresentationModel.swift in Sources */,
 				B9CAA70E242B9F0D00E50668 /* AuthVerificationBuilder.swift in Sources */,
 				B95FB96125B457C900AB2566 /* OrganizationsListAddButton.swift in Sources */,
+				B93F2B8C2646DCEB00A8A8D6 /* RealmProtocols.swift in Sources */,
 				B9CAA710242B9F1600E50668 /* AuthVerificationPresenter.swift in Sources */,
 				B9D30C6A244BA0B400B9E9AA /* ChangePasswordBuilder.swift in Sources */,
 				B935A59A241D6A8A0074E89E /* NewPasswordBuilder.swift in Sources */,
@@ -2261,6 +2386,7 @@
 				B9721AB425AF39840019D6D4 /* SettingsParamsView.swift in Sources */,
 				B9FE3A4225B6187E007ED803 /* CompanyCustomPacketInteractor.swift in Sources */,
 				B98DE0E6244BB627007AE007 /* SettingsBuilder.swift in Sources */,
+				B93F2B922646DDC300A8A8D6 /* AuthCredRealmObject.swift in Sources */,
 				B990939E25AF7F8E00CF381B /* SOTabBar.swift in Sources */,
 				B93F2B70263F0B8E00A8A8D6 /* CompanyStatisticsBuilder.swift in Sources */,
 				B9A13D38244E3ADE00373827 /* ProfileDependency.swift in Sources */,
@@ -2273,6 +2399,7 @@
 				B9CAA715242B9FAE00E50668 /* UITextField+Factory.swift in Sources */,
 				B9F0463E2635741200D2D3D8 /* AddCompanyActionRouter.swift in Sources */,
 				B98DE0E8244BB62D007AE007 /* SettingsDependency.swift in Sources */,
+				B93F2B952646E0B800A8A8D6 /* AccountsCredsView.swift in Sources */,
 				B95FB97525B4625D00AB2566 /* AddCompanyInteractor.swift in Sources */,
 				B96A71E7246BA842007416DF /* ProfileGoalsResponse.swift in Sources */,
 				B9D3369A2469CFCA003E1CEB /* OrganizationsListPresenter.swift in Sources */,
@@ -2283,6 +2410,7 @@
 				B9F046522635742A00D2D3D8 /* AddCompanyActionViewModel.swift in Sources */,
 				B96CA68325B38F0400FF157C /* CompaniesSectionDependecy.swift in Sources */,
 				B964E0C32451CFC400668EE8 /* ProfileAhievementsCell.swift in Sources */,
+				B93F2B9D2646E0E300A8A8D6 /* AccountsCredsDependency.swift in Sources */,
 				B9126688242AA57D00BEA50C /* BULoginViewController.swift in Sources */,
 				B93F2B6E263F0B8100A8A8D6 /* CompanyStatisticsDependency.swift in Sources */,
 				B9F046432635741800D2D3D8 /* AddCompanyActionBuilder.swift in Sources */,
@@ -2299,6 +2427,7 @@
 				B9F04631263573F400D2D3D8 /* AddCompanyActionPresenter.swift in Sources */,
 				B9A0C9A7242FC57D00EB6FAE /* CategoriesInteractor.swift in Sources */,
 				B9A13D43244E474200373827 /* ProfileProgressContainer.swift in Sources */,
+				B93F2B972646E0BD00A8A8D6 /* AccountsCredsPresenter.swift in Sources */,
 				B9FE3A5125B61897007ED803 /* CompanyCustomPacketBuilder.swift in Sources */,
 				B93F2B73263F0F0700A8A8D6 /* CompanyStatisticsConstants.swift in Sources */,
 				B9F04639263573FA00D2D3D8 /* AddCompanyActionInteractor.swift in Sources */,
@@ -2332,6 +2461,7 @@
 				B9CAA722242BE8DF00E50668 /* EmailVerificationResponseEntity.swift in Sources */,
 				B9D17E32246C2B9C00258BA3 /* OrganizationControlAppendResponseEntity.swift in Sources */,
 				B96CA66A25B38ED900FF157C /* CompaniesSectionView.swift in Sources */,
+				B93F2B8E2646DD0100A8A8D6 /* AuthRealm.swift in Sources */,
 				B96A71E4246BA7A6007416DF /* ProfileResponseDetailsEntity.swift in Sources */,
 				B992D51624578A36002ABF71 /* BenefitsRouter.swift in Sources */,
 				B9B67F2325B4759B00AC7184 /* SelectCategoriesContainer.swift in Sources */,
@@ -2386,11 +2516,13 @@
 				B992D52A2457A182002ABF71 /* SelectedBenefitsPresentationModel.swift in Sources */,
 				B941E73A246B93550056B844 /* OrganizationControlInteractor.swift in Sources */,
 				B944A8F724621807002170FD /* TaskDescriptionBuilder.swift in Sources */,
+				B93F2B9F2646E0EF00A8A8D6 /* AccountsCredsRouter.swift in Sources */,
 				B9D3369C2469CFD4003E1CEB /* OrganizationsListBuilder.swift in Sources */,
 				B93F2B7826407A1300A8A8D6 /* CompanyEntity.swift in Sources */,
 				B977484B24431A37004D39AD /* TasksListPresenter.swift in Sources */,
 				B966E73424684D640043FD69 /* BenefitDescriptionInteractor.swift in Sources */,
 				B941E740246B93730056B844 /* OrganizationControlRouter.swift in Sources */,
+				B991A47E2647E2390006884B /* BUCollectionView.swift in Sources */,
 				B9323663241D7F5300A37634 /* AuthService.swift in Sources */,
 				B948A247241CDE64001287B8 /* UIFont+Fonts.swift in Sources */,
 				B9CAA70A242B9EF600E50668 /* AuthVerificationInteractor.swift in Sources */,

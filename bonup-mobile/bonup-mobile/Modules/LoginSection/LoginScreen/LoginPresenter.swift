@@ -10,6 +10,7 @@ import Foundation
 
 protocol ILoginPresenter {
     func handleResetPasswordButtonTap(with email: String?)
+    func handleShowAccountsButtonTap()
     func handleSignButtonTap(name: String?,
                              email: String?,
                              password: String?,
@@ -112,5 +113,14 @@ extension LoginPresenter: ILoginPresenter {
 
     func handleTermAndConditionButtonTap() {
         self.router.show(.termsAndConditions)
+    }
+    
+    func handleShowAccountsButtonTap() {
+        self.router.show(.accounts({ [weak self] creds in
+            
+            self?.view?.setupName(creds.name)
+            self?.view?.setupEmail(creds.email)
+            self?.view?.setupPassword("")
+        }))
     }
 }

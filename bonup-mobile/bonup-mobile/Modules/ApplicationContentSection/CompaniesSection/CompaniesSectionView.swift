@@ -155,6 +155,8 @@ final class CompaniesSectionView: BUContentViewController {
 //        self.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
         let offset: CGFloat = sender.selectedSegmentIndex == 0 ? 0 : self.collectionView.frame.width
         self.collectionView.setContentOffset(CGPoint(x: offset, y: 0), animated: true)
+        
+        self.view.endEditing(true)
     }
 
     @objc private func infoNavigationItemTapped() {

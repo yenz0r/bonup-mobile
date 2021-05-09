@@ -117,8 +117,10 @@ final class ProfileActionsChartsContainer: UIView {
         let chartView = PieChartView()
         
         chartView.entryLabelColor = .white
-        chartView.entryLabelFont = .systemFont(ofSize: 12, weight: .light)
+        chartView.entryLabelFont = .systemFont(ofSize: 17, weight: .bold)
         chartView.legend.enabled = false
+        chartView.backgroundColor = .clear
+        chartView.holeColor = .clear
         
         return chartView
     }
@@ -127,6 +129,7 @@ final class ProfileActionsChartsContainer: UIView {
         
         let control = BUSegmentedControl(nonlocalizedItems: Category.allCases.map({ $0.title }))
         
+        control.selectedSegmentIndex = 0
         control.addTarget(self, action: #selector(segmentControlChange(_:)), for: .touchUpInside)
         
         return control

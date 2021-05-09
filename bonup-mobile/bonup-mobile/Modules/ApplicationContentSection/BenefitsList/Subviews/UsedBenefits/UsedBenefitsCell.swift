@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EmptyDataSet_Swift
 
 final class UsedBenefitsCell: BenefitsCell {
 
@@ -40,6 +41,8 @@ final class UsedBenefitsCell: BenefitsCell {
 
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        self.collectionView.emptyDataSetSource = self
+        
         self.collectionView.register(
             UsedBenefitsContentCell.self,
             forCellWithReuseIdentifier: UsedBenefitsContentCell.reuseId
@@ -88,5 +91,28 @@ extension UsedBenefitsCell: UICollectionViewDataSource {
         benefitCell.isDied = model.isDied
 
         return cell
+    }
+}
+
+// MARK: - EmptyDataSetSource
+
+extension UsedBenefitsCell: EmptyDataSetSource {
+    
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        
+        return NSAttributedString(string: "ui_empty_used_benefits_list".localized,
+                                  attributes: [.foregroundColor : Colors.textStateColor,
+                                               .font: UIFont.avenirHeavy(20)])
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        
+        return AssetsHelper.shared.image(.emptyTasksListIcon)?.resizedImage(targetSize: .init(width: 70,
+                                                                                              height: 70))
+    }
+    
+    func imageTintColor(forEmptyDataSet scrollView: UIScrollView) -> UIColor? {
+        
+        return Colors.textStateColor
     }
 }

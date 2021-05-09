@@ -97,8 +97,10 @@ final class OrganizationsListView: BUContentViewController {
         layout.scrollDirection = .vertical
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
         collectionView.delegate = self
         collectionView.dataSource = self
+        
         collectionView.register(
             OrganizationsListCell.self,
             forCellWithReuseIdentifier: OrganizationsListCell.reuseId
@@ -135,23 +137,19 @@ extension OrganizationsListView: UICollectionViewDataSource {
         return num
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OrganizationsListCell.reuseId, for: indexPath) as? OrganizationsListCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OrganizationsListCell.reuseId, for: indexPath) as! OrganizationsListCell
 
-        guard let organizationCell = cell else {
+        cell.titleText = self.presenter.title(for: indexPath.row)
+        cell.imageLink = self.presenter.imagePath(for: indexPath.row)
 
-            return UICollectionViewCell()
-        }
-
-        organizationCell.titleText = self.presenter.title(for: indexPath.row)
-        organizationCell.imageLink = self.presenter.imagePath(for: indexPath.row)
-
-        return organizationCell
+        return cell
     }
 }
 
-// MARK: -
+// MARK: - UICollectionViewDelegateFlowLayout
 
 extension OrganizationsListView: UICollectionViewDelegateFlowLayout {
 

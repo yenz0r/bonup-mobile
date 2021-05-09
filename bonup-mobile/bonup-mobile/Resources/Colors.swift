@@ -28,8 +28,15 @@ struct Colors {
     static let borderCGColor: ThemeCGColorPicker = ["#445e4d", "#71997f"]
 
     static let settingsIconsColor: ThemeColorPicker = ["#000", "#6a697fff"]
+    
+    static let profileSectionColor: ThemeColorPicker = ["#EFF6FF", "#EFF6FF"]
 
     static let keyboardAppearance = ThemeKeyboardAppearancePicker(styles: .light, .dark)
+    
+    static var textStateColor: UIColor {
+       
+        return ThemeColorsManager.shared.currentTheme == .dark ? .white : .black
+    }
 
     static let blurEffect = ThemeVisualEffectPicker(effects: UIBlurEffect(style: .light), UIBlurEffect(style: .dark))
 }

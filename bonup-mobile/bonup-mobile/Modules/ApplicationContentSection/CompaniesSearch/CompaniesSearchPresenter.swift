@@ -75,16 +75,26 @@ extension CompaniesSearchPresenter: ICompaniesSearchPresenter {
     
     func handleCategoriesUpdate(categories: [InterestCategories]) {
         
+        let prev = self.interactor.organizations
+        
         self.interactor.selectedCategories = categories
         
-        self.view?.reloadMap()
+        if self.uiShouldBeReloaded(prev: prev, new: self.interactor.organizations) {
+        
+            self.view?.reloadMap()
+        }
     }
     
     func handleSearchValueUpdate(_ searchText: String?) {
         
+        let prev = self.interactor.organizations
+        
         self.interactor.searchText = searchText
         
-        self.view?.reloadMap()
+        if self.uiShouldBeReloaded(prev: prev, new: self.interactor.organizations) {
+        
+            self.view?.reloadMap()
+        }
     }
     
     func handleCompanySelection(_ companyTitle: String) {
@@ -95,5 +105,13 @@ extension CompaniesSearchPresenter: ICompaniesSearchPresenter {
         }
         
         self.router.show(.showCompanyDescription(company))
+    }
+    
+    private func uiShouldBeReloaded(prev: [CompanyEntity], new: [CompanyEntity]) -> Bool {
+        
+        let newTitles = new.map { $0.title }
+        let prevTitles = prev.map { $0.title }
+        
+        return prevTitles != newTitles
     }
 }

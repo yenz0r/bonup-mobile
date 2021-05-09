@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EmptyDataSet_Swift
 
 final class TasksListCurrentCollectionViewCell: UICollectionViewCell {
 
@@ -16,7 +17,9 @@ final class TasksListCurrentCollectionViewCell: UICollectionViewCell {
 
     var presentationModels: [CurrentTasksListPresentationModel]? {
         didSet {
+            
             self.collectionView.reloadData()
+            self.collectionView.reloadEmptyDataSet()
         }
     }
 
@@ -32,15 +35,18 @@ final class TasksListCurrentCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
 
         let collectionFlowLayout = UICollectionViewFlowLayout()
-        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionFlowLayout)
+        self.collectionView = BUCollectionView(frame: .zero, collectionViewLayout: collectionFlowLayout)
         self.contentView.addSubview(self.collectionView)
         self.collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
 
         self.collectionView.backgroundColor = .clear
+        
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        self.collectionView.emptyDataSetSource = self
+        
         self.collectionView.register(
             CurrentTasksCollectionViewCell.self,
             forCellWithReuseIdentifier: CurrentTasksCollectionViewCell.reuseId
@@ -100,5 +106,28 @@ extension TasksListCurrentCollectionViewCell: UICollectionViewDelegateFlowLayout
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+    }
+}
+
+// MARK: - EmptyDataSetSource
+
+extension TasksListCurrentCollectionViewCell: EmptyDataSetSource {
+
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        
+        return NSAttributedString(string: "ui_empty_current_tasks_list".localized,
+                                  attributes: [.foregroundColor : Colors.textStateColor,
+                                               .font: UIFont.avenirHeavy(20)])
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        
+        return AssetsHelper.shared.image(.emptyTasksListIcon)?.resizedImage(targetSize: .init(width: 70,
+                                                                                              height: 70))
+    }
+    
+    func imageTintColor(forEmptyDataSet scrollView: UIScrollView) -> UIColor? {
+        
+        return Colors.textStateColor
     }
 }

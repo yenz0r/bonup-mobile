@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EmptyDataSet_Swift
 
 final class TasksListFinishedCollectionViewCell: UICollectionViewCell {
 
@@ -37,8 +38,11 @@ final class TasksListFinishedCollectionViewCell: UICollectionViewCell {
         }
 
         self.collectionView.backgroundColor = .clear
+        
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        self.collectionView.emptyDataSetSource = self
+        
         self.collectionView.register(
             FinishedTasksCollectionViewCell.self,
             forCellWithReuseIdentifier: FinishedTasksCollectionViewCell.reuseId
@@ -92,3 +96,27 @@ extension TasksListFinishedCollectionViewCell: UICollectionViewDelegateFlowLayou
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
 }
+
+// MARK: - EmptyDataSetSource
+
+extension TasksListFinishedCollectionViewCell: EmptyDataSetSource {
+
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        
+        return NSAttributedString(string: "ui_empty_done_tasks_list".localized,
+                                  attributes: [.foregroundColor : Colors.textStateColor,
+                                               .font: UIFont.avenirHeavy(20)])
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        
+        return AssetsHelper.shared.image(.emptyTasksListIcon)?.resizedImage(targetSize: .init(width: 70,
+                                                                                              height: 70))
+    }
+    
+    func imageTintColor(forEmptyDataSet scrollView: UIScrollView) -> UIColor? {
+        
+        return Colors.textStateColor
+    }
+}
+

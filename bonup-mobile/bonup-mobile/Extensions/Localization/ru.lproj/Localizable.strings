@@ -173,3 +173,14 @@
 "ui_coupons_title" = "Купоны";
 "ui_company_details_title" = "О компании";
 "ui_search_company_placeholder" = "Поиск организации..";
+"ui_accounts_title" = "Аккаунты";
+"ui_emtpy_accounts_list" = "Ваш список аккаунтов пуст..";
+"ui_show_accounts_title" = "Аккаунты";
+"ui_name_label" = "Имя : ";
+"ui_email_label" = "Почта : ";
+"ui_empty_new_benefits_list" = "Список новых купонов пуст..";
+"ui_empty_selected_benefits_list" = "Список выбранных купонов пуст..";
+"ui_empty_used_benefits_list" = "Список использованных купонов пуст..";
+"ui_empty_archivementes_list" = "Список Вашиз достижение пока пуст..";
+"ui_empty_current_tasks_list" = "Список текущих задач пуст..";
+"ui_empty_done_tasks_list" = "Список выполненных задач пуст..";

@@ -55,6 +55,8 @@ final class ProfileHeaderView: UIView {
 
         self.iconImageView.layer.cornerRadius = self.iconImageView.frame.width / 2
         self.iconImageView.layer.masksToBounds = true
+        
+        self.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.14)
     }
 
     // MARK: - Public functions
@@ -62,7 +64,8 @@ final class ProfileHeaderView: UIView {
     func reloadData() {
         self.nameValueLabel.text = self.dataSource.profileHeaderView(self, userInfoFor: .name) ?? "-"
         self.emailValueLabel.text = self.dataSource.profileHeaderView(self, userInfoFor: .email) ?? "-"
-        self.organizationValueLabel.text = self.dataSource.profileHeaderView(self, userInfoFor:  .organization) ?? "-"
+        self.organizationValueLabel.text = self.dataSource.profileHeaderView(self,
+                                                                             userInfoFor:  .organization) ?? "-"
         self.iconImageView.image = self.dataSource.iconForProfileHeaderView(self)
     }
 
@@ -75,21 +78,21 @@ final class ProfileHeaderView: UIView {
 
         self.iconImageView = self.configureImageView()
 
-        let nameTitleLabel = self.configureLabel(with: "ui_my_name".localized)
+        let nameTitleLabel = self.configureLabel(with: "ui_my_name")
         self.nameValueLabel = self.configureLabel(with: nil)
         let nameContainer = self.configureTextContainer(
             title: nameTitleLabel,
             value: self.nameValueLabel,
             position: .left)
 
-        let emailTitleLabel = self.configureLabel(with: "ui_my_email".localized)
+        let emailTitleLabel = self.configureLabel(with: "ui_my_email")
         self.emailValueLabel = self.configureLabel(with: nil)
         let emailContainer = self.configureTextContainer(
             title: emailTitleLabel,
             value: self.emailValueLabel,
             position: .left)
 
-        let organizationTitleLabel = self.configureLabel(with: "ui_my_organization".localized)
+        let organizationTitleLabel = self.configureLabel(with: "ui_my_organization")
         self.organizationValueLabel = self.configureLabel(with: nil)
         let organizationContainer = self.configureTextContainer(
             title: organizationTitleLabel,
@@ -124,8 +127,6 @@ final class ProfileHeaderView: UIView {
     private func configureAppearace() {
         self.layer.cornerRadius = 15.0
         self.layer.masksToBounds = true
-        self.layer.borderColor = UIColor.purpleLite.withAlphaComponent(0.3).cgColor
-        self.layer.borderWidth = 1.0
     }
 
     private func configureTextContainer(title: UILabel,
@@ -169,12 +170,12 @@ final class ProfileHeaderView: UIView {
     }
 
     private func configureLabel(with text: String?) -> UILabel {
-        let label = UILabel()
+        let label = BULabel()
 
         label.textAlignment = .left
         label.font = UIFont.avenirRoman(15.0)
-        label.textColor = UIColor.black.withAlphaComponent(0.8)
-        label.text = text
+        label.theme_textColor = Colors.defaultTextColor
+        label.nonlocalizedTitle = text
         label.contentScaleFactor = 0.4
         label.adjustsFontSizeToFitWidth = true
 
@@ -192,9 +193,11 @@ final class ProfileHeaderView: UIView {
     }
 
     private func configureImageView() -> UIImageView {
+        
         let imageView = UIImageView()
 
         imageView.contentMode = .scaleAspectFit
+        imageView.theme_tintColor = Colors.defaultTextColor
 
         return imageView
     }

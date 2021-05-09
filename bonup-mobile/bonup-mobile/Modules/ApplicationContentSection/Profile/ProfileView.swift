@@ -66,7 +66,8 @@ final class ProfileView: BUContentViewController {
         self.ahievementsContainer.snp.makeConstraints { make in
             make.top.equalTo(self.actionsChartsContainer.snp.bottom).offset(10.0)
             make.height.equalTo(100)
-            make.leading.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(10.0)
+            make.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-30)
         }
     }
 
@@ -140,7 +141,8 @@ extension ProfileView: IProfileView {
 
 extension ProfileView: ProfileHeaderViewDataSource {
     func iconForProfileHeaderView(_ profileHeaderView: ProfileHeaderView) -> UIImage? {
-        return AssetsHelper.shared.image(.usernameIcon)
+        
+        return AssetsHelper.shared.image(.usernameIcon)?.withRenderingMode(.alwaysTemplate)
     }
 
     func profileHeaderView(_ profileHeaderView: ProfileHeaderView,

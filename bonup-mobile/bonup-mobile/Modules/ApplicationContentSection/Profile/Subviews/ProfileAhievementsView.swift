@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EmptyDataSet_Swift
 
 protocol ProfileAhievementsViewDataSource: AnyObject {
     func numberOfItemsInprofileAhievementsView(_ profileAhievementsView: ProfileAhievementsView) -> Int
@@ -42,7 +43,9 @@ final class ProfileAhievementsView: UIView {
     // MARK: - Public functions
 
     func reloadData() {
+        
         self.collectionView.reloadData()
+        self.collectionView.reloadEmptyDataSet()
     }
 
     // MARK: - Setup subviews
@@ -64,10 +67,12 @@ final class ProfileAhievementsView: UIView {
         collectionViewFlowLayout.scrollDirection = .horizontal
         collectionViewFlowLayout.sectionInset = .zero
 
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
+        let collectionView = BUCollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
 
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.emptyDataSetSource = self
+        
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.backgroundColor = .clear
 
@@ -134,5 +139,28 @@ extension ProfileAhievementsView: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 15.0
+    }
+}
+
+// MARK: - EmptyDataSetSource
+
+extension ProfileAhievementsView: EmptyDataSetSource {
+
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        
+        return NSAttributedString(string: "ui_empty_archivementes_list".localized,
+                                  attributes: [.foregroundColor : Colors.textStateColor,
+                                               .font: UIFont.avenirHeavy(20)])
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        
+        return AssetsHelper.shared.image(.emptyTasksListIcon)?.resizedImage(targetSize: .init(width: 70,
+                                                                                              height: 70))
+    }
+    
+    func imageTintColor(forEmptyDataSet scrollView: UIScrollView) -> UIColor? {
+        
+        return Colors.textStateColor
     }
 }

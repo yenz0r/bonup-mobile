@@ -46,7 +46,7 @@ class BenefitsCell: UICollectionViewCell {
         layout.sectionInset = .zero
         layout.minimumInteritemSpacing = 10.0
 
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let collectionView = BUCollectionView(frame: .zero, collectionViewLayout: layout)
 
         collectionView.backgroundColor = .clear
 

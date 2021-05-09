@@ -176,3 +176,14 @@
 "ui_coupons_title" = "Coupons";
 "ui_company_details_title" = "About company";
 "ui_search_company_placeholder" = "Search company..";
+"ui_accounts_title" = "Accounts";
+"ui_emtpy_accounts_list" = "Your accounts list is empty..";
+"ui_show_accounts_title" = "Accounts";
+"ui_name_label" = "Name : ";
+"ui_email_label" = "Email : ";
+"ui_empty_new_benefits_list" = "Empty new benefits list..";
+"ui_empty_selected_benefits_list" = "Empty selected benefits list..";
+"ui_empty_used_benefits_list" = "Empty used benefits list..";
+"ui_empty_archivementes_list" = "Your list of arvhivements is empty..";
+"ui_empty_current_tasks_list" = "Empty current tasks list..";
+"ui_empty_done_tasks_list" = "Empty done tasks list..";

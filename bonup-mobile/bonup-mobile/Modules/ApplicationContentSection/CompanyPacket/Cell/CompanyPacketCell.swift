@@ -35,14 +35,10 @@ final class CompanyPacketCell: UITableViewCell {
 
         didSet {
 
-            UIView.transition(with: self.iconImageView,
-                              duration: 0.3,
-                              options: .transitionFlipFromLeft,
-                              animations: {
-
-                                self.iconImageView.image = self.isPacketSelected ? AssetsHelper.shared.image(.activeCheckBox) : self.packetType.icon
-                              },
-                              completion: nil)
+            UIView.animate(withDuration: 0.3) {
+                
+                self.iconImageView.image = self.isPacketSelected ? AssetsHelper.shared.image(.activeCheckBox) : self.packetType.icon
+            }
         }
     }
 
