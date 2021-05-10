@@ -11,6 +11,7 @@ import UIKit
 protocol IOrganizationsListView: AnyObject {
 
     func reloadData()
+    func stopRefreshControl()
 }
 
 final class OrganizationsListView: BUContentViewController {
@@ -21,6 +22,7 @@ final class OrganizationsListView: BUContentViewController {
 
     // MARK: - User interface variables
 
+    private var refreshControl: UIRefreshControl!
     private var collectionView: UICollectionView!
     private var addButton: OrganizationsListAddButton!
     private var emptyContainer: BUEmptyContainer!
@@ -35,15 +37,17 @@ final class OrganizationsListView: BUContentViewController {
     }
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
-        self.configureAppearance()
+        self.setupAppearance()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.presenter.viewWillAppear()
 
         super.viewWillAppear(animated)
+        
+        self.presenter.refreshData()
     }
 
     // MARK: - Localization
@@ -54,11 +58,13 @@ final class OrganizationsListView: BUContentViewController {
         self.emptyContainer.descriptionText = "ui_empty_organizations_title".localized
     }
 
-    // MARK: - Setup subviews
+    // MARK: - Setup
 
     private func setupSubviews() {
 
-        self.collectionView = self.configureCollectioView()
+        self.collectionView = self.configureCollectionView()
+        self.refreshControl = self.configureRefreshControl()
+        self.collectionView.refreshControl = self.refreshControl
         self.addButton = OrganizationsListAddButton { [weak self] in
 
             self?.presenter.handleAddButtonTap()
@@ -84,14 +90,24 @@ final class OrganizationsListView: BUContentViewController {
         }
     }
 
-    // MARK: - Configurations
-
-    private func configureAppearance() {
+    private func setupAppearance() {
 
         self.view.theme_backgroundColor = Colors.backgroundColor
     }
+    
+    // MARK: - Configurations
 
-    private func configureCollectioView() -> UICollectionView {
+    private func configureRefreshControl() -> UIRefreshControl {
+        
+        let refresh = UIRefreshControl()
+        
+        refresh.addTarget(self, action: #selector(self.refreshControlDidTrigger(_:)), for: .valueChanged)
+        refresh.tintColor = .systemRed
+        
+        return refresh
+    }
+
+    private func configureCollectionView() -> UICollectionView {
 
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -109,6 +125,13 @@ final class OrganizationsListView: BUContentViewController {
         collectionView.backgroundColor = .clear
 
         return collectionView
+    }
+    
+    // MARK: - Selectors
+    
+    @objc private func refreshControlDidTrigger(_ sender: UIRefreshControl) {
+        
+        self.presenter.refreshData()
     }
 }
 
@@ -174,5 +197,10 @@ extension OrganizationsListView: IOrganizationsListView {
     func reloadData() {
 
         self.collectionView.reloadData()
+    }
+    
+    func stopRefreshControl() {
+        
+        self.refreshControl.endRefreshing()
     }
 }

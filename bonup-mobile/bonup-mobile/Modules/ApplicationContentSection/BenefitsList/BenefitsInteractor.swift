@@ -10,7 +10,9 @@ import Foundation
 
 protocol IBenefitsInteractor: AnyObject {
 
-    func getBenefits(success:((BenefitsResponseEntity) -> Void)?, failure: ((String) -> Void)?)
+    func getBenefits(withLoader: Bool,
+                     success:((BenefitsResponseEntity) -> Void)?,
+                     failure: ((String) -> Void)?)
     func buyBenefits(id: Int, success:((BenefitsResponseEntity) -> Void)?, failure: ((String) -> Void)?)
 }
 
@@ -24,13 +26,16 @@ final class BenefitsInteractor {
 
 extension BenefitsInteractor: IBenefitsInteractor {
 
-    func getBenefits(success: ((BenefitsResponseEntity) -> Void)?, failure: ((String) -> Void)?) {
+    func getBenefits(withLoader: Bool,
+                     success: ((BenefitsResponseEntity) -> Void)?,
+                     failure: ((String) -> Void)?) {
 
         guard let token = AccountManager.shared.currentToken else { return }
 
         _ = networkProvider.request(
             .myCoupons(token),
             type: BenefitsResponseEntity.self,
+            withLoader: withLoader,
             completion: { result in
                 if result.isSuccess {
                     success?(result)

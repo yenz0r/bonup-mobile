@@ -40,28 +40,12 @@ final class NewBenefitsContentCell: BenefitsContentCell {
 
     var coastText: String? {
         didSet {
-            guard let coastStr = self.coastText, let coast = Int(coastStr) else {
-                self.saveButton.setAttributedTitle(nil, for: .normal)
-                return
-            }
-
-            var color = UIColor.black
-            switch coast {
-            case (0..<100):
-                color = .yellow
-            case (200..<300):
-                color = .orange
-            case (300..<350):
-                color = .red
-            default:
-                break
-            }
 
             self.saveButton.setAttributedTitle(
                 NSAttributedString.with(
-                    title: "-\(coastStr)",
-                    textColor: color,
-                    font: UIFont.avenirRoman(20.0)
+                    title: "-\(coastText ?? "0")",
+                    textColor: .systemRed,
+                    font: UIFont.avenirRoman(18.0)
                 ),
                 for: .normal
             )
@@ -102,13 +86,19 @@ final class NewBenefitsContentCell: BenefitsContentCell {
          self.saveButton,
          self.aliveTimeLabel].forEach { self.contentView.addSubview($0) }
 
+        self.aliveTimeLabel.snp.makeConstraints { make in
+            make.top.leading.equalToSuperview().inset(10.0)
+            make.trailing.equalTo(self.saveButton.snp.leading).offset(-5)
+        }
+        
         self.saveButton.snp.makeConstraints { make in
             make.trailing.top.bottom.equalToSuperview()
             make.width.equalTo(70.0)
         }
 
         self.titleLabel.snp.makeConstraints { make in
-            make.leading.top.equalToSuperview().inset(10.0)
+            make.top.equalTo(self.aliveTimeLabel.snp.bottom).offset(5)
+            make.leading.equalToSuperview().inset(10.0)
             make.trailing.equalTo(self.saveButton.snp.leading).offset(-5.0)
         }
 
@@ -117,10 +107,6 @@ final class NewBenefitsContentCell: BenefitsContentCell {
             make.top.equalTo(self.titleLabel.snp.bottom).offset(5.0)
             make.trailing.equalTo(self.saveButton.snp.trailing).offset(-5.0)
         }
-
-        self.aliveTimeLabel.snp.makeConstraints { make in
-            make.trailing.top.equalToSuperview().inset(10.0)
-        }
     }
 
     // MARK: - Configure
@@ -128,7 +114,7 @@ final class NewBenefitsContentCell: BenefitsContentCell {
     private func configureSaveButton() -> UIButton {
         let button = UIButton(type: .system)
 
-        button.backgroundColor = UIColor.green.withAlphaComponent(0.3)
+        button.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.3)
         button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
 
         return button
@@ -142,13 +128,15 @@ final class NewBenefitsContentCell: BenefitsContentCell {
         switch type {
         case .description:
             label.font = UIFont.avenirRoman(15.0)
-            label.textColor = UIColor.systemBlue.withAlphaComponent(0.5)
+            label.theme_textColor = Colors.defaultTextColorWithAlpha
+            
         case .title:
             label.font = UIFont.avenirHeavy(20.0)
-            label.textColor = UIColor.purpleLite.withAlphaComponent(0.5)
+            label.theme_textColor = Colors.defaultTextColor
+            
         case .alive:
             label.font = UIFont.avenirHeavy(10.0)
-            label.textColor = .white
+            label.theme_textColor = Colors.defaultTextColorWithAlpha
         }
 
         return label
@@ -157,18 +145,7 @@ final class NewBenefitsContentCell: BenefitsContentCell {
     // MARK: - Selectors
 
     @objc private func saveButtonTapped() {
+        
         self.onSaveTap?()
-    }
-
-    // MARK: - Life cycle
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-        self.titleText = nil
-        self.descriptionText = nil
-        self.coastText = nil
-        self.aliveTimeText = nil
-        self.onSaveTap = nil
     }
 }

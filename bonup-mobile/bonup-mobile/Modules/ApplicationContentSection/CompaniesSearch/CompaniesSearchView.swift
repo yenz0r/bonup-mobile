@@ -47,11 +47,11 @@ final class CompaniesSearchView: BUContentViewController {
         self.setupMapItems()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
-        super.viewDidAppear(animated)
+        super.viewWillAppear(animated)
 
-        self.presenter.viewDidAppear()
+        self.presenter.refreshData()
     }
 
     // MARK: - Localization

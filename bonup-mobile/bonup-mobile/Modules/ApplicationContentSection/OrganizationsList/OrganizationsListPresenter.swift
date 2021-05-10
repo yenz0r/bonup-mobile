@@ -10,7 +10,7 @@ import UIKit
 
 protocol IOrganizationsListPresenter: AnyObject {
 
-    func viewWillAppear()
+    func refreshData()
     func title(for index: Int) -> String
     func imagePath(for index: Int) -> String
     func numberOfOrganizations() -> Int
@@ -21,13 +21,26 @@ protocol IOrganizationsListPresenter: AnyObject {
 
 final class OrganizationsListPresenter {
 
+    // MARK: - Private variables
+    
     private weak var view: IOrganizationsListView?
     private let interactor: IOrganizationsListInteractor
     private let router: IOrganizationsListRouter
 
+    // MARK: - Data variables
+    
     private var organizationsResponse: OrganizationsListResponseEntity?
 
-    init(view: IOrganizationsListView?, interactor: IOrganizationsListInteractor, router: IOrganizationsListRouter) {
+    // MARK: - State variables
+    
+    private var isFirstRefresh = true
+    
+    // MARK: - Init
+    
+    init(view: IOrganizationsListView?,
+         interactor: IOrganizationsListInteractor,
+         router: IOrganizationsListRouter) {
+        
         self.view = view
         self.interactor = interactor
         self.router = router
@@ -37,6 +50,7 @@ final class OrganizationsListPresenter {
 // MARK: - IBenefitsPresenter implementation
 
 extension OrganizationsListPresenter: IOrganizationsListPresenter {
+    
     func title(for index: Int) -> String {
 
         guard let response = self.organizationsResponse else { return "-" }
@@ -65,16 +79,31 @@ extension OrganizationsListPresenter: IOrganizationsListPresenter {
         return response.organizations.count
     }
 
-    func viewWillAppear() {
+    func refreshData() {
 
+        if self.isFirstRefresh {
+            
+            self.isFirstRefresh.toggle()
+        }
+        
         self.interactor.getOrganizationsList(
+            withLoader: self.isFirstRefresh,
             success: { [weak self] entity in
 
                 self?.organizationsResponse = entity
-                self?.view?.reloadData()
-            }, failure: { status, message in
+                
+                DispatchQueue.main.async {
+                    
+                    self?.view?.stopRefreshControl()
+                    self?.view?.reloadData()
+                }
+            },
+            failure: { [weak self] status, message in
 
-                print("---")
+                DispatchQueue.main.async {
+                
+                    self?.view?.stopRefreshControl()
+                }
             }
         )
     }

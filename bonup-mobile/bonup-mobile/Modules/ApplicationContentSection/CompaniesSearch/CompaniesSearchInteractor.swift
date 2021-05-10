@@ -16,7 +16,7 @@ protocol ICompaniesSearchInteractor: AnyObject {
     var organizations: [CompanyEntity] { get }
     var userLocation: (latitude: Double, longitude: Double)? { get }
     
-    func loadOrganizations(completion: ((Bool) -> Void)?)
+    func loadOrganizations(withLoader: Bool, completion: ((Bool) -> Void)?)
 }
 
 final class CompaniesSearchInteractor: NSObject {
@@ -60,13 +60,14 @@ final class CompaniesSearchInteractor: NSObject {
 
 extension CompaniesSearchInteractor: ICompaniesSearchInteractor {
 
-    func loadOrganizations(completion: ((Bool) -> Void)?) {
+    func loadOrganizations(withLoader: Bool, completion: ((Bool) -> Void)?) {
         
 //        guard let token = AccountManager.shared.currentToken else { completion?(false); return }
         
         _ = networkService.request(
             .loadCompanies(token: "token"),
             type: [CompanyEntity].self,
+            withLoader: withLoader,
             completion: { [weak self] result in
                 
                 let organization = CompanyEntity(title: "title",

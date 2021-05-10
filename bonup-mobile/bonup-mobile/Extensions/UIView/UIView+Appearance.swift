@@ -1,5 +1,5 @@
 //
-//  UIView+Gradient.swift
+//  UIView+Appearance.swift
 //  bonup-mobile
 //
 //  Created by yenz0redd on 23.03.2020.
@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIView {
+    
     func setupGradient(_ colors: [CGColor]) {
 
         let gradientLayer = CAGradientLayer()
@@ -29,6 +30,17 @@ extension UIView {
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         blurEffectView.alpha = 0.93
         self.insertSubview(blurEffectView, at: 0)
+    }
+    
+    func setupSectionStyle() {
+        
+        self.layer.cornerRadius = 25.0
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowOffset = .zero
+        self.layer.shadowRadius = 4
+        
+        self.theme_backgroundColor = Colors.profileSectionColor
     }
 }
 

@@ -18,7 +18,9 @@ final class NewBenefitsCell: BenefitsCell {
     // MARK: - Public variables
 
     var presentationModels: [NewBenefitsPresentationModel]? {
+        
         didSet {
+            
             self.collectionView.reloadData()
         }
     }
@@ -34,12 +36,14 @@ final class NewBenefitsCell: BenefitsCell {
     }
 
     required init?(coder: NSCoder) {
+        
         fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Configure
 
     private func configureCollectionView() {
+        
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.emptyDataSetSource = self
@@ -48,14 +52,6 @@ final class NewBenefitsCell: BenefitsCell {
             NewBenefitsContentCell.self,
             forCellWithReuseIdentifier: NewBenefitsContentCell.reuseId
         )
-    }
-
-    // MARK: - Life cycle
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-//        self.presentationModels = nil
     }
 }
 

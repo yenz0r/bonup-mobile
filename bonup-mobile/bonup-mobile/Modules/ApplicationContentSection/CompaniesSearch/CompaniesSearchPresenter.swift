@@ -10,7 +10,7 @@ import Foundation
 
 protocol ICompaniesSearchPresenter: AnyObject {
     
-    func viewDidAppear()
+    func refreshData()
     
     func handleCategoriesUpdate(categories: [InterestCategories])
     func handleSearchValueUpdate(_ searchText: String?)
@@ -28,6 +28,10 @@ final class CompaniesSearchPresenter {
     private let interactor: ICompaniesSearchInteractor
     private let router: ICompaniesSearchRouter
 
+    // MARK: - State variables
+    
+    private var isFirstRefresh = true
+    
     // MARK: - Init
 
     init(view: ICompaniesSearchView?, interactor: ICompaniesSearchInteractor, router: ICompaniesSearchRouter) {
@@ -52,11 +56,16 @@ extension CompaniesSearchPresenter: ICompaniesSearchPresenter {
         return self.interactor.organizations
     }
 
-    func viewDidAppear() {
+    func refreshData() {
+        
+        if self.isFirstRefresh {
+            
+            self.isFirstRefresh.toggle()
+        }
         
         if self.interactor.organizations.isEmpty {
             
-            self.interactor.loadOrganizations { [weak self] success in
+            self.interactor.loadOrganizations(withLoader: self.isFirstRefresh) { [weak self] success in
                 
                 DispatchQueue.main.async {
                  

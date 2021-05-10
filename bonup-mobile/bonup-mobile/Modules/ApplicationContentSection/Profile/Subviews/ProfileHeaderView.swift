@@ -124,13 +124,7 @@ final class ProfileHeaderView: UIView {
 
     private func configureAppearace() {
         
-        self.layer.cornerRadius = 25.0
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 0.2
-        self.layer.shadowOffset = .zero
-        self.layer.shadowRadius = 4
-        
-        self.theme_backgroundColor = Colors.profileSectionColor
+        self.setupSectionStyle()
     }
 
     private func configureTextContainer(title: UILabel,

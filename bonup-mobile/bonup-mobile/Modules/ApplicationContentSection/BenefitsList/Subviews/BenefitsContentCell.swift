@@ -15,24 +15,23 @@ class BenefitsContentCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-//        self.contentView.snp.makeConstraints { make in
-//            make.width.equalTo(frame.size.width)
-//        }
+        self.contentView.snp.makeConstraints { make in
+            
+            make.width.equalTo(frame.size.width).priority(999)
+            make.edges.equalToSuperview()
+        }
     }
     
     required init?(coder: NSCoder) {
+        
         fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Life cycle
 
     override func layoutSubviews() {
-        super.layoutSubviews()
-
-        self.layer.cornerRadius = 15.0
-        self.layer.masksToBounds = true
-        self.layer.borderWidth = 1.0
-        self.layer.borderColor = UIColor.purpleLite.withAlphaComponent(0.3).cgColor
+        
+        self.setupSectionStyle()
     }
     
 }

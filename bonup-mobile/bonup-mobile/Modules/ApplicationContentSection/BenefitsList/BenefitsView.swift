@@ -9,7 +9,9 @@
 import UIKit
 
 protocol IBenefitsView: AnyObject {
+    
     func reloadData()
+    func stopRefreshControls()
 }
 
 final class BenefitsView: BUContentViewController {
@@ -83,8 +85,10 @@ final class BenefitsView: BUContentViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.presenter.viewWillAppear()
+        
         super.viewWillAppear(animated)
+        
+        self.presenter.refreshData()
     }
 
     // MARK: - Localization
@@ -140,8 +144,21 @@ final class BenefitsView: BUContentViewController {
 // MARK: - IBenefitsView
 
 extension BenefitsView: IBenefitsView {
+    
     func reloadData() {
+        
         self.collectionView.reloadData()
+    }
+    
+    func stopRefreshControls() {
+        
+        for cell in self.collectionView.visibleCells {
+            
+            if let benefitCell = cell as? BenefitsCell {
+                
+                benefitCell.stopRefreshControl()
+            }
+        }
     }
 }
 
@@ -152,8 +169,11 @@ extension BenefitsView: UICollectionViewDataSource {
         return self.presenter.pages.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
+        var parentCell: BenefitsCell
+        
         switch indexPath.row {
         case 0:
 
@@ -175,7 +195,9 @@ extension BenefitsView: UICollectionViewDataSource {
 
                 self?.presenter.handleBuyBenefit(for: index)
             }
-            return cell
+            
+            parentCell = cell
+            
         case 1:
 
             let cell = collectionView .dequeueReusableCell(
@@ -196,7 +218,9 @@ extension BenefitsView: UICollectionViewDataSource {
 
                 self?.presenter.handleShowDescription(for: index)
             }
-            return cell
+            
+            parentCell = cell
+            
         case 2:
 
             let cell = collectionView .dequeueReusableCell(
@@ -214,12 +238,20 @@ extension BenefitsView: UICollectionViewDataSource {
             }
 
             cell.presentationModels = presentationModels
-            return cell
+            
+            parentCell = cell
 
         default:
             let cell = UICollectionViewCell()
             return cell
         }
+        
+        parentCell.onRefreshTriggered = { [weak self] in
+            
+            self?.presenter.refreshData()
+        }
+        
+        return parentCell
     }
 }
 
@@ -230,7 +262,6 @@ extension BenefitsView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.bounds.size
     }
-    
 }
 
 // MARK: - UIScrollViewDelegate
@@ -242,5 +273,4 @@ extension BenefitsView: UIScrollViewDelegate {
             self.segmentedControl.selectedSegmentIndex = Int(round(scrollView.contentOffset.x / self.collectionView.frame.size.width))
         }
     }
-
 }

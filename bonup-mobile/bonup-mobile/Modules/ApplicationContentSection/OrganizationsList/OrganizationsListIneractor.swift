@@ -10,20 +10,24 @@ import Foundation
 
 protocol IOrganizationsListInteractor: AnyObject {
 
-    func getOrganizationsList(success:((OrganizationsListResponseEntity) -> Void)?, failure:((Bool, String) -> Void)?)
+    func getOrganizationsList(withLoader: Bool,
+                              success:((OrganizationsListResponseEntity) -> Void)?,
+                              failure:((Bool, String) -> Void)?)
 }
 
 final class OrganizationsListInteractor {
 
-    private let networkProvider = MainNetworkProvider<OrganizationsListService>()
-
+    // MARK: - Private variables
+    
+    private lazy var networkProvider = MainNetworkProvider<OrganizationsListService>()
 }
 
 // MARK: - IChangePasswordInteractor implementation
 
 extension OrganizationsListInteractor: IOrganizationsListInteractor {
 
-    func getOrganizationsList(success: ((OrganizationsListResponseEntity) -> Void)?,
+    func getOrganizationsList(withLoader: Bool,
+                              success: ((OrganizationsListResponseEntity) -> Void)?,
                               failure: ((Bool, String) -> Void)?) {
 
         guard let token = AccountManager.shared.currentToken else { return }
@@ -31,6 +35,7 @@ extension OrganizationsListInteractor: IOrganizationsListInteractor {
         _ = self.networkProvider.request(
             .getOrganizations(token),
             type: OrganizationsListResponseEntity.self,
+            withLoader: withLoader,
             completion: { result in
 
                 success?(result)
