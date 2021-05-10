@@ -15,18 +15,30 @@ protocol ITaskSelectionPresenter: AnyObject {
     func handleShowTasksListButtonTap()
     func cardForIndex(_ index: Int) -> TaskCardEntity
     func numberOfCards() -> Int
+    
     func viewWillAppear()
     func viewWillDisappear()
 }
 
 final class TaskSelectionPresenter {
+    
+    // MARK: - Private variables
+    
     private weak var view: ITaskSelectionView?
     private let interactor: ITaskSelectionInteractor
     private let router: ITaskSelectionRouter
 
+    // MARK: - Data variables
+    
     private var selectedCards = [TaskCardEntity]()
     private var taskCardEntities = [TaskCardEntity]()
 
+    // MARK: - State variables
+    
+    private var isFirstRefresh = true
+    
+    // MARK: - Init
+    
     init(view: ITaskSelectionView?, interactor: ITaskSelectionInteractor, router: ITaskSelectionRouter) {
         self.view = view
         self.interactor = interactor
@@ -49,7 +61,12 @@ extension TaskSelectionPresenter: ITaskSelectionPresenter {
 
     func viewWillAppear() {
 
-        self.interactor.getTasks { [weak self] (responseEntities, isSuccess) in
+        if self.isFirstRefresh {
+            
+            self.isFirstRefresh.toggle()
+        }
+        
+        self.interactor.getTasks(withLoader: self.isFirstRefresh) { [weak self] (responseEntities, isSuccess) in
 
             self?.taskCardEntities = responseEntities.map { entity in
                 return TaskCardEntity(
@@ -59,7 +76,11 @@ extension TaskSelectionPresenter: ITaskSelectionPresenter {
                     imageLink: String(entity.photos.first ?? 0)
                 )
             }
-            self?.view?.reloadData()
+            
+            DispatchQueue.main.async {
+             
+                self?.view?.reloadData()
+            }
         }
     }
 

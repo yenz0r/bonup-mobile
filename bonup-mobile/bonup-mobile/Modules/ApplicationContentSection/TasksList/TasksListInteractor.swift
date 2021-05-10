@@ -10,7 +10,9 @@ import Foundation
 
 protocol ITasksListInteractor: AnyObject {
 
-    func getTasks(success: ((TaskListResponseEntity) -> Void)?, failure: ((Bool, String) -> Void)?)
+    func getTasks(withLoader: Bool,
+                  success: ((TaskListResponseEntity) -> Void)?,
+                  failure: ((Bool, String) -> Void)?)
 }
 
 final class TasksListInteractor {
@@ -23,13 +25,16 @@ final class TasksListInteractor {
 
 extension TasksListInteractor: ITasksListInteractor {
 
-    func getTasks(success: ((TaskListResponseEntity) -> Void)?, failure: ((Bool, String) -> Void)?) {
+    func getTasks(withLoader: Bool,
+                  success: ((TaskListResponseEntity) -> Void)?,
+                  failure: ((Bool, String) -> Void)?) {
 
         guard let token = AccountManager.shared.currentToken else { return }
 
         _ = networkProvider.request(
             .getLists(token),
             type: TaskListResponseEntity.self,
+            withLoader: withLoader,
             completion: { result in
 
                 success?(result)

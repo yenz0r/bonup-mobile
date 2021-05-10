@@ -109,11 +109,14 @@ final class TaskSelectionView: BUContentViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.presenter.viewWillAppear()
+        
         super.viewWillAppear(animated)
+        
+        self.presenter.viewWillAppear()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        
         super.viewDidDisappear(animated)
 
         self.presenter.viewWillDisappear()
@@ -137,7 +140,6 @@ final class TaskSelectionView: BUContentViewController {
             action: #selector(tasksListTapped)
         )
         tasksListNavigationItem.theme_tintColor = Colors.navBarIconColor
-
 
         let infoButton = UIButton(type: .infoLight)
         infoButton.theme_tintColor = Colors.navBarIconColor

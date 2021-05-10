@@ -10,7 +10,8 @@ import Foundation
 
 protocol ITaskSelectionInteractor: AnyObject {
 
-    func getTasks(completion: (([TaskSelectionResponseEntity], Bool) -> Void)?)
+    func getTasks(withLoader: Bool,
+                  completion: (([TaskSelectionResponseEntity], Bool) -> Void)?)
     func saveTasks(ids: [Int], completion: ((Bool) -> Void)?)
 }
 
@@ -23,13 +24,16 @@ final class TaskSelectionInteractor {
 // MARK: - ITaskSelectionInteractor implementation
 
 extension TaskSelectionInteractor: ITaskSelectionInteractor {
-    func getTasks(completion: (([TaskSelectionResponseEntity], Bool) -> Void)?) {
+    
+    func getTasks(withLoader: Bool,
+                  completion: (([TaskSelectionResponseEntity], Bool) -> Void)?) {
 
         guard let token = AccountManager.shared.currentToken else { return }
 
         _ = networkProvider.request(
             .getTasks(token),
             type: [TaskSelectionResponseEntity].self,
+            withLoader: withLoader,
             completion: { result  in
 
                 completion?(result, true)

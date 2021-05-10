@@ -79,8 +79,9 @@ final class TasksListView: BUContentViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
-
+        
         self.presenter.viewWillAppear()
     }
 
@@ -199,6 +200,7 @@ extension TasksListView: UIScrollViewDelegate {
 extension TasksListView: ITasksListView {
     
     func reloadData() {
+        
         self.mainCollectionView.reloadData()
     }
 }

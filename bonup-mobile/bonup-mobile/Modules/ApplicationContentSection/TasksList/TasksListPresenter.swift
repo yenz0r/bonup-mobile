@@ -21,13 +21,27 @@ protocol ITasksListPresenter: AnyObject {
 }
 
 final class TasksListPresenter {
+    
+    // MARK: - Private variables
+    
     private weak var view: ITasksListView?
     private let interactor: ITasksListInteractor
     private let router: ITasksListRouter
 
+    // MARK: - Data variables
+    
     private var currentListResponse: TaskListResponseEntity?
 
-    init(view: ITasksListView?, interactor: ITasksListInteractor, router: ITasksListRouter) {
+    // MARK: - State variables
+    
+    private var isFirstRefresh = true
+    
+    // MARK: - Init
+    
+    init(view: ITasksListView?,
+         interactor: ITasksListInteractor,
+         router: ITasksListRouter) {
+        
         self.view = view
         self.interactor = interactor
         self.router = router
@@ -91,13 +105,25 @@ extension TasksListPresenter: ITasksListPresenter {
 
 
     func viewWillAppear() {
+        
+        if self.isFirstRefresh {
+            
+            self.isFirstRefresh.toggle()
+        }
+        
         self.interactor.getTasks(
+            withLoader: self.isFirstRefresh,
             success: { [weak self] result in
 
                 self?.currentListResponse = result
-                self?.view?.reloadData()
+                
+                DispatchQueue.main.async {
+                 
+                    self?.view?.reloadData()
+                }
             },
             failure: { status, message in
+                
                 print("---")
             }
         )
