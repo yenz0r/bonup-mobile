@@ -14,8 +14,8 @@
             filePath = "bonup-mobile/Subsystems/Networking/Core/MainNetworkProvider.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "request(_:type:withLoader:completion:failure:)"
             landmarkType = "7">
          </BreakpointContent>

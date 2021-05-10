@@ -12,7 +12,8 @@ protocol ISettingsInteractor: AnyObject {
 
     func logout()
 
-    func loadAvatar(success: ((UIImage?) -> Void)?,
+    func loadAvatar(withLoader: Bool,
+                    success: ((UIImage?) -> Void)?,
                     failure: ((String) -> Void)?)
 
     func uploadAvatar(_ image: UIImage,
@@ -53,12 +54,15 @@ extension SettingsInteractor: ISettingsInteractor {
     }
 
     
-    func loadAvatar(success: ((UIImage?) -> Void)?, failure: ((String) -> Void)?) {
+    func loadAvatar(withLoader: Bool,
+                    success: ((UIImage?) -> Void)?,
+                    failure: ((String) -> Void)?) {
 
-//        guard let token = AccountManager.shared.currentToken else { return }
-        let token = "123"
+        guard let token = AccountManager.shared.currentToken else { return }
+        
         _ = networkProvider.requestImage(
             .getAvatar(token),
+            withLoader: withLoader,
             completion: { image in
 
                 success?(image)

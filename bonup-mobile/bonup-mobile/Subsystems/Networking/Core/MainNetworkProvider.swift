@@ -32,7 +32,11 @@ protocol IMainNetworkProvider {
                      withLoader: Bool,
                      completion: @escaping (Bool) -> Void,
                      failure: ((MoyaError?) -> Void)?) -> Cancellable
-
+    
+    func requestImage(_ target: MainTarget,
+                      withLoader: Bool,
+                      completion: @escaping (UIImage?) -> Void,
+                      failure: ((MoyaError?) -> Void)?) -> Cancellable
 }
 
 class MainNetworkProvider<MainTarget: IMainTargetType> {

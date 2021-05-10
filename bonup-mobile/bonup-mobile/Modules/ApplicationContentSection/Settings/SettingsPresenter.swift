@@ -11,7 +11,7 @@ import FMPhotoPicker
 
 protocol ISettingsPresenter: AnyObject {
 
-    func viewDidLoad()
+    func refreshData()
     func handleAvatarIconTap()
 
     func numberOfSettings() -> Int
@@ -20,7 +20,9 @@ protocol ISettingsPresenter: AnyObject {
 }
 
 final class SettingsPresenter {
+    
     enum SettingsType: Int {
+        
         case changePassword = 0
         case applicationTheme
         case applicationLanguage
@@ -31,11 +33,19 @@ final class SettingsPresenter {
 
         static let count = 7
     }
+    
+    // MARK: - Private variables
 
     private weak var view: ISettingsView?
     private let interactor: ISettingsInteractor
     private let router: ISettingsRouter
+    
+    // MARK: - State variables
+    
+    private var isFirstRefresh = true
 
+    // MARK: - Init
+    
     init(view: ISettingsView?, interactor: ISettingsInteractor, router: ISettingsRouter) {
         self.view = view
         self.interactor = interactor
@@ -124,12 +134,17 @@ extension SettingsPresenter: ISettingsPresenter {
         return SettingsType.count
     }
 
-    func viewDidLoad() {
+    func refreshData() {
 
+        if self.isFirstRefresh {
+            
+            self.isFirstRefresh.toggle()
+        }
+        
         let name = AccountManager.shared.currentUser?.name ?? "Your Name"
         let email = AccountManager.shared.currentUser?.email ?? "your.email@email.com"
 
-        self.interactor.loadAvatar { [weak self] image in
+        self.interactor.loadAvatar(withLoader: self.isFirstRefresh) { [weak self] image in
 
             DispatchQueue.main.async {
 
@@ -143,7 +158,7 @@ extension SettingsPresenter: ISettingsPresenter {
 
             DispatchQueue.main.async {
 
-//                self?.router.show(.showErrorAlert(message))
+                self?.router.show(.showErrorAlert(message))
 
                 self?.view?.setupHeader(
                     with: AssetsHelper.shared.image(.addImageIcon),

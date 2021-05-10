@@ -32,6 +32,7 @@ final class SettingsView: BUContentViewController {
     // MARK: - Life Cycle
 
     override func loadView() {
+        
         self.view = UIView()
 
         self.setupSubviews()
@@ -42,8 +43,13 @@ final class SettingsView: BUContentViewController {
         super.viewDidLoad()
 
         self.setupAppearance()
-
-        self.presenter.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        self.presenter.refreshData()
     }
 
     // MARK: - Setup
@@ -153,6 +159,7 @@ extension SettingsView: ISettingsView {
     }
 
     func reloadData() {
+        
         self.tableView.reloadData()
     }
 
