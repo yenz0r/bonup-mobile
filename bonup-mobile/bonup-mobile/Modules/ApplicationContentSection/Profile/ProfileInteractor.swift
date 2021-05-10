@@ -10,33 +10,87 @@ import Foundation
 
 protocol IProfileInteractor: AnyObject {
 
-    func getUserInfo(success: ((ProfileResponseDetailsEntity) -> Void)?, failure: ((String) -> Void)?)
+    func getUserInfo(withLoader: Bool, success: (() -> Void)?, failure: ((String) -> Void)?)
+    func stats(for category: ProfileActionsChartsContainer.Category) -> [InterestCategories: Int]?
+    
+    var profileName: String? { get }
+    var profileEmail: String? { get }
+    var profileOrganizationName: String? { get }
+
+    var profileCurrentBallsCount: Int? { get }
+    var profileTasksCount: Int? { get }
+    var profileSpentBallsCount: Int? { get }
+    
+    var goals: [ProfileGoalsResponse]? { get }
 }
 
 final class ProfileInteractor {
 
-    private let networkProvider = MainNetworkProvider<ProfileService>()
-
+    // MARK: - Private variables
+    
+    private lazy var networkProvider = MainNetworkProvider<ProfileService>()
+    private var profileDataModel: ProfileResponseDetailsEntity?
 }
 
 // MARK: - IChangePasswordInteractor implementation
 
 extension ProfileInteractor: IProfileInteractor {
+    
+    var profileName: String? { self.profileDataModel?.name }
+    var profileEmail: String? { self.profileDataModel?.email }
+    var profileOrganizationName: String? { self.profileDataModel?.organizationName }
+    
+    var profileCurrentBallsCount: Int? { self.profileDataModel?.balls }
+    var profileTasksCount: Int? { self.profileDataModel?.tasksNumber }
+    var profileSpentBallsCount: Int? { self.profileDataModel?.spentBalls }
+    
+    var goals: [ProfileGoalsResponse]? { self.profileDataModel?.goals }
+    
+    func stats(for category: ProfileActionsChartsContainer.Category) -> [InterestCategories: Int]? {
+        
+        var modelStats: [Int: Int]?
+        
+        switch category {
+        
+        case .tasks:
+            modelStats = self.profileDataModel?.tasksStats
+            
+        case .coupons:
+            modelStats = self.profileDataModel?.couponsStats
+        }
+        
+        guard let currStats = modelStats else { return nil }
+        
+        var stats = [InterestCategories: Int]()
+        
+        for (key, value) in currStats {
+            
+            let category = InterestCategories.category(id: key)
+            stats[category] = value
+        }
+        
+        return stats
+    }
 
-    func getUserInfo(success: ((ProfileResponseDetailsEntity) -> Void)?, failure: ((String) -> Void)?) {
+    func getUserInfo(withLoader: Bool,
+                     success: (() -> Void)?,
+                     failure: ((String) -> Void)?) {
 
         guard let token = AccountManager.shared.currentToken else { return }
 
         _ = networkProvider.request(
             .getUsetData(token),
             type: ProfileResponseEntity.self,
+            withLoader: withLoader,
             completion: { result in
+                
                 if result.isSuccess {
 
-                    success?(result.userInfo)
-                } else {
+                    success?()
+                }
+                else {
 
-                    //failure?(result.message)
+                    failure?(result.message)
                 }
             },
             failure: { err in

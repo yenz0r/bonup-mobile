@@ -14,9 +14,9 @@
             filePath = "bonup-mobile/Subsystems/Networking/Core/MainNetworkProvider.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "request(_:type:completion:failure:)"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "request(_:type:withLoader:completion:failure:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -321,6 +321,22 @@
             startingLineNumber = "156"
             endingLineNumber = "156"
             landmarkName = "addCompany(success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DA78A29E-3884-4ABD-8DA6-05106EBCC02B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/Profile/ProfileView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "refreshControlDidTrigger(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

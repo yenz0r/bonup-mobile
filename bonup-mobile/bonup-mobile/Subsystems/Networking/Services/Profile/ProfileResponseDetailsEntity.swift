@@ -18,11 +18,8 @@ struct ProfileResponseDetailsEntity: Codable {
     let tasksNumber: Int
     let spentBalls: Int
 
-    let donePercent: Int
-    let couponsPercent: Int
-
-    let ballsPercent: Int
-    let spentBallsPercent: Int
+    let couponsStats: [Int: Int]
+    let tasksStats: [Int: Int]
 
     let goals: [ProfileGoalsResponse]
 }

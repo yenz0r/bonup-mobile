@@ -23,6 +23,7 @@ final class ProfileView: BUContentViewController {
 
     // MARK: - Private variables
 
+    private var refreshContol: UIRefreshControl!
     private var scrollView: UIScrollView!
     private var scrollContentView: UIView!
     private var headerView: ProfileHeaderView!
@@ -33,10 +34,12 @@ final class ProfileView: BUContentViewController {
     // MARK: - Life cycle
 
     override func loadView() {
-
+        
         self.view = UIView()
         
         self.scrollView = self.configureScrollView()
+        self.refreshContol = self.configureRefeshControl()
+        self.scrollView.refreshControl = self.refreshContol
         self.scrollContentView = self.configureScrollContentView()
 
         self.headerView = ProfileHeaderView(frame: .zero)
@@ -44,8 +47,9 @@ final class ProfileView: BUContentViewController {
         self.ahievementsContainer = ProfileAhievementsView(frame: .zero)
         self.actionsChartsContainer = ProfileActionsChartsContainer(
             selectedCategory: .tasks,
-            onCategorySelection: { [weak self] newCategory in
+            onCategorySelection: { [weak self] _ in
                 
+                self?.actionsChartsContainer.reloadData()
             })
 
         self.view.addSubview(self.scrollView)
@@ -104,15 +108,15 @@ final class ProfileView: BUContentViewController {
         self.infoContainer.dataSource = self
         self.actionsChartsContainer.dataSource = self
         self.ahievementsContainer.dataSource = self
-
+        
         self.reloadData()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         
-        self.presenter.viewWillAppear()
-        
         super.viewWillAppear(animated)
+        
+        self.presenter.refreshData(completion: nil)
     }
 
     // MARK: - Localication
@@ -131,6 +135,16 @@ final class ProfileView: BUContentViewController {
     }
     
     // MARK: - Configure
+    
+    private func configureRefeshControl() -> UIRefreshControl {
+        
+        let refresh = UIRefreshControl()
+        
+        refresh.addTarget(self, action: #selector(refreshControlDidTrigger(_:)), for: .valueChanged)
+        refresh.tintColor = .systemRed
+        
+        return refresh
+    }
     
     private func configureScrollView() -> UIScrollView {
         
@@ -164,7 +178,16 @@ final class ProfileView: BUContentViewController {
     // MARK: - Selectors
 
     @objc private func infoNavigationItemTapped() {
+        
         self.presenter.handleInfoButtonTapped()
+    }
+    
+    @objc private func refreshControlDidTrigger(_ sender: UIRefreshControl) {
+        
+        self.presenter.refreshData {
+            
+            sender.endRefreshing()
+        }
     }
 }
 
@@ -214,24 +237,6 @@ extension ProfileView: ProfileInfoContainerDataSource {
             return self.presenter.restBalls
         case .spend:
             return self.presenter.allSpendBalls
-        }
-    }
-}
-
-// MARK: - ProfileProgressContainerDataSource
-
-extension ProfileView: ProfileProgressContainerDataSource {
-    func profileProgressContainer(_ container: ProfileProgressContainer, progressFor type: ProfileProgressContainer.ProgressType) -> CGFloat {
-
-        switch type {
-        case .all:
-            return self.presenter.donePercent
-        case .lastMonth:
-            return self.presenter.ballsPercent
-        case .lastWeek:
-            return self.presenter.activatedCouponsPercent
-        case .today:
-            return self.presenter.spentBallsPercent
         }
     }
 }

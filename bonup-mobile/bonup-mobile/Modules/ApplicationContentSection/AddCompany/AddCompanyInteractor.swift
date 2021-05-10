@@ -154,7 +154,7 @@ extension AddCompanyInteractor: IAddCompanyInteractor {
                     case .title:
                         
                         if let string = row.value,
-                           self.validator.sdonlyLetters(string) {
+                           self.validator.onlyLetters(string) {
                          
                             requestModel.title = string
                         }

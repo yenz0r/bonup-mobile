@@ -12,7 +12,7 @@ import Charts
 protocol IProfilePresenter: AnyObject {
 
     func handleInfoButtonTapped()
-    func viewWillAppear()
+    func refreshData(completion: (() -> Void)?)
 
     var name: String { get }
     var email: String { get }
@@ -21,11 +21,6 @@ protocol IProfilePresenter: AnyObject {
     var doneTasks: String { get }
     var restBalls: String { get }
     var allSpendBalls: String { get }
-
-    var donePercent: CGFloat { get }
-    var activatedCouponsPercent: CGFloat { get }
-    var spentBallsPercent: CGFloat { get }
-    var ballsPercent: CGFloat { get }
 
     func archiveTitle(for index: Int) -> String
     func archiveDescription(for index: Int) -> String
@@ -36,13 +31,21 @@ protocol IProfilePresenter: AnyObject {
 }
 
 final class ProfilePresenter {
+    
+    // MARK: - Private variables
+    
     private weak var view: IProfileView?
     private let interactor: IProfileInteractor
     private let router: IProfileRouter
+    
+    // MARK: - State variables
+    
+    private var isFirstRefresh = true
 
-    private var responseEntiry: ProfileResponseDetailsEntity?
-
+    // MARK: - Init
+    
     init(view: IProfileView?, interactor: IProfileInteractor, router: IProfileRouter) {
+        
         self.view = view
         self.interactor = interactor
         self.router = router
@@ -53,73 +56,18 @@ final class ProfilePresenter {
 
 extension ProfilePresenter: IProfilePresenter {
 
-    var name: String {
-        return self.responseEntiry?.name ?? "-"
-    }
+    var name: String { self.interactor.profileName ?? "..." }
+    var email: String { self.interactor.profileEmail ?? "..." }
+    var organization: String { self.interactor.profileOrganizationName ?? "..." }
 
-    var email: String {
-        return self.responseEntiry?.email ?? "-"
-    }
+    var doneTasks: String { "\(self.interactor.profileTasksCount ?? 0)" }
+    var restBalls: String { "\(self.interactor.profileCurrentBallsCount ?? 0)" }
+    var allSpendBalls: String { "\(self.interactor.profileSpentBallsCount ?? 0)" }
 
-    var organization: String {
-        return self.responseEntiry?.organizationName ?? "-"
-    }
-
-    var doneTasks: String {
-        return "\(self.responseEntiry?.tasksNumber ?? 0)"
-    }
-
-    var restBalls: String {
-        return "\(self.responseEntiry?.balls ?? 0)"
-    }
-
-    var allSpendBalls: String {
-        return "\(self.responseEntiry?.spentBalls ?? 0)"
-    }
-
-    var donePercent: CGFloat {
-        return CGFloat(self.responseEntiry?.donePercent ?? 0)
-    }
-
-    var activatedCouponsPercent: CGFloat {
-        return CGFloat(self.responseEntiry?.couponsPercent ?? 0)
-    }
-
-    var spentBallsPercent: CGFloat {
-        return CGFloat(self.responseEntiry?.spentBalls ?? 0)
-    }
-
-    var ballsPercent: CGFloat {
-        return CGFloat(self.responseEntiry?.ballsPercent ?? 0)
-    }
-
-    func archiveTitle(for index: Int) -> String {
-
-        guard let response = self.responseEntiry else { return "" }
-
-        return response.goals[index].name
-    }
-
-    func archiveDescription(for index: Int) -> String {
-
-        guard let response = self.responseEntiry else { return "" }
-
-        return response.goals[index].description
-    }
-
-    func archiveState(for index: Int) -> Bool {
-
-        guard let response = self.responseEntiry else { return false }
-
-        return response.goals[index].flag
-    }
-
-    func archivesCount() -> Int {
-
-        guard let response = self.responseEntiry else { return 0 }
-
-        return response.goals.count
-    }
+    func archiveTitle(for index: Int) -> String { return self.interactor.goals?[index].name ?? "" }
+    func archiveDescription(for index: Int) -> String { return self.interactor.goals?[index].description ?? "" }
+    func archiveState(for index: Int) -> Bool { return self.interactor.goals?[index].flag ?? false }
+    func archivesCount() -> Int { self.interactor.goals?.count ?? 0 }
 
 
     func handleInfoButtonTapped() {
@@ -127,39 +75,55 @@ extension ProfilePresenter: IProfilePresenter {
         self.router.show(.infoAlert(nil))
     }
 
-    func viewWillAppear() {
+    func refreshData(completion: (() -> Void)?) {
 
+        if self.isFirstRefresh {
+            
+            self.isFirstRefresh.toggle()
+        }
+        
         self.interactor.getUserInfo(
-            success: { [weak self] response in
-
-                self?.responseEntiry = response
-                self?.view?.reloadData()
+            withLoader: self.isFirstRefresh,
+            success: { [weak self]  in
+                
+                DispatchQueue.main.async {
+                
+                    self?.view?.reloadData()
+                    completion?()
+                }
             },
             failure: { [weak self] message in
 
-                self?.router.show(.infoAlert(message))
+                DispatchQueue.main.async {
+                 
+                    self?.router.show(.infoAlert(message))
+                    completion?()
+                }
             }
         )
     }
     
     func actionsChartData(for category: ProfileActionsChartsContainer.Category) -> PieChartData {
         
-        let entries: [PieChartDataEntry] = [1,2,3,4,5].map {
+        guard let stats = self.interactor.stats(for: category) else { return PieChartData() }
+        
+        let sum = stats.values.reduce(0, +)
+        
+        var entries = [PieChartDataEntry]()
+        var colors = [UIColor]()
+        
+        for (category, count) in stats {
             
-            return PieChartDataEntry(value: $0 * 100,
-                                     label: "Test")
+            entries.append(PieChartDataEntry(value: Double(count) / Double(sum) * 100.0,
+                                             label: category.title.localized))
+            
+            colors.append(category.color)
         }
         
         let set = PieChartDataSet(entries: entries, label: "")
         set.drawIconsEnabled = false
         set.sliceSpace = 10
-        
-        set.colors = ChartColorTemplates.vordiplom()
-            + ChartColorTemplates.joyful()
-            + ChartColorTemplates.colorful()
-            + ChartColorTemplates.liberty()
-            + ChartColorTemplates.pastel()
-            + [UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1)]
+        set.colors = colors
         
         let data = PieChartData(dataSet: set)
         
