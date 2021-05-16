@@ -13,6 +13,7 @@
 		B90867DD25B5DB0800E0DE91 /* BUAmountSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90867DC25B5DB0800E0DE91 /* BUAmountSetter.swift */; };
 		B90867E225B5E33E00E0DE91 /* CompanyPacketConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90867E125B5E33E00E0DE91 /* CompanyPacketConstants.swift */; };
 		B90867E725B5E63C00E0DE91 /* CompanyPacketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90867E625B5E63C00E0DE91 /* CompanyPacketCell.swift */; };
+		B90AF9A5264AC737007BB288 /* CompanyStatisticsPeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AF9A4264AC737007BB288 /* CompanyStatisticsPeriodView.swift */; };
 		B90BED4425B5D92200AD78A8 /* CompanyPacketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED4325B5D92200AD78A8 /* CompanyPacketView.swift */; };
 		B90BED4925B5D92900AD78A8 /* CompanyPacketPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED4825B5D92900AD78A8 /* CompanyPacketPresenter.swift */; };
 		B90BED4E25B5D93000AD78A8 /* CompanyPacketInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED4D25B5D93000AD78A8 /* CompanyPacketInteractor.swift */; };
@@ -348,6 +349,7 @@
 		B90867DC25B5DB0800E0DE91 /* BUAmountSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUAmountSetter.swift; sourceTree = "<group>"; };
 		B90867E125B5E33E00E0DE91 /* CompanyPacketConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketConstants.swift; sourceTree = "<group>"; };
 		B90867E625B5E63C00E0DE91 /* CompanyPacketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketCell.swift; sourceTree = "<group>"; };
+		B90AF9A4264AC737007BB288 /* CompanyStatisticsPeriodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyStatisticsPeriodView.swift; sourceTree = "<group>"; };
 		B90BED4325B5D92200AD78A8 /* CompanyPacketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketView.swift; sourceTree = "<group>"; };
 		B90BED4825B5D92900AD78A8 /* CompanyPacketPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketPresenter.swift; sourceTree = "<group>"; };
 		B90BED4D25B5D93000AD78A8 /* CompanyPacketInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketInteractor.swift; sourceTree = "<group>"; };
@@ -728,6 +730,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		B90AF9A6264AC73C007BB288 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				B90AF9A4264AC737007BB288 /* CompanyStatisticsPeriodView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		B90BED6125B5D95400AD78A8 /* CompanyPacket */ = {
 			isa = PBXGroup;
 			children = (
@@ -899,6 +909,7 @@
 				B93F2B6B263F0B7C00A8A8D6 /* CompanyStatisticsRouter.swift */,
 				B93F2B6D263F0B8100A8A8D6 /* CompanyStatisticsDependency.swift */,
 				B93F2B6F263F0B8E00A8A8D6 /* CompanyStatisticsBuilder.swift */,
+				B90AF9A6264AC73C007BB288 /* Subviews */,
 			);
 			path = CompanyStatistics;
 			sourceTree = "<group>";
@@ -2284,6 +2295,7 @@
 				B977483B24431910004D39AD /* TaskSelectionView.swift in Sources */,
 				B9CAA71A242BE0CB00E50668 /* String+Validation.swift in Sources */,
 				B9D30C70244BA0CF00B9E9AA /* ChangePasswordDependency.swift in Sources */,
+				B90AF9A5264AC737007BB288 /* CompanyStatisticsPeriodView.swift in Sources */,
 				B9CEE6A2241D55A500308098 /* ResetPasswordPresenter.swift in Sources */,
 				B9787F4F246B8C03007DB617 /* OrganizationsListService.swift in Sources */,
 				B9787F4B246B7DF3007DB617 /* TaskListFinishedTasksEntity.swift in Sources */,

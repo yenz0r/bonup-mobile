@@ -10,20 +10,40 @@ import Foundation
 
 protocol ICompanyStatisticsInteractor: AnyObject {
 
+    var selectedInfoType: CompanyStatisticsInteractor.InfoType { get set }
     var selectedCategoriesId: [Int] { get set }
-    
-    var selectedPeriod: CompanyStatisticsPeriod { get }
-    var periods: [CompanyStatisticsPeriod] { get }
-    
-    func updateSelectedPeriod(at index: Int)
+    var periodFromDate: Date { get set }
+    var periodToDate: Date { get set }
 }
 
 final class CompanyStatisticsInteractor {
 
+    enum InfoType: Int, CaseIterable {
+        
+        case tasks = 0, coupons
+        
+        var nonlocalizedTitle: String {
+            
+            switch self {
+            
+            case .tasks:
+                return "ui_tasks_title"
+                
+            case .coupons:
+                return "ui_coupons_title"
+            }
+        }
+    }
+    
+    // MARK: - Public variables
+    
+    var selectedInfoType: CompanyStatisticsInteractor.InfoType = .tasks
+    var selectedCategoriesId = [Int]()
+    var periodFromDate: Date = Date().withDaysOffset(-7)
+    var periodToDate: Date = Date()
+    
     // MARK: - Private variables
 
-    var selectedCategoriesId = [Int]()
-    var selectedPeriod = CompanyStatisticsPeriod.week
     private var companyId: String
     
     // MARK: - Init
@@ -38,13 +58,5 @@ final class CompanyStatisticsInteractor {
 
 extension CompanyStatisticsInteractor: ICompanyStatisticsInteractor {
  
-    var periods: [CompanyStatisticsPeriod] {
-        
-        return CompanyStatisticsPeriod.allCases
-    }
     
-    func updateSelectedPeriod(at index: Int) {
-        
-        self.selectedPeriod = self.periods[index]
-    }
 }

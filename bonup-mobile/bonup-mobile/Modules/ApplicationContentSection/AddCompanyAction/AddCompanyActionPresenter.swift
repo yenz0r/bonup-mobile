@@ -68,12 +68,18 @@ extension AddCompanyActionPresenter: IAddCompanyActionPresenter {
         
         self.interactor.handleAddAction { [weak self] message in
             
-            self?.router.show(.showResultAlert(message))
-            self?.router.stop(nil)
+            DispatchQueue.main.async {
+             
+                self?.router.show(.showResultAlert(message))
+                self?.router.stop(nil)
+            }
         }
         failure: { [weak self] message in
             
-            self?.router.show(.showResultAlert(message))
+            DispatchQueue.main.async {
+             
+                self?.router.show(.showResultAlert(message))
+            }
         }
     }
     

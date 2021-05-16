@@ -11,16 +11,18 @@ import Charts
 
 protocol ICompanyStatisticsPresenter: AnyObject {
 
-    func numberOfPeriods() -> Int
-    func periodTitle(at index: Int) -> String
-    func updateSelectedPeriod(at index: Int)
-    func selectedPeriodIndex() -> Int
+    var periodToDate: Date { get set }
+    var periodFromDate: Date { get set }
+    
+    var intoTypesNonLocTitles: [String] { get }
+    var selectedInfoTypeIndex: Int? { get }
     
     func updateSelectedCategories(ids: [Int])
-    
-    func terminate()
+    func updateSelectedInfoType(at index: Int)
     
     func handleShareAction(image: UIImage)
+    
+    func terminate()
 }
 
 final class CompanyStatisticsPresenter {
@@ -47,19 +49,40 @@ final class CompanyStatisticsPresenter {
 
 extension CompanyStatisticsPresenter: ICompanyStatisticsPresenter {
     
-    func numberOfPeriods() -> Int {
+    var periodToDate: Date {
         
-        return self.interactor.periods.count
+        get {
+            
+            return self.interactor.periodToDate
+        }
+        
+        set {
+            
+            self.interactor.periodToDate = newValue
+        }
     }
     
-    func periodTitle(at index: Int) -> String {
+    var periodFromDate: Date {
         
-        return self.interactor.periods[index].title
+        get {
+            
+            return self.interactor.periodFromDate
+        }
+        
+        set {
+            
+            self.interactor.periodFromDate = newValue
+        }
     }
     
-    func updateSelectedPeriod(at index: Int) {
+    var intoTypesNonLocTitles: [String] {
         
-        self.interactor.updateSelectedPeriod(at: index)
+        return CompanyStatisticsInteractor.InfoType.allCases.map { $0.nonlocalizedTitle }
+    }
+    
+    func updateSelectedInfoType(at index: Int) {
+        
+        self.interactor.selectedInfoType = CompanyStatisticsInteractor.InfoType.allCases[index]
         
         self.view?.reloadChart(data: self.calculareDataSet())
     }
@@ -69,11 +92,6 @@ extension CompanyStatisticsPresenter: ICompanyStatisticsPresenter {
         self.interactor.selectedCategoriesId = ids
         
         self.view?.reloadChart(data: self.calculareDataSet())
-    }
-    
-    func selectedPeriodIndex() -> Int {
-        
-        return self.interactor.periods.firstIndex(where: { $0.id == self.interactor.selectedPeriod.id }) ?? 0
     }
     
     func terminate() {
@@ -86,21 +104,29 @@ extension CompanyStatisticsPresenter: ICompanyStatisticsPresenter {
         self.router.show(.share(image))
     }
     
+    var selectedInfoTypeIndex: Int? {
+        
+        return CompanyStatisticsInteractor
+            .InfoType
+            .allCases
+            .firstIndex(of: self.interactor.selectedInfoType)
+    }
+    
     // TEST!!!!!!!!
     private func calculareDataSet() -> LineChartData {
         
-        let yVals1 = (0..<(self.interactor.selectedPeriod.id + 1) * 10).map { (i) -> ChartDataEntry in
-            let mult: UInt32 = 50 / 2
-            let val = Double(arc4random_uniform(mult) + 50)
-            return ChartDataEntry(x: Double(i), y: val)
-        }
+//        let yVals1 = (0..<(self.interactor.selectedPeriod.id + 1) * 10).map { (i) -> ChartDataEntry in
+//            let mult: UInt32 = 50 / 2
+//            let val = Double(arc4random_uniform(mult) + 50)
+//            return ChartDataEntry(x: Double(i), y: val)
+//        }
+//
+//        let dataSet = LineChartDataSet(entries: yVals1, label: "ui_user_activity".localized)
+//
+//        dataSet.fill = Fill.fillWithLinearGradient(self.interactor.selectedPeriod.gradientForChart, angle: 90.0)
+//        dataSet.drawFilledEnabled = true
+//        dataSet.mode = LineChartDataSet.Mode.cubicBezier
         
-        let dataSet = LineChartDataSet(entries: yVals1, label: "ui_user_activity".localized)
-        
-        dataSet.fill = Fill.fillWithLinearGradient(self.interactor.selectedPeriod.gradientForChart, angle: 90.0)
-        dataSet.drawFilledEnabled = true
-        dataSet.mode = LineChartDataSet.Mode.cubicBezier
-        
-        return LineChartData(dataSet: dataSet)
+        return LineChartData()
     }
 }

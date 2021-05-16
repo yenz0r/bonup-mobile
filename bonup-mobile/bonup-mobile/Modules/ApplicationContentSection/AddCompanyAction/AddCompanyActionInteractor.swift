@@ -79,67 +79,72 @@ extension AddCompanyActionInteractor: IAddCompanyActionInteractor {
     
     func handleAddAction(success:((String) -> Void)?, failure:((String) -> Void)?) {
         
-        var requestEntity = OrganizationControlAppendRequestEntity()
-        
-        guard let token = AccountManager.shared.currentToken else { return }
-        
-        for viewModel in _viewModels {
+        DispatchQueue.global(qos: .background).async {
+         
+            guard let token = AccountManager.shared.currentToken else { return }
             
-            switch viewModel.fieldType {
-            case .title:
+            var requestEntity = OrganizationControlAppendRequestEntity()
+            
+            requestEntity.categoryId = self.selectedCategory.rawValue
+            
+            for viewModel in self._viewModels {
                 
-                guard let string = viewModel.value as? String, string != "" else {
+                switch viewModel.fieldType {
+                case .title:
                     
-                    failure?(self.validationError(.title))
-                    return
-                }
-                
-                requestEntity.title = string
-                
-            case .description:
-                
-                guard let string = viewModel.value as? String, string != "" else {
+                    guard let string = viewModel.value as? String, string != "" else {
+                        
+                        failure?(self.validationError(.title))
+                        return
+                    }
                     
-                    failure?(self.validationError(.description))
-                    return
+                    requestEntity.title = string
+                    
+                case .description:
+                    
+                    guard let string = viewModel.value as? String, string != "" else {
+                        
+                        failure?(self.validationError(.description))
+                        return
+                    }
+                    
+                    requestEntity.descriptionText = string
+                    
+                case .startDate:
+                    requestEntity.startDateTimestamp = (viewModel.value as? Date ?? Date()).timestamp
+                    
+                case .endDate:
+                    requestEntity.endDateTimestamp = (viewModel.value as? Date ?? Date()).timestamp
+                    
+                case .bonuses:
+                    requestEntity.bonusesCount = viewModel.value as? Int ?? 0
+                    
+                case .allowedCount:
+                    requestEntity.allowedCount = viewModel.value as? Int ?? 0
+                    
                 }
-                
-                requestEntity.descriptionText = string
-                
-            case .startDate:
-                requestEntity.startDateTimestamp = (viewModel.value as? Date ?? Date()).timestamp
-                
-            case .endDate:
-                requestEntity.endDateTimestamp = (viewModel.value as? Date ?? Date()).timestamp
-                
-            case .bonuses:
-                requestEntity.bonusesCount = viewModel.value as? Int ?? 0
-                
-            case .allowedCount:
-                requestEntity.allowedCount = viewModel.value as? Int ?? 0
-                
             }
+            
+            let target: OrganizationControlService = self.actionType == .coupon ? .putCoupon(token, requestEntity) : .putTask(token, requestEntity)
+            
+            _ = self.networkProvider.request(
+                target,
+                type: OrganizationControlAppendResponseEntity.self,
+                completion: { result in
+                    
+                    if result.isSuccess {
+                        
+                        success?(result.message)
+                    } else {
+                        
+                        failure?(result.message)
+                    }
+                },
+                failure: { err in
+                    failure?(err?.localizedDescription ?? "")
+                }
+            )
         }
-        
-        let target: OrganizationControlService = self.actionType == .coupon ? .putCoupon(token, requestEntity) : .putTask(token, requestEntity)
-        
-        _ = networkProvider.request(
-            target,
-            type: OrganizationControlAppendResponseEntity.self,
-            completion: { result in
-                
-                if result.isSuccess {
-                    
-                    success?(result.message)
-                } else {
-                    
-                    failure?(result.message)
-                }
-            },
-            failure: { err in
-                failure?(err?.localizedDescription ?? "")
-            }
-        )
     }
     
     // MARK: - Private

@@ -110,6 +110,7 @@ extension OrganizationsListPresenter: IOrganizationsListPresenter {
 
     func handleAddButtonTap() {
 
-        self.router.show(.showAddNewOrganization)
+        self.router.show(.showOrganizationControl("0"))
+//        self.router.show(.showAddNewOrganization)
     }
 }

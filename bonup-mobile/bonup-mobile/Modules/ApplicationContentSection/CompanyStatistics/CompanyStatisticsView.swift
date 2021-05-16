@@ -18,7 +18,8 @@ final class CompanyStatisticsView: BUContentViewController {
     
     // MARK: - UI variables
     
-    private var periodSegmentedControl: UISegmentedControl!
+    private var infoTypeSegmentedControl: BUSegmentedControl!
+    private var periodContianer: CompanyStatisticsPeriodView!
     private var chartView: LineChartView!
     private var categoriesContainer: SelectCategoriesContainer!
     
@@ -54,26 +55,37 @@ final class CompanyStatisticsView: BUContentViewController {
     
     private func setupSubviews() {
        
-        self.periodSegmentedControl = self.configurePeriodSegmentControl()
+        self.infoTypeSegmentedControl = self.configureInfoTypeSegmentControl()
+        self.periodContianer = self.configurePeriodContainer()
         self.chartView = self.configureChartsView()
         self.categoriesContainer = self.configureCategoriesContainer()
         
-        self.view.addSubview(self.periodSegmentedControl)
+        self.view.addSubview(self.infoTypeSegmentedControl)
+        self.view.addSubview(self.periodContianer)
         self.view.addSubview(self.chartView)
         self.view.addSubview(self.categoriesContainer)
         
-        self.periodSegmentedControl.snp.makeConstraints { make in
-            make.leading.trailing.top.equalTo(self.view.safeAreaLayoutGuide).inset(20)
+        self.infoTypeSegmentedControl.snp.makeConstraints { make in
+            
+            make.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(20)
+        }
+        
+        self.periodContianer.snp.makeConstraints { make in
+            
+            make.top.equalTo(self.infoTypeSegmentedControl.snp.bottom).offset(20)
+            make.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(20)
         }
         
         self.categoriesContainer.snp.makeConstraints { make in
+            
             make.trailing.leading.equalTo(self.view.safeAreaLayoutGuide).inset(20)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-40)
         }
         
         self.chartView.snp.makeConstraints { make in
+            
             make.leading.trailing.equalToSuperview().inset(20)
-            make.top.equalTo(self.periodSegmentedControl.snp.bottom).offset(20)
+            make.top.equalTo(self.periodContianer.snp.bottom).offset(20)
             make.bottom.equalTo(self.categoriesContainer.snp.top).offset(-20)
         }
     }
@@ -92,23 +104,8 @@ final class CompanyStatisticsView: BUContentViewController {
     // MARK: - Localization
 
     override func setupLocalizableContent() {
-
-        self.navigationItem.title = "ui_company_statistics_title".localized
-
-        let selectedIndex = self.presenter.selectedPeriodIndex()
-
-        self.periodSegmentedControl.removeAllSegments()
-
-        for index in 0..<self.presenter.numberOfPeriods() {
-
-            self.periodSegmentedControl.insertSegment(withTitle: self.presenter.periodTitle(at: index).localized,
-                                                      at: index,
-                                                      animated: false)
-        }
-
-        self.periodSegmentedControl.selectedSegmentIndex = selectedIndex
         
-        self.segmentDidChange(self.periodSegmentedControl)
+        self.navigationItem.title = "ui_company_statistics_title".localized
     }
     
     // MARK: - Theme
@@ -117,11 +114,34 @@ final class CompanyStatisticsView: BUContentViewController {
     
     // MARK: - Configure
     
-    private func configurePeriodSegmentControl() -> UISegmentedControl {
+    private func configurePeriodContainer() -> CompanyStatisticsPeriodView {
         
-        let segment = UISegmentedControl(items: [])
+        let container = CompanyStatisticsPeriodView(fromDate: self.presenter.periodFromDate,
+                                                    toDate: self.presenter.periodToDate)
+        
+        container.onToDateChange = { [weak self] date in
+            
+            self?.presenter.periodToDate = date
+        }
+        
+        container.onFromDateChange = { [weak self] date in
+            
+            self?.presenter.periodFromDate = date
+        }
+        
+        return container
+    }
+    
+    private func configureInfoTypeSegmentControl() -> BUSegmentedControl {
+        
+        let segment = BUSegmentedControl(nonlocalizedItems: self.presenter.intoTypesNonLocTitles)
         
         segment.addTarget(self, action: #selector(segmentDidChange(_:)), for: .valueChanged)
+        
+        if let index = self.presenter.selectedInfoTypeIndex {
+            
+            segment.selectedSegmentIndex = index
+        }
         
         return segment
     }
@@ -131,6 +151,8 @@ final class CompanyStatisticsView: BUContentViewController {
         let chart = LineChartView()
         
         chart.xAxis.labelRotationAngle = -90.0
+        chart.legend.enabled = false
+        chart.delegate = self
         
         return chart
     }
@@ -148,7 +170,7 @@ final class CompanyStatisticsView: BUContentViewController {
     
     @objc private func segmentDidChange(_ sender: UISegmentedControl) {
         
-        self.presenter.updateSelectedPeriod(at: sender.selectedSegmentIndex)
+        self.presenter.updateSelectedInfoType(at: sender.selectedSegmentIndex)
     }
     
     @objc private func shareTapped() {
@@ -163,7 +185,21 @@ extension CompanyStatisticsView: SelectCategoriesContainerDelegate {
     
     func selectCategoriesContainerDidUpdateCategoriesList(_ container: SelectCategoriesContainer) {
         
-        self.presenter.updateSelectedCategories(ids: container.dataSource.selectedCategories.map { $0.rawValue })
+        self.presenter
+            .updateSelectedCategories(ids: container
+                                        .dataSource
+                                        .selectedCategories
+                                        .map { $0.rawValue })
+    }
+}
+
+// MARK: - ChartViewDelegate
+
+extension CompanyStatisticsView: ChartViewDelegate {
+    
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        
+        print(entry)
     }
 }
 

@@ -142,9 +142,11 @@ extension AddCompanyInteractor: IAddCompanyInteractor {
         }
         
         DispatchQueue.global(qos: .background).async {
-         
+            
             var requestModel = CompanyEntity()
         
+            requestModel.categoryId = self.selectedCategory.rawValue
+            
             for section in self.sections {
                 
                 for row in section.rows {

@@ -61,6 +61,8 @@ final class AssetsHelper {
         
         case userLocationMapIcon
         case companyLocationMapIcon
+        
+        case rightArrow
     }
 
     static let shared = AssetsHelper()
@@ -164,7 +166,10 @@ final class AssetsHelper {
             
         case .companyLocationMapIcon:
             return UIImage(named: "company-location-map-icon")
-
+            
+        case .rightArrow:
+            return UIImage(named: "right-arrow")
+            
         @unknown default:
             assertionFailure("Incorrect \(String(describing: self)) enum value")
         }

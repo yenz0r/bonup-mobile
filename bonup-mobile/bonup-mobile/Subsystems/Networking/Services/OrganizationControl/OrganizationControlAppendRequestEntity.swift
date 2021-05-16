@@ -12,7 +12,7 @@ struct OrganizationControlAppendRequestEntity {
     
     var title: String = ""
     var descriptionText: String = ""
-    var categoriesIds: [Int] = []
+    var categoryId: Int = 0
     var bonusesCount: Int = 0
     var organizationId: String = ""
     var startDateTimestamp: Double = 0

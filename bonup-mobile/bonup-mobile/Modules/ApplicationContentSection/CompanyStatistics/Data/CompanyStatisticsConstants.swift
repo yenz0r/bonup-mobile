@@ -10,20 +10,20 @@ import UIKit
 
 enum CompanyStatisticsPeriod: Int, CaseIterable {
     
-    case week = 0, month, year
+    case today = 0, week, month
     
     var title: String {
         
         switch self {
         
-        case .week:
-            return "ui_period_week"
+        case .today:
+            return "ui_period_today"
             
         case .month:
             return "ui_period_month"
             
-        case .year:
-            return "ui_period_year"
+        case .week:
+            return "ui_period_week"
         }
     }
     
@@ -38,13 +38,13 @@ enum CompanyStatisticsPeriod: Int, CaseIterable {
         
         switch self {
         
-        case .week:
+        case .today:
             color = .cyan
             
         case .month:
             color = .purple
             
-        case .year:
+        case .week:
             color = .orange
         }
         

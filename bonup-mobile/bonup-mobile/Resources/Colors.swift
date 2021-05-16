@@ -13,6 +13,7 @@ struct Colors {
     static let backgroundColor: ThemeColorPicker = ["#fff", "#3a3647"]
 
     static let defaultTextColor: ThemeColorPicker = ["#000", "#FFF"]
+    static let invertedTextColor: ThemeColorPicker = ["#FFF", "#000"]
     static let grayTextColor: ThemeColorPicker = ["#6a697fff", "#6a697fff"]
     static let defaultTextColorWithAlpha: ThemeColorPicker = .init(colors: UIColor.black.withAlphaComponent(0.5),
                                                                    UIColor.white.withAlphaComponent(0.5))

@@ -28,4 +28,9 @@ extension Date {
         
         return self.timeIntervalSince1970
     }
+    
+    func withDaysOffset(_ days: Int) -> Date {
+        
+        return Calendar.current.date(byAdding: .day, value: days, to: self)!
+    }
 }
