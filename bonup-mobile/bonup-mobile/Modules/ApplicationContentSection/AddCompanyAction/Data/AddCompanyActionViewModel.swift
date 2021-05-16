@@ -11,5 +11,17 @@ import Foundation
 struct AddCompanyActionViewModel {
     
     var fieldType: CompanyActionFieldType
-    var value: Any
+    var value: Any?
+    
+    let isModifieble: Bool
+    
+    init(with value: Any?,
+         field type: CompanyActionFieldType,
+         mode: AddCompanyActionDependency.Mode) {
+        
+        self.value = value
+        self.fieldType = type
+        
+        self.isModifieble = mode != .read
+    }
 }

@@ -13,6 +13,7 @@ protocol IAddCompanyActionInteractor: AnyObject {
     var viewModels: [AddCompanyActionViewModel] { get }
     var selectedCategory: InterestCategories { get set }
     var actionType: CompanyActionType { get }
+    var mode: AddCompanyActionDependency.Mode { get }
     
     func updateValue(_ value: Any, at index: Int)
     func handleAddAction(success:((String) -> Void)?, failure:((String) -> Void)?)
@@ -29,37 +30,46 @@ final class AddCompanyActionInteractor {
     // MARK: - Public properties
     
     var actionType: CompanyActionType
+    var mode: AddCompanyActionDependency.Mode = .create
     var selectedCategory: InterestCategories = .food
     
     // MARK: - Initialization
 
-    init(actionType: CompanyActionType, organizationId: String) {
+    init(actionType: CompanyActionType,
+         organizationId: String,
+         action: OrganizationControlAppendRequestEntity?,
+         mode: AddCompanyActionDependency.Mode) {
+        
+        self.mode = mode
+        self.actionType = actionType
+        self.organizationId = organizationId
         
         // NOTE: - In the future list of fields may be changed
         switch actionType {
-        case .task:
+        
+        case .task, .coupon:
             _viewModels = [
-                AddCompanyActionViewModel(fieldType: .title, value: ""),
-                AddCompanyActionViewModel(fieldType: .description, value: ""),
-                AddCompanyActionViewModel(fieldType: .bonuses, value: 0),
-                AddCompanyActionViewModel(fieldType: .allowedCount, value: 0),
-                AddCompanyActionViewModel(fieldType: .startDate, value: Date()),
-                AddCompanyActionViewModel(fieldType: .endDate, value: Date())
-            ]
-            
-        case .coupon:
-            _viewModels = [
-                AddCompanyActionViewModel(fieldType: .title, value: ""),
-                AddCompanyActionViewModel(fieldType: .description, value: ""),
-                AddCompanyActionViewModel(fieldType: .bonuses, value: 0),
-                AddCompanyActionViewModel(fieldType: .allowedCount, value: 0),
-                AddCompanyActionViewModel(fieldType: .startDate, value: Date()),
-                AddCompanyActionViewModel(fieldType: .endDate, value: Date())
+                
+                AddCompanyActionViewModel(with: action?.title ?? "",
+                                          field: .title,
+                                          mode: mode),
+                AddCompanyActionViewModel(with: action?.descriptionText ?? "",
+                                          field: .description,
+                                          mode: mode),
+                AddCompanyActionViewModel(with: action?.bonusesCount ?? 0,
+                                          field: .bonuses,
+                                          mode: mode),
+                AddCompanyActionViewModel(with: action?.allowedCount ?? 0,
+                                          field: .allowedCount,
+                                          mode: mode),
+                AddCompanyActionViewModel(with: Date.dateFromTimestamp(action?.startDateTimestamp ?? Date().timestamp),
+                                          field: .startDate,
+                                          mode: mode),
+                AddCompanyActionViewModel(with: Date.dateFromTimestamp(action?.endDateTimestamp ?? Date().timestamp),
+                                          field: .endDate,
+                                          mode: mode)
             ]
         }
-        
-        self.actionType = actionType
-        self.organizationId = organizationId
     }
 }
 

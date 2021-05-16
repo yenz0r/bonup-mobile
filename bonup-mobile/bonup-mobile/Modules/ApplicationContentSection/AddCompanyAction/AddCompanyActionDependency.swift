@@ -10,7 +10,14 @@ import UIKit
 
 struct AddCompanyActionDependency {
 
+    enum Mode {
+        
+        case create, modify, read
+    }
+    
     let parentNavigationController: UINavigationController
     let actionType: CompanyActionType
-    let organizationId: String
+    let organizationId: String?
+    let action: OrganizationControlAppendRequestEntity?
+    let mode: Mode = .create
 }

@@ -14,6 +14,13 @@
 		B90867E225B5E33E00E0DE91 /* CompanyPacketConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90867E125B5E33E00E0DE91 /* CompanyPacketConstants.swift */; };
 		B90867E725B5E63C00E0DE91 /* CompanyPacketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90867E625B5E63C00E0DE91 /* CompanyPacketCell.swift */; };
 		B90AF9A5264AC737007BB288 /* CompanyStatisticsPeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AF9A4264AC737007BB288 /* CompanyStatisticsPeriodView.swift */; };
+		B90AF9ED26518254007BB288 /* CompanyActionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AF9EC26518254007BB288 /* CompanyActionsListView.swift */; };
+		B90AF9EF26518257007BB288 /* CompanyActionsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AF9EE26518257007BB288 /* CompanyActionsListPresenter.swift */; };
+		B90AF9F126518261007BB288 /* CompanyActionsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AF9F026518261007BB288 /* CompanyActionsListInteractor.swift */; };
+		B90AF9F326518266007BB288 /* CompanyActionsListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AF9F226518266007BB288 /* CompanyActionsListBuilder.swift */; };
+		B90AF9F52651826D007BB288 /* CompanyActionsListDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AF9F42651826D007BB288 /* CompanyActionsListDependency.swift */; };
+		B90AF9F726518273007BB288 /* CompanyActionsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AF9F626518273007BB288 /* CompanyActionsListRouter.swift */; };
+		B90AF9FA26518D1E007BB288 /* CompanyActionsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AF9F926518D1E007BB288 /* CompanyActionsListCell.swift */; };
 		B90BED4425B5D92200AD78A8 /* CompanyPacketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED4325B5D92200AD78A8 /* CompanyPacketView.swift */; };
 		B90BED4925B5D92900AD78A8 /* CompanyPacketPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED4825B5D92900AD78A8 /* CompanyPacketPresenter.swift */; };
 		B90BED4E25B5D93000AD78A8 /* CompanyPacketInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED4D25B5D93000AD78A8 /* CompanyPacketInteractor.swift */; };
@@ -350,6 +357,13 @@
 		B90867E125B5E33E00E0DE91 /* CompanyPacketConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketConstants.swift; sourceTree = "<group>"; };
 		B90867E625B5E63C00E0DE91 /* CompanyPacketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketCell.swift; sourceTree = "<group>"; };
 		B90AF9A4264AC737007BB288 /* CompanyStatisticsPeriodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyStatisticsPeriodView.swift; sourceTree = "<group>"; };
+		B90AF9EC26518254007BB288 /* CompanyActionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsListView.swift; sourceTree = "<group>"; };
+		B90AF9EE26518257007BB288 /* CompanyActionsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsListPresenter.swift; sourceTree = "<group>"; };
+		B90AF9F026518261007BB288 /* CompanyActionsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsListInteractor.swift; sourceTree = "<group>"; };
+		B90AF9F226518266007BB288 /* CompanyActionsListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsListBuilder.swift; sourceTree = "<group>"; };
+		B90AF9F42651826D007BB288 /* CompanyActionsListDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsListDependency.swift; sourceTree = "<group>"; };
+		B90AF9F626518273007BB288 /* CompanyActionsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsListRouter.swift; sourceTree = "<group>"; };
+		B90AF9F926518D1E007BB288 /* CompanyActionsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsListCell.swift; sourceTree = "<group>"; };
 		B90BED4325B5D92200AD78A8 /* CompanyPacketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketView.swift; sourceTree = "<group>"; };
 		B90BED4825B5D92900AD78A8 /* CompanyPacketPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketPresenter.swift; sourceTree = "<group>"; };
 		B90BED4D25B5D93000AD78A8 /* CompanyPacketInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketInteractor.swift; sourceTree = "<group>"; };
@@ -734,6 +748,28 @@
 			isa = PBXGroup;
 			children = (
 				B90AF9A4264AC737007BB288 /* CompanyStatisticsPeriodView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		B90AF9F8265183AE007BB288 /* CompanyActionsList */ = {
+			isa = PBXGroup;
+			children = (
+				B90AF9EC26518254007BB288 /* CompanyActionsListView.swift */,
+				B90AF9EE26518257007BB288 /* CompanyActionsListPresenter.swift */,
+				B90AF9F026518261007BB288 /* CompanyActionsListInteractor.swift */,
+				B90AF9F226518266007BB288 /* CompanyActionsListBuilder.swift */,
+				B90AF9F42651826D007BB288 /* CompanyActionsListDependency.swift */,
+				B90AF9F626518273007BB288 /* CompanyActionsListRouter.swift */,
+				B90AF9FB26518D24007BB288 /* Subviews */,
+			);
+			path = CompanyActionsList;
+			sourceTree = "<group>";
+		};
+		B90AF9FB26518D24007BB288 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				B90AF9F926518D1E007BB288 /* CompanyActionsListCell.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -1919,6 +1955,7 @@
 				B90BED6125B5D95400AD78A8 /* CompanyPacket */,
 				B9FE3A5525B618AB007ED803 /* CompanyCustomPacket */,
 				B93F2B71263F0B9600A8A8D6 /* CompanyStatistics */,
+				B90AF9F8265183AE007BB288 /* CompanyActionsList */,
 			);
 			path = ApplicationContentSection;
 			sourceTree = "<group>";
@@ -2272,6 +2309,7 @@
 				B9FE3A3D25B61873007ED803 /* CompanyCustomPacketPresenter.swift in Sources */,
 				B94F37912451C49800FBEB36 /* ProfileHeaderView.swift in Sources */,
 				B9E7CE7325B4815F0033810D /* AddCompanyInputSectionModel.swift in Sources */,
+				B90AF9EF26518257007BB288 /* CompanyActionsListPresenter.swift in Sources */,
 				B9D17580243CFCEA001FF58E /* TermsAndConditionsView.swift in Sources */,
 				B914AC8F24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift in Sources */,
 				B9C97006263D9ADE00066625 /* OrganizationControlConstants.swift in Sources */,
@@ -2350,6 +2388,7 @@
 				B9EFFBAA246BE00200084B7E /* FinishedBenefitEntity.swift in Sources */,
 				B990931625AF3A4C00CF381B /* SettingsParamsDependency.swift in Sources */,
 				B9F0465B2635A33600D2D3D8 /* AddCompanyActionCell.swift in Sources */,
+				B90AF9F726518273007BB288 /* CompanyActionsListRouter.swift in Sources */,
 				B96CA64325B37BD200FF157C /* CompaniesSearchBuilder.swift in Sources */,
 				B992D52E2457A1A7002ABF71 /* SelectedBenefitsContentCell.swift in Sources */,
 				B92688FD2429520300F1732A /* UIView+Appearance.swift in Sources */,
@@ -2381,6 +2420,7 @@
 				B990939025AF75D600CF381B /* Colors.swift in Sources */,
 				B914AC8B24435D30007494E3 /* CurrentTasksCollectionViewCell.swift in Sources */,
 				B95533D724431C8A006BFDFB /* TaskCardView.swift in Sources */,
+				B90AF9ED26518254007BB288 /* CompanyActionsListView.swift in Sources */,
 				B935A590241D5B090074E89E /* ResetPasswordDependency.swift in Sources */,
 				B96AC7F82444A392005C25D1 /* CategoriesPresentationModel.swift in Sources */,
 				B932366F241E6CCF00A37634 /* AuthResponseEntity.swift in Sources */,
@@ -2474,6 +2514,7 @@
 				B948A1E2241444B2001287B8 /* AppDelegate.swift in Sources */,
 				B977483D2443194E004D39AD /* TaskSelectionInteractor.swift in Sources */,
 				B944A8EE246217C0002170FD /* TaskDescriptionView.swift in Sources */,
+				B90AF9F326518266007BB288 /* CompanyActionsListBuilder.swift in Sources */,
 				B93FDB1F246BDCB6006E93F4 /* BenefitsResponseEntity.swift in Sources */,
 				B941E73E246B936B0056B844 /* OrganizationControlDependency.swift in Sources */,
 				B9CEE6A0241D559E00308098 /* ResetPasswordInteractor.swift in Sources */,
@@ -2496,6 +2537,7 @@
 				B9787F3C246B517D007DB617 /* TermsAndConditionsConstants.swift in Sources */,
 				B9268920242A95CA00F1732A /* AssetsHelper.swift in Sources */,
 				B992D51424578A2E002ABF71 /* BenefitsBuilder.swift in Sources */,
+				B90AF9F126518261007BB288 /* CompanyActionsListInteractor.swift in Sources */,
 				B93F2B7B2641F4B700A8A8D6 /* ProfileActionsChartsContainer.swift in Sources */,
 				B966E72E24684D000043FD69 /* BenefitDescriptionPresenter.swift in Sources */,
 				B96A71DD246B9C90007416DF /* OrganizationControlService.swift in Sources */,
@@ -2516,6 +2558,7 @@
 				B914AC9124435D80007494E3 /* TasksListFinishedCollectionViewCell.swift in Sources */,
 				B992D522245793A9002ABF71 /* NewBenefitsContentCell.swift in Sources */,
 				B93F2B76264079FF00A8A8D6 /* AddCompanyService.swift in Sources */,
+				B90AF9F52651826D007BB288 /* CompanyActionsListDependency.swift in Sources */,
 				B9787F40246B54F2007DB617 /* TaskSelectionResponseEntity.swift in Sources */,
 				B9BF701324433D590051CF41 /* BUNavigationController.swift in Sources */,
 				B9E7CE8425B481870033810D /* AddCompanyInputHeader.swift in Sources */,
@@ -2539,6 +2582,7 @@
 				B98DE0DF244BB5FA007AE007 /* SettingsView.swift in Sources */,
 				B992D52A2457A182002ABF71 /* SelectedBenefitsPresentationModel.swift in Sources */,
 				B941E73A246B93550056B844 /* OrganizationControlInteractor.swift in Sources */,
+				B90AF9FA26518D1E007BB288 /* CompanyActionsListCell.swift in Sources */,
 				B944A8F724621807002170FD /* TaskDescriptionBuilder.swift in Sources */,
 				B93F2B9F2646E0EF00A8A8D6 /* AccountsCredsRouter.swift in Sources */,
 				B9D3369C2469CFD4003E1CEB /* OrganizationsListBuilder.swift in Sources */,

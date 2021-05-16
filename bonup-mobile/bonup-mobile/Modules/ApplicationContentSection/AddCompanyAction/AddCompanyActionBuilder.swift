@@ -21,7 +21,9 @@ final class AddCompanyActionBuilder: IAddCompanyActionBuilder {
         let router = AddCompanyActionRouter(view: view, parentNavigationController: dependency.parentNavigationController)
         let interactor = AddCompanyActionInteractor(
             actionType: dependency.actionType,
-            organizationId: dependency.organizationId
+            organizationId: dependency.organizationId ?? "",
+            action: dependency.action,
+            mode: dependency.mode
         )
         let presenter = AddCompanyActionPresenter(view: view, interactor: interactor, router: router)
         view.presenter = presenter

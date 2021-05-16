@@ -47,19 +47,26 @@ final class AddCompanyActionView: BUContentViewController {
     override func setupLocalizableContent() {
 
         self.navigationItem.title = self.presenter.screenTitle.localized
-        self.navigationItem.rightBarButtonItem?.title = "ui_done_title".localized
+        
+        if self.presenter.currentMode != .read {
+        
+            self.navigationItem.rightBarButtonItem?.title = "ui_done_title".localized
+        }
     }
 
     // MARK: - Setup
 
     private func setupNavBar() {
 
-        let done = UIBarButtonItem(title: "ui_done_title".localized,
-                                   style: .plain,
-                                   target: self,
-                                   action: #selector(doneTapped))
-        done.theme_tintColor = Colors.navBarIconColor
-        self.navigationItem.rightBarButtonItem = done
+        if self.presenter.currentMode != .read {
+            
+            let done = UIBarButtonItem(title: "ui_done_title".localized,
+                                       style: .plain,
+                                       target: self,
+                                       action: #selector(doneTapped))
+            done.theme_tintColor = Colors.navBarIconColor
+            self.navigationItem.rightBarButtonItem = done
+        }
     }
 
     private func setupSubviews() {
@@ -177,7 +184,8 @@ extension AddCompanyActionView: UITableViewDataSource {
 
         cell.configure(with: self.presenter.fieldTitle(at: indexPath.row),
                        stringValue: self.presenter.fieldValue(at: indexPath.row),
-                       fieldType: self.presenter.fieldType(at: indexPath.row))
+                       fieldType: self.presenter.fieldType(at: indexPath.row),
+                       mode: self.presenter.currentMode)
         
         cell.onValueChange = { [weak self, indexPath] newValue in
             

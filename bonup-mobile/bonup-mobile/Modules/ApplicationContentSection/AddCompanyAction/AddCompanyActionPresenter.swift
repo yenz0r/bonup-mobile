@@ -15,6 +15,8 @@ protocol IAddCompanyActionPresenter: AnyObject {
     var screenTitle: String { get }
     var selectedCategory: InterestCategories { get }
     
+    var currentMode: AddCompanyActionDependency.Mode { get }
+    
     func fieldTitle(at index: Int) -> String
     func fieldValue(at index: Int) -> String
     func fieldType(at index: Int) -> CompanyActionFieldType
@@ -62,6 +64,11 @@ extension AddCompanyActionPresenter: IAddCompanyActionPresenter {
     var fieldsCount: Int {
         
         return self.interactor.viewModels.count
+    }
+    
+    var currentMode: AddCompanyActionDependency.Mode {
+        
+        return self.interactor.mode
     }
     
     func handleDoneTap() {

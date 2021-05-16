@@ -71,7 +71,8 @@ extension OrganizationControlRouter: IOrganizationControlRouter {
             let dependency = AddCompanyActionDependency(
                 parentNavigationController: self.parentController.navigationController!,
                 actionType: actionType,
-                organizationId: organizationId
+                organizationId: organizationId,
+                action: nil
             )
             let builder = AddCompanyActionBuilder()
             let router = builder.build(dependency)

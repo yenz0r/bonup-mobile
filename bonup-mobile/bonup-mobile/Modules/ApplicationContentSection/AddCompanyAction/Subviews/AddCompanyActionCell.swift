@@ -46,19 +46,17 @@ final class AddCompanyActionCell: UITableViewCell {
     
     // MARK: - Public functions
     
-    func configure(with title: String, stringValue: String, fieldType: CompanyActionFieldType) {
+    func configure(with title: String,
+                   stringValue: String,
+                   fieldType: CompanyActionFieldType,
+                   mode: AddCompanyActionDependency.Mode) {
         
         self.titleLabel.nonlocalizedTitle = title
         self.valueTextField.text = stringValue
         
         switch fieldType {
-        case .title:
-            fallthrough
-        case .description:
-            fallthrough
-        case .allowedCount:
-            fallthrough
-        case .bonuses:
+        case .title, .description, .allowedCount, .bonuses:
+            
             self.valueTextField.isEnabled = true
             self.valueTextField.keyboardType = fieldType == .bonuses || fieldType == .allowedCount ? .numberPad : .alphabet;
             self.tapGesture.isEnabled = false
@@ -69,6 +67,8 @@ final class AddCompanyActionCell: UITableViewCell {
             self.valueTextField.isEnabled = false
             self.tapGesture.isEnabled = true
         }
+        
+        self.setupAppearance(for: mode)
     }
     
     // MARK: - Setup
@@ -101,6 +101,12 @@ final class AddCompanyActionCell: UITableViewCell {
     private func setupAppearance() {
         
         self.contentView.theme_backgroundColor = Colors.backgroundColor
+    }
+    
+    private func setupAppearance(for mode: AddCompanyActionDependency.Mode) {
+        
+        self.valueTextField.alpha = mode == .read ? 0.5 : 1
+        self.valueTextField.isUserInteractionEnabled = mode == .read
     }
     
     private func setupGestures() {
