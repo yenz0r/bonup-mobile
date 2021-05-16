@@ -11,11 +11,15 @@ import Foundation
 protocol ICompanyActionsListPesenter: AnyObject {
     
     var numberOfActions: Int { get }
+    
     var controllerTitle: String { get }
+    var emtpyDataSetTitle: String
 
     func actionTitle(at index: Int) -> String
     func actionDescription(at index: Int) -> String
     func actionDateInfo(at index: Int) -> String
+    
+    func handleActionSelection(at index: Int)
 }
 
 final class CompanyActionsListPresenter {
@@ -63,6 +67,18 @@ extension CompanyActionsListPresenter: ICompanyActionsListPesenter {
         }
     }
     
+    var emtpyDataSetTitle: String {
+        
+        switch self.interactor.currentMode {
+        
+        case .coupons:
+            return "ui_empty_new_benefits_list"
+            
+        case .tasks:
+            return "ui_empty_current_tasks_list"
+        }
+    }
+    
     func actionTitle(at index: Int) -> String {
         
         return self.interactor.actionsList?[index].title ?? ""
@@ -81,5 +97,13 @@ extension CompanyActionsListPresenter: ICompanyActionsListPesenter {
         let endDate = Date.dateFromTimestamp(action.endDateTimestamp)
         
         return "\(self.dateFormatter.string(from: startDate)) / (\(self.dateFormatter.string(from: endDate))"
+    }
+    
+    func handleActionSelection(at index: Int) {
+        
+        guard let action = self.interactor.actionsList?[index] else { return }
+        
+        self.router.show(.showActionDetails(mode: self.interactor.currentMode,
+                                            action: action))
     }
 }

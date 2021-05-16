@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EmptyDataSet_Swift
 
 protocol ICompanyActionsListView: AnyObject { }
 
@@ -28,6 +29,13 @@ final class CompanyActionsListView: BUContentViewController {
         
         self.setupSubviews()
         self.setupAppearance()
+    }
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        self.tableView.reloadEmptyDataSet()
     }
     
     // MARK: - Setup
@@ -68,6 +76,7 @@ final class CompanyActionsListView: BUContentViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.emptyDataSetSource = self
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
@@ -115,6 +124,29 @@ extension CompanyActionsListView: UITableViewDataSource {
                    dateInfo: self.presenter.actionDateInfo(at: indexPath.row))
         
         return cell
+    }
+}
+
+// MARK: - EmptyDataSetSource
+
+extension CompanyActionsListView: EmptyDataSetSource {
+    
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        
+        return NSAttributedString(string: self.presenter.emtpyDataSetTitle.localized,
+                                  attributes: [.foregroundColor : Colors.textStateColor,
+                                               .font: UIFont.avenirHeavy(20)])
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        
+        return AssetsHelper.shared.image(.emptyTasksListIcon)?.resizedImage(targetSize: .init(width: 70,
+                                                                                              height: 70))
+    }
+    
+    func imageTintColor(forEmptyDataSet scrollView: UIScrollView) -> UIColor? {
+        
+        return Colors.textStateColor
     }
 }
 
