@@ -6,24 +6,29 @@
 //  Copyright © 2021 Bonup. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol IAddCompanyActionInteractor: AnyObject {
 
     var viewModels: [AddCompanyActionViewModel] { get }
     var selectedCategory: InterestCategories { get set }
+    var selectedPhoto: UIImage { get set }
     var actionType: CompanyActionType { get }
     var mode: AddCompanyActionDependency.Mode { get }
     
     func updateValue(_ value: Any, at index: Int)
-    func handleAddAction(success:((String) -> Void)?, failure:((String) -> Void)?)
+    func addAction(success:((String) -> Void)?, failure:((String) -> Void)?)
 }
 
 final class AddCompanyActionInteractor {
 
+    // MARK: - Services
+    
+    private lazy var controlNetworkProvider = MainNetworkProvider<OrganizationControlService>()
+    private lazy var photosNetworkProvider = MainNetworkProvider<PhotosService>()
+    
     // MARK: - Private properties
     
-    private let networkProvider = MainNetworkProvider<OrganizationControlService>()
     private var _viewModels: [AddCompanyActionViewModel]
     internal let organizationId: String
     
@@ -32,6 +37,7 @@ final class AddCompanyActionInteractor {
     var actionType: CompanyActionType
     var mode: AddCompanyActionDependency.Mode = .create
     var selectedCategory: InterestCategories = .food
+    var selectedPhoto: UIImage = AssetsHelper.shared.image(.addImageIcon)!
     
     // MARK: - Initialization
 
@@ -87,7 +93,7 @@ extension AddCompanyActionInteractor: IAddCompanyActionInteractor {
         self._viewModels[index].value = value
     }
     
-    func handleAddAction(success:((String) -> Void)?, failure:((String) -> Void)?) {
+    func addAction(success:((String) -> Void)?, failure:((String) -> Void)?) {
         
         DispatchQueue.global(qos: .background).async {
          
@@ -135,25 +141,38 @@ extension AddCompanyActionInteractor: IAddCompanyActionInteractor {
                 }
             }
             
-            let target: OrganizationControlService = self.actionType == .coupon ? .putCoupon(token, requestEntity) : .putTask(token, requestEntity)
-            
-            _ = self.networkProvider.request(
-                target,
-                type: OrganizationControlAppendResponseEntity.self,
-                completion: { result in
-                    
-                    if result.isSuccess {
-                        
-                        success?(result.message)
-                    } else {
-                        
-                        failure?(result.message)
-                    }
-                },
-                failure: { err in
-                    failure?(err?.localizedDescription ?? "")
-                }
-            )
+            _ = self.photosNetworkProvider
+                .request(.uploadPhoto(self.selectedPhoto),
+                         type: PhotoResponseEntity.self,
+                         completion: { [weak self] result in
+                            
+                            requestEntity.photoId = Int(result.message) ?? 0
+                            
+                            let target: OrganizationControlService = self?.actionType == .coupon ? .putCoupon(token, requestEntity) : .putTask(token, requestEntity)
+                            
+                            _ = self?.controlNetworkProvider.request(
+                                target,
+                                type: OrganizationControlAppendResponseEntity.self,
+                                completion: { result in
+                                    
+                                    if result.isSuccess {
+                                        
+                                        success?(result.message)
+                                    } else {
+                                        
+                                        failure?(result.message)
+                                    }
+                                },
+                                failure: { err in
+                                    
+                                    failure?(err?.localizedDescription ?? "ui_error_title".localized)
+                                }
+                            )
+                         },
+                         failure: { err in
+                            
+                            failure?(err?.localizedDescription ?? "ui_error_title".localized)
+                         })
         }
     }
     

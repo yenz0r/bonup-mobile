@@ -19,7 +19,8 @@ final class AddCompanyBuilder: IAddCompanyBuilder {
 
         let view = AddCompanyView()
         let router = AddCompanyRouter(view: view, parentNavigationController: dependency.parentNavigationController)
-        let interactor = AddCompanyInteractor(initCompany: dependency.initCompany)
+        let interactor = AddCompanyInteractor(initCompany: dependency.initCompany,
+                                              companyPacket: dependency.companyPacket)
         let presenter = AddCompanyPresenter(view: view, interactor: interactor, router: router)
         view.presenter = presenter
 

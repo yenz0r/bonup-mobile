@@ -25,4 +25,8 @@ struct CompanyEntity: Codable {
     var latitude: Double = 0
     var longitude: Double = 0
     var categoryId: Int = 0
+    var availableTasksCount: Int = 0
+    var availableCouponsCount: Int = 0
+    var availableStocksCount: Int = 0
+    var photoId: Int = 0
 }

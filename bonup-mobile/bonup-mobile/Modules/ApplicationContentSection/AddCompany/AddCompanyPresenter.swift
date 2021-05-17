@@ -13,6 +13,7 @@ protocol IAddCompanyPresenter: AnyObject {
 
     var inputSections: [AddCompanyInputSectionModel] { get }
     var selectedCategory: InterestCategories { get }
+    var selectedPhoto: UIImage { get set }
     var moduleMode: AddCompanyInteractor.ModuleMode { get }
 
     func handleValueUpdate(_ value: String?, at indexPath: IndexPath)
@@ -94,6 +95,12 @@ extension AddCompanyPresenter: IAddCompanyPresenter {
     var moduleMode: AddCompanyInteractor.ModuleMode {
         
         return self.interactor.moduleMode
+    }
+    
+    var selectedPhoto: UIImage {
+        
+        get { self.interactor.selectedPhoto }
+        set { self.interactor.selectedPhoto = newValue }
     }
 }
 

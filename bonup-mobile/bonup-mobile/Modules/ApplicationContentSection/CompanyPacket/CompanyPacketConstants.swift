@@ -83,6 +83,22 @@ enum CompanyPacketType {
             return nil
         }
     }
+    
+    var stocksCount: Int? {
+        
+        switch self {
+        case .junior:
+            return 10
+        case .middle:
+            return 25
+        case .senior:
+            return 50
+        case .custom(_, _, _):
+            return 0
+        case .none:
+            return nil
+        }
+    }
 
     var price: Float? {
 

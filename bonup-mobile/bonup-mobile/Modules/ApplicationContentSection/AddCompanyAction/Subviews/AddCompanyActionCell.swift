@@ -106,7 +106,7 @@ final class AddCompanyActionCell: UITableViewCell {
     private func setupAppearance(for mode: AddCompanyActionDependency.Mode) {
         
         self.valueTextField.alpha = mode == .read ? 0.5 : 1
-        self.valueTextField.isUserInteractionEnabled = mode == .read
+        self.valueTextField.isUserInteractionEnabled = mode == .create
     }
     
     private func setupGestures() {

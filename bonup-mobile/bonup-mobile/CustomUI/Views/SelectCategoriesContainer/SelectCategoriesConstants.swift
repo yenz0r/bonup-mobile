@@ -10,7 +10,7 @@ import UIKit
 
 enum InterestCategories: Int, CaseIterable {
 
-    case food = 0
+    case food = 50
     case sport
     case media
     case health

@@ -20,9 +20,11 @@ final class OrganizationsListCell: UICollectionViewCell {
 
     // MARK: - Public variables
 
-    var imageLink: String? {
+    var imageLink: URL? {
         didSet {
-            guard let link = imageLink, let url = URL(string: link) else {
+            
+            guard let url = imageLink else {
+                
                 self.imageView.image = nil
                 return
             }
@@ -55,6 +57,7 @@ final class OrganizationsListCell: UICollectionViewCell {
         super.init(frame: frame)
 
         self.setupSubviews()
+        self.setupAppearance()
     }
 
     required init?(coder: NSCoder) {
@@ -62,6 +65,11 @@ final class OrganizationsListCell: UICollectionViewCell {
     }
 
     // MARK: - Setup subviews
+    
+    private func setupAppearance() {
+        
+        self.setupSectionStyle()
+    }
 
     private func setupSubviews() {
 
@@ -87,6 +95,8 @@ final class OrganizationsListCell: UICollectionViewCell {
     private func configureImageView() -> UIImageView {
         let iv = UIImageView()
 
+        iv.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        iv.layer.cornerRadius = 25
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
 
@@ -96,29 +106,10 @@ final class OrganizationsListCell: UICollectionViewCell {
     private func configureTitleLabel() -> UILabel {
         let label = UILabel()
 
-        label.textColor = UIColor.purpleLite.withAlphaComponent(0.6)
+        label.theme_textColor = Colors.defaultTextColor
         label.font = UIFont.avenirRoman(20.0)
         label.textAlignment = .right
 
         return label
-    }
-
-    // MARK: - Life cycle
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        self.layer.borderColor = UIColor.purpleLite.withAlphaComponent(0.3).cgColor
-        self.layer.borderWidth = 1.0
-        self.layer.masksToBounds = true
-        self.layer.cornerRadius = 15.0
-        self.backgroundColor = .white
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-        self.titleText = nil
-        self.imageLink = nil
     }
 }

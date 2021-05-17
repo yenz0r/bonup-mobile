@@ -14,6 +14,7 @@ protocol IAddCompanyActionPresenter: AnyObject {
     var fieldsCount: Int { get }
     var screenTitle: String { get }
     var selectedCategory: InterestCategories { get }
+    var selectedPhoto: UIImage { get set }
     
     var currentMode: AddCompanyActionDependency.Mode { get }
     
@@ -51,6 +52,13 @@ final class AddCompanyActionPresenter {
 
 extension AddCompanyActionPresenter: IAddCompanyActionPresenter {
     
+    var selectedPhoto: UIImage {
+        
+        get { self.interactor.selectedPhoto }
+        set { self.interactor.selectedPhoto = newValue }
+    }
+    
+    
     func handleValueUpdate(_ value: Any, at indexPath: IndexPath) {
         
         self.interactor.updateValue(value, at: indexPath.row)
@@ -73,7 +81,7 @@ extension AddCompanyActionPresenter: IAddCompanyActionPresenter {
     
     func handleDoneTap() {
         
-        self.interactor.handleAddAction { [weak self] message in
+        self.interactor.addAction { [weak self] message in
             
             DispatchQueue.main.async {
              
@@ -148,6 +156,9 @@ extension AddCompanyActionPresenter: FMPhotoPickerViewControllerDelegate {
     func fmPhotoPickerController(_ picker: FMPhotoPickerViewController,
                                  didFinishPickingPhotoWith photos: [UIImage]) {
 
-        self.view?.setupImage(photos.first ?? AssetsHelper.shared.image(.addImageIcon)!)
+        let photo = photos.first ?? AssetsHelper.shared.image(.addImageIcon)!
+        
+        self.view?.setupImage(photo)
+        self.selectedPhoto = photo
     }
 }

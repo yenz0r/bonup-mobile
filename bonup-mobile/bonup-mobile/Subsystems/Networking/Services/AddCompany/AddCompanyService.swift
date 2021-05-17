@@ -23,7 +23,7 @@ extension AddCompanyService: IMainTargetType {
     var path: String {
         switch self {
         case .addCompany(_, _):
-            return "/isUserExist"
+            return "/newOrganization"
         }
     }
 
@@ -37,10 +37,28 @@ extension AddCompanyService: IMainTargetType {
 
     var task: Task {
         switch self {
-        case .addCompany(_, _):
+        case .addCompany(let token, let entity):
+            
             return .requestParameters(
                 parameters: [
-                    "email": "params.email"
+                    "token": token,
+                    "title": entity.title,
+                    "descriptionText": entity.descriptionText,
+                    "directorFirstName": entity.directorFirstName,
+                    "directorSecondName": entity.directorSecondName,
+                    "directorLastName": entity.directorLastName,
+                    "locationCountry": entity.locationCountry,
+                    "locationCity": entity.locationCity,
+                    "locationStreet": entity.locationStreet,
+                    "locationHomeNumber": entity.locationHomeNumber,
+                    "contactsPhone": entity.contactsPhone,
+                    "contactsVK": entity.contactsVK,
+                    "contactsWebSite": entity.contactsWebSite,
+                    "categoryId": entity.categoryId,
+                    "availableTasksCount": entity.availableTasksCount,
+                    "availableCouponsCount": entity.availableCouponsCount,
+                    "availableStocksCount": entity.availableStocksCount,
+                    "photoId": entity.photoId
                 ],
                 encoding: JSONEncoding.default
             )

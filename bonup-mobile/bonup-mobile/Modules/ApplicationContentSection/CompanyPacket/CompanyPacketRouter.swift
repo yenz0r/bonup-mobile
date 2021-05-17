@@ -12,7 +12,8 @@ protocol ICompanyPacketRouter {
 
     func start(_ completion: (() -> Void)?)
     func stop(_ completion: (() -> Void)?)
-    func show(_ scenario: CompanyPacketRouter.RouterScenario, completion: ((CompanyPacketType) -> Void)?)
+    func show(_ scenario: CompanyPacketRouter.RouterScenario,
+              completion: ((CompanyPacketType) -> Void)?)
 }
 
 final class CompanyPacketRouter {
@@ -20,7 +21,8 @@ final class CompanyPacketRouter {
     enum RouterScenario {
 
         case customPacket
-        case addCompany
+        case addCompany(packet: CompanyPacketType)
+        case showAlert(text: String)
     }
 
     private var view: CompanyPacketView?
@@ -70,16 +72,27 @@ extension CompanyPacketRouter: ICompanyPacketRouter {
                 completion?(customType)
             }
             
-        case .addCompany:
+        case .addCompany(let companyPacket):
             
             let dependency = AddCompanyDependency(
                 parentNavigationController: self.parentNavigationController,
-                initCompany: nil
+                initCompany: nil,
+                companyPacket: companyPacket
             )
             let builder = AddCompanyBuilder()
             let router = builder.build(dependency)
             
             router.start(nil)
+            
+        case .showAlert(let text):
+            
+            AlertsFactory.shared.infoAlert(
+                for: .error,
+                title: "ui_help_title".localized,
+                description: text,
+                from: view,
+                completion: nil
+            )
         }
     }
 }

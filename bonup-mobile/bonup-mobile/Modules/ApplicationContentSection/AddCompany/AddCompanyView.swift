@@ -110,7 +110,7 @@ final class AddCompanyView: BUContentViewController {
 
         let iv = UIImageView()
 
-        iv.image = AssetsHelper.shared.image(.addImageIcon)
+        iv.image = self.presenter.selectedPhoto
         iv.contentMode = .scaleAspectFit
         iv.theme_tintColor = Colors.navBarTextColor
 
@@ -157,6 +157,8 @@ final class AddCompanyView: BUContentViewController {
 
     @objc private func doneTapped() {
 
+        self.view.endEditing(true)
+        
         self.presenter.handleDoneTap()
     }
 }
@@ -227,5 +229,6 @@ extension AddCompanyView: IAddCompanyView {
     func setupImage(_ image: UIImage) {
         
         self.companyImageView.image = image
+        self.presenter.selectedPhoto = image
     }
 }

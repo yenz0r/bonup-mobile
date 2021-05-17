@@ -6,12 +6,13 @@
 //  Copyright © 2021 Bonup. All rights reserved.
 //
 
-import Foundation
+import UIKit.UIImage
 
 protocol IAddCompanyInteractor: AnyObject {
 
     var inputSections: [AddCompanyInputSectionModel] { get }
     var selectedCategory: InterestCategories { get set }
+    var selectedPhoto: UIImage { get set }
     var moduleMode: AddCompanyInteractor.ModuleMode { get }
     
     func updateValue(_ value: String?, at indexPath: IndexPath)
@@ -28,10 +29,14 @@ final class AddCompanyInteractor {
     
     // MARK: - Initialization
 
-    init(initCompany: CompanyEntity?) {
+    init(initCompany: CompanyEntity?,
+         companyPacket: CompanyPacketType?) {
         
         self.initCompany = initCompany
         self.selectedCategory = .food
+        self.selectedPhoto = AssetsHelper.shared.image(.addImageIcon)!
+        
+        self.companyPacket = companyPacket
         
         self.sections = [
             self.configureTitleInfoSection(),
@@ -42,17 +47,22 @@ final class AddCompanyInteractor {
         ]
     }
 
+    // MARK: - Services
+    
+    private lazy var companyInfoNetworkProvider = MainNetworkProvider<AddCompanyService>()
+    private lazy var photoNetworkProvider = MainNetworkProvider<PhotosService>()
+    private lazy var validator = Validator()
+    
     // MARK: - Private variables
-
+    
+    private let companyPacket: CompanyPacketType?
     private var sections: [AddCompanyInputSectionModel] = []
     private let initCompany: CompanyEntity?
-    
-    private lazy var networkProvider = MainNetworkProvider<AddCompanyService>()
-    private lazy var validator = Validator()
     
     // MARK: - Public variables
     
     var selectedCategory: InterestCategories
+    var selectedPhoto: UIImage
     
     // MARK: - Configure
 
@@ -94,8 +104,8 @@ final class AddCompanyInteractor {
     private func configureContactsInfoSection() -> AddCompanyInputSectionModel {
 
         let rows: [AddCompanyInputRowModel] = [
-
-            AddCompanyInputRowModel(value: self.initCompany?.contactsPhone, rowType: .phone),
+//            AddCompanyInputRowModel(value: self.initCompany?.contactsPhone, rowType: .phone),
+            AddCompanyInputRowModel(value: "+375 (29) 377-47-47", rowType: .phone),
             AddCompanyInputRowModel(value: self.initCompany?.contactsVK, rowType: .vkLink),
             AddCompanyInputRowModel(value: self.initCompany?.contactsWebSite, rowType: .webSite)
         ]
@@ -135,192 +145,232 @@ extension AddCompanyInteractor: IAddCompanyInteractor {
     
     func addCompany(success: (() -> Void)?, failure: ((String) -> Void)?) {
         
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            
+            self?.sendOrganizationInfo(success: success,
+                                       failure: failure)
+        }
+    }
+    
+    // MARK: - Private
+    
+    private func sendOrganizationInfo(success: (() -> Void)?,
+                                      failure: ((String) -> Void)?) {
+        
         guard let token = AccountManager.shared.currentToken else {
             
             failure?("ui_error_title".localized)
             return
         }
         
-        DispatchQueue.global(qos: .background).async {
-            
-            var requestModel = CompanyEntity()
+        var requestModel = CompanyEntity()
         
-            requestModel.categoryId = self.selectedCategory.rawValue
+        for section in self.sections {
             
-            for section in self.sections {
+            for row in section.rows {
                 
-                for row in section.rows {
+                switch row.rowType {
+                
+                case .title:
                     
-                    switch row.rowType {
+                    if let string = row.value,
+                       self.validator.onlyLetters(string) {
+                     
+                        requestModel.title = string
+                    }
+                    else {
+                        
+                        failure?(self.validationError(.title))
+                        return
+                    }
                     
-                    case .title:
+                case .ownerName:
+                    
+                    if let string = row.value,
+                       self.validator.onlyLetters(string),
+                       self.validator.onlySingleWord(string) {
+                     
+                        requestModel.directorFirstName = string
+                    }
+                    else {
                         
-                        if let string = row.value,
-                           self.validator.onlyLetters(string) {
-                         
-                            requestModel.title = string
-                        }
-                        else {
-                            
-                            failure?(self.validationError(.title))
-                            return
-                        }
+                        failure?(self.validationError(.ownerName))
+                        return
+                    }
+                    
+                case .ownerSecondName:
+                    
+                    if let string = row.value,
+                       self.validator.onlyLetters(string),
+                       self.validator.onlySingleWord(string) {
+                     
+                        requestModel.directorSecondName = string
+                    }
+                    else {
                         
-                    case .ownerName:
+                        failure?(self.validationError(.ownerSecondName))
+                        return
+                    }
+                    
+                case .ownerLastName:
+                    
+                    if let string = row.value,
+                       self.validator.onlyLetters(string),
+                       self.validator.onlySingleWord(string) {
+                     
+                        requestModel.directorLastName = string
+                    }
+                    else {
                         
-                        if let string = row.value,
-                           self.validator.onlyLetters(string),
-                           self.validator.onlySingleWord(string) {
-                         
-                            requestModel.directorFirstName = string
-                        }
-                        else {
-                            
-                            failure?(self.validationError(.ownerName))
-                            return
-                        }
+                        failure?(self.validationError(.ownerLastName))
+                        return
+                    }
+                    
+                case .country:
+                    
+                    if let string = row.value,
+                       self.validator.onlyLetters(string),
+                       self.validator.onlySingleWord(string) {
+                     
+                        requestModel.locationCountry = string
+                    }
+                    else {
                         
-                    case .ownerSecondName:
+                        failure?(self.validationError(.country))
+                        return
+                    }
+                    
+                case .city:
+                    
+                    if let string = row.value,
+                       self.validator.onlyLetters(string),
+                       self.validator.onlySingleWord(string) {
+                     
+                        requestModel.locationCity = string
+                    }
+                    else {
                         
-                        if let string = row.value,
-                           self.validator.onlyLetters(string),
-                           self.validator.onlySingleWord(string) {
-                         
-                            requestModel.directorSecondName = string
-                        }
-                        else {
-                            
-                            failure?(self.validationError(.ownerSecondName))
-                            return
-                        }
+                        failure?(self.validationError(.city))
+                        return
+                    }
+                    
+                case .street:
+                    
+                    if let string = row.value,
+                       self.validator.onlyLetters(string),
+                       self.validator.onlySingleWord(string) {
+                     
+                        requestModel.locationStreet = string
+                    }
+                    else {
                         
-                    case .ownerLastName:
+                        failure?(self.validationError(.street))
+                        return
+                    }
+                    
+                case .houseNumber:
+                    
+                    if let string = row.value,
+                       self.validator.onlyNumbers(string),
+                       self.validator.onlySingleWord(string) {
+                     
+                        requestModel.locationHomeNumber = string
+                    }
+                    else {
                         
-                        if let string = row.value,
-                           self.validator.onlyLetters(string),
-                           self.validator.onlySingleWord(string) {
-                         
-                            requestModel.directorLastName = string
-                        }
-                        else {
-                            
-                            failure?(self.validationError(.ownerLastName))
-                            return
-                        }
+                        failure?(self.validationError(.houseNumber))
+                        return
+                    }
+                    
+                case .phone:
+                    
+                    if let string = row.value,
+                       self.validator.isPhoneNumber(string) {
+                     
+                        requestModel.contactsPhone = string
+                    }
+                    else {
                         
-                    case .country:
+                        failure?(self.validationError(.phone))
+                        return
+                    }
+                    
+                case .vkLink:
+                    
+                    requestModel.contactsVK = row.value ?? ""
+                    
+                case .webSite:
+                    
+                    requestModel.contactsWebSite = row.value ?? ""
+                    
+                case .descriptionInfo:
+                    
+                    if let descriptionText = row.value {
+                     
+                        requestModel.descriptionText = descriptionText
+                    }
+                    else {
                         
-                        if let string = row.value,
-                           self.validator.onlyLetters(string),
-                           self.validator.onlySingleWord(string) {
-                         
-                            requestModel.locationCountry = string
-                        }
-                        else {
-                            
-                            failure?(self.validationError(.country))
-                            return
-                        }
-                        
-                    case .city:
-                        
-                        if let string = row.value,
-                           self.validator.onlyLetters(string),
-                           self.validator.onlySingleWord(string) {
-                         
-                            requestModel.locationCity = string
-                        }
-                        else {
-                            
-                            failure?(self.validationError(.city))
-                            return
-                        }
-                        
-                    case .street:
-                        
-                        if let string = row.value,
-                           self.validator.onlyLetters(string),
-                           self.validator.onlySingleWord(string) {
-                         
-                            requestModel.locationStreet = string
-                        }
-                        else {
-                            
-                            failure?(self.validationError(.street))
-                            return
-                        }
-                        
-                    case .houseNumber:
-                        
-                        if let string = row.value,
-                           self.validator.onlyNumbers(string),
-                           self.validator.onlySingleWord(string) {
-                         
-                            requestModel.locationHomeNumber = string
-                        }
-                        else {
-                            
-                            failure?(self.validationError(.houseNumber))
-                            return
-                        }
-                        
-                    case .phone:
-                        
-                        if let string = row.value,
-                           self.validator.isPhoneNumber(string) {
-                         
-                            requestModel.contactsPhone = string
-                        }
-                        else {
-                            
-                            failure?(self.validationError(.phone))
-                            return
-                        }
-                        
-                    case .vkLink:
-                        
-                        requestModel.contactsVK = row.value ?? ""
-                        
-                    case .webSite:
-                        
-                        requestModel.contactsWebSite = row.value ?? ""
-                        
-                    case .descriptionInfo:
-                        
-                        if let descriptionText = row.value {
-                         
-                            requestModel.descriptionText = descriptionText
-                        }
-                        else {
-                            
-                            failure?(self.validationError(.descriptionInfo))
-                            return
-                        }
+                        failure?(self.validationError(.descriptionInfo))
+                        return
                     }
                 }
             }
-            
-            _ = self.networkProvider
-                .requestBool(.addCompany(token: token, companyEntity: requestModel),
-                             completion: { result in
-                                
-                                if result {
-                                    
-                                    success?()
-                                }
-                                else {
-                                    
-                                    failure?("ui_error_title".localized)
-                                }
-                                
-                             }, failure: { _ in
-                                
-                                failure?("ui_error_title".localized)
-                             })
         }
+        
+        requestModel.availableTasksCount = self.companyPacket?.tasksCount ?? 0
+        requestModel.availableCouponsCount = self.companyPacket?.benefitsCount ?? 0
+        requestModel.availableStocksCount = self.companyPacket?.stocksCount ?? 0
+        
+        requestModel.categoryId = self.selectedCategory.rawValue
+        
+        self.sendPhoto(success: { [weak self] photoId in
+            
+            requestModel.photoId = Int(photoId) ?? 0
+            
+            _ = self?.companyInfoNetworkProvider
+                .request(.addCompany(token: token,
+                                     companyEntity: requestModel),
+                         type: DefaultResponseEntity.self,
+                         completion: { result in
+                            
+                            if result.isSuccess {
+                                success?()
+                            } else {
+                                failure?("ui_error_title".localized)
+                            }
+                         },
+                         failure: { _ in
+                            
+                            failure?("ui_error_title".localized)
+                         })
+        }, failure: { message in
+            
+            failure?(message)
+        })
     }
-    
-    // MARK: - Private
+
+    private func sendPhoto(success: ((String) -> Void)?,
+                           failure: ((String) -> Void)?) {
+        
+        _ = self.photoNetworkProvider.request(.uploadPhoto(self.selectedPhoto),
+                                              type: PhotoResponseEntity.self,
+                                              completion: { entity in
+                                                
+                                                if entity.isSuccess {
+                                                    
+                                                    success?(entity.message)
+                                                }
+                                                else {
+                                                    
+                                                    failure?(entity.message)
+                                                }
+                                              },
+                                              failure: { err in
+                                                
+                                                failure?(err?.localizedDescription ?? "ui_error_title".localized)
+                                              })
+    }
     
     private func validationError(_ rowType: AddCompanyInputRowModelType) -> String {
         

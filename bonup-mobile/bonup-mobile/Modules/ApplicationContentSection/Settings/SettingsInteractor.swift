@@ -23,7 +23,7 @@ protocol ISettingsInteractor: AnyObject {
 
 final class SettingsInteractor {
 
-    private let networkProvider = MainNetworkProvider<SettingsService>()
+    private let networkProvider = MainNetworkProvider<PhotosService>()
 
 }
 
@@ -31,10 +31,12 @@ final class SettingsInteractor {
 
 extension SettingsInteractor: ISettingsInteractor {
 
-    func uploadAvatar(_ image: UIImage, success: (() -> Void)?, failure: ((String) -> Void)?) {
+    func uploadAvatar(_ image: UIImage,
+                      success: (() -> Void)?,
+                      failure: ((String) -> Void)?) {
 
         _ = networkProvider.request(
-            .uploadAvatar(image),
+            .uploadPhoto(image),
             type: ProfileResponseEntity.self,
             completion: { result in
 
@@ -61,7 +63,7 @@ extension SettingsInteractor: ISettingsInteractor {
         guard let token = AccountManager.shared.currentToken else { return }
         
         _ = networkProvider.requestImage(
-            .getAvatar(token),
+            .getPhoto(token),
             withLoader: withLoader,
             completion: { image in
 

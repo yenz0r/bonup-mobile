@@ -17,11 +17,13 @@ protocol ISettingsPresenter: AnyObject {
     func numberOfSettings() -> Int
     func presentationModel(for type: SettingsPresenter.SettingsType) -> SettingsPresentationModel
     func handleDidSelectSetting(for type: SettingsPresenter.SettingsType)
+    
+    var selectedAvatar: UIImage { get set }
 }
 
 final class SettingsPresenter {
     
-    enum SettingsType: Int {
+    enum SettingsType: Int, CaseIterable {
         
         case changePassword = 0
         case applicationTheme
@@ -30,9 +32,11 @@ final class SettingsPresenter {
         case help
         case rateUs
         case logout
-
-        static let count = 7
     }
+    
+    // MARK: - Public variables
+    
+    var selectedAvatar: UIImage = AssetsHelper.shared.image(.addImageIcon)!
     
     // MARK: - Private variables
 
@@ -47,6 +51,7 @@ final class SettingsPresenter {
     // MARK: - Init
     
     init(view: ISettingsView?, interactor: ISettingsInteractor, router: ISettingsRouter) {
+        
         self.view = view
         self.interactor = interactor
         self.router = router
@@ -131,7 +136,8 @@ extension SettingsPresenter: ISettingsPresenter {
     }
 
     func numberOfSettings() -> Int {
-        return SettingsType.count
+        
+        return SettingsType.allCases.count
     }
 
     func refreshData() {
@@ -177,11 +183,12 @@ extension SettingsPresenter: ISettingsPresenter {
 
 extension SettingsPresenter: FMPhotoPickerViewControllerDelegate {
 
-    func fmPhotoPickerController(_ picker: FMPhotoPickerViewController, didFinishPickingPhotoWith photos: [UIImage]) {
+    func fmPhotoPickerController(_ picker: FMPhotoPickerViewController,
+                                 didFinishPickingPhotoWith photos: [UIImage]) {
 
         guard let icon = photos.first else {
 
-            self.view?.updateAvatarIcon(nil)
+            self.view?.setupAvatarIcon(icon: AssetsHelper.shared.image(.addImageIcon)!)
             return
         }
 
@@ -189,14 +196,14 @@ extension SettingsPresenter: FMPhotoPickerViewControllerDelegate {
 
             DispatchQueue.main.async {
 
-                self?.view?.updateAvatarIcon(icon)
+                self?.view?.setupAvatarIcon(icon: icon)
             }
         }
         failure: { [weak self] errMessage in
 
             DispatchQueue.main.async {
 
-                self?.view?.updateAvatarIcon(nil)
+                self?.view?.setupAvatarIcon(icon: AssetsHelper.shared.image(.addImageIcon)!)
                 self?.router.show(.showErrorAlert(errMessage))
             }
         }

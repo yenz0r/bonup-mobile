@@ -72,7 +72,8 @@ extension CompaniesSearchRouter: ICompaniesSearchRouter {
             
             let companyDependency = AddCompanyDependency(
                 parentNavigationController: self.parentNavigationController,
-                initCompany: company)
+                initCompany: company,
+                companyPacket: nil)
             let builder = AddCompanyBuilder()
             let router = builder.build(companyDependency)
             

@@ -33,11 +33,12 @@ final class SettingsHeaderView: UIView {
     }
 
     var onAvatarTap: (() -> ())?
+    
+    var avatarImageView: UIImageView!
 
     // MARK: - Private variables
 
     private var infoContainer: UIView!
-    private var avatarImageView: UIImageView!
     private var nameLabel: UILabel!
     private var emailLabel: UILabel!
 

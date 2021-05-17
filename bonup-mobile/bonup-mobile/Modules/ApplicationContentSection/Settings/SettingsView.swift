@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import Nuke
 
 protocol ISettingsView: AnyObject {
     func setupHeader(with image: UIImage?,
                      name: String,
                      email: String)
 
-    func updateAvatarIcon(_ icon: UIImage?)
+    func updateAvatarIcon(url: URL)
+    func setupAvatarIcon(icon: UIImage)
 
     func reloadData()
 }
@@ -163,13 +165,20 @@ extension SettingsView: ISettingsView {
         self.tableView.reloadData()
     }
 
-    func updateAvatarIcon(_ icon: UIImage?) {
-
-        if let icon = icon {
-
-            self.headerView.avatarImage = icon
-        }
+    func updateAvatarIcon(url: URL) {
         
-        self.dismiss(animated: true, completion: nil)
+        let imageRequst = ImageRequest(url: url)
+        Nuke.loadImage(
+            with: imageRequst,
+            options: ImageLoadingOptions(),
+            into: self.headerView.avatarImageView,
+            progress: nil,
+            completion: nil
+        )
+    }
+    
+    func setupAvatarIcon(icon: UIImage) {
+        
+        self.headerView.avatarImage = icon
     }
 }

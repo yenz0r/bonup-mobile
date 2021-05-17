@@ -191,3 +191,4 @@
 "ui_profile_statistics_label" = "Statistics:";
 "ui_profile_archivements_label" = "Archivements:";
 "ui_validation_faild" = "Validation faild";
+"ui_incorrect_company_packet_info" = "Incorrect packet's info...";

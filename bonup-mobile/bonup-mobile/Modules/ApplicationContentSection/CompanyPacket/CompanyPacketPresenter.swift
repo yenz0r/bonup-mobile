@@ -75,7 +75,17 @@ extension CompanyPacketPresenter: ICompanyPacketPresenter {
     
     func handleDoneAction() {
     
-        self.router.show(.addCompany, completion: nil)
+        if let tasksCount = self.interactor.selectedPacket.tasksCount,
+           let couponsCount = self.interactor.selectedPacket.benefitsCount {
+        
+            self.router.show(.addCompany(packet: self.interactor.selectedPacket),
+                             completion: nil)
+        }
+        else {
+         
+            self.router.show(.showAlert(text: "ui_incorrect_company_packet_info".localized),
+                             completion: nil)
+        }
     }
 
     var selectedPacket: CompanyPacketType {

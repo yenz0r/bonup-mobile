@@ -13,7 +13,7 @@ protocol ICompanyActionsListPesenter: AnyObject {
     var numberOfActions: Int { get }
     
     var controllerTitle: String { get }
-    var emtpyDataSetTitle: String
+    var emtpyDataSetTitle: String { get }
 
     func actionTitle(at index: Int) -> String
     func actionDescription(at index: Int) -> String

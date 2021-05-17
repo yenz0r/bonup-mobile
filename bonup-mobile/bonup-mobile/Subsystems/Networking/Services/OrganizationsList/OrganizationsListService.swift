@@ -23,7 +23,7 @@ extension OrganizationsListService: IAuthorizedTargetType {
     var path: String {
         switch self {
         case .getOrganizations(_):
-            return "/organizations"
+            return "/userOrganizations"
         }
     }
 

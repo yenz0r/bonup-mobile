@@ -78,8 +78,6 @@ extension MainNetworkProvider: IMainNetworkProvider {
                                completion: @escaping (T) -> Void,
                                failure: ((MoyaError?) -> Void)?) -> Cancellable {
 
-        UIApplication.topViewController()?.view.endEditing(true)
-
         if withLoader {
         
             AlertsFactory.shared.loadingAlert(.show(message: "ui_wait_a_bit_please".localized))
@@ -101,6 +99,7 @@ extension MainNetworkProvider: IMainNetworkProvider {
                     let data = try JSONDecoder().decode(T.self,
                                                         from: response.data)
                     completion(data)
+                    
                 } catch {
 
                     failure?(nil)

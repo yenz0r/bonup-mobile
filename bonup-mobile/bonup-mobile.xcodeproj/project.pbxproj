@@ -21,6 +21,8 @@
 		B90AF9F52651826D007BB288 /* CompanyActionsListDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AF9F42651826D007BB288 /* CompanyActionsListDependency.swift */; };
 		B90AF9F726518273007BB288 /* CompanyActionsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AF9F626518273007BB288 /* CompanyActionsListRouter.swift */; };
 		B90AF9FA26518D1E007BB288 /* CompanyActionsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AF9F926518D1E007BB288 /* CompanyActionsListCell.swift */; };
+		B90AF9FD2652F037007BB288 /* PhotoResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AF9FC2652F037007BB288 /* PhotoResponseEntity.swift */; };
+		B90AF9FF2652FFEF007BB288 /* DefaultResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AF9FE2652FFEF007BB288 /* DefaultResponseEntity.swift */; };
 		B90BED4425B5D92200AD78A8 /* CompanyPacketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED4325B5D92200AD78A8 /* CompanyPacketView.swift */; };
 		B90BED4925B5D92900AD78A8 /* CompanyPacketPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED4825B5D92900AD78A8 /* CompanyPacketPresenter.swift */; };
 		B90BED4E25B5D93000AD78A8 /* CompanyPacketInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED4D25B5D93000AD78A8 /* CompanyPacketInteractor.swift */; };
@@ -240,7 +242,7 @@
 		B9A13D40244E3F1500373827 /* ProfileInfoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A13D3F244E3F1500373827 /* ProfileInfoContainer.swift */; };
 		B9A13D43244E474200373827 /* ProfileProgressContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A13D42244E474200373827 /* ProfileProgressContainer.swift */; };
 		B9A732FB242D556C00860346 /* UIButton+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A732FA242D556C00860346 /* UIButton+Animations.swift */; };
-		B9A9189425B3430D00919FE9 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A9189325B3430D00919FE9 /* SettingsService.swift */; };
+		B9A9189425B3430D00919FE9 /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A9189325B3430D00919FE9 /* PhotosService.swift */; };
 		B9AF05D72469D510007773B2 /* OrganizationsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AF05D62469D510007773B2 /* OrganizationsListCell.swift */; };
 		B9B67F2325B4759B00AC7184 /* SelectCategoriesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B67F2225B4759B00AC7184 /* SelectCategoriesContainer.swift */; };
 		B9B67F2825B475D200AC7184 /* SelectCategoriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B67F2725B475D200AC7184 /* SelectCategoriesDataSource.swift */; };
@@ -364,6 +366,8 @@
 		B90AF9F42651826D007BB288 /* CompanyActionsListDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsListDependency.swift; sourceTree = "<group>"; };
 		B90AF9F626518273007BB288 /* CompanyActionsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsListRouter.swift; sourceTree = "<group>"; };
 		B90AF9F926518D1E007BB288 /* CompanyActionsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsListCell.swift; sourceTree = "<group>"; };
+		B90AF9FC2652F037007BB288 /* PhotoResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResponseEntity.swift; sourceTree = "<group>"; };
+		B90AF9FE2652FFEF007BB288 /* DefaultResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultResponseEntity.swift; sourceTree = "<group>"; };
 		B90BED4325B5D92200AD78A8 /* CompanyPacketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketView.swift; sourceTree = "<group>"; };
 		B90BED4825B5D92900AD78A8 /* CompanyPacketPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketPresenter.swift; sourceTree = "<group>"; };
 		B90BED4D25B5D93000AD78A8 /* CompanyPacketInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketInteractor.swift; sourceTree = "<group>"; };
@@ -597,7 +601,7 @@
 		B9A13D3F244E3F1500373827 /* ProfileInfoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoContainer.swift; sourceTree = "<group>"; };
 		B9A13D42244E474200373827 /* ProfileProgressContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProgressContainer.swift; sourceTree = "<group>"; };
 		B9A732FA242D556C00860346 /* UIButton+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Animations.swift"; sourceTree = "<group>"; };
-		B9A9189325B3430D00919FE9 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
+		B9A9189325B3430D00919FE9 /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
 		B9AF05D62469D510007773B2 /* OrganizationsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsListCell.swift; sourceTree = "<group>"; };
 		B9B67F2225B4759B00AC7184 /* SelectCategoriesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoriesContainer.swift; sourceTree = "<group>"; };
 		B9B67F2725B475D200AC7184 /* SelectCategoriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoriesDataSource.swift; sourceTree = "<group>"; };
@@ -882,7 +886,7 @@
 				B96A71E0246B9CE1007416DF /* OrganizationControl */,
 				B96A71E5246BA7AD007416DF /* Profile */,
 				B93FDB20246BDCBA006E93F4 /* BenefitsService */,
-				B9A9189825B3431200919FE9 /* Settings */,
+				B9A9189825B3431200919FE9 /* PhotosService */,
 				B93F2B802645C3DA00A8A8D6 /* CompaniesSearch */,
 				B93F2B7926407B4200A8A8D6 /* AddCompany */,
 			);
@@ -1676,16 +1680,18 @@
 			children = (
 				B932365C241D7C2C00A37634 /* MainNetworkProvider.swift */,
 				B9323660241D7E4F00A37634 /* AuthorizedTargetType.swift */,
+				B90AF9FE2652FFEF007BB288 /* DefaultResponseEntity.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		B9A9189825B3431200919FE9 /* Settings */ = {
+		B9A9189825B3431200919FE9 /* PhotosService */ = {
 			isa = PBXGroup;
 			children = (
-				B9A9189325B3430D00919FE9 /* SettingsService.swift */,
+				B9A9189325B3430D00919FE9 /* PhotosService.swift */,
+				B90AF9FC2652F037007BB288 /* PhotoResponseEntity.swift */,
 			);
-			path = Settings;
+			path = PhotosService;
 			sourceTree = "<group>";
 		};
 		B9AF05D82469D513007773B2 /* Subviews */ = {
@@ -2355,6 +2361,7 @@
 				B96CA65125B380A700FF157C /* SelectCategoriesCell.swift in Sources */,
 				B9D3369E2469CFDE003E1CEB /* OrganizationsListDependency.swift in Sources */,
 				B96A71DF246B9CB5007416DF /* OrganizationControlResponseEntity.swift in Sources */,
+				B90AF9FF2652FFEF007BB288 /* DefaultResponseEntity.swift in Sources */,
 				B9FC7988242FB6E500F2D5BC /* ApplicationContentView.swift in Sources */,
 				B9787F43246B58A3007DB617 /* TaskCardEntity.swift in Sources */,
 				B967C2D5244BC3BD00AFE3A1 /* SettingsPresentationModel.swift in Sources */,
@@ -2428,7 +2435,7 @@
 				B977484524431971004D39AD /* TaskSelectionDependency.swift in Sources */,
 				B93F2BA22646E28400A8A8D6 /* AccountCredsCell.swift in Sources */,
 				B966E73624684D700043FD69 /* BenefitDescriptionDependency.swift in Sources */,
-				B9A9189425B3430D00919FE9 /* SettingsService.swift in Sources */,
+				B9A9189425B3430D00919FE9 /* PhotosService.swift in Sources */,
 				B9A13D3A244E3AE400373827 /* ProfileRouter.swift in Sources */,
 				B9FC7986242FB04000F2D5BC /* BUTabBarController.swift in Sources */,
 				B93F2B7F2645C3D200A8A8D6 /* CompaniesSearchService.swift in Sources */,
@@ -2466,6 +2473,7 @@
 				B93F2B952646E0B800A8A8D6 /* AccountsCredsView.swift in Sources */,
 				B95FB97525B4625D00AB2566 /* AddCompanyInteractor.swift in Sources */,
 				B96A71E7246BA842007416DF /* ProfileGoalsResponse.swift in Sources */,
+				B90AF9FD2652F037007BB288 /* PhotoResponseEntity.swift in Sources */,
 				B9D3369A2469CFCA003E1CEB /* OrganizationsListPresenter.swift in Sources */,
 				B992D52024579217002ABF71 /* UsedBenefitsCell.swift in Sources */,
 				B98DE0E2244BB614007AE007 /* SettingsPresenter.swift in Sources */,

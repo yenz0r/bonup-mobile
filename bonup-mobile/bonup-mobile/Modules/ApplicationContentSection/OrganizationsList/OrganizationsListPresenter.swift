@@ -12,7 +12,7 @@ protocol IOrganizationsListPresenter: AnyObject {
 
     func refreshData()
     func title(for index: Int) -> String
-    func imagePath(for index: Int) -> String
+    func imagePath(for index: Int) -> URL?
     func numberOfOrganizations() -> Int
     func handleShowOgranizationControl(for index: Int)
 
@@ -26,10 +26,6 @@ final class OrganizationsListPresenter {
     private weak var view: IOrganizationsListView?
     private let interactor: IOrganizationsListInteractor
     private let router: IOrganizationsListRouter
-
-    // MARK: - Data variables
-    
-    private var organizationsResponse: OrganizationsListResponseEntity?
 
     // MARK: - State variables
     
@@ -53,30 +49,24 @@ extension OrganizationsListPresenter: IOrganizationsListPresenter {
     
     func title(for index: Int) -> String {
 
-        guard let response = self.organizationsResponse else { return "-" }
-
-        return response.organizations[index].name
+        return self.interactor.companies?[index].title ?? "-"
     }
 
-    func imagePath(for index: Int) -> String {
+    func imagePath(for index: Int) -> URL? {
 
-        guard let response = self.organizationsResponse else { return "" }
-
-        return response.organizations[index].photo
+        return PhotosService.photoURL(for: self.interactor.companies?[index].photoId)
     }
 
     func handleShowOgranizationControl(for index: Int) {
 
-        guard let response = self.organizationsResponse else { return }
+        guard let company = self.interactor.companies?[index] else { return }
 
-        self.router.show(.showOrganizationControl(response.organizations[index].name))
+        self.router.show(.showOrganizationControl(company.title))
     }
 
     func numberOfOrganizations() -> Int {
 
-        guard let response = self.organizationsResponse else { return 0 }
-
-        return response.organizations.count
+        return self.interactor.companies?.count ?? 0
     }
 
     func refreshData() {
@@ -88,9 +78,7 @@ extension OrganizationsListPresenter: IOrganizationsListPresenter {
         
         self.interactor.getOrganizationsList(
             withLoader: self.isFirstRefresh,
-            success: { [weak self] entity in
-
-                self?.organizationsResponse = entity
+            success: { [weak self] in
                 
                 DispatchQueue.main.async {
                     
@@ -110,7 +98,6 @@ extension OrganizationsListPresenter: IOrganizationsListPresenter {
 
     func handleAddButtonTap() {
 
-        self.router.show(.showOrganizationControl("0"))
-//        self.router.show(.showAddNewOrganization)
+        self.router.show(.showAddNewOrganization)
     }
 }

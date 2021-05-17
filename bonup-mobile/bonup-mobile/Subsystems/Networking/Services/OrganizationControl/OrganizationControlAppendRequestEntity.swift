@@ -18,4 +18,5 @@ struct OrganizationControlAppendRequestEntity {
     var startDateTimestamp: Double = 0
     var endDateTimestamp: Double = 0
     var allowedCount: Int = 0
+    var photoId: Int = 0
 }
