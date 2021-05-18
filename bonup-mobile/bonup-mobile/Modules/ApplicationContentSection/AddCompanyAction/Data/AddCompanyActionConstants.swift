@@ -12,6 +12,7 @@ enum CompanyActionType {
     
     case task
     case coupon
+    case stock
     
     var title: String {
         
@@ -22,6 +23,9 @@ enum CompanyActionType {
             
         case .coupon:
             return "ui_company_add_coupon"
+            
+        case .stock:
+            return "ui_company_add_stock"
         }
     }
 }

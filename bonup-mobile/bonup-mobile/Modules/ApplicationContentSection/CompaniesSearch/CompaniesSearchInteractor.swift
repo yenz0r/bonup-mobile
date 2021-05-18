@@ -29,7 +29,7 @@ final class CompaniesSearchInteractor: NSObject {
     
     // MARK: - Private variables
     
-    private lazy var networkService = MainNetworkProvider<CompaniesSearchService>()
+    private lazy var networkService = MainNetworkProvider<OrganizationsListService>()
     private var locationManager: CLLocationManager!
     private var loadedOrganizations = [CompanyEntity]()
     
@@ -62,55 +62,21 @@ extension CompaniesSearchInteractor: ICompaniesSearchInteractor {
 
     func loadOrganizations(withLoader: Bool, completion: ((Bool) -> Void)?) {
         
-//        guard let token = AccountManager.shared.currentToken else { completion?(false); return }
+        guard let token = AccountManager.shared.currentToken else { completion?(false); return }
         
-        _ = networkService.request(
-            .loadCompanies(token: "token"),
+        _ = self.networkService.request(
+            .getOrganizations(token),
             type: [CompanyEntity].self,
             withLoader: withLoader,
             completion: { [weak self] result in
-                
-                let organization = CompanyEntity(title: "title",
-                                                 descriptionText: "description",
-                                                 directorFirstName: "name",
-                                                 directorSecondName: "second name",
-                                                 directorLastName: "last name",
-                                                 locationCountry: "country",
-                                                 locationCity: "city",
-                                                 locationStreet: "street",
-                                                 locationHomeNumber: "10",
-                                                 contactsPhone: "12312",
-                                                 contactsVK: "vk",
-                                                 contactsWebSite: "web",
-                                                 latitude: 53.90898898436514,
-                                                 longitude: 27.54912347929237,
-                                                 categoryId: 0)
-                
-                self?.loadedOrganizations = [organization]
+
+                self?.loadedOrganizations = result
                 
                 completion?(true)
             },
-            failure: { _ in
+            failure: { err in
                 
-                let organization = CompanyEntity(title: "title",
-                                                 descriptionText: "description",
-                                                 directorFirstName: "name",
-                                                 directorSecondName: "second name",
-                                                 directorLastName: "last name",
-                                                 locationCountry: "country",
-                                                 locationCity: "city",
-                                                 locationStreet: "street",
-                                                 locationHomeNumber: "10",
-                                                 contactsPhone: "12312",
-                                                 contactsVK: "vk",
-                                                 contactsWebSite: "web",
-                                                 latitude: 53.90898898436514,
-                                                 longitude: 27.54912347929237,
-                                                 categoryId: 0)
-                
-                self.loadedOrganizations = [organization]
-                
-                completion?(true)
+                completion?(false)
             }
         )
     }

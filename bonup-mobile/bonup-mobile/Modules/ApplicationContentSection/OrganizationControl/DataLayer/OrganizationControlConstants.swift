@@ -14,6 +14,8 @@ enum OrganizationControlAction: Int, CaseIterable {
     case varifyCoupon
     case addTask
     case addCoupon
+    case addStock
+    case actionsList
     case statistics
     case modifyInfo
     
@@ -37,6 +39,12 @@ enum OrganizationControlAction: Int, CaseIterable {
             
         case .modifyInfo:
             return "ui_company_modify"
+            
+        case .addStock:
+            return "ui_company_add_stock"
+            
+        case .actionsList:
+            return "ui_company_actions_list"
         }
     }
     
@@ -60,6 +68,12 @@ enum OrganizationControlAction: Int, CaseIterable {
             return AssetsHelper.shared.image(.settingsCategory)
             
         case .modifyInfo:
+            return AssetsHelper.shared.image(.settingsCategory)
+            
+        case .addStock:
+            return AssetsHelper.shared.image(.settingsCategory)
+            
+        case .actionsList:
             return AssetsHelper.shared.image(.settingsCategory)
         }
     }

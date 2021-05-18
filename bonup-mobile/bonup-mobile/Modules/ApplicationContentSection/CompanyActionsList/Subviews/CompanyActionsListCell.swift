@@ -42,11 +42,15 @@ final class CompanyActionsListCell: UITableViewCell {
     
     // MARK: - Public
     
-    func setup(title: String, descriptionInfo: String, dateInfo: String) {
+    func setup(title: String,
+               descriptionInfo: String,
+               dateInfo: String,
+               dateInfoColor: UIColor) {
         
         self.titleLabel.text = title
         self.descriptionLabel.text = descriptionInfo
         self.dateLabel.text = dateInfo
+        self.dateLabel.textColor = dateInfoColor
     }
     
     // MARK: - Setup
@@ -115,7 +119,6 @@ final class CompanyActionsListCell: UITableViewCell {
             
         case .dateInfo:
             label.font = .avenirHeavy(13)
-            label.theme_textColor = Colors.defaultTextColor
             label.textAlignment = .right
             
         }

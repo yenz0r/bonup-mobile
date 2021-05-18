@@ -18,6 +18,6 @@ struct AddCompanyActionDependency {
     let parentNavigationController: UINavigationController
     let actionType: CompanyActionType
     let organizationId: String?
-    let action: OrganizationControlAppendRequestEntity?
+    let action: OrganizationActionEntity?
     let mode: Mode = .create
 }

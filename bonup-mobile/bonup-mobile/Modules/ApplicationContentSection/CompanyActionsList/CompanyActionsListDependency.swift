@@ -10,12 +10,18 @@ import UIKit
 
 struct CompanyActionsListDependency {
     
-    enum Mode {
+    enum ContentType: Int {
         
-        case coupons, tasks
+        case coupons = 0, tasks, stocks
+    }
+    
+    enum ContentMode {
+        
+        case show, load(organizationName: String)
     }
     
     var parentNavigationController: UINavigationController
-    var mode: Mode
-    var actions: [OrganizationControlAppendRequestEntity]
+    var contentType: ContentType
+    var contentMode: ContentMode
+    var actions: [OrganizationActionEntity]?
 }

@@ -78,11 +78,17 @@ extension OrganizationControlPresenter: IOrganizationControlPresenter {
         case .addCoupon:
             self.router.show(.showAddAction(.coupon, self.interactor.currentCompany.title))
             
+        case .addStock:
+            self.router.show(.showAddAction(.stock, self.interactor.currentCompany.title))
+            
         case .statistics:
             self.router.show(.showStatistics(self.interactor.currentCompany.title))
             
         case .modifyInfo:
             self.router.show(.modifyCompanyInfo(self.interactor.currentCompany))
+            
+        case .actionsList:
+            self.router.show(.showActions(self.interactor.currentCompany.title))
         }
     }
 }

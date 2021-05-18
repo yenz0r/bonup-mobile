@@ -6,7 +6,7 @@
 //  Copyright © 2021 Bonup. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol ICompanyActionsListPesenter: AnyObject {
     
@@ -18,8 +18,10 @@ protocol ICompanyActionsListPesenter: AnyObject {
     func actionTitle(at index: Int) -> String
     func actionDescription(at index: Int) -> String
     func actionDateInfo(at index: Int) -> String
+    func actionDateInfoColor(at index: Int) -> UIColor
     
     func handleActionSelection(at index: Int)
+    func handleViewDidLoad()
 }
 
 final class CompanyActionsListPresenter {
@@ -52,46 +54,61 @@ extension CompanyActionsListPresenter: ICompanyActionsListPesenter {
     
     var numberOfActions: Int {
         
-        return self.interactor.actionsList?.count ?? 0
+        return self.interactor.actionsList.count
     }
     
     var controllerTitle: String {
         
-        switch self.interactor.currentMode {
+        switch self.interactor.contentType {
         
         case .coupons:
             return "ui_coupons_title"
             
         case .tasks:
             return "ui_tasks_title"
+            
+        case .stocks:
+            return "ui_stocks_title"
         }
     }
     
     var emtpyDataSetTitle: String {
         
-        switch self.interactor.currentMode {
+        switch self.interactor.contentType {
         
         case .coupons:
             return "ui_empty_new_benefits_list"
             
         case .tasks:
             return "ui_empty_current_tasks_list"
+            
+        case .stocks:
+            return "ui_empty_current_stocks_list"
         }
     }
     
     func actionTitle(at index: Int) -> String {
         
-        return self.interactor.actionsList?[index].title ?? ""
+        return self.interactor.actionsList[index].title
     }
     
     func actionDescription(at index: Int) -> String {
         
-        return self.interactor.actionsList?[index].descriptionText ?? ""
+        return self.interactor.actionsList[index].descriptionText
+    }
+    
+    func actionDateInfoColor(at index: Int) -> UIColor {
+        
+        let action = self.interactor.actionsList[index]
+        
+        let endDate = Date.dateFromTimestamp(action.endDateTimestamp)
+        
+        return endDate.compare(Date()) == .orderedAscending ? .systemRed : .systemGreen
     }
     
     func actionDateInfo(at index: Int) -> String {
        
-        guard let action = self.interactor.actionsList?[index] else { return "-" }
+        let action = self.interactor.actionsList[index]
         
         let startDate = Date.dateFromTimestamp(action.startDateTimestamp)
         let endDate = Date.dateFromTimestamp(action.endDateTimestamp)
@@ -101,9 +118,30 @@ extension CompanyActionsListPresenter: ICompanyActionsListPesenter {
     
     func handleActionSelection(at index: Int) {
         
-        guard let action = self.interactor.actionsList?[index] else { return }
+        let action = self.interactor.actionsList[index] 
         
-        self.router.show(.showActionDetails(mode: self.interactor.currentMode,
+        self.router.show(.showActionDetails(mode: self.interactor.contentType,
                                             action: action))
+    }
+    
+    func handleViewDidLoad() {
+        
+        switch self.interactor.contentMode {
+        
+        case .show:
+            self.view?.reloadData()
+            
+        case .load(let name):
+            self.interactor.loadActions(companyName: name) { isSuccess in
+                
+                if isSuccess {
+                    
+                    DispatchQueue.main.async {
+                        
+                        self.view?.reloadData()
+                    }
+                }
+            }
+        }
     }
 }

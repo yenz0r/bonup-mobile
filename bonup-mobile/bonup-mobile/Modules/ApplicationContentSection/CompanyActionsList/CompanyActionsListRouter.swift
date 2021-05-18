@@ -19,8 +19,8 @@ final class CompanyActionsListRouter {
 
     enum RouterScenario {
 
-        case showActionDetails(mode: CompanyActionsListDependency.Mode,
-                               action: OrganizationControlAppendRequestEntity)
+        case showActionDetails(mode: CompanyActionsListDependency.ContentType,
+                               action: OrganizationActionEntity)
     }
 
     private var view: CompanyActionsListView?

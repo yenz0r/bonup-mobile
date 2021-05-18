@@ -25,6 +25,7 @@ final class OrganizationControlRouter {
         case showStatistics(String)
         case verifyAction(QRScannerCodeDelegate)
         case modifyCompanyInfo(CompanyEntity)
+        case showActions(String)
     }
 
     // MARK: - Private variables
@@ -113,6 +114,15 @@ extension OrganizationControlRouter: IOrganizationControlRouter {
                                                   mode: .modify,
                                                   companyPacket: nil)
             let builder = AddCompanyBuilder()
+            let router = builder.build(dependency)
+            
+            router.start(nil)
+            
+        case .showActions(let companyName):
+            
+            let dependency = CompanyActionsAggregatorDependency(parentNavigationController: self.parentController.navigationController!,
+                                                                companyName: companyName)
+            let builder = CompanyActionsAggregatorBuilder()
             let router = builder.build(dependency)
             
             router.start(nil)

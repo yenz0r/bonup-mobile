@@ -9,7 +9,10 @@
 import UIKit
 import EmptyDataSet_Swift
 
-protocol ICompanyActionsListView: AnyObject { }
+protocol ICompanyActionsListView: AnyObject {
+    
+    func reloadData()
+}
 
 final class CompanyActionsListView: BUContentViewController {
     
@@ -34,6 +37,8 @@ final class CompanyActionsListView: BUContentViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        self.presenter.handleViewDidLoad()
         
         self.tableView.reloadEmptyDataSet()
     }
@@ -98,6 +103,10 @@ final class CompanyActionsListView: BUContentViewController {
 
 extension CompanyActionsListView: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.presenter.handleActionSelection(at: indexPath.row)
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -121,7 +130,8 @@ extension CompanyActionsListView: UITableViewDataSource {
         
         cell.setup(title: self.presenter.actionTitle(at: indexPath.row),
                    descriptionInfo: self.presenter.actionDescription(at: indexPath.row),
-                   dateInfo: self.presenter.actionDateInfo(at: indexPath.row))
+                   dateInfo: self.presenter.actionDateInfo(at: indexPath.row),
+                   dateInfoColor: self.presenter.actionDateInfoColor(at: indexPath.row))
         
         return cell
     }
@@ -152,4 +162,10 @@ extension CompanyActionsListView: EmptyDataSetSource {
 
 // MARK: - ICompanyStatisticsView
 
-extension CompanyActionsListView: ICompanyActionsListView { }
+extension CompanyActionsListView: ICompanyActionsListView {
+    
+    func reloadData() {
+        
+        self.tableView.reloadData()
+    }
+}

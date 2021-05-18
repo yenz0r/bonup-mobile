@@ -13,8 +13,9 @@ enum OrganizationControlService {
 
     case resolveTask(Int, String, String)
     case activateCoupon(Int, String, String)
-    case putCoupon(String, OrganizationControlAppendRequestEntity)
-    case putTask(String, OrganizationControlAppendRequestEntity)
+    case putCoupon(String, OrganizationActionEntity)
+    case putTask(String, OrganizationActionEntity)
+    case putStock(String, OrganizationActionEntity)
 }
 
 extension OrganizationControlService: IAuthorizedTargetType {
@@ -33,18 +34,20 @@ extension OrganizationControlService: IAuthorizedTargetType {
             return "/putCoupon"
         case .putTask(_, _):
             return "/putTask"
+        case .putStock(_, _):
+            return "/putStock"
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .resolveTask(_, _, _):
+        case .resolveTask(_, _, _),
+             .activateCoupon(_, _, _):
             return .post
-        case .activateCoupon(_, _, _):
-            return .post
-        case .putCoupon(_, _):
-            return .put
-        case .putTask(_, _):
+            
+        case .putCoupon(_, _),
+             .putTask(_, _),
+             .putStock(_, _):
             return .put
         }
     }
@@ -72,9 +75,10 @@ extension OrganizationControlService: IAuthorizedTargetType {
                 ],
                 encoding: JSONEncoding.default
             )
-        case .putTask(let token, let entity):
-            fallthrough
-        case .putCoupon(let token, let entity):
+        case .putTask(let token, let entity),
+             .putCoupon(let token, let entity),
+             .putStock(let token, let entity):
+            
             return .requestParameters(
                 parameters: [
                     "description": entity.descriptionText,

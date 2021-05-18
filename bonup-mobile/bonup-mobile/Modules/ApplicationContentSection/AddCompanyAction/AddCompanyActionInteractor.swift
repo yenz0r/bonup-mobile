@@ -43,7 +43,7 @@ final class AddCompanyActionInteractor {
 
     init(actionType: CompanyActionType,
          organizationId: String,
-         action: OrganizationControlAppendRequestEntity?,
+         action: OrganizationActionEntity?,
          mode: AddCompanyActionDependency.Mode) {
         
         self.mode = mode
@@ -67,6 +67,23 @@ final class AddCompanyActionInteractor {
                                           mode: mode),
                 AddCompanyActionViewModel(with: action?.allowedCount ?? 0,
                                           field: .allowedCount,
+                                          mode: mode),
+                AddCompanyActionViewModel(with: Date.dateFromTimestamp(action?.startDateTimestamp ?? Date().timestamp),
+                                          field: .startDate,
+                                          mode: mode),
+                AddCompanyActionViewModel(with: Date.dateFromTimestamp(action?.endDateTimestamp ?? Date().timestamp),
+                                          field: .endDate,
+                                          mode: mode)
+            ]
+            
+        case .stock:
+            _viewModels = [
+                
+                AddCompanyActionViewModel(with: action?.title ?? "",
+                                          field: .title,
+                                          mode: mode),
+                AddCompanyActionViewModel(with: action?.descriptionText ?? "",
+                                          field: .description,
                                           mode: mode),
                 AddCompanyActionViewModel(with: Date.dateFromTimestamp(action?.startDateTimestamp ?? Date().timestamp),
                                           field: .startDate,
@@ -99,7 +116,7 @@ extension AddCompanyActionInteractor: IAddCompanyActionInteractor {
          
             guard let token = AccountManager.shared.currentToken else { return }
             
-            var requestEntity = OrganizationControlAppendRequestEntity()
+            var requestEntity = OrganizationActionEntity()
             
             requestEntity.categoryId = self.selectedCategory.rawValue
             
@@ -148,7 +165,21 @@ extension AddCompanyActionInteractor: IAddCompanyActionInteractor {
                             
                             requestEntity.photoId = Int(result.message) ?? 0
                             
-                            let target: OrganizationControlService = self?.actionType == .coupon ? .putCoupon(token, requestEntity) : .putTask(token, requestEntity)
+                            guard let actionType = self?.actionType else { return }
+                            
+                            let target: OrganizationControlService
+                            
+                            switch actionType {
+                            
+                            case .task:
+                                target = .putTask(token, requestEntity)
+                                
+                            case .coupon:
+                                target = .putCoupon(token, requestEntity)
+                                
+                            case .stock:
+                                target = .putStock(token, requestEntity)
+                            }
                             
                             _ = self?.controlNetworkProvider.request(
                                 target,

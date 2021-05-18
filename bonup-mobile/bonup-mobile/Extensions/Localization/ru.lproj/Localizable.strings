@@ -190,3 +190,10 @@
 "ui_validation_faild" = "Ошибка валидации";
 "ui_incorrect_company_packet_info" = "Не корректные данные пакета...";
 "ui_company_modify" = "Изменить описание компании";
+"ui_stocks_title" = "Акции";
+"ui_empty_current_stocks_list" = "Список акций пуст..";
+"ui_company_actions_list" = "Список Активов";
+"ui_company_stocks_help_message" = "Здесь находятся все акции организации";
+"ui_company_tasks_help_message" = "Здесь находятся все задачи организации";
+"ui_company_coupons_help_message" = "Здесь находятся все купоны организации";
+"ui_company_add_stock" = "Добавить Акцию";

@@ -193,3 +193,10 @@
 "ui_validation_faild" = "Validation faild";
 "ui_incorrect_company_packet_info" = "Incorrect packet's info...";
 "ui_company_modify" = "Modify Company Info";
+"ui_stocks_title" = "Stocks";
+"ui_empty_current_stocks_list" = "Empty stocks list..";
+"ui_company_actions_list" = "Actions list";
+"ui_company_stocks_help_message" = "Here you can see all stocks of company";
+"ui_company_tasks_help_message" = "Here you can see all tasks of company";
+"ui_company_coupons_help_message" = "Here you can see all coupons of company";
+"ui_company_add_stock" = "Add Stock";
