@@ -77,6 +77,7 @@ extension CompanyPacketRouter: ICompanyPacketRouter {
             let dependency = AddCompanyDependency(
                 parentNavigationController: self.parentNavigationController,
                 initCompany: nil,
+                mode: .create,
                 companyPacket: companyPacket
             )
             let builder = AddCompanyBuilder()

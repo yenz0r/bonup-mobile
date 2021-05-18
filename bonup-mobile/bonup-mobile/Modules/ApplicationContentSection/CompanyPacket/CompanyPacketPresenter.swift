@@ -12,7 +12,7 @@ protocol ICompanyPacketPresenter: AnyObject {
 
     var packets: [CompanyPacketType] { get }
     var selectedPacket: CompanyPacketType { get }
-    var selectedPacketIndex: Int { get }
+    var selectedPacketIndex: Int? { get }
 
     func handlePacketSelection(at index: Int)
     
@@ -75,8 +75,8 @@ extension CompanyPacketPresenter: ICompanyPacketPresenter {
     
     func handleDoneAction() {
     
-        if let tasksCount = self.interactor.selectedPacket.tasksCount,
-           let couponsCount = self.interactor.selectedPacket.benefitsCount {
+        if let _ = self.interactor.selectedPacket.tasksCount,
+           let _ = self.interactor.selectedPacket.benefitsCount {
         
             self.router.show(.addCompany(packet: self.interactor.selectedPacket),
                              completion: nil)
@@ -93,8 +93,8 @@ extension CompanyPacketPresenter: ICompanyPacketPresenter {
         return self.interactor.selectedPacket
     }
 
-    var selectedPacketIndex: Int {
+    var selectedPacketIndex: Int? {
 
-        return self.packets.firstIndex { $0.id == self.selectedPacket.id } ?? 0
+        return self.packets.firstIndex { $0.id == self.selectedPacket.id }
     }
 }

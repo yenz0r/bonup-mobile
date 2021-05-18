@@ -79,7 +79,7 @@ final class OrganizationsListView: BUContentViewController {
 
         self.view.addSubview(self.collectionView)
         self.collectionView.snp.makeConstraints { make in
-            make.top.equalTo(self.addButton.snp.bottom)
+            make.top.equalTo(self.addButton.snp.bottom).offset(10)
             make.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(10.0)
         }
 
@@ -116,6 +116,8 @@ final class OrganizationsListView: BUContentViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 50, right: 0)
         
         collectionView.register(
             OrganizationsListCell.self,

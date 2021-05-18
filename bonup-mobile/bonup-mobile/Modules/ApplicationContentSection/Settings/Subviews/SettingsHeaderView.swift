@@ -54,14 +54,6 @@ final class SettingsHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Life cycle
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.height / 2
-    }
-
     // MARK: - Setup subviews
 
     private func setupSubviews() {
@@ -71,6 +63,7 @@ final class SettingsHeaderView: UIView {
 
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
+            imageView.layer.cornerRadius = 10
             imageView.theme_tintColor = Colors.tabBarIconColor
 
             let gesture = UITapGestureRecognizer(target: self, action: #selector(avatarTapped))

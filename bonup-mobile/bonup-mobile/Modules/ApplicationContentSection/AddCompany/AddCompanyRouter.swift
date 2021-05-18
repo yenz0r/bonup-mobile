@@ -23,6 +23,8 @@ final class AddCompanyRouter {
         case addImage(FMPhotoPickerViewControllerDelegate)
         case organizationsList
         case showResultAlert(String)
+        case showLoadingAlert
+        case hideLoadingAlert
     }
 
     private var view: AddCompanyView?
@@ -80,6 +82,14 @@ extension AddCompanyRouter: IAddCompanyRouter {
         case .organizationsList:
             
             self.parentNavigationController.popToRootViewController(animated: true)
+            
+        case .showLoadingAlert:
+            
+            AlertsFactory.shared.loadingAlert(.show(message: "ui_wait_a_bit_please".localized))
+            
+        case .hideLoadingAlert:
+            
+            AlertsFactory.shared.loadingAlert(.hide)
         }
     }
 }

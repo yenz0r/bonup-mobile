@@ -8,18 +8,20 @@
 
 import Foundation
 import FMPhotoPicker
+import Nuke
 
 protocol IAddCompanyPresenter: AnyObject {
 
     var inputSections: [AddCompanyInputSectionModel] { get }
     var selectedCategory: InterestCategories { get }
     var selectedPhoto: UIImage { get set }
-    var moduleMode: AddCompanyInteractor.ModuleMode { get }
+    var moduleMode: AddCompanyDependency.Mode { get }
 
     func handleValueUpdate(_ value: String?, at indexPath: IndexPath)
     func handleAddImageTap()
     func handleDoneTap()
     func handleSectionsUpdate(categories: [InterestCategories])
+    func handleViewDidLoad()
 }
 
 final class AddCompanyPresenter {
@@ -52,6 +54,28 @@ extension AddCompanyPresenter: IAddCompanyPresenter {
     func handleValueUpdate(_ value: String?, at indexPath: IndexPath) {
         
         self.interactor.updateValue(value, at: indexPath)
+    }
+    
+    func handleViewDidLoad() {
+        
+        if self.moduleMode != .create {
+            
+            guard let company = self.interactor.initCompany,
+                  let url = PhotosService.photoURL(for: company.photoId) else { return }
+            
+            self.router.show(.showLoadingAlert)
+            
+            self.view?.loadImage(url,
+                                 completion: { [weak self] image in
+                
+                self?.selectedPhoto = image
+                
+                DispatchQueue.main.async {
+                    
+                    self?.router.show(.hideLoadingAlert)
+                }
+            })
+        }
     }
     
     func handleAddImageTap() {
@@ -92,7 +116,7 @@ extension AddCompanyPresenter: IAddCompanyPresenter {
         }
     }
     
-    var moduleMode: AddCompanyInteractor.ModuleMode {
+    var moduleMode: AddCompanyDependency.Mode {
         
         return self.interactor.moduleMode
     }

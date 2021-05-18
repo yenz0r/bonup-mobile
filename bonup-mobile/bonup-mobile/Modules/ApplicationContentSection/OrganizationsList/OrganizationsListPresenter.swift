@@ -61,7 +61,7 @@ extension OrganizationsListPresenter: IOrganizationsListPresenter {
 
         guard let company = self.interactor.companies?[index] else { return }
 
-        self.router.show(.showOrganizationControl(company.title))
+        self.router.show(.showOrganizationControl(company))
     }
 
     func numberOfOrganizations() -> Int {
@@ -70,11 +70,6 @@ extension OrganizationsListPresenter: IOrganizationsListPresenter {
     }
 
     func refreshData() {
-
-        if self.isFirstRefresh {
-            
-            self.isFirstRefresh.toggle()
-        }
         
         self.interactor.getOrganizationsList(
             withLoader: self.isFirstRefresh,
@@ -94,6 +89,11 @@ extension OrganizationsListPresenter: IOrganizationsListPresenter {
                 }
             }
         )
+        
+        if self.isFirstRefresh {
+            
+            self.isFirstRefresh.toggle()
+        }
     }
 
     func handleAddButtonTap() {

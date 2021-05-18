@@ -11,5 +11,5 @@ import UIKit
 struct OrganizationControlDependency {
     
     let parentController: UIViewController
-    let organizationName: String
+    let company: CompanyEntity
 }

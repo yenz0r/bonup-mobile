@@ -189,3 +189,4 @@
 "ui_profile_archivements_label" = "Достижения:";
 "ui_validation_faild" = "Ошибка валидации";
 "ui_incorrect_company_packet_info" = "Не корректные данные пакета...";
+"ui_company_modify" = "Изменить описание компании";

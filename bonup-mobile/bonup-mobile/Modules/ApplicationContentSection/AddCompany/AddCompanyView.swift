@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Nuke
 
 protocol IAddCompanyView: AnyObject {
 
     func setupImage(_ image: UIImage)
+    func loadImage(_ url: URL, completion: @escaping (UIImage) -> Void)
 }
 
 final class AddCompanyView: BUContentViewController {
@@ -40,13 +42,15 @@ final class AddCompanyView: BUContentViewController {
 
         self.setupAppearance()
         self.setupNavBar()
+        
+        self.presenter.handleViewDidLoad()
     }
 
     // MARK: - Localization
 
     override func setupLocalizableContent() {
 
-        if self.presenter.moduleMode == .add {
+        if self.presenter.moduleMode == .create {
             
             self.navigationItem.title = "ui_add_new_company".localized
             self.navigationItem.rightBarButtonItem?.title = "ui_done_title".localized
@@ -61,7 +65,7 @@ final class AddCompanyView: BUContentViewController {
 
     private func setupNavBar() {
 
-        if self.presenter.moduleMode == .add {
+        if self.presenter.moduleMode != .read {
             
             let done = UIBarButtonItem(title: "ui_done_title".localized,
                                        style: .plain,
@@ -116,7 +120,7 @@ final class AddCompanyView: BUContentViewController {
 
         let gesture = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
         iv.addGestureRecognizer(gesture)
-        iv.isUserInteractionEnabled = self.presenter.moduleMode == .add
+        iv.isUserInteractionEnabled = self.presenter.moduleMode != .read
 
         return iv
     }
@@ -125,7 +129,7 @@ final class AddCompanyView: BUContentViewController {
 
         let dataSource = SelectCategoriesDataSource(selectedCategories: [self.presenter.selectedCategory],
                                                     selectionMode: .single,
-                                                    isChangable: self.presenter.moduleMode == .add)
+                                                    isChangable: self.presenter.moduleMode != .read)
         let container = SelectCategoriesContainer(delegate: self, dataSource: dataSource)
 
         return container
@@ -230,5 +234,26 @@ extension AddCompanyView: IAddCompanyView {
         
         self.companyImageView.image = image
         self.presenter.selectedPhoto = image
+    }
+    
+    func loadImage(_ url: URL, completion: @escaping (UIImage) -> Void) {
+        
+        let imageRequest = ImageRequest(url: url)
+        
+        Nuke.loadImage(
+            with: imageRequest,
+            options: ImageLoadingOptions(),
+            into: self.companyImageView,
+            progress: nil) { result in
+            
+            switch result {
+            
+            case .success(let image):
+                completion(image.image)
+                
+            default:
+                break
+            }
+        }
     }
 }

@@ -141,13 +141,8 @@ extension SettingsPresenter: ISettingsPresenter {
     }
 
     func refreshData() {
-
-        if self.isFirstRefresh {
-            
-            self.isFirstRefresh.toggle()
-        }
         
-        let name = AccountManager.shared.currentUser?.name ?? "Your Name"
+        let name = AccountManager.shared.currentUser?.name ?? "ui_name_placeholder".localized
         let email = AccountManager.shared.currentUser?.email ?? "your.email@email.com"
 
         self.interactor.loadAvatar(withLoader: self.isFirstRefresh) { [weak self] image in
@@ -172,6 +167,11 @@ extension SettingsPresenter: ISettingsPresenter {
                     email: email
                 )
             }
+        }
+        
+        if self.isFirstRefresh {
+            
+            self.isFirstRefresh.toggle()
         }
     }
 

@@ -119,11 +119,6 @@ extension BenefitsPresenter: IBenefitsPresenter {
     }
 
     func refreshData() {
-
-        if self.isFirstRefresh {
-            
-            self.isFirstRefresh.toggle()
-        }
         
         self.interactor.getBenefits(
             withLoader: self.isFirstRefresh,
@@ -145,5 +140,10 @@ extension BenefitsPresenter: IBenefitsPresenter {
                 print(message)
             }
         )
+        
+        if self.isFirstRefresh {
+            
+            self.isFirstRefresh.toggle()
+        }
     }
 }

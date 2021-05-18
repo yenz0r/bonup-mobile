@@ -65,10 +65,10 @@ struct AddCompanyInputRowModel {
     var value: String? = nil
     var isEnabled: Bool
     
-    init(value: String?, rowType: AddCompanyInputRowModelType) {
+    init(value: String?, rowType: AddCompanyInputRowModelType, mode: AddCompanyDependency.Mode) {
         
         self.rowType = rowType
         self.value = value
-        self.isEnabled = value == nil
+        self.isEnabled = mode != .read
     }
 }

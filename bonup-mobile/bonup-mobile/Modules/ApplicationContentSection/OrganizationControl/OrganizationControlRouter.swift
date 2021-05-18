@@ -10,24 +10,32 @@ import UIKit
 import SwiftQRScanner
 
 protocol IOrganizationControlRouter {
+    
     func start(_ completion: (() -> Void)?)
     func stop(_ completion: (() -> Void)?)
     func show(_ scenario: OrganizationControlRouter.RouterScenario)
 }
 
 final class OrganizationControlRouter {
+    
     enum RouterScenario {
 
         case showResultAlert(String)
         case showAddAction(CompanyActionType, String)
         case showStatistics(String)
         case verifyAction(QRScannerCodeDelegate)
+        case modifyCompanyInfo(CompanyEntity)
     }
 
+    // MARK: - Private variables
+    
     private var view: OrganizationControlView?
     private var parentController: UIViewController
 
+    // MARK: - Init
+    
     init(view: OrganizationControlView?, parentController: UIViewController) {
+        
         self.view = view
         self.parentController = parentController
     }
@@ -36,7 +44,9 @@ final class OrganizationControlRouter {
 // MARK: - ICategoriesRouter implementation
 
 extension OrganizationControlRouter: IOrganizationControlRouter {
+    
     func start(_ completion: (() -> Void)?) {
+        
         guard let view = self.view else { return }
 
         view.modalPresentationStyle = .fullScreen
@@ -46,6 +56,7 @@ extension OrganizationControlRouter: IOrganizationControlRouter {
     }
 
     func stop(_ completion: (() -> Void)?) {
+        
         self.parentController.navigationController?.popViewController(animated: true)
         completion?()
         self.view = nil
@@ -94,6 +105,17 @@ extension OrganizationControlRouter: IOrganizationControlRouter {
             scanner.delegate = qrCodeDelegate
             
             self.view?.present(scanner, animated: true, completion: nil)
+            
+        case .modifyCompanyInfo(let company):
+            
+            let dependency = AddCompanyDependency(parentNavigationController: self.parentController.navigationController!,
+                                                  initCompany: company,
+                                                  mode: .modify,
+                                                  companyPacket: nil)
+            let builder = AddCompanyBuilder()
+            let router = builder.build(dependency)
+            
+            router.start(nil)
         }
     }
 }

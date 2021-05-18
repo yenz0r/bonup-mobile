@@ -10,8 +10,14 @@ import UIKit
 
 struct AddCompanyDependency {
     
+    enum Mode {
+        
+        case create, modify, read
+    }
+    
     let parentNavigationController: UINavigationController
     let initCompany: CompanyEntity?
+    let mode: Mode
     
     let companyPacket: CompanyPacketType?
 }

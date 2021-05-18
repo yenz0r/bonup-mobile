@@ -58,11 +58,6 @@ extension CompaniesSearchPresenter: ICompaniesSearchPresenter {
 
     func refreshData() {
         
-        if self.isFirstRefresh {
-            
-            self.isFirstRefresh.toggle()
-        }
-        
         if self.interactor.organizations.isEmpty {
             
             self.interactor.loadOrganizations(withLoader: self.isFirstRefresh) { [weak self] success in
@@ -79,6 +74,11 @@ extension CompaniesSearchPresenter: ICompaniesSearchPresenter {
                     }
                 }
             }
+        }
+        
+        if self.isFirstRefresh {
+            
+            self.isFirstRefresh.toggle()
         }
     }
     

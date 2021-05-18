@@ -76,11 +76,6 @@ extension ProfilePresenter: IProfilePresenter {
     }
 
     func refreshData(completion: (() -> Void)?) {
-
-        if self.isFirstRefresh {
-            
-            self.isFirstRefresh.toggle()
-        }
         
         self.interactor.getUserInfo(
             withLoader: self.isFirstRefresh,
@@ -101,6 +96,11 @@ extension ProfilePresenter: IProfilePresenter {
                 }
             }
         )
+        
+        if self.isFirstRefresh {
+            
+            self.isFirstRefresh.toggle()
+        }
     }
     
     func actionsChartData(for category: ProfileActionsChartsContainer.Category) -> PieChartData {

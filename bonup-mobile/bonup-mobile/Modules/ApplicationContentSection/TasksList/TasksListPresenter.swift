@@ -106,11 +106,6 @@ extension TasksListPresenter: ITasksListPresenter {
 
     func viewWillAppear() {
         
-        if self.isFirstRefresh {
-            
-            self.isFirstRefresh.toggle()
-        }
-        
         self.interactor.getTasks(
             withLoader: self.isFirstRefresh,
             success: { [weak self] result in
@@ -127,6 +122,11 @@ extension TasksListPresenter: ITasksListPresenter {
                 print("---")
             }
         )
+        
+        if self.isFirstRefresh {
+            
+            self.isFirstRefresh.toggle()
+        }
     }
 
     func handleShowDetailsTap(with index: Int) {

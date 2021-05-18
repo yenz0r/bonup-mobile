@@ -141,7 +141,7 @@ extension CompanyPacketView: UITableViewDelegate {
 
         self.presenter.handlePacketSelection(at: currSelected)
 
-        self.tableView.reloadRows(at: [IndexPath(row: prevSelected, section: 0),
+        self.tableView.reloadRows(at: [IndexPath(row: prevSelected ?? 0, section: 0),
                                        IndexPath(row: currSelected, section: 0)], with: .automatic)
     }
 }
@@ -166,7 +166,7 @@ extension CompanyPacketView: UITableViewDataSource {
                                                  for: indexPath) as! CompanyPacketCell
 
         cell.packetType = self.presenter.packets[indexPath.row]
-        cell.isPacketSelected = self.presenter.selectedPacketIndex == indexPath.row
+        cell.isPacketSelected = (self.presenter.selectedPacketIndex ?? -1) == indexPath.row
 
         return cell
     }

@@ -12,6 +12,7 @@ import Moya
 enum AddCompanyService {
     
     case addCompany(token: String, companyEntity: CompanyEntity)
+    case modifyCompany(token: String, companyEntity: CompanyEntity)
 }
 
 extension AddCompanyService: IMainTargetType {
@@ -24,6 +25,8 @@ extension AddCompanyService: IMainTargetType {
         switch self {
         case .addCompany(_, _):
             return "/newOrganization"
+        case .modifyCompany(_, _):
+            return "/modifyOrganization"
         }
     }
 
@@ -37,7 +40,7 @@ extension AddCompanyService: IMainTargetType {
 
     var task: Task {
         switch self {
-        case .addCompany(let token, let entity):
+        case .addCompany(let token, let entity), .modifyCompany(let token, let entity):
             
             return .requestParameters(
                 parameters: [

@@ -13,7 +13,7 @@ protocol IOrganizationControlInteractor: AnyObject {
     func resolveTask(qrCode: String, block: ((Bool, String) -> Void)?)
     func activateCoupon(qrCode: String, block: ((Bool, String) -> Void)?)
     
-    var organizationName: String { get }
+    var currentCompany: CompanyEntity { get }
 }
 
 final class OrganizationControlInteractor {
@@ -24,12 +24,13 @@ final class OrganizationControlInteractor {
     
     // MARK: - Public properties
     
-    var organizationName: String
+    var currentCompany: CompanyEntity
 
     // MARK: - Init
     
-    init(organizationName: String) {
-        self.organizationName = organizationName
+    init(currentCompany: CompanyEntity) {
+        
+        self.currentCompany = currentCompany
     }
 }
 

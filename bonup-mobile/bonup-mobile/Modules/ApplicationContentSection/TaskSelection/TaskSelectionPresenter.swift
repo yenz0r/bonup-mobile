@@ -60,11 +60,6 @@ extension TaskSelectionPresenter: ITaskSelectionPresenter {
     }
 
     func viewWillAppear() {
-
-        if self.isFirstRefresh {
-            
-            self.isFirstRefresh.toggle()
-        }
         
         self.interactor.getTasks(withLoader: self.isFirstRefresh) { [weak self] (responseEntities, isSuccess) in
 
@@ -81,6 +76,11 @@ extension TaskSelectionPresenter: ITaskSelectionPresenter {
              
                 self?.view?.reloadData()
             }
+        }
+        
+        if self.isFirstRefresh {
+            
+            self.isFirstRefresh.toggle()
         }
     }
 

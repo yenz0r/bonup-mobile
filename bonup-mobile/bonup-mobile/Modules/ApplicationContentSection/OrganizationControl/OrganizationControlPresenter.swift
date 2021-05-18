@@ -20,18 +20,19 @@ protocol IOrganizationControlPresenter: AnyObject {
 
 final class OrganizationControlPresenter {
 
+    // MARK: - Private variables
+    
     private weak var view: IOrganizationControlView?
     private let interactor: IOrganizationControlInteractor
     private let router: IOrganizationControlRouter
 
-    private let actions: [OrganizationControlAction] = [.verifyTask,
-                                                        .varifyCoupon,
-                                                        .addTask,
-                                                        .addCoupon,
-                                                        .statistics]
+    // MARK: - State variables
     
+    private let actions: [OrganizationControlAction] = OrganizationControlAction.allCases
     private var currentAction: OrganizationControlAction?
 
+    // MARK: - Init
+    
     init(view: IOrganizationControlView?,
          interactor: IOrganizationControlInteractor,
          router: IOrganizationControlRouter) {
@@ -72,13 +73,16 @@ extension OrganizationControlPresenter: IOrganizationControlPresenter {
             self.router.show(.verifyAction(self))
             
         case .addTask:
-            self.router.show(.showAddAction(.task, self.interactor.organizationName))
+            self.router.show(.showAddAction(.task, self.interactor.currentCompany.title))
             
         case .addCoupon:
-            self.router.show(.showAddAction(.coupon, self.interactor.organizationName))
+            self.router.show(.showAddAction(.coupon, self.interactor.currentCompany.title))
             
         case .statistics:
-            self.router.show(.showStatistics(self.interactor.organizationName))
+            self.router.show(.showStatistics(self.interactor.currentCompany.title))
+            
+        case .modifyInfo:
+            self.router.show(.modifyCompanyInfo(self.interactor.currentCompany))
         }
     }
 }

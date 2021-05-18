@@ -18,7 +18,7 @@ final class OrganizationControlBuilder: IOrganizationControlBuilder {
     func build(_ dependency: OrganizationControlDependency) -> IOrganizationControlRouter {
         let view = OrganizationControlView()
         let router = OrganizationControlRouter(view: view, parentController: dependency.parentController)
-        let interactor = OrganizationControlInteractor(organizationName: dependency.organizationName)
+        let interactor = OrganizationControlInteractor(currentCompany: dependency.company)
         let presenter =  OrganizationControlPresenter(view: view, interactor: interactor, router: router)
         view.presenter = presenter
 

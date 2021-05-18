@@ -8,13 +8,14 @@
 
 import UIKit
 
-enum OrganizationControlAction {
+enum OrganizationControlAction: Int, CaseIterable {
     
-    case verifyTask
+    case verifyTask = 0
     case varifyCoupon
     case addTask
     case addCoupon
     case statistics
+    case modifyInfo
     
     var title: String {
         
@@ -33,6 +34,9 @@ enum OrganizationControlAction {
             
         case .statistics:
             return "ui_organization_statistics"
+            
+        case .modifyInfo:
+            return "ui_company_modify"
         }
     }
     
@@ -53,6 +57,9 @@ enum OrganizationControlAction {
             return AssetsHelper.shared.image(.settingsRateUs)
             
         case .statistics:
+            return AssetsHelper.shared.image(.settingsCategory)
+            
+        case .modifyInfo:
             return AssetsHelper.shared.image(.settingsCategory)
         }
     }
