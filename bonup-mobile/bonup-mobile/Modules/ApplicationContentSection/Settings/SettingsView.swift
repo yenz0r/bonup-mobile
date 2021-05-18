@@ -10,11 +10,10 @@ import UIKit
 import Nuke
 
 protocol ISettingsView: AnyObject {
-    func setupHeader(with image: UIImage?,
-                     name: String,
+    func setupHeader(name: String,
                      email: String)
 
-    func updateAvatarIcon(url: URL)
+    func updateAvatarIcon(url: URL, completion: @escaping (UIImage) -> Void)
     func setupAvatarIcon(icon: UIImage)
 
     func reloadData()
@@ -148,9 +147,8 @@ extension SettingsView: UITableViewDataSource {
 
 extension SettingsView: ISettingsView {
     
-    func setupHeader(with image: UIImage?, name: String, email: String) {
+    func setupHeader(name: String, email: String) {
 
-        self.headerView.avatarImage = image
         self.headerView.name = name
         self.headerView.email = email
 
@@ -165,16 +163,27 @@ extension SettingsView: ISettingsView {
         self.tableView.reloadData()
     }
 
-    func updateAvatarIcon(url: URL) {
+    func updateAvatarIcon(url: URL, completion: @escaping (UIImage) -> Void) {
         
         let imageRequst = ImageRequest(url: url)
+        
         Nuke.loadImage(
             with: imageRequst,
             options: ImageLoadingOptions(),
             into: self.headerView.avatarImageView,
-            progress: nil,
-            completion: nil
-        )
+            progress: nil) { result in
+            
+            switch result {
+            
+            case .success(let imageResponse):
+                completion(imageResponse.image)
+                
+            case .failure(_):
+                let image = AssetsHelper.shared.image(.addImageIcon)!
+                self.headerView.avatarImage = image
+                completion(image)
+            }
+        }
     }
     
     func setupAvatarIcon(icon: UIImage) {

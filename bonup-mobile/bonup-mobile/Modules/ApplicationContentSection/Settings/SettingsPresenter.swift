@@ -142,30 +142,43 @@ extension SettingsPresenter: ISettingsPresenter {
 
     func refreshData() {
         
-        let name = AccountManager.shared.currentUser?.name ?? "ui_name_placeholder".localized
-        let email = AccountManager.shared.currentUser?.email ?? "your.email@email.com"
-
-        self.interactor.loadAvatar(withLoader: self.isFirstRefresh) { [weak self] image in
+        guard let name = AccountManager.shared.currentUser?.name,
+              let email = AccountManager.shared.currentUser?.email else {
+            
+            self.view?.setupHeader(
+                name: "ui_name_placeholder".localized,
+                email: "your.email@email.com"
+            )
+            
+            return
+        }
+        
+        self.view?.setupHeader(
+            name: name,
+            email: email
+        )
+        
+        self.interactor.loadAvatarId(withLoader: self.isFirstRefresh) { [weak self] id in
 
             DispatchQueue.main.async {
 
-                self?.view?.setupHeader(
-                    with: image ?? AssetsHelper.shared.image(.addImageIcon),
-                    name: name,
-                    email: email
-                )
+                guard let photoId = Int(id), let url = PhotosService.photoURL(for: photoId) else { return }
+                
+                self?.view?.updateAvatarIcon(url: url, completion: { image in
+                    
+                    self?.selectedAvatar = image
+                })
             }
         } failure: { [weak self] message in
 
             DispatchQueue.main.async {
 
                 self?.router.show(.showErrorAlert(message))
-
-                self?.view?.setupHeader(
-                    with: AssetsHelper.shared.image(.addImageIcon),
-                    name: name,
-                    email: email
-                )
+                
+                if let avatar = self?.selectedAvatar {
+                
+                    self?.view?.setupAvatarIcon(icon: avatar)
+                }
             }
         }
         

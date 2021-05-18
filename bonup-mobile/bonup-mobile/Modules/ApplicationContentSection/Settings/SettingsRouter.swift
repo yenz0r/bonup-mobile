@@ -27,6 +27,9 @@ final class SettingsRouter {
         case params(SettingsParamsDependency.SettingsParamsType)
         case avatarSelection(FMPhotoPickerViewControllerDelegate)
         case showErrorAlert(String)
+        
+        case showLoadingAlert
+        case hideLoadingAlert
     }
 
     private var view: SettingsView?
@@ -114,6 +117,14 @@ extension SettingsRouter: ISettingsRouter {
                     print("error")
                 }
             )
+            
+        case .showLoadingAlert:
+            
+            AlertsFactory.shared.loadingAlert(.show(message: "ui_wait_a_bit_please".localized))
+            
+        case .hideLoadingAlert:
+            
+            AlertsFactory.shared.loadingAlert(.hide)
         }
     }
 }

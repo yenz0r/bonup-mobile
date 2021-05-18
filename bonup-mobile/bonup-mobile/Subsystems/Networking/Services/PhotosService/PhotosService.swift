@@ -12,7 +12,7 @@ import Moya
 enum PhotosService {
 
     case uploadPhoto(UIImage)
-    case getPhoto(String)
+    case getPhotoId(String)
     
     static func photoURL(for id: Int?) -> URL? {
         
@@ -36,7 +36,7 @@ extension PhotosService: IAuthorizedTargetType {
         switch self {
         case .uploadPhoto(_):
             return "/photo"
-        case .getPhoto(_):
+        case .getPhotoId(_):
             return "/photo"
         }
     }
@@ -45,7 +45,7 @@ extension PhotosService: IAuthorizedTargetType {
         switch self {
         case .uploadPhoto(_):
             return .post
-        case .getPhoto(_):
+        case .getPhotoId(_):
             return .get
         }
     }
@@ -57,7 +57,7 @@ extension PhotosService: IAuthorizedTargetType {
     var task: Task {
         switch self {
 
-        case .getPhoto(let token):
+        case .getPhotoId(let token):
             return .requestParameters(
                 parameters: [
                     "token": token
@@ -77,6 +77,7 @@ extension PhotosService: IAuthorizedTargetType {
     }
 
     var headers: [String : String]? {
+        
         return nil
     }
 }

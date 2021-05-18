@@ -12,9 +12,9 @@ protocol ISettingsInteractor: AnyObject {
 
     func logout()
 
-    func loadAvatar(withLoader: Bool,
-                    success: ((UIImage?) -> Void)?,
-                    failure: ((String) -> Void)?)
+    func loadAvatarId(withLoader: Bool,
+                      success: ((String) -> Void)?,
+                      failure: ((String) -> Void)?)
 
     func uploadAvatar(_ image: UIImage,
                       success: (() -> Void)?,
@@ -23,8 +23,9 @@ protocol ISettingsInteractor: AnyObject {
 
 final class SettingsInteractor {
 
+    // MARK: - Services
+    
     private let networkProvider = MainNetworkProvider<PhotosService>()
-
 }
 
 // MARK: - ISettingsInteractor implementation
@@ -37,7 +38,7 @@ extension SettingsInteractor: ISettingsInteractor {
 
         _ = networkProvider.request(
             .uploadPhoto(image),
-            type: ProfileResponseEntity.self,
+            type: PhotoResponseEntity.self,
             completion: { result in
 
                 if result.isSuccess {
@@ -56,22 +57,28 @@ extension SettingsInteractor: ISettingsInteractor {
     }
 
     
-    func loadAvatar(withLoader: Bool,
-                    success: ((UIImage?) -> Void)?,
-                    failure: ((String) -> Void)?) {
+    func loadAvatarId(withLoader: Bool,
+                      success: ((String) -> Void)?,
+                      failure: ((String) -> Void)?) {
 
-        guard let token = AccountManager.shared.currentToken else { return }
+        guard let token = AccountManager.shared.currentToken else { failure?("ui_error_title".localized); return }
         
-        _ = networkProvider.requestImage(
-            .getPhoto(token),
-            withLoader: withLoader,
-            completion: { image in
+        _ = networkProvider.request(
+            .getPhotoId(token),
+            type: PhotoResponseEntity.self,
+            completion: { result in
 
-                success?(image)
+                if result.isSuccess {
+
+                    success?(result.message)
+                } else {
+
+                    failure?(result.message)
+                }
             },
             failure: { err in
 
-                failure?(err?.localizedDescription ?? "")
+                failure?(err?.localizedDescription ?? "ui_error_title".localized)
             }
         )
     }

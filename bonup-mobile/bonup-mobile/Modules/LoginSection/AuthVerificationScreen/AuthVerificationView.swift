@@ -135,6 +135,9 @@ final class AuthVerificationView: BULoginViewController {
     }
 
     @objc private func sendButtonTapped() {
+        
+        self.view.endEditing(true)
+        
         guard
             let code = self.codeTextField.text,
             code != "" else {

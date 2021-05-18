@@ -305,6 +305,9 @@ final class LoginView: BULoginViewController {
     }
 
     @objc private func signUpButtonTapped() {
+        
+        self.view.endEditing(true)
+        
         self.presenter.handleSignButtonTap(
             name: self.nameTextField.text,
             email: self.emailTextField.text,
@@ -314,6 +317,9 @@ final class LoginView: BULoginViewController {
     }
 
     @objc private func signInButtonTapped() {
+        
+        self.view.endEditing(true)
+        
         self.presenter.handleSignButtonTap(
             name: self.nameTextField.text,
             email: self.emailTextField.text,

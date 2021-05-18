@@ -99,6 +99,8 @@ final class NewPasswordView: BULoginViewController {
 
     @objc private func sendButtonTapped() {
 
+        self.view.endEditing(true)
+        
         self.presenter.handleSendButtonTapped(
             newPass: self.newPasswordTextField.text,
             repeatPass: self.repeatPasswordTextField.text

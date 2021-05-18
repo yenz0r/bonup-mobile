@@ -107,6 +107,9 @@ final class ResetPasswordView: BULoginViewController {
     // MARK: - Selectors
 
     @objc private func sendButtonTapped() {
+        
+        self.view.endEditing(true)
+        
         self.presenter.handleSendButtonTapped(self.emailTextField.text)
     }
 }
