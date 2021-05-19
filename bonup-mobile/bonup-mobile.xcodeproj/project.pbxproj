@@ -253,7 +253,7 @@
 		B9BF7011244326530051CF41 /* TaskCardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BF7010244326530051CF41 /* TaskCardOverlay.swift */; };
 		B9BF701324433D590051CF41 /* BUNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BF701224433D590051CF41 /* BUNavigationController.swift */; };
 		B9C97006263D9ADE00066625 /* OrganizationControlConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C97005263D9ADE00066625 /* OrganizationControlConstants.swift */; };
-		B9C97013263DAA5400066625 /* OrganizationControlAppendRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C97012263DAA5400066625 /* OrganizationControlAppendRequestEntity.swift */; };
+		B9C97013263DAA5400066625 /* OrganizationActionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C97012263DAA5400066625 /* OrganizationActionEntity.swift */; };
 		B9CAA708242B9EE000E50668 /* AuthVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA707242B9EE000E50668 /* AuthVerificationView.swift */; };
 		B9CAA70A242B9EF600E50668 /* AuthVerificationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA709242B9EF600E50668 /* AuthVerificationInteractor.swift */; };
 		B9CAA70C242B9F0200E50668 /* AuthVerificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA70B242B9F0200E50668 /* AuthVerificationRouter.swift */; };
@@ -323,6 +323,13 @@
 		B9FE3A4C25B61890007ED803 /* CompanyCustomPacketDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FE3A4B25B61890007ED803 /* CompanyCustomPacketDependency.swift */; };
 		B9FE3A5125B61897007ED803 /* CompanyCustomPacketBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FE3A5025B61897007ED803 /* CompanyCustomPacketBuilder.swift */; };
 		B9FE3A5A25B6230E007ED803 /* UBottomSheetCoordinator+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FE3A5925B6230E007ED803 /* UBottomSheetCoordinator+DataSource.swift */; };
+		C6874EA22653FC65005009E4 /* OrganizationActionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6874EA12653FC65005009E4 /* OrganizationActionsService.swift */; };
+		C6874EA5265403E9005009E4 /* CompanyActionsAggregatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6874EA4265403E9005009E4 /* CompanyActionsAggregatorView.swift */; };
+		C6874EA7265403F1005009E4 /* CompanyActionsAggregatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6874EA6265403F1005009E4 /* CompanyActionsAggregatorPresenter.swift */; };
+		C6874EA9265403F7005009E4 /* CompanyActionsAggregatorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6874EA8265403F7005009E4 /* CompanyActionsAggregatorRouter.swift */; };
+		C6874EAB265403FE005009E4 /* CompanyActionsAggregatorBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6874EAA265403FE005009E4 /* CompanyActionsAggregatorBuilder.swift */; };
+		C6874EAD26540403005009E4 /* CompanyActionsAggregatorDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6874EAC26540403005009E4 /* CompanyActionsAggregatorDependency.swift */; };
+		C6874EAF26540413005009E4 /* CompanyActionsAggregatorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6874EAE26540413005009E4 /* CompanyActionsAggregatorInteractor.swift */; };
 		F0AAFD235DC6AAFDE3442CC1 /* Pods_bonup_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09011FEA798A936A5818A174 /* Pods_bonup_mobile.framework */; };
 /* End PBXBuildFile section */
 
@@ -612,7 +619,7 @@
 		B9BF7010244326530051CF41 /* TaskCardOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardOverlay.swift; sourceTree = "<group>"; };
 		B9BF701224433D590051CF41 /* BUNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUNavigationController.swift; sourceTree = "<group>"; };
 		B9C97005263D9ADE00066625 /* OrganizationControlConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlConstants.swift; sourceTree = "<group>"; };
-		B9C97012263DAA5400066625 /* OrganizationControlAppendRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationControlAppendRequestEntity.swift; sourceTree = "<group>"; };
+		B9C97012263DAA5400066625 /* OrganizationActionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationActionEntity.swift; sourceTree = "<group>"; };
 		B9CAA707242B9EE000E50668 /* AuthVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationView.swift; sourceTree = "<group>"; };
 		B9CAA709242B9EF600E50668 /* AuthVerificationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationInteractor.swift; sourceTree = "<group>"; };
 		B9CAA70B242B9F0200E50668 /* AuthVerificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVerificationRouter.swift; sourceTree = "<group>"; };
@@ -678,6 +685,13 @@
 		B9FE3A4B25B61890007ED803 /* CompanyCustomPacketDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCustomPacketDependency.swift; sourceTree = "<group>"; };
 		B9FE3A5025B61897007ED803 /* CompanyCustomPacketBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCustomPacketBuilder.swift; sourceTree = "<group>"; };
 		B9FE3A5925B6230E007ED803 /* UBottomSheetCoordinator+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UBottomSheetCoordinator+DataSource.swift"; sourceTree = "<group>"; };
+		C6874EA12653FC65005009E4 /* OrganizationActionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationActionsService.swift; sourceTree = "<group>"; };
+		C6874EA4265403E9005009E4 /* CompanyActionsAggregatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsAggregatorView.swift; sourceTree = "<group>"; };
+		C6874EA6265403F1005009E4 /* CompanyActionsAggregatorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsAggregatorPresenter.swift; sourceTree = "<group>"; };
+		C6874EA8265403F7005009E4 /* CompanyActionsAggregatorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsAggregatorRouter.swift; sourceTree = "<group>"; };
+		C6874EAA265403FE005009E4 /* CompanyActionsAggregatorBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsAggregatorBuilder.swift; sourceTree = "<group>"; };
+		C6874EAC26540403005009E4 /* CompanyActionsAggregatorDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsAggregatorDependency.swift; sourceTree = "<group>"; };
+		C6874EAE26540413005009E4 /* CompanyActionsAggregatorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsAggregatorInteractor.swift; sourceTree = "<group>"; };
 		CF45C3827A35374FC24C4363 /* Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig"; sourceTree = "<group>"; };
 		D01057BDAD0A1EFFA61522ED /* Pods-bonup-mobileTests.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobileTests.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobileTests/Pods-bonup-mobileTests.debug paid.xcconfig"; sourceTree = "<group>"; };
 		D9C3A1A74CDA15157D40FAF0 /* Pods-bonup-mobile.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile.debug paid.xcconfig"; sourceTree = "<group>"; };
@@ -868,6 +882,7 @@
 			children = (
 				B9A732FC242D631800860346 /* Core */,
 				B9323664241D7F5B00A37634 /* Services */,
+				C6874EA32653FC82005009E4 /* OrganizationActionsService */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1311,7 +1326,7 @@
 				B96A71DC246B9C90007416DF /* OrganizationControlService.swift */,
 				B96A71DE246B9CB5007416DF /* OrganizationControlResponseEntity.swift */,
 				B9D17E31246C2B9C00258BA3 /* OrganizationControlAppendResponseEntity.swift */,
-				B9C97012263DAA5400066625 /* OrganizationControlAppendRequestEntity.swift */,
+				B9C97012263DAA5400066625 /* OrganizationActionEntity.swift */,
 			);
 			path = OrganizationControl;
 			sourceTree = "<group>";
@@ -1961,6 +1976,7 @@
 				B90BED6125B5D95400AD78A8 /* CompanyPacket */,
 				B9FE3A5525B618AB007ED803 /* CompanyCustomPacket */,
 				B93F2B71263F0B9600A8A8D6 /* CompanyStatistics */,
+				C6874EB026540418005009E4 /* CompanyActionsAggregator */,
 				B90AF9F8265183AE007BB288 /* CompanyActionsList */,
 			);
 			path = ApplicationContentSection;
@@ -1996,6 +2012,27 @@
 				B9FE3A5925B6230E007ED803 /* UBottomSheetCoordinator+DataSource.swift */,
 			);
 			path = UBottomSheetCoordinator;
+			sourceTree = "<group>";
+		};
+		C6874EA32653FC82005009E4 /* OrganizationActionsService */ = {
+			isa = PBXGroup;
+			children = (
+				C6874EA12653FC65005009E4 /* OrganizationActionsService.swift */,
+			);
+			path = OrganizationActionsService;
+			sourceTree = "<group>";
+		};
+		C6874EB026540418005009E4 /* CompanyActionsAggregator */ = {
+			isa = PBXGroup;
+			children = (
+				C6874EA4265403E9005009E4 /* CompanyActionsAggregatorView.swift */,
+				C6874EA6265403F1005009E4 /* CompanyActionsAggregatorPresenter.swift */,
+				C6874EA8265403F7005009E4 /* CompanyActionsAggregatorRouter.swift */,
+				C6874EAA265403FE005009E4 /* CompanyActionsAggregatorBuilder.swift */,
+				C6874EAC26540403005009E4 /* CompanyActionsAggregatorDependency.swift */,
+				C6874EAE26540413005009E4 /* CompanyActionsAggregatorInteractor.swift */,
+			);
+			path = CompanyActionsAggregator;
 			sourceTree = "<group>";
 		};
 		F63C6FCB5F7C61B7CB5C909E /* Frameworks */ = {
@@ -2316,6 +2353,7 @@
 				B94F37912451C49800FBEB36 /* ProfileHeaderView.swift in Sources */,
 				B9E7CE7325B4815F0033810D /* AddCompanyInputSectionModel.swift in Sources */,
 				B90AF9EF26518257007BB288 /* CompanyActionsListPresenter.swift in Sources */,
+				C6874EAD26540403005009E4 /* CompanyActionsAggregatorDependency.swift in Sources */,
 				B9D17580243CFCEA001FF58E /* TermsAndConditionsView.swift in Sources */,
 				B914AC8F24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift in Sources */,
 				B9C97006263D9ADE00066625 /* OrganizationControlConstants.swift in Sources */,
@@ -2329,6 +2367,7 @@
 				B992D50E245789FF002ABF71 /* BenefitsView.swift in Sources */,
 				B9787F4D246B7E08007DB617 /* TaskListCurrentTasksEntity.swift in Sources */,
 				B90BED4425B5D92200AD78A8 /* CompanyPacketView.swift in Sources */,
+				C6874EA5265403E9005009E4 /* CompanyActionsAggregatorView.swift in Sources */,
 				B9FC798E242FB75E00F2D5BC /* ApplicationContentRouter.swift in Sources */,
 				B96CA64825B37BDA00FF157C /* CompaniesSearchDependency.swift in Sources */,
 				B941E73C246B93600056B844 /* OrganizationControlBuilder.swift in Sources */,
@@ -2407,11 +2446,12 @@
 				B98DE0E4244BB61E007AE007 /* SettingsInteractor.swift in Sources */,
 				B9CAA71F242BE8B500E50668 /* EmailVerificationService.swift in Sources */,
 				B93F2B7D2641FABF00A8A8D6 /* BUSegmentedControl.swift in Sources */,
-				B9C97013263DAA5400066625 /* OrganizationControlAppendRequestEntity.swift in Sources */,
+				B9C97013263DAA5400066625 /* OrganizationActionEntity.swift in Sources */,
 				B9B67F2825B475D200AC7184 /* SelectCategoriesDataSource.swift in Sources */,
 				B93F2B872646D64B00A8A8D6 /* RealmProvider.swift in Sources */,
 				B9D30C72244BA0DC00B9E9AA /* ChangePasswordPresenter.swift in Sources */,
 				B93F2B992646E0CC00A8A8D6 /* AccountsCredsInteractor.swift in Sources */,
+				C6874EA7265403F1005009E4 /* CompanyActionsAggregatorPresenter.swift in Sources */,
 				B9CAA70C242B9F0200E50668 /* AuthVerificationRouter.swift in Sources */,
 				B93F2B9B2646E0D700A8A8D6 /* AccountsCredsBuilder.swift in Sources */,
 				B95FB96B25B4624B00AB2566 /* AddCompanyView.swift in Sources */,
@@ -2493,6 +2533,7 @@
 				B9FE3A5A25B6230E007ED803 /* UBottomSheetCoordinator+DataSource.swift in Sources */,
 				B9D17588243CFD27001FF58E /* TermsAndConditionsBuilder.swift in Sources */,
 				B992D51B245791E4002ABF71 /* NewBenefitsCell.swift in Sources */,
+				C6874EA9265403F7005009E4 /* CompanyActionsAggregatorRouter.swift in Sources */,
 				B990939625AF788F00CF381B /* Bundle+Localization.swift in Sources */,
 				B9A13D3E244E3AFC00373827 /* ProfilePresenter.swift in Sources */,
 				B948A234241CBE61001287B8 /* AppRouter.swift in Sources */,
@@ -2527,6 +2568,7 @@
 				B941E73E246B936B0056B844 /* OrganizationControlDependency.swift in Sources */,
 				B9CEE6A0241D559E00308098 /* ResetPasswordInteractor.swift in Sources */,
 				B948A23C241CBFC1001287B8 /* LoginRouter.swift in Sources */,
+				C6874EAB265403FE005009E4 /* CompanyActionsAggregatorBuilder.swift in Sources */,
 				B9D30C6C244BA0BB00B9E9AA /* ChangePasswordInteractor.swift in Sources */,
 				B95FB97F25B4628100AB2566 /* AddCompanyDependency.swift in Sources */,
 				B9A0C9A9242FC58500EB6FAE /* CategoriesRouter.swift in Sources */,
@@ -2560,6 +2602,7 @@
 				B96D54C0242FBF1400023BC9 /* ResetPasswordService.swift in Sources */,
 				B97748412443195D004D39AD /* TaskSelectionPresenter.swift in Sources */,
 				B9A0C9AB242FC58C00EB6FAE /* CategoriesPresenter.swift in Sources */,
+				C6874EA22653FC65005009E4 /* OrganizationActionsService.swift in Sources */,
 				B9E7CEC925B49A490033810D /* FMPhotoPickerViewController+Config.swift in Sources */,
 				B944A8F3246217F8002170FD /* TaskDescriptionInteractor.swift in Sources */,
 				B948A22624144BFA001287B8 /* AppDelegate+Configurations.swift in Sources */,
@@ -2567,6 +2610,7 @@
 				B992D522245793A9002ABF71 /* NewBenefitsContentCell.swift in Sources */,
 				B93F2B76264079FF00A8A8D6 /* AddCompanyService.swift in Sources */,
 				B90AF9F52651826D007BB288 /* CompanyActionsListDependency.swift in Sources */,
+				C6874EAF26540413005009E4 /* CompanyActionsAggregatorInteractor.swift in Sources */,
 				B9787F40246B54F2007DB617 /* TaskSelectionResponseEntity.swift in Sources */,
 				B9BF701324433D590051CF41 /* BUNavigationController.swift in Sources */,
 				B9E7CE8425B481870033810D /* AddCompanyInputHeader.swift in Sources */,
@@ -2786,7 +2830,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F69M5SBR3W;
+				DEVELOPMENT_TEAM = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "bonup-mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2795,7 +2839,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG_PAID\"";
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bonup.debug.paid;
 				PRODUCT_NAME = "$(APP_NAME)";
 				SWIFT_VERSION = 5.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(inherited)";
