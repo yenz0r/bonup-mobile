@@ -67,27 +67,28 @@ final class CategoriesView: BULoginViewController {
             make.width.equalTo(100.0)
             make.centerX.equalToSuperview()
         }
-
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // configurations
-        self.navigationItem.title = "ui_categories_title".localized
         self.configureViews()
-
-        // data
-        self.presenter.handleViewDidLoad()
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-
-        self.presenter.handleViewDidDisappear()
+        self.configureNavigationBar()
     }
 
     // MARK: - Configuration
+    
+    private func configureNavigationBar() {
+        
+        self.navigationItem.title = "ui_categories_title".localized
+        
+        let item = UIBarButtonItem(title: "ui_done_title".localized,
+                                   style: .plain,
+                                   target: self,
+                                   action: #selector(doneTapped))
+        
+        self.navigationItem.rightBarButtonItem = item
+    }
 
     private func configureViews() {
 
@@ -107,8 +108,14 @@ final class CategoriesView: BULoginViewController {
     }
 
     // MARK: - Selectors
+    
+    @objc private func doneTapped() {
+        
+        self.presenter.handleDoneButtonTap()
+    }
 
     @objc private func skipButtonTapped() {
+        
         self.presenter.handleSkipButtonTap()
     }
 }
@@ -124,8 +131,13 @@ extension CategoriesView: ICategoriesView {
 // MARK: - SwipeCardStackDelegate implementation
 
 extension CategoriesView: SwipeCardStackDelegate {
-    func cardStack(_ cardStack: SwipeCardStack, didSwipeCardAt index: Int, with direction: SwipeDirection) {
-        self.presenter.handleCardSwipe(at: index, isLike: direction == .right)
+    
+    func cardStack(_ cardStack: SwipeCardStack,
+                   didSwipeCardAt index: Int,
+                   with direction: SwipeDirection) {
+        
+        self.presenter.handleCardSwipe(at: index,
+                                       isLike: direction == .right)
     }
 }
 
@@ -133,10 +145,12 @@ extension CategoriesView: SwipeCardStackDelegate {
 
 extension CategoriesView: SwipeCardStackDataSource {
     func numberOfCards(in cardStack: SwipeCardStack) -> Int {
+        
         return self.presenter.categories.count
     }
 
     func cardStack(_ cardStack: SwipeCardStack, cardForIndexAt index: Int) -> SwipeCard {
+        
         return CategoryCardView(
             title: self.presenter.categories[index].title,
             desctiptionText: self.presenter.categories[index].description

@@ -198,3 +198,12 @@
 "ui_company_coupons_help_message" = "Здесь находятся все купоны организации";
 "ui_company_add_stock" = "Добавить Акцию";
 "ui_successfully_added_message" = "Успешно добавлено";
+"ui_food_category_description" = "Для всех кто обожает вкусно покушать";
+"ui_sport_category_description" = "Спорт продлевает жизнь и делает ее интереснее";
+"ui_media_category_description" = "Киберспрортсмены и их родители будут рады";
+"ui_health_category_description" = "В здоровом теле - здоровый дух";
+"ui_literature_category_description" = "Литература даелаем мир романтичнее и краше";
+"ui_films_category_description" = "Мы любим киноманов и помогаем им кайфовать в лучших местах";
+"ui_music_category_description" = "Музыканты могут творить только в правильных местах";
+"ui_coffe_category_description" = "С утра выпей чашечку кофе, а вечером спа мир";
+"ui_services_category_description" = "Оказание любых услуг для улучшения Вашей жизни";

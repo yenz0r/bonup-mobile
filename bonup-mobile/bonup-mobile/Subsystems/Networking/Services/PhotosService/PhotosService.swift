@@ -23,6 +23,14 @@ enum PhotosService {
         
         return URL(string: urlStr)
     }
+    
+    static func photoPath(for id: Int?) -> String {
+        
+        guard let id = id else { return "" }
+        
+        let api = serverBase + "/photo"
+        return api + "/\(id)"
+    }
 }
 
 extension PhotosService: IAuthorizedTargetType {

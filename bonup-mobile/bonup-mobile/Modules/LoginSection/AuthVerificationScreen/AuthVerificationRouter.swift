@@ -55,7 +55,8 @@ extension AuthVerificationRouter: IAuthVerificationRouter {
         case .openApplication:
             AppRouter.shared.present(.openApplication)
         case .categories:
-            let categoriesDependency = CategoriesDependency(parentViewController: view)
+            let categoriesDependency = CategoriesDependency(parentViewController: view,
+                                                            target: .login)
             let categoriesRouter = CategoriesBuilder().build(categoriesDependency)
             categoriesRouter.start(nil)
         case .newPassword:

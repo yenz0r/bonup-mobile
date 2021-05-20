@@ -201,3 +201,12 @@
 "ui_company_coupons_help_message" = "Here you can see all coupons of company";
 "ui_company_add_stock" = "Add Stock";
 "ui_successfully_added_message" = "Successfully Added";
+"ui_food_category_description" = "For everyone who loves to eat deliciously";
+"ui_sport_category_description" = "Sport prolongs life and makes it more interesting";
+"ui_media_category_description" = "Cybersportsmen and their parents will be delighted";
+"ui_health_category_description" = "In a healthy body healthy mind";
+"ui_literature_category_description" = "Literature making the world more romantic and more beautiful";
+"ui_films_category_description" = "We love moviegoers and help them get high in the best places";
+"ui_music_category_description" = "Musicians can only create in the right places";
+"ui_coffe_category_description" = "Have a cup of coffee in the morning and spa world in the evening";
+"ui_services_category_description" = "Providing any services to improve your life";

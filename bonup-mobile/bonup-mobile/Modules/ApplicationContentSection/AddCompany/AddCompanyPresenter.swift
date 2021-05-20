@@ -144,5 +144,6 @@ extension AddCompanyPresenter: FMPhotoPickerViewControllerDelegate {
                                  didFinishPickingPhotoWith photos: [UIImage]) {
 
         self.view?.setupImage(photos.first ?? AssetsHelper.shared.image(.addImageIcon)!)
+        self.router.show(.dissmisPhotoPicker)
     }
 }

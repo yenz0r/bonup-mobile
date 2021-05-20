@@ -9,6 +9,7 @@
 import UIKit
 
 protocol ITaskSelectionPresenter: AnyObject {
+    
     func handleTaskSelection(at index: Int, isLike: Bool)
     func handleReturnButtonTap()
     func handleInfoButtonTap()
@@ -68,7 +69,7 @@ extension TaskSelectionPresenter: ITaskSelectionPresenter {
                     id: entity.id,
                     title: entity.name,
                     description: entity.description,
-                    imageLink: String(entity.photos.first ?? 0)
+                    imageLink: PhotosService.photoPath(for: entity.photoId)
                 )
             }
             

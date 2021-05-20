@@ -204,6 +204,8 @@ extension SettingsPresenter: FMPhotoPickerViewControllerDelegate {
             self.view?.setupAvatarIcon(icon: AssetsHelper.shared.image(.addImageIcon)!)
             return
         }
+        
+        self.router.show(.dissmisPhotoPicker)
 
         self.interactor.uploadAvatar(icon) { [weak self] in
 

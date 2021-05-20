@@ -49,6 +49,39 @@ enum InterestCategories: Int, CaseIterable {
         }
     }
     
+    var description: String {
+
+        switch self {
+        
+        case .food:
+            return "ui_food_category_description"
+            
+        case .sport:
+            return "ui_sport_category_description"
+            
+        case .media:
+            return "ui_media_category_description"
+            
+        case .health:
+            return "ui_health_category_description"
+            
+        case .literature:
+            return "ui_literature_category_description"
+            
+        case .films:
+            return "ui_films_category_description"
+            
+        case .music:
+            return "ui_music_category_description"
+            
+        case .coffe:
+            return "ui_coffe_category_description"
+            
+        case .services:
+            return "ui_services_category_description"
+        }
+    }
+    
     var color: UIColor {
         
         switch self {

@@ -159,5 +159,7 @@ extension AddCompanyActionPresenter: FMPhotoPickerViewControllerDelegate {
         
         self.view?.setupImage(photo)
         self.selectedPhoto = photo
+        
+        self.router.show(.dissmisPhotoPicker)
     }
 }

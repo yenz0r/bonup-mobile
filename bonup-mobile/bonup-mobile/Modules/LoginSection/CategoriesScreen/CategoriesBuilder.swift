@@ -16,7 +16,7 @@ final class CategoriesBuilder: ICategoriesBuilder {
     func build(_ dependency: CategoriesDependency) -> ICategoriesRouter {
         let view = CategoriesView()
         let router = CategoriesRouter(view: view, parentController: dependency.parentViewController)
-        let interactor = CategoriesInteractor()
+        let interactor = CategoriesInteractor(target: dependency.target)
         let presenter =  CategoriesPresenter(view: view, interactor: interactor, router: router)
         view.presenter = presenter
 

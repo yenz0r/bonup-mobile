@@ -26,6 +26,7 @@ final class AddCompanyRouter {
         case actionsAggregator(String)
         case showLoadingAlert
         case hideLoadingAlert
+        case dissmisPhotoPicker
     }
 
     private var view: AddCompanyView?
@@ -102,6 +103,10 @@ extension AddCompanyRouter: IAddCompanyRouter {
             let router = builder.build(dependency)
             
             router.start(nil)
+            
+        case .dissmisPhotoPicker:
+        
+            self.view?.dismiss(animated: true, completion: nil)
         }
     }
 }

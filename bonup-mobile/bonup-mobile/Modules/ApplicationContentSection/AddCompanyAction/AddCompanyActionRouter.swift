@@ -22,6 +22,7 @@ final class AddCompanyActionRouter {
 
         case addImage(FMPhotoPickerViewControllerDelegate)
         case showResultAlert(String, Bool)
+        case dissmisPhotoPicker
     }
 
     private var view: AddCompanyActionView?
@@ -81,6 +82,10 @@ extension AddCompanyActionRouter: IAddCompanyActionRouter {
                     }
                 }
             )
+            
+        case .dissmisPhotoPicker:
+        
+            self.view?.dismiss(animated: true, completion: nil)
         }
     }
 }

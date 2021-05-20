@@ -30,6 +30,8 @@ final class SettingsRouter {
         
         case showLoadingAlert
         case hideLoadingAlert
+        
+        case dissmisPhotoPicker
     }
 
     private var view: SettingsView?
@@ -71,7 +73,8 @@ extension SettingsRouter: ISettingsRouter {
         case .logout:
             AppRouter.shared.present(.login(name: nil, email: nil))
         case .categories:
-            let dependency = CategoriesDependency(parentViewController: view)
+            let dependency = CategoriesDependency(parentViewController: view,
+                                                  target: .settings)
             let builder = CategoriesBuilder()
             let router = builder.build(dependency)
             router.start(nil)
@@ -125,6 +128,10 @@ extension SettingsRouter: ISettingsRouter {
         case .hideLoadingAlert:
             
             AlertsFactory.shared.loadingAlert(.hide)
+            
+        case .dissmisPhotoPicker:
+        
+            self.view?.dismiss(animated: true, completion: nil)
         }
     }
 }

@@ -47,10 +47,7 @@ extension TaskSelectionService: IAuthorizedTargetType {
         case .getTasks(let token):
             return .requestParameters(
                 parameters: [
-                    "token": token,
-                    "categoryId": 11,
-                    "page": 0,
-                    "number": 10
+                    "token": token
                 ],
                 encoding: JSONEncoding.default
             )

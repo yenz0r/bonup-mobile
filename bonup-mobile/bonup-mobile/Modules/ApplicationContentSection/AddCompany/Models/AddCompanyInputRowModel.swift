@@ -69,6 +69,14 @@ struct AddCompanyInputRowModel {
         
         self.rowType = rowType
         self.value = value
-        self.isEnabled = mode != .read
+        
+        if rowType == .title && mode == .modify {
+            
+            self.isEnabled = false
+        }
+        else {
+         
+            self.isEnabled = mode != .read
+        }
     }
 }

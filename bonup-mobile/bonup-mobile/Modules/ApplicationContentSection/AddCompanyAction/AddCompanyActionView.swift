@@ -218,7 +218,5 @@ extension AddCompanyActionView: IAddCompanyActionView {
         
         self.actionImageView.image = image
         self.presenter.selectedPhoto = image
-        
-        self.dismiss(animated: true, completion: nil)
     }
 }

@@ -37,7 +37,10 @@ final class AddCompanyInputCell: UITableViewCell {
     func configure(with model: AddCompanyInputRowModel) {
 
         self.titleLabel.nonlocalizedTitle = model.rowType.title
+        
         self.textField.text = model.value
+        self.setupTextFieldAppearance(isEnabled: model.isEnabled)
+        
         self.isUserInteractionEnabled = model.isEnabled
     }
 
@@ -54,6 +57,12 @@ final class AddCompanyInputCell: UITableViewCell {
         self.backgroundColor = .clear
     }
 
+    private func setupTextFieldAppearance(isEnabled: Bool) {
+        
+        self.textField.isEnabled = isEnabled
+        self.textField.alpha = isEnabled ? 1.0 : 0.5
+    }
+    
     private func setupSubviews() {
 
         self.titleLabel = self.configureTitleLabel()

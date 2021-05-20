@@ -41,7 +41,8 @@ extension CategoriesRouter: ICategoriesRouter {
     }
 
     func stop(_ completion: (() -> Void)?) {
-        self.parentController?.navigationController?.popToRootViewController(animated: true)
+        
+        self.parentController?.navigationController?.popViewController(animated: true)
         completion?()
         self.view = nil
     }

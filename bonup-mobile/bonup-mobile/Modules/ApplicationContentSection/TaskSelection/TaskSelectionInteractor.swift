@@ -17,8 +17,7 @@ protocol ITaskSelectionInteractor: AnyObject {
 
 final class TaskSelectionInteractor {
 
-    private let networkProvider = MainNetworkProvider<TaskSelectionService>()
-
+    private lazy var networkProvider = MainNetworkProvider<TaskSelectionService>()
 }
 
 // MARK: - ITaskSelectionInteractor implementation
