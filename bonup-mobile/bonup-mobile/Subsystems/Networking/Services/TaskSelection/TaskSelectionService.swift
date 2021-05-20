@@ -23,7 +23,7 @@ extension TaskSelectionService: IAuthorizedTargetType {
     var path: String {
         switch self {
         case .getTasks(_):
-            return "/tasks"
+            return "/tasksCatalog"
         case .saveTasks(_, _):
             return "/saveOrUnsaveTask"
         }
