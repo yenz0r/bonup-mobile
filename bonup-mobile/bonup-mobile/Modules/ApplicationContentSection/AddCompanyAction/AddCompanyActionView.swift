@@ -112,7 +112,7 @@ final class AddCompanyActionView: BUContentViewController {
 
         let gesture = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
         iv.addGestureRecognizer(gesture)
-        iv.isUserInteractionEnabled = true
+        iv.isUserInteractionEnabled = self.presenter.currentMode != .read
 
         return iv
     }
@@ -121,7 +121,8 @@ final class AddCompanyActionView: BUContentViewController {
 
         let dataSource = SelectCategoriesDataSource(
             selectedCategories: [self.presenter.selectedCategory],
-            selectionMode: SelectCategoriesDataSource.SelectionMode.single
+            selectionMode: SelectCategoriesDataSource.SelectionMode.single,
+            isChangable: self.presenter.currentMode != .read
         )
         let container = SelectCategoriesContainer(delegate: self, dataSource: dataSource)
 
@@ -141,7 +142,8 @@ final class AddCompanyActionView: BUContentViewController {
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         tableView.tableFooterView = UIView()
 
-        tableView.register(AddCompanyActionCell.self, forCellReuseIdentifier: AddCompanyActionCell.reuseId)
+        tableView.register(AddCompanyActionCell.self,
+                           forCellReuseIdentifier: AddCompanyActionCell.reuseId)
 
         return tableView
     }

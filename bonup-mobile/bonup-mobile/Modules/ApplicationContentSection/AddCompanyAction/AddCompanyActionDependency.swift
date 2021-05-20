@@ -19,5 +19,5 @@ struct AddCompanyActionDependency {
     let actionType: CompanyActionType
     let organizationId: String?
     let action: OrganizationActionEntity?
-    let mode: Mode = .create
+    let mode: Mode
 }

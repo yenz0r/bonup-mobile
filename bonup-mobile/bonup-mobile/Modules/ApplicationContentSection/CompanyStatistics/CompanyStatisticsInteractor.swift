@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ICompanyStatisticsInteractor: AnyObject {
 
@@ -18,7 +19,7 @@ protocol ICompanyStatisticsInteractor: AnyObject {
     func loadStats(success: (() -> Void)?,
                    failure: ((String) -> Void)?)
     
-    var filteredActions: [OrganizationActionEntity] { get }
+    func filteredActions() -> (labels: [String], actions: [[OrganizationActionEntity]])
 }
 
 final class CompanyStatisticsInteractor {
@@ -38,12 +39,32 @@ final class CompanyStatisticsInteractor {
                 return "ui_coupons_title"
             }
         }
+        
+        var gradientForChart: CGGradient {
+            
+            var color: UIColor
+            
+            switch self {
+            
+            case .tasks:
+                color = .cyan
+                
+            case .coupons:
+                color = .orange
+            }
+            
+            let gradientColors = [color.cgColor, UIColor.clear.cgColor] as CFArray
+            let colorLocations:[CGFloat] = [1.0, 0.0]
+            return CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(),
+                                   colors: gradientColors,
+                                   locations: colorLocations)!
+        }
     }
     
     // MARK: - Public variables
     
     var selectedInfoType: CompanyStatisticsInteractor.InfoType = .tasks
-    var selectedCategoriesId = [Int]()
+    var selectedCategoriesId = InterestCategories.allCases.map { $0.rawValue }
     var periodFromDate: Date = Date().withDaysOffset(-7)
     var periodToDate: Date = Date()
     
@@ -58,7 +79,6 @@ final class CompanyStatisticsInteractor {
     init(companyId: String) {
         
         self.companyId = companyId
-        self.loadStats(success: nil, failure: nil)
     }
 }
 
@@ -87,9 +107,9 @@ extension CompanyStatisticsInteractor: ICompanyStatisticsInteractor {
             })
     }
     
-    var filteredActions: [OrganizationActionEntity] {
+    func filteredActions() -> (labels: [String], actions: [[OrganizationActionEntity]]) {
         
-        guard let stats = self.statsEntity else { return [] }
+        guard let stats = self.statsEntity else { return ([], []) }
         
         var actions: [OrganizationActionEntity]
         
@@ -101,10 +121,32 @@ extension CompanyStatisticsInteractor: ICompanyStatisticsInteractor {
             actions = stats.coupons
         }
         
-        return actions
-            .filter { self.selectedCategoriesId.contains($0.categoryId) }
-            .filter { $0.endDateTimestamp <= self.periodToDate.timestamp }
-            .filter { $0.startDateTimestamp >= self.periodFromDate.timestamp }
-            .sorted { $0.endDateTimestamp > $1.endDateTimestamp }
+        actions = actions
+            .filter { self.selectedCategoriesId.contains($0.categoryId) &&
+                      $0.endDateTimestamp <= self.periodToDate.timestamp &&
+                      $0.startDateTimestamp >= self.periodFromDate.timestamp }
+        
+        var startDate = self.periodFromDate
+        let endDate = self.periodToDate
+        
+        var resultActions = [[OrganizationActionEntity]]()
+        var resultDates = [String]()
+        
+        while startDate <= endDate {
+            
+            let selectedDateActions = actions.filter {
+                
+                Date.isEqual(firstDate: Date.dateFromTimestamp($0.startDateTimestamp),
+                             secondDate: startDate,
+                             by: [.year, .month, .day])
+            }
+            
+            resultActions.append(selectedDateActions)
+            resultDates.append(Date.dateFormatter.string(from: startDate))
+            
+            startDate = startDate.withDaysOffset(1)
+        }
+        
+        return (resultDates, resultActions)
     }
 }

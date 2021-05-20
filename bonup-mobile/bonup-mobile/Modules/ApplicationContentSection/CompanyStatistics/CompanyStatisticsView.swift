@@ -38,6 +38,13 @@ final class CompanyStatisticsView: BUContentViewController {
         self.setupNavigationBar()
     }
     
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        self.presenter.handleViewDidLoad()
+    }
+    
     override func controllerDidTerminate() {
         
         super.controllerDidTerminate()
@@ -161,7 +168,7 @@ final class CompanyStatisticsView: BUContentViewController {
     
     private func configureCategoriesContainer() -> SelectCategoriesContainer {
         
-        let dataSource = SelectCategoriesDataSource(selectedCategories: InterestCategories.allCases,
+        let dataSource = SelectCategoriesDataSource(selectedCategories: self.presenter.selectedCategories,
                                                     selectionMode: .multiple)
         let container = SelectCategoriesContainer(delegate: self, dataSource: dataSource)
 
@@ -201,7 +208,7 @@ extension CompanyStatisticsView: ChartViewDelegate {
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         
-        print(entry)
+        self.presenter.handleChartItemSelection(at: Int(entry.x))
     }
 }
 

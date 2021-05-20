@@ -65,7 +65,7 @@ final class AddCompanyActionCell: UITableViewCell {
             fallthrough
         case .endDate:
             self.valueTextField.isEnabled = false
-            self.tapGesture.isEnabled = true
+            self.tapGesture.isEnabled = mode != .read
         }
         
         self.setupAppearance(for: mode)

@@ -20,6 +20,8 @@ final class CompanyStatisticsRouter {
     enum RouterScenario {
         
         case share(UIImage)
+        case showResultAlert(String)
+        case showActionsList([OrganizationActionEntity], CompanyActionsListDependency.ContentType)
     }
 
     private var view: CompanyStatisticsView?
@@ -72,6 +74,28 @@ extension CompanyStatisticsRouter: ICompanyStatisticsRouter {
             
             activityViewController.popoverPresentationController?.sourceView = view.view
             view.present(activityViewController, animated: true, completion: nil)
+            
+        case .showResultAlert(let message):
+            AlertsFactory.shared.infoAlert(
+                for: .error,
+                title: "ui_help_title".localized,
+                description: message,
+                from: view,
+                completion: nil
+            )
+            
+        case .showActionsList(let actions, let contentType):
+            
+            let dependecy = CompanyActionsListDependency(
+                parentNavigationController: self.parentNavigationController,
+                contentType: contentType,
+                contentMode: .show,
+                actions: actions
+            )
+            let builder = CompanyActionsListBuilder()
+            let router: ICompanyActionsListRouter = builder.build(dependecy)
+            
+            router.start(nil)
         }
     }
 }

@@ -16,11 +16,14 @@ protocol ICompanyStatisticsPresenter: AnyObject {
     
     var intoTypesNonLocTitles: [String] { get }
     var selectedInfoTypeIndex: Int? { get }
+    var selectedCategories: [InterestCategories] { get set }
     
-    func updateSelectedCategories(ids: [Int])
     func updateSelectedInfoType(at index: Int)
     
     func handleShareAction(image: UIImage)
+    func handleViewDidLoad()
+    
+    func handleChartItemSelection(at index: Int)
     
     func terminate()
 }
@@ -59,6 +62,7 @@ extension CompanyStatisticsPresenter: ICompanyStatisticsPresenter {
         set {
             
             self.interactor.periodToDate = newValue
+            self.refreshChartsData()
         }
     }
     
@@ -72,6 +76,7 @@ extension CompanyStatisticsPresenter: ICompanyStatisticsPresenter {
         set {
             
             self.interactor.periodFromDate = newValue
+            self.refreshChartsData()
         }
     }
     
@@ -80,18 +85,46 @@ extension CompanyStatisticsPresenter: ICompanyStatisticsPresenter {
         return CompanyStatisticsInteractor.InfoType.allCases.map { $0.nonlocalizedTitle }
     }
     
+    func handleChartItemSelection(at index: Int) {
+        
+        let contentType: CompanyActionsListDependency.ContentType
+        
+        switch self.interactor.selectedInfoType {
+        
+        case .tasks:
+            contentType = .tasks
+            
+        case .coupons:
+            contentType = .coupons
+        }
+        
+        self.router.show(.showActionsList(self.interactor.filteredActions().actions[index], contentType))
+    }
+    
     func updateSelectedInfoType(at index: Int) {
         
         self.interactor.selectedInfoType = CompanyStatisticsInteractor.InfoType.allCases[index]
+        self.refreshChartsData()
+    }
+    
+    var selectedCategories: [InterestCategories] {
         
-//        self.view?.reloadChart(data: self.calculareDataSet())
+        get {
+            
+            self.interactor.selectedCategoriesId.map { .category(id: $0) }
+        }
+        
+        set {
+            
+            self.interactor.selectedCategoriesId = newValue.map { $0.rawValue }
+            self.refreshChartsData()
+        }
     }
     
     func updateSelectedCategories(ids: [Int]) {
         
         self.interactor.selectedCategoriesId = ids
-        
-//        self.view?.reloadChart(data: self.calculareDataSet())
+        self.refreshChartsData()
     }
     
     func terminate() {
@@ -112,20 +145,45 @@ extension CompanyStatisticsPresenter: ICompanyStatisticsPresenter {
             .firstIndex(of: self.interactor.selectedInfoType)
     }
     
-    private func calculareDataSet() -> LineChartData {
+    func handleViewDidLoad() {
         
-//        let yVals1 = (0..<(self.interactor.selectedPeriod.id + 1) * 10).map { (i) -> ChartDataEntry in
-//            let mult: UInt32 = 50 / 2
-//            let val = Double(arc4random_uniform(mult) + 50)
-//            return ChartDataEntry(x: Double(i), y: val)
-//        }
-//
-//        let dataSet = LineChartDataSet(entries: yVals1, label: "ui_user_activity".localized)
-//
-//        dataSet.fill = Fill.fillWithLinearGradient(self.interactor.selectedPeriod.gradientForChart, angle: 90.0)
-//        dataSet.drawFilledEnabled = true
-//        dataSet.mode = LineChartDataSet.Mode.cubicBezier
+        self.interactor.loadStats(
+            success: { [weak self] in
+                
+                DispatchQueue.main.async {
+                 
+                    self?.refreshChartsData()
+                }
+            },
+            failure: { [weak self] text in
+                
+                DispatchQueue.main.async {
+                    
+                    self?.router.show(.showResultAlert(text))
+                }
+            }
+        )
+    }
+    
+    private func refreshChartsData() {
         
-        return LineChartData()
+        let statsData = self.interactor.filteredActions()
+        
+        var entries = [ChartDataEntry]()
+        
+        for (index, actions) in statsData.actions.enumerated() {
+            
+            entries.append(ChartDataEntry(x: Double(index), y: Double(actions.count)))
+        }
+        
+        let dataSet = LineChartDataSet(entries: entries, label: "ui_user_activity".localized)
+        dataSet.fill = Fill.fillWithLinearGradient(self.interactor.selectedInfoType.gradientForChart,
+                                                   angle: 90.0)
+        dataSet.drawFilledEnabled = true
+        dataSet.mode = LineChartDataSet.Mode.cubicBezier
+        
+        let data = LineChartData(dataSet: dataSet)
+        
+        self.view?.reloadChart(data: data, labels: statsData.labels)
     }
 }

@@ -61,11 +61,26 @@ extension CompanyActionsListRouter: ICompanyActionsListRouter {
 
         case .showActionDetails(let mode, let action):
             
+            let listMode: CompanyActionType
+            
+            switch mode {
+            case .coupons:
+                listMode = .coupon
+                
+            case .tasks:
+                listMode = .task
+                
+            case .stocks:
+                listMode = .stock
+            }
+            
             let dependecy = AddCompanyActionDependency(
                 parentNavigationController: self.parentNavigationController,
-                actionType: mode == .tasks ? .task : .coupon,
+                actionType: listMode,
                 organizationId: nil,
-                action: action)
+                action: action,
+                mode: .read
+            )
             let builder = AddCompanyActionBuilder()
             let router = builder.build(dependecy)
             

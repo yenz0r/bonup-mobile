@@ -322,9 +322,23 @@ extension AddCompanyInteractor: IAddCompanyInteractor {
             
             requestModel.photoId = Int(photoId) ?? 0
             
+            var target: AddCompanyService
+            
+            guard let mode = self?.moduleMode else { return }
+            
+            switch mode {
+            case .create:
+                target = .addCompany(token: token, companyEntity: requestModel)
+                
+            case .modify:
+                target = .modifyCompany(token: token, companyEntity: requestModel)
+                
+            case .read:
+                return
+            }
+            
             _ = self?.companyInfoNetworkProvider
-                .request(.addCompany(token: token,
-                                     companyEntity: requestModel),
+                .request(target,
                          type: DefaultResponseEntity.self,
                          completion: { result in
                             

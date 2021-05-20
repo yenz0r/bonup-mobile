@@ -146,7 +146,6 @@ final class CompanyActionsAggregatorView: BUContentViewController {
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isScrollEnabled = false
-        collectionView.isScrollEnabled = false
 
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "sectionCell")
 
@@ -225,7 +224,9 @@ extension CompanyActionsAggregatorView: UICollectionViewDataSource {
         }
 
         cell.contentView.addSubview(content)
-        content.frame = cell.contentView.bounds
+        content.snp.makeConstraints { $0.edges.equalToSuperview()
+            $0.size.equalTo(cell.frame.size)
+        }
 
         return cell
     }

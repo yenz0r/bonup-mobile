@@ -231,64 +231,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F787D0F8-997E-43C5-8F4B-98B451FC5CF9"
+            uuid = "19065D40-40B6-4407-B1AB-374AE0B6FF04"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "bonup-mobile/Modules/ApplicationContentSection/AddCompanyAction/AddCompanyActionRouter.swift"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/CompanyStatistics/CompanyStatisticsRouter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "stop(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8D372EFE-2E47-4552-8166-6F7705021DDC"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bonup-mobile/Modules/ApplicationContentSection/CompanyActionsList/CompanyActionsListInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "loadActions(companyName:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B923B408-BDD1-4498-85E4-3E28DA29E63B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bonup-mobile/Modules/ApplicationContentSection/CompanyStatistics/CompanyStatisticsInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "loadStats(success:failure:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9EC18F10-772C-4ED0-A5C8-4BB3774A86A1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bonup-mobile/Modules/ApplicationContentSection/CompanyStatistics/CompanyStatisticsInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "loadStats(success:failure:)"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "show(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

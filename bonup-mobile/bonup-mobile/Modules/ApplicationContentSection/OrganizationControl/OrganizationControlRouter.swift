@@ -84,7 +84,8 @@ extension OrganizationControlRouter: IOrganizationControlRouter {
                 parentNavigationController: self.parentController.navigationController!,
                 actionType: actionType,
                 organizationId: organizationId,
-                action: nil
+                action: nil,
+                mode: .create
             )
             let builder = AddCompanyActionBuilder()
             let router = builder.build(dependency)
@@ -109,10 +110,12 @@ extension OrganizationControlRouter: IOrganizationControlRouter {
             
         case .modifyCompanyInfo(let company):
             
-            let dependency = AddCompanyDependency(parentNavigationController: self.parentController.navigationController!,
-                                                  initCompany: company,
-                                                  mode: .modify,
-                                                  companyPacket: nil)
+            let dependency = AddCompanyDependency(
+                parentNavigationController: self.parentController.navigationController!,
+                initCompany: company,
+                mode: .modify,
+                companyPacket: nil
+            )
             let builder = AddCompanyBuilder()
             let router = builder.build(dependency)
             
@@ -120,8 +123,10 @@ extension OrganizationControlRouter: IOrganizationControlRouter {
             
         case .showActions(let companyName):
             
-            let dependency = CompanyActionsAggregatorDependency(parentNavigationController: self.parentController.navigationController!,
-                                                                companyName: companyName)
+            let dependency = CompanyActionsAggregatorDependency(
+                parentNavigationController: self.parentController.navigationController!,
+                companyName: companyName
+            )
             let builder = CompanyActionsAggregatorBuilder()
             let router = builder.build(dependency)
             
