@@ -11,7 +11,7 @@ import Charts
 
 protocol ICompanyStatisticsView: AnyObject {
     
-    func reloadChart(data: LineChartData)
+    func reloadChart(data: LineChartData, labels: [String])
 }
 
 final class CompanyStatisticsView: BUContentViewController {
@@ -151,6 +151,8 @@ final class CompanyStatisticsView: BUContentViewController {
         let chart = LineChartView()
         
         chart.xAxis.labelRotationAngle = -90.0
+        chart.xAxis.labelCount = 5
+        chart.xAxis.granularity = 1
         chart.legend.enabled = false
         chart.delegate = self
         
@@ -207,9 +209,13 @@ extension CompanyStatisticsView: ChartViewDelegate {
 
 extension CompanyStatisticsView: ICompanyStatisticsView {
     
-    func reloadChart(data: LineChartData) {
+    func reloadChart(data: LineChartData, labels: [String]) {
      
         self.chartView.data = data
+        self.chartView.xAxis.valueFormatter = DefaultAxisValueFormatter(block: { index, _ in
+            
+            return labels[Int(index)]
+        })
         self.chartView.animate(yAxisDuration: 0.7, easing: .none)
         self.chartView.animate(xAxisDuration: 1, easing: .none)
     }

@@ -23,26 +23,26 @@ extension OrganizationActionsService: IAuthorizedTargetType {
     var path: String {
         switch self {
         case .getTasks(_, _):
-            return "/userOrganizations"
+            return "/organizationTasks"
             
         case .getCoupons(_, _):
-            return "/userOrganizations"
+            return "/organizationCoupons"
             
         case .getStocks(_, _):
-            return "/userOrganizations"
+            return "/organizationStocks"
         }
     }
 
     var method: Moya.Method {
         switch self {
         case .getTasks(_, _):
-            return .get
+            return .post
             
         case .getCoupons(_, _):
-            return .get
+            return .post
             
         case .getStocks(_, _):
-            return .get
+            return .post
         }
     }
 
@@ -59,7 +59,7 @@ extension OrganizationActionsService: IAuthorizedTargetType {
             return .requestParameters(
                 parameters: [
                     "token": token,
-                    "companyName": companyName
+                    "name": companyName
                 ],
                 encoding: JSONEncoding.default
             )

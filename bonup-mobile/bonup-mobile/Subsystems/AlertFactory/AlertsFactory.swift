@@ -23,6 +23,8 @@ final class AlertsFactory {
     }
 
     static let shared = AlertsFactory()
+    
+    private var loadingAlertsCount = 0
 
     private init() { }
 
@@ -62,11 +64,21 @@ final class AlertsFactory {
 
             switch action {
             case .show(let message):
+                
+                self.loadingAlertsCount += 1
                 SwiftSpinner.show(message)
+                
             case .showWithDuration(let duration, let message):
                 SwiftSpinner.show(duration: duration, title: message)
+                
             case .hide:
-                SwiftSpinner.hide()
+                
+                self.loadingAlertsCount -= 1
+                
+                if self.loadingAlertsCount == 0 {
+                
+                    SwiftSpinner.hide()
+                }
             }
 
         }

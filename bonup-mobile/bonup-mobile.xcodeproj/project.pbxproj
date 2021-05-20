@@ -23,6 +23,8 @@
 		B90AF9FA26518D1E007BB288 /* CompanyActionsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AF9F926518D1E007BB288 /* CompanyActionsListCell.swift */; };
 		B90AF9FD2652F037007BB288 /* PhotoResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AF9FC2652F037007BB288 /* PhotoResponseEntity.swift */; };
 		B90AF9FF2652FFEF007BB288 /* DefaultResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AF9FE2652FFEF007BB288 /* DefaultResponseEntity.swift */; };
+		B90AFA01265594D5007BB288 /* CompanyStatisticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AFA00265594D5007BB288 /* CompanyStatisticsService.swift */; };
+		B90AFA03265594E6007BB288 /* CompanyStatisticsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AFA02265594E6007BB288 /* CompanyStatisticsEntity.swift */; };
 		B90BED4425B5D92200AD78A8 /* CompanyPacketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED4325B5D92200AD78A8 /* CompanyPacketView.swift */; };
 		B90BED4925B5D92900AD78A8 /* CompanyPacketPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED4825B5D92900AD78A8 /* CompanyPacketPresenter.swift */; };
 		B90BED4E25B5D93000AD78A8 /* CompanyPacketInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED4D25B5D93000AD78A8 /* CompanyPacketInteractor.swift */; };
@@ -375,6 +377,8 @@
 		B90AF9F926518D1E007BB288 /* CompanyActionsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsListCell.swift; sourceTree = "<group>"; };
 		B90AF9FC2652F037007BB288 /* PhotoResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResponseEntity.swift; sourceTree = "<group>"; };
 		B90AF9FE2652FFEF007BB288 /* DefaultResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultResponseEntity.swift; sourceTree = "<group>"; };
+		B90AFA00265594D5007BB288 /* CompanyStatisticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyStatisticsService.swift; sourceTree = "<group>"; };
+		B90AFA02265594E6007BB288 /* CompanyStatisticsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyStatisticsEntity.swift; sourceTree = "<group>"; };
 		B90BED4325B5D92200AD78A8 /* CompanyPacketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketView.swift; sourceTree = "<group>"; };
 		B90BED4825B5D92900AD78A8 /* CompanyPacketPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketPresenter.swift; sourceTree = "<group>"; };
 		B90BED4D25B5D93000AD78A8 /* CompanyPacketInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketInteractor.swift; sourceTree = "<group>"; };
@@ -792,6 +796,15 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
+		B90AFA04265594EC007BB288 /* CompanyStatistics */ = {
+			isa = PBXGroup;
+			children = (
+				B90AFA00265594D5007BB288 /* CompanyStatisticsService.swift */,
+				B90AFA02265594E6007BB288 /* CompanyStatisticsEntity.swift */,
+			);
+			path = CompanyStatistics;
+			sourceTree = "<group>";
+		};
 		B90BED6125B5D95400AD78A8 /* CompanyPacket */ = {
 			isa = PBXGroup;
 			children = (
@@ -882,7 +895,6 @@
 			children = (
 				B9A732FC242D631800860346 /* Core */,
 				B9323664241D7F5B00A37634 /* Services */,
-				C6874EA32653FC82005009E4 /* OrganizationActionsService */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -904,6 +916,8 @@
 				B9A9189825B3431200919FE9 /* PhotosService */,
 				B93F2B802645C3DA00A8A8D6 /* CompaniesSearch */,
 				B93F2B7926407B4200A8A8D6 /* AddCompany */,
+				C6874EA32653FC82005009E4 /* OrganizationActionsService */,
+				B90AFA04265594EC007BB288 /* CompanyStatistics */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -2384,7 +2398,9 @@
 				B9787F4B246B7DF3007DB617 /* TaskListFinishedTasksEntity.swift in Sources */,
 				B9F04628263573DB00D2D3D8 /* AddCompanyActionView.swift in Sources */,
 				B990932925AF403100CF381B /* ThemeColorsManager.swift in Sources */,
+				B90AFA03265594E6007BB288 /* CompanyStatisticsEntity.swift in Sources */,
 				B9FC7990242FB77C00F2D5BC /* ApplicationContentDependency.swift in Sources */,
+				B90AFA01265594D5007BB288 /* CompanyStatisticsService.swift in Sources */,
 				B91A1E572451CD3A00837E73 /* ProfileAhievementsView.swift in Sources */,
 				B91E8099242FCEB400859C83 /* CategoriesService.swift in Sources */,
 				B9CEE69C241CE98000308098 /* LoginDependency.swift in Sources */,

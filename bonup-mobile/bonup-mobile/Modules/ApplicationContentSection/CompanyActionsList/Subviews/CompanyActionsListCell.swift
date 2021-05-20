@@ -94,7 +94,8 @@ final class CompanyActionsListCell: UITableViewCell {
     
     private func setupAppearance() {
         
-        self.setupSectionStyle()
+        self.container.setupSectionStyle()
+        self.selectionStyle = .none
     }
     
     // MARK: - Configure

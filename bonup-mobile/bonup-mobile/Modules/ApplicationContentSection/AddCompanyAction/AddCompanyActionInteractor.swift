@@ -119,6 +119,7 @@ extension AddCompanyActionInteractor: IAddCompanyActionInteractor {
             var requestEntity = OrganizationActionEntity()
             
             requestEntity.categoryId = self.selectedCategory.rawValue
+            requestEntity.organizationName = self.organizationId
             
             for viewModel in self._viewModels {
                 
@@ -150,10 +151,10 @@ extension AddCompanyActionInteractor: IAddCompanyActionInteractor {
                     requestEntity.endDateTimestamp = (viewModel.value as? Date ?? Date()).timestamp
                     
                 case .bonuses:
-                    requestEntity.bonusesCount = viewModel.value as? Int ?? 0
+                    requestEntity.bonusesCount = Int(viewModel.value as? String ?? "-") ?? 0
                     
                 case .allowedCount:
-                    requestEntity.allowedCount = viewModel.value as? Int ?? 0
+                    requestEntity.allowedCount = Int(viewModel.value as? String ?? "-") ?? 0
                     
                 }
             }
@@ -188,7 +189,7 @@ extension AddCompanyActionInteractor: IAddCompanyActionInteractor {
                                     
                                     if result.isSuccess {
                                         
-                                        success?(result.message)
+                                        success?("ui_successfully_added_message".localized)
                                     } else {
                                         
                                         failure?(result.message)

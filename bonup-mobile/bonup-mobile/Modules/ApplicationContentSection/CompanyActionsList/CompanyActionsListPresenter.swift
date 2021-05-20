@@ -113,7 +113,7 @@ extension CompanyActionsListPresenter: ICompanyActionsListPesenter {
         let startDate = Date.dateFromTimestamp(action.startDateTimestamp)
         let endDate = Date.dateFromTimestamp(action.endDateTimestamp)
         
-        return "\(self.dateFormatter.string(from: startDate)) / (\(self.dateFormatter.string(from: endDate))"
+        return "\(self.dateFormatter.string(from: startDate)) / \(self.dateFormatter.string(from: endDate))"
     }
     
     func handleActionSelection(at index: Int) {

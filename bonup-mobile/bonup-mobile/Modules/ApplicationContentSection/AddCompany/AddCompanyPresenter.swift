@@ -20,6 +20,7 @@ protocol IAddCompanyPresenter: AnyObject {
     func handleValueUpdate(_ value: String?, at indexPath: IndexPath)
     func handleAddImageTap()
     func handleDoneTap()
+    func handleActionsAggregatorTap()
     func handleSectionsUpdate(categories: [InterestCategories])
     func handleViewDidLoad()
 }
@@ -125,6 +126,13 @@ extension AddCompanyPresenter: IAddCompanyPresenter {
         
         get { self.interactor.selectedPhoto }
         set { self.interactor.selectedPhoto = newValue }
+    }
+    
+    func handleActionsAggregatorTap() {
+        
+        guard let company = self.interactor.initCompany else { return }
+        
+        self.router.show(.actionsAggregator(company.title))
     }
 }
 

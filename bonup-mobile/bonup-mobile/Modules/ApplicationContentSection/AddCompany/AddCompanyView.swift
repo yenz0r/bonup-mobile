@@ -50,7 +50,7 @@ final class AddCompanyView: BUContentViewController {
 
     override func setupLocalizableContent() {
 
-        if self.presenter.moduleMode == .create {
+        if self.presenter.moduleMode != .create {
             
             self.navigationItem.title = "ui_add_new_company".localized
             self.navigationItem.rightBarButtonItem?.title = "ui_done_title".localized
@@ -65,16 +65,24 @@ final class AddCompanyView: BUContentViewController {
 
     private func setupNavBar() {
 
+        let done: UIBarButtonItem
+        
         if self.presenter.moduleMode != .read {
             
-            let done = UIBarButtonItem(title: "ui_done_title".localized,
-                                       style: .plain,
-                                       target: self,
-                                       action: #selector(doneTapped))
-            done.theme_tintColor = Colors.navBarIconColor
-            self.navigationItem.rightBarButtonItem = done
-            
+            done = UIBarButtonItem(title: "ui_done_title".localized,
+                                   style: .plain,
+                                   target: self,
+                                   action: #selector(doneTapped))
         }
+        else {
+            
+            done = UIBarButtonItem(barButtonSystemItem: .organize,
+                                   target: self,
+                                   action: #selector(actionsAggregatorTapped))
+        }
+        
+        done.theme_tintColor = Colors.navBarIconColor
+        self.navigationItem.rightBarButtonItem = done
     }
 
     private func setupSubviews() {
@@ -164,6 +172,11 @@ final class AddCompanyView: BUContentViewController {
         self.view.endEditing(true)
         
         self.presenter.handleDoneTap()
+    }
+    
+    @objc private func actionsAggregatorTapped() {
+        
+        self.presenter.handleActionsAggregatorTap()
     }
 }
 

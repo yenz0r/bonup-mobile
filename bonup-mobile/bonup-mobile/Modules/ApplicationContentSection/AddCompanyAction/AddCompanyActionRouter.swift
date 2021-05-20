@@ -21,7 +21,7 @@ final class AddCompanyActionRouter {
     enum RouterScenario {
 
         case addImage(FMPhotoPickerViewControllerDelegate)
-        case showResultAlert(String)
+        case showResultAlert(String, Bool)
     }
 
     private var view: AddCompanyActionView?
@@ -49,6 +49,7 @@ extension AddCompanyActionRouter: IAddCompanyActionRouter {
     }
 
     func stop(_ completion: (() -> Void)?) {
+        
         self.parentNavigationController.popViewController(animated: true)
         self.view = nil
 
@@ -66,13 +67,19 @@ extension AddCompanyActionRouter: IAddCompanyActionRouter {
             picker.delegate = delegate
             view.present(picker, animated: true)
             
-        case .showResultAlert(let message):
+        case .showResultAlert(let message, let success):
             AlertsFactory.shared.infoAlert(
                 for: .error,
                 title: "ui_help_title".localized,
                 description: message,
                 from: view,
-                completion: nil
+                completion: { [weak self] in
+                    
+                    if success {
+                        
+                        self?.stop(nil)
+                    }
+                }
             )
         }
     }

@@ -197,3 +197,4 @@
 "ui_company_tasks_help_message" = "Здесь находятся все задачи организации";
 "ui_company_coupons_help_message" = "Здесь находятся все купоны организации";
 "ui_company_add_stock" = "Добавить Акцию";
+"ui_successfully_added_message" = "Успешно добавлено";

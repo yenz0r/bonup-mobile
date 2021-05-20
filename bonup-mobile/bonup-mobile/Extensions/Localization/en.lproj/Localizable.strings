@@ -200,3 +200,4 @@
 "ui_company_tasks_help_message" = "Here you can see all tasks of company";
 "ui_company_coupons_help_message" = "Here you can see all coupons of company";
 "ui_company_add_stock" = "Add Stock";
+"ui_successfully_added_message" = "Successfully Added";

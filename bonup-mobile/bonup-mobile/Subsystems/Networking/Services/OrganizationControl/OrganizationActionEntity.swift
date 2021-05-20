@@ -14,7 +14,7 @@ struct OrganizationActionEntity: Decodable {
     var descriptionText: String = ""
     var categoryId: Int = 0
     var bonusesCount: Int = 0
-    var organizationId: String = ""
+    var organizationName: String = ""
     var startDateTimestamp: Double = 0
     var endDateTimestamp: Double = 0
     var allowedCount: Int = 0

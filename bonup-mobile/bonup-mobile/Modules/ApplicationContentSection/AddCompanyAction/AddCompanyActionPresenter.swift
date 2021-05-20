@@ -85,15 +85,14 @@ extension AddCompanyActionPresenter: IAddCompanyActionPresenter {
             
             DispatchQueue.main.async {
              
-                self?.router.show(.showResultAlert(message))
-                self?.router.stop(nil)
+                self?.router.show(.showResultAlert(message, true))
             }
         }
         failure: { [weak self] message in
             
             DispatchQueue.main.async {
              
-                self?.router.show(.showResultAlert(message))
+                self?.router.show(.showResultAlert(message, false))
             }
         }
     }
@@ -155,7 +154,7 @@ extension AddCompanyActionPresenter: FMPhotoPickerViewControllerDelegate {
 
     func fmPhotoPickerController(_ picker: FMPhotoPickerViewController,
                                  didFinishPickingPhotoWith photos: [UIImage]) {
-
+        
         let photo = photos.first ?? AssetsHelper.shared.image(.addImageIcon)!
         
         self.view?.setupImage(photo)

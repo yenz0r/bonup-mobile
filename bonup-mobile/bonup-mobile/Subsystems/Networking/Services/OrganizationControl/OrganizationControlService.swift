@@ -31,11 +31,11 @@ extension OrganizationControlService: IAuthorizedTargetType {
         case .activateCoupon(_, _, _):
             return "/activateCoupon"
         case .putCoupon(_, _):
-            return "/putCoupon"
+            return "/newCoupon"
         case .putTask(_, _):
-            return "/putTask"
+            return "/newTask"
         case .putStock(_, _):
-            return "/putStock"
+            return "/newStock"
         }
     }
 
@@ -81,12 +81,16 @@ extension OrganizationControlService: IAuthorizedTargetType {
             
             return .requestParameters(
                 parameters: [
-                    "description": entity.descriptionText,
-                    "organizationName": entity.organizationId,
-                    "typeId": 1,
+                    "title": entity.title,
+                    "descriptionText": entity.descriptionText,
                     "token": token,
-                    "count": entity.bonusesCount,
-                    "name": entity.title
+                    "bonusesCount": entity.bonusesCount,
+                    "categoryId": entity.categoryId,
+                    "organizationName": entity.organizationName,
+                    "startDateTimestamp": entity.startDateTimestamp,
+                    "endDateTimestamp": entity.endDateTimestamp,
+                    "allowedCount": entity.allowedCount,
+                    "photoId": entity.photoId,
                 ],
                 encoding: JSONEncoding.default
             )

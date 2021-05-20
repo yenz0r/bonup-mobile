@@ -23,6 +23,7 @@ final class AddCompanyRouter {
         case addImage(FMPhotoPickerViewControllerDelegate)
         case organizationsList
         case showResultAlert(String)
+        case actionsAggregator(String)
         case showLoadingAlert
         case hideLoadingAlert
     }
@@ -90,6 +91,17 @@ extension AddCompanyRouter: IAddCompanyRouter {
         case .hideLoadingAlert:
             
             AlertsFactory.shared.loadingAlert(.hide)
+            
+        case .actionsAggregator(let companyName):
+            
+            let dependency = CompanyActionsAggregatorDependency(
+                parentNavigationController: self.parentNavigationController,
+                companyName: companyName
+            )
+            let builder = CompanyActionsAggregatorBuilder()
+            let router = builder.build(dependency)
+            
+            router.start(nil)
         }
     }
 }

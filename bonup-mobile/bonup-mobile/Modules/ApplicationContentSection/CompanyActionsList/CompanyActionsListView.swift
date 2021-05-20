@@ -58,7 +58,7 @@ final class CompanyActionsListView: BUContentViewController {
         
         self.tableView.snp.makeConstraints { make in
             
-            make.edges.equalToSuperview()
+            make.edges.equalToSuperview().inset(10)
         }
     }
     

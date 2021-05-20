@@ -84,14 +84,14 @@ extension CompanyStatisticsPresenter: ICompanyStatisticsPresenter {
         
         self.interactor.selectedInfoType = CompanyStatisticsInteractor.InfoType.allCases[index]
         
-        self.view?.reloadChart(data: self.calculareDataSet())
+//        self.view?.reloadChart(data: self.calculareDataSet())
     }
     
     func updateSelectedCategories(ids: [Int]) {
         
         self.interactor.selectedCategoriesId = ids
         
-        self.view?.reloadChart(data: self.calculareDataSet())
+//        self.view?.reloadChart(data: self.calculareDataSet())
     }
     
     func terminate() {
@@ -112,7 +112,6 @@ extension CompanyStatisticsPresenter: ICompanyStatisticsPresenter {
             .firstIndex(of: self.interactor.selectedInfoType)
     }
     
-    // TEST!!!!!!!!
     private func calculareDataSet() -> LineChartData {
         
 //        let yVals1 = (0..<(self.interactor.selectedPeriod.id + 1) * 10).map { (i) -> ChartDataEntry in
