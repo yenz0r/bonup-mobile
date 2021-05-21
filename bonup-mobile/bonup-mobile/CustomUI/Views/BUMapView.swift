@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import YandexMapKit
+import YandexMapsMobile
 
 final class BUMapView: YMKMapView {
 

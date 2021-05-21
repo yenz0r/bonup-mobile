@@ -27,6 +27,7 @@ final class AddCompanyRouter {
         case showLoadingAlert
         case hideLoadingAlert
         case dissmisPhotoPicker
+        case showAddressPicker
     }
 
     private var view: AddCompanyView?
@@ -107,6 +108,14 @@ extension AddCompanyRouter: IAddCompanyRouter {
         case .dissmisPhotoPicker:
         
             self.view?.dismiss(animated: true, completion: nil)
+            
+        case .showAddressPicker:
+            
+            let dependency = AddressPickerDependency(parentController: view, initAdderss: nil)
+            let builder = AddressPickerBuilder()
+            let router = builder.build(dependency)
+            
+            router.start(stopCompletion: nil)
         }
     }
 }

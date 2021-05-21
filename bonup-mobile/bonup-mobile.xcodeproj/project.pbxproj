@@ -325,6 +325,15 @@
 		B9FE3A4C25B61890007ED803 /* CompanyCustomPacketDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FE3A4B25B61890007ED803 /* CompanyCustomPacketDependency.swift */; };
 		B9FE3A5125B61897007ED803 /* CompanyCustomPacketBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FE3A5025B61897007ED803 /* CompanyCustomPacketBuilder.swift */; };
 		B9FE3A5A25B6230E007ED803 /* UBottomSheetCoordinator+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FE3A5925B6230E007ED803 /* UBottomSheetCoordinator+DataSource.swift */; };
+		C67A644726580E3100CFC7FC /* AddressPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67A644626580E3100CFC7FC /* AddressPickerView.swift */; };
+		C67A644926580E3800CFC7FC /* AddressPickerDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67A644826580E3800CFC7FC /* AddressPickerDependency.swift */; };
+		C67A644B26580E4300CFC7FC /* AddressPickerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67A644A26580E4300CFC7FC /* AddressPickerRouter.swift */; };
+		C67A644D26580E7000CFC7FC /* AddressPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67A644C26580E7000CFC7FC /* AddressPickerPresenter.swift */; };
+		C67A644F26580E7600CFC7FC /* AddressPickerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67A644E26580E7600CFC7FC /* AddressPickerBuilder.swift */; };
+		C67A645126580E7E00CFC7FC /* AddressPickerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67A645026580E7E00CFC7FC /* AddressPickerInteractor.swift */; };
+		C67A6454265810CA00CFC7FC /* AddressPickerSuggestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67A6453265810CA00CFC7FC /* AddressPickerSuggestCell.swift */; };
+		C67A64572658165E00CFC7FC /* MapSuggestsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67A64562658165E00CFC7FC /* MapSuggestsManager.swift */; };
+		C67A64592658166600CFC7FC /* MapSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67A64582658166600CFC7FC /* MapSearchManager.swift */; };
 		C6874EA22653FC65005009E4 /* OrganizationActionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6874EA12653FC65005009E4 /* OrganizationActionsService.swift */; };
 		C6874EA5265403E9005009E4 /* CompanyActionsAggregatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6874EA4265403E9005009E4 /* CompanyActionsAggregatorView.swift */; };
 		C6874EA7265403F1005009E4 /* CompanyActionsAggregatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6874EA6265403F1005009E4 /* CompanyActionsAggregatorPresenter.swift */; };
@@ -689,6 +698,15 @@
 		B9FE3A4B25B61890007ED803 /* CompanyCustomPacketDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCustomPacketDependency.swift; sourceTree = "<group>"; };
 		B9FE3A5025B61897007ED803 /* CompanyCustomPacketBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCustomPacketBuilder.swift; sourceTree = "<group>"; };
 		B9FE3A5925B6230E007ED803 /* UBottomSheetCoordinator+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UBottomSheetCoordinator+DataSource.swift"; sourceTree = "<group>"; };
+		C67A644626580E3100CFC7FC /* AddressPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressPickerView.swift; sourceTree = "<group>"; };
+		C67A644826580E3800CFC7FC /* AddressPickerDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressPickerDependency.swift; sourceTree = "<group>"; };
+		C67A644A26580E4300CFC7FC /* AddressPickerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressPickerRouter.swift; sourceTree = "<group>"; };
+		C67A644C26580E7000CFC7FC /* AddressPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressPickerPresenter.swift; sourceTree = "<group>"; };
+		C67A644E26580E7600CFC7FC /* AddressPickerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressPickerBuilder.swift; sourceTree = "<group>"; };
+		C67A645026580E7E00CFC7FC /* AddressPickerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressPickerInteractor.swift; sourceTree = "<group>"; };
+		C67A6453265810CA00CFC7FC /* AddressPickerSuggestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressPickerSuggestCell.swift; sourceTree = "<group>"; };
+		C67A64562658165E00CFC7FC /* MapSuggestsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSuggestsManager.swift; sourceTree = "<group>"; };
+		C67A64582658166600CFC7FC /* MapSearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchManager.swift; sourceTree = "<group>"; };
 		C6874EA12653FC65005009E4 /* OrganizationActionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationActionsService.swift; sourceTree = "<group>"; };
 		C6874EA4265403E9005009E4 /* CompanyActionsAggregatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsAggregatorView.swift; sourceTree = "<group>"; };
 		C6874EA6265403F1005009E4 /* CompanyActionsAggregatorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsAggregatorPresenter.swift; sourceTree = "<group>"; };
@@ -886,6 +904,7 @@
 				B990932D25AF403600CF381B /* Theme */,
 				B93F2B882646D64E00A8A8D6 /* DataBase */,
 				B991A481264839800006884B /* Validator */,
+				C67A645A2658166A00CFC7FC /* Map */,
 			);
 			path = Subsystems;
 			sourceTree = "<group>";
@@ -1985,6 +2004,7 @@
 				B941E741246B93B40056B844 /* OrganizationControl */,
 				B96CA64C25B37BED00FF157C /* CompaniesSearch */,
 				B96CA68725B38F2700FF157C /* CompaniesSection */,
+				C67A645226580E8500CFC7FC /* AddressPicker */,
 				B95FB98825B462A100AB2566 /* AddCompany */,
 				B9F0462C263573E300D2D3D8 /* AddCompanyAction */,
 				B90BED6125B5D95400AD78A8 /* CompanyPacket */,
@@ -2026,6 +2046,37 @@
 				B9FE3A5925B6230E007ED803 /* UBottomSheetCoordinator+DataSource.swift */,
 			);
 			path = UBottomSheetCoordinator;
+			sourceTree = "<group>";
+		};
+		C67A645226580E8500CFC7FC /* AddressPicker */ = {
+			isa = PBXGroup;
+			children = (
+				C67A644626580E3100CFC7FC /* AddressPickerView.swift */,
+				C67A644826580E3800CFC7FC /* AddressPickerDependency.swift */,
+				C67A644A26580E4300CFC7FC /* AddressPickerRouter.swift */,
+				C67A644C26580E7000CFC7FC /* AddressPickerPresenter.swift */,
+				C67A644E26580E7600CFC7FC /* AddressPickerBuilder.swift */,
+				C67A645026580E7E00CFC7FC /* AddressPickerInteractor.swift */,
+				C67A64552658122300CFC7FC /* Subviews */,
+			);
+			path = AddressPicker;
+			sourceTree = "<group>";
+		};
+		C67A64552658122300CFC7FC /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				C67A6453265810CA00CFC7FC /* AddressPickerSuggestCell.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		C67A645A2658166A00CFC7FC /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				C67A64562658165E00CFC7FC /* MapSuggestsManager.swift */,
+				C67A64582658166600CFC7FC /* MapSearchManager.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		C6874EA32653FC82005009E4 /* OrganizationActionsService */ = {
@@ -2391,6 +2442,7 @@
 				B9A732FB242D556C00860346 /* UIButton+Animations.swift in Sources */,
 				B977483B24431910004D39AD /* TaskSelectionView.swift in Sources */,
 				B9CAA71A242BE0CB00E50668 /* String+Validation.swift in Sources */,
+				C67A644726580E3100CFC7FC /* AddressPickerView.swift in Sources */,
 				B9D30C70244BA0CF00B9E9AA /* ChangePasswordDependency.swift in Sources */,
 				B90AF9A5264AC737007BB288 /* CompanyStatisticsPeriodView.swift in Sources */,
 				B9CEE6A2241D55A500308098 /* ResetPasswordPresenter.swift in Sources */,
@@ -2422,6 +2474,7 @@
 				B967C2D5244BC3BD00AFE3A1 /* SettingsPresentationModel.swift in Sources */,
 				B9B75F02263D907900DF630E /* Date+Utils.swift in Sources */,
 				B992D51024578A09002ABF71 /* BenefitsPresenter.swift in Sources */,
+				C67A644926580E3800CFC7FC /* AddressPickerDependency.swift in Sources */,
 				B966E7292468384A0043FD69 /* BenefitsContentCell.swift in Sources */,
 				B9CAA717242BB0AD00E50668 /* AlertsFactory.swift in Sources */,
 				B98DE0EC244BBAF1007AE007 /* SettingsHeaderView.swift in Sources */,
@@ -2446,10 +2499,12 @@
 				B9D336982469CFAB003E1CEB /* OrganizationsListView.swift in Sources */,
 				B9BA409F2443D0DD00950808 /* CurrentTasksListPresentationModel.swift in Sources */,
 				B992D5282457A02D002ABF71 /* BenefitsCell.swift in Sources */,
+				C67A64572658165E00CFC7FC /* MapSuggestsManager.swift in Sources */,
 				B96D54BD242FBED600023BC9 /* NewPasswordService.swift in Sources */,
 				B9EFFBAA246BE00200084B7E /* FinishedBenefitEntity.swift in Sources */,
 				B990931625AF3A4C00CF381B /* SettingsParamsDependency.swift in Sources */,
 				B9F0465B2635A33600D2D3D8 /* AddCompanyActionCell.swift in Sources */,
+				C67A64592658166600CFC7FC /* MapSearchManager.swift in Sources */,
 				B90AF9F726518273007BB288 /* CompanyActionsListRouter.swift in Sources */,
 				B96CA64325B37BD200FF157C /* CompaniesSearchBuilder.swift in Sources */,
 				B992D52E2457A1A7002ABF71 /* SelectedBenefitsContentCell.swift in Sources */,
@@ -2548,6 +2603,7 @@
 				B91E809B242FCEC100859C83 /* CategoriesResponseEntity.swift in Sources */,
 				B9FE3A5A25B6230E007ED803 /* UBottomSheetCoordinator+DataSource.swift in Sources */,
 				B9D17588243CFD27001FF58E /* TermsAndConditionsBuilder.swift in Sources */,
+				C67A6454265810CA00CFC7FC /* AddressPickerSuggestCell.swift in Sources */,
 				B992D51B245791E4002ABF71 /* NewBenefitsCell.swift in Sources */,
 				C6874EA9265403F7005009E4 /* CompanyActionsAggregatorRouter.swift in Sources */,
 				B990939625AF788F00CF381B /* Bundle+Localization.swift in Sources */,
@@ -2576,6 +2632,7 @@
 				B9E7CE7825B481690033810D /* AddCompanyInputRowModel.swift in Sources */,
 				B9CEE6A6241D55BE00308098 /* ResetPasswordBuilder.swift in Sources */,
 				B977485324431A5E004D39AD /* TasksListRouter.swift in Sources */,
+				C67A644F26580E7600CFC7FC /* AddressPickerBuilder.swift in Sources */,
 				B948A1E2241444B2001287B8 /* AppDelegate.swift in Sources */,
 				B977483D2443194E004D39AD /* TaskSelectionInteractor.swift in Sources */,
 				B944A8EE246217C0002170FD /* TaskDescriptionView.swift in Sources */,
@@ -2596,6 +2653,7 @@
 				B96A71E4246BA7A6007416DF /* ProfileResponseDetailsEntity.swift in Sources */,
 				B992D51624578A36002ABF71 /* BenefitsRouter.swift in Sources */,
 				B9B67F2325B4759B00AC7184 /* SelectCategoriesContainer.swift in Sources */,
+				C67A644D26580E7000CFC7FC /* AddressPickerPresenter.swift in Sources */,
 				B966E72B24684CB10043FD69 /* BenefitDescriptionView.swift in Sources */,
 				B9323669241D96F600A37634 /* AccountManager.swift in Sources */,
 				B9BF7011244326530051CF41 /* TaskCardOverlay.swift in Sources */,
@@ -2615,6 +2673,7 @@
 				B95FB98425B4628800AB2566 /* AddCompanyBuilder.swift in Sources */,
 				B9E7CEB525B492E30033810D /* BUTextField.swift in Sources */,
 				B932365D241D7C2C00A37634 /* MainNetworkProvider.swift in Sources */,
+				C67A644B26580E4300CFC7FC /* AddressPickerRouter.swift in Sources */,
 				B96D54C0242FBF1400023BC9 /* ResetPasswordService.swift in Sources */,
 				B97748412443195D004D39AD /* TaskSelectionPresenter.swift in Sources */,
 				B9A0C9AB242FC58C00EB6FAE /* CategoriesPresenter.swift in Sources */,
@@ -2633,6 +2692,7 @@
 				B9323661241D7E4F00A37634 /* AuthorizedTargetType.swift in Sources */,
 				B990935A25AF478E00CF381B /* SettingsParamsCell.swift in Sources */,
 				B93F2B66263F0B6B00A8A8D6 /* CompanyStatisticsView.swift in Sources */,
+				C67A645126580E7E00CFC7FC /* AddressPickerInteractor.swift in Sources */,
 				B9069104246235D7001A1F76 /* QRcodeManager.swift in Sources */,
 				B992D52C2457A18F002ABF71 /* UsedBenefitsPresentationModel.swift in Sources */,
 				B9787F53246B8C50007DB617 /* OrganizationResponseEntity.swift in Sources */,

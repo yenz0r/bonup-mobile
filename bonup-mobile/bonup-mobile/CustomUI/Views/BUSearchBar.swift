@@ -12,6 +12,13 @@ final class BUSearchBar: UIView {
     
     // MARK: - Public properties
     
+    var value: String? {
+        
+        didSet {
+            
+            self.searchTextField.text = value
+        }
+    }
     var onSearchChange: ((String?) -> Void)?
     var placeholderLocalizationKey: String? {
         

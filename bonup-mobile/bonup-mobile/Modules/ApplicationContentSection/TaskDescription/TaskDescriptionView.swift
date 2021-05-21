@@ -8,7 +8,7 @@
 
 import UIKit
 import GoogleMobileAds
-import YandexMapKit
+import YandexMapsMobile
 import Nuke
 
 protocol ITaskDescriptionView: AnyObject {

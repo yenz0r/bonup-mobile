@@ -23,6 +23,8 @@ protocol IAddCompanyPresenter: AnyObject {
     func handleActionsAggregatorTap()
     func handleSectionsUpdate(categories: [InterestCategories])
     func handleViewDidLoad()
+    
+    func handleRowTap()
 }
 
 final class AddCompanyPresenter {
@@ -133,6 +135,11 @@ extension AddCompanyPresenter: IAddCompanyPresenter {
         guard let company = self.interactor.initCompany else { return }
         
         self.router.show(.actionsAggregator(company.title))
+    }
+    
+    func handleRowTap() {
+        
+        self.router.show(.showAddressPicker)
     }
 }
 

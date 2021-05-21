@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 import GoogleMobileAds
-import YandexMapKit
+import YandexMapsMobile
 
 #if RELEASE_FREE
 let IS_RELEASE_FREE = true

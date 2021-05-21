@@ -164,7 +164,8 @@ final class AddCompanyView: BUContentViewController {
 
     @objc private func imageViewTapped() {
 
-        self.presenter.handleAddImageTap()
+//        self.presenter.handleAddImageTap()
+        self.presenter.handleRowTap()
     }
 
     @objc private func doneTapped() {
