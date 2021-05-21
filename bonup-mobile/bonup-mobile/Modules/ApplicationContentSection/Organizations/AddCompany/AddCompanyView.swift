@@ -11,6 +11,8 @@ import Nuke
 
 protocol IAddCompanyView: AnyObject {
 
+    func updateBlurState(active state: Bool)
+    func reloadRow(at indexPath: IndexPath)
     func setupImage(_ image: UIImage)
     func loadImage(_ url: URL, completion: @escaping (UIImage) -> Void)
 }
@@ -23,9 +25,14 @@ final class AddCompanyView: BUContentViewController {
 
     // MARK: - UI variabes
 
+    private var blurView: UIView!
     private var companyImageView: UIImageView!
     private var categoriesContainer: SelectCategoriesContainer!
     private var tableView: UITableView!
+    
+    // MARK: - State variables
+    
+    private var isFirstLayout = true
 
     // MARK: - Life cycle
 
@@ -44,6 +51,17 @@ final class AddCompanyView: BUContentViewController {
         self.setupNavBar()
         
         self.presenter.handleViewDidLoad()
+    }
+    
+    override func viewDidLayoutSubviews() {
+
+        super.viewDidLayoutSubviews()
+
+        if (self.isFirstLayout) {
+
+            self.blurView.setupBlur()
+            self.isFirstLayout.toggle()
+        }
     }
 
     // MARK: - Setup
@@ -79,11 +97,18 @@ final class AddCompanyView: BUContentViewController {
         self.companyImageView = self.configureCompanyImageView()
         self.categoriesContainer = self.configureCategoriesContainer()
         self.tableView = self.configureTableView()
-
+        self.blurView = self.configureBlurView()
+        
         self.view.addSubview(self.companyImageView)
         self.view.addSubview(self.categoriesContainer)
         self.view.addSubview(self.tableView)
-
+        self.view.addSubview(self.blurView)
+        
+        self.blurView.snp.makeConstraints { make in
+            
+            make.edges.equalToSuperview()
+        }
+        
         self.companyImageView.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
             make.height.equalTo(150)
@@ -106,6 +131,17 @@ final class AddCompanyView: BUContentViewController {
     }
 
     // MARK: - Configure
+    
+    private func configureBlurView() -> UIView {
+        
+        let blur = UIView()
+        
+        blur.backgroundColor = .clear
+        blur.alpha = 0
+        blur.isUserInteractionEnabled = false
+        
+        return blur
+    }
 
     private func configureCompanyImageView() -> UIImageView {
 
@@ -153,8 +189,7 @@ final class AddCompanyView: BUContentViewController {
 
     @objc private func imageViewTapped() {
 
-//        self.presenter.handleAddImageTap()
-        self.presenter.handleRowTap()
+        self.presenter.handleAddImageTap()
     }
 
     @objc private func doneTapped() {
@@ -214,6 +249,11 @@ extension AddCompanyView: UITableViewDataSource {
             
             self?.presenter.handleValueUpdate(newValue, at: indexPath)
         }
+        
+        cell.onTap = { [weak self] in
+            
+            self?.presenter.handleAddressTap()
+        }
 
         return cell
     }
@@ -232,6 +272,20 @@ extension AddCompanyView: SelectCategoriesContainerDelegate {
 // MARK: - ISettingsParamsView
 
 extension AddCompanyView: IAddCompanyView {
+    
+    func updateBlurState(active state: Bool) {
+
+        UIView.animate(withDuration: 0.3) {
+
+            self.blurView.alpha = state ? 1 : 0
+            self.blurView.isUserInteractionEnabled = state
+        }
+    }
+    
+    func reloadRow(at indexPath: IndexPath) {
+        
+        self.tableView.reloadRows(at: [indexPath], with: .fade)
+    }
     
     func setupImage(_ image: UIImage) {
         

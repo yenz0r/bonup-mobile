@@ -19,6 +19,8 @@ class BUBarButtonItem: UIBarButtonItem {
             self.title = self.loc_title.localized
         }
     }
+    
+    // MARK: - Init
         
     init(loc_title: String,
          style: UIBarButtonItem.Style,
@@ -32,6 +34,7 @@ class BUBarButtonItem: UIBarButtonItem {
         self.action = action
         
         self.loc_title = loc_title
+        self.title = loc_title.localized
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(langChanged),

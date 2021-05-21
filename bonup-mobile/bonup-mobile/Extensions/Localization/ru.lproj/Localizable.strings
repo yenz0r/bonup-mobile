@@ -210,3 +210,5 @@
 "ui_enter_location_placeholder" = "Введите адрес";
 "ui_empty_suggests_list_message" = "Подсказок нет";
 "ui_modify_company_title" = "Обновить компанию";
+"ui_company_address_label" = "Адрес:";
+"ui_company_packet_title" = "Тариф";

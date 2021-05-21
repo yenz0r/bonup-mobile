@@ -22,6 +22,7 @@ final class AddCompanyInputCell: UITableViewCell {
 
         self.setupAppearance()
         self.setupSubviews()
+        self.setupGestures()
     }
 
     required init?(coder: NSCoder) {
@@ -31,6 +32,7 @@ final class AddCompanyInputCell: UITableViewCell {
     // MARK: - Public variables
 
     var onValueChange: ((String?) -> Void)?
+    var onTap: (() -> Void)?
 
     // MARK: - Public functions
 
@@ -39,7 +41,8 @@ final class AddCompanyInputCell: UITableViewCell {
         self.titleLabel.loc_text = model.rowType.title
         
         self.textField.text = model.value
-        self.setupTextFieldAppearance(isEnabled: model.isEnabled)
+        self.setupTextFieldAppearance(isEnabled: model.isEnabled && model.rowType != .address)
+        self.tapGesture.isEnabled = model.rowType == .address
         
         self.isUserInteractionEnabled = model.isEnabled
     }
@@ -49,8 +52,18 @@ final class AddCompanyInputCell: UITableViewCell {
     private var titleLabel: BULabel!
     private var textFieldContainer: UIView!
     private var textField: BUTextField!
+    
+    // MARK: - Private variables
+    
+    private var tapGesture: UITapGestureRecognizer!
 
     // MARK: - Setup
+    
+    private func setupGestures() {
+        
+        self.tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureTriggered))
+        self.contentView.addGestureRecognizer(self.tapGesture)
+    }
 
     private func setupAppearance() {
 
@@ -126,5 +139,10 @@ final class AddCompanyInputCell: UITableViewCell {
     @objc private func textFieldValueChanged(_ sender: UITextField) {
 
         self.onValueChange?(sender.text)
+    }
+    
+    @objc private func tapGestureTriggered() {
+        
+        self.onTap?()
     }
 }

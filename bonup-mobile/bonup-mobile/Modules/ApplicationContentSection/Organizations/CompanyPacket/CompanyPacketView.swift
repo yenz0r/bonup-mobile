@@ -44,6 +44,7 @@ final class CompanyPacketView: BUContentViewController {
         super.viewDidLoad()
 
         self.setupAppearance()
+        self.setupNavigationBar()
     }
 
     override func viewDidLayoutSubviews() {
@@ -53,7 +54,7 @@ final class CompanyPacketView: BUContentViewController {
         if (self.isFirstLayout) {
 
             self.blurView.setupBlur()
-            self.isFirstLayout = false
+            self.isFirstLayout.toggle()
         }
     }
 
@@ -62,10 +63,7 @@ final class CompanyPacketView: BUContentViewController {
     private func setupSubviews() {
 
         self.tableView = self.configureTableView()
-        self.blurView = UIView()
-        self.blurView.backgroundColor = .clear
-        self.blurView.alpha = 0
-        self.blurView.isUserInteractionEnabled = false
+        self.blurView = self.configureBlurView()
 
         self.view.addSubview(self.tableView)
         self.view.addSubview(self.blurView)
@@ -78,6 +76,18 @@ final class CompanyPacketView: BUContentViewController {
             make.edges.equalTo(self.view.safeAreaLayoutGuide)
         }
     }
+    
+    private func setupNavigationBar() {
+        
+        self.loc_title = "ui_company_packet_title"
+        
+        let done = BUBarButtonItem(loc_title: "ui_done_title",
+                                   style: .plain,
+                                   target: self,
+                                   action: #selector(self.doneTapped))
+        
+        self.navigationItem.rightBarButtonItem = done
+    }
 
     private func setupAppearance() {
 
@@ -85,6 +95,17 @@ final class CompanyPacketView: BUContentViewController {
     }
 
     // MARK: - Configure
+    
+    private func configureBlurView() -> UIView {
+        
+        let blur = UIView()
+        
+        blur.backgroundColor = .clear
+        blur.alpha = 0
+        blur.isUserInteractionEnabled = false
+        
+        return blur
+    }
 
     private func configureTableView() -> UITableView {
 

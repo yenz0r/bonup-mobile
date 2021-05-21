@@ -16,12 +16,20 @@ protocol IAddCompanyInteractor: AnyObject {
     var moduleMode: AddCompanyDependency.Mode { get }
     var initCompany: CompanyEntity? { get }
     
+    var companyLongitude: Double { get set }
+    var companyLatitude: Double { get set }
+    
     func updateValue(_ value: String?, at indexPath: IndexPath)
     
     func addCompany(success: (() -> Void)?, failure: ((String) -> Void)?)
 }
 
 final class AddCompanyInteractor {
+    
+    // MARK: - Public variables
+    
+    var companyLongitude: Double = 0
+    var companyLatitude: Double = 0
     
     // MARK: - Initialization
 
@@ -91,10 +99,7 @@ final class AddCompanyInteractor {
 
         let rows: [AddCompanyInputRowModel] = [
 
-            AddCompanyInputRowModel(value: self.initCompany?.locationCountry, rowType: .country, mode: self.moduleMode),
-            AddCompanyInputRowModel(value: self.initCompany?.locationCity, rowType: .city, mode: self.moduleMode),
-            AddCompanyInputRowModel(value: self.initCompany?.locationStreet, rowType: .street, mode: self.moduleMode),
-            AddCompanyInputRowModel(value: self.initCompany?.locationHomeNumber, rowType: .houseNumber, mode: self.moduleMode)
+            AddCompanyInputRowModel(value: self.initCompany?.address, rowType: .address, mode: self.moduleMode)
         ]
 
         return AddCompanyInputSectionModel(rows: rows, title: "ui_company_location_info_label")
@@ -219,60 +224,16 @@ extension AddCompanyInteractor: IAddCompanyInteractor {
                         failure?(self.validationError(.ownerLastName))
                         return
                     }
+                
+                case .address:
                     
-                case .country:
-                    
-                    if let string = row.value,
-                       self.validator.onlyLetters(string),
-                       self.validator.onlySingleWord(string) {
-                     
-                        requestModel.locationCountry = string
+                    if let string = row.value {
+                        
+                        requestModel.address = string
                     }
                     else {
                         
-                        failure?(self.validationError(.country))
-                        return
-                    }
-                    
-                case .city:
-                    
-                    if let string = row.value,
-                       self.validator.onlyLetters(string),
-                       self.validator.onlySingleWord(string) {
-                     
-                        requestModel.locationCity = string
-                    }
-                    else {
-                        
-                        failure?(self.validationError(.city))
-                        return
-                    }
-                    
-                case .street:
-                    
-                    if let string = row.value,
-                       self.validator.onlyLetters(string),
-                       self.validator.onlySingleWord(string) {
-                     
-                        requestModel.locationStreet = string
-                    }
-                    else {
-                        
-                        failure?(self.validationError(.street))
-                        return
-                    }
-                    
-                case .houseNumber:
-                    
-                    if let string = row.value,
-                       self.validator.onlyNumbers(string),
-                       self.validator.onlySingleWord(string) {
-                     
-                        requestModel.locationHomeNumber = string
-                    }
-                    else {
-                        
-                        failure?(self.validationError(.houseNumber))
+                        failure?(self.validationError(.address))
                         return
                     }
                     
@@ -315,6 +276,9 @@ extension AddCompanyInteractor: IAddCompanyInteractor {
         requestModel.availableTasksCount = self.companyPacket?.tasksCount ?? 0
         requestModel.availableCouponsCount = self.companyPacket?.benefitsCount ?? 0
         requestModel.availableStocksCount = self.companyPacket?.stocksCount ?? 0
+        
+        requestModel.latitude = self.companyLatitude
+        requestModel.longitude = self.companyLongitude
         
         requestModel.categoryId = self.selectedCategory.rawValue
         

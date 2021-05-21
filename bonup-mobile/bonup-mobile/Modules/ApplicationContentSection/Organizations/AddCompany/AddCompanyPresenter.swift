@@ -23,8 +23,7 @@ protocol IAddCompanyPresenter: AnyObject {
     func handleActionsAggregatorTap()
     func handleSectionsUpdate(categories: [InterestCategories])
     func handleViewDidLoad()
-    
-    func handleRowTap()
+    func handleAddressTap()
 }
 
 final class AddCompanyPresenter {
@@ -137,9 +136,42 @@ extension AddCompanyPresenter: IAddCompanyPresenter {
         self.router.show(.actionsAggregator(company.title))
     }
     
-    func handleRowTap() {
+    func handleAddressTap() {
         
-        self.router.show(.showAddressPicker)
+        self.view?.updateBlurState(active: true)
+        
+        self.router.show(.showAddressPicker({ [weak self] address, longitude, latitude in
+            
+            guard let self = self else { return }
+            
+            guard let indexPath = self.indexPath(of: .address) else { return }
+            
+            self.interactor.updateValue(address, at: indexPath)
+            self.interactor.companyLongitude = longitude
+            self.interactor.companyLatitude = latitude
+            
+            self.view?.reloadRow(at: indexPath)
+            
+            self.view?.updateBlurState(active: false)
+        }))
+    }
+    
+    // MARK: - Private
+    
+    private func indexPath(of fieldType: AddCompanyInputRowModelType) -> IndexPath? {
+        
+        for (sectionIndex, section) in self.interactor.inputSections.enumerated() {
+            
+            for (rowIndex, row) in section.rows.enumerated() {
+                
+                if row.rowType == fieldType {
+                    
+                    return IndexPath(row: rowIndex, section: sectionIndex)
+                }
+            }
+        }
+        
+        return nil
     }
 }
 

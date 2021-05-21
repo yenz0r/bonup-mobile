@@ -27,7 +27,7 @@ final class AddCompanyRouter {
         case showLoadingAlert
         case hideLoadingAlert
         case dissmisPhotoPicker
-        case showAddressPicker
+        case showAddressPicker(((String, Double, Double) -> Void)?)
     }
 
     private var view: AddCompanyView?
@@ -109,13 +109,16 @@ extension AddCompanyRouter: IAddCompanyRouter {
         
             self.view?.dismiss(animated: true, completion: nil)
             
-        case .showAddressPicker:
+        case .showAddressPicker(let completion):
             
             let dependency = AddressPickerDependency(parentController: view, initAdderss: nil)
             let builder = AddressPickerBuilder()
             let router = builder.build(dependency)
             
-            router.start(stopCompletion: nil)
+            router.start { address, longitude, latitude in
+                
+                completion?(address, longitude, latitude)
+            }
         }
     }
 }

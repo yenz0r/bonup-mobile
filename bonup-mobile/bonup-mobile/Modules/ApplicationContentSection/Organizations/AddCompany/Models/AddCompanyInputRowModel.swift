@@ -15,10 +15,7 @@ enum AddCompanyInputRowModelType {
     case ownerSecondName
     case ownerLastName
 
-    case country
-    case city
-    case street
-    case houseNumber
+    case address
 
     case phone
 
@@ -39,14 +36,8 @@ enum AddCompanyInputRowModelType {
             return "ui_company_owner_second_name_label"
         case .ownerLastName:
             return "ui_company_owner_last_name_label"
-        case .country:
-            return "ui_company_location_country_label"
-        case .city:
-            return "ui_company_location_city_label"
-        case .street:
-            return "ui_company_location_street_label"
-        case .houseNumber:
-            return "ui_company_location_house_number_label"
+        case .address:
+            return "ui_company_address_label"
         case .phone:
             return "ui_company_contacts_phone_label"
         case .vkLink:

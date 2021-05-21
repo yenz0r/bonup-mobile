@@ -39,6 +39,7 @@ final class OrganizationControlView: BUContentViewController {
         super.viewDidLoad()
 
         self.configureAppearance()
+        self.configureNavigationBar()
     }
     
     // MARK: - Setup

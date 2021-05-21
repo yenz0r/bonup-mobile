@@ -213,3 +213,5 @@
 "ui_enter_location_placeholder" = "Enter location";
 "ui_empty_suggests_list_message" = "No suggests";
 "ui_modify_company_title" = "Modify Company";
+"ui_company_address_label" = "Address:";
+"ui_company_packet_title" = "Packet";
