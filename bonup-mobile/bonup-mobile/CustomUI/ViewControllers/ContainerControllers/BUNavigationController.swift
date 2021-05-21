@@ -10,7 +10,7 @@ import UIKit
 import SwiftTheme
 
 final class BUNavigationController: UINavigationController {
-
+    
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -19,12 +19,12 @@ final class BUNavigationController: UINavigationController {
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationBar.shadowImage = UIImage()
         self.navigationBar.isTranslucent = true
-
+        self.navigationBar.theme_tintColor = Colors.redColor
+        
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(
             UIOffset(horizontal: -500, vertical: 0),
             for:UIBarMetrics.default
         )
-        self.navigationBar.theme_tintColor = Colors.redColor
 
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(themeChanged(_:)),
@@ -37,8 +37,9 @@ final class BUNavigationController: UINavigationController {
     // MARK: - Public Functions
 
     func setupTabBarItem(with title: String,
-                      unselectedImage: UIImage?,
-                      selectedImage: UIImage?) {
+                         unselectedImage: UIImage?,
+                         selectedImage: UIImage?) {
+        
         self.tabBarItem = UITabBarItem(
             title: title,
             image: unselectedImage,

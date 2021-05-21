@@ -10,6 +10,18 @@ import UIKit
 
 class BUContentViewController: UIViewController {
 
+    // MARK: - Public properties
+    
+    var loc_title: String = "" {
+        
+        didSet {
+            
+            self.navigationItem.title = loc_title.localized
+        }
+    }
+    
+    // MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,7 +63,11 @@ class BUContentViewController: UIViewController {
         self.setupThemeChangableContent()
     }
 
-    func setupLocalizableContent() { }
+    func setupLocalizableContent() {
+        
+        self.navigationItem.title = self.loc_title.localized
+    }
+    
     func setupThemeChangableContent() { }
     func controllerDidTerminate() { }
 }

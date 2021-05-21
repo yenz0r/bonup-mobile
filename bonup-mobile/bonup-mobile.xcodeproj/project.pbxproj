@@ -25,6 +25,10 @@
 		B90AF9FF2652FFEF007BB288 /* DefaultResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AF9FE2652FFEF007BB288 /* DefaultResponseEntity.swift */; };
 		B90AFA01265594D5007BB288 /* CompanyStatisticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AFA00265594D5007BB288 /* CompanyStatisticsService.swift */; };
 		B90AFA03265594E6007BB288 /* CompanyStatisticsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AFA02265594E6007BB288 /* CompanyStatisticsEntity.swift */; };
+		B90AFA0626583A74007BB288 /* BUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AFA0526583A74007BB288 /* BUButton.swift */; };
+		B90AFA0826584FE7007BB288 /* BUTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AFA0726584FE7007BB288 /* BUTableView.swift */; };
+		B90AFA0A265850C9007BB288 /* BUBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AFA09265850C9007BB288 /* BUBarButtonItem.swift */; };
+		B90AFA0C265856A2007BB288 /* BUAdBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AFA0B265856A2007BB288 /* BUAdBanner.swift */; };
 		B90BED4425B5D92200AD78A8 /* CompanyPacketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED4325B5D92200AD78A8 /* CompanyPacketView.swift */; };
 		B90BED4925B5D92900AD78A8 /* CompanyPacketPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED4825B5D92900AD78A8 /* CompanyPacketPresenter.swift */; };
 		B90BED4E25B5D93000AD78A8 /* CompanyPacketInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BED4D25B5D93000AD78A8 /* CompanyPacketInteractor.swift */; };
@@ -388,6 +392,10 @@
 		B90AF9FE2652FFEF007BB288 /* DefaultResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultResponseEntity.swift; sourceTree = "<group>"; };
 		B90AFA00265594D5007BB288 /* CompanyStatisticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyStatisticsService.swift; sourceTree = "<group>"; };
 		B90AFA02265594E6007BB288 /* CompanyStatisticsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyStatisticsEntity.swift; sourceTree = "<group>"; };
+		B90AFA0526583A74007BB288 /* BUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUButton.swift; sourceTree = "<group>"; };
+		B90AFA0726584FE7007BB288 /* BUTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUTableView.swift; sourceTree = "<group>"; };
+		B90AFA09265850C9007BB288 /* BUBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUBarButtonItem.swift; sourceTree = "<group>"; };
+		B90AFA0B265856A2007BB288 /* BUAdBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUAdBanner.swift; sourceTree = "<group>"; };
 		B90BED4325B5D92200AD78A8 /* CompanyPacketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketView.swift; sourceTree = "<group>"; };
 		B90BED4825B5D92900AD78A8 /* CompanyPacketPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketPresenter.swift; sourceTree = "<group>"; };
 		B90BED4D25B5D93000AD78A8 /* CompanyPacketInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPacketInteractor.swift; sourceTree = "<group>"; };
@@ -823,6 +831,80 @@
 			path = CompanyStatistics;
 			sourceTree = "<group>";
 		};
+		B90AFA0D265859C3007BB288 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				B97748462443197A004D39AD /* TaskSelection */,
+				B977484924431A2C004D39AD /* TasksList */,
+				B944A8EF246217CA002170FD /* TaskDescription */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
+		B90AFA0E265859CE007BB288 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B98DE0E0244BB601007AE007 /* Settings */,
+				B9721AB825AF39880019D6D4 /* SettingsParams */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		B90AFA0F265859E0007BB288 /* Benefits */ = {
+			isa = PBXGroup;
+			children = (
+				B966E72C24684CB60043FD69 /* BenefitDescription */,
+				B992D51924578A50002ABF71 /* BenefitsList */,
+			);
+			path = Benefits;
+			sourceTree = "<group>";
+		};
+		B90AFA10265859F4007BB288 /* Organizations */ = {
+			isa = PBXGroup;
+			children = (
+				B9D336A32469D002003E1CEB /* OrganizationsList */,
+				B941E741246B93B40056B844 /* OrganizationControl */,
+				B96CA64C25B37BED00FF157C /* CompaniesSearch */,
+				B96CA68725B38F2700FF157C /* CompaniesSection */,
+				C67A645226580E8500CFC7FC /* AddressPicker */,
+				B95FB98825B462A100AB2566 /* AddCompany */,
+				B9F0462C263573E300D2D3D8 /* AddCompanyAction */,
+				B90BED6125B5D95400AD78A8 /* CompanyPacket */,
+				B9FE3A5525B618AB007ED803 /* CompanyCustomPacket */,
+				B93F2B71263F0B9600A8A8D6 /* CompanyStatistics */,
+				C6874EB026540418005009E4 /* CompanyActionsAggregator */,
+				B90AF9F8265183AE007BB288 /* CompanyActionsList */,
+			);
+			path = Organizations;
+			sourceTree = "<group>";
+		};
+		B90AFA1126585A21007BB288 /* Standart */ = {
+			isa = PBXGroup;
+			children = (
+				B90AFA0526583A74007BB288 /* BUButton.swift */,
+				B991A47D2647E2390006884B /* BUCollectionView.swift */,
+				B90AFA0726584FE7007BB288 /* BUTableView.swift */,
+				B96CA66125B3895100FF157C /* BUMapView.swift */,
+				B95FB96525B45A6200AB2566 /* BULabel.swift */,
+				B9E7CEB425B492E30033810D /* BUTextField.swift */,
+				B93F2B7C2641FABF00A8A8D6 /* BUSegmentedControl.swift */,
+				B90AFA09265850C9007BB288 /* BUBarButtonItem.swift */,
+				B90AFA0B265856A2007BB288 /* BUAdBanner.swift */,
+			);
+			path = Standart;
+			sourceTree = "<group>";
+		};
+		B90AFA1226585A2F007BB288 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				B99093D325AFC25700CF381B /* BUEmptyContainer.swift */,
+				B93F2B842646AF4000A8A8D6 /* BUSearchBar.swift */,
+				B9B67F3D25B4781700AC7184 /* SelectCategoriesContainer */,
+				B90867DC25B5DB0800E0DE91 /* BUAmountSetter.swift */,
+			);
+			name = Custom;
+			sourceTree = "<group>";
+		};
 		B90BED6125B5D95400AD78A8 /* CompanyPacket */ = {
 			isa = PBXGroup;
 			children = (
@@ -990,13 +1072,13 @@
 		B93F2B71263F0B9600A8A8D6 /* CompanyStatistics */ = {
 			isa = PBXGroup;
 			children = (
-				B93F2B74263F0F8400A8A8D6 /* Data */,
 				B93F2B65263F0B6B00A8A8D6 /* CompanyStatisticsView.swift */,
 				B93F2B67263F0B7100A8A8D6 /* CompanyStatisticsPresenter.swift */,
 				B93F2B69263F0B7800A8A8D6 /* CompanyStatisticsInteractor.swift */,
 				B93F2B6B263F0B7C00A8A8D6 /* CompanyStatisticsRouter.swift */,
 				B93F2B6D263F0B8100A8A8D6 /* CompanyStatisticsDependency.swift */,
 				B93F2B6F263F0B8E00A8A8D6 /* CompanyStatisticsBuilder.swift */,
+				B93F2B74263F0F8400A8A8D6 /* Data */,
 				B90AF9A6264AC73C007BB288 /* Subviews */,
 			);
 			path = CompanyStatistics;
@@ -1577,15 +1659,8 @@
 		B99093D825AFC25E00CF381B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B99093D325AFC25700CF381B /* BUEmptyContainer.swift */,
-				B93F2B842646AF4000A8A8D6 /* BUSearchBar.swift */,
-				B991A47D2647E2390006884B /* BUCollectionView.swift */,
-				B96CA66125B3895100FF157C /* BUMapView.swift */,
-				B95FB96525B45A6200AB2566 /* BULabel.swift */,
-				B9E7CEB425B492E30033810D /* BUTextField.swift */,
-				B93F2B7C2641FABF00A8A8D6 /* BUSegmentedControl.swift */,
-				B9B67F3D25B4781700AC7184 /* SelectCategoriesContainer */,
-				B90867DC25B5DB0800E0DE91 /* BUAmountSetter.swift */,
+				B90AFA1126585A21007BB288 /* Standart */,
+				B90AFA1226585A2F007BB288 /* Custom */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1976,6 +2051,7 @@
 		B9FC7989242FB70300F2D5BC /* LoginSection */ = {
 			isa = PBXGroup;
 			children = (
+				B9D30C68244BA0A800B9E9AA /* ChangePassword */,
 				B948A23F241CBFF6001287B8 /* LoginScreen */,
 				B9CEE6A9241D55FB00308098 /* ResetPasswordScreen */,
 				B935A59B241D6C560074E89E /* NewPasswordScreen */,
@@ -1991,27 +2067,11 @@
 			isa = PBXGroup;
 			children = (
 				B9FC7991242FB78500F2D5BC /* InitialTabBarSection */,
-				B97748462443197A004D39AD /* TaskSelection */,
-				B977484924431A2C004D39AD /* TasksList */,
-				B9D30C68244BA0A800B9E9AA /* ChangePassword */,
+				B90AFA0D265859C3007BB288 /* Tasks */,
+				B90AFA0F265859E0007BB288 /* Benefits */,
 				B9A13D34244E3AC200373827 /* Profile */,
-				B98DE0E0244BB601007AE007 /* Settings */,
-				B9721AB825AF39880019D6D4 /* SettingsParams */,
-				B944A8EF246217CA002170FD /* TaskDescription */,
-				B966E72C24684CB60043FD69 /* BenefitDescription */,
-				B992D51924578A50002ABF71 /* BenefitsList */,
-				B9D336A32469D002003E1CEB /* OrganizationsList */,
-				B941E741246B93B40056B844 /* OrganizationControl */,
-				B96CA64C25B37BED00FF157C /* CompaniesSearch */,
-				B96CA68725B38F2700FF157C /* CompaniesSection */,
-				C67A645226580E8500CFC7FC /* AddressPicker */,
-				B95FB98825B462A100AB2566 /* AddCompany */,
-				B9F0462C263573E300D2D3D8 /* AddCompanyAction */,
-				B90BED6125B5D95400AD78A8 /* CompanyPacket */,
-				B9FE3A5525B618AB007ED803 /* CompanyCustomPacket */,
-				B93F2B71263F0B9600A8A8D6 /* CompanyStatistics */,
-				C6874EB026540418005009E4 /* CompanyActionsAggregator */,
-				B90AF9F8265183AE007BB288 /* CompanyActionsList */,
+				B90AFA10265859F4007BB288 /* Organizations */,
+				B90AFA0E265859CE007BB288 /* Settings */,
 			);
 			path = ApplicationContentSection;
 			sourceTree = "<group>";
@@ -2433,6 +2493,7 @@
 				B9787F4D246B7E08007DB617 /* TaskListCurrentTasksEntity.swift in Sources */,
 				B90BED4425B5D92200AD78A8 /* CompanyPacketView.swift in Sources */,
 				C6874EA5265403E9005009E4 /* CompanyActionsAggregatorView.swift in Sources */,
+				B90AFA0A265850C9007BB288 /* BUBarButtonItem.swift in Sources */,
 				B9FC798E242FB75E00F2D5BC /* ApplicationContentRouter.swift in Sources */,
 				B96CA64825B37BDA00FF157C /* CompaniesSearchDependency.swift in Sources */,
 				B941E73C246B93600056B844 /* OrganizationControlBuilder.swift in Sources */,
@@ -2527,6 +2588,7 @@
 				B93F2B9B2646E0D700A8A8D6 /* AccountsCredsBuilder.swift in Sources */,
 				B95FB96B25B4624B00AB2566 /* AddCompanyView.swift in Sources */,
 				B93F2B6A263F0B7800A8A8D6 /* CompanyStatisticsInteractor.swift in Sources */,
+				B90AFA0C265856A2007BB288 /* BUAdBanner.swift in Sources */,
 				B96CA65D25B3867700FF157C /* SelectCategoriesCellModel.swift in Sources */,
 				B9CAA708242B9EE000E50668 /* AuthVerificationView.swift in Sources */,
 				B96CA63925B37BC100FF157C /* CompaniesSearchInteractor.swift in Sources */,
@@ -2648,6 +2710,7 @@
 				B95B6199241CE0E000B3FE99 /* NSAttributedString+Facade.swift in Sources */,
 				B9CAA722242BE8DF00E50668 /* EmailVerificationResponseEntity.swift in Sources */,
 				B9D17E32246C2B9C00258BA3 /* OrganizationControlAppendResponseEntity.swift in Sources */,
+				B90AFA0826584FE7007BB288 /* BUTableView.swift in Sources */,
 				B96CA66A25B38ED900FF157C /* CompaniesSectionView.swift in Sources */,
 				B93F2B8E2646DD0100A8A8D6 /* AuthRealm.swift in Sources */,
 				B96A71E4246BA7A6007416DF /* ProfileResponseDetailsEntity.swift in Sources */,
@@ -2712,6 +2775,7 @@
 				B941E73A246B93550056B844 /* OrganizationControlInteractor.swift in Sources */,
 				B90AF9FA26518D1E007BB288 /* CompanyActionsListCell.swift in Sources */,
 				B944A8F724621807002170FD /* TaskDescriptionBuilder.swift in Sources */,
+				B90AFA0626583A74007BB288 /* BUButton.swift in Sources */,
 				B93F2B9F2646E0EF00A8A8D6 /* AccountsCredsRouter.swift in Sources */,
 				B9D3369C2469CFD4003E1CEB /* OrganizationsListBuilder.swift in Sources */,
 				B93F2B7826407A1300A8A8D6 /* CompanyEntity.swift in Sources */,

@@ -125,7 +125,7 @@ final class ProfileInfoContainer: UIView {
         
         label.theme_textColor = Colors.defaultTextColorWithAlpha
         label.font = .avenirRoman(15)
-        label.nonlocalizedTitle = "ui_profile_bonuses_label"
+        label.loc_text = "ui_profile_bonuses_label"
         
         return label
     }
@@ -177,7 +177,7 @@ final class ProfileInfoContainer: UIView {
         let label = BULabel()
 
         label.textAlignment = .center
-        label.nonlocalizedTitle = text
+        label.loc_text = text
         label.font = UIFont.avenirHeavy(15.0)
         label.theme_textColor = Colors.defaultTextColor
 

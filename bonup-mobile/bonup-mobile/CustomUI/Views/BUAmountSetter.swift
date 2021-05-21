@@ -65,7 +65,7 @@ final class BUAmountSetter: UIView {
 
         didSet {
 
-            self.titleLabel.nonlocalizedTitle = self.title
+            self.titleLabel.loc_text = self.title
         }
     }
 

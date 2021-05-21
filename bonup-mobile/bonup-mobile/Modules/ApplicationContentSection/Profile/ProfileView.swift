@@ -103,6 +103,7 @@ final class ProfileView: BUContentViewController {
         super.viewDidLoad()
 
         self.setupAppearance()
+        self.setupNavigationBar()
 
         self.headerView.dataSource = self
         self.infoContainer.dataSource = self
@@ -119,14 +120,12 @@ final class ProfileView: BUContentViewController {
         self.presenter.refreshData(completion: nil)
     }
 
-    // MARK: - Localication
-
-    override func setupLocalizableContent() {
-
-        self.navigationItem.title = "ui_profile_title".localized
-    }
-
     // MARK: - Setup
+    
+    private func setupNavigationBar() {
+        
+        self.loc_title = "ui_profile_title"
+    }
 
     private func setupAppearance() {
 

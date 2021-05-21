@@ -18,7 +18,7 @@ enum PhotosService {
         
         guard let id = id else { return nil }
         
-        let api = serverBase + "/photo"
+        let api = SERVER_BASE_URL + "/photo"
         let urlStr = api + "/\(id)"
         
         return URL(string: urlStr)
@@ -28,7 +28,7 @@ enum PhotosService {
         
         guard let id = id else { return "" }
         
-        let api = serverBase + "/photo"
+        let api = SERVER_BASE_URL + "/photo"
         return api + "/\(id)"
     }
 }
@@ -36,7 +36,7 @@ enum PhotosService {
 extension PhotosService: IAuthorizedTargetType {
 
     var baseURL: URL {
-        return URL(string: serverBase)!
+        return URL(string: SERVER_BASE_URL)!
     }
 
     var path: String {

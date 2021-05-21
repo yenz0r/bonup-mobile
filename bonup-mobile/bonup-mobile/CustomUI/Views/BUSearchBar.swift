@@ -20,11 +20,11 @@ final class BUSearchBar: UIView {
         }
     }
     var onSearchChange: ((String?) -> Void)?
-    var placeholderLocalizationKey: String? {
+    var loc_placeholder: String? {
         
         didSet {
             
-            self.searchTextField.placeholderLocalicationKey = placeholderLocalizationKey
+            self.searchTextField.loc_placeholder = loc_placeholder
         }
     }
     
@@ -100,6 +100,8 @@ final class BUSearchBar: UIView {
         
         tf.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
         tf.delegate = self
+        tf.autocapitalizationType = .none
+        tf.autocorrectionType = .no
         tf.theme_textColor = Colors.defaultTextColor
         
         return tf

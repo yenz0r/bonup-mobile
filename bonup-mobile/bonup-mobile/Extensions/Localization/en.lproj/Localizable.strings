@@ -210,3 +210,6 @@
 "ui_music_category_description" = "Musicians can only create in the right places";
 "ui_coffe_category_description" = "Have a cup of coffee in the morning and spa world in the evening";
 "ui_services_category_description" = "Providing any services to improve your life";
+"ui_enter_location_placeholder" = "Enter location";
+"ui_empty_suggests_list_message" = "No suggests";
+"ui_modify_company_title" = "Modify Company";

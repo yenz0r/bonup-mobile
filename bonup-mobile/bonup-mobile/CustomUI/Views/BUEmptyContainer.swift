@@ -13,15 +13,15 @@ final class BUEmptyContainer: UIView {
     // MARK: - UI variables
 
     private var imageView: UIImageView!
-    private var descriptionLabel: UILabel!
+    private var descriptionLabel: BULabel!
 
     // MARK: - Data variables
 
-    var descriptionText: String? {
+    var loc_description: String? {
 
         didSet {
 
-            self.descriptionLabel.text = self.descriptionText
+            self.descriptionLabel.loc_text = self.loc_description
         }
     }
 
@@ -87,9 +87,9 @@ final class BUEmptyContainer: UIView {
         return iv
     }
 
-    private func configureDescriptionLabel() -> UILabel {
+    private func configureDescriptionLabel() -> BULabel {
 
-        let label = UILabel()
+        let label = BULabel()
         
         label.textAlignment = .center
         label.numberOfLines = 0

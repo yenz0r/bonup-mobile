@@ -173,7 +173,7 @@ final class ProfileHeaderView: UIView {
         label.textAlignment = .left
         label.font = UIFont.avenirRoman(15.0)
         label.theme_textColor = Colors.defaultTextColor
-        label.nonlocalizedTitle = text
+        label.loc_text = text
         label.contentScaleFactor = 0.4
         label.adjustsFontSizeToFitWidth = true
 

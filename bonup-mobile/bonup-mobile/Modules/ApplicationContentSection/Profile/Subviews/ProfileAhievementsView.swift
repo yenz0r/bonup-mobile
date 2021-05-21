@@ -88,7 +88,7 @@ final class ProfileAhievementsView: UIView {
         
         label.theme_textColor = Colors.defaultTextColorWithAlpha
         label.font = .avenirRoman(15)
-        label.nonlocalizedTitle = "ui_profile_archivements_label"
+        label.loc_text = "ui_profile_archivements_label"
         
         return label
     }

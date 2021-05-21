@@ -19,7 +19,7 @@ final class SelectCategoriesCell: UICollectionViewCell {
 
     func configure(with model: SelectCategoriesCellModel) {
 
-        self.categoryTitleLabel.nonlocalizedTitle = model.title
+        self.categoryTitleLabel.loc_text = model.title
         
         var color: UIColor
         if model.isActive {

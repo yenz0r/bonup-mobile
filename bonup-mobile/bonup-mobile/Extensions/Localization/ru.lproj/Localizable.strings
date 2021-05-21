@@ -207,3 +207,6 @@
 "ui_music_category_description" = "Музыканты могут творить только в правильных местах";
 "ui_coffe_category_description" = "С утра выпей чашечку кофе, а вечером спа мир";
 "ui_services_category_description" = "Оказание любых услуг для улучшения Вашей жизни";
+"ui_enter_location_placeholder" = "Введите адрес";
+"ui_empty_suggests_list_message" = "Подсказок нет";
+"ui_modify_company_title" = "Обновить компанию";
