@@ -39,15 +39,24 @@ extension SettingsInteractor: ISettingsInteractor {
         _ = networkProvider.request(
             .uploadPhoto(image),
             type: PhotoResponseEntity.self,
-            completion: { result in
+            completion: { [weak self] result in
 
-                if result.isSuccess {
-
-                    success?()
-                } else {
-
-                    failure?(result.message)
-                }
+                guard let token = AccountManager.shared.currentToken,
+                      let self = self,
+                      let id = Int(result.message) else { return }
+                
+                _ = self.networkProvider.request(
+                    .sendPhotoId(token, id),
+                    type: DefaultResponseEntity.self,
+                    withLoader: true,
+                    completion: { result in
+                        
+                        success?()
+                    },
+                    failure: { err in
+                        
+                        failure?(err?.localizedDescription ?? "")
+                    })
             },
             failure: { err in
 
@@ -66,6 +75,7 @@ extension SettingsInteractor: ISettingsInteractor {
         _ = networkProvider.request(
             .getPhotoId(token),
             type: PhotoResponseEntity.self,
+            withLoader: withLoader,
             completion: { result in
 
                 if result.isSuccess {

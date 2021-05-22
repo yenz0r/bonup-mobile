@@ -11,7 +11,7 @@ import FMPhotoPicker
 
 protocol IAddCompanyRouter {
 
-    func start(_ completion: (() -> Void)?)
+    func start(onStop: (() -> Void)?)
     func stop(_ completion: (() -> Void)?)
     func show(_ scenario: AddCompanyRouter.RouterScenario)
 }
@@ -29,10 +29,15 @@ final class AddCompanyRouter {
         case dissmisPhotoPicker
         case showAddressPicker(((String, Double, Double) -> Void)?)
     }
+    
+    // MARK: - Private variables
 
     private var view: AddCompanyView?
     private var parentNavigationController: UINavigationController
+    private var onTeminate: (() -> Void)?
 
+    // MARK: - Init
+    
     init(view: AddCompanyView?, parentNavigationController: UINavigationController) {
 
         self.view = view
@@ -44,13 +49,14 @@ final class AddCompanyRouter {
 
 extension AddCompanyRouter: IAddCompanyRouter {
 
-    func start(_ completion: (() -> Void)?) {
+    func start(onStop: (() -> Void)?) {
         guard let view = self.view else { return }
 
         view.modalPresentationStyle = .fullScreen
 
         self.parentNavigationController.pushViewController(view, animated: true)
-        completion?()
+        
+        self.onTeminate = onStop
     }
 
     func stop(_ completion: (() -> Void)?) {
@@ -59,6 +65,7 @@ extension AddCompanyRouter: IAddCompanyRouter {
         self.view = nil
 
         completion?()
+        self.onTeminate?()
     }
 
     func show(_ scenario: RouterScenario) {

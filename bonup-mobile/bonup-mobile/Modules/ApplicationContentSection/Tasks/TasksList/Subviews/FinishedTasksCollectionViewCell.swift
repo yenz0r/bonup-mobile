@@ -65,6 +65,11 @@ final class FinishedTasksCollectionViewCell: UICollectionViewCell {
         self.dateOfEndLabel = self.configureDateOfEndLabel()
         self.benefitLabel = self.configureBenefitLabel()
         self.separatorView = self.configureSeparatorView()
+        
+        self.contentView.layer.cornerRadius = 25
+        self.contentView.layer.masksToBounds = true
+        
+        self.setupSectionStyle()
     }
 
     required init?(coder: NSCoder) {
@@ -84,14 +89,14 @@ final class FinishedTasksCollectionViewCell: UICollectionViewCell {
 
         return view
     }
-
+    
     private func configureTitleLabel() -> UILabel {
         let label = UILabel()
 
-        label.font = UIFont.avenirRoman(15.0)
+        label.font = UIFont.avenirHeavy(20.0)
+        label.theme_textColor = Colors.defaultTextColor
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.textColor = UIColor.black
 
         self.contentView.addSubview(label)
         label.snp.makeConstraints { make in
@@ -105,15 +110,15 @@ final class FinishedTasksCollectionViewCell: UICollectionViewCell {
     private func configureDescriptionLabel() -> UILabel {
         let label = UILabel()
 
-        label.font = UIFont.avenirRoman(12.0)
+        label.font = UIFont.avenirRoman(15.0)
+        label.theme_textColor = Colors.defaultTextColorWithAlpha
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.textColor = UIColor.black.withAlphaComponent(0.5)
 
         self.contentView.addSubview(label)
         label.snp.makeConstraints { make in
             make.top.equalTo(self.titleLabel.snp.bottom).offset(10.0)
-            make.leading.equalTo(self.statusView.snp.trailing).offset(15.0)
+            make.leading.equalTo(self.statusView.snp.trailing).offset(10.0)
             make.bottom.equalToSuperview().inset(10.0)
             make.height.greaterThanOrEqualTo(20.0)
         }
@@ -124,9 +129,9 @@ final class FinishedTasksCollectionViewCell: UICollectionViewCell {
     private func configureDateOfEndLabel() -> UILabel {
         let label = UILabel()
 
-        label.font = UIFont.avenirRoman(12.0)
+        label.font = UIFont.avenirHeavy(12.0)
+        label.theme_textColor = Colors.defaultTextColorWithAlpha
         label.textAlignment = .right
-        label.textColor = UIColor.red.withAlphaComponent(0.5)
 
         self.contentView.addSubview(label)
         label.snp.makeConstraints { make in
@@ -141,9 +146,9 @@ final class FinishedTasksCollectionViewCell: UICollectionViewCell {
     private func configureBenefitLabel() -> UILabel {
         let label = UILabel()
 
-        label.font = UIFont.avenirRoman(12.0)
+        label.font = UIFont.avenirHeavy(12.0)
         label.textAlignment = .right
-        label.textColor = UIColor.green.withAlphaComponent(0.5)
+        label.textColor = UIColor.systemGreen.withAlphaComponent(0.8)
 
         self.contentView.addSubview(label)
         label.snp.makeConstraints { make in
@@ -169,26 +174,4 @@ final class FinishedTasksCollectionViewCell: UICollectionViewCell {
 
         return view
     }
-
-    // MARK: - Life Cycle
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        self.contentView.layer.cornerRadius = 10.0
-        self.contentView.layer.masksToBounds = true
-        self.contentView.layer.borderColor = UIColor.purpleLite.withAlphaComponent(0.5).cgColor
-        self.contentView.layer.borderWidth = 1.0
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-        self.titleText = nil
-        self.descriptionText = nil
-        self.dateOfEndText = nil
-        self.benefitText = nil
-        self.isDone = nil
-    }
-
 }

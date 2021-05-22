@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Nuke
 
 protocol ProfileHeaderViewDataSource: AnyObject {
     func iconForProfileHeaderView(_ profileHeaderView: ProfileHeaderView) -> UIImage?
+    func urlForIconInProfileHeaderView(_ profileHeaderView: ProfileHeaderView) -> URL?
     func profileHeaderView(_ profileHeaderView: ProfileHeaderView,
                            userInfoFor type: ProfileHeaderView.UserInfoType) -> String?
 }
@@ -64,7 +66,21 @@ final class ProfileHeaderView: UIView {
         self.emailValueLabel.text = self.dataSource.profileHeaderView(self, userInfoFor: .email) ?? "-"
         self.organizationValueLabel.text = self.dataSource.profileHeaderView(self,
                                                                              userInfoFor:  .organization) ?? "-"
-        self.iconImageView.image = self.dataSource.iconForProfileHeaderView(self)
+        
+        guard let url = self.dataSource.urlForIconInProfileHeaderView(self) else {
+            
+            iconImageView.image = AssetsHelper.shared.image(.usernameIcon)
+            return
+        }
+        
+        let imageRequst = ImageRequest(url: url)
+        Nuke.loadImage(
+            with: imageRequst,
+            options: ImageLoadingOptions(),
+            into: self.iconImageView,
+            progress: nil,
+            completion: nil
+        )
     }
 
     // MARK: - Setup subviews
@@ -194,7 +210,7 @@ final class ProfileHeaderView: UIView {
         
         let imageView = UIImageView()
 
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.theme_tintColor = Colors.defaultTextColor
 
         return imageView

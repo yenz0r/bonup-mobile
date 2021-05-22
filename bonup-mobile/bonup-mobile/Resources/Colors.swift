@@ -44,6 +44,18 @@ struct Colors {
        
         return ThemeColorsManager.shared.currentTheme == .dark ? .white : .black
     }
+    
+    static var textStateCiColor: CIColor {
+        
+        if ThemeColorsManager.shared.currentTheme == .dark {
+            
+            return CIColor(color: .white)
+        }
+        else {
+            
+            return CIColor(color: .black)
+        }
+    }
 
     static let blurEffect = ThemeVisualEffectPicker(effects: UIBlurEffect(style: .light), UIBlurEffect(style: .dark))
 }

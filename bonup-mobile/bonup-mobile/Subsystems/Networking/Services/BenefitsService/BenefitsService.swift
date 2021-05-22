@@ -27,7 +27,7 @@ extension BenefitsService: IAuthorizedTargetType {
         case .buyCoupon(_, _):
             return "/buyCoupon"
         case .myCoupons(_):
-            return "/myCoupons"
+            return "/userCoupons"
         }
     }
 

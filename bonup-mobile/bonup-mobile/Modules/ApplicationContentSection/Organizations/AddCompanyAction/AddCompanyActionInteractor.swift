@@ -15,6 +15,8 @@ protocol IAddCompanyActionInteractor: AnyObject {
     var selectedPhoto: UIImage { get set }
     var actionType: CompanyActionType { get }
     var mode: AddCompanyActionDependency.Mode { get }
+    var usesCount: Int { get }
+    var initAction: OrganizationActionEntity? { get }
     
     func updateValue(_ value: Any, at index: Int)
     func addAction(success:((String) -> Void)?, failure:((String) -> Void)?)
@@ -38,6 +40,7 @@ final class AddCompanyActionInteractor {
     var mode: AddCompanyActionDependency.Mode = .create
     var selectedCategory: InterestCategories = .food
     var selectedPhoto: UIImage = AssetsHelper.shared.image(.addImageIcon)!
+    var initAction: OrganizationActionEntity?
     
     // MARK: - Initialization
 
@@ -49,6 +52,7 @@ final class AddCompanyActionInteractor {
         self.mode = mode
         self.actionType = actionType
         self.organizationId = organizationId
+        self.initAction = action
         
         // NOTE: - In the future list of fields may be changed
         switch actionType {
@@ -103,6 +107,11 @@ extension AddCompanyActionInteractor: IAddCompanyActionInteractor {
     var viewModels: [AddCompanyActionViewModel] {
 
         return self._viewModels
+    }
+    
+    var usesCount: Int {
+        
+        return self.initAction?.triggeredCount ?? 0
     }
     
     func updateValue(_ value: Any, at index: Int) {

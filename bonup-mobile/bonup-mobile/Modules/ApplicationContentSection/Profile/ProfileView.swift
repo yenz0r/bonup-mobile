@@ -207,9 +207,15 @@ extension ProfileView: IProfileView {
 // MARK: - ProfileHeaderViewDataSource
 
 extension ProfileView: ProfileHeaderViewDataSource {
+    
     func iconForProfileHeaderView(_ profileHeaderView: ProfileHeaderView) -> UIImage? {
         
         return AssetsHelper.shared.image(.usernameIcon)?.withRenderingMode(.alwaysTemplate)
+    }
+    
+    func urlForIconInProfileHeaderView(_ profileHeaderView: ProfileHeaderView) -> URL? {
+        
+        return self.presenter.avatarUrl
     }
 
     func profileHeaderView(_ profileHeaderView: ProfileHeaderView,

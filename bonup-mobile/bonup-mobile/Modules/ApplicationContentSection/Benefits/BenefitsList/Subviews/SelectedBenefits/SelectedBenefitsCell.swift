@@ -18,8 +18,12 @@ final class SelectedBenefitsCell: BenefitsCell {
     // MARK: - Public variables
 
     var presentationModels: [SelectedBenefitsPresentationModel]? {
+        
         didSet {
+            
             self.collectionView.reloadData()
+            self.collectionView.reloadEmptyDataSet()
+            self.collectionView.collectionViewLayout.invalidateLayout()
         }
     }
 
@@ -49,25 +53,9 @@ final class SelectedBenefitsCell: BenefitsCell {
             forCellWithReuseIdentifier: SelectedBenefitsContentCell.reuseId
         )
     }
-
-    // MARK: - Life cycle
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-//        self.presentationModels = nil
-    }
 }
 
 // MARK: - UICollectionViewDelegate
-
-extension SelectedBenefitsCell: UICollectionViewDelegateFlowLayout {
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        return CGSize(width: collectionView.bounds.width - 20, height: 70)
-    }
-}
 
 extension SelectedBenefitsCell: UICollectionViewDelegate {
 
@@ -99,6 +87,8 @@ extension SelectedBenefitsCell: UICollectionViewDataSource {
         benefitCell.titleText = model.title
         benefitCell.descriptionText = model.description
         benefitCell.coastText = model.coast
+        
+        benefitCell.width = collectionView.frame.width
 
         return cell
     }

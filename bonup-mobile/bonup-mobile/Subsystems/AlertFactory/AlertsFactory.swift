@@ -43,6 +43,14 @@ final class AlertsFactory {
                 image: AssetsHelper.shared.image(.flagIcon),
                 style: .alert
             )
+            alertVC.alertView.theme_backgroundColor = Colors.profileSectionColor
+            alertVC.headerView.theme_backgroundColor = Colors.profileSectionColor
+            
+            alertVC.alertTitle.theme_textColor = Colors.defaultTextColor
+            alertVC.alertTitle.font = .avenirHeavy(20)
+            
+            alertVC.alertDescription.theme_textColor = Colors.defaultTextColorWithAlpha
+            alertVC.alertDescription.font = .avenirRoman(17)
 
             alertVC.addAction(
                 PMAlertAction(

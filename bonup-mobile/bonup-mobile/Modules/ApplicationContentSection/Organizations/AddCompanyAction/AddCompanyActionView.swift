@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 protocol IAddCompanyActionView: AnyObject {
 
@@ -21,6 +22,7 @@ final class AddCompanyActionView: BUContentViewController {
 
     // MARK: - UI variabes
 
+    private var usesCountContainer: AddCompanyUsesCountContainer!
     private var actionImageView: UIImageView!
     private var categoriesContainer: SelectCategoriesContainer!
     private var tableView: UITableView!
@@ -64,10 +66,12 @@ final class AddCompanyActionView: BUContentViewController {
         self.actionImageView = self.configureActionImageView()
         self.categoriesContainer = self.configureCategoriesContainer()
         self.tableView = self.configureTableView()
+        self.usesCountContainer = self.configureUsesCountContainer()
 
         self.view.addSubview(self.actionImageView)
         self.view.addSubview(self.categoriesContainer)
         self.view.addSubview(self.tableView)
+        self.actionImageView.addSubview(self.usesCountContainer)
 
         self.actionImageView.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
@@ -83,6 +87,10 @@ final class AddCompanyActionView: BUContentViewController {
             make.top.equalTo(self.categoriesContainer.snp.bottom).offset(10)
             make.leading.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
+        
+        self.usesCountContainer.snp.makeConstraints { make in
+            make.top.trailing.equalToSuperview()
+        }
     }
 
     private func setupAppearance() {
@@ -91,7 +99,17 @@ final class AddCompanyActionView: BUContentViewController {
     }
 
     // MARK: - Configure
-
+    
+    private func configureUsesCountContainer() -> AddCompanyUsesCountContainer {
+        
+        let container = AddCompanyUsesCountContainer()
+        
+        container.isHidden = self.presenter.isUsesCountHidden
+        container.countText = self.presenter.usesCountText
+        
+        return container
+    }
+    
     private func configureActionImageView() -> UIImageView {
 
         let iv = UIImageView()
@@ -99,6 +117,20 @@ final class AddCompanyActionView: BUContentViewController {
         iv.image = self.presenter.selectedPhoto
         iv.contentMode = .scaleAspectFit
         iv.theme_tintColor = Colors.navBarTextColor
+        
+        if self.presenter.currentMode != .create,
+           let url = self.presenter.initPhotoURL {
+            
+            let imageRequst = ImageRequest(url: url)
+            
+            Nuke.loadImage(
+                with: imageRequst,
+                options: ImageLoadingOptions(placeholder: AssetsHelper.shared.image(.emptyTasksListIcon)),
+                into: iv,
+                progress: nil,
+                completion: nil
+            )
+        }
 
         let gesture = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
         iv.addGestureRecognizer(gesture)

@@ -19,7 +19,10 @@ final class UsedBenefitsCell: BenefitsCell {
 
     var presentationModels: [UsedBenefitsPresentationModel]? {
         didSet {
+            
             self.collectionView.reloadData()
+            self.collectionView.reloadEmptyDataSet()
+            self.collectionView.collectionViewLayout.invalidateLayout()
         }
     }
 
@@ -40,7 +43,6 @@ final class UsedBenefitsCell: BenefitsCell {
     private func configureCollectionView() {
 
         self.collectionView.dataSource = self
-        self.collectionView.delegate = self
         self.collectionView.emptyDataSetSource = self
         
         self.collectionView.register(
@@ -48,25 +50,9 @@ final class UsedBenefitsCell: BenefitsCell {
             forCellWithReuseIdentifier: UsedBenefitsContentCell.reuseId
         )
     }
-
-    // MARK: - Life cycle
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-//        self.presentationModels = nil
-    }
 }
 
 // MARK: - UICollectionViewDataSource
-
-extension UsedBenefitsCell: UICollectionViewDelegateFlowLayout {
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        return CGSize(width: collectionView.bounds.width - 20, height: 70)
-    }
-}
 
 extension UsedBenefitsCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -89,6 +75,8 @@ extension UsedBenefitsCell: UICollectionViewDataSource {
         benefitCell.descriptionText = model.description
         benefitCell.dateOfUseText = model.dateOfUse
         benefitCell.isDied = model.isDied
+        
+        benefitCell.width = collectionView.frame.width
 
         return cell
     }

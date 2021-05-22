@@ -13,6 +13,7 @@ enum PhotosService {
 
     case uploadPhoto(UIImage)
     case getPhotoId(String)
+    case sendPhotoId(String, Int)
     
     static func photoURL(for id: Int?) -> URL? {
         
@@ -45,7 +46,9 @@ extension PhotosService: IAuthorizedTargetType {
         case .uploadPhoto(_):
             return "/photo"
         case .getPhotoId(_):
-            return "/photo"
+            return "/photoId"
+        case .sendPhotoId(_, _):
+            return "/setUserPhoto"
         }
     }
 
@@ -54,7 +57,9 @@ extension PhotosService: IAuthorizedTargetType {
         case .uploadPhoto(_):
             return .post
         case .getPhotoId(_):
-            return .get
+            return .post
+        case .sendPhotoId(_, _):
+            return .post
         }
     }
 
@@ -64,6 +69,15 @@ extension PhotosService: IAuthorizedTargetType {
 
     var task: Task {
         switch self {
+        
+        case .sendPhotoId(let token, let id):
+            return .requestParameters(
+                parameters: [
+                    "token": token,
+                    "id": id
+                ],
+                encoding: JSONEncoding.default
+            )
 
         case .getPhotoId(let token):
             return .requestParameters(

@@ -13,7 +13,7 @@ protocol IBenefitsInteractor: AnyObject {
     func getBenefits(withLoader: Bool,
                      success:((BenefitsResponseEntity) -> Void)?,
                      failure: ((String) -> Void)?)
-    func buyBenefits(id: Int, success:((BenefitsResponseEntity) -> Void)?, failure: ((String) -> Void)?)
+    func buyBenefits(id: Int, success:((String) -> Void)?, failure: ((String) -> Void)?)
 }
 
 final class BenefitsInteractor {
@@ -44,21 +44,22 @@ extension BenefitsInteractor: IBenefitsInteractor {
                 }
             },
             failure: { err in
+                
                 failure?(err?.localizedDescription ?? "")
             }
         )
     }
 
-    func buyBenefits(id: Int, success: ((BenefitsResponseEntity) -> Void)?, failure: ((String) -> Void)?) {
+    func buyBenefits(id: Int, success: ((String) -> Void)?, failure: ((String) -> Void)?) {
 
         guard let token = AccountManager.shared.currentToken else { return }
 
         _ = networkProvider.request(
             .buyCoupon(id, token),
-            type: BenefitsResponseEntity.self,
+            type: DefaultResponseEntity.self,
             completion: { result in
                 if result.isSuccess {
-                    success?(result)
+                    success?(result.message)
                 } else {
                     failure?(result.message)
                 }

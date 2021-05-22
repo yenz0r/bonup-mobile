@@ -254,6 +254,8 @@
 		B9B67F2825B475D200AC7184 /* SelectCategoriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B67F2725B475D200AC7184 /* SelectCategoriesDataSource.swift */; };
 		B9B67F3625B4780F00AC7184 /* SelectCategoriesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B67F3525B4780F00AC7184 /* SelectCategoriesConstants.swift */; };
 		B9B75F02263D907900DF630E /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B75F01263D907900DF630E /* Date+Utils.swift */; };
+		B9B95FD92659AE230046C0ED /* AddCompanyUsesCountContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B95FD82659AE230046C0ED /* AddCompanyUsesCountContainer.swift */; };
+		B9B95FDB2659BA640046C0ED /* BUQRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B95FDA2659BA640046C0ED /* BUQRCodeView.swift */; };
 		B9BA409F2443D0DD00950808 /* CurrentTasksListPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA409E2443D0DD00950808 /* CurrentTasksListPresentationModel.swift */; };
 		B9BA40A12443D0ED00950808 /* FinishedTasksPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA40A02443D0ED00950808 /* FinishedTasksPresentationModel.swift */; };
 		B9BF7011244326530051CF41 /* TaskCardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BF7010244326530051CF41 /* TaskCardOverlay.swift */; };
@@ -635,6 +637,8 @@
 		B9B67F2725B475D200AC7184 /* SelectCategoriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoriesDataSource.swift; sourceTree = "<group>"; };
 		B9B67F3525B4780F00AC7184 /* SelectCategoriesConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoriesConstants.swift; sourceTree = "<group>"; };
 		B9B75F01263D907900DF630E /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
+		B9B95FD82659AE230046C0ED /* AddCompanyUsesCountContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyUsesCountContainer.swift; sourceTree = "<group>"; };
+		B9B95FDA2659BA640046C0ED /* BUQRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUQRCodeView.swift; sourceTree = "<group>"; };
 		B9BA409E2443D0DD00950808 /* CurrentTasksListPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTasksListPresentationModel.swift; sourceTree = "<group>"; };
 		B9BA40A02443D0ED00950808 /* FinishedTasksPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedTasksPresentationModel.swift; sourceTree = "<group>"; };
 		B9BF7010244326530051CF41 /* TaskCardOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardOverlay.swift; sourceTree = "<group>"; };
@@ -901,6 +905,7 @@
 				B93F2B842646AF4000A8A8D6 /* BUSearchBar.swift */,
 				B9B67F3D25B4781700AC7184 /* SelectCategoriesContainer */,
 				B90867DC25B5DB0800E0DE91 /* BUAmountSetter.swift */,
+				B9B95FDA2659BA640046C0ED /* BUQRCodeView.swift */,
 			);
 			name = Custom;
 			sourceTree = "<group>";
@@ -2044,6 +2049,7 @@
 			isa = PBXGroup;
 			children = (
 				B9F0465A2635A33600D2D3D8 /* AddCompanyActionCell.swift */,
+				B9B95FD82659AE230046C0ED /* AddCompanyUsesCountContainer.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -2549,6 +2555,7 @@
 				B990931B25AF3A5500CF381B /* SettingsParamsRouter.swift in Sources */,
 				B9E0D2B6243D025400BAA634 /* TermsAndConditionsPresenter.swift in Sources */,
 				B9A0C9AD242FC59200EB6FAE /* CategoriesBuilder.swift in Sources */,
+				B9B95FD92659AE230046C0ED /* AddCompanyUsesCountContainer.swift in Sources */,
 				B948A1EC241444B2001287B8 /* bonup_mobile.xcdatamodeld in Sources */,
 				B9D336A02469CFE7003E1CEB /* OrganizationsListRouter.swift in Sources */,
 				B93F2B68263F0B7100A8A8D6 /* CompanyStatisticsPresenter.swift in Sources */,
@@ -2723,6 +2730,7 @@
 				B9D17E2D246C1D0700258BA3 /* OrganizationControlInput.swift in Sources */,
 				B9787F3C246B517D007DB617 /* TermsAndConditionsConstants.swift in Sources */,
 				B9268920242A95CA00F1732A /* AssetsHelper.swift in Sources */,
+				B9B95FDB2659BA640046C0ED /* BUQRCodeView.swift in Sources */,
 				B992D51424578A2E002ABF71 /* BenefitsBuilder.swift in Sources */,
 				B90AF9F126518261007BB288 /* CompanyActionsListInteractor.swift in Sources */,
 				B93F2B7B2641F4B700A8A8D6 /* ProfileActionsChartsContainer.swift in Sources */,
@@ -2970,7 +2978,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F69M5SBR3W;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "bonup-mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -2979,7 +2987,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG_PAID\"";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bonup.debug.paid;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bonup.debug.paid.test-123";
 				PRODUCT_NAME = "$(APP_NAME)";
 				SWIFT_VERSION = 5.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(inherited)";

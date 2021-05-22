@@ -73,6 +73,11 @@ final class CurrentTasksCollectionViewCell: UICollectionViewCell {
         self.titleLabel = self.configureTitleLabel()
         self.descriptionLabel = self.configureDescriptionLabel()
         self.aliveTimeLabel = self.configureAliveTimeLabel()
+        
+        self.setupSectionStyle()
+        
+        self.contentView.layer.cornerRadius = 25
+        self.contentView.layer.masksToBounds = true
     }
 
     required init?(coder: NSCoder) {
@@ -168,25 +173,5 @@ final class CurrentTasksCollectionViewCell: UICollectionViewCell {
         }
 
         return label
-    }
-
-    // MARK: - Life Cycle
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        self.layer.cornerRadius = 10.0
-        self.clipsToBounds = true
-        self.layer.borderColor = UIColor.purpleLite.withAlphaComponent(0.5).cgColor
-        self.layer.borderWidth = 1.0
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-        self.titleText = nil
-        self.descriptionText = nil
-        self.aliveTimeText = nil
-        self.imageLink = nil
     }
 }

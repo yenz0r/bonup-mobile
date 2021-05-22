@@ -10,7 +10,7 @@ import UIKit
 
 protocol ICompanyPacketRouter {
 
-    func start(_ completion: (() -> Void)?)
+    func start(onStop: (() -> Void)?)
     func stop(_ completion: (() -> Void)?)
     func show(_ scenario: CompanyPacketRouter.RouterScenario,
               completion: ((CompanyPacketType) -> Void)?)
@@ -21,13 +21,18 @@ final class CompanyPacketRouter {
     enum RouterScenario {
 
         case customPacket
-        case addCompany(packet: CompanyPacketType)
+        case addCompany(packet: CompanyPacketType, onStop: (() -> Void)?)
         case showAlert(text: String)
     }
 
+    // MARK: - Private variables
+    
     private var view: CompanyPacketView?
     private var parentNavigationController: UINavigationController
-
+    private var onTerminate: (() -> Void)?
+    
+    // MARK: - Init
+    
     init(view: CompanyPacketView?, parentNavigationController: UINavigationController) {
 
         self.view = view
@@ -39,20 +44,24 @@ final class CompanyPacketRouter {
 
 extension CompanyPacketRouter: ICompanyPacketRouter {
 
-    func start(_ completion: (() -> Void)?) {
+    func start(onStop: (() -> Void)?) {
+        
         guard let view = self.view else { return }
 
         view.modalPresentationStyle = .fullScreen
 
         self.parentNavigationController.pushViewController(view, animated: true)
-        completion?()
+        
+        self.onTerminate?()
     }
 
     func stop(_ completion: (() -> Void)?) {
+        
         self.parentNavigationController.popViewController(animated: true)
         self.view = nil
 
         completion?()
+        self.onTerminate?()
     }
 
     func show(_ scenario: RouterScenario, completion: ((CompanyPacketType) -> Void)?) {
@@ -72,7 +81,7 @@ extension CompanyPacketRouter: ICompanyPacketRouter {
                 completion?(customType)
             }
             
-        case .addCompany(let companyPacket):
+        case .addCompany(let companyPacket, let onStop):
             
             let dependency = AddCompanyDependency(
                 parentNavigationController: self.parentNavigationController,
@@ -83,7 +92,7 @@ extension CompanyPacketRouter: ICompanyPacketRouter {
             let builder = AddCompanyBuilder()
             let router = builder.build(dependency)
             
-            router.start(nil)
+            router.start(onStop: onStop)
             
         case .showAlert(let text):
             

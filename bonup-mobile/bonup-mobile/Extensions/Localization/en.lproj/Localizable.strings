@@ -216,3 +216,5 @@
 "ui_company_address_label" = "Address:";
 "ui_company_packet_title" = "Packet";
 "ui_details_title" = "Details";
+"ui_no" = "No";
+"ui_used_label" = "Used:";

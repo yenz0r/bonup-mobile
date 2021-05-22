@@ -119,7 +119,7 @@ extension OrganizationControlRouter: IOrganizationControlRouter {
             let builder = AddCompanyBuilder()
             let router = builder.build(dependency)
             
-            router.start(nil)
+            router.start(onStop: nil)
             
         case .showActions(let companyName):
             

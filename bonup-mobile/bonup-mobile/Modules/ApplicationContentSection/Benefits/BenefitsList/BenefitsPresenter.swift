@@ -37,7 +37,7 @@ final class BenefitsPresenter {
     
     // MARK: - Data sequenses variables
     
-    private var saved: [ActualBenefitEntity]?
+    private var current: [ActualBenefitEntity]?
     private var bought: [ActualBenefitEntity]?
     private var finished: [FinishedBenefitEntity]?
 
@@ -48,6 +48,7 @@ final class BenefitsPresenter {
     // MARK: - Init
     
     init(view: IBenefitsView?, interactor: IBenefitsInteractor, router: IBenefitsRouter) {
+        
         self.view = view
         self.interactor = interactor
         self.router = router
@@ -68,7 +69,7 @@ extension BenefitsPresenter: IBenefitsPresenter {
     }
 
     var savedBenfits: [ActualBenefitEntity] {
-        return self.saved ?? []
+        return self.current ?? []
     }
 
     var boughtBenfits: [ActualBenefitEntity] {
@@ -88,32 +89,31 @@ extension BenefitsPresenter: IBenefitsPresenter {
 
         guard let boughtBenefits = self.bought else { return }
 
-        self.router.show(.benefitDescription(boughtBenefits[index]))
+        self.router.show(.benefitDescription(entity:boughtBenefits[index],
+                                             completion: { [weak self] in
+                                                
+                                                self?.isFirstRefresh = true
+                                                self?.refreshData()
+                                             }))
     }
 
     func handleBuyBenefit(for index: Int) {
 
-        guard let saved = self.saved else { return }
+        guard let saved = self.current else { return }
 
         let id = saved[index].id
 
         self.interactor.buyBenefits(id: id,
-
                                     success: { [weak self] entity in
 
-                                        self?.responseEntity = entity
-                                        self?.bought = entity.bought
-                                        self?.saved = entity.saved
-                                        self?.finished = entity.finished
-                                        
-                                        DispatchQueue.main.async {
-                                         
-                                            self?.view?.reloadData()
-                                        }
+                                        self?.refreshData()
                                     },
-                                    failure: { message in
+                                    failure: { [weak self] message in
 
-                                        print(message)
+                                        DispatchQueue.main.async {
+                                            
+                                            self?.router.show(.showErrorAlert(message))
+                                        }
                                     }
         )
     }
@@ -121,12 +121,12 @@ extension BenefitsPresenter: IBenefitsPresenter {
     func refreshData() {
         
         self.interactor.getBenefits(
-            withLoader: self.isFirstRefresh,
+            withLoader: true,
             success: { [weak self] entity in
 
                 self?.responseEntity = entity
                 self?.bought = entity.bought
-                self?.saved = entity.saved
+                self?.current = entity.current
                 self?.finished = entity.finished
                 
                 DispatchQueue.main.async {

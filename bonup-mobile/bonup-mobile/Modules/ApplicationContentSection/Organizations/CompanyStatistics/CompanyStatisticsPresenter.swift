@@ -173,7 +173,9 @@ extension CompanyStatisticsPresenter: ICompanyStatisticsPresenter {
         
         for (index, actions) in statsData.actions.enumerated() {
             
-            entries.append(ChartDataEntry(x: Double(index), y: Double(actions.count)))
+            let usesCount = actions.reduce(0, { $0 + $1.triggeredCount })
+            
+            entries.append(ChartDataEntry(x: Double(index), y: Double(usesCount)))
         }
         
         let dataSet = LineChartDataSet(entries: entries, label: "ui_user_activity".localized)

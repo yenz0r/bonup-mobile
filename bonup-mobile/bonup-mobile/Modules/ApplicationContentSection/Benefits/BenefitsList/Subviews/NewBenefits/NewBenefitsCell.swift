@@ -22,6 +22,8 @@ final class NewBenefitsCell: BenefitsCell {
         didSet {
             
             self.collectionView.reloadData()
+            self.collectionView.reloadEmptyDataSet()
+            self.collectionView.collectionViewLayout.invalidateLayout()
         }
     }
 
@@ -45,21 +47,12 @@ final class NewBenefitsCell: BenefitsCell {
     private func configureCollectionView() {
         
         self.collectionView.dataSource = self
-        self.collectionView.delegate = self
         self.collectionView.emptyDataSetSource = self
         
         self.collectionView.register(
             NewBenefitsContentCell.self,
             forCellWithReuseIdentifier: NewBenefitsContentCell.reuseId
         )
-    }
-}
-
-extension NewBenefitsCell: UICollectionViewDelegateFlowLayout {
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        return CGSize(width: collectionView.bounds.width - 20, height: 70)
     }
 }
 
@@ -90,6 +83,8 @@ extension NewBenefitsCell: UICollectionViewDataSource {
 
             self?.onSaveTap?(indexPath.row)
         }
+        
+        benefitCell.width = collectionView.frame.width
 
         return cell
     }

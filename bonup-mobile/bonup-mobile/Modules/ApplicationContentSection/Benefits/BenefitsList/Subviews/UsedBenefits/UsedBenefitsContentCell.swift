@@ -46,7 +46,7 @@ final class UsedBenefitsContentCell: BenefitsContentCell {
     var dateOfUseText: String? {
         didSet {
             guard let date = self.dateOfUseText else {
-                self.dateOfUseLabel.text = nil
+                self.dateOfUseLabel.text = "ui_no".localized
                 return
             }
 
@@ -74,16 +74,6 @@ final class UsedBenefitsContentCell: BenefitsContentCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Life cycle
-
-    override func prepareForReuse() {
-
-        self.titleText = nil
-        self.descriptionText = nil
-        self.dateOfUseText = nil
-        self.isDied = nil
-    }
-
     // MARK: - Setup subviews
 
     private func setupSubviews() {
@@ -91,7 +81,7 @@ final class UsedBenefitsContentCell: BenefitsContentCell {
         self.titleLabel = self.configureLabel(for: .title)
         self.descriptionLabel = self.configureLabel(for: .description)
         self.dateOfUseLabel = self.configureLabel(for: .dateOfUse)
-        self.indicatorView = UIView()
+        self.indicatorView = self.configureIndicatorView()
 
         self.contentView.addSubview(self.indicatorView)
         self.contentView.addSubview(self.titleLabel)
@@ -100,24 +90,35 @@ final class UsedBenefitsContentCell: BenefitsContentCell {
 
         self.indicatorView.snp.makeConstraints { make in
             make.leading.top.bottom.equalToSuperview()
-            make.width.equalTo(20.0)
+            make.width.equalTo(25.0)
+        }
+        
+        self.dateOfUseLabel.snp.makeConstraints { make in
+            make.top.trailing.equalToSuperview().inset(8.0)
         }
 
         self.titleLabel.snp.makeConstraints { make in
-            make.top.trailing.equalToSuperview().inset(8.0)
-            make.leading.equalTo(self.indicatorView.snp.trailing).offset(15.0)
-        }
-
-        self.descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.titleLabel.snp.bottom).offset(10.0)
+            make.top.equalTo(self.dateOfUseLabel.snp.bottom).offset(8)
             make.trailing.equalToSuperview().inset(8.0)
             make.leading.equalTo(self.indicatorView.snp.trailing).offset(15.0)
         }
 
-        
+        self.descriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.titleLabel.snp.bottom).offset(8.0)
+            make.trailing.equalToSuperview().inset(8.0)
+            make.leading.equalTo(self.indicatorView.snp.trailing).offset(15.0)
+            make.bottom.equalToSuperview().offset(-8.0)
+        }
     }
 
     // MARK: - Configure
+    
+    private func configureIndicatorView() -> UIView {
+        
+        let indicator = UIView()
+        
+        return indicator
+    }
 
     private func configureLabel(for type: LabelType) -> UILabel {
         let label = UILabel()
@@ -125,17 +126,21 @@ final class UsedBenefitsContentCell: BenefitsContentCell {
         switch type {
         case .title:
             label.font = UIFont.avenirHeavy(20.0)
-            label.textColor = UIColor.purpleLite.withAlphaComponent(0.8)
+            label.theme_textColor = Colors.defaultTextColor
             label.textAlignment = .left
+            
         case .description:
             label.font = UIFont.avenirRoman(15.0)
-            label.textColor = UIColor.purpleLite.withAlphaComponent(0.3)
+            label.theme_textColor = Colors.defaultTextColorWithAlpha
             label.textAlignment = .left
+            
         case .dateOfUse:
-            label.font = UIFont.avenirHeavy(12.0)
+            label.font = UIFont.avenirHeavy(10.0)
+            label.theme_textColor = Colors.defaultTextColorWithAlpha
             label.textAlignment = .right
-            label.textColor = UIColor.red.withAlphaComponent(0.3)
         }
+        
+        label.numberOfLines = 0
 
         return label
     }

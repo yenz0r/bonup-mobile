@@ -18,7 +18,7 @@ final class OrganizationsListRouter {
     enum RouterScenario {
 
         case showOrganizationControl(CompanyEntity)
-        case showAddNewOrganization
+        case showAddNewOrganization(onStop: (() -> Void)?)
     }
 
     private var view: OrganizationsListView?
@@ -61,12 +61,13 @@ extension OrganizationsListRouter: IOrganizationsListRouter {
             let router = builder.build(dependency)
             router.start(nil)
 
-        case .showAddNewOrganization:
+        case .showAddNewOrganization(let onStop):
 
             let dependency = CompanyPacketDependency(parentNavigationController: self.parentNavigationController)
             let builder = CompanyPacketBuilder()
             let router = builder.build(dependency)
-            router.start(nil)
+            
+            router.start(onStop: onStop)
         }
     }
 }

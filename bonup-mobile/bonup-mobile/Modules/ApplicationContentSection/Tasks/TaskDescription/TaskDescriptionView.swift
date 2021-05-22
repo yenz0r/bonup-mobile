@@ -18,7 +18,7 @@ protocol ITaskDescriptionView: AnyObject {
 final class TaskDescriptionView: BUContentViewController {
 
     enum OrganizationButtonType {
-        case call, visitSite
+        case phone, webSite, vk
     }
 
     enum DateContainerType {
@@ -29,23 +29,33 @@ final class TaskDescriptionView: BUContentViewController {
 
     var presenter: ITaskDescriptionPresenter!
 
-    // MARK: - Private variables
+    // MARK: - UI variables
 
     private var scrollView: UIScrollView!
     private var scrollContentView: UIView!
     private var imageView: UIImageView!
     private var titleLabel: UILabel!
     private var descriptionLabel: UILabel!
-    private var organizationTitleLabel: UILabel!
-    private var categoryLabel: UILabel!
+    private var organizationTitleLabel: BULabel!
+    private var organizationNameLabel: UILabel!
+    private var organizationDirectorLabel: UILabel!
+    private var organizationAddressLabel: UILabel!
+    private var categoryLabel: BULabel!
+    private var categoryContainer: UIView!
     private var dateFromLabel: UILabel!
     private var dateToLabel: UILabel!
     private var ballsCountLabel: UILabel!
+    private var ballsCountContainer: UIView!
     private var callButton: UIButton!
     private var siteButton: UIButton!
+    private var vkButton: UIButton!
     private var adBanner: BUAdBanner!
     private var mapView: BUMapView!
-    private var qrImageView: UIImageView!
+    private var qrCodeView: BUQRCodeView!
+    
+    // MARK: - State variables
+    
+    private var isFirstLayout = true
 
     // MARK: - Life cycle
 
@@ -61,6 +71,19 @@ final class TaskDescriptionView: BUContentViewController {
         self.setupNavigationBar()
         self.setupAppearance()
         self.reloadData()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        super.viewDidLayoutSubviews()
+        
+        if self.isFirstLayout {
+            
+            self.isFirstLayout.toggle()
+            
+            self.categoryContainer.setupBlur()
+            self.ballsCountContainer.setupBlur()
+        }
     }
 
     // MARK: - Setup subviews
@@ -86,67 +109,112 @@ final class TaskDescriptionView: BUContentViewController {
             make.height.equalTo(self.imageView.snp.width).dividedBy(2)
         }
 
-        self.ballsCountLabel = self.configureTitleLabel()
-        self.imageView.addSubview(self.ballsCountLabel)
-        self.ballsCountLabel.snp.makeConstraints { make in
-            make.trailing.top.equalToSuperview().inset(10.0)
+        self.ballsCountContainer = self.configureBallsCountContainer()
+        self.imageView.addSubview(self.ballsCountContainer)
+        self.ballsCountContainer.snp.makeConstraints { make in
+            make.top.trailing.equalToSuperview()
+        }
+        
+        self.categoryContainer = self.configureCategoryContainer()
+        self.imageView.addSubview(self.categoryContainer)
+        self.categoryContainer.snp.makeConstraints { make in
+            make.trailing.bottom.equalToSuperview()
         }
 
-        self.categoryLabel = self.configureCategoryLabel()
-        self.imageView.addSubview(self.categoryLabel)
-        self.categoryLabel.snp.makeConstraints { make in
-            make.trailing.equalToSuperview()
-            make.top.equalTo(self.ballsCountLabel.snp.bottom).offset(10.0)
+        let taskInfoContainer = UIView()
+        taskInfoContainer.setupSectionStyle()
+        self.scrollContentView.addSubview(taskInfoContainer)
+        taskInfoContainer.snp.makeConstraints { make in
+            make.top.equalTo(self.imageView.snp.bottom).offset(20.0)
+            make.leading.trailing.equalToSuperview().inset(20)
         }
-
+        
         self.titleLabel = self.configureTitleLabel()
-        self.scrollContentView.addSubview(self.titleLabel)
+        taskInfoContainer.addSubview(self.titleLabel)
         self.titleLabel.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(20.0)
-            make.top.equalTo(self.imageView.snp.bottom).offset(10.0)
+            make.leading.trailing.equalToSuperview().inset(25.0)
+            make.top.equalToSuperview().offset(10)
         }
 
         self.descriptionLabel = self.configureDescriptionLabel()
-        self.scrollContentView.addSubview(self.descriptionLabel)
+        taskInfoContainer.addSubview(self.descriptionLabel)
         self.descriptionLabel.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(15.0)
             make.top.equalTo(self.titleLabel.snp.bottom).offset(10.0)
+            make.bottom.equalToSuperview().offset(-10)
         }
 
-        let firstSeparatorView = self.configureSeparatorView()
-        self.scrollContentView.addSubview(firstSeparatorView)
-        firstSeparatorView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(40.0)
-            make.height.equalTo(1.0)
-            make.top.equalTo(self.descriptionLabel.snp.bottom).offset(10.0)
+        let companyInfoContainer = UIView()
+        companyInfoContainer.setupSectionStyle()
+        self.scrollContentView.addSubview(companyInfoContainer)
+        companyInfoContainer.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.top.equalTo(taskInfoContainer.snp.bottom).offset(20)
         }
-
+        
         self.organizationTitleLabel = self.configureTitleLabel()
-        self.scrollContentView.addSubview(self.organizationTitleLabel)
+        companyInfoContainer.addSubview(self.organizationTitleLabel)
         self.organizationTitleLabel.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(20.0)
-            make.bottom.equalTo(firstSeparatorView.snp.bottom).offset(10.0)
+            make.top.equalToSuperview().inset(10.0)
+            make.leading.trailing.equalToSuperview().offset(20)
+        }
+        
+        self.organizationNameLabel = self.configureDetailsLabel()
+        companyInfoContainer.addSubview(self.organizationNameLabel)
+        self.organizationNameLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.organizationTitleLabel.snp.bottom).offset(20.0)
+            make.leading.trailing.equalToSuperview().inset(10)
+        }
+        
+        self.organizationDirectorLabel = self.configureDetailsLabel()
+        companyInfoContainer.addSubview(self.organizationDirectorLabel)
+        self.organizationDirectorLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.organizationNameLabel.snp.bottom).offset(10.0)
+            make.leading.trailing.equalToSuperview().inset(10)
+        }
+        
+        self.organizationAddressLabel = self.configureDetailsLabel()
+        companyInfoContainer.addSubview(self.organizationAddressLabel)
+        self.organizationAddressLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.organizationDirectorLabel.snp.bottom).offset(10.0)
+            make.leading.trailing.equalToSuperview().inset(10)
+        }
+        
+        let companyInfoSeparator = self.configureSeparatorView()
+        companyInfoContainer.addSubview(companyInfoSeparator)
+        companyInfoSeparator.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(40)
+            make.height.equalTo(1)
+            make.top.equalTo(self.organizationAddressLabel.snp.bottom).offset(10)
         }
 
         let buttonsStackView = self.congfigureStackView()
-        self.scrollContentView.addSubview(buttonsStackView)
+        companyInfoContainer.addSubview(buttonsStackView)
         buttonsStackView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(20.0)
-            make.top.equalTo(firstSeparatorView.snp.bottom).offset(10.0)
-            make.height.equalTo(30.0)
+            make.centerX.equalToSuperview()
+            make.top.equalTo(companyInfoSeparator.snp.bottom).offset(10.0)
+            make.height.equalTo(40.0)
+            make.bottom.equalToSuperview().offset(-10)
         }
 
-        self.callButton = self.configureButton(for: .call)
-        self.siteButton = self.configureButton(for: .visitSite)
+        self.callButton = self.configureButton(for: .phone)
+        self.siteButton = self.configureButton(for: .webSite)
+        self.vkButton = self.configureButton(for: .vk)
 
-        [self.callButton, self.siteButton].forEach { buttonsStackView.addArrangedSubview($0) }
-
-        let secondSeparatorView = self.configureSeparatorView()
-        self.scrollContentView.addSubview(secondSeparatorView)
-        secondSeparatorView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(40.0)
-            make.height.equalTo(1.0)
-            make.top.equalTo(buttonsStackView.snp.bottom).offset(10.0)
+        [self.callButton, self.siteButton, self.vkButton].forEach {
+            
+            guard let button = $0 else { return }
+            
+            buttonsStackView.addArrangedSubview(button);
+            button.snp.makeConstraints { $0.size.equalTo(40) }
+        }
+        
+        let dateInfoContainer = UIView()
+        dateInfoContainer.setupSectionStyle()
+        self.scrollContentView.addSubview(dateInfoContainer)
+        dateInfoContainer.snp.makeConstraints { make in
+            make.top.equalTo(companyInfoContainer.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(20)
         }
 
         self.dateFromLabel = self.configureDescriptionLabel()
@@ -157,49 +225,39 @@ final class TaskDescriptionView: BUContentViewController {
             first: fromDateContainer,
             second: toDateContainer
         )
-        self.scrollContentView.addSubview(dateContainer)
+        dateInfoContainer.addSubview(dateContainer)
         dateContainer.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(10.0)
-            make.top.equalTo(secondSeparatorView.snp.bottom).offset(10.0)
+            make.edges.equalToSuperview().inset(10)
         }
 
-        let thirdSeparator = self.configureSeparatorView()
-        self.scrollContentView.addSubview(thirdSeparator)
-        thirdSeparator.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(40.0)
-            make.top.equalTo(dateContainer.snp.bottom).offset(10.0)
-            make.height.equalTo(1.0)
-        }
-
-        self.qrImageView = self.configureQrImageView()
-        self.scrollContentView.addSubview(self.qrImageView)
-        self.qrImageView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(70.0)
-            make.top.equalTo(thirdSeparator.snp.bottom).offset(10.0)
-            make.height.equalTo(self.qrImageView.snp.width)
-        }
-
-        let fourthSeparator = self.configureSeparatorView()
-        self.scrollContentView.addSubview(fourthSeparator)
-        fourthSeparator.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(40.0)
-            make.top.equalTo(self.qrImageView.snp.bottom).offset(10.0)
-            make.height.equalTo(1.0)
+        let mapContainer = UIView()
+        mapContainer.setupSectionStyle()
+        self.scrollContentView.addSubview(mapContainer)
+        mapContainer.snp.makeConstraints { make in
+            make.top.equalTo(dateInfoContainer.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(20)
         }
 
         self.mapView = self.configureMapView()
-        self.scrollContentView.addSubview(self.mapView)
+        mapContainer.addSubview(self.mapView)
         self.mapView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(10.0)
-            make.top.equalTo(fourthSeparator.snp.bottom).offset(40.0)
-            make.height.equalTo(self.mapView.snp.width)
+            make.edges.equalToSuperview().inset(10)
+            make.width.equalTo(self.mapView.snp.height)
+        }
+        
+        self.qrCodeView = BUQRCodeView()
+        self.scrollContentView.addSubview(self.qrCodeView)
+        self.qrCodeView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.top.equalTo(self.mapView.snp.bottom).offset(30)
+            make.height.equalTo(self.qrCodeView.snp.width)
         }
 
         self.adBanner = BUAdBanner(rootViewController: self)
         self.scrollContentView.addSubview(self.adBanner)
         self.adBanner.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(self.mapView.snp.bottom).offset(10.0)
+            make.top.equalTo(self.qrCodeView.snp.bottom).offset(20.0)
             make.width.equalTo(320)
             make.height.equalTo(50)
             make.bottom.equalTo(self.scrollContentView).offset(-30.0)
@@ -227,6 +285,66 @@ final class TaskDescriptionView: BUContentViewController {
 
     // MARK: - Configure
     
+    private func configureBallsCountContainer() -> UIView {
+        
+        let container = UIView()
+        container.backgroundColor = .clear
+        
+        self.ballsCountLabel = self.configureInfoLabel()
+        
+        container.addSubview(self.ballsCountLabel)
+        self.ballsCountLabel.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(10)
+        }
+        
+        container.layer.maskedCorners = [.layerMinXMaxYCorner]
+        container.layer.cornerRadius = 20
+        container.layer.masksToBounds = true
+        
+        return container
+    }
+    
+    private func configureCategoryContainer() -> UIView {
+        
+        let container = UIView()
+        container.backgroundColor = .clear
+        
+        self.categoryLabel = self.configureInfoLabel()
+        
+        container.addSubview(self.categoryLabel)
+        self.categoryLabel.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(10)
+        }
+        
+        container.layer.maskedCorners = [.layerMinXMinYCorner]
+        container.layer.cornerRadius = 20
+        container.layer.masksToBounds = true
+        
+        return container
+    }
+    
+    private func configureDetailsLabel() -> UILabel {
+        
+        let label = UILabel()
+        
+        label.textAlignment = .left
+        label.font = .avenirRoman(15)
+        label.theme_textColor = Colors.defaultTextColorWithAlpha
+        
+        return label
+    }
+    
+    private func configureInfoLabel() -> BULabel {
+        
+        let label = BULabel()
+        
+        label.textAlignment = .center
+        label.font = .avenirHeavy(17)
+        label.textColor = .orange.withAlphaComponent(0.8)
+        
+        return label
+    }
+    
     private func configureQrImageView() -> UIImageView {
         let imageView = UIImageView()
 
@@ -248,7 +366,12 @@ final class TaskDescriptionView: BUContentViewController {
 
     private func configureMapView() -> BUMapView {
         
-        return BUMapView()
+        let mapView = BUMapView()
+        
+        mapView.layer.cornerRadius = 20
+        mapView.layer.masksToBounds = true
+        
+        return mapView
     }
 
     private func configureHorizontalContainerView(first: UIView, second: UIView) -> UIView {
@@ -258,6 +381,14 @@ final class TaskDescriptionView: BUContentViewController {
         first.snp.makeConstraints { make in
             make.leading.top.bottom.equalToSuperview()
             make.width.equalToSuperview().dividedBy(2)
+        }
+        
+        let separator = self.configureSeparatorView()
+        view.addSubview(separator)
+        separator.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.equalTo(30)
+            make.width.equalTo(1)
         }
 
         view.addSubview(second)
@@ -276,10 +407,10 @@ final class TaskDescriptionView: BUContentViewController {
         var value: UILabel
         switch type {
         case .from:
-            title.text = "ui_from_date".localized
+            title.loc_text = "ui_from_date"
             value = self.dateFromLabel
         case .to:
-            title.text = "ui_to_date".localized
+            title.loc_text = "ui_to_date"
             value = self.dateToLabel
         }
 
@@ -293,7 +424,7 @@ final class TaskDescriptionView: BUContentViewController {
         value.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(title.snp.bottom).offset(10.0)
-            make.bottom.equalToSuperview().offset(-10.0)
+            make.bottom.equalToSuperview()
         }
 
         title.textAlignment = .center
@@ -305,23 +436,24 @@ final class TaskDescriptionView: BUContentViewController {
     private func configureButton(for type: OrganizationButtonType) -> UIButton {
         let button = UIButton(type: .system)
 
-        var title = ""
+        var image: UIImage
+        
         switch type {
-        case .call:
-            title = "ui_call".localized
+        case .phone:
+            image = AssetsHelper.shared.image(.phoneIcon)!
             button.addTarget(self, action: #selector(callButtonTapped), for: .touchUpInside)
-        case .visitSite:
-            title = "ui_visit_site".localized
+            
+        case .webSite:
+            image = AssetsHelper.shared.image(.webIcon)!
             button.addTarget(self, action: #selector(visitSiteButtonTapped), for: .touchUpInside)
+            
+        case .vk:
+            image = AssetsHelper.shared.image(.vkIcon)!
+            button.addTarget(self, action: #selector(visitVKButtonTapped), for: .touchUpInside)
         }
 
-        let attributedTitle = NSAttributedString.with(
-            title: title,
-            textColor: .purpleLite,
-            font: UIFont.avenirRoman(15.0)
-        )
-
-        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.setImage(image, for: .normal)
+        button.theme_tintColor = Colors.defaultTextColor
 
         return button
     }
@@ -330,8 +462,9 @@ final class TaskDescriptionView: BUContentViewController {
         let stackView = UIStackView()
 
         stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        stackView.spacing = 10.0
+        stackView.distribution = .equalSpacing
+        stackView.alignment = .center
+        stackView.spacing = 30
 
         return stackView
     }
@@ -345,11 +478,11 @@ final class TaskDescriptionView: BUContentViewController {
         return imageView
     }
 
-    private func configureTitleLabel() -> UILabel {
-        let label = UILabel()
+    private func configureTitleLabel() -> BULabel {
+        let label = BULabel()
 
-        label.textColor = UIColor.black.withAlphaComponent(0.7)
-        label.font = UIFont.avenirHeavy(20.0)
+        label.theme_textColor = Colors.defaultTextColor
+        label.font = UIFont.avenirRoman(15)
         label.textAlignment = .left
         label.numberOfLines = 0
 
@@ -359,8 +492,8 @@ final class TaskDescriptionView: BUContentViewController {
     private func configureDescriptionLabel() -> UILabel {
         let label = UILabel()
 
-        label.textColor = UIColor.black.withAlphaComponent(0.4)
-        label.font = UIFont.avenirRoman(15.0)
+        label.theme_textColor = Colors.defaultTextColorWithAlpha
+        label.font = UIFont.avenirRoman(20.0)
         label.textAlignment = .left
         label.numberOfLines = 0
 
@@ -385,6 +518,10 @@ final class TaskDescriptionView: BUContentViewController {
           }
         }
     }
+    
+    @objc private func visitVKButtonTapped() {
+        
+    }
 
     @objc private func visitSiteButtonTapped() {
         // Use url when back will be ready
@@ -407,11 +544,17 @@ extension TaskDescriptionView: ITaskDescriptionView {
     func reloadData() {
         self.titleLabel.text = self.presenter.title
         self.descriptionLabel.text = self.presenter.description
+        
+        self.organizationTitleLabel.loc_text = "ui_organization_title"
+        self.organizationNameLabel.text = presenter.organizationTitle
+        self.organizationAddressLabel.text = presenter.address
+        self.organizationDirectorLabel.text = presenter.director
+        
         self.ballsCountLabel.text = self.presenter.balls
         self.dateFromLabel.text = self.presenter.fromDate
         self.dateToLabel.text = self.presenter.toDate
-        self.categoryLabel.text = self.presenter.categoryTitle
-        self.qrImageView.image = self.presenter.qrCodeImage
+        self.categoryLabel.loc_text = self.presenter.categoryTitle
+        self.qrCodeView.code = self.presenter.qrCode
 
         // setup map
         let point = YMKPoint(

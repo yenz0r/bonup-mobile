@@ -170,7 +170,7 @@ extension BenefitsView: UICollectionViewDataSource {
                 return NewBenefitsPresentationModel(
                             title: $0.name,
                             description: $0.description,
-                            coast: "\($0.costCount)",
+                            coast: "\($0.bonusesCount)",
                             aliveTime: $0.dateTo
                         )
             }
@@ -193,7 +193,7 @@ extension BenefitsView: UICollectionViewDataSource {
                 return SelectedBenefitsPresentationModel(
                     title: benefit.name,
                     description: benefit.description,
-                    coast: "\(benefit.costCount)"
+                    coast: "\(benefit.bonusesCount)"
                 )
             }
 
@@ -245,6 +245,14 @@ extension BenefitsView: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.bounds.size
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }
 

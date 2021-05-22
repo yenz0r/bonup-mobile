@@ -107,7 +107,7 @@ extension TasksListPresenter: ITasksListPresenter {
     func viewWillAppear() {
         
         self.interactor.getTasks(
-            withLoader: self.isFirstRefresh,
+            withLoader: true,
             success: { [weak self] result in
 
                 self?.currentListResponse = result
@@ -117,10 +117,7 @@ extension TasksListPresenter: ITasksListPresenter {
                     self?.view?.reloadData()
                 }
             },
-            failure: { status, message in
-                
-                print("---")
-            }
+            failure: { status, message in }
         )
         
         if self.isFirstRefresh {
@@ -133,6 +130,10 @@ extension TasksListPresenter: ITasksListPresenter {
 
         guard let currents = self.currentListResponse?.saved else { return }
 
-        self.router.show(.showTaskDescription(currents[index]))
+        self.router.show(.showTaskDescription(currents[index], { [weak self] in
+            
+            self?.isFirstRefresh = true
+            self?.viewWillAppear()
+        }))
     }
 }

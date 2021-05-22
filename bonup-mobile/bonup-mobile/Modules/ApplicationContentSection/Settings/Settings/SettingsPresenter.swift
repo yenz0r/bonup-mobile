@@ -162,7 +162,9 @@ extension SettingsPresenter: ISettingsPresenter {
 
             DispatchQueue.main.async {
 
-                guard let photoId = Int(id), let url = PhotosService.photoURL(for: photoId) else { return }
+                guard id != "",
+                      let photoId = Int(id),
+                      let url = PhotosService.photoURL(for: photoId) else { return }
                 
                 self?.view?.updateAvatarIcon(url: url, completion: { image in
                     

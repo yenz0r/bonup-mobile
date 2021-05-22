@@ -19,18 +19,27 @@ protocol ITaskDescriptionPresenter: AnyObject {
     var balls: String { get }
     var latitude: Double { get }
     var longitude: Double { get }
-    var qrCodeImage: UIImage? { get }
+    var qrCode: String { get }
+    var director: String { get }
+    var address: String { get }
     
     func handleDetailsTap()
 }
 
 final class TaskDescriptionPresenter {
 
+    // MARK: - Private variables
+    
     private weak var view: ITaskDescriptionView?
     private let interactor: ITaskDescriptionInteractor
     private let router: ITaskDescriptionRouter
+    
+    // MARK: - Data variables
+    
     private let currentTask: TaskListCurrentTasksEntity
 
+    // MARK: - Init
+    
     init(view: ITaskDescriptionView?,
          interactor: ITaskDescriptionInteractor,
          router: ITaskDescriptionRouter,
@@ -46,19 +55,20 @@ final class TaskDescriptionPresenter {
 
 extension TaskDescriptionPresenter: ITaskDescriptionPresenter {
     var latitude: Double {
-        return Double(self.currentTask.organization.longitude)
-    }
-
-    var longitude: Double {
         return Double(self.currentTask.organization.latitude)
     }
 
-    var qrCodeImage: UIImage? {
-        guard let userToken = AccountManager.shared.currentToken else { return nil }
-        let taskId = self.currentTask.id
-        let qrLine = "\(taskId)-\(userToken)"
+    var longitude: Double {
+        return Double(self.currentTask.organization.longitude)
+    }
 
-        return QRcodeManager.shared.createQRFromString(str: qrLine)
+    var qrCode: String {
+        
+        guard let userToken = AccountManager.shared.currentToken else { return "" }
+        let taskId = self.currentTask.id
+        let qrLine = "\(taskId)+\(userToken)"
+
+        return qrLine
     }
 
     var title: String {
@@ -86,11 +96,23 @@ extension TaskDescriptionPresenter: ITaskDescriptionPresenter {
     }
 
     var categoryTitle: String {
-        return "#\(InterestCategories.category(id: self.currentTask.categoryId).title)"
+        return "\(InterestCategories.category(id: self.currentTask.categoryId).title)"
     }
 
     var balls: String {
         return "+\(self.currentTask.bonusesCount)"
+    }
+    
+    var director: String {
+        
+        return self.currentTask.organization.directorFirstName + " " +
+               self.currentTask.organization.directorSecondName + " " +
+               self.currentTask.organization.directorLastName
+    }
+    
+    var address: String {
+        
+        return self.currentTask.organization.address
     }
     
     func handleDetailsTap() {

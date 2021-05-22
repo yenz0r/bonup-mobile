@@ -45,7 +45,7 @@ extension BenefitDescriptionInteractor: IBenefitDescriptionInteractor {
 
     var benefitImageLink: String {
         
-        return self.benefitEntity.photos.first ?? ""
+        return PhotosService.photoPath(for: self.benefitEntity.photoId)
     }
 
     var codeLine: String {
@@ -57,6 +57,6 @@ extension BenefitDescriptionInteractor: IBenefitDescriptionInteractor {
 
         let id = self.benefitEntity.id
 
-        return "\(id) - \(userToken)"
+        return "\(id)+\(userToken)"
     }
 }

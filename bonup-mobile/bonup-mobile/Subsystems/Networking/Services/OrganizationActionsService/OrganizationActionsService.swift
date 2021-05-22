@@ -35,13 +35,11 @@ extension OrganizationActionsService: IAuthorizedTargetType {
 
     var method: Moya.Method {
         switch self {
-        case .getTasks(_, _):
-            return .post
+        
+        case .getTasks(_, _),
+             .getCoupons(_, _),
+             .getStocks(_, _):
             
-        case .getCoupons(_, _):
-            return .post
-            
-        case .getStocks(_, _):
             return .post
         }
     }

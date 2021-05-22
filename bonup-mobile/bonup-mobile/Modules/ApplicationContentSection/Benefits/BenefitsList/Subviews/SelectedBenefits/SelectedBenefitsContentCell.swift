@@ -74,15 +74,6 @@ final class SelectedBenefitsContentCell: BenefitsContentCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Life cycle
-
-    override func prepareForReuse() {
-
-        self.titleText = nil
-        self.descriptionText = nil
-        self.coastText = nil
-    }
-
     // MARK: - Setup subviews
 
     private func setupSubviews() {
@@ -101,7 +92,7 @@ final class SelectedBenefitsContentCell: BenefitsContentCell {
         }
 
         self.descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.titleLabel.snp.bottom).offset(10.0)
+            make.top.equalTo(self.titleLabel.snp.bottom).offset(8.0)
             make.leading.trailing.equalToSuperview().inset(8.0)
         }
 
@@ -120,16 +111,21 @@ final class SelectedBenefitsContentCell: BenefitsContentCell {
         switch type {
         case .title:
             label.font = UIFont.avenirHeavy(20.0)
-            label.textColor = UIColor.purpleLite.withAlphaComponent(0.8)
+            label.theme_textColor = Colors.defaultTextColor
             label.textAlignment = .left
+            
         case .description:
             label.font = UIFont.avenirRoman(15.0)
-            label.textColor = UIColor.purpleLite.withAlphaComponent(0.3)
+            label.theme_textColor = Colors.defaultTextColorWithAlpha
             label.textAlignment = .left
+            
         case .coast:
-            label.font = UIFont.avenirHeavy(12.0)
+            label.font = UIFont.avenirHeavy(10.0)
+            label.theme_textColor = Colors.defaultTextColorWithAlpha
             label.textAlignment = .right
         }
+        
+        label.numberOfLines = 0
 
         return label
     }

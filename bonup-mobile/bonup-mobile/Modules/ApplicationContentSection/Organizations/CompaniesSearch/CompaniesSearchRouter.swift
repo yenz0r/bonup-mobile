@@ -78,7 +78,7 @@ extension CompaniesSearchRouter: ICompaniesSearchRouter {
             let builder = AddCompanyBuilder()
             let router = builder.build(companyDependency)
             
-            router.start(nil)
+            router.start(onStop: nil)
         }
     }
 }

@@ -98,6 +98,10 @@ extension OrganizationsListPresenter: IOrganizationsListPresenter {
 
     func handleAddButtonTap() {
 
-        self.router.show(.showAddNewOrganization)
+        self.router.show(.showAddNewOrganization(onStop: { [weak self] in
+            
+            self?.isFirstRefresh = true
+            self?.refreshData()
+        }))
     }
 }

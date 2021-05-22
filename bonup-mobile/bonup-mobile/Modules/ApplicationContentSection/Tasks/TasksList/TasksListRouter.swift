@@ -16,7 +16,7 @@ protocol ITasksListRouter {
 
 final class TasksListRouter {
     enum TasksListRouterScenario {
-        case showTaskDescription(TaskListCurrentTasksEntity)
+        case showTaskDescription(TaskListCurrentTasksEntity, (() -> Void)?)
     }
 
     private var view: TasksListView?
@@ -31,6 +31,7 @@ final class TasksListRouter {
 // MARK: - ICategoriesRouter implementation
 
 extension TasksListRouter: ITasksListRouter {
+    
     func start(_ completion: (() -> Void)?) {
         guard let view = self.view else { return }
 
@@ -47,14 +48,16 @@ extension TasksListRouter: ITasksListRouter {
     }
 
     func show(_ scenario: TasksListRouterScenario) {
+        
         guard let view = self.view else { return }
 
         switch scenario {
-        case .showTaskDescription(let currentTask):
+        case .showTaskDescription(let currentTask, let completion):
             let dependency = TaskDescriptionDependency(parentController: view, currentTask: currentTask)
             let builder = TaskDescriptionBuilder()
             let router = builder.build(dependency)
-            router.start(nil)
+            
+            router.start(stopCompletion: completion)
         }
 
     }

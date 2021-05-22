@@ -96,6 +96,7 @@ final class CompanyActionsListCell: UITableViewCell {
         
         self.container.setupSectionStyle()
         self.selectionStyle = .none
+        self.backgroundColor = .clear
     }
     
     // MARK: - Configure

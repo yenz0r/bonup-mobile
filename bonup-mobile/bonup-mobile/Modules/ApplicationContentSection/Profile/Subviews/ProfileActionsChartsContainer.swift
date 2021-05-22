@@ -89,8 +89,8 @@ final class ProfileActionsChartsContainer: UIView {
                               easingOption: .easeOutBack)
         self.pieChart.spin(duration: 1.5,
                            fromAngle: self.pieChart.rotationAngle,
-                           toAngle: self.pieChart.rotationAngle + 360.0,
-                           easingOption: .easeInBounce)
+                           toAngle: self.pieChart.rotationAngle + 40.0,
+                           easingOption: .easeOutSine)
     }
     
     // MARK: - Setup
@@ -123,7 +123,9 @@ final class ProfileActionsChartsContainer: UIView {
         
         self.pieChart.snp.makeConstraints { make in
             
-            make.edges.equalToSuperview()
+            make.top.equalTo(self.titleLabel.snp.bottom)
+            make.bottom.equalToSuperview().inset(10)
+            make.leading.trailing.equalToSuperview().inset(10)
         }
     }
     
@@ -159,7 +161,7 @@ final class ProfileActionsChartsContainer: UIView {
         let control = BUSegmentedControl(nonlocalizedItems: Category.allCases.map({ $0.title }))
         
         control.selectedSegmentIndex = 0
-        control.addTarget(self, action: #selector(segmentControlChange(_:)), for: .touchUpInside)
+        control.addTarget(self, action: #selector(segmentControlChange(_:)), for: .valueChanged)
         
         return control
     }
@@ -179,6 +181,8 @@ extension ProfileActionsChartsContainer: ChartViewDelegate {
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         
-        self.delegate?.actionsCharts(self, didTapAt: Int(entry.x), in: self.selectedCategory)
+        guard let index = chartView.data?.dataSets.first?.entryIndex(entry: entry) else { return }
+        
+        self.delegate?.actionsCharts(self, didTapAt: index, in: self.selectedCategory)
     }
 }

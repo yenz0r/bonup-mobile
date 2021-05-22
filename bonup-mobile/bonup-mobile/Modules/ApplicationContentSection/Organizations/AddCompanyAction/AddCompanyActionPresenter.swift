@@ -15,8 +15,13 @@ protocol IAddCompanyActionPresenter: AnyObject {
     var screenTitle: String { get }
     var selectedCategory: InterestCategories { get }
     var selectedPhoto: UIImage { get set }
+    var initPhotoURL: URL? { get }
     
     var currentMode: AddCompanyActionDependency.Mode { get }
+    var currentContentType: CompanyActionType { get }
+    
+    var isUsesCountHidden: Bool { get }
+    var usesCountText: String { get }
     
     func fieldTitle(at index: Int) -> String
     func fieldValue(at index: Int) -> String
@@ -58,6 +63,25 @@ extension AddCompanyActionPresenter: IAddCompanyActionPresenter {
         set { self.interactor.selectedPhoto = newValue }
     }
     
+    var initPhotoURL: URL? {
+        
+        return PhotosService.photoURL(for: self.interactor.initAction?.photoId)
+    }
+    
+    var currentContentType: CompanyActionType {
+     
+        return self.interactor.actionType
+    }
+    
+    var isUsesCountHidden: Bool {
+        
+        return self.currentMode != .read || self.currentContentType == .stock
+    }
+    
+    var usesCountText: String {
+        
+        return String(self.interactor.usesCount)
+    }
     
     func handleValueUpdate(_ value: Any, at indexPath: IndexPath) {
         

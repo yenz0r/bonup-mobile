@@ -103,13 +103,11 @@ extension MainNetworkProvider: IMainNetworkProvider {
                 } catch {
 
                     failure?(nil)
-
                 }
 
             case let .failure(error):
 
                 failure?(error)
-
             }
         }
     }

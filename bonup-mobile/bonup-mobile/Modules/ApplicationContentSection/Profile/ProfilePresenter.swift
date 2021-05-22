@@ -17,6 +17,7 @@ protocol IProfilePresenter: AnyObject {
     var name: String { get }
     var email: String { get }
     var organization: String { get }
+    var avatarUrl: URL? { get }
 
     var doneTasks: String { get }
     var restBalls: String { get }
@@ -61,7 +62,8 @@ extension ProfilePresenter: IProfilePresenter {
     var name: String { self.interactor.profileName ?? "..." }
     var email: String { self.interactor.profileEmail ?? "..." }
     var organization: String { self.interactor.profileOrganizationName ?? "..." }
-
+    var avatarUrl: URL? { PhotosService.photoURL(for: self.interactor.profileAvatarId) }
+    
     var doneTasks: String { "\(self.interactor.profileTasksCount ?? 0)" }
     var restBalls: String { "\(self.interactor.profileCurrentBallsCount ?? 0)" }
     var allSpendBalls: String { "\(self.interactor.profileSpentBallsCount ?? 0)" }
@@ -71,7 +73,6 @@ extension ProfilePresenter: IProfilePresenter {
     func archiveState(for index: Int) -> Bool { return self.interactor.goals?[index].flag ?? false }
     func archivesCount() -> Int { self.interactor.goals?.count ?? 0 }
 
-
     func handleInfoButtonTapped() {
 
         self.router.show(.infoAlert(nil))
@@ -79,8 +80,10 @@ extension ProfilePresenter: IProfilePresenter {
     
     func handleChartSelection(at index: Int, for category: ProfileActionsChartsContainer.Category) {
         
-        guard let stats = self.interactor.stats(for: category),
-              let actions = stats[InterestCategories.category(id: index)] else { return }
+        guard let stats = self.interactor.stats(for: category) else { return }
+        
+        let sortedStats = Array(stats).sorted(by: {$0.0.rawValue < $1.0.rawValue})
+        let selectedStat = sortedStats[index]
         
         var contentType: CompanyActionsListDependency.ContentType
         
@@ -93,7 +96,7 @@ extension ProfilePresenter: IProfilePresenter {
             contentType = .coupons
         }
         
-        self.router.show(.showActionsList(actions: actions,
+        self.router.show(.showActionsList(actions: selectedStat.value,
                                           contentType: contentType))
     }
 
@@ -149,6 +152,7 @@ extension ProfilePresenter: IProfilePresenter {
         set.drawIconsEnabled = false
         set.sliceSpace = 10
         set.colors = colors
+        set.selectionShift = 0
         
         let data = PieChartData(dataSet: set)
         

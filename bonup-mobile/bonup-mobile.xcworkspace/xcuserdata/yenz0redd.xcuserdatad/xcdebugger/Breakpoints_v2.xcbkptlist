@@ -5,34 +5,238 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            uuid = "DB0EC203-05CE-470A-B886-AEEB9255D6E7"
+            uuid = "A8799240-052F-460A-8BE2-B77FC59D2488"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "bonup-mobile/Modules/ApplicationContentSection/Tasks/TaskSelection/TaskSelectionInteractor.swift"
+            breakpointStackSelectionBehavior = "1"
+            scope = "1"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "967F5968-DE03-43FE-95EC-5ABF96169BB9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/Settings/Settings/SettingsPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "saveTasks(ids:withLoader:completion:)"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "refreshData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "967F5968-DE03-43FE-95EC-5ABF96169BB9 - 8112a9e125ac0b63"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Bonup_Debug__PAID_.SettingsPresenter.refreshData() -&gt; ()"
+                  moduleName = "Bonup-Debug [PAID]"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yenz0redd/git/bonup-mobile/bonup-mobile/bonup-mobile/Modules/ApplicationContentSection/Settings/Settings/SettingsPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "1040">
+               </Location>
+               <Location
+                  uuid = "967F5968-DE03-43FE-95EC-5ABF96169BB9 - dddff83a37e57219"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; () in Bonup_Debug__PAID_.SettingsPresenter.refreshData() -&gt; ()"
+                  moduleName = "Bonup-Debug [PAID]"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yenz0redd/git/bonup-mobile/bonup-mobile/bonup-mobile/Modules/ApplicationContentSection/Settings/Settings/SettingsPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "163">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "980AE529-3CC7-482C-9810-76BE70107D82"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/Organizations/CompanyActionsList/CompanyActionsListInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "loadActions(companyName:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FFE8F97B-BBA7-47CE-9B6E-04D3D046F480"
+            uuid = "6ED92E1F-8EB8-499F-A6A1-AC48675E559C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "bonup-mobile/Modules/ApplicationContentSection/Tasks/TaskSelection/TaskSelectionInteractor.swift"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/Organizations/CompanyActionsList/CompanyActionsListInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "loadActions(companyName:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6003C3D7-B8B8-465C-B331-2A9EEA65DFD8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/Organizations/CompanyActionsList/CompanyActionsListInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "loadActions(companyName:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7F90DA96-D2B6-4AE1-8D18-132A22F820CA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/Tasks/TasksList/TasksListPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "handleShowDetailsTap(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8B4630DB-2046-469D-8C26-7BD0FE4258E4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/Benefits/BenefitsList/BenefitsInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "getBenefits(withLoader:success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8EF0BE73-6F60-485E-B633-76B56367B4BD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/Benefits/BenefitsList/BenefitsInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "getBenefits(withLoader:success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "69079B68-B477-456D-8F51-55542E97CA47"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/Benefits/BenefitsList/BenefitsInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "getBenefits(withLoader:success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A609D31F-4D17-4897-8264-69AC397B909B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/Benefits/BenefitsList/BenefitsInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
             endingLineNumber = "62"
-            landmarkName = "saveTasks(ids:withLoader:completion:)"
+            landmarkName = "buyBenefits(id:success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C47C0014-A46C-4114-9216-BA14A7BE41B1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/Benefits/BenefitsList/BenefitsInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "buyBenefits(id:success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4711E9A5-539F-491E-A01D-EBCC7D785AFF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/Benefits/BenefitsList/BenefitsInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "buyBenefits(id:success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "75A1BE81-1582-49EC-9219-1E01E0956E5C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/Benefits/BenefitsList/BenefitsInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "getBenefits(withLoader:success:failure:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

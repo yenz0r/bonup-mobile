@@ -42,7 +42,7 @@ extension OrganizationControlInteractor: IOrganizationControlInteractor {
 
         guard let orgToken = AccountManager.shared.currentToken else { return }
 
-        let componets = qrCode.components(separatedBy: "-")
+        let componets = qrCode.components(separatedBy: "+")
 
         guard let id = Int(componets[0]) else { return }
 
@@ -64,7 +64,7 @@ extension OrganizationControlInteractor: IOrganizationControlInteractor {
 
         guard let orgToken = AccountManager.shared.currentToken else { return }
 
-        let componets = qrCode.components(separatedBy: "-")
+        let componets = qrCode.components(separatedBy: "+")
 
         guard let id = Int(componets[0]) else { return }
 

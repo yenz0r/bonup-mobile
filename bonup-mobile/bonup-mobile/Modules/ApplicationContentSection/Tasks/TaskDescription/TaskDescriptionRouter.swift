@@ -9,7 +9,8 @@
 import UIKit
 
 protocol ITaskDescriptionRouter {
-    func start(_ completion: (() -> Void)?)
+    
+    func start(stopCompletion: (() -> Void)?)
     func stop(_ completion: (() -> Void)?)
     func show(_ scenario: TaskDescriptionRouter.TaskDescriptionRouterScenario)
 }
@@ -25,6 +26,7 @@ final class TaskDescriptionRouter {
     
     private var view: TaskDescriptionView?
     private var parentController: UIViewController?
+    private var onTerminate: (() -> Void)?
 
     // MARK: - Init
     
@@ -37,13 +39,14 @@ final class TaskDescriptionRouter {
 // MARK: - ITaskDescriptionRouter implementation
 
 extension TaskDescriptionRouter: ITaskDescriptionRouter {
-    func start(_ completion: (() -> Void)?) {
+    func start(stopCompletion: (() -> Void)?) {
+        
         guard let view = self.view else { return }
 
         view.modalPresentationStyle = .fullScreen
 
         self.parentController?.navigationController?.pushViewController(view, animated: true)
-        completion?()
+        self.onTerminate = stopCompletion
     }
 
     func stop(_ completion: (() -> Void)?) {
@@ -51,6 +54,7 @@ extension TaskDescriptionRouter: ITaskDescriptionRouter {
         self.view = nil
 
         completion?()
+        self.onTerminate?()
     }
 
     func show(_ scenario: TaskDescriptionRouterScenario) {
@@ -69,7 +73,7 @@ extension TaskDescriptionRouter: ITaskDescriptionRouter {
             let builder = AddCompanyBuilder()
             let router = builder.build(dependency)
             
-            router.start(nil)
+            router.start(onStop: nil)
         }
     }
 }

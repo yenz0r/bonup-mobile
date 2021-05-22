@@ -78,7 +78,10 @@ extension CompanyPacketPresenter: ICompanyPacketPresenter {
         if let _ = self.interactor.selectedPacket.tasksCount,
            let _ = self.interactor.selectedPacket.benefitsCount {
         
-            self.router.show(.addCompany(packet: self.interactor.selectedPacket),
+            self.router.show(.addCompany(packet: self.interactor.selectedPacket, onStop: { [weak self] in
+                
+                self?.router.stop(nil)
+            }),
                              completion: nil)
         }
         else {

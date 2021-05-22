@@ -105,7 +105,7 @@ final class NewBenefitsContentCell: BenefitsContentCell {
         self.descriptionLabel.snp.makeConstraints { make in
             make.leading.bottom.equalToSuperview().inset(10.0)
             make.top.equalTo(self.titleLabel.snp.bottom).offset(5.0)
-            make.trailing.equalTo(self.saveButton.snp.trailing).offset(-5.0)
+            make.trailing.equalTo(self.saveButton.snp.leading).offset(-5.0)
         }
     }
 
@@ -116,6 +116,9 @@ final class NewBenefitsContentCell: BenefitsContentCell {
 
         button.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.3)
         button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+        button.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 25
 
         return button
     }
@@ -124,6 +127,7 @@ final class NewBenefitsContentCell: BenefitsContentCell {
         let label = UILabel()
 
         label.textAlignment = .left
+        label.numberOfLines = 0
 
         switch type {
         case .description:

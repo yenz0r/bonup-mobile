@@ -15,14 +15,21 @@ protocol IBenefitsRouter {
 }
 
 final class BenefitsRouter {
+    
     enum BenefitsRouterScenario {
-        case benefitDescription(ActualBenefitEntity)
+        
+        case benefitDescription(entity: ActualBenefitEntity, completion: (() -> Void)?)
         case showHelpAlert
+        case showErrorAlert(String)
     }
 
+    // MARK: - Private variables
+    
     private var view: BenefitsView?
     private var parentNavigationController: UINavigationController
 
+    // MARK: - Init
+    
     init(view: BenefitsView?, parentNavigationController: UINavigationController) {
         self.view = view
         self.parentNavigationController = parentNavigationController
@@ -52,7 +59,7 @@ extension BenefitsRouter: IBenefitsRouter {
 
         switch scenario {
 
-        case .benefitDescription(let benefit):
+        case .benefitDescription(let benefit, let completion):
 
             let dependency = BenefitDescriptionDependency(
                 parentController: view,
@@ -60,7 +67,8 @@ extension BenefitsRouter: IBenefitsRouter {
             )
             let builder = BenefitDescriptionBuilder()
             let router = builder.build(dependency)
-            router.start(nil)
+            
+            router.start(stopCompletion: completion)
 
         case .showHelpAlert:
 
@@ -68,6 +76,16 @@ extension BenefitsRouter: IBenefitsRouter {
                 for: .error,
                 title: "ui_benefits_title".localized,
                 description: "ui_benefits_help".localized,
+                from: view,
+                completion: nil
+            )
+            
+        case .showErrorAlert(let text):
+            
+            AlertsFactory.shared.infoAlert(
+                for: .error,
+                title: "ui_benefits_title".localized,
+                description: text,
                 from: view,
                 completion: nil
             )

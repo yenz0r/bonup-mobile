@@ -61,14 +61,15 @@ class BenefitsCell: UICollectionViewCell {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = .zero
-        layout.minimumInteritemSpacing = 10.0
+        layout.minimumLineSpacing = 10
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         layout.itemSize = UICollectionViewFlowLayout.automaticSize
 
         let collectionView = BUCollectionView(frame: .zero, collectionViewLayout: layout)
 
         collectionView.backgroundColor = .clear
-
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        
         return collectionView
     }
     

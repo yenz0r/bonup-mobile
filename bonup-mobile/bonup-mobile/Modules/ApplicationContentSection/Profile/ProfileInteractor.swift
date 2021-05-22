@@ -16,6 +16,7 @@ protocol IProfileInteractor: AnyObject {
     var profileName: String? { get }
     var profileEmail: String? { get }
     var profileOrganizationName: String? { get }
+    var profileAvatarId: Int? { get }
 
     var profileCurrentBallsCount: Int? { get }
     var profileTasksCount: Int? { get }
@@ -39,6 +40,7 @@ extension ProfileInteractor: IProfileInteractor {
     var profileName: String? { self.profileDataModel?.name }
     var profileEmail: String? { self.profileDataModel?.email }
     var profileOrganizationName: String? { self.profileDataModel?.organizationName }
+    var profileAvatarId: Int? { self.profileDataModel?.photoId }
     
     var profileCurrentBallsCount: Int? { self.profileDataModel?.balls }
     var profileTasksCount: Int? { self.profileDataModel?.tasksNumber }
@@ -86,10 +88,11 @@ extension ProfileInteractor: IProfileInteractor {
             .getUsetData(token),
             type: ProfileResponseEntity.self,
             withLoader: withLoader,
-            completion: { result in
+            completion: { [weak self] result in
                 
                 if result.isSuccess {
 
+                    self?.profileDataModel = result.userInfo
                     success?()
                 }
                 else {

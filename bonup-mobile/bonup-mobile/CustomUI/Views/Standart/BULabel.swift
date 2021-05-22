@@ -16,7 +16,7 @@ final class BULabel: UILabel {
 
         didSet {
 
-            self.text = (self.loc_text ?? "").localized
+            self.text = (self.loc_text ?? self.text ?? "").localized
         }
     }
 
