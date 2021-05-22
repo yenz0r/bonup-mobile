@@ -34,16 +34,13 @@ extension BenefitDescriptionPresenter: IBenefitDescriptionPresenter {
 
     func viewDidLoad() {
 
-        let qrCodeImage = QRcodeManager.shared.createQRFromString(
-            str: self.interactor.codeLine
-        )
         let title = self.interactor.benefitTitle
         let description = self.interactor.benefitDescription
         let imageLink = self.interactor.benefitImageLink
 
         self.view?.setupTitle(title)
         self.view?.setupDescription(description)
-        self.view?.setupQrCodeImage(qrCodeImage)
+        self.view?.setupQrCode(self.interactor.codeLine)
         self.view?.setupImage(imageLink)
     }
 }
