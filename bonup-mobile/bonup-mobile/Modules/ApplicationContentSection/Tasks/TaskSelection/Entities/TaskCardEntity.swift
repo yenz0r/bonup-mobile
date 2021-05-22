@@ -13,4 +13,5 @@ struct TaskCardEntity {
     let title: String
     let description: String
     let imageLink: String
+    let categoryLocTitle: String
 }

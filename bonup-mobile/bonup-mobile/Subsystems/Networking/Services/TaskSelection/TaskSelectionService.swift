@@ -25,7 +25,7 @@ extension TaskSelectionService: IAuthorizedTargetType {
         case .getTasks(_):
             return "/tasksCatalog"
         case .saveTasks(_, _):
-            return "/saveOrUnsaveTask"
+            return "/acceptTasks"
         }
     }
 
@@ -34,7 +34,7 @@ extension TaskSelectionService: IAuthorizedTargetType {
         case .getTasks(_):
             return .post
         case .saveTasks(_, _):
-            return .patch
+            return .post
         }
     }
 

@@ -212,3 +212,4 @@
 "ui_modify_company_title" = "Обновить компанию";
 "ui_company_address_label" = "Адрес:";
 "ui_company_packet_title" = "Тариф";
+"ui_details_title" = "Детали";

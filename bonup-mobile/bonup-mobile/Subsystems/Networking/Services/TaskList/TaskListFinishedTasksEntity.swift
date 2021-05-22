@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct TaskListFinishedTasksEntity: Codable {
+struct TaskListFinishedTasksEntity: Decodable {
+    
     let isDied: Bool
     let isResolved: Bool
     
@@ -18,22 +19,10 @@ struct TaskListFinishedTasksEntity: Codable {
     let dateFrom: String
     let dateTo: String
     let description: String
-    let count: Int
 
-    let organizationName: String
-    let x: Float
-    let y: Float
-    let contactNumber: String
-    let organizationDescription: String
+    let organization: CompanyEntity
 
-    let subcategoryId: Int
-    let subcategory: String
     let categoryId: Int
-    let category: String
-
-    let typeId: Int
-    let type: String
-    let ballCount: Int
-
-    let photos: [String]
+    let bonusesCount: Int
+    let photoId: Int
 }

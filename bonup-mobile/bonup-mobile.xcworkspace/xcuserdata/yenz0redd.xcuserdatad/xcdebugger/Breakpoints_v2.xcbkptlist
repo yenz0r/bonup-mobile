@@ -7,49 +7,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1035F682-3884-4DC1-8967-F6047F3C2186"
+            uuid = "DB0EC203-05CE-470A-B886-AEEB9255D6E7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "bonup-mobile/Subsystems/Networking/Services/AddCompany/AddCompanyService.swift"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/Tasks/TaskSelection/TaskSelectionInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "task"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "1035F682-3884-4DC1-8967-F6047F3C2186 - 6a5e5ec1d4c15bf1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Bonup_Debug__PAID_.AddCompanyService.task.getter : Moya.Task"
-                  moduleName = "Bonup-Debug [PAID]"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yenz0redd/git/bonup-mobile/bonup-mobile/bonup-mobile/Subsystems/Networking/Services/AddCompany/AddCompanyService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "4380">
-               </Location>
-               <Location
-                  uuid = "1035F682-3884-4DC1-8967-F6047F3C2186 - 6a5e5ec1d4c15bf1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Bonup_Debug__PAID_.AddCompanyService.task.getter : Moya.Task"
-                  moduleName = "Bonup-Debug [PAID]"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yenz0redd/git/bonup-mobile/bonup-mobile/bonup-mobile/Subsystems/Networking/Services/AddCompany/AddCompanyService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "4585">
-               </Location>
-            </Locations>
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "saveTasks(ids:withLoader:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FFE8F97B-BBA7-47CE-9B6E-04D3D046F480"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/Tasks/TaskSelection/TaskSelectionInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "saveTasks(ids:withLoader:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

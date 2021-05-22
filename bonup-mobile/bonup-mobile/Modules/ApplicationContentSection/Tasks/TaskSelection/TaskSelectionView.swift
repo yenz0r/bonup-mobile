@@ -209,7 +209,8 @@ extension TaskSelectionView: SwipeCardStackDataSource {
         return TaskCardView(
             title: entity.title,
             description: entity.description,
-            imageLink: entity.imageLink
+            imageLink: entity.imageLink,
+            categoryLocTitle: entity.categoryLocTitle
         )
     }
 }

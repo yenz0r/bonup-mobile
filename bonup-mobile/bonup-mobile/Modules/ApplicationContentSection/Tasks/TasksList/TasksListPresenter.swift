@@ -55,8 +55,8 @@ extension TasksListPresenter: ITasksListPresenter {
     var pages: [String] {
 
         return [
-            "current_tasks_title".localized,
-            "finished_tasks_title".localized
+            "current_tasks_title",
+            "finished_tasks_title"
         ]
     }
 
@@ -71,7 +71,7 @@ extension TasksListPresenter: ITasksListPresenter {
             let model = CurrentTasksListPresentationModel(
                 title: current.name,
                 description: current.description,
-                imageLink: current.photos.first ?? "",
+                imageLink: PhotosService.photoPath(for: current.photoId),
                 aliveTime: current.dateTo
             )
 
@@ -94,7 +94,7 @@ extension TasksListPresenter: ITasksListPresenter {
                 description: finished.description,
                 dateOfEnd: finished.dateTo,
                 isDone: finished.isResolved,
-                benefit: "\(finished.ballCount)"
+                benefit: "\(finished.bonusesCount)"
             )
 
             result.append(model)

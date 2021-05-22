@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ProfileResponseDetailsEntity: Codable {
+struct ProfileResponseDetailsEntity: Decodable {
 
     let name: String
     let email: String
@@ -18,8 +18,8 @@ struct ProfileResponseDetailsEntity: Codable {
     let tasksNumber: Int
     let spentBalls: Int
 
-    let couponsStats: [Int: Int]
-    let tasksStats: [Int: Int]
+    let finishedTasks: [OrganizationActionEntity]
+    let finishedCoupons: [OrganizationActionEntity]
 
     let goals: [ProfileGoalsResponse]
 }

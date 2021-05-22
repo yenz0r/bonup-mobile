@@ -12,7 +12,8 @@ protocol ITaskSelectionInteractor: AnyObject {
 
     func getTasks(withLoader: Bool,
                   completion: (([TaskSelectionResponseEntity], Bool) -> Void)?)
-    func saveTasks(ids: [Int], completion: ((Bool) -> Void)?)
+    
+    func saveTasks(ids: [Int], withLoader: Bool, completion: ((Bool) -> Void)?)
 }
 
 final class TaskSelectionInteractor {
@@ -26,7 +27,7 @@ extension TaskSelectionInteractor: ITaskSelectionInteractor {
     
     func getTasks(withLoader: Bool,
                   completion: (([TaskSelectionResponseEntity], Bool) -> Void)?) {
-
+        
         guard let token = AccountManager.shared.currentToken else { return }
 
         _ = networkProvider.request(
@@ -44,10 +45,21 @@ extension TaskSelectionInteractor: ITaskSelectionInteractor {
         )
     }
 
-    func saveTasks(ids: [Int], completion: ((Bool) -> Void)?) {
+    func saveTasks(ids: [Int], withLoader: Bool, completion: ((Bool) -> Void)?) {
 
         guard let token = AccountManager.shared.currentToken else { return }
 
-        _ = networkProvider.requestSignal(.saveTasks(token, ids))
+        _ = networkProvider.request(
+            .saveTasks(token, ids),
+            type: DefaultResponseEntity.self,
+            withLoader: withLoader,
+            completion: { result in
+                
+                completion?(result.isSuccess)
+            },
+            failure: { err in
+                
+                completion?(false)
+            })
     }
 }

@@ -215,3 +215,4 @@
 "ui_modify_company_title" = "Modify Company";
 "ui_company_address_label" = "Address:";
 "ui_company_packet_title" = "Packet";
+"ui_details_title" = "Details";

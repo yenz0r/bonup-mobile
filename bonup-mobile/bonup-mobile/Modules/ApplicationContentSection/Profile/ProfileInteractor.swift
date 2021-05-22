@@ -11,7 +11,7 @@ import Foundation
 protocol IProfileInteractor: AnyObject {
 
     func getUserInfo(withLoader: Bool, success: (() -> Void)?, failure: ((String) -> Void)?)
-    func stats(for category: ProfileActionsChartsContainer.Category) -> [InterestCategories: Int]?
+    func stats(for category: ProfileActionsChartsContainer.Category) -> [InterestCategories: [OrganizationActionEntity]]?
     
     var profileName: String? { get }
     var profileEmail: String? { get }
@@ -46,30 +46,34 @@ extension ProfileInteractor: IProfileInteractor {
     
     var goals: [ProfileGoalsResponse]? { self.profileDataModel?.goals }
     
-    func stats(for category: ProfileActionsChartsContainer.Category) -> [InterestCategories: Int]? {
+    func stats(for category: ProfileActionsChartsContainer.Category) -> [InterestCategories: [OrganizationActionEntity]]? {
         
-        var modelStats: [Int: Int]?
+        guard let profileDataModel = self.profileDataModel else { return nil }
+        
+        var actions: [OrganizationActionEntity]
         
         switch category {
         
         case .tasks:
-            modelStats = self.profileDataModel?.tasksStats
+            actions = profileDataModel.finishedTasks
             
         case .coupons:
-            modelStats = self.profileDataModel?.couponsStats
+            actions = profileDataModel.finishedCoupons
         }
         
-        guard let currStats = modelStats else { return nil }
+        var result: [InterestCategories: [OrganizationActionEntity]] = [:]
         
-        var stats = [InterestCategories: Int]()
-        
-        for (key, value) in currStats {
+        for category in InterestCategories.allCases {
             
-            let category = InterestCategories.category(id: key)
-            stats[category] = value
+            let categoryActions = actions.filter { $0.categoryId == category.rawValue }
+            
+            if categoryActions.count != 0 {
+                
+                result[category] = categoryActions
+            }
         }
         
-        return stats
+        return result
     }
 
     func getUserInfo(withLoader: Bool,

@@ -15,12 +15,19 @@ protocol ITaskDescriptionRouter {
 }
 
 final class TaskDescriptionRouter {
+    
     enum TaskDescriptionRouterScenario {
+        
+        case showCompanyDetails(company: CompanyEntity)
     }
 
+    // MARK: - Private variables
+    
     private var view: TaskDescriptionView?
     private var parentController: UIViewController?
 
+    // MARK: - Init
+    
     init(view: TaskDescriptionView?, parentController: UIViewController?) {
         self.view = view
         self.parentController = parentController
@@ -47,7 +54,23 @@ extension TaskDescriptionRouter: ITaskDescriptionRouter {
     }
 
     func show(_ scenario: TaskDescriptionRouterScenario) {
+        
         guard let view = self.view else { return }
+        
+        switch scenario {
+        
+        case .showCompanyDetails(company: let company):
+            
+            let dependency = AddCompanyDependency(
+                parentNavigationController: view.navigationController!,
+                initCompany: company,
+                mode: .read,
+                companyPacket: nil)
+            let builder = AddCompanyBuilder()
+            let router = builder.build(dependency)
+            
+            router.start(nil)
+        }
     }
 }
 

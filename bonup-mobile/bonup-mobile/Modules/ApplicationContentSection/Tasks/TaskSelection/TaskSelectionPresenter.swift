@@ -37,6 +37,7 @@ final class TaskSelectionPresenter {
     // MARK: - State variables
     
     private var isFirstRefresh = true
+    private var willShowLists = false
     
     // MARK: - Init
     
@@ -69,7 +70,8 @@ extension TaskSelectionPresenter: ITaskSelectionPresenter {
                     id: entity.id,
                     title: entity.name,
                     description: entity.description,
-                    imageLink: PhotosService.photoPath(for: entity.photoId)
+                    imageLink: PhotosService.photoPath(for: entity.photoId),
+                    categoryLocTitle: InterestCategories.category(id: entity.categoryId).title
                 )
             }
             
@@ -88,10 +90,16 @@ extension TaskSelectionPresenter: ITaskSelectionPresenter {
     func viewWillDisappear() {
 
         let selectedIds = self.selectedCards.map { $0.id }
+        
+        if self.willShowLists, selectedIds.count == 0 { return }
 
-        self.interactor.saveTasks(ids: selectedIds, completion: nil)
-
-        self.selectedCards = []
+        self.interactor.saveTasks(ids: selectedIds, withLoader: false) { isSuccess in
+            
+            if isSuccess {
+                    
+                self.selectedCards = []
+            }
+        }
     }
 
     func handleInfoButtonTap() {
@@ -101,7 +109,26 @@ extension TaskSelectionPresenter: ITaskSelectionPresenter {
 
     func handleShowTasksListButtonTap() {
         
-        self.router.show(.showTasksList)
+        let selectedIds = self.selectedCards.map { $0.id }
+        
+        if selectedIds.count == 0 { self.router.show(.showTasksList); return }
+
+        self.interactor.saveTasks(ids: selectedIds, withLoader: true) { isSuccess in
+            
+            DispatchQueue.main.async {
+             
+                if isSuccess {
+         
+                    self.willShowLists = true
+                    self.selectedCards = []
+                    self.router.show(.showTasksList)
+                }
+                else {
+                 
+                    self.router.show(.showErrorAlert("ui_error_title".localized))
+                }
+            }
+        }
     }
 
     func handleTaskSelection(at index: Int, isLike: Bool) {

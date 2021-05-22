@@ -23,7 +23,7 @@ extension TaskListService: IAuthorizedTargetType {
     var path: String {
         switch self {
         case .getLists(_):
-            return "/myTasks"
+            return "/userSavedDoneTasks"
         }
     }
 

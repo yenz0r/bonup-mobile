@@ -27,6 +27,8 @@ protocol IProfilePresenter: AnyObject {
     func archiveState(for index: Int) -> Bool
     func archivesCount() -> Int
     
+    func handleChartSelection(at index: Int, for category: ProfileActionsChartsContainer.Category)
+    
     func actionsChartData(for category: ProfileActionsChartsContainer.Category) -> PieChartData
 }
 
@@ -74,6 +76,26 @@ extension ProfilePresenter: IProfilePresenter {
 
         self.router.show(.infoAlert(nil))
     }
+    
+    func handleChartSelection(at index: Int, for category: ProfileActionsChartsContainer.Category) {
+        
+        guard let stats = self.interactor.stats(for: category),
+              let actions = stats[InterestCategories.category(id: index)] else { return }
+        
+        var contentType: CompanyActionsListDependency.ContentType
+        
+        switch category {
+        
+        case .tasks:
+            contentType = .tasks
+            
+        case .coupons:
+            contentType = .coupons
+        }
+        
+        self.router.show(.showActionsList(actions: actions,
+                                          contentType: contentType))
+    }
 
     func refreshData(completion: (() -> Void)?) {
         
@@ -107,14 +129,17 @@ extension ProfilePresenter: IProfilePresenter {
         
         guard let stats = self.interactor.stats(for: category) else { return PieChartData() }
         
-        let sum = stats.values.reduce(0, +)
+        let statsCount = stats.values.reduce(0, { result, actions in
+             
+            result + actions.count
+        })
         
         var entries = [PieChartDataEntry]()
         var colors = [UIColor]()
         
-        for (category, count) in stats {
+        for (category, actions) in Array(stats).sorted(by: {$0.0.rawValue < $1.0.rawValue}) {
             
-            entries.append(PieChartDataEntry(value: Double(count) / Double(sum) * 100.0,
+            entries.append(PieChartDataEntry(value: Double(actions.count) / Double(statsCount) * 100.0,
                                              label: category.title.localized))
             
             colors.append(category.color)

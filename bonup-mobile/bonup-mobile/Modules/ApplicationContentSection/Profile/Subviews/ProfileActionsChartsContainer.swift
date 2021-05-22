@@ -15,6 +15,13 @@ protocol ProfileActionsChartsContainerDataSource: AnyObject {
                        needsDataFor category: ProfileActionsChartsContainer.Category) -> PieChartData
 }
 
+protocol ProfileActionsChartsContainerDelegate: AnyObject {
+    
+    func actionsCharts(_ charts: ProfileActionsChartsContainer,
+                       didTapAt index: Int,
+                       in category: ProfileActionsChartsContainer.Category)
+}
+
 final class ProfileActionsChartsContainer: UIView {
     
     enum Category: Int, CaseIterable {
@@ -50,6 +57,7 @@ final class ProfileActionsChartsContainer: UIView {
     // MARK: - Public variables
     
     weak var dataSource: ProfileActionsChartsContainerDataSource?
+    weak var delegate: ProfileActionsChartsContainerDelegate?
     
     // MARK: - Init
     
@@ -140,6 +148,7 @@ final class ProfileActionsChartsContainer: UIView {
         chartView.entryLabelFont = .systemFont(ofSize: 17, weight: .bold)
         chartView.legend.enabled = false
         chartView.backgroundColor = .clear
+        chartView.delegate = self
         chartView.holeColor = .clear
         
         return chartView
@@ -161,5 +170,15 @@ final class ProfileActionsChartsContainer: UIView {
         
         self.selectedCategory = Category.allCases[sender.selectedSegmentIndex]
         self.onCategorySelection?(self.selectedCategory)
+    }
+}
+
+// MARK: - ChartViewDelegate
+
+extension ProfileActionsChartsContainer: ChartViewDelegate {
+    
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        
+        self.delegate?.actionsCharts(self, didTapAt: Int(entry.x), in: self.selectedCategory)
     }
 }

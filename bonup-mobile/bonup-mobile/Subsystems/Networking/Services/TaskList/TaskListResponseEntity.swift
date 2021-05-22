@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TaskListResponseEntity: Codable {
+struct TaskListResponseEntity: Decodable {
     
     let message: String
     let isSuccess: Bool

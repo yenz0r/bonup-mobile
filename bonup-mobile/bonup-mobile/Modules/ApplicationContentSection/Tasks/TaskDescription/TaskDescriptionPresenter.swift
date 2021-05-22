@@ -20,6 +20,8 @@ protocol ITaskDescriptionPresenter: AnyObject {
     var latitude: Double { get }
     var longitude: Double { get }
     var qrCodeImage: UIImage? { get }
+    
+    func handleDetailsTap()
 }
 
 final class TaskDescriptionPresenter {
@@ -44,11 +46,11 @@ final class TaskDescriptionPresenter {
 
 extension TaskDescriptionPresenter: ITaskDescriptionPresenter {
     var latitude: Double {
-        return Double(self.currentTask.x)
+        return Double(self.currentTask.organization.longitude)
     }
 
     var longitude: Double {
-        return Double(self.currentTask.y)
+        return Double(self.currentTask.organization.latitude)
     }
 
     var qrCodeImage: UIImage? {
@@ -68,11 +70,11 @@ extension TaskDescriptionPresenter: ITaskDescriptionPresenter {
     }
 
     var imageURL: URL? {
-        return URL(string: self.currentTask.photos.first ?? "")
+        return PhotosService.photoURL(for: self.currentTask.photoId)
     }
 
     var organizationTitle: String {
-        return self.currentTask.organizationName
+        return self.currentTask.organization.title
     }
 
     var fromDate: String {
@@ -84,10 +86,15 @@ extension TaskDescriptionPresenter: ITaskDescriptionPresenter {
     }
 
     var categoryTitle: String {
-        return "#\(self.currentTask.category)\(self.currentTask.subcategory)"
+        return "#\(InterestCategories.category(id: self.currentTask.categoryId).title)"
     }
 
     var balls: String {
-        return "+\(self.currentTask.ballCount)"
+        return "+\(self.currentTask.bonusesCount)"
+    }
+    
+    func handleDetailsTap() {
+        
+        self.router.show(.showCompanyDetails(company: self.currentTask.organization))
     }
 }

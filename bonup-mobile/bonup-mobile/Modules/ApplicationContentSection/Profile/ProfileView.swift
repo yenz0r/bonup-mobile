@@ -108,6 +108,7 @@ final class ProfileView: BUContentViewController {
         self.headerView.dataSource = self
         self.infoContainer.dataSource = self
         self.actionsChartsContainer.dataSource = self
+        self.actionsChartsContainer.delegate = self
         self.ahievementsContainer.dataSource = self
         
         self.reloadData()
@@ -267,5 +268,17 @@ extension ProfileView: ProfileActionsChartsContainerDataSource {
                        needsDataFor category: ProfileActionsChartsContainer.Category) -> PieChartData {
         
         return self.presenter.actionsChartData(for: category)
+    }
+}
+
+// MARK: - ProfileActionsChartsContainerDelegate
+
+extension ProfileView: ProfileActionsChartsContainerDelegate {
+
+    func actionsCharts(_ charts: ProfileActionsChartsContainer,
+                       didTapAt index: Int,
+                       in category: ProfileActionsChartsContainer.Category) {
+        
+        self.presenter.handleChartSelection(at: index, for: category)
     }
 }

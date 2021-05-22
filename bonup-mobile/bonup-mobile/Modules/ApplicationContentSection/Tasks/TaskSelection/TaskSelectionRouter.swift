@@ -15,14 +15,21 @@ protocol ITaskSelectionRouter {
 }
 
 final class TaskSelectionRouter {
+    
     enum TaskSelectionRouterScenario {
+        
         case showTasksList
         case showInfoAlert
+        case showErrorAlert(String)
     }
 
+    // MARK: - Private variables
+    
     private var view: TaskSelectionView?
     private var parentNavigationController: UINavigationController
 
+    // MARK: - Init
+    
     init(view: TaskSelectionView?, parentNavigationController: UINavigationController) {
         self.view = view
         self.parentNavigationController = parentNavigationController
@@ -51,16 +58,27 @@ extension TaskSelectionRouter: ITaskSelectionRouter {
         guard let view = self.view else { return }
 
         switch scenario {
+        
         case .showTasksList:
             let tasksListDependency = TasksListDependency(parentController: view)
             let tasksListBuilder = TasksListBuilder()
             let tasksListRouter = tasksListBuilder.build(tasksListDependency)
             tasksListRouter.start(nil)
+            
         case .showInfoAlert:
             AlertsFactory.shared.infoAlert(
                 for: .error,
                 title: "task_selection_info_title".localized,
                 description: "task_selection_info_description".localized,
+                from: view,
+                completion: nil
+            )
+            
+        case .showErrorAlert(let text):
+            AlertsFactory.shared.infoAlert(
+                for: .error,
+                title: "task_selection_info_title".localized,
+                description: text,
                 from: view,
                 completion: nil
             )

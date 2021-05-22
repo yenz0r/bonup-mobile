@@ -31,7 +31,7 @@ final class TaskCardView: SwipeCard {
 
     // MARK: - Initialization
 
-    init(title: String, description: String, imageLink: String) {
+    init(title: String, description: String, imageLink: String, categoryLocTitle: String) {
         super.init(frame: .zero)
 
         // subviews
@@ -42,6 +42,8 @@ final class TaskCardView: SwipeCard {
         let titleLabel = self.configureTitleLabel(with: title)
         let descriptionLabel = self.configureDescriptionLabel(with: description)
         let blurView = self.configureBlurView()
+        let categoryContainer = self.configureBlurView()
+        let categoryLabel = self.configureCategoryLabel(with: categoryLocTitle)
 
         // setup subviews
 
@@ -50,6 +52,21 @@ final class TaskCardView: SwipeCard {
             make.edges.equalToSuperview()
         }
 
+        containerView.addSubview(categoryContainer)
+        categoryContainer.layer.maskedCorners = [.layerMinXMaxYCorner]
+        categoryContainer.layer.cornerRadius = 20
+        categoryContainer.layer.masksToBounds = true
+        categoryContainer.snp.makeConstraints { make in
+            make.trailing.top.equalToSuperview()
+        }
+        
+        containerView.addSubview(categoryLabel)
+        categoryLabel.snp.makeConstraints { make in
+            make.trailing.top.equalToSuperview().inset(10)
+            make.leading.equalTo(categoryContainer).offset(10)
+            make.bottom.equalTo(categoryContainer).offset(-10)
+        }
+        
         containerView.addSubview(blurView)
         blurView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
@@ -121,6 +138,18 @@ final class TaskCardView: SwipeCard {
         label.text = text
         label.textColor = .white80
 
+        return label
+    }
+    
+    private func configureCategoryLabel(with text: String) -> UILabel {
+        
+        let label = BULabel()
+        
+        label.textAlignment = .center
+        label.font = .avenirHeavy(14)
+        label.textColor = .orange.withAlphaComponent(0.8)
+        label.loc_text = text
+        
         return label
     }
 

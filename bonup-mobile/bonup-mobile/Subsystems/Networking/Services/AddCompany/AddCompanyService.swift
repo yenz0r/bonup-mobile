@@ -58,7 +58,9 @@ extension AddCompanyService: IMainTargetType {
                     "availableTasksCount": entity.availableTasksCount,
                     "availableCouponsCount": entity.availableCouponsCount,
                     "availableStocksCount": entity.availableStocksCount,
-                    "photoId": entity.photoId
+                    "photoId": entity.photoId,
+                    "latitude": entity.latitude,
+                    "longitude": entity.longitude
                 ],
                 encoding: JSONEncoding.default
             )

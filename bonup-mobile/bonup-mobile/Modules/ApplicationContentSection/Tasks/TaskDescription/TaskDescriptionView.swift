@@ -210,7 +210,14 @@ final class TaskDescriptionView: BUContentViewController {
 
     private func setupNavigationBar() {
         
-        self.loc_title = "ui_task_details".localized
+        self.loc_title = "ui_task_details"
+        
+        let item = BUBarButtonItem(loc_title: "ui_details_title",
+                                   style: .plain,
+                                   target: self,
+                                   action: #selector(detailsTapped))
+        
+        self.navigationItem.rightBarButtonItem = item
     }
     
     private func setupAppearance() {
@@ -386,6 +393,11 @@ final class TaskDescriptionView: BUContentViewController {
                    UIApplication.shared.openURL(url)
                  }
                }
+    }
+    
+    @objc private func detailsTapped() {
+        
+        self.presenter.handleDetailsTap()
     }
 }
 
