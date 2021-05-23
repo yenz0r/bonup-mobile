@@ -8,7 +8,6 @@
 
 import Shuffle_iOS
 import UIKit
-import Nuke
 
 final class TaskCardView: SwipeCard {
 
@@ -110,18 +109,13 @@ final class TaskCardView: SwipeCard {
         return containerView
     }
 
-    private func configureImageView(with imageLink: String) -> UIImageView {
-        let imageView = UIImageView()
+    private func configureImageView(with imageLink: String) -> BULoadImageView {
+        
+        let imageView = BULoadImageView(axis: .horizontal)
 
         if let url = URL(string: imageLink) {
-            let imageRequst = ImageRequest(url: url)
-            Nuke.loadImage(
-                with: imageRequst,
-                options: ImageLoadingOptions(),
-                into: imageView,
-                progress: nil,
-                completion: nil
-            )
+         
+            imageView.loadFrom(url: url)
         }
 
         imageView.contentMode = .scaleAspectFill

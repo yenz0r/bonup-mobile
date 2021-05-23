@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Nuke
 
 final class CurrentTasksCollectionViewCell: UICollectionViewCell {
 
@@ -41,14 +40,8 @@ final class CurrentTasksCollectionViewCell: UICollectionViewCell {
             }
             
             if let url = URL(string: link) {
-                let imageRequst = ImageRequest(url: url)
-                Nuke.loadImage(
-                    with: imageRequst,
-                    options: ImageLoadingOptions(),
-                    into: self.imageView,
-                    progress: nil,
-                    completion: nil
-                )
+                
+                self.imageView.loadFrom(url: url)
             }
         }
     }
@@ -58,7 +51,7 @@ final class CurrentTasksCollectionViewCell: UICollectionViewCell {
     private var titleLabel: UILabel!
     private var descriptionLabel: UILabel!
     private var aliveTimeLabel: UILabel!
-    private var imageView: UIImageView!
+    private var imageView: BULoadImageView!
     private var blurView: UIView!
     private var infoContainerView: UIView!
 
@@ -120,8 +113,9 @@ final class CurrentTasksCollectionViewCell: UICollectionViewCell {
         return label
     }
 
-    private func configureImageView() -> UIImageView {
-        let imageView = UIImageView()
+    private func configureImageView() -> BULoadImageView {
+        
+        let imageView = BULoadImageView()
 
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true

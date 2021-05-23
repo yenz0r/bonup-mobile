@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Nuke
 
 protocol ProfileHeaderViewDataSource: AnyObject {
     func iconForProfileHeaderView(_ profileHeaderView: ProfileHeaderView) -> UIImage?
@@ -35,7 +34,7 @@ final class ProfileHeaderView: UIView {
     private var nameValueLabel: UILabel!
     private var emailValueLabel: UILabel!
     private var organizationValueLabel: UILabel!
-    private var iconImageView: UIImageView!
+    private var iconImageView: BULoadImageView!
 
     // MARK: - Initialization
 
@@ -73,14 +72,7 @@ final class ProfileHeaderView: UIView {
             return
         }
         
-        let imageRequst = ImageRequest(url: url)
-        Nuke.loadImage(
-            with: imageRequst,
-            options: ImageLoadingOptions(),
-            into: self.iconImageView,
-            progress: nil,
-            completion: nil
-        )
+        self.iconImageView.loadFrom(url: url)
     }
 
     // MARK: - Setup subviews
@@ -96,23 +88,19 @@ final class ProfileHeaderView: UIView {
         self.nameValueLabel = self.configureLabel(with: nil)
         let nameContainer = self.configureTextContainer(
             title: nameTitleLabel,
-            value: self.nameValueLabel,
-            position: .left)
+            value: self.nameValueLabel)
 
         let emailTitleLabel = self.configureLabel(with: "ui_my_email")
         self.emailValueLabel = self.configureLabel(with: nil)
         let emailContainer = self.configureTextContainer(
             title: emailTitleLabel,
-            value: self.emailValueLabel,
-            position: .left)
+            value: self.emailValueLabel)
 
         let organizationTitleLabel = self.configureLabel(with: "ui_my_organization")
         self.organizationValueLabel = self.configureLabel(with: nil)
         let organizationContainer = self.configureTextContainer(
             title: organizationTitleLabel,
-            value: self.organizationValueLabel,
-            position: .left
-        )
+            value: self.organizationValueLabel)
 
         let userInfoStackView = self.configureStackView()
 
@@ -144,8 +132,7 @@ final class ProfileHeaderView: UIView {
     }
 
     private func configureTextContainer(title: UILabel,
-                                        value: UILabel,
-                                        position: UserInfoPosition) -> UIView {
+                                        value: UILabel) -> UIView {
         let container = UIView()
 
         let staticContainer = UIView()
@@ -166,18 +153,8 @@ final class ProfileHeaderView: UIView {
             make.top.bottom.equalToSuperview()
         }
 
-        var offset: CGFloat = .zero
-        switch position {
-        case .left:
-            offset = 5
-        case .center:
-            offset = 30
-        case .right:
-            offset = 60
-        }
-
         staticContainer.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(offset)
+            make.leading.trailing.equalToSuperview().inset(10)
         }
 
         return container
@@ -190,8 +167,7 @@ final class ProfileHeaderView: UIView {
         label.font = UIFont.avenirRoman(15.0)
         label.theme_textColor = Colors.defaultTextColor
         label.loc_text = text
-        label.contentScaleFactor = 0.4
-        label.adjustsFontSizeToFitWidth = true
+        label.numberOfLines = 0
 
         return label
     }
@@ -206,9 +182,9 @@ final class ProfileHeaderView: UIView {
         return stack
     }
 
-    private func configureImageView() -> UIImageView {
+    private func configureImageView() -> BULoadImageView {
         
-        let imageView = UIImageView()
+        let imageView = BULoadImageView()
 
         imageView.contentMode = .scaleAspectFill
         imageView.theme_tintColor = Colors.defaultTextColor

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Nuke
 
 protocol ISettingsView: AnyObject {
     func setupHeader(name: String,
@@ -162,25 +161,7 @@ extension SettingsView: ISettingsView {
 
     func updateAvatarIcon(url: URL, completion: @escaping (UIImage) -> Void) {
         
-        let imageRequst = ImageRequest(url: url)
-        
-        Nuke.loadImage(
-            with: imageRequst,
-            options: ImageLoadingOptions(),
-            into: self.headerView.avatarImageView,
-            progress: nil) { result in
-            
-            switch result {
-            
-            case .success(let imageResponse):
-                completion(imageResponse.image)
-                
-            case .failure(_):
-                let image = AssetsHelper.shared.image(.addImageIcon)!
-                self.headerView.avatarImage = image
-                completion(image)
-            }
-        }
+        self.headerView.avatarImageView.loadFrom(url: url)
     }
     
     func setupAvatarIcon(icon: UIImage) {

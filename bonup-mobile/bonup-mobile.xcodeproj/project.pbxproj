@@ -256,6 +256,7 @@
 		B9B75F02263D907900DF630E /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B75F01263D907900DF630E /* Date+Utils.swift */; };
 		B9B95FD92659AE230046C0ED /* AddCompanyUsesCountContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B95FD82659AE230046C0ED /* AddCompanyUsesCountContainer.swift */; };
 		B9B95FDB2659BA640046C0ED /* BUQRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B95FDA2659BA640046C0ED /* BUQRCodeView.swift */; };
+		B9B95FDD265AB8C50046C0ED /* BULoadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B95FDC265AB8C50046C0ED /* BULoadImageView.swift */; };
 		B9BA409F2443D0DD00950808 /* CurrentTasksListPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA409E2443D0DD00950808 /* CurrentTasksListPresentationModel.swift */; };
 		B9BA40A12443D0ED00950808 /* FinishedTasksPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BA40A02443D0ED00950808 /* FinishedTasksPresentationModel.swift */; };
 		B9BF7011244326530051CF41 /* TaskCardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BF7010244326530051CF41 /* TaskCardOverlay.swift */; };
@@ -639,6 +640,7 @@
 		B9B75F01263D907900DF630E /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		B9B95FD82659AE230046C0ED /* AddCompanyUsesCountContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyUsesCountContainer.swift; sourceTree = "<group>"; };
 		B9B95FDA2659BA640046C0ED /* BUQRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BUQRCodeView.swift; sourceTree = "<group>"; };
+		B9B95FDC265AB8C50046C0ED /* BULoadImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BULoadImageView.swift; sourceTree = "<group>"; };
 		B9BA409E2443D0DD00950808 /* CurrentTasksListPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTasksListPresentationModel.swift; sourceTree = "<group>"; };
 		B9BA40A02443D0ED00950808 /* FinishedTasksPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedTasksPresentationModel.swift; sourceTree = "<group>"; };
 		B9BF7010244326530051CF41 /* TaskCardOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardOverlay.swift; sourceTree = "<group>"; };
@@ -906,6 +908,7 @@
 				B9B67F3D25B4781700AC7184 /* SelectCategoriesContainer */,
 				B90867DC25B5DB0800E0DE91 /* BUAmountSetter.swift */,
 				B9B95FDA2659BA640046C0ED /* BUQRCodeView.swift */,
+				B9B95FDC265AB8C50046C0ED /* BULoadImageView.swift */,
 			);
 			name = Custom;
 			sourceTree = "<group>";
@@ -2489,6 +2492,7 @@
 				B914AC8F24435D70007494E3 /* TasksListCurrentCollectionViewCell.swift in Sources */,
 				B9C97006263D9ADE00066625 /* OrganizationControlConstants.swift in Sources */,
 				B93F2B6C263F0B7C00A8A8D6 /* CompanyStatisticsRouter.swift in Sources */,
+				B9B95FDD265AB8C50046C0ED /* BULoadImageView.swift in Sources */,
 				B966E73024684D090043FD69 /* BenefitDescriptionBuilder.swift in Sources */,
 				B9CAA712242B9F2100E50668 /* AuthVerificationDependency.swift in Sources */,
 				B90867DD25B5DB0800E0DE91 /* BUAmountSetter.swift in Sources */,

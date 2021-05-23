@@ -34,7 +34,7 @@ final class SettingsHeaderView: UIView {
 
     var onAvatarTap: (() -> ())?
     
-    var avatarImageView: UIImageView!
+    var avatarImageView: BULoadImageView!
 
     // MARK: - Private variables
 
@@ -59,7 +59,7 @@ final class SettingsHeaderView: UIView {
     private func setupSubviews() {
 
         self.avatarImageView = {
-            let imageView = UIImageView()
+            let imageView = BULoadImageView()
 
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true

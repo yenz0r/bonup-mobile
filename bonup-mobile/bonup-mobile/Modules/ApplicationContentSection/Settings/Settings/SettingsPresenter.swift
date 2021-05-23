@@ -164,7 +164,11 @@ extension SettingsPresenter: ISettingsPresenter {
 
                 guard id != "",
                       let photoId = Int(id),
-                      let url = PhotosService.photoURL(for: photoId) else { return }
+                      let url = PhotosService.photoURL(for: photoId) else {
+                    
+                    self?.view?.setupAvatarIcon(icon: AssetsHelper.shared.image(.addImageIcon)!)
+                    return
+                }
                 
                 self?.view?.updateAvatarIcon(url: url, completion: { image in
                     

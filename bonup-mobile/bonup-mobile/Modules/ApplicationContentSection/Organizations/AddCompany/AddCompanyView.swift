@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Nuke
 
 protocol IAddCompanyView: AnyObject {
 
@@ -26,7 +25,7 @@ final class AddCompanyView: BUContentViewController {
     // MARK: - UI variabes
 
     private var blurView: UIView!
-    private var companyImageView: UIImageView!
+    private var companyImageView: BULoadImageView!
     private var categoriesContainer: SelectCategoriesContainer!
     private var tableView: UITableView!
     
@@ -143,9 +142,9 @@ final class AddCompanyView: BUContentViewController {
         return blur
     }
 
-    private func configureCompanyImageView() -> UIImageView {
+    private func configureCompanyImageView() -> BULoadImageView {
 
-        let iv = UIImageView()
+        let iv = BULoadImageView()
 
         iv.image = self.presenter.selectedPhoto
         iv.contentMode = .scaleAspectFit
@@ -295,22 +294,6 @@ extension AddCompanyView: IAddCompanyView {
     
     func loadImage(_ url: URL, completion: @escaping (UIImage) -> Void) {
         
-        let imageRequest = ImageRequest(url: url)
-        
-        Nuke.loadImage(
-            with: imageRequest,
-            options: ImageLoadingOptions(),
-            into: self.companyImageView,
-            progress: nil) { result in
-            
-            switch result {
-            
-            case .success(let image):
-                completion(image.image)
-                
-            default:
-                break
-            }
-        }
+        self.companyImageView.loadFrom(url: url)
     }
 }

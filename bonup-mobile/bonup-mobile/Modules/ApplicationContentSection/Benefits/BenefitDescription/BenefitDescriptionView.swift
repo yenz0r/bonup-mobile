@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Nuke
 
 protocol IBenefitDescriptionView: AnyObject {
     
@@ -32,7 +31,7 @@ final class BenefitDescriptionView: BUContentViewController {
     private var titleLabel: UILabel!
     private var descriptionLabel: UILabel!
     private var qrCodeView: BUQRCodeView!
-    private var imageView: UIImageView!
+    private var imageView: BULoadImageView!
 
     // MARK: - Life cycle
 
@@ -118,8 +117,9 @@ final class BenefitDescriptionView: BUContentViewController {
 
     // MARK: - Configure
     
-    private func configureImageView() -> UIImageView {
-        let imageView = UIImageView()
+    private func configureImageView() -> BULoadImageView {
+        
+        let imageView = BULoadImageView()
 
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
@@ -194,13 +194,6 @@ extension BenefitDescriptionView: IBenefitDescriptionView {
         guard let link = link else { return }
         guard let url = URL(string: link) else { return }
 
-        let imageRequst = ImageRequest(url: url)
-        Nuke.loadImage(
-            with: imageRequst,
-            options: ImageLoadingOptions(),
-            into: self.imageView,
-            progress: nil,
-            completion: nil
-        )
+        self.imageView.loadFrom(url: url)
     }
 }

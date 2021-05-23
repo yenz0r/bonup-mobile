@@ -9,7 +9,6 @@
 import UIKit
 import GoogleMobileAds
 import YandexMapsMobile
-import Nuke
 
 protocol ITaskDescriptionView: AnyObject {
     func reloadData()
@@ -33,7 +32,7 @@ final class TaskDescriptionView: BUContentViewController {
 
     private var scrollView: UIScrollView!
     private var scrollContentView: UIView!
-    private var imageView: UIImageView!
+    private var imageView: BULoadImageView!
     private var titleLabel: UILabel!
     private var descriptionLabel: UILabel!
     private var organizationTitleLabel: BULabel!
@@ -494,8 +493,9 @@ final class TaskDescriptionView: BUContentViewController {
         return stackView
     }
 
-    private func configureImageView() -> UIImageView {
-        let imageView = UIImageView()
+    private func configureImageView() -> BULoadImageView {
+        
+        let imageView = BULoadImageView()
 
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -594,21 +594,10 @@ extension TaskDescriptionView: ITaskDescriptionView {
             cameraCallback: nil)
 
         // setup image
-        let options = ImageLoadingOptions(
-            placeholder: AssetsHelper.shared.image(.emptyTasksListIcon),
-            transition: .fadeIn(duration: 0.33)
-        )
+        
         if let url = self.presenter.imageURL {
-            let imageRequst = ImageRequest(url: url)
-            Nuke.loadImage(
-                with: imageRequst,
-                options: options,
-                into: self.imageView,
-                progress: { response, first, second in
-                    print("=========== \(first), \(second)")
-                },
-                completion: nil
-            )
+        
+            self.imageView.loadFrom(url: url)
         }
     }
 }

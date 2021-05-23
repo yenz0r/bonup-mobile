@@ -36,6 +36,7 @@ target 'bonup-mobile' do
   
   pod 'Charts'
   pod 'EmptyDataSet-Swift', '~> 5.0.0'
+  pod 'CircleProgressView', '~> 1.0'
   
   pod 'RealmSwift'
 

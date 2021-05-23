@@ -8,7 +8,6 @@
 
 import Foundation
 import FMPhotoPicker
-import Nuke
 
 protocol IAddCompanyPresenter: AnyObject {
 

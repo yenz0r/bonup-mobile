@@ -8,10 +8,6 @@
 
 import UIKit
 
-// -- Helpers --
-
-import Nuke
-
 final class OrganizationsListCell: UICollectionViewCell {
 
     // MARK: - Static variables
@@ -29,14 +25,7 @@ final class OrganizationsListCell: UICollectionViewCell {
                 return
             }
 
-            let imageRequst = ImageRequest(url: url)
-            Nuke.loadImage(
-                with: imageRequst,
-                options: ImageLoadingOptions(),
-                into: self.imageView,
-                progress: nil,
-                completion: nil
-            )
+            self.imageView.loadFrom(url: url)
         }
     }
 
@@ -48,7 +37,7 @@ final class OrganizationsListCell: UICollectionViewCell {
 
     // MARK: - User interface variables
 
-    private var imageView: UIImageView!
+    private var imageView: BULoadImageView!
     private var titleLabel: UILabel!
 
     // MARK: - Initialization
@@ -92,8 +81,9 @@ final class OrganizationsListCell: UICollectionViewCell {
 
     // MARK: - Configure
 
-    private func configureImageView() -> UIImageView {
-        let iv = UIImageView()
+    private func configureImageView() -> BULoadImageView {
+        
+        let iv = BULoadImageView()
 
         iv.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         iv.layer.cornerRadius = 25
@@ -104,6 +94,7 @@ final class OrganizationsListCell: UICollectionViewCell {
     }
 
     private func configureTitleLabel() -> UILabel {
+        
         let label = UILabel()
 
         label.theme_textColor = Colors.defaultTextColor

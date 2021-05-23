@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Nuke
 
 protocol IAddCompanyActionView: AnyObject {
 
@@ -23,7 +22,7 @@ final class AddCompanyActionView: BUContentViewController {
     // MARK: - UI variabes
 
     private var usesCountContainer: AddCompanyUsesCountContainer!
-    private var actionImageView: UIImageView!
+    private var actionImageView: BULoadImageView!
     private var categoriesContainer: SelectCategoriesContainer!
     private var tableView: UITableView!
 
@@ -110,9 +109,9 @@ final class AddCompanyActionView: BUContentViewController {
         return container
     }
     
-    private func configureActionImageView() -> UIImageView {
+    private func configureActionImageView() -> BULoadImageView {
 
-        let iv = UIImageView()
+        let iv = BULoadImageView()
 
         iv.image = self.presenter.selectedPhoto
         iv.contentMode = .scaleAspectFit
@@ -121,15 +120,7 @@ final class AddCompanyActionView: BUContentViewController {
         if self.presenter.currentMode != .create,
            let url = self.presenter.initPhotoURL {
             
-            let imageRequst = ImageRequest(url: url)
-            
-            Nuke.loadImage(
-                with: imageRequst,
-                options: ImageLoadingOptions(placeholder: AssetsHelper.shared.image(.emptyTasksListIcon)),
-                into: iv,
-                progress: nil,
-                completion: nil
-            )
+            iv.loadFrom(url: url)
         }
 
         let gesture = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
