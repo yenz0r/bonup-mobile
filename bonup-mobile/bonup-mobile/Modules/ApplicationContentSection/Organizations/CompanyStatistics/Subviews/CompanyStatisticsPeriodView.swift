@@ -126,7 +126,7 @@ final class CompanyStatisticsPeriodView: UIView {
         
         let label = UILabel()
         
-        label.theme_textColor = Colors.invertedTextColor
+        label.textColor = .white80
         label.font = .avenirHeavy(20)
         label.textAlignment = .center
         

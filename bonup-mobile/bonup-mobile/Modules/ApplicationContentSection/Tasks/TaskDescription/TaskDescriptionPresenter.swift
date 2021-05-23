@@ -23,6 +23,10 @@ protocol ITaskDescriptionPresenter: AnyObject {
     var director: String { get }
     var address: String { get }
     
+    func handlePhoneTap()
+    func handleWebSiteTap()
+    func handleVkLinkTap()
+    
     func handleDetailsTap()
 }
 
@@ -118,5 +122,56 @@ extension TaskDescriptionPresenter: ITaskDescriptionPresenter {
     func handleDetailsTap() {
         
         self.router.show(.showCompanyDetails(company: self.currentTask.organization))
+    }
+    
+    func handlePhoneTap() {
+        
+        var openURL: URL
+        
+        let validator = Validator()
+        if let url = URL(string: "tel://" + self.currentTask
+                            .organization
+                            .contactsPhone.filter { validator.onlyNumbers(String($0)) }) {
+            
+            openURL = url
+        }
+        else {
+            
+            openURL = URL(string: "https://google.com")!
+        }
+        
+        self.router.show(.openURL(openURL))
+    }
+    
+    func handleWebSiteTap() {
+        
+        var openURL: URL
+        
+        if let url = URL(string: self.currentTask.organization.contactsWebSite) {
+            
+            openURL = url
+        }
+        else {
+            
+            openURL = URL(string: "https://google.com")!
+        }
+        
+        self.router.show(.openURL(openURL))
+    }
+    
+    func handleVkLinkTap() {
+        
+        var openURL: URL
+        
+        if let url = URL(string: self.currentTask.organization.contactsVK) {
+            
+            openURL = url
+        }
+        else {
+            
+            openURL = URL(string: "https://google.com")!
+        }
+        
+        self.router.show(.openURL(openURL))
     }
 }

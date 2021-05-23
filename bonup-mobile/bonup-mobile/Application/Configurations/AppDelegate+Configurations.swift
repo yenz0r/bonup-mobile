@@ -52,6 +52,7 @@ extension AppDelegate {
     func setupGoogleServices() {
 
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [GOOGLE_AD_PHONE_KEY]
 
         var optionsPath: String?
         return

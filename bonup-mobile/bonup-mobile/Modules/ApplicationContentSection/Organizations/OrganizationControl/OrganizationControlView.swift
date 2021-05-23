@@ -75,6 +75,7 @@ final class OrganizationControlView: BUContentViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableView.separatorStyle = .none
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = .clear
 

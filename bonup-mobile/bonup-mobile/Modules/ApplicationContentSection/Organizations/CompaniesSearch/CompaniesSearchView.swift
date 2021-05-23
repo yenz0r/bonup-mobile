@@ -176,10 +176,10 @@ extension CompaniesSearchView: ICompaniesSearchView {
             
             let placemark = self.placemarkCollection?.addPlacemark(
                 with: point,
-                image: AssetsHelper
-                        .shared
-                        .image(.companyLocationMapIcon)!
-                        .resizedImage(targetSize: CGSize(width: 70, height: 70)),
+                image: InterestCategories
+                    .category(id: company.categoryId)
+                    .icon
+                    .resizedImage(targetSize: .init(width: 100, height: 100)),
                 style: .init()
             )
             

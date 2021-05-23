@@ -20,6 +20,7 @@ final class TaskDescriptionRouter {
     enum TaskDescriptionRouterScenario {
         
         case showCompanyDetails(company: CompanyEntity)
+        case openURL(URL)
     }
 
     // MARK: - Private variables
@@ -74,6 +75,12 @@ extension TaskDescriptionRouter: ITaskDescriptionRouter {
             let router = builder.build(dependency)
             
             router.start(onStop: nil)
+            
+        case .openURL(let url):
+            
+            UIApplication.shared.open(url,
+                                      options: [:],
+                                      completionHandler: nil)
         }
     }
 }

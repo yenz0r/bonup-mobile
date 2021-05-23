@@ -114,4 +114,36 @@ enum InterestCategories: Int, CaseIterable {
             return .init(hex: "#A0DDFA")
         }
     }
+    
+    var icon: UIImage {
+        
+        switch self {
+        case .food:
+            return AssetsHelper.shared.image(.foodSectionIcon)!
+            
+        case .sport:
+            return AssetsHelper.shared.image(.sportSectionIcon)!
+            
+        case .media:
+            return AssetsHelper.shared.image(.mediaSectionIcon)!
+            
+        case .health:
+            return AssetsHelper.shared.image(.healthSectionIcon)!
+            
+        case .literature:
+            return AssetsHelper.shared.image(.literatureSectionIcon)!
+            
+        case .films:
+            return AssetsHelper.shared.image(.filmsSectionIcon)!
+            
+        case .music:
+            return AssetsHelper.shared.image(.musicSectionIcon)!
+            
+        case .coffe:
+            return AssetsHelper.shared.image(.coffeeSectionIcon)!
+            
+        case .services:
+            return AssetsHelper.shared.image(.servicesSectionIcon)!
+        }
+    }
 }

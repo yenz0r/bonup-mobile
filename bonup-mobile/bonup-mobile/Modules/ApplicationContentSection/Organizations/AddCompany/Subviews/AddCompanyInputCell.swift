@@ -143,6 +143,7 @@ final class AddCompanyInputCell: UITableViewCell {
     
     @objc private func tapGestureTriggered() {
         
+        self.textField.resignFirstResponder()
         self.onTap?()
     }
 }

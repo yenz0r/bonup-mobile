@@ -120,8 +120,8 @@ extension ApplicationContentRouter {
         let settingsNavigationController = BUNavigationController()
         settingsNavigationController.setupTabBarItem(
             with: "ui_settings_title",
-            unselectedImage: AssetsHelper.shared.image(.profileUnselectedIcon),
-            selectedImage: AssetsHelper.shared.image(.profileSelectedIcon)
+            unselectedImage: AssetsHelper.shared.image(.userSettingsUnselectedIcon),
+            selectedImage: AssetsHelper.shared.image(.userSettingsSelectedIcon)
         )
 
         let settingsDependency = SettingsDependency(
@@ -156,8 +156,8 @@ extension ApplicationContentRouter {
         let profileNavigationController = BUNavigationController()
         profileNavigationController.setupTabBarItem(
             with: "ui_profile_title",
-            unselectedImage: AssetsHelper.shared.image(.settingsHelp),
-            selectedImage: AssetsHelper.shared.image(.settingsHelp)
+            unselectedImage: AssetsHelper.shared.image(.userProfileUnselectedIcon),
+            selectedImage: AssetsHelper.shared.image(.userProfileSelectedIcon)
         )
 
         let profileDependency = ProfileDependency(

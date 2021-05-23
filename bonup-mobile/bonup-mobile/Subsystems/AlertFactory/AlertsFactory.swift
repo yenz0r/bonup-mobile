@@ -51,6 +51,8 @@ final class AlertsFactory {
             
             alertVC.alertDescription.theme_textColor = Colors.defaultTextColorWithAlpha
             alertVC.alertDescription.font = .avenirRoman(17)
+            
+            alertVC.alertImage.image = AssetsHelper.shared.image(.alertHelpIcon)
 
             alertVC.addAction(
                 PMAlertAction(

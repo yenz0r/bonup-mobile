@@ -129,14 +129,14 @@ final class TaskDescriptionView: BUContentViewController {
             make.leading.trailing.equalToSuperview().inset(20)
         }
         
-        self.titleLabel = self.configureTitleLabel()
+        self.titleLabel = self.configureTaskTitleLabel()
         taskInfoContainer.addSubview(self.titleLabel)
         self.titleLabel.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(25.0)
+            make.leading.trailing.equalToSuperview().inset(15.0)
             make.top.equalToSuperview().offset(10)
         }
 
-        self.descriptionLabel = self.configureDescriptionLabel()
+        self.descriptionLabel = self.configureTaskDescriptionLabel()
         taskInfoContainer.addSubview(self.descriptionLabel)
         self.descriptionLabel.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(15.0)
@@ -162,7 +162,7 @@ final class TaskDescriptionView: BUContentViewController {
         self.organizationNameLabel = self.configureDetailsLabel()
         companyInfoContainer.addSubview(self.organizationNameLabel)
         self.organizationNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.organizationTitleLabel.snp.bottom).offset(20.0)
+            make.top.equalTo(self.organizationTitleLabel.snp.bottom).offset(10.0)
             make.leading.trailing.equalToSuperview().inset(10)
         }
         
@@ -329,6 +329,7 @@ final class TaskDescriptionView: BUContentViewController {
         
         label.textAlignment = .left
         label.font = .avenirRoman(15)
+        label.numberOfLines = 0
         label.theme_textColor = Colors.defaultTextColorWithAlpha
         
         return label
@@ -398,6 +399,30 @@ final class TaskDescriptionView: BUContentViewController {
         }
 
         return view
+    }
+    
+    private func configureTaskTitleLabel() -> UILabel {
+        
+        let label = UILabel()
+        
+        label.textAlignment = .left
+        label.font = .avenirHeavy(20)
+        label.theme_textColor = Colors.defaultTextColor
+        label.numberOfLines = 0
+        
+        return label
+    }
+    
+    private func configureTaskDescriptionLabel() -> UILabel {
+        
+        let label = UILabel()
+        
+        label.textAlignment = .left
+        label.font = .avenirRoman(16)
+        label.theme_textColor = Colors.defaultTextColorWithAlpha
+        label.numberOfLines = 0
+        
+        return label
     }
 
     private func configureDateContainer(for type: DateContainerType) -> UIView {
@@ -511,25 +536,18 @@ final class TaskDescriptionView: BUContentViewController {
     // MARK: - Selectors
 
     @objc private func callButtonTapped() {
-        // Use phone number when back will be ready
-        if let url = URL(string: "telprompt://mobile") {
-          if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.openURL(url)
-          }
-        }
+        
+        self.presenter.handlePhoneTap()
     }
     
     @objc private func visitVKButtonTapped() {
         
+        self.presenter.handleVkLinkTap()
     }
 
     @objc private func visitSiteButtonTapped() {
-        // Use url when back will be ready
-        if let url = URL(string: "https://google.com") {
-                 if UIApplication.shared.canOpenURL(url) {
-                   UIApplication.shared.openURL(url)
-                 }
-               }
+        
+        self.presenter.handleWebSiteTap()
     }
     
     @objc private func detailsTapped() {
@@ -565,7 +583,10 @@ extension TaskDescriptionView: ITaskDescriptionView {
         let placemark = self.mapView.mapWindow.map.mapObjects.addPlacemark(with: point)
         placemark.opacity = 0.5
         placemark.isDraggable = true
-        placemark.setIconWith(UIImage(named: "map-mark")!)
+        placemark.setIconWith(AssetsHelper
+                                .shared
+                                .image(.userLocationMapIcon)!
+                                .resizedImage(targetSize: .init(width: 100, height: 100)))
 
         self.mapView.mapWindow.map.move(
             with: YMKCameraPosition(target: point, zoom: 15, azimuth: 0, tilt: 0),
@@ -574,7 +595,7 @@ extension TaskDescriptionView: ITaskDescriptionView {
 
         // setup image
         let options = ImageLoadingOptions(
-            placeholder: UIImage(named: ""),
+            placeholder: AssetsHelper.shared.image(.emptyTasksListIcon),
             transition: .fadeIn(duration: 0.33)
         )
         if let url = self.presenter.imageURL {
@@ -583,7 +604,9 @@ extension TaskDescriptionView: ITaskDescriptionView {
                 with: imageRequst,
                 options: options,
                 into: self.imageView,
-                progress: nil,
+                progress: { response, first, second in
+                    print("=========== \(first), \(second)")
+                },
                 completion: nil
             )
         }

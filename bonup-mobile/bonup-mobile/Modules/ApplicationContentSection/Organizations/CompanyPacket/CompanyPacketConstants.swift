@@ -126,7 +126,7 @@ enum CompanyPacketType {
         case .senior:
             return .systemRed
         case .custom(_, _, _):
-            return .cyan
+            return .init(hex: "#98698E")
         case .none:
             return .black
         }

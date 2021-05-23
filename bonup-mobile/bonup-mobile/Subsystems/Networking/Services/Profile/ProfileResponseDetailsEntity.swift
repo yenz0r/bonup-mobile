@@ -10,7 +10,7 @@ import Foundation
 
 struct ProfileResponseDetailsEntity: Decodable {
 
-    let photoId: Int
+    let photoId: Int?
     let name: String
     let email: String
     let organizationName: String

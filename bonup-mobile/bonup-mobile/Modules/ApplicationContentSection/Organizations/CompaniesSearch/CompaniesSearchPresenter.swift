@@ -58,20 +58,17 @@ extension CompaniesSearchPresenter: ICompaniesSearchPresenter {
 
     func refreshData() {
         
-        if self.interactor.organizations.isEmpty {
+        self.interactor.loadOrganizations(withLoader: true) { [weak self] success in
             
-            self.interactor.loadOrganizations(withLoader: self.isFirstRefresh) { [weak self] success in
+            DispatchQueue.main.async {
                 
-                DispatchQueue.main.async {
-                 
-                    if success {
-                        
-                        self?.view?.reloadMap()
-                    }
-                    else {
-                        
-                        self?.router.show(.showErrorAlert)
-                    }
+                if success {
+                    
+                    self?.view?.reloadMap()
+                }
+                else {
+                    
+                    self?.router.show(.showErrorAlert)
                 }
             }
         }

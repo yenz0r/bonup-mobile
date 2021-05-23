@@ -65,6 +65,33 @@ final class AssetsHelper {
         case rightArrow
         
         case vkIcon, webIcon, phoneIcon
+        
+        case alertHelpIcon
+        
+        case filmsSectionIcon
+        case literatureSectionIcon
+        case coffeeSectionIcon
+        case healthSectionIcon
+        case mediaSectionIcon
+        case musicSectionIcon
+        case servicesSectionIcon
+        case foodSectionIcon
+        case sportSectionIcon
+        
+        case addCouponIcon
+        case addStockIcon
+        case modifyIcon
+        case settingsIcon
+        case userProfileIcon
+        case statisticsIcon
+        case checkTaskIcon
+        case verifyCouponIcon
+        case addTaskIcon
+        
+        case userProfileSelectedIcon
+        case userProfileUnselectedIcon
+        case userSettingsSelectedIcon
+        case userSettingsUnselectedIcon
     }
 
     static let shared = AssetsHelper()
@@ -174,12 +201,58 @@ final class AssetsHelper {
             
         case .vkIcon:
             return UIImage(named: "vk-icon")
-            
         case .webIcon:
             return UIImage(named: "web-icon")
-            
         case .phoneIcon:
             return UIImage(named: "phone-icon")
+            
+        case .alertHelpIcon:
+            return UIImage(named: "alert-help-icon")
+        case .filmsSectionIcon:
+            return UIImage(named: "films-section-icon")
+        case .literatureSectionIcon:
+            return UIImage(named: "literature-section-icon")
+        case .coffeeSectionIcon:
+            return UIImage(named: "coffee-section-icon")
+        case .healthSectionIcon:
+            return UIImage(named: "health-section-icon")
+        case .mediaSectionIcon:
+            return UIImage(named: "media-section-icon")
+        case .musicSectionIcon:
+            return UIImage(named: "music-section-icon")
+        case .servicesSectionIcon:
+            return UIImage(named: "services-section-icon")
+        case .foodSectionIcon:
+            return UIImage(named: "food-section-icon")
+        case .sportSectionIcon:
+            return UIImage(named: "sport-section-icon")
+            
+        case .addCouponIcon:
+            return UIImage(named: "add-coupon-icon")
+        case .addStockIcon:
+            return UIImage(named: "add-stock-icon")
+        case .modifyIcon:
+            return UIImage(named: "modify-icon")
+        case .settingsIcon:
+            return UIImage(named: "settings-icon")
+        case .userProfileIcon:
+            return UIImage(named: "user-profile-icon")
+        case .statisticsIcon:
+            return UIImage(named: "statistics-icon")
+        case .checkTaskIcon:
+            return UIImage(named: "check-task-icon")
+        case .verifyCouponIcon:
+            return UIImage(named: "verify-coupon-icon")
+        case .addTaskIcon:
+            return UIImage(named: "add-task-icon")
+        case .userProfileSelectedIcon:
+            return UIImage(named: "user-profile-selected-icon")
+        case .userProfileUnselectedIcon:
+            return UIImage(named: "user-profile-unselected-icon")
+        case .userSettingsSelectedIcon:
+            return UIImage(named: "user-settings-selected-icon")
+        case .userSettingsUnselectedIcon:
+            return UIImage(named: "user-settings-unselected-icon")
             
         @unknown default:
             assertionFailure("Incorrect \(String(describing: self)) enum value")

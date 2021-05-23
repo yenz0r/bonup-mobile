@@ -102,12 +102,4 @@ final class SettingsTableViewCell: UITableViewCell {
 
         self.iconImageView.layer.cornerRadius = self.iconImageView.frame.height / 2
     }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-        self.iconImage = nil
-        self.title = nil
-        self.isLogout = nil
-    }
 }

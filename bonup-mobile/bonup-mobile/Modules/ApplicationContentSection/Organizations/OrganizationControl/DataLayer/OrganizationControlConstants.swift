@@ -53,28 +53,28 @@ enum OrganizationControlAction: Int, CaseIterable {
         switch self {
         
         case .verifyTask:
-            return AssetsHelper.shared.image(.settingsRateUs)
+            return AssetsHelper.shared.image(.checkTaskIcon)?.withRenderingMode(.alwaysTemplate)
             
         case .varifyCoupon:
-            return AssetsHelper.shared.image(.settingsHelp)
+            return AssetsHelper.shared.image(.verifyCouponIcon)?.withRenderingMode(.alwaysTemplate)
             
         case .addTask:
-            return AssetsHelper.shared.image(.settingsCategory)
+            return AssetsHelper.shared.image(.addTaskIcon)?.withRenderingMode(.alwaysTemplate)
             
         case .addCoupon:
-            return AssetsHelper.shared.image(.settingsRateUs)
+            return AssetsHelper.shared.image(.addCouponIcon)?.withRenderingMode(.alwaysTemplate)
             
         case .statistics:
-            return AssetsHelper.shared.image(.settingsCategory)
+            return AssetsHelper.shared.image(.statisticsIcon)?.withRenderingMode(.alwaysTemplate)
             
         case .modifyInfo:
-            return AssetsHelper.shared.image(.settingsCategory)
+            return AssetsHelper.shared.image(.modifyIcon)?.withRenderingMode(.alwaysTemplate)
             
         case .addStock:
-            return AssetsHelper.shared.image(.settingsCategory)
+            return AssetsHelper.shared.image(.addStockIcon)?.withRenderingMode(.alwaysTemplate)
             
         case .actionsList:
-            return AssetsHelper.shared.image(.settingsCategory)
+            return AssetsHelper.shared.image(.settingsCategory)?.withRenderingMode(.alwaysTemplate)
         }
     }
 }

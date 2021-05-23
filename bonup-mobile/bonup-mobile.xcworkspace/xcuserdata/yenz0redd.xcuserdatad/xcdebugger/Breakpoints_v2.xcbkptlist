@@ -44,7 +44,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "161"
                   endingLineNumber = "161"
-                  offsetFromSymbolStart = "1040">
+                  offsetFromSymbolStart = "768">
                </Location>
                <Location
                   uuid = "967F5968-DE03-43FE-95EC-5ABF96169BB9 - dddff83a37e57219"
@@ -59,7 +59,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "161"
                   endingLineNumber = "161"
-                  offsetFromSymbolStart = "163">
+                  offsetFromSymbolStart = "184">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -269,6 +269,38 @@
             startingLineNumber = "105"
             endingLineNumber = "105"
             landmarkName = "getUserInfo(withLoader:success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "096C4C7C-CE19-4A7F-815A-230C48CEA196"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/Organizations/CompanyStatistics/CompanyStatisticsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "shareTapped()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7D1E3A1A-ACD3-4346-A219-361EE511EC43"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/Organizations/CompanyStatistics/CompanyStatisticsPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "handleShareAction(image:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
