@@ -27,8 +27,9 @@ final class ProfileInfoContainer: UIView {
 
     weak var dataSource: ProfileInfoContainerDataSource!
 
-    // MARK: - Private variables
+    // MARK: - UI variables
 
+    private var sectionTitleLabel: UILabel!
     private var doneTitleLabel: UILabel!
     private var doneValueLabel: UILabel!
     private var earnedTitleLabel: UILabel!
@@ -46,6 +47,7 @@ final class ProfileInfoContainer: UIView {
         super.init(frame: frame)
 
         self.setupSubviews()
+        self.setupAppearance()
     }
 
     required init?(coder: NSCoder) {
@@ -60,10 +62,19 @@ final class ProfileInfoContainer: UIView {
         self.earnedValueLabel.text = self.dataSource.profileInfoContainer(self, valueFor: .rest)
     }
 
-    // MARK: - Setup subviews
+    // MARK: - Setup
+    
+    private func setupAppearance() {
+        
+        self.setupSectionStyle()
+    }
 
     private func setupSubviews() {
-        self.doneTitleLabel = self.configureTitleLabel(with: "ui_done_title".localized)
+        
+        self.sectionTitleLabel = self.configureSectionTitleLabel()
+        self.addSubview(self.sectionTitleLabel)
+        
+        self.doneTitleLabel = self.configureTitleLabel(with: "ui_done_title")
         self.doneValueLabel = self.configureValueLabel()
         self.doneContainerView = self.configureContainer(
             self.doneTitleLabel,
@@ -71,7 +82,7 @@ final class ProfileInfoContainer: UIView {
             separatorPosition: .right
         )
 
-        self.earnedTitleLabel = self.configureTitleLabel(with: "ui_earned_title".localized)
+        self.earnedTitleLabel = self.configureTitleLabel(with: "ui_earned_title")
         self.earnedValueLabel = self.configureValueLabel()
         self.earnedContainerView = self.configureContainer(
             self.earnedTitleLabel,
@@ -79,7 +90,7 @@ final class ProfileInfoContainer: UIView {
             separatorPosition: .none
         )
 
-        self.spendTitleLabel = self.configureTitleLabel(with: "ui_spend_title".localized)
+        self.spendTitleLabel = self.configureTitleLabel(with: "ui_spend_title")
         self.spendValueLabel = self.configureValueLabel()
         self.spendContainerView = self.configureContainer(
             self.spendTitleLabel,
@@ -87,10 +98,18 @@ final class ProfileInfoContainer: UIView {
             separatorPosition: .left
         )
 
+        self.sectionTitleLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(25)
+            make.top.equalToSuperview().offset(10)
+        }
+        
         self.stackView = self.configureStackView()
         self.addSubview(self.stackView)
         self.stackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            
+            make.top.equalTo(self.sectionTitleLabel.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.bottom.equalToSuperview().offset(-10)
         }
 
         self.stackView.addArrangedSubview(self.doneContainerView)
@@ -99,6 +118,17 @@ final class ProfileInfoContainer: UIView {
     }
 
     // MARK: - Configure subviews
+    
+    private func configureSectionTitleLabel() -> UILabel {
+        
+        let label = BULabel()
+        
+        label.theme_textColor = Colors.defaultTextColorWithAlpha
+        label.font = .avenirRoman(15)
+        label.loc_text = "ui_profile_bonuses_label"
+        
+        return label
+    }
 
     private func configureContainer(_ title: UILabel,
                                     _ value: UILabel,
@@ -115,6 +145,7 @@ final class ProfileInfoContainer: UIView {
 
         value.snp.makeConstraints { make in
             make.bottom.centerX.equalToSuperview()
+            make.top.equalTo(title.snp.bottom).offset(10)
             make.width.equalTo(title)
         }
 
@@ -143,12 +174,12 @@ final class ProfileInfoContainer: UIView {
     }
 
     private func configureTitleLabel(with text: String) -> UILabel {
-        let label = UILabel()
+        let label = BULabel()
 
         label.textAlignment = .center
-        label.text = text
+        label.loc_text = text
         label.font = UIFont.avenirHeavy(15.0)
-        label.textColor = UIColor.black.withAlphaComponent(0.5)
+        label.theme_textColor = Colors.defaultTextColor
 
         return label
     }
@@ -166,7 +197,7 @@ final class ProfileInfoContainer: UIView {
 
         label.textAlignment = .center
         label.font = UIFont.avenirRoman(12.0)
-        label.textColor = UIColor.purpleLite.withAlphaComponent(0.6)
+        label.theme_textColor = Colors.defaultTextColorWithAlpha
 
         return label
     }

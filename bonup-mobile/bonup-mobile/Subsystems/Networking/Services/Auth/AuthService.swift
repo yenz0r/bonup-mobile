@@ -23,7 +23,7 @@ enum AuthService {
 extension AuthService: IMainTargetType {
 
     var baseURL: URL {
-        return URL(string: serverBase)!
+        return URL(string: SERVER_BASE_URL)!
     }
 
     var path: String {
@@ -54,7 +54,7 @@ extension AuthService: IMainTargetType {
             return .requestParameters(
                 parameters: [
                     "name": params.name,
-                    "email": params.email,
+                    "login": params.email,
                     "password": params.password
                 ],
                 encoding: JSONEncoding.default
@@ -63,7 +63,7 @@ extension AuthService: IMainTargetType {
             return .requestParameters(
                 parameters: [
                     "name": params.name,
-                    "email": params.email,
+                    "login": params.email,
                     "password": params.password
                 ],
                 encoding: JSONEncoding.default

@@ -23,6 +23,8 @@ final class AlertsFactory {
     }
 
     static let shared = AlertsFactory()
+    
+    private var loadingAlertsCount = 0
 
     private init() { }
 
@@ -41,6 +43,16 @@ final class AlertsFactory {
                 image: AssetsHelper.shared.image(.flagIcon),
                 style: .alert
             )
+            alertVC.alertView.theme_backgroundColor = Colors.profileSectionColor
+            alertVC.headerView.theme_backgroundColor = Colors.profileSectionColor
+            
+            alertVC.alertTitle.theme_textColor = Colors.defaultTextColor
+            alertVC.alertTitle.font = .avenirHeavy(20)
+            
+            alertVC.alertDescription.theme_textColor = Colors.defaultTextColorWithAlpha
+            alertVC.alertDescription.font = .avenirRoman(17)
+            
+            alertVC.alertImage.image = AssetsHelper.shared.image(.alertHelpIcon)
 
             alertVC.addAction(
                 PMAlertAction(
@@ -62,11 +74,21 @@ final class AlertsFactory {
 
             switch action {
             case .show(let message):
+                
+                self.loadingAlertsCount += 1
                 SwiftSpinner.show(message)
+                
             case .showWithDuration(let duration, let message):
                 SwiftSpinner.show(duration: duration, title: message)
+                
             case .hide:
-                SwiftSpinner.hide()
+                
+                self.loadingAlertsCount -= 1
+                
+                if self.loadingAlertsCount == 0 {
+                
+                    SwiftSpinner.hide()
+                }
             }
 
         }

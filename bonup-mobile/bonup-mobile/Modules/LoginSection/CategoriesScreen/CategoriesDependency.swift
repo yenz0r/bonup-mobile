@@ -9,5 +9,12 @@
 import UIKit
 
 struct CategoriesDependency {
+    
+    enum Target {
+    
+        case settings, login
+    }
+    
     let parentViewController: UIViewController
+    let target: Target
 }

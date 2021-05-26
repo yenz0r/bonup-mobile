@@ -10,31 +10,26 @@ import Foundation
 import Moya
 
 enum CategoriesService {
-    case askCategories
-    case sendSelectedCategories(selectedIds: [Int])
+    case sendSelectedCategories(token: String, selectedIds: [Int])
 }
 
 extension CategoriesService: IMainTargetType {
 
     var baseURL: URL {
-        return URL(string: serverBase)!
+        return URL(string: SERVER_BASE_URL)!
     }
 
     var path: String {
         switch self {
-        case .askCategories:
-            return "/categories"
-        case .sendSelectedCategories(_):
-            return "/setCategoriesForUser"
+        case .sendSelectedCategories(_, _):
+            return "/setCategories"
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .askCategories:
+        case .sendSelectedCategories(_, _):
             return .post
-        case .sendSelectedCategories(_):
-            return .put
         }
     }
 
@@ -44,11 +39,10 @@ extension CategoriesService: IMainTargetType {
 
     var task: Task {
         switch self {
-        case .askCategories:
-            return .requestPlain
-        case .sendSelectedCategories(let selectedIds):
+        case .sendSelectedCategories(let token, let selectedIds):
             return .requestParameters(
                 parameters: [
+                    "token": token,
                     "ids": selectedIds
                 ],
                 encoding: JSONEncoding.default
@@ -60,4 +54,3 @@ extension CategoriesService: IMainTargetType {
         return ["Content-Type" : "application/json"]
     }
 }
-

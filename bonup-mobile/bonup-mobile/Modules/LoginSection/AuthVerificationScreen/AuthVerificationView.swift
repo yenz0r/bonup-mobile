@@ -12,7 +12,7 @@ protocol IAuthVerificationView: AnyObject {
     func displayTimerText(_ text: String, _ color: UIColor)
 }
 
-final class AuthVerificationView: LoginSectionViewController {
+final class AuthVerificationView: BULoginViewController {
 
     // MARK: - Public variables
 
@@ -135,6 +135,9 @@ final class AuthVerificationView: LoginSectionViewController {
     }
 
     @objc private func sendButtonTapped() {
+        
+        self.view.endEditing(true)
+        
         guard
             let code = self.codeTextField.text,
             code != "" else {

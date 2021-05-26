@@ -8,8 +8,9 @@
 
 import Foundation
 
-struct ProfileResponseDetailsEntity: Codable {
+struct ProfileResponseDetailsEntity: Decodable {
 
+    let photoId: Int?
     let name: String
     let email: String
     let organizationName: String
@@ -18,11 +19,8 @@ struct ProfileResponseDetailsEntity: Codable {
     let tasksNumber: Int
     let spentBalls: Int
 
-    let donePercent: Int
-    let couponsPercent: Int
-
-    let ballsPercent: Int
-    let spentBallsPercent: Int
+    let finishedTasks: [OrganizationActionEntity]
+    let finishedCoupons: [OrganizationActionEntity]
 
     let goals: [ProfileGoalsResponse]
 }

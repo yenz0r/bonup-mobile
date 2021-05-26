@@ -15,60 +15,51 @@ struct CategoryInfoEntity {
 }
 
 protocol ICategoriesInteractor: AnyObject {
-    func categotiesListRequest(success: (([CategoryInfoEntity]) -> Void)?,
-                               failure: (() -> Void)?)
-    func saveSeletedCategoriesRequest(selectedIds: [Int])
+
+    var allCategories: [InterestCategories] { get }
+    var selectedCategories: [InterestCategories] { get set }
+    var target: CategoriesDependency.Target { get }
+    
+    func saveSeletedCategoriesRequest(completion: @escaping () -> Void)
 }
 
 final class CategoriesInteractor {
 
     // MARK: - Private variables
 
-    private let networkProvider = MainNetworkProvider<CategoriesService>()
-
+    private lazy var networkProvider = MainNetworkProvider<CategoriesService>()
+    
+    // MARK: - Public variables
+    
+    var allCategories: [InterestCategories] = InterestCategories.allCases
+    var selectedCategories: [InterestCategories] = []
+    var target: CategoriesDependency.Target
+    
+    // MARK: - Init
+    
+    init(target: CategoriesDependency.Target) {
+        
+        self.target = target
+    }
 }
 
 // MAKR: - IAuthVerificationInteractor implemenetation
 
 extension CategoriesInteractor: ICategoriesInteractor {
 
-    func categotiesListRequest(success: (([CategoryInfoEntity]) -> Void)?,
-                               failure: (() -> Void)?) {
+    func saveSeletedCategoriesRequest(completion: @escaping () -> Void) {
 
+        guard let token = AccountManager.shared.currentToken else { return }
+        
         _ = networkProvider.request(
-            .askCategories,
-            type: CategoryInfo.self,
+            .sendSelectedCategories(token: token,
+                                    selectedIds: self.selectedCategories.map { $0.rawValue }),
+            type: DefaultResponseEntity.self,
             completion: { result in
-
-                if result.isSuccess {
-
-                    var resultArray = [CategoryInfoEntity]()
-                    let keys = result.map.keys
-                    for key in keys {
-
-                        let info = result.map[key] ?? ""
-                        let entity = CategoryInfoEntity(id: key, name: info, description: "For everyone who are interested in sport and healthy life style")
-                        resultArray.append(entity)
-                    }
-
-                    success?(resultArray)
-
-                } else {
-
-                    failure?()
-                }
+                
+                completion()
+                
             },
-            failure: { _ in
-
-                failure?()
-            }
-        )
+            failure: { _ in })
     }
-
-    func saveSeletedCategoriesRequest(selectedIds: [Int]) {
-
-        _ = networkProvider.requestSignal(.sendSelectedCategories(selectedIds: selectedIds))
-
-    }
-    
 }

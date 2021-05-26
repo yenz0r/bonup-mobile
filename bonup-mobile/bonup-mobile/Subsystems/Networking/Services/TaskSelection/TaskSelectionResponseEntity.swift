@@ -14,14 +14,7 @@ struct TaskSelectionResponseEntity: Codable {
     let dateFrom: String
     let dateTo: String
     let description: String
-    let count: Int
     let organizationName: String
-    let subcategoryId: Int
-    let subcategory: String
     let categoryId: Int
-    let category: String
-    let typeId: Int
-    let type: String
-    let ballCount: Int
-    let photos: [String]
+    let photoId: Int
 }

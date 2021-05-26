@@ -21,7 +21,7 @@ enum EmailVerificationService {
 extension EmailVerificationService: IMainTargetType {
 
     var baseURL: URL {
-        return URL(string: serverBase)!
+        return URL(string: SERVER_BASE_URL)!
     }
 
     var path: String {

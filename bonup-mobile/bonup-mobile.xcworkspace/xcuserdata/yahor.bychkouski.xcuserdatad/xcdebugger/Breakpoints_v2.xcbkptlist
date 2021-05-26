@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "44D37E6C-E90B-4A2E-9D36-6DE2949A3C6D"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "099995E7-F090-4B7C-B68E-CC4E49DC1D89"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/AddressPicker/AddressPickerPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "handleDoneButtonTap()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E3745FC9-2491-4B75-9B57-5484A2832E28"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bonup-mobile/Modules/ApplicationContentSection/AddressPicker/AddressPickerPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "handleDoneButtonTap()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E3745FC9-2491-4B75-9B57-5484A2832E28 - c7202f2b9eff5bac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.String) -&gt; () in Bonup_Debug__PAID_.AddressPickerPresenter.handleDoneButtonTap() -&gt; ()"
+                  moduleName = "Bonup-Debug [PAID]"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yahor.bychkouski/bonup-mobile/bonup-mobile/bonup-mobile/Modules/ApplicationContentSection/AddressPicker/AddressPickerPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "182">
+               </Location>
+               <Location
+                  uuid = "E3745FC9-2491-4B75-9B57-5484A2832E28 - cb754da7247ed528"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #2 (Swift.String) -&gt; () in Bonup_Debug__PAID_.AddressPickerPresenter.handleDoneButtonTap() -&gt; ()"
+                  moduleName = "Bonup-Debug [PAID]"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yahor.bychkouski/bonup-mobile/bonup-mobile/bonup-mobile/Modules/ApplicationContentSection/AddressPicker/AddressPickerPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "94">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

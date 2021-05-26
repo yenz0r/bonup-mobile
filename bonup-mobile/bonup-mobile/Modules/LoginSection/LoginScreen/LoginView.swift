@@ -9,9 +9,14 @@
 import UIKit
 import SnapKit
 
-protocol ILoginView: AnyObject { }
+protocol ILoginView: AnyObject {
+    
+    func setupName(_ name: String)
+    func setupEmail(_ email: String)
+    func setupPassword(_ password: String)
+}
 
-final class LoginView: LoginSectionViewController {
+final class LoginView: BULoginViewController {
 
     enum LoginFieldType {
         case name, email, password
@@ -35,6 +40,7 @@ final class LoginView: LoginSectionViewController {
     private var passwordTextField: UITextField!
     private var emailTextField: UITextField!
     private var forgotPasswordButton: UIButton!
+    private var showAccountsButton: UIButton!
     private var signUpButton: UIButton!
     private var signInButton: UIButton!
     private var signButtonsStackView: UIStackView!
@@ -73,13 +79,20 @@ final class LoginView: LoginSectionViewController {
             make.leading.trailing.equalTo(self.logoImageView)
             make.height.equalTo(150.0)
         }
+        
+        self.showAccountsButton = UIButton(type: .system)
+        self.containerView.addSubview(self.showAccountsButton)
+        self.showAccountsButton.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(10)
+            make.top.equalTo(self.inputStackView.snp.bottom).offset(5.0)
+            make.height.equalTo(20.0)
+        }
 
         self.forgotPasswordButton = UIButton(type: .system)
         self.containerView.addSubview(self.forgotPasswordButton)
         self.forgotPasswordButton.snp.makeConstraints { make in
-            make.trailing.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-10)
             make.top.equalTo(self.inputStackView.snp.bottom).offset(5.0)
-            make.width.equalTo(100.0)
             make.height.equalTo(20.0)
         }
 
@@ -123,13 +136,27 @@ final class LoginView: LoginSectionViewController {
         self.inputStackView.addArrangedSubview(self.configureInputField(for: .email))
         self.inputStackView.addArrangedSubview(self.configureInputField(for: .password))
 
+        // setup showAccountsButton
+        
+        self.showAccountsButton.backgroundColor = .clear
+        self.showAccountsButton.setAttributedTitle(
+            NSAttributedString.with(
+                title: "ui_show_accounts_title".localized,
+                textColor: UIColor.pinkishGrey.withAlphaComponent(0.8),
+                font: UIFont.avenirRoman(12)
+            ),
+            for: .normal
+        )
+        self.showAccountsButton.addTarget(self, action: #selector(self.showAccountsButtonTapped), for: .touchUpInside)
+
+        
         // setup forgotPasswordButton
 
         self.forgotPasswordButton.backgroundColor = .clear
         self.forgotPasswordButton.setAttributedTitle(
             NSAttributedString.with(
                 title: "ui_forgot_password_title".localized,
-                textColor: UIColor.pinkishGrey.withAlphaComponent(0.6),
+                textColor: UIColor.pinkishGrey.withAlphaComponent(0.8),
                 font: UIFont.avenirRoman(12)
             ),
             for: .normal
@@ -191,6 +218,7 @@ final class LoginView: LoginSectionViewController {
     private func configureTextField(with placeholder: String) -> UITextField {
         let textField = UITextField()
 
+        textField.autocapitalizationType = .none
         textField.backgroundColor = .clear
         textField.attributedPlaceholder = NSAttributedString(
             string: placeholder,
@@ -267,12 +295,19 @@ final class LoginView: LoginSectionViewController {
     @objc private func forgotPasswordButtonTapped() {
         self.presenter.handleResetPasswordButtonTap(with: self.emailTextField.text)
     }
+    
+    @objc private func showAccountsButtonTapped() {
+        self.presenter.handleShowAccountsButtonTap()
+    }
 
     @objc private func termConditionsButtonTapped() {
         self.presenter.handleTermAndConditionButtonTap()
     }
 
     @objc private func signUpButtonTapped() {
+        
+        self.view.endEditing(true)
+        
         self.presenter.handleSignButtonTap(
             name: self.nameTextField.text,
             email: self.emailTextField.text,
@@ -282,6 +317,9 @@ final class LoginView: LoginSectionViewController {
     }
 
     @objc private func signInButtonTapped() {
+        
+        self.view.endEditing(true)
+        
         self.presenter.handleSignButtonTap(
             name: self.nameTextField.text,
             email: self.emailTextField.text,
@@ -301,4 +339,20 @@ final class LoginView: LoginSectionViewController {
 
 // MARK: - ILoginView implementation
 
-extension LoginView: ILoginView { }
+extension LoginView: ILoginView {
+    
+    func setupName(_ name: String) {
+        
+        self.nameTextField.text = name
+    }
+    
+    func setupEmail(_ email: String) {
+        
+        self.emailTextField.text = email
+    }
+    
+    func setupPassword(_ password: String) {
+        
+        self.passwordTextField.text = password
+    }
+}

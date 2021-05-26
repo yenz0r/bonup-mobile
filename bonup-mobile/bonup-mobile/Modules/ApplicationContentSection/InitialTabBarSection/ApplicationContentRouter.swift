@@ -83,7 +83,7 @@ extension ApplicationContentRouter {
     func configureBenefitsContainer() -> BUNavigationController {
         let benefitsNavigationController = BUNavigationController()
         benefitsNavigationController.setupTabBarItem(
-            with: "ui_benefits_title".localized,
+            with: "ui_benefits_title",
             unselectedImage: AssetsHelper.shared.image(.actionsUnselectedIcon),
             selectedImage: AssetsHelper.shared.image(.actionsSelectedIcon)
         )
@@ -98,11 +98,10 @@ extension ApplicationContentRouter {
         return benefitsNavigationController
     }
 
-
     func configureTaskSelectionContainer() -> BUNavigationController {
         let taskSelectionNavigationController = BUNavigationController()
         taskSelectionNavigationController.setupTabBarItem(
-            with: "ui_tasks_title".localized,
+            with: "ui_tasks_title",
             unselectedImage: AssetsHelper.shared.image(.tasksUnselectedIcon),
             selectedImage: AssetsHelper.shared.image(.tasksSelectedIcon)
         )
@@ -120,9 +119,9 @@ extension ApplicationContentRouter {
     func configureSettingsContainer() -> BUNavigationController {
         let settingsNavigationController = BUNavigationController()
         settingsNavigationController.setupTabBarItem(
-            with: "ui_settings_title".localized,
-            unselectedImage: AssetsHelper.shared.image(.profileUnselectedIcon),
-            selectedImage: AssetsHelper.shared.image(.profileSelectedIcon)
+            with: "ui_settings_title",
+            unselectedImage: AssetsHelper.shared.image(.userSettingsUnselectedIcon),
+            selectedImage: AssetsHelper.shared.image(.userSettingsSelectedIcon)
         )
 
         let settingsDependency = SettingsDependency(
@@ -138,15 +137,15 @@ extension ApplicationContentRouter {
     func configureOrganizationsContainer() -> BUNavigationController {
         let organizationsNavigationController = BUNavigationController()
         organizationsNavigationController.setupTabBarItem(
-            with: "ui_organization_title".localized,
+            with: "ui_organization_title",
             unselectedImage: AssetsHelper.shared.image(.organizationUnselectedIcon),
             selectedImage: AssetsHelper.shared.image(.organizationSelectedIcon)
         )
 
-        let organizationsDependency = OrganizationsListDependency(
+        let organizationsDependency = CompaniesSectionDependency(
             parentNavigationController: organizationsNavigationController
         )
-        let organizationsBuilder = OrganizationsListBuilder()
+        let organizationsBuilder = CompaniesSectionBuilder()
         let organizationsRouter = organizationsBuilder.build(organizationsDependency)
         organizationsRouter.start(nil)
 
@@ -156,9 +155,9 @@ extension ApplicationContentRouter {
     func configureProfileContainer() -> BUNavigationController {
         let profileNavigationController = BUNavigationController()
         profileNavigationController.setupTabBarItem(
-            with: "ui_profile_title".localized,
-            unselectedImage: AssetsHelper.shared.image(.settingsHelp),
-            selectedImage: AssetsHelper.shared.image(.settingsHelp)
+            with: "ui_profile_title",
+            unselectedImage: AssetsHelper.shared.image(.userProfileUnselectedIcon),
+            selectedImage: AssetsHelper.shared.image(.userProfileSelectedIcon)
         )
 
         let profileDependency = ProfileDependency(

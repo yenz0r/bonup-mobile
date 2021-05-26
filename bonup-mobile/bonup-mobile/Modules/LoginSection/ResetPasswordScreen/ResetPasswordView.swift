@@ -13,7 +13,7 @@ protocol IResetPasswordView: AnyObject {
     func shakeSendButtonAnimation()
 }
 
-final class ResetPasswordView: LoginSectionViewController {
+final class ResetPasswordView: BULoginViewController {
 
     // MARK: - Public properties
 
@@ -107,6 +107,9 @@ final class ResetPasswordView: LoginSectionViewController {
     // MARK: - Selectors
 
     @objc private func sendButtonTapped() {
+        
+        self.view.endEditing(true)
+        
         self.presenter.handleSendButtonTapped(self.emailTextField.text)
     }
 }

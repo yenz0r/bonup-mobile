@@ -13,7 +13,7 @@ struct BenefitsResponseEntity: Decodable {
     let isSuccess:  Bool
     let message: String
 
-    let saved: [ActualBenefitEntity]
+    let current: [ActualBenefitEntity]
     let bought: [ActualBenefitEntity]
     let finished: [FinishedBenefitEntity]
 }

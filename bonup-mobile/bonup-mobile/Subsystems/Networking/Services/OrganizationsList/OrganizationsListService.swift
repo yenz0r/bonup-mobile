@@ -17,13 +17,13 @@ enum OrganizationsListService {
 extension OrganizationsListService: IAuthorizedTargetType {
 
     var baseURL: URL {
-        return URL(string: serverBase)!
+        return URL(string: SERVER_BASE_URL)!
     }
 
     var path: String {
         switch self {
         case .getOrganizations(_):
-            return "/organizations"
+            return "/userOrganizations"
         }
     }
 

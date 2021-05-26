@@ -17,13 +17,13 @@ enum TaskListService {
 extension TaskListService: IAuthorizedTargetType {
 
     var baseURL: URL {
-        return URL(string: serverBase)!
+        return URL(string: SERVER_BASE_URL)!
     }
 
     var path: String {
         switch self {
         case .getLists(_):
-            return "/myTasks"
+            return "/userSavedDoneTasks"
         }
     }
 

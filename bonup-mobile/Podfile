@@ -1,9 +1,9 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '12.0'
-
+install! 'cocoapods', :disable_input_output_paths => true
 target 'bonup-mobile' do
   # Comment the next line if you don't want to use dynamic frameworks
-  #use_frameworks!
+  use_frameworks!
 
   # Pods for bonup-mobile
 
@@ -17,17 +17,28 @@ target 'bonup-mobile' do
   pod 'PMAlertController'
   pod 'SwiftSpinner'
 
-  pod 'SOTabBar'
+  pod 'SwiftTheme'
 
   pod 'Shuffle-iOS'
   pod 'UICircularProgressRing'
+  pod 'UBottomSheet'
+  pod 'DatePicker', '~> 1.3.0'
 
-  pod 'YandexMapKit', '3.5'
+  pod 'YandexMapsMobile', '4.0.0-full'
   pod 'Google-Mobile-Ads-SDK'
 
   pod 'Nuke'
 
-  pod 'SwiftQRScanner', :git => ‘https://github.com/vinodiOS/SwiftQRScanner’
+  pod 'SwiftQRScanner', :git => 'https://github.com/vinodiOS/SwiftQRScanner'
+  pod 'FMPhotoPicker', '~> 1.3.0'
+
+  pod 'IQKeyboardManagerSwift'
+  
+  pod 'Charts'
+  pod 'EmptyDataSet-Swift', '~> 5.0.0'
+  pod 'CircleProgressView', '~> 1.0'
+  
+  pod 'RealmSwift'
 
   target 'bonup-mobileTests' do
     inherit! :search_paths
@@ -37,5 +48,11 @@ target 'bonup-mobile' do
   target 'bonup-mobileUITests' do
     # Pods for testing
   end
-
+  
+  post_install do |installer|
+    installer.pods_project.build_configurations.each do |config|
+      config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+    end
+  end
+  
 end

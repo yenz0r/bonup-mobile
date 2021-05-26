@@ -23,6 +23,7 @@ final class LoginRouter {
         case openApp
         case authVerification
         case termsAndConditions
+        case accounts(((AuthCredRealmObject) -> Void)?)
     }
 
     private var view: LoginView?
@@ -71,15 +72,18 @@ extension LoginRouter: ILoginRouter {
                 title: title,
                 description: description,
                 from: view,
-                completion: {
-                    print("error")
-                }
+                completion: { }
             )
         case .termsAndConditions:
             let termsAndConditionsBuilder = TermsAndConditionsBuilder()
             let termsAndConditionsDependency = TermsAndConditionsDependency(parentViewController: view)
             let router = termsAndConditionsBuilder.build(termsAndConditionsDependency)
             router.start(nil)
+        case .accounts(let onTerminate):
+            let accountsBuilder = AccountsCredsBuilder()
+            let accountsDependency = AccountsCredsDependency(parentController: view, onTerminate: onTerminate)
+            let accountsRouter = accountsBuilder.build(accountsDependency)
+            accountsRouter.start(nil)
         }
     }
 }

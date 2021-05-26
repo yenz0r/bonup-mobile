@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 import GoogleMobileAds
-import YandexMapKit
+import YandexMapsMobile
 
 #if RELEASE_FREE
 let IS_RELEASE_FREE = true
@@ -46,12 +46,13 @@ let APP_IS_RELEASE_VERSION = false
 extension AppDelegate {
 
     func setupYandexServices() {
-        YMKMapKit.setApiKey("fb558813-f86a-45ed-aa70-f651e3769ca1")
+        YMKMapKit.setApiKey(YANDEX_MAPS_KEY)
     }
 
     func setupGoogleServices() {
 
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [GOOGLE_AD_PHONE_KEY]
 
         var optionsPath: String?
         return

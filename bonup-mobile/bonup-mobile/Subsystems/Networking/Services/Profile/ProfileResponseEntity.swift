@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ProfileResponseEntity: Codable {
+struct ProfileResponseEntity: Decodable {
 
     let isSuccess: Bool
     let message: String

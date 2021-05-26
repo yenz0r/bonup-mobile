@@ -8,13 +8,14 @@
 
 import UIKit
 import UICircularProgressRing
+import Charts
 
 protocol IProfileView: AnyObject {
     
     func reloadData()
 }
 
-final class ProfileView: UIViewController {
+final class ProfileView: BUContentViewController {
 
     // MARK: - Public variables
 
@@ -22,83 +23,152 @@ final class ProfileView: UIViewController {
 
     // MARK: - Private variables
 
+    private var refreshContol: UIRefreshControl!
+    private var scrollView: UIScrollView!
+    private var scrollContentView: UIView!
     private var headerView: ProfileHeaderView!
     private var infoContainer: ProfileInfoContainer!
-    private var progressContainer: ProfileProgressContainer!
+    private var actionsChartsContainer: ProfileActionsChartsContainer!
     private var ahievementsContainer: ProfileAhievementsView!
 
     // MARK: - Life cycle
 
     override func loadView() {
+        
         self.view = UIView()
+        
+        self.scrollView = self.configureScrollView()
+        self.refreshContol = self.configureRefeshControl()
+        self.scrollView.refreshControl = self.refreshContol
+        self.scrollContentView = self.configureScrollContentView()
 
         self.headerView = ProfileHeaderView(frame: .zero)
         self.infoContainer = ProfileInfoContainer(frame: .zero)
-        self.progressContainer = ProfileProgressContainer(frame: .zero)
         self.ahievementsContainer = ProfileAhievementsView(frame: .zero)
+        self.actionsChartsContainer = ProfileActionsChartsContainer(
+            selectedCategory: .tasks,
+            onCategorySelection: { [weak self] _ in
+                
+                self?.actionsChartsContainer.reloadData()
+            })
 
+        self.view.addSubview(self.scrollView)
+        self.scrollView.addSubview(self.scrollContentView)
+        
         [self.headerView,
          self.infoContainer,
-         self.progressContainer,
-         self.ahievementsContainer].forEach { self.view.addSubview($0) }
+         self.actionsChartsContainer,
+         self.ahievementsContainer].forEach { self.scrollContentView.addSubview($0) }
 
+        self.scrollView.snp.makeConstraints { make in
+            
+            make.edges.equalTo(self.view.safeAreaLayoutGuide)
+        }
+        
+        self.scrollContentView.snp.makeConstraints { make in
+            
+            make.width.leading.trailing.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.height.greaterThanOrEqualToSuperview()
+        }
+        
         self.headerView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(10.0)
+            
+            make.top.leading.trailing.equalToSuperview().inset(15.0)
         }
 
         self.infoContainer.snp.makeConstraints { make in
-            make.top.equalTo(self.headerView.snp.bottom).offset(10.0)
-            make.leading.trailing.equalToSuperview().inset(10.0)
-            make.height.equalTo(50.0)
+            
+            make.top.equalTo(self.headerView.snp.bottom).offset(15.0)
+            make.leading.trailing.equalToSuperview().inset(15.0)
         }
 
-        self.progressContainer.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(self.infoContainer.snp.bottom).offset(10.0)
+        self.actionsChartsContainer.snp.makeConstraints { make in
+            
+            make.leading.trailing.equalToSuperview().inset(15)
+            make.top.equalTo(self.infoContainer.snp.bottom).offset(15.0)
+            make.width.equalTo(self.actionsChartsContainer.snp.height)
         }
 
         self.ahievementsContainer.snp.makeConstraints { make in
-            make.top.equalTo(self.progressContainer.snp.bottom).offset(10.0)
-            make.leading.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(10.0)
+            
+            make.top.equalTo(self.actionsChartsContainer.snp.bottom).offset(15.0)
+            make.leading.trailing.equalToSuperview().inset(15)
+            make.bottom.equalToSuperview().offset(-10)
         }
     }
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
 
-        self.configureAppearance()
+        self.setupAppearance()
+        self.setupNavigationBar()
 
         self.headerView.dataSource = self
         self.infoContainer.dataSource = self
-        self.progressContainer.dataSource = self
+        self.actionsChartsContainer.dataSource = self
+        self.actionsChartsContainer.delegate = self
         self.ahievementsContainer.dataSource = self
-
+        
         self.reloadData()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
-        self.presenter.viewWillAppear()
-
+        
         super.viewWillAppear(animated)
+        
+        self.presenter.refreshData(completion: nil)
     }
 
-    // MARK: - Configurations
+    // MARK: - Setup
+    
+    private func setupNavigationBar() {
+        
+        self.loc_title = "ui_profile_title"
+    }
 
-    private func configureAppearance() {
-        self.view.backgroundColor = .white
+    private func setupAppearance() {
 
+        self.view.theme_backgroundColor = Colors.backgroundColor
         self.configureNavigationBar()
+    }
+    
+    // MARK: - Configure
+    
+    private func configureRefeshControl() -> UIRefreshControl {
+        
+        let refresh = UIRefreshControl()
+        
+        refresh.addTarget(self, action: #selector(refreshControlDidTrigger(_:)), for: .valueChanged)
+        refresh.tintColor = .systemRed
+        
+        return refresh
+    }
+    
+    private func configureScrollView() -> UIScrollView {
+        
+        let scroll = UIScrollView()
+        
+        scroll.showsVerticalScrollIndicator = false
+        scroll.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
+        
+        return scroll
+    }
+    
+    private func configureScrollContentView() -> UIView {
+        
+        let container = UIView()
+        
+        container.backgroundColor = .clear
+        
+        return container
     }
 
     private func configureNavigationBar() {
-        let backItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        backItem.tintColor = UIColor.red.withAlphaComponent(0.7)
-        navigationItem.backBarButtonItem = backItem
-
-        self.navigationItem.title = "ui_profile_title".localized
 
         let infoButton = UIButton(type: .infoLight)
-        infoButton.tintColor = .purpleLite
+        infoButton.theme_tintColor = Colors.navBarIconColor
         infoButton.addTarget(self, action: #selector(infoNavigationItemTapped), for: .touchUpInside)
         let infoNavigationItem = UIBarButtonItem(customView: infoButton)
 
@@ -108,7 +178,16 @@ final class ProfileView: UIViewController {
     // MARK: - Selectors
 
     @objc private func infoNavigationItemTapped() {
+        
         self.presenter.handleInfoButtonTapped()
+    }
+    
+    @objc private func refreshControlDidTrigger(_ sender: UIRefreshControl) {
+        
+        self.presenter.refreshData {
+            
+            sender.endRefreshing()
+        }
     }
 }
 
@@ -117,9 +196,10 @@ final class ProfileView: UIViewController {
 extension ProfileView: IProfileView {
 
     func reloadData() {
+        
         self.headerView.reloadData()
         self.infoContainer.reloadData()
-        self.progressContainer.reloadData()
+        self.actionsChartsContainer.reloadData()
         self.ahievementsContainer.reloadData()
     }
 }
@@ -127,11 +207,19 @@ extension ProfileView: IProfileView {
 // MARK: - ProfileHeaderViewDataSource
 
 extension ProfileView: ProfileHeaderViewDataSource {
+    
     func iconForProfileHeaderView(_ profileHeaderView: ProfileHeaderView) -> UIImage? {
-        return AssetsHelper.shared.image(.usernameIcon)
+        
+        return AssetsHelper.shared.image(.usernameIcon)?.withRenderingMode(.alwaysTemplate)
+    }
+    
+    func urlForIconInProfileHeaderView(_ profileHeaderView: ProfileHeaderView) -> URL? {
+        
+        return self.presenter.avatarUrl
     }
 
-    func profileHeaderView(_ profileHeaderView: ProfileHeaderView, userInfoFor type: ProfileHeaderView.UserInfoType) -> String? {
+    func profileHeaderView(_ profileHeaderView: ProfileHeaderView,
+                           userInfoFor type: ProfileHeaderView.UserInfoType) -> String? {
         switch type {
         case .name:
             return self.presenter.name
@@ -146,7 +234,8 @@ extension ProfileView: ProfileHeaderViewDataSource {
 // MARK: - ProfileInfoContainerDataSource
 
 extension ProfileView: ProfileInfoContainerDataSource {
-    func profileInfoContainer(_ container: ProfileInfoContainer, valueFor type: ProfileInfoContainer.InfoType) -> String {
+    func profileInfoContainer(_ container: ProfileInfoContainer,
+                              valueFor type: ProfileInfoContainer.InfoType) -> String {
         switch type {
         case .done:
             return self.presenter.doneTasks
@@ -154,24 +243,6 @@ extension ProfileView: ProfileInfoContainerDataSource {
             return self.presenter.restBalls
         case .spend:
             return self.presenter.allSpendBalls
-        }
-    }
-}
-
-// MARK: - ProfileProgressContainerDataSource
-
-extension ProfileView: ProfileProgressContainerDataSource {
-    func profileProgressContainer(_ container: ProfileProgressContainer, progressFor type: ProfileProgressContainer.ProgressType) -> CGFloat {
-
-        switch type {
-        case .all:
-            return self.presenter.donePercent
-        case .lastMonth:
-            return self.presenter.ballsPercent
-        case .lastWeek:
-            return self.presenter.activatedCouponsPercent
-        case .today:
-            return self.presenter.spentBallsPercent
         }
     }
 }
@@ -192,5 +263,28 @@ extension ProfileView: ProfileAhievementsViewDataSource {
     func numberOfItemsInprofileAhievementsView(_ profileAhievementsView: ProfileAhievementsView) -> Int {
 
         return self.presenter.archivesCount()
+    }
+}
+
+// MARK: - ProfileActionsChartsContainerDataSource
+
+extension ProfileView: ProfileActionsChartsContainerDataSource {
+    
+    func actionsCharts(_ charts: ProfileActionsChartsContainer,
+                       needsDataFor category: ProfileActionsChartsContainer.Category) -> PieChartData {
+        
+        return self.presenter.actionsChartData(for: category)
+    }
+}
+
+// MARK: - ProfileActionsChartsContainerDelegate
+
+extension ProfileView: ProfileActionsChartsContainerDelegate {
+
+    func actionsCharts(_ charts: ProfileActionsChartsContainer,
+                       didTapAt index: Int,
+                       in category: ProfileActionsChartsContainer.Category) {
+        
+        self.presenter.handleChartSelection(at: index, for: category)
     }
 }

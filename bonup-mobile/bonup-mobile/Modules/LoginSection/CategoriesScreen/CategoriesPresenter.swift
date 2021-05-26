@@ -9,24 +9,26 @@
 import UIKit
 
 protocol ICategoriesPresenter {
+    
     var categories: [CategoriesPresentationModel] { get }
 
-    func handleViewDidLoad()
-    func handleViewDidDisappear()
-
     func handleSkipButtonTap()
+    func handleDoneButtonTap()
     func handleCardSwipe(at index: Int, isLike: Bool)
 }
 
 final class CategoriesPresenter {
+    
+    // MARK: - Private variables
+    
     private weak var view: ICategoriesView?
     private let interactor: ICategoriesInteractor
     private let router: ICategoriesRouter
 
-    private var responseCategories = [CategoryInfoEntity]()
-    private var selectedIds = [Int]()
-
+    // MARK: - Init
+    
     init(view: ICategoriesView?, interactor: ICategoriesInteractor, router: ICategoriesRouter) {
+        
         self.view = view
         self.interactor = interactor
         self.router = router
@@ -38,45 +40,55 @@ final class CategoriesPresenter {
 extension CategoriesPresenter: ICategoriesPresenter {
 
     var categories: [CategoriesPresentationModel] {
-        var resultCategories = [CategoriesPresentationModel]()
-        for info in self.responseCategories {
-            resultCategories.append(
-                CategoriesPresentationModel(
-                    title: info.name,
-                    description: info.description
-                )
-            )
+        
+        return self.interactor.allCategories.map {
+            CategoriesPresentationModel(title: $0.title.localized,
+                                        description: $0.description.localized)
         }
-        return resultCategories
     }
-
-    func handleViewDidLoad() {
-        self.interactor.categotiesListRequest(
-            success: { categoryInfo in
-                DispatchQueue.main.async {
-                    self.responseCategories = categoryInfo
-                    self.view?.relaodData()
-                }
-            },
-            failure: {
-                print("fail")
-            }
-        )
-    }
-
-    func handleViewDidDisappear() {
-        self.interactor.saveSeletedCategoriesRequest(selectedIds: self.selectedIds)
+    
+    func handleDoneButtonTap() {
+        
+        self.saveChanges()
     }
 
     func handleSkipButtonTap() {
-        self.router.show(.openApplication)
+        
+        self.saveChanges()
     }
 
     func handleCardSwipe(at index: Int, isLike: Bool) {
-        self.selectedIds.append(self.responseCategories[index].id)
+        
+        if isLike {
+        
+            self.interactor.selectedCategories.append(self.interactor.allCategories[index])
+        }
 
-        if index == self.responseCategories.count - 1 {
-            self.router.show(.openApplication)
+        if index == self.interactor.allCategories.count - 1 {
+            
+            self.saveChanges()
+        }
+    }
+    
+    private func saveChanges() {
+        
+        if self.interactor.selectedCategories.isEmpty {
+            
+            self.interactor.selectedCategories = self.interactor.allCategories
+        }
+        
+        self.interactor.saveSeletedCategoriesRequest { [weak self] in
+        
+            guard let target = self?.interactor.target else { return }
+            
+            switch target {
+            
+            case .settings:
+                self?.router.stop(nil)
+                
+            case .login:
+                self?.router.show(.openApplication)
+            }
         }
     }
 }

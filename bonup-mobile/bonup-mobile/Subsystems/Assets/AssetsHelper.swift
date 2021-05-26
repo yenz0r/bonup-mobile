@@ -45,6 +45,53 @@ final class AssetsHelper {
         case settingsRateUs
         case settingsHelp
         case settingsCategory
+
+        case activeCheckBox
+
+        case addIcon
+        case addImageIcon
+
+        case minusIcon
+        case plusIcon
+
+        case juniorPacketIcon
+        case middlePacketIcon
+        case seniorPacketIcon
+        case customPacketIcon
+        
+        case userLocationMapIcon
+        case companyLocationMapIcon
+        
+        case rightArrow
+        
+        case vkIcon, webIcon, phoneIcon
+        
+        case alertHelpIcon
+        
+        case filmsSectionIcon
+        case literatureSectionIcon
+        case coffeeSectionIcon
+        case healthSectionIcon
+        case mediaSectionIcon
+        case musicSectionIcon
+        case servicesSectionIcon
+        case foodSectionIcon
+        case sportSectionIcon
+        
+        case addCouponIcon
+        case addStockIcon
+        case modifyIcon
+        case settingsIcon
+        case userProfileIcon
+        case statisticsIcon
+        case checkTaskIcon
+        case verifyCouponIcon
+        case addTaskIcon
+        
+        case userProfileSelectedIcon
+        case userProfileUnselectedIcon
+        case userSettingsSelectedIcon
+        case userSettingsUnselectedIcon
     }
 
     static let shared = AssetsHelper()
@@ -105,19 +152,108 @@ final class AssetsHelper {
             return UIImage(named: "empty-tasks-list-icon")
 
         case .settingsHelp:
-            return UIImage(named: "settings-help")
+            return UIImage(named: "settings-help")!.withRenderingMode(.alwaysTemplate)
         case .settingsTheme:
-            return UIImage(named: "settings-theme")
+            return UIImage(named: "settings-theme")!.withRenderingMode(.alwaysTemplate)
         case .settingsRateUs:
-            return UIImage(named: "settings-rate-us")
+            return UIImage(named: "settings-rate-us")!.withRenderingMode(.alwaysTemplate)
         case .settingsCategory:
-            return UIImage(named: "settings-category")
+            return UIImage(named: "settings-category")!.withRenderingMode(.alwaysTemplate)
         case .settingsPassword:
-            return UIImage(named: "settings-password")
+            return UIImage(named: "settings-password")!.withRenderingMode(.alwaysTemplate)
         case .settingsLanguage:
-            return UIImage(named: "settings-language")
+            return UIImage(named: "settings-language")!.withRenderingMode(.alwaysTemplate)
 
+        case .activeCheckBox:
+            return UIImage(named: "active-check-box")!.withRenderingMode(.alwaysTemplate)
 
+        case .addIcon:
+            return UIImage(named: "add-icon")!.withRenderingMode(.alwaysTemplate)
+        case .addImageIcon:
+            return UIImage(named: "add-image-icon")!.withRenderingMode(.alwaysTemplate)
+
+        case .plusIcon:
+            return UIImage(named: "plus-icon")!.withRenderingMode(.alwaysTemplate)
+
+        case .minusIcon:
+            return UIImage(named: "minus-icon")!.withRenderingMode(.alwaysTemplate)
+
+        case .juniorPacketIcon:
+            return UIImage(named: "junior-packet-icon")
+
+        case .middlePacketIcon:
+            return UIImage(named: "middle-packet-icon")
+
+        case .seniorPacketIcon:
+            return UIImage(named: "senior-packet-icon")
+
+        case .customPacketIcon:
+            return UIImage(named: "custom-packet-icon")
+            
+        case .userLocationMapIcon:
+            return UIImage(named: "user-location-map-icon")
+            
+        case .companyLocationMapIcon:
+            return UIImage(named: "company-location-map-icon")
+            
+        case .rightArrow:
+            return UIImage(named: "right-arrow")
+            
+        case .vkIcon:
+            return UIImage(named: "vk-icon")
+        case .webIcon:
+            return UIImage(named: "web-icon")
+        case .phoneIcon:
+            return UIImage(named: "phone-icon")
+            
+        case .alertHelpIcon:
+            return UIImage(named: "alert-help-icon")
+        case .filmsSectionIcon:
+            return UIImage(named: "films-section-icon")
+        case .literatureSectionIcon:
+            return UIImage(named: "literature-section-icon")
+        case .coffeeSectionIcon:
+            return UIImage(named: "coffee-section-icon")
+        case .healthSectionIcon:
+            return UIImage(named: "health-section-icon")
+        case .mediaSectionIcon:
+            return UIImage(named: "media-section-icon")
+        case .musicSectionIcon:
+            return UIImage(named: "music-section-icon")
+        case .servicesSectionIcon:
+            return UIImage(named: "services-section-icon")
+        case .foodSectionIcon:
+            return UIImage(named: "food-section-icon")
+        case .sportSectionIcon:
+            return UIImage(named: "sport-section-icon")
+            
+        case .addCouponIcon:
+            return UIImage(named: "add-coupon-icon")
+        case .addStockIcon:
+            return UIImage(named: "add-stock-icon")
+        case .modifyIcon:
+            return UIImage(named: "modify-icon")
+        case .settingsIcon:
+            return UIImage(named: "settings-icon")
+        case .userProfileIcon:
+            return UIImage(named: "user-profile-icon")
+        case .statisticsIcon:
+            return UIImage(named: "statistics-icon")
+        case .checkTaskIcon:
+            return UIImage(named: "check-task-icon")
+        case .verifyCouponIcon:
+            return UIImage(named: "verify-coupon-icon")
+        case .addTaskIcon:
+            return UIImage(named: "add-task-icon")
+        case .userProfileSelectedIcon:
+            return UIImage(named: "user-profile-selected-icon")
+        case .userProfileUnselectedIcon:
+            return UIImage(named: "user-profile-unselected-icon")
+        case .userSettingsSelectedIcon:
+            return UIImage(named: "user-settings-selected-icon")
+        case .userSettingsUnselectedIcon:
+            return UIImage(named: "user-settings-unselected-icon")
+            
         @unknown default:
             assertionFailure("Incorrect \(String(describing: self)) enum value")
         }

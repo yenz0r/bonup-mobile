@@ -7,21 +7,21 @@
 //
 
 import Foundation
-
 import Moya
 
 enum OrganizationControlService {
 
     case resolveTask(Int, String, String)
     case activateCoupon(Int, String, String)
-    case putCoupon(String, String, Int, Int, String, String)
-    case putTask(String, String, Int, Int, String, String)
+    case putCoupon(String, OrganizationActionEntity)
+    case putTask(String, OrganizationActionEntity)
+    case putStock(String, OrganizationActionEntity)
 }
 
 extension OrganizationControlService: IAuthorizedTargetType {
 
     var baseURL: URL {
-        return URL(string: serverBase)!
+        return URL(string: SERVER_BASE_URL)!
     }
 
     var path: String {
@@ -30,22 +30,24 @@ extension OrganizationControlService: IAuthorizedTargetType {
             return "/resolveTask"
         case .activateCoupon(_, _, _):
             return "/activateCoupon"
-        case .putCoupon(_, _, _, _, _, _):
-            return "/putCoupon"
-        case .putTask(_, _, _, _, _, _):
-            return "/putTask"
+        case .putCoupon(_, _):
+            return "/newCoupon"
+        case .putTask(_, _):
+            return "/newTask"
+        case .putStock(_, _):
+            return "/newStock"
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .resolveTask(_, _, _):
+        case .resolveTask(_, _, _),
+             .activateCoupon(_, _, _):
             return .post
-        case .activateCoupon(_, _, _):
-            return .post
-        case .putCoupon(_, _, _, _, _, _):
-            return .put
-        case .putTask(_, _, _, _, _, _):
+            
+        case .putCoupon(_, _),
+             .putTask(_, _),
+             .putStock(_, _):
             return .put
         }
     }
@@ -73,31 +75,25 @@ extension OrganizationControlService: IAuthorizedTargetType {
                 ],
                 encoding: JSONEncoding.default
             )
-        case .putTask(let name, let descriptionText, let count, let type, let token, let organizationName):
+        case .putTask(let token, let entity),
+             .putCoupon(let token, let entity),
+             .putStock(let token, let entity):
+            
             return .requestParameters(
                 parameters: [
-                    "description": descriptionText,
-                    "organizationName": organizationName,
-                    "typeId": type + 1,
+                    "title": entity.title,
+                    "descriptionText": entity.descriptionText,
                     "token": token,
-                    "count": count,
-                    "name": name
+                    "bonusesCount": entity.bonusesCount,
+                    "categoryId": entity.categoryId,
+                    "organizationName": entity.organizationName,
+                    "startDateTimestamp": entity.startDateTimestamp,
+                    "endDateTimestamp": entity.endDateTimestamp,
+                    "allowedCount": entity.allowedCount,
+                    "photoId": entity.photoId,
                 ],
                 encoding: JSONEncoding.default
             )
-        case .putCoupon(let name, let descriptionText, let count, let type, let token, let organizationName):
-            return .requestParameters(
-                parameters: [
-                    "description": descriptionText,
-                    "organizationName": organizationName,
-                    "typeId": type + 1,
-                    "token": token,
-                    "count": count,
-                    "name": name
-                ],
-                encoding: JSONEncoding.default
-            )
-
         }
     }
 

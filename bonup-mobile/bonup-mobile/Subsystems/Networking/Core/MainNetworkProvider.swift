@@ -19,17 +19,24 @@ protocol IMainNetworkProvider {
 
     func request<T: Decodable>(_ target: MainTarget,
                                type: T.Type,
+                               withLoader: Bool,
                                completion: @escaping (T) -> Void,
                                failure: ((MoyaError?) -> Void)?) -> Cancellable
 
     func requestString(_ target: MainTarget,
+                       withLoader: Bool,
                        completion: @escaping (String) -> Void,
                        failure: ((MoyaError?) -> Void)?) -> Cancellable
 
     func requestBool(_ target: MainTarget,
+                     withLoader: Bool,
                      completion: @escaping (Bool) -> Void,
                      failure: ((MoyaError?) -> Void)?) -> Cancellable
-
+    
+    func requestImage(_ target: MainTarget,
+                      withLoader: Bool,
+                      completion: @escaping (UIImage?) -> Void,
+                      failure: ((MoyaError?) -> Void)?) -> Cancellable
 }
 
 class MainNetworkProvider<MainTarget: IMainTargetType> {
@@ -57,6 +64,7 @@ extension MainNetworkProvider: IMainNetworkProvider {
             let user = AccountManager.shared.currentUser
             AppRouter.shared.present(.login(name: user?.name, email: user?.email))
             AccountManager.shared.currentUser = nil
+            
             return true
         }
 
@@ -66,15 +74,21 @@ extension MainNetworkProvider: IMainNetworkProvider {
     @discardableResult
     func request<T: Decodable>(_ target: MainTarget,
                                type: T.Type,
+                               withLoader: Bool = true,
                                completion: @escaping (T) -> Void,
                                failure: ((MoyaError?) -> Void)?) -> Cancellable {
 
-        UIApplication.topViewController()?.view.endEditing(true)
-        AlertsFactory.shared.loadingAlert(.show(message: "ui_wait_a_bit_please".localized))
+        if withLoader {
+        
+            AlertsFactory.shared.loadingAlert(.show(message: "ui_wait_a_bit_please".localized))
+        }
 
         return moyaProvider.request(target) { result in
 
-            AlertsFactory.shared.loadingAlert(.hide)
+            if withLoader {
+            
+                AlertsFactory.shared.loadingAlert(.hide)
+            }
 
             switch result {
 
@@ -82,23 +96,18 @@ extension MainNetworkProvider: IMainNetworkProvider {
 
                 do {
 
-//                    if (self.isSessionOutdated(response.statusCode)) {
-//                        return;
-//                    }
-
                     let data = try JSONDecoder().decode(T.self,
                                                         from: response.data)
                     completion(data)
+                    
                 } catch {
 
                     failure?(nil)
-
                 }
 
             case let .failure(error):
 
                 failure?(error)
-
             }
         }
     }
@@ -108,24 +117,27 @@ extension MainNetworkProvider: IMainNetworkProvider {
     }
 
     func requestBool(_ target: MainTarget,
+                     withLoader: Bool = true,
                      completion: @escaping (Bool) -> Void,
                      failure: ((MoyaError?) -> Void)?) -> Cancellable {
 
-        AlertsFactory.shared.loadingAlert(.show(message: "ui_wait_a_bit_please".localized))
+        if (withLoader) {
+        
+            AlertsFactory.shared.loadingAlert(.show(message: "ui_wait_a_bit_please".localized))
+        }
 
         return moyaProvider.request(target) { result in
 
-            AlertsFactory.shared.loadingAlert(.hide)
+            if (withLoader) {
+            
+                AlertsFactory.shared.loadingAlert(.hide)
+            }
 
             switch result {
 
             case let .success(response):
 
                 do {
-
-//                    if (self.isSessionOutdated(response.statusCode)) {
-//                        return;
-//                    }
 
                     let string = String(data: response.data, encoding: .utf8)
 
@@ -149,15 +161,22 @@ extension MainNetworkProvider: IMainNetworkProvider {
         }
     }
 
-    func requestString(_ target: MainTarget,
-                       completion: @escaping (String) -> Void,
-                       failure: ((MoyaError?) -> Void)?) -> Cancellable {
+    func requestImage(_ target: MainTarget,
+                      withLoader: Bool = true,
+                      completion: @escaping (UIImage?) -> Void,
+                      failure: ((MoyaError?) -> Void)?) -> Cancellable {
 
-        AlertsFactory.shared.loadingAlert(.show(message: "ui_wait_a_bit_please".localized))
+        if withLoader {
+        
+            AlertsFactory.shared.loadingAlert(.show(message: "ui_wait_a_bit_please".localized))
+        }
 
         return moyaProvider.request(target) { result in
 
-            AlertsFactory.shared.loadingAlert(.hide)
+            if withLoader {
+            
+                AlertsFactory.shared.loadingAlert(.hide)
+            }
 
             switch result {
 
@@ -165,9 +184,40 @@ extension MainNetworkProvider: IMainNetworkProvider {
 
                 do {
 
-//                    if (self.isSessionOutdated(response.statusCode)) {
-//                        return;
-//                    }
+                    completion(UIImage(data: response.data))
+                }
+
+            case let .failure(error):
+
+                failure?(error)
+
+            }
+        }
+    }
+
+
+    func requestString(_ target: MainTarget,
+                       withLoader: Bool = true,
+                       completion: @escaping (String) -> Void,
+                       failure: ((MoyaError?) -> Void)?) -> Cancellable {
+
+        if withLoader {
+        
+            AlertsFactory.shared.loadingAlert(.show(message: "ui_wait_a_bit_please".localized))
+        }
+
+        return moyaProvider.request(target) { result in
+
+            if withLoader {
+            
+                AlertsFactory.shared.loadingAlert(.hide)
+            }
+
+            switch result {
+
+            case let .success(response):
+
+                do {
 
                     let string = String(data: response.data, encoding: .utf8)
 

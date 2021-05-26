@@ -15,13 +15,21 @@ protocol IProfileRouter {
 }
 
 final class ProfileRouter {
+    
     enum ProfileRouterScenario {
+        
         case infoAlert(String?)
+        case showActionsList(actions: [OrganizationActionEntity],
+                             contentType: CompanyActionsListDependency.ContentType)
     }
 
+    // MARK: - Private variables
+    
     private var view: ProfileView?
     private var parentNavigationController: UINavigationController
 
+    // MARK: - Init
+    
     init(view: ProfileView?, parentNavigationController: UINavigationController) {
         self.view = view
         self.parentNavigationController = parentNavigationController
@@ -58,7 +66,19 @@ extension ProfileRouter: IProfileRouter {
                 from: view,
                 completion: nil
             )
+            
+        case .showActionsList(let actions, let contentType):
+            
+            let dependency = CompanyActionsListDependency(
+                parentNavigationController: self.parentNavigationController,
+                contentType: contentType,
+                contentMode: .show,
+                actions: actions
+            )
+            let builder = CompanyActionsListBuilder()
+            let router: ICompanyActionsListRouter = builder.build(dependency)
+            
+            router.start(nil)
         }
     }
-
 }

@@ -7,39 +7,48 @@
 //
 
 import UIKit
+import Charts
 
 protocol IProfilePresenter: AnyObject {
 
     func handleInfoButtonTapped()
-    func viewWillAppear()
+    func refreshData(completion: (() -> Void)?)
 
     var name: String { get }
     var email: String { get }
     var organization: String { get }
+    var avatarUrl: URL? { get }
 
     var doneTasks: String { get }
     var restBalls: String { get }
     var allSpendBalls: String { get }
 
-    var donePercent: CGFloat { get }
-    var activatedCouponsPercent: CGFloat { get }
-    var spentBallsPercent: CGFloat { get }
-    var ballsPercent: CGFloat { get }
-
     func archiveTitle(for index: Int) -> String
     func archiveDescription(for index: Int) -> String
     func archiveState(for index: Int) -> Bool
     func archivesCount() -> Int
+    
+    func handleChartSelection(at index: Int, for category: ProfileActionsChartsContainer.Category)
+    
+    func actionsChartData(for category: ProfileActionsChartsContainer.Category) -> PieChartData
 }
 
 final class ProfilePresenter {
+    
+    // MARK: - Private variables
+    
     private weak var view: IProfileView?
     private let interactor: IProfileInteractor
     private let router: IProfileRouter
+    
+    // MARK: - State variables
+    
+    private var isFirstRefresh = true
 
-    private var responseEntiry: ProfileResponseDetailsEntity?
-
+    // MARK: - Init
+    
     init(view: IProfileView?, interactor: IProfileInteractor, router: IProfileRouter) {
+        
         self.view = view
         self.interactor = interactor
         self.router = router
@@ -50,93 +59,113 @@ final class ProfilePresenter {
 
 extension ProfilePresenter: IProfilePresenter {
 
-    var name: String {
-        return self.responseEntiry?.name ?? "-"
-    }
+    var name: String { self.interactor.profileName ?? "..." }
+    var email: String { self.interactor.profileEmail ?? "..." }
+    var organization: String { self.interactor.profileOrganizationName ?? "..." }
+    var avatarUrl: URL? { PhotosService.photoURL(for: self.interactor.profileAvatarId) }
+    
+    var doneTasks: String { "\(self.interactor.profileTasksCount ?? 0)" }
+    var restBalls: String { "\(self.interactor.profileCurrentBallsCount ?? 0)" }
+    var allSpendBalls: String { "\(self.interactor.profileSpentBallsCount ?? 0)" }
 
-    var email: String {
-        return self.responseEntiry?.email ?? "-"
-    }
-
-    var organization: String {
-        return self.responseEntiry?.organizationName ?? "-"
-    }
-
-    var doneTasks: String {
-        return "\(self.responseEntiry?.tasksNumber ?? 0)"
-    }
-
-    var restBalls: String {
-        return "\(self.responseEntiry?.balls ?? 0)"
-    }
-
-    var allSpendBalls: String {
-        return "\(self.responseEntiry?.spentBalls ?? 0)"
-    }
-
-    var donePercent: CGFloat {
-        return CGFloat(self.responseEntiry?.donePercent ?? 0)
-    }
-
-    var activatedCouponsPercent: CGFloat {
-        return CGFloat(self.responseEntiry?.couponsPercent ?? 0)
-    }
-
-    var spentBallsPercent: CGFloat {
-        return CGFloat(self.responseEntiry?.spentBalls ?? 0)
-    }
-
-    var ballsPercent: CGFloat {
-        return CGFloat(self.responseEntiry?.ballsPercent ?? 0)
-    }
-
-    func archiveTitle(for index: Int) -> String {
-
-        guard let response = self.responseEntiry else { return "" }
-
-        return response.goals[index].name
-    }
-
-    func archiveDescription(for index: Int) -> String {
-
-        guard let response = self.responseEntiry else { return "" }
-
-        return response.goals[index].description
-    }
-
-    func archiveState(for index: Int) -> Bool {
-
-        guard let response = self.responseEntiry else { return false }
-
-        return response.goals[index].flag
-    }
-
-    func archivesCount() -> Int {
-
-        guard let response = self.responseEntiry else { return 0 }
-
-        return response.goals.count
-    }
-
+    func archiveTitle(for index: Int) -> String { return self.interactor.goals?[index].name ?? "" }
+    func archiveDescription(for index: Int) -> String { return self.interactor.goals?[index].description ?? "" }
+    func archiveState(for index: Int) -> Bool { return self.interactor.goals?[index].flag ?? false }
+    func archivesCount() -> Int { self.interactor.goals?.count ?? 0 }
 
     func handleInfoButtonTapped() {
 
         self.router.show(.infoAlert(nil))
     }
+    
+    func handleChartSelection(at index: Int, for category: ProfileActionsChartsContainer.Category) {
+        
+        guard let stats = self.interactor.stats(for: category) else { return }
+        
+        let sortedStats = Array(stats).sorted(by: {$0.0.rawValue < $1.0.rawValue})
+        let selectedStat = sortedStats[index]
+        
+        var contentType: CompanyActionsListDependency.ContentType
+        
+        switch category {
+        
+        case .tasks:
+            contentType = .tasks
+            
+        case .coupons:
+            contentType = .coupons
+        }
+        
+        self.router.show(.showActionsList(actions: selectedStat.value,
+                                          contentType: contentType))
+    }
 
-    func viewWillAppear() {
-
+    func refreshData(completion: (() -> Void)?) {
+        
         self.interactor.getUserInfo(
-            success: { [weak self] response in
-
-                self?.responseEntiry = response
-                self?.view?.reloadData()
+            withLoader: self.isFirstRefresh,
+            success: { [weak self]  in
+                
+                DispatchQueue.main.async {
+                
+                    self?.view?.reloadData()
+                    completion?()
+                }
             },
             failure: { [weak self] message in
 
-                self?.router.show(.infoAlert(message))
+                DispatchQueue.main.async {
+                 
+                    self?.router.show(.infoAlert(message))
+                    completion?()
+                }
             }
         )
+        
+        if self.isFirstRefresh {
+            
+            self.isFirstRefresh.toggle()
+        }
+    }
+    
+    func actionsChartData(for category: ProfileActionsChartsContainer.Category) -> PieChartData {
+        
+        guard let stats = self.interactor.stats(for: category) else { return PieChartData() }
+        
+        let statsCount = stats.values.reduce(0, { result, actions in
+             
+            result + actions.count
+        })
+        
+        var entries = [PieChartDataEntry]()
+        var colors = [UIColor]()
+        
+        for (category, actions) in Array(stats).sorted(by: {$0.0.rawValue < $1.0.rawValue}) {
+            
+            entries.append(PieChartDataEntry(value: Double(actions.count) / Double(statsCount) * 100.0,
+                                             label: category.title.localized))
+            
+            colors.append(category.color)
+        }
+        
+        let set = PieChartDataSet(entries: entries, label: "")
+        set.drawIconsEnabled = false
+        set.sliceSpace = 10
+        set.colors = colors
+        set.selectionShift = 0
+        
+        let data = PieChartData(dataSet: set)
+        
+        let pFormatter = NumberFormatter()
+        pFormatter.numberStyle = .percent
+        pFormatter.maximumFractionDigits = 1
+        pFormatter.multiplier = 1
+        pFormatter.percentSymbol = " %"
+        data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
+        
+        data.setValueFont(.avenirRoman(14))
+        data.setValueTextColor(.black)
+        
+        return data
     }
 }
-
