@@ -19,7 +19,7 @@ protocol ICompanyStatisticsInteractor: AnyObject {
     func loadStats(success: (() -> Void)?,
                    failure: ((String) -> Void)?)
     
-    func filteredActions() -> (labels: [String], actions: [[OrganizationActionEntity]])
+    func filteredActions() -> (labels: [String], statistics: [CompanyActionsStatisticsEntity])
 }
 
 final class CompanyStatisticsInteractor {
@@ -74,6 +74,9 @@ final class CompanyStatisticsInteractor {
     private lazy var statsNetworkProvider = MainNetworkProvider<CompanyStatisticsService>()
     private var statsEntity: CompanyStatisticsEntity?
     
+    private var tasksStats: [Date : CompanyActionsStatisticsEntity] = [:]
+    private var couponsStats: [Date: CompanyActionsStatisticsEntity] = [:]
+    
     // MARK: - Init
     
     init(companyId: String) {
@@ -98,7 +101,16 @@ extension CompanyStatisticsInteractor: ICompanyStatisticsInteractor {
             type: CompanyStatisticsEntity.self,
             completion: { [weak self] result in
                 
-                self?.statsEntity = result
+                result.tasks.forEach { key, value in
+                    
+                    self?.tasksStats[Date.dateFromTimestamp(key)] = value
+                }
+                
+                result.coupons.forEach { key, value in
+                    
+                    self?.couponsStats[Date.dateFromTimestamp(key)] = value
+                }
+                
                 success?()
             },
             failure: { err in
@@ -107,46 +119,36 @@ extension CompanyStatisticsInteractor: ICompanyStatisticsInteractor {
             })
     }
     
-    func filteredActions() -> (labels: [String], actions: [[OrganizationActionEntity]]) {
+    func filteredActions() -> (labels: [String], statistics: [CompanyActionsStatisticsEntity]) {
         
-        guard let stats = self.statsEntity else { return ([], []) }
-        
-        var actions: [OrganizationActionEntity]
+        var stats: [Date: CompanyActionsStatisticsEntity]
         
         switch self.selectedInfoType {
         case .tasks:
-            actions = stats.tasks
+            stats = self.tasksStats
             
         case .coupons:
-            actions = stats.coupons
+            stats = self.couponsStats
         }
         
-        actions = actions
-            .filter { self.selectedCategoriesId.contains($0.categoryId) &&
-                      $0.endDateTimestamp <= self.periodToDate.timestamp &&
-                      $0.startDateTimestamp >= self.periodFromDate.timestamp }
+        let dates = stats
+            .keys
+            .filter { $0 <= self.periodToDate &&
+                      $0 >= self.periodFromDate }
+            .sorted(by: >)
         
-        var startDate = self.periodFromDate
-        let endDate = self.periodToDate
+        var statistics = [CompanyActionsStatisticsEntity]()
+        var labels = [String]()
         
-        var resultActions = [[OrganizationActionEntity]]()
-        var resultDates = [String]()
-        
-        while startDate <= endDate {
+        for date in dates {
             
-            let selectedDateActions = actions.filter {
-                
-                Date.isEqual(firstDate: Date.dateFromTimestamp($0.startDateTimestamp),
-                             secondDate: startDate,
-                             by: [.year, .month, .day])
-            }
+            let dateString = Date.dateFormatter.string(from: date)
+            let statEl = stats[date] ?? CompanyActionsStatisticsEntity(actions: [], count: 0)
             
-            resultActions.append(selectedDateActions)
-            resultDates.append(Date.dateFormatter.string(from: startDate))
-            
-            startDate = startDate.withDaysOffset(1)
+            labels.append(dateString)
+            statistics.append(statEl)
         }
         
-        return (resultDates, resultActions)
+        return (labels, statistics)
     }
 }

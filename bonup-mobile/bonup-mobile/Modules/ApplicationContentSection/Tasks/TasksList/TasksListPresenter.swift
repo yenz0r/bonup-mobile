@@ -16,7 +16,8 @@ protocol ITasksListPresenter: AnyObject {
     var pages: [String] { get }
 
     func handleShowDetailsTap(with index: Int)
-
+    func handleShowHelp()
+    
     func viewWillAppear()
 }
 
@@ -135,5 +136,10 @@ extension TasksListPresenter: ITasksListPresenter {
             self?.isFirstRefresh = true
             self?.viewWillAppear()
         }))
+    }
+    
+    func handleShowHelp() {
+        
+        self.router.show(.showHelpMessage)
     }
 }

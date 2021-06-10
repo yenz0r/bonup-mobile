@@ -90,21 +90,13 @@ final class TasksListView: BUContentViewController {
     private func configureNavigationBar() {
 
         self.loc_title = "tasks_list_title"
-        
-        let tasksListNavigationItem = UIBarButtonItem(
-            barButtonSystemItem: .trash,
-            target: self,
-            action: #selector(clearHistoryTapped)
-        )
-        tasksListNavigationItem.theme_tintColor = Colors.navBarIconColor
-
 
         let infoButton = UIButton(type: .infoLight)
         infoButton.theme_tintColor = Colors.navBarIconColor
         infoButton.addTarget(self, action: #selector(infoNavigationItemTapped), for: .touchUpInside)
         let infoNavigationItem = UIBarButtonItem(customView: infoButton)
 
-        self.navigationItem.rightBarButtonItems = [infoNavigationItem, tasksListNavigationItem]
+        self.navigationItem.rightBarButtonItems = [infoNavigationItem]
     }
 
     // MARK: - Selectors
@@ -114,12 +106,9 @@ final class TasksListView: BUContentViewController {
         self.mainCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 
-    @objc private func clearHistoryTapped() {
-
-    }
-
     @objc private func infoNavigationItemTapped() {
 
+        self.presenter.handleShowHelp()
     }
 }
 

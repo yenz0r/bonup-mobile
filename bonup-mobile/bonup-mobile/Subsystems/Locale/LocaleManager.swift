@@ -58,6 +58,17 @@ final class LocaleManager {
             return "English"
         }
     }
+    
+    func mapLocaleForLanguage(_ lang: Languages) -> String {
+        
+        switch lang {
+        case .ru:
+            return "ru_RU"
+
+        case .en:
+            return "en_EN"
+        }
+    }
 
     func setupCurrLang(_ lang: Languages) {
 

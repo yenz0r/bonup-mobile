@@ -65,7 +65,7 @@ extension CompaniesSearchInteractor: ICompaniesSearchInteractor {
         guard let token = AccountManager.shared.currentToken else { completion?(false); return }
         
         _ = self.networkService.request(
-            .getOrganizations(token),
+            .getAllOrganizations(token),
             type: [CompanyEntity].self,
             withLoader: withLoader,
             completion: { [weak self] result in

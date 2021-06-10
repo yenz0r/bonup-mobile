@@ -54,7 +54,15 @@ final class AddCompanyActionInteractor {
         self.organizationId = organizationId
         self.initAction = action
         
-        // NOTE: - In the future list of fields may be changed
+        if let action = action {
+         
+            self.selectedCategory = InterestCategories.category(id: action.categoryId)
+        }
+        else {
+            
+            self.selectedCategory = .food
+        }
+        
         switch actionType {
         
         case .task, .coupon:

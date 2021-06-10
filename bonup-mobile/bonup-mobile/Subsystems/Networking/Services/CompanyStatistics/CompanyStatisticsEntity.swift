@@ -10,6 +10,6 @@ import Foundation
 
 struct CompanyStatisticsEntity: Decodable {
     
-    let tasks: [OrganizationActionEntity]
-    let coupons: [OrganizationActionEntity]
+    let tasks: [Double : CompanyActionsStatisticsEntity]
+    let coupons: [Double : CompanyActionsStatisticsEntity]
 }

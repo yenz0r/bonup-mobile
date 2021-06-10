@@ -348,6 +348,7 @@
 		C6874EAB265403FE005009E4 /* CompanyActionsAggregatorBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6874EAA265403FE005009E4 /* CompanyActionsAggregatorBuilder.swift */; };
 		C6874EAD26540403005009E4 /* CompanyActionsAggregatorDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6874EAC26540403005009E4 /* CompanyActionsAggregatorDependency.swift */; };
 		C6874EAF26540413005009E4 /* CompanyActionsAggregatorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6874EAE26540413005009E4 /* CompanyActionsAggregatorInteractor.swift */; };
+		C6A0E5BE2672560900478292 /* CompanyActionsStatisticsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A0E5BD2672560900478292 /* CompanyActionsStatisticsEntity.swift */; };
 		F0AAFD235DC6AAFDE3442CC1 /* Pods_bonup_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09011FEA798A936A5818A174 /* Pods_bonup_mobile.framework */; };
 /* End PBXBuildFile section */
 
@@ -728,6 +729,7 @@
 		C6874EAA265403FE005009E4 /* CompanyActionsAggregatorBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsAggregatorBuilder.swift; sourceTree = "<group>"; };
 		C6874EAC26540403005009E4 /* CompanyActionsAggregatorDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsAggregatorDependency.swift; sourceTree = "<group>"; };
 		C6874EAE26540413005009E4 /* CompanyActionsAggregatorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsAggregatorInteractor.swift; sourceTree = "<group>"; };
+		C6A0E5BD2672560900478292 /* CompanyActionsStatisticsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyActionsStatisticsEntity.swift; sourceTree = "<group>"; };
 		CF45C3827A35374FC24C4363 /* Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig"; path = "Target Support Files/Pods-bonup-mobile-bonup-mobileUITests/Pods-bonup-mobile-bonup-mobileUITests.release free.xcconfig"; sourceTree = "<group>"; };
 		D01057BDAD0A1EFFA61522ED /* Pods-bonup-mobileTests.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobileTests.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobileTests/Pods-bonup-mobileTests.debug paid.xcconfig"; sourceTree = "<group>"; };
 		D9C3A1A74CDA15157D40FAF0 /* Pods-bonup-mobile.debug paid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bonup-mobile.debug paid.xcconfig"; path = "Target Support Files/Pods-bonup-mobile/Pods-bonup-mobile.debug paid.xcconfig"; sourceTree = "<group>"; };
@@ -833,6 +835,7 @@
 			children = (
 				B90AFA00265594D5007BB288 /* CompanyStatisticsService.swift */,
 				B90AFA02265594E6007BB288 /* CompanyStatisticsEntity.swift */,
+				C6A0E5BD2672560900478292 /* CompanyActionsStatisticsEntity.swift */,
 			);
 			path = CompanyStatistics;
 			sourceTree = "<group>";
@@ -2657,6 +2660,7 @@
 				B93F2B952646E0B800A8A8D6 /* AccountsCredsView.swift in Sources */,
 				B95FB97525B4625D00AB2566 /* AddCompanyInteractor.swift in Sources */,
 				B96A71E7246BA842007416DF /* ProfileGoalsResponse.swift in Sources */,
+				C6A0E5BE2672560900478292 /* CompanyActionsStatisticsEntity.swift in Sources */,
 				B90AF9FD2652F037007BB288 /* PhotoResponseEntity.swift in Sources */,
 				B9D3369A2469CFCA003E1CEB /* OrganizationsListPresenter.swift in Sources */,
 				B992D52024579217002ABF71 /* UsedBenefitsCell.swift in Sources */,

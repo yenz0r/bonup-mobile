@@ -46,7 +46,9 @@ let APP_IS_RELEASE_VERSION = false
 extension AppDelegate {
 
     func setupYandexServices() {
+        
         YMKMapKit.setApiKey(YANDEX_MAPS_KEY)
+        YMKMapKit.setLocale(LocaleManager.shared.mapLocaleForLanguage(LocaleManager.shared.currentLanguage))
     }
 
     func setupGoogleServices() {

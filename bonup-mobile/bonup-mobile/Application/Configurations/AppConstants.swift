@@ -13,7 +13,7 @@ import UIKit
 var SERVER_BASE_URL: String {
     
     let languageCode = LocaleManager.shared.currentLanguage.rawValue
-    return "https://salty-plateau-70996.herokuapp.com/\(languageCode)"
+    return "http://ec2-18-116-29-163.us-east-2.compute.amazonaws.com:5000/\(languageCode)"
 }
 
 let GOOGLE_AD_KEY = "ca-app-pub-4243143975731364/2569848784"

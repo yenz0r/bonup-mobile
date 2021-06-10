@@ -98,7 +98,7 @@ extension CompanyStatisticsPresenter: ICompanyStatisticsPresenter {
             contentType = .coupons
         }
         
-        self.router.show(.showActionsList(self.interactor.filteredActions().actions[index], contentType))
+        self.router.show(.showActionsList(self.interactor.filteredActions().statistics[index].actions, contentType))
     }
     
     func updateSelectedInfoType(at index: Int) {
@@ -171,11 +171,9 @@ extension CompanyStatisticsPresenter: ICompanyStatisticsPresenter {
         
         var entries = [ChartDataEntry]()
         
-        for (index, actions) in statsData.actions.enumerated() {
+        for (index, statEl) in statsData.statistics.enumerated() {
             
-            let usesCount = actions.reduce(0, { $0 + $1.triggeredCount })
-            
-            entries.append(ChartDataEntry(x: Double(index), y: Double(usesCount)))
+            entries.append(ChartDataEntry(x: Double(index), y: Double(statEl.count)))
         }
         
         let dataSet = LineChartDataSet(entries: entries, label: "ui_user_activity".localized)

@@ -27,6 +27,20 @@ final class SelectCategoriesDataSource: SelectCategoriesContainerDataSource {
         self.selectionMode = selectionMode
         self.isChangable = isChangable
         
+        if !isChangable {
+            
+            self.categoriesModels = selectedCategories.map {
+                
+                SelectCategoriesCellModel(
+                    title: $0.title,
+                    category: $0,
+                    isActive: selectedCategories.contains($0)
+                )
+            }
+            
+            return 
+        }
+        
         self.categoriesModels = InterestCategories.allCases.map {
             
             SelectCategoriesCellModel(

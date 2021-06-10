@@ -17,6 +17,7 @@ protocol ITasksListRouter {
 final class TasksListRouter {
     enum TasksListRouterScenario {
         case showTaskDescription(TaskListCurrentTasksEntity, (() -> Void)?)
+        case showHelpMessage
     }
 
     private var view: TasksListView?
@@ -58,6 +59,13 @@ extension TasksListRouter: ITasksListRouter {
             let router = builder.build(dependency)
             
             router.start(stopCompletion: completion)
+            
+        case .showHelpMessage:
+            AlertsFactory.shared.infoAlert(for: .error,
+                                           title: "ui_help_title".localized,
+                                           description: "ui_task_list_help_message".localized,
+                                           from: view,
+                                           completion: nil)
         }
 
     }

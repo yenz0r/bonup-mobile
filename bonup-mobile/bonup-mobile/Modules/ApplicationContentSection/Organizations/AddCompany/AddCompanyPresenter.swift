@@ -64,17 +64,10 @@ extension AddCompanyPresenter: IAddCompanyPresenter {
             guard let company = self.interactor.initCompany,
                   let url = PhotosService.photoURL(for: company.photoId) else { return }
             
-            self.router.show(.showLoadingAlert)
-            
             self.view?.loadImage(url,
                                  completion: { [weak self] image in
                 
                 self?.selectedPhoto = image
-                
-                DispatchQueue.main.async {
-                    
-                    self?.router.show(.hideLoadingAlert)
-                }
             })
         }
     }

@@ -20,6 +20,11 @@ final class BUMapView: YMKMapView {
                                                selector: #selector(themeChanged(_:)),
                                                name: ThemeColorsManager.shared.notificationName,
                                                object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(langChanged(_:)),
+                                               name: LocaleManager.shared.notificationName,
+                                               object: nil)
 
         self.themeChanged(Notification(name: ThemeColorsManager.shared.notificationName))
     }
@@ -30,6 +35,11 @@ final class BUMapView: YMKMapView {
 
     // MARK: - Selectors
 
+    @objc private func langChanged(_ notification: Notification) {
+    
+        
+    }
+        
     @objc private func themeChanged(_ notification: Notification) {
 
         var theme: ThemeColorsManager.Themes

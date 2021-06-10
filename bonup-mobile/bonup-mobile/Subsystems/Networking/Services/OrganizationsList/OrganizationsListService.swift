@@ -12,6 +12,7 @@ import Moya
 
 enum OrganizationsListService {
     case getOrganizations(String)
+    case getAllOrganizations(String)
 }
 
 extension OrganizationsListService: IAuthorizedTargetType {
@@ -22,14 +23,22 @@ extension OrganizationsListService: IAuthorizedTargetType {
 
     var path: String {
         switch self {
+        
         case .getOrganizations(_):
             return "/userOrganizations"
+            
+        case .getAllOrganizations(_):
+            return "/allOrganizations"
         }
     }
 
     var method: Moya.Method {
         switch self {
+        
         case .getOrganizations(_):
+            return .post
+            
+        case .getAllOrganizations(_):
             return .post
         }
     }
@@ -40,7 +49,9 @@ extension OrganizationsListService: IAuthorizedTargetType {
 
     var task: Task {
         switch self {
-        case .getOrganizations(let token):
+        
+        case .getOrganizations(let token),
+             .getAllOrganizations(let token):
             return .requestParameters(
                 parameters: [
                     "token": token
